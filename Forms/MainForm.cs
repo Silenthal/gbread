@@ -20,7 +20,7 @@ namespace GBRead
 
 		class PrintingFunctionsThreadArgumentPack
 		{
-			public CodeLabel labelToBePrinted { get; set; }
+			public FunctionLabel labelToBePrinted { get; set; }
 		}
 
 		class PrintingASMThreadArgumentPack
@@ -46,7 +46,7 @@ namespace GBRead
 			romFile = cs;
 
 			dataLabelBox.DataSource = labelContainer.DataList;
-			codeLabelBox.DataSource = labelContainer.LabelList;
+			codeLabelBox.DataSource = labelContainer.FuncList;
 			varLabelBox.DataSource = labelContainer.VarList;
 		}
 
@@ -85,7 +85,7 @@ namespace GBRead
 			{
 				PrintingFunctionsThreadArgumentPack pfrg = new PrintingFunctionsThreadArgumentPack
 				{
-					labelToBePrinted = (CodeLabel)codeLabelBox.SelectedItem
+					labelToBePrinted = (FunctionLabel)codeLabelBox.SelectedItem
 				};
 				if (!backgroundWorker1.IsBusy) backgroundWorker1.RunWorkerAsync(pfrg);
 			}
@@ -107,13 +107,13 @@ namespace GBRead
 				{
 					PrintingFunctionsThreadArgumentPack pfrg = new PrintingFunctionsThreadArgumentPack
 					{
-						labelToBePrinted = (CodeLabel)codeLabelBox.SelectedItem
+						labelToBePrinted = (FunctionLabel)codeLabelBox.SelectedItem
 					};
 					if (!backgroundWorker1.IsBusy) backgroundWorker1.RunWorkerAsync(pfrg);
 				}
 				else if (e.KeyCode == Keys.Delete)
 				{
-					labelContainer.RemoveLabel((CodeLabel)codeLabelBox.SelectedItem);
+					labelContainer.RemoveLabel((FunctionLabel)codeLabelBox.SelectedItem);
 					UpdateLabelBoxView();
 				}
 			}
@@ -218,7 +218,7 @@ namespace GBRead
 
 		private void removeFunctionMenuItem_Click(object sender, EventArgs e)
 		{
-			labelContainer.RemoveLabel((CodeLabel)codeLabelBox.SelectedItem);
+			labelContainer.RemoveLabel((FunctionLabel)codeLabelBox.SelectedItem);
 			UpdateLabelBoxView();
 		}
 
@@ -244,7 +244,7 @@ namespace GBRead
 				}
 				else
 				{
-					labelContainer.AddCodeLabel(offset, codeLabelNameBox.Text, (length < 1 ? 0 : length), codeLabelCommentBox.Lines);
+					labelContainer.AddFuncLabel(offset, codeLabelNameBox.Text, (length < 1 ? 0 : length), codeLabelCommentBox.Lines);
 					UpdateLabelBoxView();
 					FlipCodeLabelTabControlVisibility();
 					editButton.Visible = true;
@@ -259,7 +259,7 @@ namespace GBRead
 
 		private void codeTabEditFunction()
 		{
-			CodeLabel fetch = (CodeLabel)codeLabelBox.SelectedItem;
+			FunctionLabel fetch = (FunctionLabel)codeLabelBox.SelectedItem;
 			if (cancelButton.Visible)
 			{
 				int offset;
@@ -281,7 +281,7 @@ namespace GBRead
 				else
 				{
 					labelContainer.RemoveLabel(fetch);
-					labelContainer.AddCodeLabel(offset, codeLabelNameBox.Text, (length < 1 ? 0 : length), codeLabelCommentBox.Lines);
+					labelContainer.AddFuncLabel(offset, codeLabelNameBox.Text, (length < 1 ? 0 : length), codeLabelCommentBox.Lines);
 					UpdateLabelBoxView();
 					FlipCodeLabelTabControlVisibility();
 					addButton.Visible = true;
@@ -852,7 +852,7 @@ namespace GBRead
 			e.DrawBackground();
 			if (codeLabelBox.Items.Count > 0)
 			{
-				CodeLabel ds = (CodeLabel)codeLabelBox.Items[e.Index];
+				FunctionLabel ds = (FunctionLabel)codeLabelBox.Items[e.Index];
 				Brush itemBrush = Brushes.Black;
 				StringFormat sf = new StringFormat();
 				sf.Alignment = StringAlignment.Near;
@@ -1010,7 +1010,7 @@ namespace GBRead
 		{
 			if (romFile.FileLoaded)
 			{
-				UpdateMainTextBox(disassembler.SearchForFunctionCall((CodeLabel)codeLabelBox.SelectedItem), TextBoxWriteMode.Overwrite);
+				UpdateMainTextBox(disassembler.SearchForFunctionCall((FunctionLabel)codeLabelBox.SelectedItem), TextBoxWriteMode.Overwrite);
 			}
 		}
 
@@ -1024,7 +1024,7 @@ namespace GBRead
 
 		private void UpdateLabelBoxView()
 		{
-			((CurrencyManager)codeLabelBox.BindingContext[labelContainer.LabelList]).Refresh();
+			((CurrencyManager)codeLabelBox.BindingContext[labelContainer.FuncList]).Refresh();
 		}
 
 		private void UpdateVarBoxView()
@@ -1097,7 +1097,7 @@ namespace GBRead
 		{
 			if (!worker.CancellationPending)
 			{
-				CodeLabel c = (e.Argument as PrintingFunctionsThreadArgumentPack).labelToBePrinted;
+				FunctionLabel c = (e.Argument as PrintingFunctionsThreadArgumentPack).labelToBePrinted;
 				worker.ReportProgress(0);
 				string result = String.Empty;
 				result = disassembler.ShowCodeLabel(c);

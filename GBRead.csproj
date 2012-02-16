@@ -229,16 +229,12 @@
     <Content Include="about asm.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Plans\assembler.txt" />
     <Content Include="changelog.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Plans\plans - format pattern.txt" />
-    <Content Include="Plans\plans.txt" />
     <Content Include="readme.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Plans\commonlocs.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LibGBasm\LibGBasm.csproj">

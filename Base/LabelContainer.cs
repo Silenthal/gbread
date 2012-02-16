@@ -5,30 +5,29 @@ using System.Text;
 
 namespace GBRead
 {
-	//Reminder: add a case for when a printed label goes out of bounds.
 	public class LabelContainer
 	{
 		private object labelListLock = new object();
 		private object dataListLock = new object();
 		private object varListLock = new object();
 
-		private List<Label> _labelList;
+		private List<Label> _funcList;
 		private List<Label> _dataList;
 		private List<Label> _varList;
 
 		private HashSet<int> dataAddrs;
 		private HashSet<int> varTableDict;
-		private HashSet<int> labelTableDict;
+		private HashSet<int> funcTableDict;
 		private HashSet<int> dataTableDict;
 
 
-		private bool isLabelListSorted = false;
+		private bool isFuncListSorted = false;
 		private bool isDataListSorted = false;
 		private bool isVarListSorted = true;
 
-		private ListSortOrder _codeLabelListSortOrder;
-		private ListSortOrder _dataLabelListSortOrder;
-		private ListSortOrder _varLabelListSortOrder;
+		private ListSortOrder _funcListSortOrder;
+		private ListSortOrder _dataListSortOrder;
+		private ListSortOrder _varListSortOrder;
 
 		private BinFile _coreFile;
 
@@ -95,18 +94,18 @@ namespace GBRead
 
 		#endregion Default Var List
 
-		public List<Label> LabelList
+		public List<Label> FuncList
 		{
 			get
 			{
 				lock (labelListLock)
 				{
-					if (!isLabelListSorted)
+					if (!isFuncListSorted)
 					{
-						_labelList.Sort(new LabelComparer(CodeLabelListSortOrder));
-						isLabelListSorted = true;
+						_funcList.Sort(new LabelComparer(FuncListSortOrder));
+						isFuncListSorted = true;
 					}
-					return _labelList;
+					return _funcList;
 				}
 			}
 		}
@@ -118,7 +117,7 @@ namespace GBRead
 				{
 					if (!isDataListSorted)
 					{
-						_dataList.Sort(new LabelComparer(DataLabelListSortOrder));
+						_dataList.Sort(new LabelComparer(DataListSortOrder));
 						isDataListSorted = true;
 					}
 					return _dataList;
@@ -133,7 +132,7 @@ namespace GBRead
 				{
 					if (!isVarListSorted)
 					{
-						_varList.Sort(new LabelComparer(VarLabelListSortOrder));
+						_varList.Sort(new LabelComparer(VarListSortOrder));
 						isVarListSorted = true;
 					}
 					return _varList;
@@ -141,64 +140,64 @@ namespace GBRead
 			}
 		}
 
-		public ListSortOrder CodeLabelListSortOrder 
+		public ListSortOrder FuncListSortOrder 
 		{
 			get
 			{
 				lock (labelListLock)
 				{
-					return _codeLabelListSortOrder;
+					return _funcListSortOrder;
 				}
 			}
 			set
 			{
 				lock (labelListLock)
 				{
-					if (value != _codeLabelListSortOrder)
+					if (value != _funcListSortOrder)
 					{
-						_codeLabelListSortOrder = value;
-						isLabelListSorted = false;
+						_funcListSortOrder = value;
+						isFuncListSorted = false;
 					}
 				}
 			}
 		}
-		public ListSortOrder DataLabelListSortOrder
+		public ListSortOrder DataListSortOrder
 		{
 			get
 			{
 				lock (dataListLock)
 				{
-					return _dataLabelListSortOrder;
+					return _dataListSortOrder;
 				}
 			}
 			set
 			{
 				lock (dataListLock)
 				{
-					if (value != _dataLabelListSortOrder)
+					if (value != _dataListSortOrder)
 					{
-						_dataLabelListSortOrder = value;
+						_dataListSortOrder = value;
 						isDataListSorted = false;
 					}
 				}
 			}
 		}
-		public ListSortOrder VarLabelListSortOrder 
+		public ListSortOrder VarListSortOrder 
 		{
 			get
 			{
 				lock (varListLock)
 				{
-					return _varLabelListSortOrder;
+					return _varListSortOrder;
 				}
 			}
 			set
 			{
 				lock (varListLock)
 				{
-					if (value != _varLabelListSortOrder)
+					if (value != _varListSortOrder)
 					{
-						_varLabelListSortOrder = value;
+						_varListSortOrder = value;
 						isVarListSorted = false;
 					}
 				}
@@ -214,7 +213,7 @@ namespace GBRead
 
 		public void LoadDefaultLabels(int newFileSize)
 		{
-			ClearLabelList();
+			ClearFuncList();
 			ClearVarList();
 			foreach (VarLabel vls in defaultVars)
 			{
@@ -226,27 +225,27 @@ namespace GBRead
 
 		public void GetOptions(Options options)
 		{
-			_codeLabelListSortOrder = options.LabelContainer_CodeLabelListSortOrder;
-			_dataLabelListSortOrder = options.LabelContainer_DataLabelListSortOrder;
-			_varLabelListSortOrder = options.LabelContainer_VarLabelListSortOrder;
+			_funcListSortOrder = options.LabelContainer_FuncListSortOrder;
+			_dataListSortOrder = options.LabelContainer_DataListSortOrder;
+			_varListSortOrder = options.LabelContainer_VarListSortOrder;
 		}
 
 		public void SetOptions(ref Options options)
 		{
-			options.LabelContainer_CodeLabelListSortOrder = _codeLabelListSortOrder;
-			options.LabelContainer_DataLabelListSortOrder = _dataLabelListSortOrder;
-			options.LabelContainer_VarLabelListSortOrder = _varLabelListSortOrder;
+			options.LabelContainer_FuncListSortOrder = _funcListSortOrder;
+			options.LabelContainer_DataListSortOrder = _dataListSortOrder;
+			options.LabelContainer_VarListSortOrder = _varListSortOrder;
 		}
 
 		#region Adding, clearing, and removing labels
 
-		public bool AddCodeLabel(int offset, string labelName = "", int labelLength = 0, string[] comment = null)
+		public bool AddFuncLabel(int offset, string labelName = "", int labelLength = 0, string[] comment = null)
 		{
-			CodeLabel toBeAdded = new CodeLabel(offset, labelName, labelLength, comment);
+			FunctionLabel toBeAdded = new FunctionLabel(offset, labelName, labelLength, comment);
 			bool contains = false;
 			lock (labelListLock)
 			{
-				contains = labelTableDict.Contains(toBeAdded.Value);
+				contains = funcTableDict.Contains(toBeAdded.Value);
 			}
 			if (contains)
 			{
@@ -254,9 +253,9 @@ namespace GBRead
 			}
 			lock (labelListLock)
 			{
-				_labelList.Add(toBeAdded);
-				labelTableDict.Add(toBeAdded.Value);
-				isLabelListSorted = false;
+				_funcList.Add(toBeAdded);
+				funcTableDict.Add(toBeAdded.Value);
+				isFuncListSorted = false;
 			}
 			return true;
 		}
@@ -296,11 +295,11 @@ namespace GBRead
 				}
 				return true;
 			}
-			else if (toBeAdded is CodeLabel)
+			else if (toBeAdded is FunctionLabel)
 			{
 				lock (labelListLock)
 				{
-					contains = labelTableDict.Contains(toBeAdded.Value);
+					contains = funcTableDict.Contains(toBeAdded.Value);
 				}
 				if (contains)
 				{
@@ -308,9 +307,9 @@ namespace GBRead
 				}
 				lock (labelListLock)
 				{
-					_labelList.Add(toBeAdded);
-					labelTableDict.Add(toBeAdded.Value);
-					isLabelListSorted = false;
+					_funcList.Add(toBeAdded);
+					funcTableDict.Add(toBeAdded.Value);
+					isFuncListSorted = false;
 				}
 				return true;
 			}
@@ -338,12 +337,12 @@ namespace GBRead
 
 		public void RemoveLabel(Label toBeRemoved)
 		{
-			if (toBeRemoved is CodeLabel)
+			if (toBeRemoved is FunctionLabel)
 			{
 				lock (labelListLock)
 				{
-					_labelList.Remove(toBeRemoved);
-					labelTableDict.Remove(toBeRemoved.Value);
+					_funcList.Remove(toBeRemoved);
+					funcTableDict.Remove(toBeRemoved.Value);
 				}
 			}
 			else if (toBeRemoved is DataLabel)
@@ -396,32 +395,21 @@ namespace GBRead
 			return offset;
 		}
 
-		public DataLabel GetDataLabelThatContainsThisAddress(int address)
-		{
-			if (!isAddressMarkedAsData(address)) return null;
-			lock (dataListLock)
-			{
-				while (dataAddrs.Contains(address--)) { }
-				address++;
-			}
-			return _dataList.Find(x => x.Value == address) as DataLabel;
-		}
-
 		public void ClearAllLists()
 		{
-			ClearLabelList();
+			ClearFuncList();
 			ClearDataList();
 			ClearVarList();
 		}
 
-		public void ClearLabelList()
+		public void ClearFuncList()
 		{
 			lock (labelListLock)
 			{
-				if (_labelList == null) _labelList = new List<Label>();
-				_labelList.Clear();
-				if (labelTableDict == null) labelTableDict = new HashSet<int>();
-				labelTableDict.Clear();
+				if (_funcList == null) _funcList = new List<Label>();
+				_funcList.Clear();
+				if (funcTableDict == null) funcTableDict = new HashSet<int>();
+				funcTableDict.Clear();
 			}
 		}
 
@@ -452,11 +440,11 @@ namespace GBRead
 		public bool Contains(Label ls)
 		{
 			if (ls == null) return false;
-			if (ls is CodeLabel)
+			if (ls is FunctionLabel)
 			{
 				lock (labelListLock)
 				{
-					return labelTableDict.Contains(ls.Value);
+					return funcTableDict.Contains(ls.Value);
 				}
 			}
 			if (ls is VarLabel)
@@ -476,11 +464,20 @@ namespace GBRead
 			return false;
 		}
 
-		public Label TryGetCodeLabel(int value)
+		public Label TryGetFuncLabel(int value)
 		{
 			lock (labelListLock)
 			{
-				if (labelTableDict.Contains(value)) return _labelList.Find(x => x.Value == value);
+				if (funcTableDict.Contains(value)) return _funcList.Find(x => x.Value == value);
+				else return null;
+			}
+		}
+
+		public Label TryGetDataLabel(int value)
+		{
+			lock (dataListLock)
+			{
+				if (dataTableDict.Contains(value)) return _dataList.Find(x => x.Value == value);
 				else return null;
 			}
 		}
@@ -494,15 +491,6 @@ namespace GBRead
 					if (varTableDict.Contains(value)) return _varList.Find(x => x.Value == value);
 					else return null;
 				}
-				else return null;
-			}
-		}
-
-		public Label TryGetDataLabel(int value)
-		{
-			lock (dataListLock)
-			{
-				if (dataTableDict.Contains(value)) return _dataList.Find(x => x.Value == value);
 				else return null;
 			}
 		}
@@ -569,7 +557,7 @@ namespace GBRead
 								}
 								if (offsetGood)
 								{
-									AddCodeLabel(offset, name, length, cmtBuf.ToArray());
+									AddFuncLabel(offset, name, length, cmtBuf.ToArray());
 								}
 								else
 								{
@@ -752,7 +740,7 @@ namespace GBRead
 								comment.Add(line[i]);
 							}
 						}
-						AddCodeLabel(off, line[2], len, comment.ToArray());
+						AddFuncLabel(off, line[2], len, comment.ToArray());
 					}
 				}
 
@@ -848,7 +836,7 @@ namespace GBRead
 			StringBuilder sb = new StringBuilder(String.Empty);
 			lock (labelListLock)
 			{
-				foreach (Label s in _labelList)
+				foreach (Label s in _funcList)
 				{
 					sb.AppendLine(s.ToSaveFileString());
 				}

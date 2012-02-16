@@ -110,7 +110,7 @@ namespace GBRead
 			return ret.ToString();
 		}
 
-		public string ShowCodeLabel(CodeLabel cLabel)
+		public string ShowCodeLabel(FunctionLabel cLabel)
 		{
 			StringBuilder ret = new StringBuilder(String.Empty);
 			int currentOffset = cLabel.Offset;
@@ -158,7 +158,7 @@ namespace GBRead
 			StringBuilder output = new StringBuilder(String.Empty);
 			int current = start;
 			DataLabel dataSearch = new DataLabel(current);
-			CodeLabel codeSearch = new CodeLabel(current);
+			FunctionLabel codeSearch = new FunctionLabel(current);
 			GBInstruction isu = new GBInstruction();
 			while (current < start + length)
 			{
@@ -176,9 +176,9 @@ namespace GBRead
 					}
 					current += dataSearch.Length;
 				}
-				else if (lc.Contains(new CodeLabel(current)))
+				else if (lc.Contains(new FunctionLabel(current)))
 				{
-					codeSearch = (CodeLabel)lc.TryGetCodeLabel(current);
+					codeSearch = (FunctionLabel)lc.TryGetFuncLabel(current);
 					if (HideDefinedFunctions && codeSearch.Length != 0)
 					{
 						output.AppendLine(String.Format("INCBIN \"Func_{0}.bin\"", codeSearch.Name));
@@ -310,10 +310,10 @@ namespace GBRead
 					if (!(curCallAddr > 0x3FFF && currentOffset < 0x4000))
 					{
 						int currentCall = GetBankAdjustedAddress(isu.Bank, curCallAddr);
-						CodeLabel rc = new CodeLabel(currentCall);
+						FunctionLabel rc = new FunctionLabel(currentCall);
 						if (IsValidFunction(currentOffset) && IsValidFunction(currentCall) && !lc.Contains(rc))
 						{
-							lc.AddCodeLabel(currentCall);
+							lc.AddFuncLabel(currentCall);
 						}
 					}
 				}
@@ -321,7 +321,7 @@ namespace GBRead
 			}
 		}
 
-		public string SearchForFunctionCall(CodeLabel labelName)
+		public string SearchForFunctionCall(FunctionLabel labelName)
 		{
 			StringBuilder returned = new StringBuilder();
 			Dictionary<string, FuncRefType> ifResult = SearchForFunctionCall(labelName, SearchOptions.InFunctions);
@@ -358,7 +358,7 @@ namespace GBRead
 			return returned.ToString();
 		}
 
-		private Dictionary<string, FuncRefType> SearchForFunctionCall(CodeLabel searchLabel, SearchOptions options)
+		private Dictionary<string, FuncRefType> SearchForFunctionCall(FunctionLabel searchLabel, SearchOptions options)
 		{
 			Dictionary<string, FuncRefType> results = new Dictionary<string, FuncRefType>();
 			if (options == SearchOptions.InFile)
@@ -368,7 +368,7 @@ namespace GBRead
 			}
 			else
 			{
-				foreach (CodeLabel c in lc.LabelList)
+				foreach (FunctionLabel c in lc.FuncList)
 				{
 					FuncRefType refType = FuncRefType.None;
 					int currentOffset = c.Offset;
@@ -406,7 +406,7 @@ namespace GBRead
 			}
 		}
 
-		private void SearchFileRangeForFunctionCall(Dictionary<string, FuncRefType> results, int startingOffset, int length, CodeLabel searchLabel)
+		private void SearchFileRangeForFunctionCall(Dictionary<string, FuncRefType> results, int startingOffset, int length, FunctionLabel searchLabel)
 		{
 			if (startingOffset < 0x4000 && searchLabel.Offset > 0x3FFF)
 			{
@@ -494,7 +494,7 @@ namespace GBRead
 			}
 			else
 			{
-				foreach (CodeLabel c in lc.LabelList)
+				foreach (FunctionLabel c in lc.FuncList)
 				{
 					if (c.Length == 0) continue;
 					VarRefType result = VarRefType.None;
@@ -651,7 +651,7 @@ namespace GBRead
 			return true;
 		}
 
-		private int GuessFunctionLength(CodeLabel cLabel)
+		private int GuessFunctionLength(FunctionLabel cLabel)
 		{
 			if (cLabel.Length != 0) return cLabel.Length;
 			int currentOffset = cLabel.Offset;
@@ -771,9 +771,9 @@ namespace GBRead
 					if (instType == InstructionType.jp || instType == InstructionType.call || instType == InstructionType.jr)
 					{
 						int intArg = GetBankAdjustedAddress(bank, arg.NumArg);
-						if (arg.NumArg < 0x8000 && lc.Contains(new CodeLabel(intArg)))
+						if (arg.NumArg < 0x8000 && lc.Contains(new FunctionLabel(intArg)))
 						{
-							return lc.TryGetCodeLabel(intArg).Name;
+							return lc.TryGetFuncLabel(intArg).Name;
 						}
 						else
 						{

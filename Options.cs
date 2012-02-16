@@ -48,9 +48,9 @@ namespace GBRead
 								options.Disassembler_PrintComments = ((plane1 >> 2) & 1) == 1;
 								options.Disassembler_HideDefinedData = ((plane1 >> 3) & 1) == 1;
 								options.Disassembler_HideDefinedFunctions = ((plane1 >> 4) & 1) == 1;
-								options.LabelContainer_CodeLabelListSortOrder = ((plane1 >> 5) & 1) == 1 ? ListSortOrder.BY_VALUE : ListSortOrder.BY_NAME;
-								options.LabelContainer_DataLabelListSortOrder = ((plane1 >> 6) & 1) == 1 ? ListSortOrder.BY_VALUE : ListSortOrder.BY_NAME;
-								options.LabelContainer_VarLabelListSortOrder = ((plane1 >> 7) & 1) == 1 ? ListSortOrder.BY_VALUE : ListSortOrder.BY_NAME;
+								options.LabelContainer_FuncListSortOrder = ((plane1 >> 5) & 1) == 1 ? ListSortOrder.BY_VALUE : ListSortOrder.BY_NAME;
+								options.LabelContainer_DataListSortOrder = ((plane1 >> 6) & 1) == 1 ? ListSortOrder.BY_VALUE : ListSortOrder.BY_NAME;
+								options.LabelContainer_VarListSortOrder = ((plane1 >> 7) & 1) == 1 ? ListSortOrder.BY_VALUE : ListSortOrder.BY_NAME;
 								options.Disassembler_PrintedOffsetFormat = (OffsetFormat)optionFile[baseOptionFileOffset + 1];
 								options.Disassembler_InstructionNumberFormat = (OffsetFormat)optionFile[baseOptionFileOffset + 2];
 							}
@@ -98,9 +98,9 @@ namespace GBRead
 		public bool Disassembler_HideDefinedFunctions { get; set; }
 		public bool Disassembler_HideDefinedData { get; set; }
 
-		public ListSortOrder LabelContainer_CodeLabelListSortOrder { get; set; }
-		public ListSortOrder LabelContainer_DataLabelListSortOrder { get; set; }
-		public ListSortOrder LabelContainer_VarLabelListSortOrder { get; set; }
+		public ListSortOrder LabelContainer_FuncListSortOrder { get; set; }
+		public ListSortOrder LabelContainer_DataListSortOrder { get; set; }
+		public ListSortOrder LabelContainer_VarListSortOrder { get; set; }
 
 		private string MF_WWString = "MF_WW";
 		private string MF_HighlightCommentsString = "MF_HighlightComments";
@@ -142,9 +142,9 @@ namespace GBRead
 			Disassembler_HideDefinedFunctions = false;
 			Disassembler_HideDefinedData = false;
 
-			LabelContainer_CodeLabelListSortOrder = ListSortOrder.BY_NAME;
-			LabelContainer_DataLabelListSortOrder = ListSortOrder.BY_NAME;
-			LabelContainer_VarLabelListSortOrder = ListSortOrder.BY_NAME;
+			LabelContainer_FuncListSortOrder = ListSortOrder.BY_NAME;
+			LabelContainer_DataListSortOrder = ListSortOrder.BY_NAME;
+			LabelContainer_VarListSortOrder = ListSortOrder.BY_NAME;
 		}
 
 		public Options(SerializationInfo info, StreamingContext context)
@@ -166,9 +166,9 @@ namespace GBRead
 			Disassembler_HideDefinedFunctions = info.GetBoolean(DSMHideDefFuncsString);
 			Disassembler_HideDefinedData = info.GetBoolean(DSMHideDefDataString);
 
-			LabelContainer_CodeLabelListSortOrder = (ListSortOrder)info.GetValue(LCCodeLabelListSOString, typeof(ListSortOrder));
-			LabelContainer_DataLabelListSortOrder = (ListSortOrder)info.GetValue(LCDataLabelListSOString, typeof(ListSortOrder));
-			LabelContainer_VarLabelListSortOrder = (ListSortOrder)info.GetValue(LCVarLabelListSOString, typeof(ListSortOrder));
+			LabelContainer_FuncListSortOrder = (ListSortOrder)info.GetValue(LCCodeLabelListSOString, typeof(ListSortOrder));
+			LabelContainer_DataListSortOrder = (ListSortOrder)info.GetValue(LCDataLabelListSOString, typeof(ListSortOrder));
+			LabelContainer_VarListSortOrder = (ListSortOrder)info.GetValue(LCVarLabelListSOString, typeof(ListSortOrder));
 		}
 
 		public void GetObjectData(SerializationInfo info, StreamingContext context)
@@ -190,9 +190,9 @@ namespace GBRead
 			info.AddValue(DSMHideDefFuncsString, Disassembler_HideDefinedFunctions);
 			info.AddValue(DSMHideDefDataString, Disassembler_HideDefinedData);
 
-			info.AddValue(LCCodeLabelListSOString, LabelContainer_CodeLabelListSortOrder);
-			info.AddValue(LCDataLabelListSOString, LabelContainer_DataLabelListSortOrder);
-			info.AddValue(LCVarLabelListSOString, LabelContainer_VarLabelListSortOrder);
+			info.AddValue(LCCodeLabelListSOString, LabelContainer_FuncListSortOrder);
+			info.AddValue(LCDataLabelListSOString, LabelContainer_DataListSortOrder);
+			info.AddValue(LCVarLabelListSOString, LabelContainer_VarListSortOrder);
 		}
 	}
 }

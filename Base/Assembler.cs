@@ -146,7 +146,7 @@ namespace GBRead
 			Dictionary<string, int> variableDict = new Dictionary<string, int>();
 			Dictionary<string, int> callDict = new Dictionary<string, int>();
 
-			foreach (CodeLabel kvp in lc.LabelList)
+			foreach (FunctionLabel kvp in lc.FuncList)
 			{
 				callDict.Add(kvp.Name, kvp.Offset);
 			}

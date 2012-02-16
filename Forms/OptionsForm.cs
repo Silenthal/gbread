@@ -45,7 +45,7 @@ namespace GBRead
 					instructionNumberFormatBox.SelectedIndex = 1;
 					break;
 			}
-			switch (lc.CodeLabelListSortOrder)
+			switch (lc.FuncListSortOrder)
 			{
 				case ListSortOrder.BY_NAME:
 					codeLabelNameSortButton.Checked = true;
@@ -54,7 +54,7 @@ namespace GBRead
 					codeLabelOffsetSortButton.Checked = true;
 					break;
 			}
-			switch (lc.DataLabelListSortOrder)
+			switch (lc.DataListSortOrder)
 			{
 				case ListSortOrder.BY_NAME:
 					dataLabelNameSortButton.Checked = true;
@@ -63,7 +63,7 @@ namespace GBRead
 					dataLabelOffsetSortButton.Checked = true;
 					break;
 			}
-			switch (lc.VarLabelListSortOrder)
+			switch (lc.VarListSortOrder)
 			{
 				case ListSortOrder.BY_NAME:
 					varLabelNameSortButton.Checked = true;
@@ -128,9 +128,9 @@ namespace GBRead
 			disassembler.HideDefinedData = hideDataSectionsCheckBox.Checked;
 			disassembler.HideDefinedFunctions = hideFunctionsCheckBox.Checked;
 			disassembler.PrintBitPattern = printBitPatternCheckBox.Checked;
-			lcs.CodeLabelListSortOrder = codeLabelNameSortButton.Checked ? ListSortOrder.BY_NAME : ListSortOrder.BY_VALUE;
-			lcs.DataLabelListSortOrder = dataLabelNameSortButton.Checked ? ListSortOrder.BY_NAME : ListSortOrder.BY_VALUE;
-			lcs.VarLabelListSortOrder = varLabelNameSortButton.Checked ? ListSortOrder.BY_NAME : ListSortOrder.BY_VALUE;
+			lcs.FuncListSortOrder = codeLabelNameSortButton.Checked ? ListSortOrder.BY_NAME : ListSortOrder.BY_VALUE;
+			lcs.DataListSortOrder = dataLabelNameSortButton.Checked ? ListSortOrder.BY_NAME : ListSortOrder.BY_VALUE;
+			lcs.VarListSortOrder = varLabelNameSortButton.Checked ? ListSortOrder.BY_NAME : ListSortOrder.BY_VALUE;
 			mfo.isWordWrap = wordWrapCheckBox.Checked;
 			shb.HighlightComments = highlightCommentsCheckBox.Checked;
 			shb.HighlightKeywords = highlightInstructionsCheckBox.Checked;

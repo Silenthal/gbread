@@ -48,13 +48,13 @@ namespace GBRead
 		}
 	}
 
-	public class CodeLabel : Label, IComparable<CodeLabel>
+	public class FunctionLabel : Label, IComparable<FunctionLabel>
 	{
 		private int _length;
 		public int Offset { get { return _value; } set { _value = value; } }
 		public int Length { get { return _length; } set { _length = value; } }
 		public int Bank { get { return _value >> 14; } }
-		public CodeLabel(int newOffset, string labelName = "", int labelLength = 0, string[] commentLines = null)
+		public FunctionLabel(int newOffset, string labelName = "", int labelLength = 0, string[] commentLines = null)
 		{
 			_value = newOffset;
 			_name = labelName.Equals(String.Empty) ? String.Format("F_{0:X6}", newOffset) : labelName;
@@ -66,7 +66,7 @@ namespace GBRead
 			}
 		}
 
-		public CodeLabel(CodeLabel prev) : this(prev._value, prev._name, prev._length, prev._comment) { }
+		public FunctionLabel(FunctionLabel prev) : this(prev._value, prev._name, prev._length, prev._comment) { }
 
 		public override string ToSaveFileString()
 		{
@@ -102,7 +102,7 @@ namespace GBRead
 			return returned.ToString();
 		}
 
-		public int CompareTo(CodeLabel comp)
+		public int CompareTo(FunctionLabel comp)
 		{
 			if (comp != null)
 			{
@@ -113,9 +113,9 @@ namespace GBRead
 
 		public override bool Equals(object obj)
 		{
-			if (obj is CodeLabel)
+			if (obj is FunctionLabel)
 			{
-				return ((CodeLabel)obj)._value.Equals(_value);
+				return ((FunctionLabel)obj)._value.Equals(_value);
 			}
 			else return false;
 		}

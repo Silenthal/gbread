@@ -104,20 +104,8 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Patch\BPS\BPS.cs" />
-    <None Include="AboutBox1.cs">
-      <SubType>Form</SubType>
-    </None>
-    <None Include="AboutBox1.Designer.cs">
-      <DependentUpon>AboutBox1.cs</DependentUpon>
-    </None>
     <Compile Include="Error.cs" />
-    <None Include="HeaderEdit.cs">
-      <SubType>Form</SubType>
-    </None>
-    <None Include="HeaderEdit.Designer.cs">
-      <DependentUpon>HeaderEdit.cs</DependentUpon>
-    </None>
-    <Compile Include="lib\GBBinFile.cs" />
+    <Compile Include="Base\GBBinFile.cs" />
     <Compile Include="Options.cs" />
     <Compile Include="SyntaxHighlightingTextBox\SHTBChar.cs" />
     <Compile Include="SyntaxHighlightingTextBox\CommandManager.cs" />
@@ -145,58 +133,52 @@
     <Compile Include="SyntaxHighlightingTextBox\SHTBStyle.cs" />
     <Compile Include="SyntaxHighlightingTextBox\SyntaxHighlighter.cs" />
     <Compile Include="SyntaxHighlightingTextBox\SHTBTypeDescriptor.cs" />
-    <Compile Include="lib\Assembler.cs" />
-    <Compile Include="lib\BinFile.cs" />
-    <Compile Include="lib\Label.cs" />
-    <Compile Include="lib\LabelComparator.cs" />
-    <Compile Include="lib\LabelContainer.cs" />
-    <Compile Include="LineSeparator.cs">
+    <Compile Include="Base\Assembler.cs" />
+    <Compile Include="Base\BinFile.cs" />
+    <Compile Include="Base\Label.cs" />
+    <Compile Include="Base\LabelComparator.cs" />
+    <Compile Include="Base\LabelContainer.cs" />
+    <Compile Include="Forms\LineSeparator.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="LineSeparator.Designer.cs">
+    <Compile Include="Forms\LineSeparator.Designer.cs">
       <DependentUpon>LineSeparator.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImageDisplayForm.cs">
+    <Compile Include="Forms\ImageDisplayForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ImageDisplayForm.designer.cs">
+    <Compile Include="Forms\ImageDisplayForm.designer.cs">
       <DependentUpon>ImageDisplayForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="InsertBinaryForm.cs">
+    <Compile Include="Forms\InsertBinaryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InsertBinaryForm.Designer.cs">
+    <Compile Include="Forms\InsertBinaryForm.Designer.cs">
       <DependentUpon>InsertBinaryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="InsertCodeForm.cs">
+    <Compile Include="Forms\InsertCodeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InsertCodeForm.Designer.cs">
+    <Compile Include="Forms\InsertCodeForm.Designer.cs">
       <DependentUpon>InsertCodeForm.cs</DependentUpon>
     </Compile>
     <None Include="Patch\IPS\IPS.cs" />
-    <Compile Include="OptionsForm.cs">
+    <Compile Include="Forms\OptionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OptionsForm.Designer.cs">
+    <Compile Include="Forms\OptionsForm.Designer.cs">
       <DependentUpon>OptionsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="lib\Disassembler.cs" />
+    <Compile Include="Base\Disassembler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="lib\Validation.cs" />
-    <None Include="AboutBox1.resx">
-      <DependentUpon>AboutBox1.cs</DependentUpon>
-    </None>
-    <None Include="HeaderEdit.resx">
-      <DependentUpon>HeaderEdit.cs</DependentUpon>
-    </None>
+    <Compile Include="Base\Validation.cs" />
     <EmbeddedResource Include="SyntaxHighlightingTextBox\SyntaxHighlightingTextBox.resx">
       <DependentUpon>SyntaxHighlightingTextBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -207,22 +189,22 @@
       <DependentUpon>ReplaceForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="LineSeparator.resx">
+    <EmbeddedResource Include="Forms\LineSeparator.resx">
       <DependentUpon>LineSeparator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ImageDisplayForm.resx">
+    <EmbeddedResource Include="Forms\ImageDisplayForm.resx">
       <DependentUpon>ImageDisplayForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InsertBinaryForm.resx">
+    <EmbeddedResource Include="Forms\InsertBinaryForm.resx">
       <DependentUpon>InsertBinaryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InsertCodeForm.resx">
+    <EmbeddedResource Include="Forms\InsertCodeForm.resx">
       <DependentUpon>InsertCodeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionsForm.resx">
+    <EmbeddedResource Include="Forms\OptionsForm.resx">
       <DependentUpon>OptionsForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
@@ -244,19 +226,19 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="doc\about asm.txt">
+    <Content Include="about asm.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="doc\assembler.txt" />
-    <Content Include="doc\changelog.txt">
+    <Content Include="Plans\assembler.txt" />
+    <Content Include="changelog.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="doc\plans - format pattern.txt" />
-    <Content Include="doc\plans.txt" />
-    <Content Include="doc\readme.txt">
+    <Content Include="Plans\plans - format pattern.txt" />
+    <Content Include="Plans\plans.txt" />
+    <Content Include="readme.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="doc\commonlocs.txt" />
+    <Content Include="Plans\commonlocs.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LibGBasm\LibGBasm.csproj">

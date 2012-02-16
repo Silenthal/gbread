@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{03627D66-70E1-4D1D-BD98-B9D3C488BDBA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GBRead</RootNamespace>
+    <AssemblyName>gbread</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Patch\BPS\BPS.cs" />
+    <None Include="AboutBox1.cs">
+      <SubType>Form</SubType>
+    </None>
+    <None Include="AboutBox1.Designer.cs">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </None>
+    <Compile Include="Error.cs" />
+    <None Include="HeaderEdit.cs">
+      <SubType>Form</SubType>
+    </None>
+    <None Include="HeaderEdit.Designer.cs">
+      <DependentUpon>HeaderEdit.cs</DependentUpon>
+    </None>
+    <Compile Include="lib\GBBinFile.cs" />
+    <Compile Include="Options.cs" />
+    <Compile Include="SyntaxHighlightingTextBox\SHTBChar.cs" />
+    <Compile Include="SyntaxHighlightingTextBox\CommandManager.cs" />
+    <Compile Include="SyntaxHighlightingTextBox\Commands.cs" />
+    <None Include="SyntaxHighlightingTextBox\SHTBLineCollection.cs" />
+    <Compile Include="SyntaxHighlightingTextBox\SyntaxHighlightingTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SyntaxHighlightingTextBox\FindForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SyntaxHighlightingTextBox\FindForm.Designer.cs">
+      <DependentUpon>FindForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SyntaxHighlightingTextBox\LimitedStack.cs" />
+    <Compile Include="SyntaxHighlightingTextBox\SHTBLine.cs" />
+    <Compile Include="SyntaxHighlightingTextBox\SHTBPlace.cs" />
+    <Compile Include="SyntaxHighlightingTextBox\SHTBRange.cs" />
+    <Compile Include="SyntaxHighlightingTextBox\ReplaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SyntaxHighlightingTextBox\ReplaceForm.Designer.cs">
+      <DependentUpon>ReplaceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SyntaxHighlightingTextBox\SHTBStyle.cs" />
+    <Compile Include="SyntaxHighlightingTextBox\SyntaxHighlighter.cs" />
+    <Compile Include="SyntaxHighlightingTextBox\SHTBTypeDescriptor.cs" />
+    <Compile Include="lib\Assembler.cs" />
+    <Compile Include="lib\BinFile.cs" />
+    <Compile Include="lib\Label.cs" />
+    <Compile Include="lib\LabelComparator.cs" />
+    <Compile Include="lib\LabelContainer.cs" />
+    <Compile Include="LineSeparator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LineSeparator.Designer.cs">
+      <DependentUpon>LineSeparator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageDisplayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageDisplayForm.designer.cs">
+      <DependentUpon>ImageDisplayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsertBinaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertBinaryForm.Designer.cs">
+      <DependentUpon>InsertBinaryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsertCodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertCodeForm.Designer.cs">
+      <DependentUpon>InsertCodeForm.cs</DependentUpon>
+    </Compile>
+    <None Include="Patch\IPS\IPS.cs" />
+    <Compile Include="OptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionsForm.Designer.cs">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Disassembler.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="lib\Validation.cs" />
+    <None Include="AboutBox1.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </None>
+    <None Include="HeaderEdit.resx">
+      <DependentUpon>HeaderEdit.cs</DependentUpon>
+    </None>
+    <EmbeddedResource Include="SyntaxHighlightingTextBox\SyntaxHighlightingTextBox.resx">
+      <DependentUpon>SyntaxHighlightingTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SyntaxHighlightingTextBox\FindForm.resx">
+      <DependentUpon>FindForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SyntaxHighlightingTextBox\ReplaceForm.resx">
+      <DependentUpon>ReplaceForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LineSeparator.resx">
+      <DependentUpon>LineSeparator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageDisplayForm.resx">
+      <DependentUpon>ImageDisplayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertBinaryForm.resx">
+      <DependentUpon>InsertBinaryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertCodeForm.resx">
+      <DependentUpon>InsertCodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsForm.resx">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="doc\about asm.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="doc\assembler.txt" />
+    <Content Include="doc\changelog.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="doc\plans - format pattern.txt" />
+    <Content Include="doc\plans.txt" />
+    <Content Include="doc\readme.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="doc\commonlocs.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibGBasm\LibGBasm.csproj">
+      <Project>{2F79469E-7DCF-4A24-A9B8-9959BDDD3C9A}</Project>
+      <Name>LibGBasm</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

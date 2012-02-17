@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using LibGBasm;
 
-namespace GBRead
+namespace GBRead.Base
 {
 	public class Disassembler
 	{
@@ -440,7 +440,7 @@ namespace GBRead
 			}
 		}
 
-		public string SearchForReference(Label search)
+		public string SearchForReference(GenericLabel search)
 		{
 			StringBuilder returned = new StringBuilder(String.Empty);
 			Dictionary<string, VarRefType> funcRefsNew = SearchFileForVarReference(search.Value, SearchOptions.InFunctions);

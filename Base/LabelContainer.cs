@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace GBRead
+namespace GBRead.Base
 {
 	public class LabelContainer
 	{
@@ -11,9 +11,9 @@ namespace GBRead
 		private object dataListLock = new object();
 		private object varListLock = new object();
 
-		private List<Label> _funcList;
-		private List<Label> _dataList;
-		private List<Label> _varList;
+		private List<GenericLabel> _funcList;
+		private List<GenericLabel> _dataList;
+		private List<GenericLabel> _varList;
 
 		private HashSet<int> dataAddrs;
 		private HashSet<int> varTableDict;
@@ -33,7 +33,7 @@ namespace GBRead
 
 		#region Default Var List
 
-		private List<Label> defaultVars = new List<Label>()
+		private List<GenericLabel> defaultVars = new List<GenericLabel>()
 		{
 			new VarLabel(0xFF00, "JOYP"),
 			new VarLabel(0xFF01, "SB"),
@@ -94,7 +94,7 @@ namespace GBRead
 
 		#endregion Default Var List
 
-		public List<Label> FuncList
+		public List<GenericLabel> FuncList
 		{
 			get
 			{
@@ -109,7 +109,7 @@ namespace GBRead
 				}
 			}
 		}
-		public List<Label> DataList
+		public List<GenericLabel> DataList
 		{
 			get
 			{
@@ -124,7 +124,7 @@ namespace GBRead
 				}
 			}
 		}
-		public List<Label> VarList
+		public List<GenericLabel> VarList
 		{
 			get
 			{
@@ -273,7 +273,7 @@ namespace GBRead
 			return AddLabel(vlAdded);
 		}
 
-		public bool AddLabel(Label toBeAdded)
+		public bool AddLabel(GenericLabel toBeAdded)
 		{
 			if (toBeAdded == null) return false;
 			bool contains = false;
@@ -335,7 +335,7 @@ namespace GBRead
 			else return false;
 		}
 
-		public void RemoveLabel(Label toBeRemoved)
+		public void RemoveLabel(GenericLabel toBeRemoved)
 		{
 			if (toBeRemoved is FunctionLabel)
 			{
@@ -406,7 +406,7 @@ namespace GBRead
 		{
 			lock (labelListLock)
 			{
-				if (_funcList == null) _funcList = new List<Label>();
+				if (_funcList == null) _funcList = new List<GenericLabel>();
 				_funcList.Clear();
 				if (funcTableDict == null) funcTableDict = new HashSet<int>();
 				funcTableDict.Clear();
@@ -417,7 +417,7 @@ namespace GBRead
 		{
 			lock (dataListLock)
 			{
-				if (_dataList == null) _dataList = new List<Label>();
+				if (_dataList == null) _dataList = new List<GenericLabel>();
 				else _dataList.Clear();
 				if (dataTableDict == null) dataTableDict = new HashSet<int>();
 				else dataTableDict.Clear();
@@ -430,14 +430,14 @@ namespace GBRead
 		{
 			lock (varListLock)
 			{
-				if (_varList == null) _varList = new List<Label>();
+				if (_varList == null) _varList = new List<GenericLabel>();
 				else _varList.Clear();
 				if (varTableDict == null) varTableDict = new HashSet<int>();
 				else varTableDict.Clear();
 			}
 		}
 
-		public bool Contains(Label ls)
+		public bool Contains(GenericLabel ls)
 		{
 			if (ls == null) return false;
 			if (ls is FunctionLabel)
@@ -464,7 +464,7 @@ namespace GBRead
 			return false;
 		}
 
-		public Label TryGetFuncLabel(int value)
+		public GenericLabel TryGetFuncLabel(int value)
 		{
 			lock (labelListLock)
 			{
@@ -473,7 +473,7 @@ namespace GBRead
 			}
 		}
 
-		public Label TryGetDataLabel(int value)
+		public GenericLabel TryGetDataLabel(int value)
 		{
 			lock (dataListLock)
 			{
@@ -482,7 +482,7 @@ namespace GBRead
 			}
 		}
 
-		public Label TryGetVarLabel(int value)
+		public GenericLabel TryGetVarLabel(int value)
 		{
 			lock (varListLock)
 			{
@@ -497,7 +497,7 @@ namespace GBRead
 
 		#endregion Adding, clearing, and removing labels
 
-		#region Loading and Saving Label Files
+		#region Loading and Saving GenericLabel Files
 
 		public void LoadLabelFile(string fileName)
 		{
@@ -836,7 +836,7 @@ namespace GBRead
 			StringBuilder sb = new StringBuilder(String.Empty);
 			lock (labelListLock)
 			{
-				foreach (Label s in _funcList)
+				foreach (GenericLabel s in _funcList)
 				{
 					sb.AppendLine(s.ToSaveFileString());
 				}
@@ -849,7 +849,7 @@ namespace GBRead
 			StringBuilder sb = new StringBuilder(String.Empty);
 			lock (dataListLock)
 			{
-				foreach (Label s in _dataList)
+				foreach (GenericLabel s in _dataList)
 				{
 					sb.AppendLine(s.ToSaveFileString());
 				}
@@ -862,7 +862,7 @@ namespace GBRead
 			StringBuilder sb = new StringBuilder(String.Empty);
 			lock (varListLock)
 			{
-				foreach (Label s in _varList)
+				foreach (GenericLabel s in _varList)
 				{
 					sb.AppendLine(s.ToSaveFileString());
 				}
@@ -870,6 +870,6 @@ namespace GBRead
 			return sb.ToString();
 		}
 
-		#endregion Loading and Saving Label Files
+		#endregion Loading and Saving GenericLabel Files
 	}
 }

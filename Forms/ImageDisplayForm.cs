@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Drawing;
+using GBRead.Base;
 
 namespace GBRead
 {

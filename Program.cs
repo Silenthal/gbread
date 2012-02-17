@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using GBRead.Base;
+using GBRead.Forms;
 
 namespace GBRead
 {

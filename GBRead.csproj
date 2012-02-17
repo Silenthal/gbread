@@ -99,16 +99,28 @@
     <Reference Include="LibGBasm, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>LibGBasm.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Patch\BPS\BPS.cs" />
+    <Compile Include="Base\NotifyList.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="Base\GBBinFile.cs" />
+    <Compile Include="Forms\AddFunctionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddFunctionForm.Designer.cs">
+      <DependentUpon>AddFunctionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Options.cs" />
     <Compile Include="SyntaxHighlightingTextBox\SHTBChar.cs" />
     <Compile Include="SyntaxHighlightingTextBox\CommandManager.cs" />
@@ -141,10 +153,10 @@
     <Compile Include="Base\Label.cs" />
     <Compile Include="Base\LabelComparator.cs" />
     <Compile Include="Base\LabelContainer.cs" />
-    <Compile Include="Forms\LineSeparator.cs">
+    <Compile Include="FormComponents\LineSeparator.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\LineSeparator.Designer.cs">
+    <Compile Include="FormComponents\LineSeparator.Designer.cs">
       <DependentUpon>LineSeparator.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForm.cs">
@@ -182,6 +194,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Base\Validation.cs" />
+    <EmbeddedResource Include="Forms\AddFunctionForm.resx">
+      <DependentUpon>AddFunctionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SyntaxHighlightingTextBox\SyntaxHighlightingTextBox.resx">
       <DependentUpon>SyntaxHighlightingTextBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,7 +207,7 @@
       <DependentUpon>ReplaceForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\LineSeparator.resx">
+    <EmbeddedResource Include="FormComponents\LineSeparator.resx">
       <DependentUpon>LineSeparator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">

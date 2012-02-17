@@ -1,4 +1,6 @@
-﻿namespace GBRead
+﻿using GBRead.FormElements;
+
+namespace GBRead.Forms
 {
     partial class OptionsForm
     {
@@ -68,7 +70,7 @@
 			this.highlightInstructionsCheckBox = new System.Windows.Forms.CheckBox();
 			this.highlightOffsetsCheckBox = new System.Windows.Forms.CheckBox();
 			this.highlightNumbersCheckBox = new System.Windows.Forms.CheckBox();
-			this.lineSeparator1 = new GBRead.LineSeparator();
+			this.lineSeparator1 = new LineSeparator();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.panel3.SuspendLayout();

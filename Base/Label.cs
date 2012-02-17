@@ -2,7 +2,7 @@
 using System.Text;
 using System.Collections.Generic;
 
-namespace GBRead
+namespace GBRead.Base
 {
 	public enum DataSectionType { Data, Img, Text }
 
@@ -28,7 +28,7 @@ namespace GBRead
 		public int Col_4 = 0;
 	}
 
-	public abstract class Label
+	public abstract class GenericLabel
 	{
 		protected int _value;
 		public int Value { get { return _value; } }
@@ -48,7 +48,7 @@ namespace GBRead
 		}
 	}
 
-	public class FunctionLabel : Label, IComparable<FunctionLabel>
+	public class FunctionLabel : GenericLabel, IComparable<FunctionLabel>
 	{
 		private int _length;
 		public int Offset { get { return _value; } set { _value = value; } }
@@ -126,7 +126,7 @@ namespace GBRead
 		}
 	}
 
-	public class DataLabel : Label, IComparable<DataLabel>
+	public class DataLabel : GenericLabel, IComparable<DataLabel>
 	{
 		private int _length;
 		private int _dataLineLength;
@@ -217,7 +217,7 @@ namespace GBRead
 		}
 	}
 
-	public class VarLabel : Label, IComparable<VarLabel>
+	public class VarLabel : GenericLabel, IComparable<VarLabel>
 	{
 		public int Variable { get { return _value; } set { _value = value & 0xFFFF; } }
 		public VarLabel(int a, string n = "", string[] cmt = null)

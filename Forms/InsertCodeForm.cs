@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using GBRead.Base;
 
-
-namespace GBRead
+namespace GBRead.Forms
 {
 	public partial class InsertCodeForm : Form
 	{

@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-namespace GBRead
+namespace GBRead.Base
 {
 	internal class InputValidation
 	{
@@ -76,20 +76,7 @@ namespace GBRead
 
 		public static bool IsWord(string check)
 		{
-			if (string.IsNullOrEmpty(check)) return false;
-			if (!Char.IsLetter(check[0])) return false;
-			if (check.Length == 1)
-			{
-				return true;
-			}
-			else
-			{
-				foreach (char s in check.Substring(1))
-				{
-					if (!(Char.IsLetterOrDigit(s) || s.Equals('_'))) return false;
-				}
-				return true;
-			}
+			return Regex.IsMatch(check, @"^[a-z][a-z0-9_]*$", RegexOptions.IgnoreCase);
 		}
 	}
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace GBRead
+namespace GBRead.Base
 {
 	public class GBBinFile : BinFile
 	{

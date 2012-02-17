@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace GBRead
+namespace GBRead.Base
 {
 	public abstract class BinFile
 	{

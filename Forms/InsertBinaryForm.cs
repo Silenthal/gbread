@@ -1,8 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using GBRead.Base;
 
-namespace GBRead
+namespace GBRead.Forms
 {
 	public partial class InsertBinaryForm : Form
 	{

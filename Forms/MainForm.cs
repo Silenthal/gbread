@@ -3,8 +3,9 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using GBRead.Base;
 
-namespace GBRead
+namespace GBRead.Forms
 {
 	public partial class MainForm : Form
 	{

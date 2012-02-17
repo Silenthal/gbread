@@ -1,4 +1,4 @@
-﻿namespace GBRead
+﻿namespace GBRead.Forms
 {
     partial class InsertCodeForm
     {

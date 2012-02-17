@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using GBRead.Base;
 
-namespace GBRead
+namespace GBRead.Forms
 {
 	public partial class OptionsForm : Form
 	{

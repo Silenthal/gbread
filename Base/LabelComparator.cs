@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace GBRead
+namespace GBRead.Base
 {
     public enum ListSortOrder { BY_NAME, BY_VALUE }
 
-    public class LabelComparer : Comparer<Label>
+    public class LabelComparer : Comparer<GenericLabel>
     {
         public ListSortOrder listOrder = ListSortOrder.BY_NAME;
 
@@ -16,7 +16,7 @@ namespace GBRead
             listOrder = cLL;
         }
 
-        public override int Compare(Label x, Label y)
+        public override int Compare(GenericLabel x, GenericLabel y)
         {
             switch (listOrder)
             {

@@ -239,40 +239,6 @@ namespace GBRead.Base
 
 		#region Adding, clearing, and removing labels
 
-		public bool AddFuncLabel(int offset, string labelName = "", int labelLength = 0, string[] comment = null)
-		{
-			FunctionLabel toBeAdded = new FunctionLabel(offset, labelName, labelLength, comment);
-			bool contains = false;
-			lock (labelListLock)
-			{
-				contains = funcTableDict.Contains(toBeAdded.Value);
-			}
-			if (contains)
-			{
-				RemoveLabel(toBeAdded);
-			}
-			lock (labelListLock)
-			{
-				_funcList.Add(toBeAdded);
-				funcTableDict.Add(toBeAdded.Value);
-				isFuncListSorted = false;
-			}
-			return true;
-		}
-
-		public bool AddDataLabel(DataSectionType dsType, int offset, string labelName, int labelLength, int dataDivisionLength, string[] comment = null, GBPalette newPalette = null)
-		{
-			DataLabel dsAdded = new DataLabel(offset, labelLength, labelName, dataDivisionLength, comment, dsType, newPalette);
-			return AddLabel(dsAdded);
-		}
-
-		public bool AddVarLabel(int variable, string name, string[] comment)
-		{
-			if (variable < 0) return false;
-			VarLabel vlAdded = new VarLabel(variable, name, comment);
-			return AddLabel(vlAdded);
-		}
-
 		public bool AddLabel(GenericLabel toBeAdded)
 		{
 			if (toBeAdded == null) return false;
@@ -557,7 +523,8 @@ namespace GBRead.Base
 								}
 								if (offsetGood)
 								{
-									AddFuncLabel(offset, name, length, cmtBuf.ToArray());
+									FunctionLabel fl = new FunctionLabel(offset, name, length, cmtBuf.ToArray());
+									AddLabel(fl);
 								}
 								else
 								{
@@ -639,7 +606,8 @@ namespace GBRead.Base
 								}
 								if (offsetGood && lengthGood)
 								{
-									AddDataLabel(dst, offset, name, length, dataDiv, cmtBuf.ToArray(), dataPalette);
+									DataLabel ds = new DataLabel(offset, length, name, dataDiv, cmtBuf.ToArray(), dst, dataPalette);
+									AddLabel(ds);
 								}
 								else
 								{
@@ -682,7 +650,8 @@ namespace GBRead.Base
 								}
 								if (variableGood)
 								{
-									AddVarLabel(variable, name, cmtBuf.ToArray());
+									VarLabel vl = new VarLabel(variable, name, cmtBuf.ToArray());
+									AddLabel(vl);
 								}
 								else
 								{
@@ -740,7 +709,8 @@ namespace GBRead.Base
 								comment.Add(line[i]);
 							}
 						}
-						AddFuncLabel(off, line[2], len, comment.ToArray());
+						FunctionLabel fl = new FunctionLabel(off, line[2], len, comment.ToArray());
+						AddLabel(fl);
 					}
 				}
 
@@ -773,7 +743,8 @@ namespace GBRead.Base
 								comment.Add(line[i]);
 							}
 						}
-						AddDataLabel(DataSectionType.Data, off, line[2], len, 0, comment.ToArray());
+						DataLabel ds = new DataLabel(off, len, line[2], 0, comment.ToArray(), DataSectionType.Data);
+						AddLabel(ds);
 					}
 				}
 
@@ -810,7 +781,8 @@ namespace GBRead.Base
 									comment.Add(line[i]);
 								}
 							}
-							AddVarLabel(off, line[2], comment.ToArray());
+							VarLabel vl = new VarLabel(off, line[2], comment.ToArray());
+							AddLabel(vl);
 						}
 					}
 				}

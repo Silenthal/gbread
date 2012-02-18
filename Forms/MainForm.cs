@@ -245,7 +245,8 @@ namespace GBRead.Forms
 				}
 				else
 				{
-					labelContainer.AddFuncLabel(offset, codeLabelNameBox.Text, (length < 1 ? 0 : length), codeLabelCommentBox.Lines);
+					FunctionLabel fl = new FunctionLabel(offset, codeLabelNameBox.Text, (length < 1 ? 0 : length), codeLabelCommentBox.Lines);
+					labelContainer.AddLabel(fl);
 					UpdateLabelBoxView();
 					FlipCodeLabelTabControlVisibility();
 					editButton.Visible = true;
@@ -282,7 +283,8 @@ namespace GBRead.Forms
 				else
 				{
 					labelContainer.RemoveLabel(fetch);
-					labelContainer.AddFuncLabel(offset, codeLabelNameBox.Text, (length < 1 ? 0 : length), codeLabelCommentBox.Lines);
+					fetch = new FunctionLabel(offset, codeLabelNameBox.Text, (length < 1 ? 0 : length), codeLabelCommentBox.Lines);
+					labelContainer.AddLabel(fetch);
 					UpdateLabelBoxView();
 					FlipCodeLabelTabControlVisibility();
 					addButton.Visible = true;
@@ -384,7 +386,8 @@ namespace GBRead.Forms
 				else
 				{
 					DataSectionType dst = (DataSectionType)dataLabelDataTypeBox.SelectedIndex;
-					labelContainer.AddDataLabel(dst, offset, dataLabelNameBox.Text, length, dataDiv, dataLabelCommentBox.Lines);
+					DataLabel ds = new DataLabel(offset, length, dataLabelNameBox.Text, dataDiv, dataLabelCommentBox.Lines, dst);
+					labelContainer.AddLabel(ds);
 					UpdateDataBoxView();
 					FlipDataLabelTabControlVisibility();
 					editButton.Visible = true;
@@ -424,7 +427,8 @@ namespace GBRead.Forms
 				{
 					labelContainer.RemoveLabel(fetch);
 					DataSectionType dst = (DataSectionType)dataLabelDataTypeBox.SelectedIndex;
-					labelContainer.AddDataLabel(dst, offset, dataLabelNameBox.Text, length, dataDiv, dataLabelCommentBox.Lines);
+					fetch = new DataLabel(offset, length, dataLabelNameBox.Text, dataDiv, dataLabelCommentBox.Lines, dst);
+					labelContainer.AddLabel(fetch);
 					UpdateDataBoxView();
 					FlipDataLabelTabControlVisibility();
 					addButton.Visible = true;
@@ -523,7 +527,8 @@ namespace GBRead.Forms
 				}
 				else
 				{
-					labelContainer.AddVarLabel(offset, varLabelNameBox.Text, varLabelCommentBox.Lines);
+					VarLabel vl = new VarLabel(offset, varLabelNameBox.Text, varLabelCommentBox.Lines);
+					labelContainer.AddLabel(vl);
 					UpdateVarBoxView();
 					FlipVarLabelTabControlVisibility();
 					editButton.Visible = true;
@@ -556,7 +561,8 @@ namespace GBRead.Forms
 				else
 				{
 					labelContainer.RemoveLabel(fetch);
-					labelContainer.AddVarLabel(offset, varLabelNameBox.Text, varLabelCommentBox.Lines);
+					fetch = new VarLabel(offset, varLabelNameBox.Text, varLabelCommentBox.Lines);
+					labelContainer.AddLabel(fetch);
 					UpdateVarBoxView();
 					FlipVarLabelTabControlVisibility();
 					addButton.Visible = true;

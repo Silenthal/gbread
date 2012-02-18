@@ -112,7 +112,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Patch\BPS\BPS.cs" />
-    <Compile Include="Base\NotifyList.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="Base\GBBinFile.cs" />
     <Compile Include="Forms\AddFunctionForm.cs">

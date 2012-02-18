@@ -313,7 +313,8 @@ namespace GBRead.Base
 						FunctionLabel rc = new FunctionLabel(currentCall);
 						if (IsValidFunction(currentOffset) && IsValidFunction(currentCall) && !lc.Contains(rc))
 						{
-							lc.AddFuncLabel(currentCall);
+							FunctionLabel fl = new FunctionLabel(currentCall);
+							lc.AddLabel(fl);
 						}
 					}
 				}

@@ -8,6 +8,7 @@ namespace GBRead.Base
 	public class Disassembler
 	{
 		private BinFile CoreFile;
+		public BinFile AttachedFile { get { return CoreFile; } }
 
 		private LabelContainer lc;
 
@@ -78,7 +79,7 @@ namespace GBRead.Base
 			switch (dLabel.DSectionType)
 			{
 				case DataSectionType.Data:
-				case DataSectionType.Img:
+				case DataSectionType.Image:
 					for (int i = 0; i < dLabel.Length; i++)
 					{
 						if (i % dLabel.DataLineLength == 0) ret.Append("\tdb ");
@@ -101,8 +102,6 @@ namespace GBRead.Base
 							ret.Append(",");
 						}
 					}
-					break;
-				case DataSectionType.Text:
 					break;
 				default:
 					break;
@@ -652,7 +651,7 @@ namespace GBRead.Base
 			return true;
 		}
 
-		private int GuessFunctionLength(FunctionLabel cLabel)
+		public int GuessFunctionLength(FunctionLabel cLabel)
 		{
 			if (cLabel.Length != 0) return cLabel.Length;
 			int currentOffset = cLabel.Offset;

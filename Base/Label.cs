@@ -4,7 +4,9 @@ using System.Collections.Generic;
 
 namespace GBRead.Base
 {
-	public enum DataSectionType { Data, Img, Text }
+	public enum DataSectionType { Data, Image }
+
+	public enum VariableType { Byte, Word }
 
 	public enum OffsetFormat { Hex, Decimal, BBOO }
 
@@ -28,7 +30,7 @@ namespace GBRead.Base
 		public int Col_4 = 0;
 	}
 
-	public abstract class GenericLabel
+	public abstract class GenericLabel : IComparable<GenericLabel>
 	{
 		protected int _value;
 		public int Value { get { return _value; } }
@@ -42,13 +44,24 @@ namespace GBRead.Base
 		{
 			return String.Format("{0}({1:X})", _name, _value);
 		}
+
 		public override int GetHashCode()
 		{
 			return _value.GetHashCode();
 		}
+
+		public int CompareTo(GenericLabel comp)
+		{
+			if (comp != null)
+			{
+				return _name.CompareTo(comp._name);
+			}
+			else throw new ArgumentException("Object is not a proper label.");
+		}
+
 	}
 
-	public class FunctionLabel : GenericLabel, IComparable<FunctionLabel>
+	public class FunctionLabel : GenericLabel
 	{
 		private int _length;
 		public int Offset { get { return _value; } set { _value = value; } }
@@ -102,15 +115,6 @@ namespace GBRead.Base
 			return returned.ToString();
 		}
 
-		public int CompareTo(FunctionLabel comp)
-		{
-			if (comp != null)
-			{
-				return _value.CompareTo(comp._value);
-			}
-			else throw new ArgumentException("Object is not a proper Code Label.");
-		}
-
 		public override bool Equals(object obj)
 		{
 			if (obj is FunctionLabel)
@@ -126,17 +130,16 @@ namespace GBRead.Base
 		}
 	}
 
-	public class DataLabel : GenericLabel, IComparable<DataLabel>
+	public class DataLabel : GenericLabel
 	{
 		private int _length;
 		private int _dataLineLength;
 		private DataSectionType dataSectType;
-		public GBPalette DataPalette;
 		public int Offset { get { return _value; } set { _value = value; } }
 		public int Length { get { return _length; } set { _length = value; } }
 		public int DataLineLength { get { return _dataLineLength; } set { _dataLineLength = value; if (_dataLineLength < 0) _dataLineLength = 8; } }
 		public DataSectionType DSectionType { get { return dataSectType; } set { dataSectType = value; } }
-		public DataLabel(int newOffset, int newLength = 1, string labelName = "", int dataLen = 8, string[] cmt = null, DataSectionType dst = DataSectionType.Data, GBPalette pal = null)
+		public DataLabel(int newOffset, int newLength = 1, string labelName = "", int dataLen = 8, string[] cmt = null, DataSectionType dst = DataSectionType.Data)
 		{
 			_value = newOffset;
 			_length = newLength;
@@ -149,10 +152,9 @@ namespace GBRead.Base
 			if (dataLen <= 0) dataLen = 8;
 			_dataLineLength = dataLen;
 			dataSectType = dst;
-			DataPalette = pal == null ? new GBPalette() : pal;
 		}
 
-		public DataLabel(DataLabel prev) : this(prev._value, prev._length, prev._name, prev._dataLineLength, prev._comment, prev.dataSectType, prev.DataPalette) { }
+		public DataLabel(DataLabel prev) : this(prev._value, prev._length, prev._name, prev._dataLineLength, prev._comment, prev.dataSectType) { }
 
 		public override string ToASMCommentString()
 		{
@@ -175,6 +177,7 @@ namespace GBRead.Base
 			returned.AppendLine(Environment.NewLine + "_n:" + _name);
 			returned.AppendLine("_o:" + _value.ToString("X"));
 			returned.AppendLine("_l:" + _length.ToString("X"));
+			returned.AppendLine("_t:" + DSectionType.ToString());
 			returned.Append("_d:" + _dataLineLength.ToString("X"));
 			if (_comment != null)
 			{
@@ -183,23 +186,7 @@ namespace GBRead.Base
 					returned.Append(Environment.NewLine + "_c:" + x);
 				}
 			}
-			if (dataSectType == DataSectionType.Img)
-			{
-				returned.Append(Environment.NewLine + "_p1:" + DataPalette.Col_1.ToString("X"));
-				returned.Append(Environment.NewLine + "_p2:" + DataPalette.Col_2.ToString("X"));
-				returned.Append(Environment.NewLine + "_p3:" + DataPalette.Col_3.ToString("X"));
-				returned.Append(Environment.NewLine + "_p4:" + DataPalette.Col_4.ToString("X"));
-			}
 			return returned.ToString();
-		}
-
-		public int CompareTo(DataLabel comp)
-		{
-			if (comp != null)
-			{
-				return _value.CompareTo(comp._value);
-			}
-			else throw new ArgumentException("Object is not a Data Label.");
 		}
 
 		public override bool Equals(object obj)
@@ -217,13 +204,16 @@ namespace GBRead.Base
 		}
 	}
 
-	public class VarLabel : GenericLabel, IComparable<VarLabel>
+	public class VarLabel : GenericLabel
 	{
 		public int Variable { get { return _value; } set { _value = value & 0xFFFF; } }
-		public VarLabel(int a, string n = "", string[] cmt = null)
+		private VariableType varType;
+		public VariableType VarType { get { return varType; } set { varType = value; } }
+		public VarLabel(int a, string n = "", VariableType vType = VariableType.Byte, string[] cmt = null)
 		{
 			_name = n.Equals(String.Empty) ? String.Format("V_{0:X4}", a) : n;
 			_value = a;
+			varType = vType;
 			if (cmt != null)
 			{
 				_comment = new string[cmt.Length];
@@ -231,7 +221,7 @@ namespace GBRead.Base
 			}
 		}
 
-		public VarLabel(VarLabel prev) : this(prev._value, prev._name, prev._comment) { }
+		public VarLabel(VarLabel prev) : this(prev._value, prev._name, prev.varType, prev._comment) { }
 
 		public override string ToASMCommentString()
 		{
@@ -253,8 +243,9 @@ namespace GBRead.Base
 		public override string ToSaveFileString()
 		{
 			StringBuilder returned = new StringBuilder(".var");
-			returned.Append(Environment.NewLine + "_n:" + _name);
-			returned.Append(Environment.NewLine + "_v:" + _value.ToString("X"));
+			returned.AppendLine(Environment.NewLine + "_n:" + _name);
+			returned.AppendLine("_v:" + _value.ToString("X"));
+			returned.Append("_t:" + varType.ToString());
 			if (_comment != null)
 			{
 				foreach (string x in _comment)
@@ -279,15 +270,6 @@ namespace GBRead.Base
 			}
 			returned.AppendLine();
 			return returned.ToString();
-		}
-
-		public int CompareTo(VarLabel comp)
-		{
-			if (comp != null)
-			{
-				return _name.CompareTo(comp._name);
-			}
-			else throw new ArgumentException("Object is not a proper Variable Label.");
 		}
 
 		public override bool Equals(object obj)

@@ -38,6 +38,8 @@
 			this.guessLengthButton = new System.Windows.Forms.Button();
 			this.okButton = new System.Windows.Forms.Button();
 			this.cancelButton = new System.Windows.Forms.Button();
+			this.commentBox = new System.Windows.Forms.TextBox();
+			this.label4 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -55,7 +57,7 @@
 			this.nameBox.Name = "nameBox";
 			this.nameBox.Size = new System.Drawing.Size(164, 20);
 			this.nameBox.TabIndex = 1;
-			this.nameBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.nameBox_KeyDown);
+			this.nameBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.formBox_keyDown);
 			// 
 			// offsetBox
 			// 
@@ -63,6 +65,7 @@
 			this.offsetBox.Name = "offsetBox";
 			this.offsetBox.Size = new System.Drawing.Size(91, 20);
 			this.offsetBox.TabIndex = 2;
+			this.offsetBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.formBox_keyDown);
 			// 
 			// label2
 			// 
@@ -77,7 +80,7 @@
 			// 
 			this.isFunctionCheckBox.AutoSize = true;
 			this.isFunctionCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.isFunctionCheckBox.Location = new System.Drawing.Point(12, 58);
+			this.isFunctionCheckBox.Location = new System.Drawing.Point(11, 58);
 			this.isFunctionCheckBox.Name = "isFunctionCheckBox";
 			this.isFunctionCheckBox.Size = new System.Drawing.Size(67, 17);
 			this.isFunctionCheckBox.TabIndex = 4;
@@ -99,6 +102,7 @@
 			this.lengthBox.Name = "lengthBox";
 			this.lengthBox.Size = new System.Drawing.Size(49, 20);
 			this.lengthBox.TabIndex = 6;
+			this.lengthBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.formBox_keyDown);
 			// 
 			// guessLengthButton
 			// 
@@ -108,11 +112,11 @@
 			this.guessLengthButton.TabIndex = 7;
 			this.guessLengthButton.Text = "Guess Length";
 			this.guessLengthButton.UseVisualStyleBackColor = true;
+			this.guessLengthButton.Click += new System.EventHandler(this.guessLengthButton_Click);
 			// 
 			// okButton
 			// 
-			this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.okButton.Location = new System.Drawing.Point(12, 83);
+			this.okButton.Location = new System.Drawing.Point(15, 294);
 			this.okButton.Name = "okButton";
 			this.okButton.Size = new System.Drawing.Size(75, 23);
 			this.okButton.TabIndex = 10;
@@ -123,18 +127,37 @@
 			// cancelButton
 			// 
 			this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelButton.Location = new System.Drawing.Point(223, 83);
+			this.cancelButton.Location = new System.Drawing.Point(223, 294);
 			this.cancelButton.Name = "cancelButton";
 			this.cancelButton.Size = new System.Drawing.Size(81, 23);
 			this.cancelButton.TabIndex = 11;
 			this.cancelButton.Text = "Cancel";
 			this.cancelButton.UseVisualStyleBackColor = true;
 			// 
+			// commentBox
+			// 
+			this.commentBox.Location = new System.Drawing.Point(15, 97);
+			this.commentBox.Multiline = true;
+			this.commentBox.Name = "commentBox";
+			this.commentBox.Size = new System.Drawing.Size(289, 191);
+			this.commentBox.TabIndex = 50;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(12, 81);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(51, 13);
+			this.label4.TabIndex = 49;
+			this.label4.Text = "Comment";
+			// 
 			// AddFunctionForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(316, 122);
+			this.ClientSize = new System.Drawing.Size(320, 332);
+			this.Controls.Add(this.commentBox);
+			this.Controls.Add(this.label4);
 			this.Controls.Add(this.cancelButton);
 			this.Controls.Add(this.okButton);
 			this.Controls.Add(this.guessLengthButton);
@@ -164,5 +187,7 @@
 		private System.Windows.Forms.Button guessLengthButton;
 		private System.Windows.Forms.Button okButton;
 		private System.Windows.Forms.Button cancelButton;
+		private System.Windows.Forms.TextBox commentBox;
+		private System.Windows.Forms.Label label4;
 	}
 }

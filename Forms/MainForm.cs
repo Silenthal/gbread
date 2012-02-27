@@ -45,10 +45,6 @@ namespace GBRead.Forms
 			assembler = ac;
 			labelContainer = lcnew;
 			romFile = cs;
-
-			dataLabelBox.DataSource = labelContainer.DataList;
-			codeLabelBox.DataSource = labelContainer.FuncList;
-			varLabelBox.DataSource = labelContainer.VarList;
 		}
 
 		protected override void OnFormClosing(FormClosingEventArgs e)
@@ -126,14 +122,10 @@ namespace GBRead.Forms
 		{
 			if (dataLabelBox.SelectedItem != null)
 			{
-				if (((DataLabel)dataLabelBox.SelectedItem).DSectionType == DataSectionType.Img)
+				if (((DataLabel)dataLabelBox.SelectedItem).DSectionType == DataSectionType.Image)
 				{
 					ImageDisplayForm img = new ImageDisplayForm(romFile, (DataLabel)dataLabelBox.SelectedItem);
-					if (img.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-					{
-						labelContainer.AddLabel(img.dataSect);
-						UpdateDataBoxView();
-					}
+					img.ShowDialog();
 				}
 				else
 				{
@@ -200,138 +192,16 @@ namespace GBRead.Forms
 
 		#region CodeLabelBox Menu
 
-		private void addANewCodeLabelToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			if (romFile.FileLoaded)
-			{
-				codeTabAddCancelButton();
-			}
-			else
-			{
-				Error.ShowErrorMessage(ErrorMessage.NO_FILE);
-			}
-		}
-
 		private void renameLabelToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			codeTabEditFunction();
+			AddFunctionForm af = new AddFunctionForm(disassembler, labelContainer, codeLabelBox.Items, LabelEditMode.Edit, (FunctionLabel)codeLabelBox.SelectedItem);
+			af.ShowDialog();
 		}
 
 		private void removeFunctionMenuItem_Click(object sender, EventArgs e)
 		{
 			labelContainer.RemoveLabel((FunctionLabel)codeLabelBox.SelectedItem);
-			UpdateLabelBoxView();
-		}
-
-		private void codeTabAddCancelButton()
-		{
-			if (cancelButton.Visible)
-			{
-				int offset;
-				int length;
-				bool offSuccess = InputValidation.TryParseOffsetString(codeLabelOffsetBox.Text, out offset);
-				bool lengthSuccess = InputValidation.TryParseOffsetString(codeLabelLengthBox.Text, out length);
-				if (!offSuccess)
-				{
-					MessageBox.Show("Your entered offset was invalid. Make sure to type it properly.", "Error", MessageBoxButtons.OK);
-				}
-				else if (!lengthSuccess && !codeLabelLengthBox.Text.Equals(String.Empty))
-				{
-					MessageBox.Show("Your entered length was invalid. Make sure to type it properly.", "Error", MessageBoxButtons.OK);
-				}
-				else if (offset + length > romFile.Length)
-				{
-					MessageBox.Show("Your entered offset and length are not in the file. Make sure to type them properly.", "Error", MessageBoxButtons.OK);
-				}
-				else
-				{
-					FunctionLabel fl = new FunctionLabel(offset, codeLabelNameBox.Text, (length < 1 ? 0 : length), codeLabelCommentBox.Lines);
-					labelContainer.AddLabel(fl);
-					UpdateLabelBoxView();
-					FlipCodeLabelTabControlVisibility();
-					editButton.Visible = true;
-				}
-			}
-			else
-			{
-				FlipCodeLabelTabControlVisibility();
-				editButton.Visible = false;
-			}
-		}
-
-		private void codeTabEditFunction()
-		{
-			FunctionLabel fetch = (FunctionLabel)codeLabelBox.SelectedItem;
-			if (cancelButton.Visible)
-			{
-				int offset;
-				int length;
-				bool offsetGood = InputValidation.TryParseOffsetString(codeLabelOffsetBox.Text, out offset);
-				bool lengthGood = InputValidation.TryParseOffsetString(codeLabelLengthBox.Text, out length);
-				if (offset < 0)
-				{
-					MessageBox.Show("Your entered offset was invalid. Make sure to type it properly.", "Error", MessageBoxButtons.OK);
-				}
-				else if (length < 0)
-				{
-					MessageBox.Show("Your entered length was invalid. Make sure to type it properly.", "Error", MessageBoxButtons.OK);
-				}
-				else if (offset + length > romFile.Length)
-				{
-					MessageBox.Show("Your entered offset and length are not in the file. Make sure to type them properly.", "Error", MessageBoxButtons.OK);
-				}
-				else
-				{
-					labelContainer.RemoveLabel(fetch);
-					fetch = new FunctionLabel(offset, codeLabelNameBox.Text, (length < 1 ? 0 : length), codeLabelCommentBox.Lines);
-					labelContainer.AddLabel(fetch);
-					UpdateLabelBoxView();
-					FlipCodeLabelTabControlVisibility();
-					addButton.Visible = true;
-				}
-			}
-			else
-			{
-				FlipCodeLabelTabControlVisibility();
-				addButton.Visible = false;
-				codeLabelNameBox.Text = fetch.Name;
-				codeLabelOffsetBox.Text = fetch.Offset.ToString("X");
-				codeLabelLengthBox.Text = fetch.Length.ToString("X");
-				if (fetch.Comment != null)
-				{
-					if (fetch.Comment.Length == 1)
-					{
-						codeLabelCommentBox.Text = fetch.Comment[0];
-					}
-					else
-					{
-						for (int i = 0; i < fetch.Comment.Length; i++)
-						{
-							if (i == 0) codeLabelCommentBox.Text = fetch.Comment[i];
-							else codeLabelCommentBox.AppendText(Environment.NewLine + fetch.Comment[i]);
-						}
-					}
-				}
-			}
-		}
-
-		public void FlipCodeLabelTabControlVisibility()
-		{
-			codeLabelNameLabel.Visible = !codeLabelNameLabel.Visible;
-			codeLabelOffsetLabel.Visible = !codeLabelOffsetLabel.Visible;
-			codeLabelLengthLabel.Visible = !codeLabelLengthLabel.Visible;
-			codeLabelCommentLabel.Visible = !codeLabelCommentLabel.Visible;
-			codeLabelBox.Visible = !codeLabelBox.Visible;
-			codeLabelNameBox.Visible = !codeLabelNameBox.Visible;
-			codeLabelOffsetBox.Visible = !codeLabelOffsetBox.Visible;
-			codeLabelLengthBox.Visible = !codeLabelLengthBox.Visible;
-			codeLabelCommentBox.Visible = !codeLabelCommentBox.Visible;
-			cancelButton.Visible = !cancelButton.Visible;
-			codeLabelNameBox.Text = "";
-			codeLabelOffsetBox.Text = "";
-			codeLabelLengthBox.Text = "";
-			codeLabelCommentBox.Text = "";
-			if (codeLabelOffsetBox.Visible) codeLabelOffsetBox.Focus();
+			codeLabelBox.Items.Remove(codeLabelBox.SelectedItem);
 		}
 
 		#endregion
@@ -342,7 +212,8 @@ namespace GBRead.Forms
 		{
 			if (romFile.FileLoaded)
 			{
-				dataTabAddCancelButton();
+				AddDataSectionForm ad = new AddDataSectionForm(disassembler, labelContainer, dataLabelBox.Items, LabelEditMode.Add);
+				ad.ShowDialog();
 			}
 			else
 			{
@@ -352,140 +223,14 @@ namespace GBRead.Forms
 
 		private void renameADataSectionToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			dataTabEditFunction();
+			AddDataSectionForm ad = new AddDataSectionForm(disassembler, labelContainer, dataLabelBox.Items, LabelEditMode.Edit, (DataLabel)dataLabelBox.SelectedItem);
+			ad.ShowDialog();
 		}
 
 		private void removeToolStripMenuItem1_Click(object sender, EventArgs e)
 		{
 			labelContainer.RemoveLabel((DataLabel)dataLabelBox.SelectedItem);
-			UpdateDataBoxView();
-		}
-
-		public void dataTabAddCancelButton()
-		{
-			if (cancelButton.Visible)
-			{
-				int offset;
-				int length;
-				int dataDiv;
-				bool offsetGood = InputValidation.TryParseOffsetString(dataLabelOffsetBox.Text, out offset);
-				bool lengthGood = InputValidation.TryParseOffsetString(dataLabelLengthBox.Text, out length);
-				bool dataDivGood = InputValidation.TryParseOffsetString(dataLabelRowLengthBox.Text, out dataDiv);
-				if (offset < 0)
-				{
-					MessageBox.Show("Your entered offset was invalid. Make sure to type it properly.", "Error", MessageBoxButtons.OK);
-				}
-				else if (length < 1)
-				{
-					MessageBox.Show("Your entered length was invalid. Make sure to type it properly.", "Error", MessageBoxButtons.OK);
-				}
-				else if (offset + length > romFile.Length)
-				{
-					MessageBox.Show("Your entered offset and length are not in the file. Make sure to type them properly.", "Error", MessageBoxButtons.OK);
-				}
-				else
-				{
-					DataSectionType dst = (DataSectionType)dataLabelDataTypeBox.SelectedIndex;
-					DataLabel ds = new DataLabel(offset, length, dataLabelNameBox.Text, dataDiv, dataLabelCommentBox.Lines, dst);
-					labelContainer.AddLabel(ds);
-					UpdateDataBoxView();
-					FlipDataLabelTabControlVisibility();
-					editButton.Visible = true;
-				}
-			}
-			else
-			{
-				FlipDataLabelTabControlVisibility();
-				editButton.Visible = false;
-			}
-		}
-
-		private void dataTabEditFunction()
-		{
-			DataLabel fetch = (DataLabel)dataLabelBox.SelectedItem;
-			if (cancelButton.Visible)
-			{
-				int offset;
-				int length;
-				int dataDiv;
-				bool offsetGood = InputValidation.TryParseOffsetString(dataLabelOffsetBox.Text, out offset);
-				bool lengthGood = InputValidation.TryParseOffsetString(dataLabelLengthBox.Text, out length);
-				bool dataDivGood = InputValidation.TryParseOffsetString(dataLabelRowLengthBox.Text, out dataDiv);
-				if (offset < 0)
-				{
-					MessageBox.Show("Your entered offset was invalid. Make sure to type it properly.", "Error", MessageBoxButtons.OK);
-				}
-				else if (length < 1)
-				{
-					MessageBox.Show("Your entered length was invalid. Make sure to type it properly.", "Error", MessageBoxButtons.OK);
-				}
-				else if (offset + length > romFile.Length)
-				{
-					MessageBox.Show("Your combined offset and length are not in the file. Make sure to type them properly.", "Error", MessageBoxButtons.OK);
-				}
-				else
-				{
-					labelContainer.RemoveLabel(fetch);
-					DataSectionType dst = (DataSectionType)dataLabelDataTypeBox.SelectedIndex;
-					fetch = new DataLabel(offset, length, dataLabelNameBox.Text, dataDiv, dataLabelCommentBox.Lines, dst);
-					labelContainer.AddLabel(fetch);
-					UpdateDataBoxView();
-					FlipDataLabelTabControlVisibility();
-					addButton.Visible = true;
-				}
-			}
-			else
-			{
-				FlipDataLabelTabControlVisibility();
-				addButton.Visible = false;
-				dataLabelNameBox.Text = fetch.Name;
-				dataLabelOffsetBox.Text = fetch.Offset.ToString("X");
-				dataLabelLengthBox.Text = fetch.Length.ToString("X");
-				dataLabelRowLengthBox.Text = fetch.DataLineLength.ToString("X");
-				dataLabelDataTypeBox.SelectedIndex = (int)fetch.DSectionType;
-				if (fetch.Comment != null)
-				{
-					if (fetch.Comment.Length == 1)
-					{
-						dataLabelCommentBox.Text = fetch.Comment[0];
-					}
-					else
-					{
-						for (int i = 0; i < fetch.Comment.Length; i++)
-						{
-							if (i == 0) dataLabelCommentBox.Text = fetch.Comment[i];
-							else dataLabelCommentBox.AppendText(Environment.NewLine + fetch.Comment[i]);
-						}
-					}
-				}
-			}
-		}
-
-		public void FlipDataLabelTabControlVisibility()
-		{
-			dataLabelNameLabel.Visible = !dataLabelNameLabel.Visible;
-			dataLabelOffsetLabel.Visible = !dataLabelOffsetLabel.Visible;
-			dataLabelLengthLabel.Visible = !dataLabelLengthLabel.Visible;
-			dataLabelDataTypeLabel.Visible = !dataLabelDataTypeLabel.Visible;
-			dataLabelCommentLabel.Visible = !dataLabelCommentLabel.Visible;
-			dataLabelRowLengthLabel.Visible = !dataLabelRowLengthLabel.Visible;
-
-			dataLabelBox.Visible = !dataLabelBox.Visible;
-			dataLabelNameBox.Visible = !dataLabelNameBox.Visible;
-			dataLabelOffsetBox.Visible = !dataLabelOffsetBox.Visible;
-			dataLabelLengthBox.Visible = !dataLabelLengthBox.Visible;
-			dataLabelDataTypeBox.Visible = !dataLabelDataTypeBox.Visible;
-			dataLabelCommentBox.Visible = !dataLabelCommentBox.Visible;
-			dataLabelRowLengthBox.Visible = !dataLabelRowLengthBox.Visible;
-
-			cancelButton.Visible = !cancelButton.Visible;
-			dataLabelNameBox.Text = "";
-			dataLabelOffsetBox.Text = "";
-			dataLabelLengthBox.Text = "";
-			dataLabelCommentBox.Text = "";
-			dataLabelDataTypeBox.SelectedIndex = 0;
-			dataLabelRowLengthBox.Text = "8";
-			if (dataLabelOffsetBox.Visible) dataLabelOffsetBox.Focus();
+			dataLabelBox.Items.Remove(dataLabelBox.SelectedItem);
 		}
 
 		#endregion
@@ -496,7 +241,8 @@ namespace GBRead.Forms
 		{
 			if (romFile.FileLoaded)
 			{
-				varTabAddCancelButton();
+				AddVariableForm av = new AddVariableForm(disassembler, labelContainer, varLabelBox.Items, LabelEditMode.Add);
+				av.ShowDialog();
 			}
 			else
 			{
@@ -506,106 +252,14 @@ namespace GBRead.Forms
 
 		private void editVariableToolStripMenuItem2_Click(object sender, EventArgs e)
 		{
-			varTabEditFunction();
+			AddVariableForm av = new AddVariableForm(disassembler, labelContainer, varLabelBox.Items, LabelEditMode.Edit, (VarLabel)varLabelBox.SelectedItem);
+			av.ShowDialog();
 		}
 
 		private void removeVariableToolStripMenuItem3_Click(object sender, EventArgs e)
 		{
 			labelContainer.RemoveLabel((VarLabel)varLabelBox.SelectedItem);
-			UpdateVarBoxView();
-		}
-
-		public void varTabAddCancelButton()
-		{
-			if (cancelButton.Visible)
-			{
-				int offset;
-				bool offsetGood = InputValidation.TryParseOffsetString(varLabelOffsetBox.Text, out offset);
-				if (offset < 0)
-				{
-					MessageBox.Show("Your entered variable was invalid. Make sure to type it properly.", "Error", MessageBoxButtons.OK);
-				}
-				else
-				{
-					VarLabel vl = new VarLabel(offset, varLabelNameBox.Text, varLabelCommentBox.Lines);
-					labelContainer.AddLabel(vl);
-					UpdateVarBoxView();
-					FlipVarLabelTabControlVisibility();
-					editButton.Visible = true;
-				}
-			}
-			else
-			{
-				FlipVarLabelTabControlVisibility();
-				editButton.Visible = false;
-			}
-		}
-
-		private void varTabEditFunction()
-		{
-			VarLabel fetch = (VarLabel)varLabelBox.SelectedItem;
-			if (cancelButton.Visible)
-			{
-				int offset;
-				int length;
-				bool offsetGood = InputValidation.TryParseOffsetString(varLabelOffsetBox.Text, out offset);
-				bool lengthGood = InputValidation.TryParseOffsetString(varLabelOffsetBox.Text, out length);
-				if (offset == -1)
-				{
-					MessageBox.Show("Your entered offset was invalid. Make sure to type it properly.", "Error", MessageBoxButtons.OK);
-				}
-				else if (length == -1 && varLabelOffsetBox.Text.Equals(String.Empty))
-				{
-					MessageBox.Show("Your entered value was invalid. Make sure to type it properly.", "Error", MessageBoxButtons.OK);
-				}
-				else
-				{
-					labelContainer.RemoveLabel(fetch);
-					fetch = new VarLabel(offset, varLabelNameBox.Text, varLabelCommentBox.Lines);
-					labelContainer.AddLabel(fetch);
-					UpdateVarBoxView();
-					FlipVarLabelTabControlVisibility();
-					addButton.Visible = true;
-				}
-			}
-			else
-			{
-				FlipVarLabelTabControlVisibility();
-				addButton.Visible = false;
-				varLabelNameBox.Text = fetch.Name;
-				varLabelOffsetBox.Text = fetch.Variable.ToString("X");
-				if (fetch.Comment != null)
-				{
-					if (fetch.Comment.Length == 1)
-					{
-						varLabelCommentBox.Text = fetch.Comment[0];
-					}
-					else
-					{
-						for (int i = 0; i < fetch.Comment.Length; i++)
-						{
-							if (i == 0) varLabelCommentBox.Text = fetch.Comment[i];
-							else varLabelCommentBox.AppendText(Environment.NewLine + fetch.Comment[i]);
-						}
-					}
-				}
-			}
-		}
-
-		public void FlipVarLabelTabControlVisibility()
-		{
-			varLabelNameLabel.Visible = !varLabelNameLabel.Visible;
-			varLabelOffsetLabel.Visible = !varLabelOffsetLabel.Visible;
-			varLabelCommentLabel.Visible = !varLabelCommentLabel.Visible;
-			varLabelBox.Visible = !varLabelBox.Visible;
-			varLabelNameBox.Visible = !varLabelNameBox.Visible;
-			varLabelOffsetBox.Visible = !varLabelOffsetBox.Visible;
-			varLabelCommentBox.Visible = !varLabelCommentBox.Visible;
-			cancelButton.Visible = !cancelButton.Visible;
-			varLabelNameBox.Text = "";
-			varLabelOffsetBox.Text = "";
-			varLabelCommentBox.Text = "";
-			if (varLabelOffsetBox.Visible) varLabelOffsetBox.Focus();
+			varLabelBox.Items.Remove(varLabelBox.SelectedItem);
 		}
 
 		#endregion
@@ -623,10 +277,32 @@ namespace GBRead.Forms
 				this.Text = "GBRead - " + openFileDialog1.SafeFileName;
 				UpdateMainTextBox(romFile.GetBinInfo(), TextBoxWriteMode.Overwrite);
 				currentFileLoaded = openFileDialog1.FileName;
+				labelContainer.ClearAllLists();
+				codeLabelBox.Items.Clear();
+				dataLabelBox.Items.Clear();
+				varLabelBox.Items.Clear();
 				labelContainer.LoadDefaultLabels(romFile.Length);
-				UpdateDataBoxView();
-				UpdateLabelBoxView();
-				UpdateVarBoxView();
+				foreach (FunctionLabel f in labelContainer.FuncList)
+				{
+					if (!codeLabelBox.Items.Contains(f))
+					{
+						codeLabelBox.Items.Add(f);
+					}
+				}
+				foreach (DataLabel f in labelContainer.DataList)
+				{
+					if (!dataLabelBox.Items.Contains(f))
+					{
+						dataLabelBox.Items.Add(f);
+					}
+				}
+				foreach (VarLabel f in labelContainer.VarList)
+				{
+					if (!varLabelBox.Items.Contains(f))
+					{
+						varLabelBox.Items.Add(f);
+					}
+				}
 				startBox.Focus();
 			}
 		}
@@ -646,9 +322,27 @@ namespace GBRead.Forms
 				if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 				{
 					labelContainer.LoadLabelFile(openFileDialog1.FileName);
-					UpdateLabelBoxView();
-					UpdateVarBoxView();
-					UpdateDataBoxView();
+					foreach (FunctionLabel f in labelContainer.FuncList)
+					{
+						if (!codeLabelBox.Items.Contains(f))
+						{
+							codeLabelBox.Items.Add(f);
+						}
+					}
+					foreach (DataLabel f in labelContainer.DataList)
+					{
+						if (!dataLabelBox.Items.Contains(f))
+						{
+							dataLabelBox.Items.Add(f);
+						}
+					}
+					foreach (VarLabel f in labelContainer.VarList)
+					{
+						if (!varLabelBox.Items.Contains(f))
+						{
+							varLabelBox.Items.Add(f);
+						}
+					}
 				}
 			}
 			else
@@ -728,9 +422,6 @@ namespace GBRead.Forms
 			OptionsForm op = new OptionsForm(disassembler, labelContainer, mainFormOptions, mainTextBox.SyntaxHighlighter);
 			op.ShowDialog();
 			mainTextBox.WordWrap = mainFormOptions.isWordWrap;
-			UpdateLabelBoxView();
-			UpdateVarBoxView();
-			UpdateDataBoxView();
 		}
 
 		private void exportToBinaryFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -802,58 +493,6 @@ namespace GBRead.Forms
 			}
 		}
 
-		private void offsetBox_KeyPress(object sender, KeyPressEventArgs e)
-		{
-			if ((Keys)e.KeyChar == Keys.Enter)
-			{
-				if (addButton.Visible) addButton_Click(new object(), new EventArgs());
-				else editButton_Click(new object(), new EventArgs());
-				e.Handled = true;
-			}
-			if (!Char.IsControl(e.KeyChar) && !Char.IsDigit(e.KeyChar) && !(e.KeyChar >= 'A' && e.KeyChar <= 'F') && !(e.KeyChar >= 'a' && e.KeyChar <= 'f') && !(e.KeyChar == ':'))
-			{
-				e.Handled = true;
-			}
-		}
-
-		private void nameBox_KeyPress(object sender, KeyPressEventArgs e)
-		{
-			if ((Keys)e.KeyChar == Keys.Enter)
-			{
-				if (addButton.Visible) addButton_Click(new object(), new EventArgs());
-				else editButton_Click(new object(), new EventArgs());
-				e.Handled = true;
-			}
-		}
-
-		private void lengthBox_KeyPress(object sender, KeyPressEventArgs e)
-		{
-			if ((Keys)e.KeyChar == Keys.Enter)
-			{
-				if (addButton.Visible) addButton_Click(new object(), new EventArgs());
-				else editButton_Click(new object(), new EventArgs());
-				e.Handled = true;
-			}
-			if (!Char.IsControl(e.KeyChar) && !Char.IsDigit(e.KeyChar) && !(e.KeyChar >= 'A' && e.KeyChar <= 'F') && !(e.KeyChar >= 'a' && e.KeyChar <= 'f'))
-			{
-				e.Handled = true;
-			}
-		}
-
-		private void dataLabelRowLengthBox_KeyPress(object sender, KeyPressEventArgs e)
-		{
-			if ((Keys)e.KeyChar == Keys.Enter)
-			{
-				if (addButton.Visible) addButton_Click(new object(), new EventArgs());
-				else editButton_Click(new object(), new EventArgs());
-				e.Handled = true;
-			}
-			if (!Char.IsControl(e.KeyChar) && !Char.IsDigit(e.KeyChar) && !(e.KeyChar >= 'A' && e.KeyChar <= 'F') && !(e.KeyChar >= 'a' && e.KeyChar <= 'f') && !(e.KeyChar == ':'))
-			{
-				e.Handled = true;
-			}
-		}
-
 		private void codeLabelBox_DrawItem(object sender, DrawItemEventArgs e)
 		{
 			e.DrawBackground();
@@ -882,11 +521,8 @@ namespace GBRead.Forms
 				sf.LineAlignment = StringAlignment.Center;
 				switch (ds.DSectionType)
 				{
-					case DataSectionType.Img:
+					case DataSectionType.Image:
 						itemBrush = Brushes.DeepPink;
-						break;
-					case DataSectionType.Text:
-						itemBrush = Brushes.ForestGreen;
 						break;
 					default:
 						break;
@@ -909,95 +545,6 @@ namespace GBRead.Forms
 				e.Graphics.DrawString(ds.ToString(), e.Font, itemBrush, varLabelBox.GetItemRectangle(e.Index), sf);
 			}
 			e.DrawFocusRectangle();
-		}
-
-		private void addButton_Click(object sender, EventArgs e)
-		{
-			if (romFile.FileLoaded)
-			{
-				switch (LabelTabControl.SelectedIndex)
-				{
-					case 0:
-						codeTabAddCancelButton();
-						break;
-					case 1:
-						dataTabAddCancelButton();
-						break;
-					case 2:
-						varTabAddCancelButton();
-						break;
-					default:
-						break;
-				}
-			}
-			else
-			{
-				Error.ShowErrorMessage(ErrorMessage.NO_FILE);
-			}
-		}
-
-		private void cancelButton_Click(object sender, EventArgs e)
-		{
-			if (romFile.FileLoaded)
-			{
-				switch (LabelTabControl.SelectedIndex)
-				{
-					case 0:
-						if (editButton.Visible) addButton.Visible = true;
-						else editButton.Visible = true;
-						FlipCodeLabelTabControlVisibility();
-						break;
-					case 1:
-						if (editButton.Visible) addButton.Visible = true;
-						else editButton.Visible = true;
-						FlipDataLabelTabControlVisibility();
-						break;
-					case 2:
-						if (editButton.Visible) addButton.Visible = true;
-						else editButton.Visible = true;
-						FlipVarLabelTabControlVisibility();
-						break;
-					default:
-						break;
-				}
-			}
-			else
-			{
-				Error.ShowErrorMessage(ErrorMessage.NO_FILE);
-			}
-		}
-
-		private void editButton_Click(object sender, EventArgs e)
-		{
-			if (romFile.FileLoaded)
-			{
-				switch (LabelTabControl.SelectedIndex)
-				{
-					case 0:
-						if (codeLabelBox.SelectedItem != null) codeTabEditFunction();
-						break;
-					case 1:
-						if (dataLabelBox.SelectedItem != null) dataTabEditFunction();
-						break;
-					case 2:
-						if (varLabelBox.SelectedItem != null) varTabEditFunction();
-						break;
-					default:
-						break;
-				}
-			}
-			else
-			{
-				Error.ShowErrorMessage(ErrorMessage.NO_FILE);
-			}
-		}
-
-		private void LabelTabControl_Selecting(object sender, TabControlCancelEventArgs e)
-		{
-			if (cancelButton.Visible)
-			{
-				e.Cancel = true;
-			}
 		}
 
 		private void insertASMAtLocationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1038,7 +585,6 @@ namespace GBRead.Forms
 		{
 			((CurrencyManager)varLabelBox.BindingContext[labelContainer.VarList]).Refresh();
 		}
-
 		#endregion
 
 		#region Asynchronous Operations
@@ -1193,6 +739,19 @@ namespace GBRead.Forms
 		{
 			DataLabel selectedLabel = (DataLabel)dataLabelBox.SelectedItem;
 			UpdateMainTextBox(disassembler.SearchForReference(selectedLabel), TextBoxWriteMode.Overwrite);
+		}
+
+		private void addFuncLabelToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (romFile.FileLoaded)
+			{
+				AddFunctionForm af = new AddFunctionForm(disassembler, labelContainer, codeLabelBox.Items, LabelEditMode.Add);
+				af.ShowDialog();
+			}
+			else
+			{
+				Error.ShowErrorMessage(ErrorMessage.NO_FILE);
+			}
 		}
 	}
 

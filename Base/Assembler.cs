@@ -187,12 +187,12 @@ namespace GBRead.Base
 						{
 							if (variableDict.ContainsKey(varName))
 							{
-								error = new CompError(lines[i], i + 1, CompilerErrorMessage.VARIABLE_ALREADY_DEFINED, varName);
+								error = new CompError(lines[i], i + 1, ErrorMessage.VARIABLE_ALREADY_DEFINED, varName);
 								return null;
 							}
 							else if (!isNumber(varVal))
 							{
-								error = new CompError(lines[i], i + 1, CompilerErrorMessage.VARIABLE_NOT_ASSIGNED_NUMBER, varVal);
+								error = new CompError(lines[i], i + 1, ErrorMessage.VARIABLE_NOT_ASSIGNED_NUMBER, varVal);
 								return null;
 							}
 							else
@@ -203,13 +203,13 @@ namespace GBRead.Base
 						}
 						else
 						{
-							error = new CompError(lines[i], i + 1, CompilerErrorMessage.VARIABLE_NAME_INVALID, varName);
+							error = new CompError(lines[i], i + 1, ErrorMessage.VARIABLE_NAME_INVALID, varName);
 							return null;
 						}
 					}
 					else
 					{
-						error = new CompError(lines[i], i + 1, CompilerErrorMessage.UNRECOGNIZED_LINE, lines[i]);
+						error = new CompError(lines[i], i + 1, ErrorMessage.UNRECOGNIZED_LINE, lines[i]);
 						return null;
 					}
 				}
@@ -238,7 +238,7 @@ namespace GBRead.Base
 					}
 					else
 					{
-						error = new CompError(lines[i], i + 1, CompilerErrorMessage.DATA_ARGUMENTS_UNRECOGNIZED, lines[i]);
+						error = new CompError(lines[i], i + 1, ErrorMessage.DATA_ARGUMENTS_UNRECOGNIZED, lines[i]);
 						return null;
 					}
 				}
@@ -251,7 +251,7 @@ namespace GBRead.Base
 				{
 					if (callDict.ContainsKey(lines[i]))
 					{
-						error = new CompError(lines[i], i + 1, CompilerErrorMessage.LABEL_ALREADY_DEFINED, lines[i]);
+						error = new CompError(lines[i], i + 1, ErrorMessage.LABEL_ALREADY_DEFINED, lines[i]);
 						return null;
 					}
 					else
@@ -291,7 +291,7 @@ namespace GBRead.Base
 					}
 					else
 					{
-						error = new CompError(lines[i], i + 1, CompilerErrorMessage.UNRECOGNIZED_LINE);
+						error = new CompError(lines[i], i + 1, ErrorMessage.UNRECOGNIZED_LINE);
 						return null;
 					}
 
@@ -342,7 +342,7 @@ namespace GBRead.Base
 						}
 						else
 						{
-							error = new CompError(lines[i], i + 1, CompilerErrorMessage.UNKNOWN_MEMORY_REFERENCE, arg1);
+							error = new CompError(lines[i], i + 1, ErrorMessage.UNKNOWN_MEMORY_REFERENCE, arg1);
 						}
 					}
 					else if (isConditionalInst(inst) && conditionBytes.ContainsKey(arg1)) arg1Token = new InstructionToken(TokenType.CONDITION, arg1, conditionBytes[arg1]);
@@ -359,7 +359,7 @@ namespace GBRead.Base
 					else if (isNumber(arg1)) arg1Token = new InstructionToken(TokenType.NUMBER, arg1, 0);
 					else
 					{
-						error = new CompError(lines[i], i + 1, CompilerErrorMessage.UNKNOWN_ARGUMENT, arg1);
+						error = new CompError(lines[i], i + 1, ErrorMessage.UNKNOWN_ARGUMENT, arg1);
 					}
 
 					#endregion Arg 1 Handling
@@ -384,7 +384,7 @@ namespace GBRead.Base
 						}
 						else
 						{
-							error = new CompError(lines[i], i + 1, CompilerErrorMessage.UNKNOWN_MEMORY_REFERENCE, arg2);
+							error = new CompError(lines[i], i + 1, ErrorMessage.UNKNOWN_MEMORY_REFERENCE, arg2);
 						}
 					}
 					else if (isConditionalInst(inst) && conditionBytes.ContainsKey(arg2)) arg2Token = new InstructionToken(TokenType.CONDITION, arg2, conditionBytes[arg2]);
@@ -401,7 +401,7 @@ namespace GBRead.Base
 					else if (isNumber(arg2)) arg2Token = new InstructionToken(TokenType.NUMBER, arg2, 0);
 					else
 					{
-						error = new CompError(lines[i], i + 1, CompilerErrorMessage.UNKNOWN_ARGUMENT, arg2);
+						error = new CompError(lines[i], i + 1, ErrorMessage.UNKNOWN_ARGUMENT, arg2);
 					}
 
 					#endregion Arg 2 Handling
@@ -435,7 +435,7 @@ namespace GBRead.Base
 
 						else
 						{
-							error = new CompError(lines[i], i + 1, CompilerErrorMessage.SINGLE_ARG_UNRECOGNIZED, arg1Token.tokenVal);
+							error = new CompError(lines[i], i + 1, ErrorMessage.SINGLE_ARG_UNRECOGNIZED, arg1Token.tokenVal);
 							return null;
 						}
 					}
@@ -508,7 +508,7 @@ namespace GBRead.Base
 
 								else
 								{
-									error = new CompError(lines[i], i + 1, CompilerErrorMessage.SINGLE_ARG_UNRECOGNIZED, arg2Token.tokenVal);
+									error = new CompError(lines[i], i + 1, ErrorMessage.SINGLE_ARG_UNRECOGNIZED, arg2Token.tokenVal);
 									return null;
 								}
 							}
@@ -537,7 +537,7 @@ namespace GBRead.Base
 
 								else
 								{
-									error = new CompError(lines[i], i + 1, CompilerErrorMessage.SINGLE_ARG_UNRECOGNIZED, arg1Token.tokenVal);
+									error = new CompError(lines[i], i + 1, ErrorMessage.SINGLE_ARG_UNRECOGNIZED, arg1Token.tokenVal);
 									return null;
 								}
 							}
@@ -546,7 +546,7 @@ namespace GBRead.Base
 
 							else
 							{
-								error = new CompError(lines[i], i + 1, CompilerErrorMessage.DOUBLE_ARG_UNRECOGNIZED, arg1Token.tokenVal, arg2Token.tokenVal);
+								error = new CompError(lines[i], i + 1, ErrorMessage.DOUBLE_ARG_UNRECOGNIZED, arg1Token.tokenVal, arg2Token.tokenVal);
 								return null;
 							}
 						}
@@ -571,7 +571,7 @@ namespace GBRead.Base
 
 						else
 						{
-							error = new CompError(lines[i], i + 1, CompilerErrorMessage.DOUBLE_ARG_UNRECOGNIZED, arg1Token.tokenVal, arg2Token.tokenVal);
+							error = new CompError(lines[i], i + 1, ErrorMessage.DOUBLE_ARG_UNRECOGNIZED, arg1Token.tokenVal, arg2Token.tokenVal);
 							return null;
 						}
 					}
@@ -580,7 +580,7 @@ namespace GBRead.Base
 
 					else
 					{
-						error = new CompError(lines[i], i + 1, CompilerErrorMessage.UNRECOGNIZED_LINE);
+						error = new CompError(lines[i], i + 1, ErrorMessage.UNRECOGNIZED_LINE);
 						return null;
 					}
 				}
@@ -634,7 +634,7 @@ namespace GBRead.Base
 							}
 							else
 							{
-								error = new CompError(lines[i], i + 1, CompilerErrorMessage.DATA_SINGLE_ARG_UNRECOGNIZED, argList[dCount]);
+								error = new CompError(lines[i], i + 1, ErrorMessage.DATA_SINGLE_ARG_UNRECOGNIZED, argList[dCount]);
 								return null;
 							}
 							for (int ds = 0; ds < dataSize; ds++)
@@ -645,7 +645,7 @@ namespace GBRead.Base
 					}
 					else
 					{
-						error = new CompError(lines[i], i + 1, CompilerErrorMessage.DATA_ARGUMENTS_UNRECOGNIZED, lines[i]);
+						error = new CompError(lines[i], i + 1, ErrorMessage.DATA_ARGUMENTS_UNRECOGNIZED, lines[i]);
 						return null;
 					}
 				}
@@ -677,7 +677,7 @@ namespace GBRead.Base
 					}
 					else
 					{
-						error = new CompError(lines[i], i + 1, CompilerErrorMessage.UNRECOGNIZED_LINE);
+						error = new CompError(lines[i], i + 1, ErrorMessage.UNRECOGNIZED_LINE);
 						return null;
 					}
 
@@ -741,7 +741,7 @@ namespace GBRead.Base
 						}
 						else
 						{
-							error = new CompError(lines[i], i + 1, CompilerErrorMessage.UNKNOWN_MEMORY_REFERENCE, arg1);
+							error = new CompError(lines[i], i + 1, ErrorMessage.UNKNOWN_MEMORY_REFERENCE, arg1);
 						}
 					}
 					else if (isConditionalInst(inst) && conditionBytes.ContainsKey(arg1)) arg1Token = new InstructionToken(TokenType.CONDITION, arg1, conditionBytes[arg1]);
@@ -760,7 +760,7 @@ namespace GBRead.Base
 					else if (isNumber(arg1)) arg1Token = new InstructionToken(TokenType.NUMBER, arg1, NumStringToInt(arg1));
 					else
 					{
-						error = new CompError(lines[i], i + 1, CompilerErrorMessage.UNKNOWN_ARGUMENT, arg1);
+						error = new CompError(lines[i], i + 1, ErrorMessage.UNKNOWN_ARGUMENT, arg1);
 					}
 
 					#endregion Arg 1 Handling
@@ -787,7 +787,7 @@ namespace GBRead.Base
 						}
 						else
 						{
-							error = new CompError(lines[i], i + 1, CompilerErrorMessage.UNKNOWN_MEMORY_REFERENCE, arg2);
+							error = new CompError(lines[i], i + 1, ErrorMessage.UNKNOWN_MEMORY_REFERENCE, arg2);
 						}
 					}
 					else if (isConditionalInst(inst) && conditionBytes.ContainsKey(arg2)) arg2Token = new InstructionToken(TokenType.CONDITION, arg2, conditionBytes[arg2]);
@@ -806,7 +806,7 @@ namespace GBRead.Base
 					else if (isNumber(arg2)) arg2Token = new InstructionToken(TokenType.NUMBER, arg2, NumStringToInt(arg2));
 					else
 					{
-						error = new CompError(lines[i], i + 1, CompilerErrorMessage.UNKNOWN_ARGUMENT, arg2);
+						error = new CompError(lines[i], i + 1, ErrorMessage.UNKNOWN_ARGUMENT, arg2);
 					}
 
 					#endregion Arg 2 Handling
@@ -835,7 +835,7 @@ namespace GBRead.Base
 								int diff = arg1Token.tokenAsInteger - (currentOffset + 2);
 								if (diff < -128 || diff > 127)
 								{
-									error = new CompError(lines[i], i + 1, CompilerErrorMessage.JR_OUT_OF_RANGE);
+									error = new CompError(lines[i], i + 1, ErrorMessage.JR_OUT_OF_RANGE);
 									return null;
 								}
 								else
@@ -864,7 +864,7 @@ namespace GBRead.Base
 
 						else
 						{
-							error = new CompError(lines[i], i + 1, CompilerErrorMessage.SINGLE_ARG_UNRECOGNIZED, arg1Token.tokenVal);
+							error = new CompError(lines[i], i + 1, ErrorMessage.SINGLE_ARG_UNRECOGNIZED, arg1Token.tokenVal);
 							return null;
 						}
 					}
@@ -952,7 +952,7 @@ namespace GBRead.Base
 
 								else
 								{
-									error = new CompError(lines[i], i + 1, CompilerErrorMessage.SINGLE_ARG_UNRECOGNIZED, arg2Token.tokenVal);
+									error = new CompError(lines[i], i + 1, ErrorMessage.SINGLE_ARG_UNRECOGNIZED, arg2Token.tokenVal);
 									return null;
 								}
 							}
@@ -986,7 +986,7 @@ namespace GBRead.Base
 
 								else
 								{
-									error = new CompError(lines[i], i + 1, CompilerErrorMessage.SINGLE_ARG_UNRECOGNIZED, arg1Token.tokenVal);
+									error = new CompError(lines[i], i + 1, ErrorMessage.SINGLE_ARG_UNRECOGNIZED, arg1Token.tokenVal);
 									return null;
 								}
 							}
@@ -995,7 +995,7 @@ namespace GBRead.Base
 
 							else
 							{
-								error = new CompError(lines[i], i + 1, CompilerErrorMessage.DOUBLE_ARG_UNRECOGNIZED, arg1Token.tokenVal, arg2Token.tokenVal);
+								error = new CompError(lines[i], i + 1, ErrorMessage.DOUBLE_ARG_UNRECOGNIZED, arg1Token.tokenVal, arg2Token.tokenVal);
 								return null;
 							}
 						}
@@ -1016,7 +1016,7 @@ namespace GBRead.Base
 								int diff = arg2Token.tokenAsInteger - (currentOffset + 2);
 								if (diff < -128 || diff > 127)
 								{
-									error = new CompError(lines[i], i + 1, CompilerErrorMessage.JR_OUT_OF_RANGE);
+									error = new CompError(lines[i], i + 1, ErrorMessage.JR_OUT_OF_RANGE);
 									return null;
 								}
 								else
@@ -1039,7 +1039,7 @@ namespace GBRead.Base
 
 						else
 						{
-							error = new CompError(lines[i], i + 1, CompilerErrorMessage.DOUBLE_ARG_UNRECOGNIZED, arg1Token.tokenVal, arg2Token.tokenVal);
+							error = new CompError(lines[i], i + 1, ErrorMessage.DOUBLE_ARG_UNRECOGNIZED, arg1Token.tokenVal, arg2Token.tokenVal);
 							return null;
 						}
 					}
@@ -1048,7 +1048,7 @@ namespace GBRead.Base
 
 					else
 					{
-						error = new CompError(lines[i], i + 1, CompilerErrorMessage.UNRECOGNIZED_LINE);
+						error = new CompError(lines[i], i + 1, ErrorMessage.UNRECOGNIZED_LINE);
 						return null;
 					}
 				}

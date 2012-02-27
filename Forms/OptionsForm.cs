@@ -46,47 +46,17 @@ namespace GBRead.Forms
 					instructionNumberFormatBox.SelectedIndex = 1;
 					break;
 			}
-			switch (lc.FuncListSortOrder)
-			{
-				case ListSortOrder.BY_NAME:
-					codeLabelNameSortButton.Checked = true;
-					break;
-				case ListSortOrder.BY_VALUE:
-					codeLabelOffsetSortButton.Checked = true;
-					break;
-			}
-			switch (lc.DataListSortOrder)
-			{
-				case ListSortOrder.BY_NAME:
-					dataLabelNameSortButton.Checked = true;
-					break;
-				case ListSortOrder.BY_VALUE:
-					dataLabelOffsetSortButton.Checked = true;
-					break;
-			}
-			switch (lc.VarListSortOrder)
-			{
-				case ListSortOrder.BY_NAME:
-					varLabelNameSortButton.Checked = true;
-					break;
-				case ListSortOrder.BY_VALUE:
-					varLabelValueSortButton.Checked = true;
-					break;
-			}
 			highlightCommentsCheckBox.Checked = sh.HighlightComments;
 			highlightInstructionsCheckBox.Checked = sh.HighlightKeywords;
 			highlightNumbersCheckBox.Checked = sh.HighlightNumbers;
 			highlightLabelsCheckBox.Checked = sh.HighlightLabels;
 			highlightOffsetsCheckBox.Checked = sh.HighlightOffsets;
 			highlightRegistersCheckBox.Checked = sh.HighlightRegisters;
-
-
 			#region Enable Panel Display
 			panellList = new Panel[]
 			{
 				mainWindowPanel, 
-				highlightingPanel,
-				labelPanel
+				highlightingPanel
 			};
 			foreach (Panel p in panellList)
 			{
@@ -95,9 +65,6 @@ namespace GBRead.Forms
 			
 			mainWindowPanel.Visible = true;
 			lastSelectedNode = treeView1.TopNode;
-
-
-
 			#endregion
 		}
 
@@ -129,9 +96,6 @@ namespace GBRead.Forms
 			disassembler.HideDefinedData = hideDataSectionsCheckBox.Checked;
 			disassembler.HideDefinedFunctions = hideFunctionsCheckBox.Checked;
 			disassembler.PrintBitPattern = printBitPatternCheckBox.Checked;
-			lcs.FuncListSortOrder = codeLabelNameSortButton.Checked ? ListSortOrder.BY_NAME : ListSortOrder.BY_VALUE;
-			lcs.DataListSortOrder = dataLabelNameSortButton.Checked ? ListSortOrder.BY_NAME : ListSortOrder.BY_VALUE;
-			lcs.VarListSortOrder = varLabelNameSortButton.Checked ? ListSortOrder.BY_NAME : ListSortOrder.BY_VALUE;
 			mfo.isWordWrap = wordWrapCheckBox.Checked;
 			shb.HighlightComments = highlightCommentsCheckBox.Checked;
 			shb.HighlightKeywords = highlightInstructionsCheckBox.Checked;

@@ -20,14 +20,7 @@ namespace GBRead.Base
 		private HashSet<int> funcTableDict;
 		private HashSet<int> dataTableDict;
 
-
-		private bool isFuncListSorted = false;
-		private bool isDataListSorted = false;
-		private bool isVarListSorted = true;
-
-		private ListSortOrder _funcListSortOrder;
-		private ListSortOrder _dataListSortOrder;
-		private ListSortOrder _varListSortOrder;
+		private HashSet<string> DefinedSymbols;
 
 		private BinFile _coreFile;
 
@@ -78,11 +71,11 @@ namespace GBRead.Base
 			new VarLabel(0xFF4B, "WX"),
 			new VarLabel(0xFF4D, "KEY1"),
 			new VarLabel(0xFF4F, "VBNK"),
-			new VarLabel(0xFF51, "HDMA1", new string[1]{"New DMA Source - High"}),
-			new VarLabel(0xFF52, "HDMA2", new string[1]{"New DMA Source - Low"}),
-			new VarLabel(0xFF53, "HDMA3", new string[1]{"New DMA Destination - High"}),
-			new VarLabel(0xFF54, "HDMA4", new string[1]{"New DMA Destination - Low"}),
-			new VarLabel(0xFF55, "HDMA5", new string[1]{"New DMA Length/Mode/Start"}),
+			new VarLabel(0xFF51, "HDMA1", VariableType.Byte, new string[1]{"New DMA Source - High"}),
+			new VarLabel(0xFF52, "HDMA2", VariableType.Byte, new string[1]{"New DMA Source - Low"}),
+			new VarLabel(0xFF53, "HDMA3", VariableType.Byte, new string[1]{"New DMA Destination - High"}),
+			new VarLabel(0xFF54, "HDMA4", VariableType.Byte, new string[1]{"New DMA Destination - Low"}),
+			new VarLabel(0xFF55, "HDMA5", VariableType.Byte, new string[1]{"New DMA Length/Mode/Start"}),
 			new VarLabel(0xFF56, "RP"),
 			new VarLabel(0xFF68, "BGPI"),
 			new VarLabel(0xFF69, "BGPD"),
@@ -100,11 +93,6 @@ namespace GBRead.Base
 			{
 				lock (labelListLock)
 				{
-					if (!isFuncListSorted)
-					{
-						_funcList.Sort(new LabelComparer(FuncListSortOrder));
-						isFuncListSorted = true;
-					}
 					return _funcList;
 				}
 			}
@@ -115,11 +103,6 @@ namespace GBRead.Base
 			{
 				lock (dataListLock)
 				{
-					if (!isDataListSorted)
-					{
-						_dataList.Sort(new LabelComparer(DataListSortOrder));
-						isDataListSorted = true;
-					}
 					return _dataList;
 				}
 			}
@@ -130,76 +113,7 @@ namespace GBRead.Base
 			{
 				lock (varListLock)
 				{
-					if (!isVarListSorted)
-					{
-						_varList.Sort(new LabelComparer(VarListSortOrder));
-						isVarListSorted = true;
-					}
 					return _varList;
-				}
-			}
-		}
-
-		public ListSortOrder FuncListSortOrder 
-		{
-			get
-			{
-				lock (labelListLock)
-				{
-					return _funcListSortOrder;
-				}
-			}
-			set
-			{
-				lock (labelListLock)
-				{
-					if (value != _funcListSortOrder)
-					{
-						_funcListSortOrder = value;
-						isFuncListSorted = false;
-					}
-				}
-			}
-		}
-		public ListSortOrder DataListSortOrder
-		{
-			get
-			{
-				lock (dataListLock)
-				{
-					return _dataListSortOrder;
-				}
-			}
-			set
-			{
-				lock (dataListLock)
-				{
-					if (value != _dataListSortOrder)
-					{
-						_dataListSortOrder = value;
-						isDataListSorted = false;
-					}
-				}
-			}
-		}
-		public ListSortOrder VarListSortOrder 
-		{
-			get
-			{
-				lock (varListLock)
-				{
-					return _varListSortOrder;
-				}
-			}
-			set
-			{
-				lock (varListLock)
-				{
-					if (value != _varListSortOrder)
-					{
-						_varListSortOrder = value;
-						isVarListSorted = false;
-					}
 				}
 			}
 		}
@@ -213,92 +127,66 @@ namespace GBRead.Base
 
 		public void LoadDefaultLabels(int newFileSize)
 		{
-			ClearFuncList();
-			ClearVarList();
+			ClearAllLists();
 			foreach (VarLabel vls in defaultVars)
 			{
 				AddLabel(vls);
 			}
-			ClearDataList();
 			AddLabel(new DataLabel(0x104, 0x4C, "Header"));
 		}
 
-		public void GetOptions(Options options)
+		public bool IsSymbolDefined(string name)
 		{
-			_funcListSortOrder = options.LabelContainer_FuncListSortOrder;
-			_dataListSortOrder = options.LabelContainer_DataListSortOrder;
-			_varListSortOrder = options.LabelContainer_VarListSortOrder;
+			return DefinedSymbols.Contains(name);
 		}
 
-		public void SetOptions(ref Options options)
+		private void AddSymbol(string name)
 		{
-			options.LabelContainer_FuncListSortOrder = _funcListSortOrder;
-			options.LabelContainer_DataListSortOrder = _dataListSortOrder;
-			options.LabelContainer_VarListSortOrder = _varListSortOrder;
+			if (!IsSymbolDefined(name))
+			{
+				DefinedSymbols.Add(name);
+			}
+		}
+
+		private void RemoveSymbol(string name)
+		{
+			DefinedSymbols.Remove(name);
 		}
 
 		#region Adding, clearing, and removing labels
 
-		public bool AddLabel(GenericLabel toBeAdded)
+		public void AddLabel(GenericLabel toBeAdded)
 		{
-			if (toBeAdded == null) return false;
-			bool contains = false;
+			if (toBeAdded == null || IsSymbolDefined(toBeAdded.Name)) return;
+			AddSymbol(toBeAdded.Name);
 			if (toBeAdded is VarLabel)
 			{
 				lock (varListLock)
 				{
-					contains = varTableDict.Contains(toBeAdded.Value);
-				}
-				if (contains)
-				{
-					RemoveLabel(toBeAdded);
-				}
-				lock (varListLock)
-				{
 					_varList.Add(toBeAdded);
 					varTableDict.Add(toBeAdded.Value);
-					isVarListSorted = false;
 				}
-				return true;
+				return;
 			}
 			else if (toBeAdded is FunctionLabel)
 			{
 				lock (labelListLock)
 				{
-					contains = funcTableDict.Contains(toBeAdded.Value);
-				}
-				if (contains)
-				{
-					RemoveLabel(toBeAdded);
-				}
-				lock (labelListLock)
-				{
 					_funcList.Add(toBeAdded);
 					funcTableDict.Add(toBeAdded.Value);
-					isFuncListSorted = false;
 				}
-				return true;
+				return;
 			}
 			else if (toBeAdded is DataLabel)
 			{
 				lock (dataListLock)
 				{
-					contains = dataTableDict.Contains(toBeAdded.Value);
-				}
-				if (contains)
-				{
-					RemoveLabel(toBeAdded);
-				}
-				lock (dataListLock)
-				{
 					_dataList.Add(toBeAdded);
 					dataTableDict.Add(toBeAdded.Value);
 					RegisterDataAddresses(((DataLabel)toBeAdded).Offset, ((DataLabel)toBeAdded).Length);
-					isDataListSorted = false;
 				}
-				return true;
+				return;
 			}
-			else return false;
 		}
 
 		public void RemoveLabel(GenericLabel toBeRemoved)
@@ -328,6 +216,7 @@ namespace GBRead.Base
 					varTableDict.Remove(toBeRemoved.Value);
 				}
 			}
+			RemoveSymbol(toBeRemoved.Name);
 		}
 
 		private void RegisterDataAddresses(int offset, int length)
@@ -366,6 +255,7 @@ namespace GBRead.Base
 			ClearFuncList();
 			ClearDataList();
 			ClearVarList();
+			ClearSymbolList();
 		}
 
 		public void ClearFuncList()
@@ -401,6 +291,15 @@ namespace GBRead.Base
 				if (varTableDict == null) varTableDict = new HashSet<int>();
 				else varTableDict.Clear();
 			}
+		}
+
+		private void ClearSymbolList()
+		{
+			if (DefinedSymbols == null)
+			{
+				DefinedSymbols = new HashSet<string>();
+			}
+			DefinedSymbols.Clear();
 		}
 
 		public bool Contains(GenericLabel ls)
@@ -463,7 +362,7 @@ namespace GBRead.Base
 
 		#endregion Adding, clearing, and removing labels
 
-		#region Loading and Saving GenericLabel Files
+		#region Loading and Saving Label Files
 
 		public void LoadLabelFile(string fileName)
 		{
@@ -546,7 +445,6 @@ namespace GBRead.Base
 								int length = -1;
 								int dataDiv = 0;
 								string name = String.Empty;
-								GBPalette dataPalette = new GBPalette();
 								DataSectionType dst = DataSectionType.Data;
 								List<string> cmtBuf = new List<string>();
 								bool offsetGood = false;
@@ -574,30 +472,16 @@ namespace GBRead.Base
 											cmtBuf.Add(val);
 											break;
 										case 'p':
+											dst = DataSectionType.Image;
+											break;
+										case 't':
+											if (val == "Data")
 											{
-												dst = DataSectionType.Img;
-												int colval;
-												bool colvalGood = InputValidation.TryParseOffsetString(val.Substring(1, val.Length - 1), out colval);
-												if (colvalGood)
-												{
-													switch (code[2])
-													{
-														case '1':
-															dataPalette.Col_1 = colval;
-															break;
-														case '2':
-															dataPalette.Col_2 = colval;
-															break;
-														case '3':
-															dataPalette.Col_3 = colval;
-															break;
-														case '4':
-															dataPalette.Col_4 = colval;
-															break;
-														default:
-															break;
-													}
-												}
+												dst = DataSectionType.Data;
+											}
+											else if (val == "Image")
+											{
+												dst = DataSectionType.Image;
 											}
 											break;
 										default:
@@ -606,7 +490,7 @@ namespace GBRead.Base
 								}
 								if (offsetGood && lengthGood)
 								{
-									DataLabel ds = new DataLabel(offset, length, name, dataDiv, cmtBuf.ToArray(), dst, dataPalette);
+									DataLabel ds = new DataLabel(offset, length, name, dataDiv, cmtBuf.ToArray(), dst);
 									AddLabel(ds);
 								}
 								else
@@ -629,6 +513,7 @@ namespace GBRead.Base
 								string name = String.Empty;
 								List<string> cmtBuf = new List<string>();
 								bool variableGood = false;
+								VariableType vt = VariableType.Byte;
 								foreach (string x in buf)
 								{
 									string code = x.Substring(0, 3);
@@ -644,13 +529,23 @@ namespace GBRead.Base
 										case 'c':
 											cmtBuf.Add(val);
 											break;
+										case 't':
+											if (val == "Byte")
+											{
+												vt = VariableType.Byte;
+											}
+											else if (val == "Word")
+											{
+												vt = VariableType.Word;
+											}
+											break;
 										default:
 											break;
 									}
 								}
 								if (variableGood)
 								{
-									VarLabel vl = new VarLabel(variable, name, cmtBuf.ToArray());
+									VarLabel vl = new VarLabel(variable, name, vt, cmtBuf.ToArray());
 									AddLabel(vl);
 								}
 								else
@@ -781,7 +676,7 @@ namespace GBRead.Base
 									comment.Add(line[i]);
 								}
 							}
-							VarLabel vl = new VarLabel(off, line[2], comment.ToArray());
+							VarLabel vl = new VarLabel(off, line[2], VariableType.Byte, comment.ToArray());
 							AddLabel(vl);
 						}
 					}

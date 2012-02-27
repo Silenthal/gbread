@@ -32,7 +32,6 @@ namespace GBRead.Forms
         {
 			System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Main Window");
 			System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Highlighting");
-			System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Labels");
 			this.printOffsetsCheckBox = new System.Windows.Forms.CheckBox();
 			this.hideFunctionsCheckBox = new System.Windows.Forms.CheckBox();
 			this.hideDataSectionsCheckBox = new System.Windows.Forms.CheckBox();
@@ -43,25 +42,11 @@ namespace GBRead.Forms
 			this.label1 = new System.Windows.Forms.Label();
 			this.offsetNumberFormatBox = new System.Windows.Forms.ComboBox();
 			this.instructionNumberFormatBox = new System.Windows.Forms.ComboBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.codeLabelNameSortButton = new System.Windows.Forms.RadioButton();
-			this.codeLabelOffsetSortButton = new System.Windows.Forms.RadioButton();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.panel2 = new System.Windows.Forms.Panel();
-			this.dataLabelNameSortButton = new System.Windows.Forms.RadioButton();
-			this.dataLabelOffsetSortButton = new System.Windows.Forms.RadioButton();
-			this.label3 = new System.Windows.Forms.Label();
-			this.panel3 = new System.Windows.Forms.Panel();
-			this.varLabelNameSortButton = new System.Windows.Forms.RadioButton();
-			this.varLabelValueSortButton = new System.Windows.Forms.RadioButton();
-			this.label4 = new System.Windows.Forms.Label();
 			this.treeView1 = new System.Windows.Forms.TreeView();
 			this.mainWindowPanel = new System.Windows.Forms.Panel();
 			this.wordWrapCheckBox = new System.Windows.Forms.CheckBox();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.label5 = new System.Windows.Forms.Label();
-			this.labelPanel = new System.Windows.Forms.Panel();
-			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.highlightingPanel = new System.Windows.Forms.Panel();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.highlightRegistersCheckBox = new System.Windows.Forms.CheckBox();
@@ -70,14 +55,9 @@ namespace GBRead.Forms
 			this.highlightInstructionsCheckBox = new System.Windows.Forms.CheckBox();
 			this.highlightOffsetsCheckBox = new System.Windows.Forms.CheckBox();
 			this.highlightNumbersCheckBox = new System.Windows.Forms.CheckBox();
-			this.lineSeparator1 = new LineSeparator();
-			this.panel1.SuspendLayout();
-			this.panel2.SuspendLayout();
-			this.panel3.SuspendLayout();
+			this.lineSeparator1 = new GBRead.FormElements.LineSeparator();
 			this.mainWindowPanel.SuspendLayout();
 			this.groupBox1.SuspendLayout();
-			this.labelPanel.SuspendLayout();
-			this.groupBox2.SuspendLayout();
 			this.highlightingPanel.SuspendLayout();
 			this.groupBox3.SuspendLayout();
 			this.SuspendLayout();
@@ -185,126 +165,6 @@ namespace GBRead.Forms
 			this.instructionNumberFormatBox.Size = new System.Drawing.Size(121, 21);
 			this.instructionNumberFormatBox.TabIndex = 14;
 			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(6, 16);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(109, 13);
-			this.label2.TabIndex = 15;
-			this.label2.Text = "Sort Code Labels By: ";
-			// 
-			// codeLabelNameSortButton
-			// 
-			this.codeLabelNameSortButton.AutoSize = true;
-			this.codeLabelNameSortButton.Location = new System.Drawing.Point(3, 4);
-			this.codeLabelNameSortButton.Name = "codeLabelNameSortButton";
-			this.codeLabelNameSortButton.Size = new System.Drawing.Size(53, 17);
-			this.codeLabelNameSortButton.TabIndex = 16;
-			this.codeLabelNameSortButton.TabStop = true;
-			this.codeLabelNameSortButton.Text = "Name";
-			this.codeLabelNameSortButton.UseVisualStyleBackColor = true;
-			// 
-			// codeLabelOffsetSortButton
-			// 
-			this.codeLabelOffsetSortButton.AutoSize = true;
-			this.codeLabelOffsetSortButton.Location = new System.Drawing.Point(62, 3);
-			this.codeLabelOffsetSortButton.Name = "codeLabelOffsetSortButton";
-			this.codeLabelOffsetSortButton.Size = new System.Drawing.Size(53, 17);
-			this.codeLabelOffsetSortButton.TabIndex = 17;
-			this.codeLabelOffsetSortButton.TabStop = true;
-			this.codeLabelOffsetSortButton.Text = "Offset";
-			this.codeLabelOffsetSortButton.UseVisualStyleBackColor = true;
-			// 
-			// panel1
-			// 
-			this.panel1.Controls.Add(this.codeLabelNameSortButton);
-			this.panel1.Controls.Add(this.codeLabelOffsetSortButton);
-			this.panel1.Location = new System.Drawing.Point(119, 10);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(123, 24);
-			this.panel1.TabIndex = 18;
-			// 
-			// panel2
-			// 
-			this.panel2.Controls.Add(this.dataLabelNameSortButton);
-			this.panel2.Controls.Add(this.dataLabelOffsetSortButton);
-			this.panel2.Location = new System.Drawing.Point(119, 40);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(123, 24);
-			this.panel2.TabIndex = 20;
-			// 
-			// dataLabelNameSortButton
-			// 
-			this.dataLabelNameSortButton.AutoSize = true;
-			this.dataLabelNameSortButton.Location = new System.Drawing.Point(3, 4);
-			this.dataLabelNameSortButton.Name = "dataLabelNameSortButton";
-			this.dataLabelNameSortButton.Size = new System.Drawing.Size(53, 17);
-			this.dataLabelNameSortButton.TabIndex = 16;
-			this.dataLabelNameSortButton.TabStop = true;
-			this.dataLabelNameSortButton.Text = "Name";
-			this.dataLabelNameSortButton.UseVisualStyleBackColor = true;
-			// 
-			// dataLabelOffsetSortButton
-			// 
-			this.dataLabelOffsetSortButton.AutoSize = true;
-			this.dataLabelOffsetSortButton.Location = new System.Drawing.Point(62, 3);
-			this.dataLabelOffsetSortButton.Name = "dataLabelOffsetSortButton";
-			this.dataLabelOffsetSortButton.Size = new System.Drawing.Size(53, 17);
-			this.dataLabelOffsetSortButton.TabIndex = 17;
-			this.dataLabelOffsetSortButton.TabStop = true;
-			this.dataLabelOffsetSortButton.Text = "Offset";
-			this.dataLabelOffsetSortButton.UseVisualStyleBackColor = true;
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(6, 46);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(107, 13);
-			this.label3.TabIndex = 19;
-			this.label3.Text = "Sort Data Labels By: ";
-			// 
-			// panel3
-			// 
-			this.panel3.Controls.Add(this.varLabelNameSortButton);
-			this.panel3.Controls.Add(this.varLabelValueSortButton);
-			this.panel3.Location = new System.Drawing.Point(119, 70);
-			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(123, 24);
-			this.panel3.TabIndex = 20;
-			// 
-			// varLabelNameSortButton
-			// 
-			this.varLabelNameSortButton.AutoSize = true;
-			this.varLabelNameSortButton.Location = new System.Drawing.Point(3, 4);
-			this.varLabelNameSortButton.Name = "varLabelNameSortButton";
-			this.varLabelNameSortButton.Size = new System.Drawing.Size(53, 17);
-			this.varLabelNameSortButton.TabIndex = 16;
-			this.varLabelNameSortButton.TabStop = true;
-			this.varLabelNameSortButton.Text = "Name";
-			this.varLabelNameSortButton.UseVisualStyleBackColor = true;
-			// 
-			// varLabelValueSortButton
-			// 
-			this.varLabelValueSortButton.AutoSize = true;
-			this.varLabelValueSortButton.Location = new System.Drawing.Point(62, 3);
-			this.varLabelValueSortButton.Name = "varLabelValueSortButton";
-			this.varLabelValueSortButton.Size = new System.Drawing.Size(52, 17);
-			this.varLabelValueSortButton.TabIndex = 17;
-			this.varLabelValueSortButton.TabStop = true;
-			this.varLabelValueSortButton.Text = "Value";
-			this.varLabelValueSortButton.UseVisualStyleBackColor = true;
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(6, 76);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(100, 13);
-			this.label4.TabIndex = 19;
-			this.label4.Text = "Sort Var Labels By: ";
-			// 
 			// treeView1
 			// 
 			this.treeView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -314,12 +174,9 @@ namespace GBRead.Forms
 			treeNode1.Text = "Main Window";
 			treeNode2.Name = "highlightingNode";
 			treeNode2.Text = "Highlighting";
-			treeNode3.Name = "labelNode";
-			treeNode3.Text = "Labels";
 			this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1,
-            treeNode2,
-            treeNode3});
+            treeNode2});
 			this.treeView1.ShowLines = false;
 			this.treeView1.Size = new System.Drawing.Size(128, 248);
 			this.treeView1.TabIndex = 21;
@@ -370,29 +227,6 @@ namespace GBRead.Forms
 			this.label5.Size = new System.Drawing.Size(110, 13);
 			this.label5.TabIndex = 15;
 			this.label5.Text = "Offset Number Format";
-			// 
-			// labelPanel
-			// 
-			this.labelPanel.Controls.Add(this.groupBox2);
-			this.labelPanel.Location = new System.Drawing.Point(146, 12);
-			this.labelPanel.Name = "labelPanel";
-			this.labelPanel.Size = new System.Drawing.Size(281, 237);
-			this.labelPanel.TabIndex = 23;
-			// 
-			// groupBox2
-			// 
-			this.groupBox2.Controls.Add(this.label2);
-			this.groupBox2.Controls.Add(this.label4);
-			this.groupBox2.Controls.Add(this.panel1);
-			this.groupBox2.Controls.Add(this.panel2);
-			this.groupBox2.Controls.Add(this.label3);
-			this.groupBox2.Controls.Add(this.panel3);
-			this.groupBox2.Location = new System.Drawing.Point(3, 3);
-			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(274, 104);
-			this.groupBox2.TabIndex = 21;
-			this.groupBox2.TabStop = false;
-			this.groupBox2.Text = "Sorting";
 			// 
 			// highlightingPanel
 			// 
@@ -488,10 +322,9 @@ namespace GBRead.Forms
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(435, 303);
+			this.ClientSize = new System.Drawing.Size(440, 300);
 			this.Controls.Add(this.highlightingPanel);
 			this.Controls.Add(this.lineSeparator1);
-			this.Controls.Add(this.labelPanel);
 			this.Controls.Add(this.mainWindowPanel);
 			this.Controls.Add(this.treeView1);
 			this.Controls.Add(this.saveButton);
@@ -500,19 +333,10 @@ namespace GBRead.Forms
 			this.Name = "OptionsForm";
 			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
 			this.Text = "Options";
-			this.panel1.ResumeLayout(false);
-			this.panel1.PerformLayout();
-			this.panel2.ResumeLayout(false);
-			this.panel2.PerformLayout();
-			this.panel3.ResumeLayout(false);
-			this.panel3.PerformLayout();
 			this.mainWindowPanel.ResumeLayout(false);
 			this.mainWindowPanel.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
-			this.labelPanel.ResumeLayout(false);
-			this.groupBox2.ResumeLayout(false);
-			this.groupBox2.PerformLayout();
 			this.highlightingPanel.ResumeLayout(false);
 			this.groupBox3.ResumeLayout(false);
 			this.groupBox3.PerformLayout();
@@ -531,25 +355,11 @@ namespace GBRead.Forms
         private System.Windows.Forms.CheckBox printBitPatternCheckBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox offsetNumberFormatBox;
-        private System.Windows.Forms.ComboBox instructionNumberFormatBox;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton codeLabelNameSortButton;
-        private System.Windows.Forms.RadioButton codeLabelOffsetSortButton;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.RadioButton dataLabelNameSortButton;
-        private System.Windows.Forms.RadioButton dataLabelOffsetSortButton;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.RadioButton varLabelNameSortButton;
-        private System.Windows.Forms.RadioButton varLabelValueSortButton;
-        private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.ComboBox instructionNumberFormatBox;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Panel mainWindowPanel;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel labelPanel;
-        private System.Windows.Forms.GroupBox groupBox2;
+		private System.Windows.Forms.Label label5;
         private LineSeparator lineSeparator1;
         private System.Windows.Forms.CheckBox wordWrapCheckBox;
 		private System.Windows.Forms.Panel highlightingPanel;

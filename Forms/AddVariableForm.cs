@@ -11,15 +11,14 @@ using System.Globalization;
 
 namespace GBRead.Forms
 {
-	public enum LabelEditMode { Add, Edit }
-	public partial class AddFunctionForm : Form
+	public partial class AddVariableForm : Form
 	{
 		Disassembler dc;
 		LabelContainer refContainer;
 		LabelEditMode lem;
-		FunctionLabel priorLabel;
+		VarLabel priorLabel;
 		ListBox.ObjectCollection oc;
-		public AddFunctionForm(Disassembler dcs, LabelContainer lc, ListBox.ObjectCollection ocs, LabelEditMode nlem, FunctionLabel newPriorLabel = null)
+		public AddVariableForm(Disassembler dcs, LabelContainer lc, ListBox.ObjectCollection ocs, LabelEditMode nlem, VarLabel newPriorLabel = null)
 		{
 			InitializeComponent();
 			dc = dcs;
@@ -27,17 +26,17 @@ namespace GBRead.Forms
 			oc = ocs;
 			if (nlem == LabelEditMode.Edit)
 			{
-				Text = "Edit Function";
+				Text = "Edit Variable";
 				lem = nlem;
 				priorLabel = newPriorLabel;
+
 				if (priorLabel != null)
 				{
 					refContainer.RemoveLabel(priorLabel);
 					oc.Remove(priorLabel);
 					nameBox.Text = priorLabel.Name;
-					offsetBox.Text = priorLabel.Offset.ToString("X");
-					lengthBox.Text = priorLabel.Length.ToString("X");
-					if (priorLabel.Length > 0) isFunctionCheckBox.CheckState = CheckState.Checked;
+					offsetBox.Text = priorLabel.Value.ToString("X");
+					dataTypeBox.SelectedIndex = (int)priorLabel.VarType;
 					if (priorLabel.Comment != null)
 					{
 						for (int i = 0; i < priorLabel.Comment.Length; i++)
@@ -64,8 +63,7 @@ namespace GBRead.Forms
 
 		private void okButton_Click(object sender, EventArgs e)
 		{
-			int off = -1;
-			int len = 0;
+			int val = 0;
 			if (!RegularValidation.IsWord(nameBox.Text))
 			{
 				Error.ShowErrorMessage(ErrorMessage.NAME_IS_INVALID);
@@ -74,32 +72,17 @@ namespace GBRead.Forms
 			{
 				Error.ShowErrorMessage(ErrorMessage.NAME_ALREADY_DEFINED);
 			}
-			else if (!InputValidation.TryParseOffsetString(offsetBox.Text, out off))
+			else if (!Int32.TryParse(offsetBox.Text, NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture, out val))
 			{
-				Error.ShowErrorMessage(ErrorMessage.OFFSET_IS_INVALID);
-			}
-			else if (isFunctionCheckBox.Checked && (!Int32.TryParse(lengthBox.Text, NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture, out len) || len <= 0))
-			{
-				Error.ShowErrorMessage(ErrorMessage.LENGTH_IS_INVALID);
+				Error.ShowErrorMessage(ErrorMessage.VARIABLE_IS_INVALID);
 			}
 			else
 			{
-				priorLabel = new FunctionLabel(off, nameBox.Text, isFunctionCheckBox.Checked ? len : 0, commentBox.Lines);
+				priorLabel = new VarLabel(val, nameBox.Text, (VariableType)dataTypeBox.SelectedIndex, commentBox.Lines);
 				refContainer.AddLabel(priorLabel);
 				oc.Add(priorLabel);
 				this.DialogResult = System.Windows.Forms.DialogResult.OK;
 			}
-		}
-
-		private void guessLengthButton_Click(object sender, EventArgs e)
-		{
-			int off = -1;
-			if (!InputValidation.TryParseOffsetString(offsetBox.Text, out off))
-			{
-				MessageBox.Show("The offset is not valid.", "Error", MessageBoxButtons.OK);
-			}
-			FunctionLabel fl = new FunctionLabel(off);
-			lengthBox.Text = dc.GuessFunctionLength(fl).ToString("X");
 		}
 	}
 }

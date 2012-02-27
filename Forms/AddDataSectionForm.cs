@@ -6,20 +6,19 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using GBRead.Base;
 using System.Globalization;
+using GBRead.Base;
 
 namespace GBRead.Forms
 {
-	public enum LabelEditMode { Add, Edit }
-	public partial class AddFunctionForm : Form
+	public partial class AddDataSectionForm : Form
 	{
 		Disassembler dc;
+		ListBox.ObjectCollection oc;
 		LabelContainer refContainer;
 		LabelEditMode lem;
-		FunctionLabel priorLabel;
-		ListBox.ObjectCollection oc;
-		public AddFunctionForm(Disassembler dcs, LabelContainer lc, ListBox.ObjectCollection ocs, LabelEditMode nlem, FunctionLabel newPriorLabel = null)
+		DataLabel priorLabel;
+		public AddDataSectionForm(Disassembler dcs, LabelContainer lc, ListBox.ObjectCollection ocs, LabelEditMode nlem, DataLabel newPriorLabel = null)
 		{
 			InitializeComponent();
 			dc = dcs;
@@ -27,7 +26,7 @@ namespace GBRead.Forms
 			oc = ocs;
 			if (nlem == LabelEditMode.Edit)
 			{
-				Text = "Edit Function";
+				Text = "Edit Data Section";
 				lem = nlem;
 				priorLabel = newPriorLabel;
 				if (priorLabel != null)
@@ -37,7 +36,8 @@ namespace GBRead.Forms
 					nameBox.Text = priorLabel.Name;
 					offsetBox.Text = priorLabel.Offset.ToString("X");
 					lengthBox.Text = priorLabel.Length.ToString("X");
-					if (priorLabel.Length > 0) isFunctionCheckBox.CheckState = CheckState.Checked;
+					dataTypeBox.SelectedIndex = (int)priorLabel.DSectionType;
+					rowLengthBox.Text = priorLabel.DataLineLength.ToString("X");
 					if (priorLabel.Comment != null)
 					{
 						for (int i = 0; i < priorLabel.Comment.Length; i++)
@@ -66,6 +66,7 @@ namespace GBRead.Forms
 		{
 			int off = -1;
 			int len = 0;
+			int rlen = 0;
 			if (!RegularValidation.IsWord(nameBox.Text))
 			{
 				Error.ShowErrorMessage(ErrorMessage.NAME_IS_INVALID);
@@ -78,28 +79,21 @@ namespace GBRead.Forms
 			{
 				Error.ShowErrorMessage(ErrorMessage.OFFSET_IS_INVALID);
 			}
-			else if (isFunctionCheckBox.Checked && (!Int32.TryParse(lengthBox.Text, NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture, out len) || len <= 0))
+			else if (!Int32.TryParse(lengthBox.Text, NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture, out len) || len <= 0)
 			{
 				Error.ShowErrorMessage(ErrorMessage.LENGTH_IS_INVALID);
 			}
+			else if (!Int32.TryParse(rowLengthBox.Text, NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture, out rlen) || rlen <= 0)
+			{
+				Error.ShowErrorMessage(ErrorMessage.ROW_LENGTH_IS_INVALID);
+			}
 			else
 			{
-				priorLabel = new FunctionLabel(off, nameBox.Text, isFunctionCheckBox.Checked ? len : 0, commentBox.Lines);
+				priorLabel = new DataLabel(off, len, nameBox.Text, rlen, commentBox.Lines, (DataSectionType)dataTypeBox.SelectedIndex);
 				refContainer.AddLabel(priorLabel);
 				oc.Add(priorLabel);
 				this.DialogResult = System.Windows.Forms.DialogResult.OK;
 			}
-		}
-
-		private void guessLengthButton_Click(object sender, EventArgs e)
-		{
-			int off = -1;
-			if (!InputValidation.TryParseOffsetString(offsetBox.Text, out off))
-			{
-				MessageBox.Show("The offset is not valid.", "Error", MessageBoxButtons.OK);
-			}
-			FunctionLabel fl = new FunctionLabel(off);
-			lengthBox.Text = dc.GuessFunctionLength(fl).ToString("X");
 		}
 	}
 }

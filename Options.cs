@@ -38,24 +38,6 @@ namespace GBRead
 					bw.Read(header, 0, header.Length);
 					switch (header[3])
 					{
-						case 3:
-							{
-								byte[] optionFile = new byte[5];
-								bw.Read(optionFile, 0, optionFile.Length);
-								int baseOptionFileOffset = 2;
-								byte plane1 = optionFile[baseOptionFileOffset];
-								options.Disassembler_PrintOffsets = (plane1 & 1) == 1;
-								options.Disassembler_PrintBitPattern = ((plane1 >> 1) & 1) == 1;
-								options.Disassembler_PrintComments = ((plane1 >> 2) & 1) == 1;
-								options.Disassembler_HideDefinedData = ((plane1 >> 3) & 1) == 1;
-								options.Disassembler_HideDefinedFunctions = ((plane1 >> 4) & 1) == 1;
-								options.LabelContainer_FuncListSortOrder = ((plane1 >> 5) & 1) == 1 ? ListSortOrder.BY_VALUE : ListSortOrder.BY_NAME;
-								options.LabelContainer_DataListSortOrder = ((plane1 >> 6) & 1) == 1 ? ListSortOrder.BY_VALUE : ListSortOrder.BY_NAME;
-								options.LabelContainer_VarListSortOrder = ((plane1 >> 7) & 1) == 1 ? ListSortOrder.BY_VALUE : ListSortOrder.BY_NAME;
-								options.Disassembler_PrintedOffsetFormat = (OffsetFormat)optionFile[baseOptionFileOffset + 1];
-								options.Disassembler_InstructionNumberFormat = (OffsetFormat)optionFile[baseOptionFileOffset + 2];
-							}
-							break;
 						case 4:
 							options = (Options)bf.Deserialize(bw);
 							break;
@@ -99,10 +81,6 @@ namespace GBRead
 		public bool Disassembler_HideDefinedFunctions { get; set; }
 		public bool Disassembler_HideDefinedData { get; set; }
 
-		public ListSortOrder LabelContainer_FuncListSortOrder { get; set; }
-		public ListSortOrder LabelContainer_DataListSortOrder { get; set; }
-		public ListSortOrder LabelContainer_VarListSortOrder { get; set; }
-
 		private string MF_WWString = "MF_WW";
 		private string MF_HighlightCommentsString = "MF_HighlightComments";
 		private string MF_HighlightSyntaxString = "MF_HighlightSyntax";
@@ -120,9 +98,6 @@ namespace GBRead
 		private string DSMPrintCommentsString = "DSM_PrintComments";
 		private string DSMHideDefFuncsString = "DSM_HideDefFuncs";
 		private string DSMHideDefDataString = "DSM_HideDefData";
-		private string LCCodeLabelListSOString = "LCCodeLabelListSO";
-		private string LCDataLabelListSOString = "LCDataLabelListSO";
-		private string LCVarLabelListSOString = "LCVarLabelListSO";
 
 		public Options()
 		{
@@ -142,10 +117,6 @@ namespace GBRead
 			Disassembler_PrintComments = false;
 			Disassembler_HideDefinedFunctions = false;
 			Disassembler_HideDefinedData = false;
-
-			LabelContainer_FuncListSortOrder = ListSortOrder.BY_NAME;
-			LabelContainer_DataListSortOrder = ListSortOrder.BY_NAME;
-			LabelContainer_VarListSortOrder = ListSortOrder.BY_NAME;
 		}
 
 		public Options(SerializationInfo info, StreamingContext context)
@@ -166,10 +137,6 @@ namespace GBRead
 			Disassembler_PrintComments = info.GetBoolean(DSMPrintCommentsString);
 			Disassembler_HideDefinedFunctions = info.GetBoolean(DSMHideDefFuncsString);
 			Disassembler_HideDefinedData = info.GetBoolean(DSMHideDefDataString);
-
-			LabelContainer_FuncListSortOrder = (ListSortOrder)info.GetValue(LCCodeLabelListSOString, typeof(ListSortOrder));
-			LabelContainer_DataListSortOrder = (ListSortOrder)info.GetValue(LCDataLabelListSOString, typeof(ListSortOrder));
-			LabelContainer_VarListSortOrder = (ListSortOrder)info.GetValue(LCVarLabelListSOString, typeof(ListSortOrder));
 		}
 
 		public void GetObjectData(SerializationInfo info, StreamingContext context)
@@ -190,10 +157,6 @@ namespace GBRead
 			info.AddValue(DSMPrintCommentsString, Disassembler_PrintComments);
 			info.AddValue(DSMHideDefFuncsString, Disassembler_HideDefinedFunctions);
 			info.AddValue(DSMHideDefDataString, Disassembler_HideDefinedData);
-
-			info.AddValue(LCCodeLabelListSOString, LabelContainer_FuncListSortOrder);
-			info.AddValue(LCDataLabelListSOString, LabelContainer_DataListSortOrder);
-			info.AddValue(LCVarLabelListSOString, LabelContainer_VarListSortOrder);
 		}
 	}
 }

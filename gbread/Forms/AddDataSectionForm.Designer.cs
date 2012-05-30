@@ -1,6 +1,6 @@
 ﻿namespace GBRead.Forms
 {
-	partial class AddDataSectionForm
+	partial class AddDataLabelForm
 	{
 		/// <summary>
 		/// Required designer variable.

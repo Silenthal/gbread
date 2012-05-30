@@ -11,14 +11,14 @@ using System.Globalization;
 
 namespace GBRead.Forms
 {
-	public partial class AddVariableForm : Form
+	public partial class AddVarLabelForm : Form
 	{
 		Disassembler dc;
 		LabelContainer refContainer;
 		LabelEditMode lem;
 		VarLabel priorLabel;
 		ListBox.ObjectCollection oc;
-		public AddVariableForm(Disassembler dcs, LabelContainer lc, ListBox.ObjectCollection ocs, LabelEditMode nlem, VarLabel newPriorLabel = null)
+		public AddVarLabelForm(Disassembler dcs, LabelContainer lc, ListBox.ObjectCollection ocs, LabelEditMode nlem, VarLabel newPriorLabel = null)
 		{
 			InitializeComponent();
 			dc = dcs;

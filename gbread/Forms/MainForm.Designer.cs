@@ -46,13 +46,11 @@
 			this.insertExternalBinaryAtLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.searchToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.addAllCalledFunctionsToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
 			this.startBox = new System.Windows.Forms.TextBox();
 			this.endBox = new System.Windows.Forms.TextBox();
 			this.printASMButton = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
 			this.codeLabelBoxContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.renameLabelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,7 +66,6 @@
 			this.exportToBinaryFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.dataLabelContextMenu2 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.addANewDataSectionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
 			this.progressLabel = new System.Windows.Forms.Label();
 			this.varLabelBoxContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.addToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -232,14 +229,10 @@
 			this.addAllCalledFunctionsToolStripMenuItem2.Text = "Find Called Functions";
 			this.addAllCalledFunctionsToolStripMenuItem2.Click += new System.EventHandler(this.addAllCallsMadeInCodeToolStripMenuItem_Click);
 			// 
-			// openFileDialog1
-			// 
-			this.openFileDialog1.Filter = "GB Files|*.gb|GBC Files|*.gbc|All Files|*";
-			// 
 			// startBox
 			// 
 			this.startBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.startBox.Location = new System.Drawing.Point(12, 290);
+			this.startBox.Location = new System.Drawing.Point(12, 329);
 			this.startBox.Name = "startBox";
 			this.startBox.Size = new System.Drawing.Size(106, 20);
 			this.startBox.TabIndex = 0;
@@ -248,7 +241,7 @@
 			// endBox
 			// 
 			this.endBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.endBox.Location = new System.Drawing.Point(124, 290);
+			this.endBox.Location = new System.Drawing.Point(124, 329);
 			this.endBox.Name = "endBox";
 			this.endBox.Size = new System.Drawing.Size(103, 20);
 			this.endBox.TabIndex = 1;
@@ -258,7 +251,7 @@
 			// 
 			this.printASMButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.printASMButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.printASMButton.Location = new System.Drawing.Point(233, 287);
+			this.printASMButton.Location = new System.Drawing.Point(233, 326);
 			this.printASMButton.Name = "printASMButton";
 			this.printASMButton.Size = new System.Drawing.Size(62, 23);
 			this.printASMButton.TabIndex = 2;
@@ -270,7 +263,7 @@
 			// 
 			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(12, 274);
+			this.label1.Location = new System.Drawing.Point(12, 313);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(106, 13);
 			this.label1.TabIndex = 12;
@@ -280,15 +273,11 @@
 			// 
 			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(121, 274);
+			this.label2.Location = new System.Drawing.Point(121, 313);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(103, 13);
 			this.label2.TabIndex = 13;
 			this.label2.Text = "End Position (in hex)";
-			// 
-			// saveFileDialog1
-			// 
-			this.saveFileDialog1.Filter = ".txt File|*.txt|All Files|*";
 			// 
 			// codeLabelBoxContextMenu
 			// 
@@ -305,21 +294,21 @@
 			this.addToolStripMenuItem.Name = "addToolStripMenuItem";
 			this.addToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
 			this.addToolStripMenuItem.Text = "Add New Label";
-			this.addToolStripMenuItem.Click += new System.EventHandler(this.addFuncLabelToolStripMenuItem_Click);
+			this.addToolStripMenuItem.Click += new System.EventHandler(this.addFunctionLabelMenuItem_Click);
 			// 
 			// renameLabelToolStripMenuItem
 			// 
 			this.renameLabelToolStripMenuItem.Name = "renameLabelToolStripMenuItem";
 			this.renameLabelToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
 			this.renameLabelToolStripMenuItem.Text = "Edit";
-			this.renameLabelToolStripMenuItem.Click += new System.EventHandler(this.renameLabelToolStripMenuItem_Click);
+			this.renameLabelToolStripMenuItem.Click += new System.EventHandler(this.renameFunctionLabelMenuItem_Click);
 			// 
 			// removeToolStripMenuItem
 			// 
 			this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
 			this.removeToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
 			this.removeToolStripMenuItem.Text = "Remove";
-			this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeFunctionMenuItem_Click);
+			this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeFunctionLabelMenuItem_Click);
 			// 
 			// searchForFunctionsThatCallThisOneToolStripMenuItem1
 			// 
@@ -340,7 +329,7 @@
 			this.addANewLabelToolStripMenuItem.Name = "addANewLabelToolStripMenuItem";
 			this.addANewLabelToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
 			this.addANewLabelToolStripMenuItem.Text = "Add New Label";
-			this.addANewLabelToolStripMenuItem.Click += new System.EventHandler(this.addFuncLabelToolStripMenuItem_Click);
+			this.addANewLabelToolStripMenuItem.Click += new System.EventHandler(this.addFunctionLabelMenuItem_Click);
 			// 
 			// dataLabelBoxContextMenu
 			// 
@@ -358,21 +347,21 @@
 			this.addToolStripMenuItem1.Name = "addToolStripMenuItem1";
 			this.addToolStripMenuItem1.Size = new System.Drawing.Size(192, 22);
 			this.addToolStripMenuItem1.Text = "Add New Data Section";
-			this.addToolStripMenuItem1.Click += new System.EventHandler(this.addANewDataSectionToolStripMenuItem_Click);
+			this.addToolStripMenuItem1.Click += new System.EventHandler(this.addDataSectionMenuItem_Click);
 			// 
 			// renameADataSectionToolStripMenuItem
 			// 
 			this.renameADataSectionToolStripMenuItem.Name = "renameADataSectionToolStripMenuItem";
 			this.renameADataSectionToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
 			this.renameADataSectionToolStripMenuItem.Text = "Edit";
-			this.renameADataSectionToolStripMenuItem.Click += new System.EventHandler(this.renameADataSectionToolStripMenuItem_Click);
+			this.renameADataSectionToolStripMenuItem.Click += new System.EventHandler(this.renameDataSectionMenuItem_Click);
 			// 
 			// removeToolStripMenuItem1
 			// 
 			this.removeToolStripMenuItem1.Name = "removeToolStripMenuItem1";
 			this.removeToolStripMenuItem1.Size = new System.Drawing.Size(192, 22);
 			this.removeToolStripMenuItem1.Text = "Remove";
-			this.removeToolStripMenuItem1.Click += new System.EventHandler(this.removeToolStripMenuItem1_Click);
+			this.removeToolStripMenuItem1.Click += new System.EventHandler(this.removeDataSectionMenuItem_Click);
 			// 
 			// findReferencesToolStripMenuItem
 			// 
@@ -400,22 +389,14 @@
 			this.addANewDataSectionToolStripMenuItem1.Name = "addANewDataSectionToolStripMenuItem1";
 			this.addANewDataSectionToolStripMenuItem1.Size = new System.Drawing.Size(192, 22);
 			this.addANewDataSectionToolStripMenuItem1.Text = "Add New Data Section";
-			this.addANewDataSectionToolStripMenuItem1.Click += new System.EventHandler(this.addANewDataSectionToolStripMenuItem_Click);
-			// 
-			// backgroundWorker1
-			// 
-			this.backgroundWorker1.WorkerReportsProgress = true;
-			this.backgroundWorker1.WorkerSupportsCancellation = true;
-			this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-			this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
-			this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+			this.addANewDataSectionToolStripMenuItem1.Click += new System.EventHandler(this.addDataSectionMenuItem_Click);
 			// 
 			// progressLabel
 			// 
 			this.progressLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.progressLabel.AutoSize = true;
 			this.progressLabel.BackColor = System.Drawing.SystemColors.Control;
-			this.progressLabel.Location = new System.Drawing.Point(301, 290);
+			this.progressLabel.Location = new System.Drawing.Point(301, 329);
 			this.progressLabel.Name = "progressLabel";
 			this.progressLabel.Size = new System.Drawing.Size(0, 13);
 			this.progressLabel.TabIndex = 22;
@@ -469,7 +450,7 @@
 			this.varLabelTabPage.Controls.Add(this.varLabelBox);
 			this.varLabelTabPage.Location = new System.Drawing.Point(4, 22);
 			this.varLabelTabPage.Name = "varLabelTabPage";
-			this.varLabelTabPage.Size = new System.Drawing.Size(258, 257);
+			this.varLabelTabPage.Size = new System.Drawing.Size(258, 296);
 			this.varLabelTabPage.TabIndex = 2;
 			this.varLabelTabPage.Text = "Variables";
 			this.varLabelTabPage.UseVisualStyleBackColor = true;
@@ -484,7 +465,7 @@
 			this.varLabelBox.ItemHeight = 11;
 			this.varLabelBox.Location = new System.Drawing.Point(0, 0);
 			this.varLabelBox.Name = "varLabelBox";
-			this.varLabelBox.Size = new System.Drawing.Size(258, 257);
+			this.varLabelBox.Size = new System.Drawing.Size(258, 296);
 			this.varLabelBox.Sorted = true;
 			this.varLabelBox.TabIndex = 0;
 			this.varLabelBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.varLabelBox_MouseClick);
@@ -499,7 +480,7 @@
 			this.dataLabelTabPage.Location = new System.Drawing.Point(4, 22);
 			this.dataLabelTabPage.Name = "dataLabelTabPage";
 			this.dataLabelTabPage.Padding = new System.Windows.Forms.Padding(3);
-			this.dataLabelTabPage.Size = new System.Drawing.Size(258, 257);
+			this.dataLabelTabPage.Size = new System.Drawing.Size(258, 296);
 			this.dataLabelTabPage.TabIndex = 1;
 			this.dataLabelTabPage.Text = "Data";
 			this.dataLabelTabPage.UseVisualStyleBackColor = true;
@@ -514,7 +495,7 @@
 			this.dataLabelBox.ItemHeight = 11;
 			this.dataLabelBox.Location = new System.Drawing.Point(3, 3);
 			this.dataLabelBox.Name = "dataLabelBox";
-			this.dataLabelBox.Size = new System.Drawing.Size(252, 251);
+			this.dataLabelBox.Size = new System.Drawing.Size(252, 290);
 			this.dataLabelBox.Sorted = true;
 			this.dataLabelBox.TabIndex = 0;
 			this.dataLabelBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataLabelBox_MouseClick);
@@ -529,7 +510,7 @@
 			this.functionLabelTabPage.Location = new System.Drawing.Point(4, 22);
 			this.functionLabelTabPage.Name = "functionLabelTabPage";
 			this.functionLabelTabPage.Padding = new System.Windows.Forms.Padding(3);
-			this.functionLabelTabPage.Size = new System.Drawing.Size(258, 257);
+			this.functionLabelTabPage.Size = new System.Drawing.Size(258, 296);
 			this.functionLabelTabPage.TabIndex = 0;
 			this.functionLabelTabPage.Text = "Functions";
 			this.functionLabelTabPage.UseVisualStyleBackColor = true;
@@ -544,7 +525,7 @@
 			this.codeLabelBox.ItemHeight = 11;
 			this.codeLabelBox.Location = new System.Drawing.Point(3, 3);
 			this.codeLabelBox.Name = "codeLabelBox";
-			this.codeLabelBox.Size = new System.Drawing.Size(252, 251);
+			this.codeLabelBox.Size = new System.Drawing.Size(252, 290);
 			this.codeLabelBox.Sorted = true;
 			this.codeLabelBox.TabIndex = 0;
 			this.codeLabelBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.codeLabelBox_MouseClick);
@@ -563,7 +544,7 @@
 			this.LabelTabControl.Location = new System.Drawing.Point(426, 27);
 			this.LabelTabControl.Name = "LabelTabControl";
 			this.LabelTabControl.SelectedIndex = 0;
-			this.LabelTabControl.Size = new System.Drawing.Size(266, 283);
+			this.LabelTabControl.Size = new System.Drawing.Size(266, 322);
 			this.LabelTabControl.TabIndex = 4;
 			// 
 			// mainTextBox
@@ -579,14 +560,14 @@
 			this.mainTextBox.Name = "mainTextBox";
 			this.mainTextBox.ReadOnly = true;
 			this.mainTextBox.ShowLineNumbers = false;
-			this.mainTextBox.Size = new System.Drawing.Size(408, 240);
+			this.mainTextBox.Size = new System.Drawing.Size(408, 279);
 			this.mainTextBox.TabIndex = 3;
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(704, 322);
+			this.ClientSize = new System.Drawing.Size(704, 361);
 			this.Controls.Add(this.menuStrip1);
 			this.Controls.Add(this.progressLabel);
 			this.Controls.Add(this.mainTextBox);
@@ -622,16 +603,14 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.TextBox startBox;
         private System.Windows.Forms.TextBox endBox;
         private System.Windows.Forms.Button printASMButton;
         private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ToolStripMenuItem saveCalledFunctionsListToolStripMenuItem;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+		private System.Windows.Forms.ToolStripMenuItem saveCalledFunctionsListToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip codeLabelBoxContextMenu;
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadFunctionListToolStripMenuItem;
@@ -646,8 +625,7 @@
         private System.Windows.Forms.ToolStripMenuItem addANewDataSectionToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem exportToBinaryFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveEntireFileASMToolStripMenuItem;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+		private System.Windows.Forms.ToolStripMenuItem saveEntireFileASMToolStripMenuItem;
 		private System.Windows.Forms.Label progressLabel;
 		private System.Windows.Forms.ContextMenuStrip varLabelBoxContextMenu;
         private System.Windows.Forms.ToolStripMenuItem editVariableToolStripMenuItem2;

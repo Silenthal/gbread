@@ -10,6 +10,7 @@ namespace GBRead.Base
 		private object labelListLock = new object();
 		private object dataListLock = new object();
 		private object varListLock = new object();
+		private object symbolListLock = new object();
 
 		private List<GenericLabel> _funcList;
 		private List<GenericLabel> _dataList;
@@ -22,11 +23,9 @@ namespace GBRead.Base
 
 		private HashSet<string> DefinedSymbols;
 
-		private BinFile _coreFile;
-
 		#region Default Var List
 
-		private List<GenericLabel> defaultVars = new List<GenericLabel>()
+		private static List<GenericLabel> defaultVars = new List<GenericLabel>()
 		{
 			new VarLabel(0xFF00, "JOYP"),
 			new VarLabel(0xFF01, "SB"),
@@ -70,7 +69,7 @@ namespace GBRead.Base
 			new VarLabel(0xFF4A, "WY"),
 			new VarLabel(0xFF4B, "WX"),
 			new VarLabel(0xFF4D, "KEY1"),
-			new VarLabel(0xFF4F, "VBNK"),
+			new VarLabel(0xFF4F, "VBK"),
 			new VarLabel(0xFF51, "HDMA1", VariableType.Byte, new string[1]{"New DMA Source - High"}),
 			new VarLabel(0xFF52, "HDMA2", VariableType.Byte, new string[1]{"New DMA Source - Low"}),
 			new VarLabel(0xFF53, "HDMA3", VariableType.Byte, new string[1]{"New DMA Destination - High"}),
@@ -118,8 +117,6 @@ namespace GBRead.Base
 			}
 		}
 
-		public BinFile CoreFile { get { return _coreFile; } set { _coreFile = value; } }
-
 		public LabelContainer()
 		{
 			ClearAllLists();
@@ -135,34 +132,42 @@ namespace GBRead.Base
 			AddLabel(new DataLabel(0x104, 0x4C, "Header"));
 		}
 
+		#region Symbol Maintenance
 		public bool IsSymbolDefined(string name)
 		{
-			return DefinedSymbols.Contains(name);
+			lock (symbolListLock)
+			{
+				return DefinedSymbols.Contains(name);
+			}
 		}
 
-		private void AddSymbol(string name)
+		private bool AddSymbol(string name)
 		{
-			if (!IsSymbolDefined(name))
+			lock (symbolListLock)
 			{
-				DefinedSymbols.Add(name);
+				return DefinedSymbols.Add(name);
 			}
 		}
 
 		private void RemoveSymbol(string name)
 		{
-			DefinedSymbols.Remove(name);
+			lock (symbolListLock)
+			{
+				DefinedSymbols.Remove(name);
+			}
 		}
+		#endregion
 
 		#region Adding, clearing, and removing labels
 
 		public void AddLabel(GenericLabel toBeAdded)
 		{
 			if (toBeAdded == null || IsSymbolDefined(toBeAdded.Name)) return;
-			AddSymbol(toBeAdded.Name);
 			if (toBeAdded is VarLabel)
 			{
 				lock (varListLock)
 				{
+					AddSymbol(toBeAdded.Name);
 					_varList.Add(toBeAdded);
 					varTableDict.Add(toBeAdded.Value);
 				}
@@ -172,6 +177,7 @@ namespace GBRead.Base
 			{
 				lock (labelListLock)
 				{
+					AddSymbol(toBeAdded.Name);
 					_funcList.Add(toBeAdded);
 					funcTableDict.Add(toBeAdded.Value);
 				}
@@ -181,6 +187,7 @@ namespace GBRead.Base
 			{
 				lock (dataListLock)
 				{
+					AddSymbol(toBeAdded.Name);
 					_dataList.Add(toBeAdded);
 					dataTableDict.Add(toBeAdded.Value);
 					RegisterDataAddresses(((DataLabel)toBeAdded).Offset, ((DataLabel)toBeAdded).Length);

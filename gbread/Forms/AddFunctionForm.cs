@@ -12,14 +12,14 @@ using System.Globalization;
 namespace GBRead.Forms
 {
 	public enum LabelEditMode { Add, Edit }
-	public partial class AddFunctionForm : Form
+	public partial class AddFunctionLabelForm : Form
 	{
 		Disassembler dc;
 		LabelContainer refContainer;
 		LabelEditMode lem;
 		FunctionLabel priorLabel;
 		ListBox.ObjectCollection oc;
-		public AddFunctionForm(Disassembler dcs, LabelContainer lc, ListBox.ObjectCollection ocs, LabelEditMode nlem, FunctionLabel newPriorLabel = null)
+		public AddFunctionLabelForm(Disassembler dcs, LabelContainer lc, ListBox.ObjectCollection ocs, LabelEditMode nlem, FunctionLabel newPriorLabel = null)
 		{
 			InitializeComponent();
 			dc = dcs;

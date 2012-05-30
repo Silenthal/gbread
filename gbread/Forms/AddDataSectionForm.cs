@@ -11,14 +11,14 @@ using GBRead.Base;
 
 namespace GBRead.Forms
 {
-	public partial class AddDataSectionForm : Form
+	public partial class AddDataLabelForm : Form
 	{
 		Disassembler dc;
 		ListBox.ObjectCollection oc;
 		LabelContainer refContainer;
 		LabelEditMode lem;
 		DataLabel priorLabel;
-		public AddDataSectionForm(Disassembler dcs, LabelContainer lc, ListBox.ObjectCollection ocs, LabelEditMode nlem, DataLabel newPriorLabel = null)
+		public AddDataLabelForm(Disassembler dcs, LabelContainer lc, ListBox.ObjectCollection ocs, LabelEditMode nlem, DataLabel newPriorLabel = null)
 		{
 			InitializeComponent();
 			dc = dcs;

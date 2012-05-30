@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
-using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using GBRead.Base;
 
@@ -19,28 +19,11 @@ namespace GBRead.Forms
 
 		BinFile romFile;
 
-		class PrintingFunctionsThreadArgumentPack
-		{
-			public FunctionLabel labelToBePrinted { get; set; }
-		}
-
-		class PrintingASMThreadArgumentPack
-		{
-			public int Start { get; set; }
-			public int End { get; set; }
-		}
-
-		class PrintingFileASMThreadArgumentPack
-		{
-			public string SavedASMFileName { get; set; }
-		}
-
 		MainFormOptions mainFormOptions = new MainFormOptions();
 
 		public MainForm(BinFile cs, Disassembler ds, Assembler ac, LabelContainer lcnew)
 		{
 			InitializeComponent();
-			
 			disassembler = ds;
 			assembler = ac;
 			labelContainer = lcnew;
@@ -49,7 +32,6 @@ namespace GBRead.Forms
 
 		protected override void OnFormClosing(FormClosingEventArgs e)
 		{
-			backgroundWorker1.CancelAsync();
 			base.OnFormClosing(e);
 		}
 
@@ -76,17 +58,15 @@ namespace GBRead.Forms
 		}
 
 		#region Code Label Box Handlers
+
 		private void codeLabelBox_DoubleClick(object sender, EventArgs e)
 		{
 			if (codeLabelBox.SelectedItem != null)
 			{
-				PrintingFunctionsThreadArgumentPack pfrg = new PrintingFunctionsThreadArgumentPack
-				{
-					labelToBePrinted = (FunctionLabel)codeLabelBox.SelectedItem
-				};
-				if (!backgroundWorker1.IsBusy) backgroundWorker1.RunWorkerAsync(pfrg);
+				UpdateMainTextBox(disassembler.ShowCodeLabel((FunctionLabel)codeLabelBox.SelectedItem), TextBoxWriteMode.Overwrite);
 			}
 		}
+
 		private void codeLabelBox_MouseClick(object sender, MouseEventArgs e)
 		{
 			if (e.Button == System.Windows.Forms.MouseButtons.Right)
@@ -96,17 +76,14 @@ namespace GBRead.Forms
 				else codeLabelBoxContextMenu2.Show(MousePosition);
 			}
 		}
+
 		private void codeLabelBox_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (codeLabelBox.SelectedIndex != -1)
 			{
 				if (e.KeyCode == Keys.Enter)
 				{
-					PrintingFunctionsThreadArgumentPack pfrg = new PrintingFunctionsThreadArgumentPack
-					{
-						labelToBePrinted = (FunctionLabel)codeLabelBox.SelectedItem
-					};
-					if (!backgroundWorker1.IsBusy) backgroundWorker1.RunWorkerAsync(pfrg);
+					UpdateMainTextBox(disassembler.ShowCodeLabel((FunctionLabel)codeLabelBox.SelectedItem), TextBoxWriteMode.Overwrite);
 				}
 				else if (e.KeyCode == Keys.Delete)
 				{
@@ -115,9 +92,11 @@ namespace GBRead.Forms
 				}
 			}
 		}
-		#endregion
+
+		#endregion Code Label Box Handlers
 
 		#region Data Label Box Handlers
+
 		private void dataLabelBox_DoubleClick(object sender, EventArgs e)
 		{
 			if (dataLabelBox.SelectedItem != null)
@@ -133,6 +112,7 @@ namespace GBRead.Forms
 				}
 			}
 		}
+
 		private void dataLabelBox_MouseClick(object sender, MouseEventArgs e)
 		{
 			if (e.Button == System.Windows.Forms.MouseButtons.Right)
@@ -142,6 +122,7 @@ namespace GBRead.Forms
 				else dataLabelContextMenu2.Show(MousePosition);
 			}
 		}
+
 		private void dataLabelBox_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.Enter)
@@ -154,9 +135,11 @@ namespace GBRead.Forms
 				UpdateDataBoxView();
 			}
 		}
-		#endregion
+
+		#endregion Data Label Box Handlers
 
 		#region Variable Label Box Handlers
+
 		private void varLabelBox_MouseClick(object sender, MouseEventArgs e)
 		{
 			if (e.Button == System.Windows.Forms.MouseButtons.Right)
@@ -166,6 +149,7 @@ namespace GBRead.Forms
 				else varLabelBoxContextMenu2.Show(MousePosition);
 			}
 		}
+
 		private void varLabelBox_DoubleClick(object sender, EventArgs e)
 		{
 			if (varLabelBox.SelectedItem != null)
@@ -174,6 +158,7 @@ namespace GBRead.Forms
 				UpdateMainTextBox(disassembler.ShowVarLabel(selectedLabel), TextBoxWriteMode.Overwrite);
 			}
 		}
+
 		private void varLabelBox_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.Enter)
@@ -186,33 +171,47 @@ namespace GBRead.Forms
 				UpdateVarBoxView();
 			}
 		}
-		#endregion
+
+		#endregion Variable Label Box Handlers
 
 		#region Menu Item Handlers
 
 		#region CodeLabelBox Menu
 
-		private void renameLabelToolStripMenuItem_Click(object sender, EventArgs e)
+		private void addFunctionLabelMenuItem_Click(object sender, EventArgs e)
 		{
-			AddFunctionForm af = new AddFunctionForm(disassembler, labelContainer, codeLabelBox.Items, LabelEditMode.Edit, (FunctionLabel)codeLabelBox.SelectedItem);
+			if (romFile.FileLoaded)
+			{
+				AddFunctionLabelForm af = new AddFunctionLabelForm(disassembler, labelContainer, codeLabelBox.Items, LabelEditMode.Add);
+				af.ShowDialog();
+			}
+			else
+			{
+				Error.ShowErrorMessage(ErrorMessage.NO_FILE);
+			}
+		}
+
+		private void renameFunctionLabelMenuItem_Click(object sender, EventArgs e)
+		{
+			AddFunctionLabelForm af = new AddFunctionLabelForm(disassembler, labelContainer, codeLabelBox.Items, LabelEditMode.Edit, (FunctionLabel)codeLabelBox.SelectedItem);
 			af.ShowDialog();
 		}
 
-		private void removeFunctionMenuItem_Click(object sender, EventArgs e)
+		private void removeFunctionLabelMenuItem_Click(object sender, EventArgs e)
 		{
 			labelContainer.RemoveLabel((FunctionLabel)codeLabelBox.SelectedItem);
 			codeLabelBox.Items.Remove(codeLabelBox.SelectedItem);
 		}
 
-		#endregion
+		#endregion CodeLabelBox Menu
 
 		#region DataLabelBox Menus
 
-		private void addANewDataSectionToolStripMenuItem_Click(object sender, EventArgs e)
+		private void addDataSectionMenuItem_Click(object sender, EventArgs e)
 		{
 			if (romFile.FileLoaded)
 			{
-				AddDataSectionForm ad = new AddDataSectionForm(disassembler, labelContainer, dataLabelBox.Items, LabelEditMode.Add);
+				AddDataLabelForm ad = new AddDataLabelForm(disassembler, labelContainer, dataLabelBox.Items, LabelEditMode.Add);
 				ad.ShowDialog();
 			}
 			else
@@ -221,19 +220,25 @@ namespace GBRead.Forms
 			}
 		}
 
-		private void renameADataSectionToolStripMenuItem_Click(object sender, EventArgs e)
+		private void renameDataSectionMenuItem_Click(object sender, EventArgs e)
 		{
-			AddDataSectionForm ad = new AddDataSectionForm(disassembler, labelContainer, dataLabelBox.Items, LabelEditMode.Edit, (DataLabel)dataLabelBox.SelectedItem);
+			AddDataLabelForm ad = new AddDataLabelForm(disassembler, labelContainer, dataLabelBox.Items, LabelEditMode.Edit, (DataLabel)dataLabelBox.SelectedItem);
 			ad.ShowDialog();
 		}
 
-		private void removeToolStripMenuItem1_Click(object sender, EventArgs e)
+		private void removeDataSectionMenuItem_Click(object sender, EventArgs e)
 		{
 			labelContainer.RemoveLabel((DataLabel)dataLabelBox.SelectedItem);
 			dataLabelBox.Items.Remove(dataLabelBox.SelectedItem);
 		}
 
-		#endregion
+		private void findReferencesToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			DataLabel selectedLabel = (DataLabel)dataLabelBox.SelectedItem;
+			UpdateMainTextBox(disassembler.SearchForReference(selectedLabel), TextBoxWriteMode.Overwrite);
+		}
+
+		#endregion DataLabelBox Menus
 
 		#region VarLabelBox Menus
 
@@ -241,7 +246,7 @@ namespace GBRead.Forms
 		{
 			if (romFile.FileLoaded)
 			{
-				AddVariableForm av = new AddVariableForm(disassembler, labelContainer, varLabelBox.Items, LabelEditMode.Add);
+				AddVarLabelForm av = new AddVarLabelForm(disassembler, labelContainer, varLabelBox.Items, LabelEditMode.Add);
 				av.ShowDialog();
 			}
 			else
@@ -252,7 +257,7 @@ namespace GBRead.Forms
 
 		private void editVariableToolStripMenuItem2_Click(object sender, EventArgs e)
 		{
-			AddVariableForm av = new AddVariableForm(disassembler, labelContainer, varLabelBox.Items, LabelEditMode.Edit, (VarLabel)varLabelBox.SelectedItem);
+			AddVarLabelForm av = new AddVarLabelForm(disassembler, labelContainer, varLabelBox.Items, LabelEditMode.Edit, (VarLabel)varLabelBox.SelectedItem);
 			av.ShowDialog();
 		}
 
@@ -262,21 +267,23 @@ namespace GBRead.Forms
 			varLabelBox.Items.Remove(varLabelBox.SelectedItem);
 		}
 
-		#endregion
+		#endregion VarLabelBox Menus
 
 		#region Toolstrip Menus
+
 		private void openToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			openFileDialog1.Title = "Open GB/GBC File...";
-			openFileDialog1.Filter = "GB/GBC Files|*.gb;*.gbc|All Files|*";
-			openFileDialog1.FileName = "";
-			if (openFileDialog1.ShowDialog() == DialogResult.OK)
+			OpenFileDialog ofd = new OpenFileDialog();
+			ofd.Title = "Open GB/GBC File...";
+			ofd.Filter = "GB/GBC Files|*.gb;*.gbc|All Files|*";
+			ofd.FileName = "";
+			if (ofd.ShowDialog() == DialogResult.OK)
 			{
-				FileInfo fs = new FileInfo(openFileDialog1.FileName);
-				romFile.LoadFile(openFileDialog1.FileName);
-				this.Text = "GBRead - " + openFileDialog1.SafeFileName;
+				FileInfo fs = new FileInfo(ofd.FileName);
+				romFile.LoadFile(ofd.FileName);
+				this.Text = "GBRead - " + ofd.SafeFileName;
 				UpdateMainTextBox(romFile.GetBinInfo(), TextBoxWriteMode.Overwrite);
-				currentFileLoaded = openFileDialog1.FileName;
+				currentFileLoaded = ofd.FileName;
 				labelContainer.ClearAllLists();
 				codeLabelBox.Items.Clear();
 				dataLabelBox.Items.Clear();
@@ -316,12 +323,13 @@ namespace GBRead.Forms
 		{
 			if (romFile.FileLoaded)
 			{
-				openFileDialog1.Title = "Load Function/Data/Variable List...";
-				openFileDialog1.Filter = "Function/Data/Variable List|*.txt|All Files|*";
-				openFileDialog1.FileName = "";
-				if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+				OpenFileDialog ofd = new OpenFileDialog();
+				ofd.Title = "Load Function/Data/Variable List...";
+				ofd.Filter = "Function/Data/Variable List|*.txt|All Files|*";
+				ofd.FileName = "";
+				if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 				{
-					labelContainer.LoadLabelFile(openFileDialog1.FileName);
+					labelContainer.LoadLabelFile(ofd.FileName);
 					foreach (FunctionLabel f in labelContainer.FuncList)
 					{
 						if (!codeLabelBox.Items.Contains(f))
@@ -353,13 +361,14 @@ namespace GBRead.Forms
 
 		private void saveCalledFunctionsListToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			saveFileDialog1.Title = "Save Function/Data/Variable List...";
-			saveFileDialog1.FileName = "";
-			saveFileDialog1.Filter = "Function/Data/Variable List|*.txt|All Files|*";
-			if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+			SaveFileDialog sfd = new SaveFileDialog();
+			sfd.Title = "Save Function/Data/Variable List...";
+			sfd.FileName = "";
+			sfd.Filter = "Function/Data/Variable List|*.txt|All Files|*";
+			if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 			{
-				labelContainer.SaveLabelFile(saveFileDialog1.FileName);
-				MessageBox.Show(String.Format("Saved Functions and Data to{0}{1}", Environment.NewLine, saveFileDialog1.FileName), "Success", MessageBoxButtons.OK);
+				labelContainer.SaveLabelFile(sfd.FileName);
+				MessageBox.Show(String.Format("Saved Functions and Data to{0}{1}", Environment.NewLine, sfd.FileName), "Success", MessageBoxButtons.OK);
 			}
 		}
 
@@ -367,16 +376,25 @@ namespace GBRead.Forms
 		{
 			if (romFile.FileLoaded)
 			{
-				saveFileDialog1.Title = "Save All ASM...";
-				saveFileDialog1.Filter = "Text File|*.txt|All Files|*";
-				saveFileDialog1.FileName = "";
-				if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+				SaveFileDialog sfd = new SaveFileDialog();
+				sfd.Title = "Save All ASM...";
+				sfd.Filter = "Text File|*.txt|All Files|*";
+				sfd.FileName = "";
+				if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 				{
-					PrintingFileASMThreadArgumentPack pfap = new PrintingFileASMThreadArgumentPack
-					{
-						SavedASMFileName = saveFileDialog1.FileName
-					};
-					if (!backgroundWorker1.IsBusy) backgroundWorker1.RunWorkerAsync(pfap);
+					new Thread(new ThreadStart(() =>
+						{
+							if (romFile.FileLoaded)
+							{
+								UpdateProgressLabel("Working...", TextBoxWriteMode.Overwrite);
+								using (StreamWriter sw = new StreamWriter(sfd.FileName, false))
+								{
+									sw.Write(disassembler.GetFullASM());
+								}
+								UpdateProgressLabel("", TextBoxWriteMode.Overwrite);
+								MessageBox.Show(String.Format("Saved All ASM to{0}{1}", Environment.NewLine, sfd.FileName), "Success", MessageBoxButtons.OK);
+							}
+						})).Start();
 				}
 			}
 			else
@@ -389,10 +407,11 @@ namespace GBRead.Forms
 		{
 			if (romFile.FileLoaded)
 			{
-				saveFileDialog1.Title = "Save GB/GBC File...";
-				saveFileDialog1.Filter = "GB/GBC Files|*.gb;*.gbc|All Files|*";
-				saveFileDialog1.FileName = "";
-				if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+				SaveFileDialog afd = new SaveFileDialog();
+				afd.Title = "Save GB/GBC File...";
+				afd.Filter = "GB/GBC Files|*.gb;*.gbc|All Files|*";
+				afd.FileName = "";
+				if (afd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 				{
 					if (MessageBox.Show("Do you want to correct the header checksum and complement bytes as well?", "Fix Header", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
 					{
@@ -401,13 +420,13 @@ namespace GBRead.Forms
 							((GBBinFile)romFile).FixGBHeader();
 						}
 					}
-					if (romFile.SaveFile(saveFileDialog1.FileName))
+					if (romFile.SaveFile(afd.FileName))
 					{
-						MessageBox.Show("File successfuly written to " + Environment.NewLine + saveFileDialog1.FileName);
+						MessageBox.Show("File successfuly written to " + Environment.NewLine + afd.FileName);
 					}
 					else
 					{
-						MessageBox.Show("File could not be written to " + Environment.NewLine + saveFileDialog1.FileName);
+						MessageBox.Show("File could not be written to " + Environment.NewLine + afd.FileName);
 					}
 				}
 			}
@@ -426,15 +445,16 @@ namespace GBRead.Forms
 
 		private void exportToBinaryFileToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			saveFileDialog1.Title = "Export Data Section To Binary...";
-			saveFileDialog1.Filter = "Binary File|*.bin|All Files|*";
-			saveFileDialog1.FileName = ((DataLabel)dataLabelBox.SelectedItem).Name;
-			if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+			SaveFileDialog sfd = new SaveFileDialog();
+			sfd.Title = "Export Data Section To Binary...";
+			sfd.Filter = "Binary File|*.bin|All Files|*";
+			sfd.FileName = ((DataLabel)dataLabelBox.SelectedItem).Name;
+			if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 			{
 				DataLabel ds = (DataLabel)dataLabelBox.SelectedItem;
-				if (romFile.SaveFilePortion(saveFileDialog1.FileName, ds.Offset, ds.Length))
+				if (romFile.SaveFilePortion(sfd.FileName, ds.Offset, ds.Length))
 				{
-					MessageBox.Show("Binary file successfuly written to " + Environment.NewLine + saveFileDialog1.FileName);
+					MessageBox.Show("Binary file successfuly written to " + Environment.NewLine + sfd.FileName);
 				}
 			}
 		}
@@ -464,7 +484,8 @@ namespace GBRead.Forms
 				Error.ShowErrorMessage(ErrorMessage.NO_FILE);
 			}
 		}
-		#endregion
+
+		#endregion Toolstrip Menus
 
 		private void printASMButton_Click(object sender, EventArgs e)
 		{
@@ -472,14 +493,39 @@ namespace GBRead.Forms
 			int end;
 			InputValidation.TryParseOffsetString(startBox.Text, out start);
 			InputValidation.TryParseOffsetString(endBox.Text, out end);
-			PrintingASMThreadArgumentPack parp = new PrintingASMThreadArgumentPack
+			Thread pasmThread = new Thread(new ThreadStart(() =>
 			{
-				Start = start, 
-				End = end
-			};
-			if (!backgroundWorker1.IsBusy) backgroundWorker1.RunWorkerAsync(parp);
+				if (romFile.FileLoaded)
+				{
+					if (start < 0 || end < 0)
+					{
+						Error.ShowErrorMessage(ErrorMessage.START_OR_END_INVALID);
+					}
+					else if (start < 0 || start > romFile.Length)
+					{
+						Error.ShowErrorMessage(ErrorMessage.START_INVALID);
+					}
+					else if (end <= 0 || end >= romFile.Length)
+					{
+						Error.ShowErrorMessage(ErrorMessage.END_INVALID);
+					}
+					else if (end < start)
+					{
+						Error.ShowErrorMessage(ErrorMessage.START_AFTER_END);
+					}
+					else
+					{
+						UpdateMainTextBox(disassembler.PrintASM(start, end - start), TextBoxWriteMode.Overwrite);
+					}
+				}
+				else
+				{
+					Error.ShowErrorMessage(ErrorMessage.NO_FILE);
+				}
+			}));
+			pasmThread.Start();
 		}
-		
+
 		private void startEndBox_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			if ((Keys)e.KeyChar == Keys.Enter)
@@ -568,9 +614,10 @@ namespace GBRead.Forms
 			}
 		}
 
-		#endregion
+		#endregion Menu Item Handlers
 
 		#region List Management
+
 		private void UpdateDataBoxView()
 		{
 			((CurrencyManager)dataLabelBox.BindingContext[labelContainer.DataList]).Refresh();
@@ -585,128 +632,19 @@ namespace GBRead.Forms
 		{
 			((CurrencyManager)varLabelBox.BindingContext[labelContainer.VarList]).Refresh();
 		}
-		#endregion
 
-		#region Asynchronous Operations
-		private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-		{
-			System.ComponentModel.BackgroundWorker worker = sender as System.ComponentModel.BackgroundWorker;
-			if (e.Argument is PrintingFunctionsThreadArgumentPack)
-			{
-				PrintFunctions_Threaded(worker, e);
-			}
-			else if (e.Argument is PrintingASMThreadArgumentPack)
-			{
-				PrintASM_Threaded(worker, e);
-			}
-			else if (e.Argument is PrintingFileASMThreadArgumentPack)
-			{
-				PrintASMToFile_Threaded(worker, e);
-			}
-		}
+		#endregion List Management
 
-		private void PrintASM_Threaded(System.ComponentModel.BackgroundWorker worker, System.ComponentModel.DoWorkEventArgs e)
-		{
-			int start = (e.Argument as PrintingASMThreadArgumentPack).Start;
-			int end = (e.Argument as PrintingASMThreadArgumentPack).End;
-			if (!worker.CancellationPending && romFile.FileLoaded)
-			{
-				if (start < 0 || end < 0)
-				{
-					Error.ShowErrorMessage(ErrorMessage.START_OR_END_INVALID);
-					e.Cancel = true;
-				}
-				else if (start < 0 || start > romFile.Length)
-				{
-					Error.ShowErrorMessage(ErrorMessage.START_INVALID);
-					e.Cancel = true;
-				}
-				else if (end <= 0 || end >= romFile.Length)
-				{
-					Error.ShowErrorMessage(ErrorMessage.END_INVALID);
-					e.Cancel = true;
-				}
-				else if (end < start)
-				{
-					Error.ShowErrorMessage(ErrorMessage.START_AFTER_END);
-					e.Cancel = true;
-				}
-				else
-				{
-					String tempText = String.Empty;
-					worker.ReportProgress(0);
-					tempText = disassembler.PrintASM(start, end - start);
-					e.Result = tempText;
-				}
-			}
-			else
-			{
-				Error.ShowErrorMessage(ErrorMessage.NO_FILE);
-				e.Cancel = true;
-			}
-		}
-
-		private void PrintFunctions_Threaded(System.ComponentModel.BackgroundWorker worker, System.ComponentModel.DoWorkEventArgs e)
-		{
-			if (!worker.CancellationPending)
-			{
-				FunctionLabel c = (e.Argument as PrintingFunctionsThreadArgumentPack).labelToBePrinted;
-				worker.ReportProgress(0);
-				string result = String.Empty;
-				result = disassembler.ShowCodeLabel(c);
-				e.Result = result;
-			}
-		}
-
-		private void PrintASMToFile_Threaded(System.ComponentModel.BackgroundWorker worker, System.ComponentModel.DoWorkEventArgs e)
-		{
-			worker.ReportProgress(0);
-			if (!worker.CancellationPending && romFile.FileLoaded)
-			{
-				bool tempHFVal = disassembler.HideDefinedFunctions;
-				bool tempHDVal = disassembler.HideDefinedData;
-				disassembler.HideDefinedFunctions = false;
-				disassembler.HideDefinedData = false;
-				using (StreamWriter ot = new StreamWriter(((PrintingFileASMThreadArgumentPack)e.Argument).SavedASMFileName, false))
-				{
-					foreach (VarLabel v in labelContainer.VarList)
-					{
-						ot.WriteLine(v.Name + "\tEQU\t$" + v.Variable.ToString("X"));
-					}
-					ot.WriteLine(disassembler.PrintASM(0, romFile.Length));
-				}
-				//StringBuilder ot = new StringBuilder();
-				//foreach (VarLabel v in labelContainer.VarList)
-				//{
-				//    ot.AppendLine(v.Name + "\tEQU\t$" + v.Variable.ToString("X"));
-				//}
-				//ot.Append(disassembler.PrintASM(0, romFile.ROMSize));
-				//File.WriteAllText((e.Argument as PrintingFileASMThreadArgumentPack).SavedASMFileName, ot.ToString());
-				MessageBox.Show(String.Format("Saved All ASM to{0}{1}", Environment.NewLine, saveFileDialog1.FileName), "Success", MessageBoxButtons.OK);
-				disassembler.HideDefinedFunctions = tempHFVal;
-				disassembler.HideDefinedData = tempHDVal;
-			}
-		}
-
-		private void backgroundWorker1_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
-		{
-			UpdateProgressLabel("Working...");
-		}
-
-		private void backgroundWorker1_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
-		{
-			progressLabel.Text = String.Empty;
-			if (!e.Cancelled) UpdateMainTextBox((string)e.Result, TextBoxWriteMode.Overwrite);
-		}
+		#region Box Update Invocations
 
 		delegate void UpdateTextBoxDelegate(string updateText, TextBoxWriteMode overwriteExistingText);
-		
+
 		private void UpdateProgressLabel(string newLabel, TextBoxWriteMode overwriteExistingText = TextBoxWriteMode.Append)
 		{
 			if (progressLabel.InvokeRequired)
 			{
 				UpdateTextBoxDelegate del = new UpdateTextBoxDelegate(UpdateProgressLabel);
-				progressLabel.Invoke(del, new object[] { newLabel, false });
+				progressLabel.Invoke(del, new object[] { newLabel, overwriteExistingText });
 			}
 			else
 			{
@@ -716,12 +654,13 @@ namespace GBRead.Forms
 		}
 
 		public enum TextBoxWriteMode { Append, Overwrite }
+
 		private void UpdateMainTextBox(string text, TextBoxWriteMode overwriteExistingText)
 		{
 			if (mainTextBox.InvokeRequired)
 			{
 				UpdateTextBoxDelegate del = new UpdateTextBoxDelegate(UpdateMainTextBox);
-				progressLabel.Invoke(del, new object[] { text, overwriteExistingText });
+				mainTextBox.Invoke(del, new object[] { text, overwriteExistingText });
 			}
 			else
 			{
@@ -733,31 +672,13 @@ namespace GBRead.Forms
 			}
 		}
 
-		#endregion	
-
-		private void findReferencesToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			DataLabel selectedLabel = (DataLabel)dataLabelBox.SelectedItem;
-			UpdateMainTextBox(disassembler.SearchForReference(selectedLabel), TextBoxWriteMode.Overwrite);
-		}
-
-		private void addFuncLabelToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			if (romFile.FileLoaded)
-			{
-				AddFunctionForm af = new AddFunctionForm(disassembler, labelContainer, codeLabelBox.Items, LabelEditMode.Add);
-				af.ShowDialog();
-			}
-			else
-			{
-				Error.ShowErrorMessage(ErrorMessage.NO_FILE);
-			}
-		}
+		#endregion Box Update Invocations
 	}
 
 	public class MainFormOptions
 	{
 		public bool isWordWrap;
+
 		public MainFormOptions()
 		{
 			isWordWrap = false;

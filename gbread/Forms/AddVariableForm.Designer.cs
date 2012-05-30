@@ -1,6 +1,6 @@
 ﻿namespace GBRead.Forms
 {
-	partial class AddVariableForm
+	partial class AddVarLabelForm
 	{
 		/// <summary>
 		/// Required designer variable.

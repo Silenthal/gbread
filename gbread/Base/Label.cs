@@ -83,36 +83,36 @@ namespace GBRead.Base
 
 		public override string ToSaveFileString()
 		{
-			StringBuilder returned = new StringBuilder(".label");
-			returned.Append(Environment.NewLine + "_n:" + _name);
-			returned.Append(Environment.NewLine + "_o:" + _value.ToString("X"));
-			if (_length != 0) returned.Append(Environment.NewLine + "_l:" + _length.ToString("X"));
+			string returned = ".label";
+			returned += Environment.NewLine + "_n:" + _name;
+			returned += Environment.NewLine + "_o:" + _value.ToString("X");
+			if (_length != 0) returned += Environment.NewLine + "_l:" + _length.ToString("X");
 			if (_comment != null)
 			{
 				foreach (string x in _comment)
 				{
-					returned.Append(Environment.NewLine + "_c:" + x);
+					returned += Environment.NewLine + "_c:" + x;
 				}
 			}
-			return returned.ToString();
+			return returned;
 		}
 
 		public override string ToASMCommentString()
 		{
-			StringBuilder returned = new StringBuilder();
-			returned.Append(_name + ":");
+			string returned = "";
+			returned += _name + ":";
 			if (_length != 0)
 			{
-				returned.AppendFormat("{0};Size: 0x{1:X} bytes", Environment.NewLine, _length);
+				returned += String.Format("{0};Size: 0x{1:X} bytes", Environment.NewLine, _length);
 			}
 			if (_comment != null)
 			{
 				foreach (string commentLine in _comment)
 				{
-					if (!commentLine.Equals(String.Empty)) returned.AppendFormat("{0};{1}", Environment.NewLine, commentLine);
+					if (!commentLine.Equals(String.Empty)) returned += String.Format("{0};{1}", Environment.NewLine, commentLine);
 				}
 			}
-			return returned.ToString();
+			return returned;
 		}
 
 		public override bool Equals(object obj)
@@ -158,35 +158,35 @@ namespace GBRead.Base
 
 		public override string ToASMCommentString()
 		{
-			StringBuilder returned = new StringBuilder();
-			returned.AppendLine(_name + ":");
-			returned.AppendFormat(";Size: 0x{0:X} bytes", _length);
+			string returned = "";
+			returned += _name + ":" + Environment.NewLine;
+			returned+= String.Format("{0};Size: 0x{1:X} bytes", Environment.NewLine, _length);
 			if (_comment != null)
 			{
 				foreach (string commentLine in _comment)
 				{
-					if (!commentLine.Equals(String.Empty)) returned.AppendFormat("{0};{1}", Environment.NewLine, commentLine);
+					if (!commentLine.Equals(String.Empty)) returned += String.Format("{0};{1}", Environment.NewLine, commentLine);
 				}
 			}
-			return returned.ToString();
+			return returned;
 		}
 
 		public override string ToSaveFileString()
 		{
-			StringBuilder returned = new StringBuilder(".data");
-			returned.AppendLine(Environment.NewLine + "_n:" + _name);
-			returned.AppendLine("_o:" + _value.ToString("X"));
-			returned.AppendLine("_l:" + _length.ToString("X"));
-			returned.AppendLine("_t:" + DSectionType.ToString());
-			returned.Append("_d:" + _dataLineLength.ToString("X"));
+			string returned = ".data" + Environment.NewLine;
+			returned += "_n:" + _name + Environment.NewLine;
+			returned += "_o:" + _value.ToString("X") + Environment.NewLine;
+			returned += "_l:" + _length.ToString("X") + Environment.NewLine;
+			returned += "_t:" + DSectionType.ToString() + Environment.NewLine;
+			returned += "_d:" + _dataLineLength.ToString("X");
 			if (_comment != null)
 			{
 				foreach (string x in _comment)
 				{
-					returned.Append(Environment.NewLine + "_c:" + x);
+					returned += Environment.NewLine + "_c:" + x;
 				}
 			}
-			return returned.ToString();
+			return returned;
 		}
 
 		public override bool Equals(object obj)
@@ -225,51 +225,51 @@ namespace GBRead.Base
 
 		public override string ToASMCommentString()
 		{
-			StringBuilder returned = new StringBuilder(String.Empty);
+			string returned = "";
 			if (_comment != null)
 			{
 				foreach (string commentLine in _comment)
 				{
 					if (!commentLine.Equals(String.Empty))
 					{
-						returned.AppendLine(";" + commentLine);
+						returned += ";" + commentLine + Environment.NewLine;
 					}
 				}
 			}
-			returned.Append(_name + " EQU $" + _value.ToString("X"));
-			return returned.ToString();
+			returned += _name + " EQU $" + _value.ToString("X");
+			return returned;
 		}
 
 		public override string ToSaveFileString()
 		{
-			StringBuilder returned = new StringBuilder(".var");
-			returned.AppendLine(Environment.NewLine + "_n:" + _name);
-			returned.AppendLine("_v:" + _value.ToString("X"));
-			returned.Append("_t:" + varType.ToString());
+			string returned = ".var" + Environment.NewLine;
+			returned += "_n:" + _name + Environment.NewLine;
+			returned += "_v:" + _value.ToString("X") + Environment.NewLine;
+			returned += "_t:" + varType.ToString();
 			if (_comment != null)
 			{
 				foreach (string x in _comment)
 				{
-					returned.Append(Environment.NewLine + "_c:" + x);
+					returned += Environment.NewLine + "_c:" + x;
 				}
 			}
-			return returned.ToString();
+			return returned;
 		}
 
 		public string ToDisplayString()
 		{
-			StringBuilder returned = new StringBuilder(";Name: " + _name + Environment.NewLine);
-			returned.Append(";Value: " + _value.ToString("X4"));
+			string returned = ";Name: " + _name + Environment.NewLine;
+			returned += ";Value: " + _value.ToString("X4");
 			if (_comment != null)
 			{
 				foreach (string x in _comment)
 				{
 					if (x != "")
-						returned.Append(Environment.NewLine + ";" + x);
+						returned += Environment.NewLine + ";" + x;
 				}
 			}
-			returned.AppendLine();
-			return returned.ToString();
+			returned += Environment.NewLine;
+			return returned;
 		}
 
 		public override bool Equals(object obj)

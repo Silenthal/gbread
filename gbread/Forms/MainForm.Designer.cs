@@ -73,13 +73,14 @@
 			this.removeVariableToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
 			this.varLabelBoxContextMenu2 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.addVariableToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-			this.varLabelTabPage = new System.Windows.Forms.TabPage();
-			this.varLabelBox = new System.Windows.Forms.ListBox();
 			this.dataLabelTabPage = new System.Windows.Forms.TabPage();
 			this.dataLabelBox = new System.Windows.Forms.ListBox();
 			this.functionLabelTabPage = new System.Windows.Forms.TabPage();
 			this.codeLabelBox = new System.Windows.Forms.ListBox();
 			this.LabelTabControl = new System.Windows.Forms.TabControl();
+			this.varLabelTabPage = new System.Windows.Forms.TabPage();
+			this.varLabelBox = new System.Windows.Forms.ListBox();
+			this.addNewButton = new System.Windows.Forms.Button();
 			this.mainTextBox = new GBRead.SyntaxHighlightingTextBox();
 			this.menuStrip1.SuspendLayout();
 			this.codeLabelBoxContextMenu.SuspendLayout();
@@ -88,10 +89,10 @@
 			this.dataLabelContextMenu2.SuspendLayout();
 			this.varLabelBoxContextMenu.SuspendLayout();
 			this.varLabelBoxContextMenu2.SuspendLayout();
-			this.varLabelTabPage.SuspendLayout();
 			this.dataLabelTabPage.SuspendLayout();
 			this.functionLabelTabPage.SuspendLayout();
 			this.LabelTabControl.SuspendLayout();
+			this.varLabelTabPage.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// menuStrip1
@@ -445,42 +446,13 @@
 			this.addVariableToolStripMenuItem2.Text = "Add New Variable";
 			this.addVariableToolStripMenuItem2.Click += new System.EventHandler(this.addVariableToolStripMenuItem_Click);
 			// 
-			// varLabelTabPage
-			// 
-			this.varLabelTabPage.Controls.Add(this.varLabelBox);
-			this.varLabelTabPage.Location = new System.Drawing.Point(4, 22);
-			this.varLabelTabPage.Name = "varLabelTabPage";
-			this.varLabelTabPage.Size = new System.Drawing.Size(258, 296);
-			this.varLabelTabPage.TabIndex = 2;
-			this.varLabelTabPage.Text = "Variables";
-			this.varLabelTabPage.UseVisualStyleBackColor = true;
-			// 
-			// varLabelBox
-			// 
-			this.varLabelBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.varLabelBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-			this.varLabelBox.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.varLabelBox.FormattingEnabled = true;
-			this.varLabelBox.HorizontalScrollbar = true;
-			this.varLabelBox.ItemHeight = 11;
-			this.varLabelBox.Location = new System.Drawing.Point(0, 0);
-			this.varLabelBox.Name = "varLabelBox";
-			this.varLabelBox.Size = new System.Drawing.Size(258, 296);
-			this.varLabelBox.Sorted = true;
-			this.varLabelBox.TabIndex = 0;
-			this.varLabelBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.varLabelBox_MouseClick);
-			this.varLabelBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.varLabelBox_DrawItem);
-			this.varLabelBox.DoubleClick += new System.EventHandler(this.varLabelBox_DoubleClick);
-			this.varLabelBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.varLabelBox_KeyDown);
-			this.varLabelBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.varLabelBox_MouseClick);
-			// 
 			// dataLabelTabPage
 			// 
 			this.dataLabelTabPage.Controls.Add(this.dataLabelBox);
 			this.dataLabelTabPage.Location = new System.Drawing.Point(4, 22);
 			this.dataLabelTabPage.Name = "dataLabelTabPage";
 			this.dataLabelTabPage.Padding = new System.Windows.Forms.Padding(3);
-			this.dataLabelTabPage.Size = new System.Drawing.Size(258, 296);
+			this.dataLabelTabPage.Size = new System.Drawing.Size(258, 253);
 			this.dataLabelTabPage.TabIndex = 1;
 			this.dataLabelTabPage.Text = "Data";
 			this.dataLabelTabPage.UseVisualStyleBackColor = true;
@@ -495,7 +467,7 @@
 			this.dataLabelBox.ItemHeight = 11;
 			this.dataLabelBox.Location = new System.Drawing.Point(3, 3);
 			this.dataLabelBox.Name = "dataLabelBox";
-			this.dataLabelBox.Size = new System.Drawing.Size(252, 290);
+			this.dataLabelBox.Size = new System.Drawing.Size(252, 247);
 			this.dataLabelBox.Sorted = true;
 			this.dataLabelBox.TabIndex = 0;
 			this.dataLabelBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataLabelBox_MouseClick);
@@ -510,7 +482,7 @@
 			this.functionLabelTabPage.Location = new System.Drawing.Point(4, 22);
 			this.functionLabelTabPage.Name = "functionLabelTabPage";
 			this.functionLabelTabPage.Padding = new System.Windows.Forms.Padding(3);
-			this.functionLabelTabPage.Size = new System.Drawing.Size(258, 296);
+			this.functionLabelTabPage.Size = new System.Drawing.Size(258, 253);
 			this.functionLabelTabPage.TabIndex = 0;
 			this.functionLabelTabPage.Text = "Functions";
 			this.functionLabelTabPage.UseVisualStyleBackColor = true;
@@ -525,7 +497,7 @@
 			this.codeLabelBox.ItemHeight = 11;
 			this.codeLabelBox.Location = new System.Drawing.Point(3, 3);
 			this.codeLabelBox.Name = "codeLabelBox";
-			this.codeLabelBox.Size = new System.Drawing.Size(252, 290);
+			this.codeLabelBox.Size = new System.Drawing.Size(252, 247);
 			this.codeLabelBox.Sorted = true;
 			this.codeLabelBox.TabIndex = 0;
 			this.codeLabelBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.codeLabelBox_MouseClick);
@@ -544,8 +516,50 @@
 			this.LabelTabControl.Location = new System.Drawing.Point(426, 27);
 			this.LabelTabControl.Name = "LabelTabControl";
 			this.LabelTabControl.SelectedIndex = 0;
-			this.LabelTabControl.Size = new System.Drawing.Size(266, 322);
+			this.LabelTabControl.Size = new System.Drawing.Size(266, 279);
 			this.LabelTabControl.TabIndex = 4;
+			// 
+			// varLabelTabPage
+			// 
+			this.varLabelTabPage.Controls.Add(this.varLabelBox);
+			this.varLabelTabPage.Location = new System.Drawing.Point(4, 22);
+			this.varLabelTabPage.Name = "varLabelTabPage";
+			this.varLabelTabPage.Padding = new System.Windows.Forms.Padding(3);
+			this.varLabelTabPage.Size = new System.Drawing.Size(258, 253);
+			this.varLabelTabPage.TabIndex = 3;
+			this.varLabelTabPage.Text = "Variables";
+			this.varLabelTabPage.UseVisualStyleBackColor = true;
+			// 
+			// varLabelBox
+			// 
+			this.varLabelBox.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.varLabelBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+			this.varLabelBox.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.varLabelBox.FormattingEnabled = true;
+			this.varLabelBox.HorizontalScrollbar = true;
+			this.varLabelBox.ItemHeight = 11;
+			this.varLabelBox.Location = new System.Drawing.Point(3, 3);
+			this.varLabelBox.Name = "varLabelBox";
+			this.varLabelBox.Size = new System.Drawing.Size(252, 247);
+			this.varLabelBox.Sorted = true;
+			this.varLabelBox.TabIndex = 1;
+			this.varLabelBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.varLabelBox_MouseClick);
+			this.varLabelBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.varLabelBox_DrawItem);
+			this.varLabelBox.DoubleClick += new System.EventHandler(this.varLabelBox_DoubleClick);
+			this.varLabelBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.varLabelBox_KeyDown);
+			this.varLabelBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.varLabelBox_MouseClick);
+			// 
+			// addNewButton
+			// 
+			this.addNewButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.addNewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.addNewButton.Location = new System.Drawing.Point(426, 326);
+			this.addNewButton.Name = "addNewButton";
+			this.addNewButton.Size = new System.Drawing.Size(75, 23);
+			this.addNewButton.TabIndex = 23;
+			this.addNewButton.Text = "Add New...";
+			this.addNewButton.UseVisualStyleBackColor = true;
+			this.addNewButton.Click += new System.EventHandler(this.addNewButton_Click);
 			// 
 			// mainTextBox
 			// 
@@ -568,6 +582,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(704, 361);
+			this.Controls.Add(this.addNewButton);
 			this.Controls.Add(this.menuStrip1);
 			this.Controls.Add(this.progressLabel);
 			this.Controls.Add(this.mainTextBox);
@@ -589,10 +604,10 @@
 			this.dataLabelContextMenu2.ResumeLayout(false);
 			this.varLabelBoxContextMenu.ResumeLayout(false);
 			this.varLabelBoxContextMenu2.ResumeLayout(false);
-			this.varLabelTabPage.ResumeLayout(false);
 			this.dataLabelTabPage.ResumeLayout(false);
 			this.functionLabelTabPage.ResumeLayout(false);
 			this.LabelTabControl.ResumeLayout(false);
+			this.varLabelTabPage.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -641,8 +656,6 @@
         private System.Windows.Forms.ToolStripMenuItem searchForFunctionsThatCallThisOneToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem1;
 		private SyntaxHighlightingTextBox mainTextBox;
-		private System.Windows.Forms.TabPage varLabelTabPage;
-		private System.Windows.Forms.ListBox varLabelBox;
 		private System.Windows.Forms.TabPage dataLabelTabPage;
 		private System.Windows.Forms.ListBox dataLabelBox;
 		private System.Windows.Forms.TabPage functionLabelTabPage;
@@ -652,6 +665,9 @@
 		private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem2;
+		private System.Windows.Forms.TabPage varLabelTabPage;
+		private System.Windows.Forms.ListBox varLabelBox;
+		private System.Windows.Forms.Button addNewButton;
     }
 }
 

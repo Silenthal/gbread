@@ -32,10 +32,6 @@
 			this.nameBox = new System.Windows.Forms.TextBox();
 			this.offsetBox = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.isFunctionCheckBox = new System.Windows.Forms.CheckBox();
-			this.label3 = new System.Windows.Forms.Label();
-			this.lengthBox = new System.Windows.Forms.TextBox();
-			this.guessLengthButton = new System.Windows.Forms.Button();
 			this.okButton = new System.Windows.Forms.Button();
 			this.cancelButton = new System.Windows.Forms.Button();
 			this.commentBox = new System.Windows.Forms.TextBox();
@@ -53,17 +49,19 @@
 			// 
 			// nameBox
 			// 
+			this.nameBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.nameBox.Location = new System.Drawing.Point(53, 6);
 			this.nameBox.Name = "nameBox";
-			this.nameBox.Size = new System.Drawing.Size(164, 20);
+			this.nameBox.Size = new System.Drawing.Size(200, 20);
 			this.nameBox.TabIndex = 1;
 			this.nameBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.formBox_keyDown);
 			// 
 			// offsetBox
 			// 
+			this.offsetBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.offsetBox.Location = new System.Drawing.Point(53, 32);
 			this.offsetBox.Name = "offsetBox";
-			this.offsetBox.Size = new System.Drawing.Size(91, 20);
+			this.offsetBox.Size = new System.Drawing.Size(98, 20);
 			this.offsetBox.TabIndex = 2;
 			this.offsetBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.formBox_keyDown);
 			// 
@@ -76,46 +74,10 @@
 			this.label2.TabIndex = 3;
 			this.label2.Text = "Offset";
 			// 
-			// isFunctionCheckBox
-			// 
-			this.isFunctionCheckBox.AutoSize = true;
-			this.isFunctionCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.isFunctionCheckBox.Location = new System.Drawing.Point(11, 58);
-			this.isFunctionCheckBox.Name = "isFunctionCheckBox";
-			this.isFunctionCheckBox.Size = new System.Drawing.Size(67, 17);
-			this.isFunctionCheckBox.TabIndex = 4;
-			this.isFunctionCheckBox.Text = "Function";
-			this.isFunctionCheckBox.UseVisualStyleBackColor = true;
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(85, 59);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(77, 13);
-			this.label3.TabIndex = 5;
-			this.label3.Text = "Length (in hex)";
-			// 
-			// lengthBox
-			// 
-			this.lengthBox.Location = new System.Drawing.Point(168, 56);
-			this.lengthBox.Name = "lengthBox";
-			this.lengthBox.Size = new System.Drawing.Size(49, 20);
-			this.lengthBox.TabIndex = 6;
-			this.lengthBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.formBox_keyDown);
-			// 
-			// guessLengthButton
-			// 
-			this.guessLengthButton.Location = new System.Drawing.Point(223, 54);
-			this.guessLengthButton.Name = "guessLengthButton";
-			this.guessLengthButton.Size = new System.Drawing.Size(81, 23);
-			this.guessLengthButton.TabIndex = 7;
-			this.guessLengthButton.Text = "Guess Length";
-			this.guessLengthButton.UseVisualStyleBackColor = true;
-			this.guessLengthButton.Click += new System.EventHandler(this.guessLengthButton_Click);
-			// 
 			// okButton
 			// 
+			this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.okButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.okButton.Location = new System.Drawing.Point(15, 294);
 			this.okButton.Name = "okButton";
 			this.okButton.Size = new System.Drawing.Size(75, 23);
@@ -126,8 +88,10 @@
 			// 
 			// cancelButton
 			// 
+			this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelButton.Location = new System.Drawing.Point(223, 294);
+			this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.cancelButton.Location = new System.Drawing.Point(172, 294);
 			this.cancelButton.Name = "cancelButton";
 			this.cancelButton.Size = new System.Drawing.Size(81, 23);
 			this.cancelButton.TabIndex = 11;
@@ -136,39 +100,41 @@
 			// 
 			// commentBox
 			// 
-			this.commentBox.Location = new System.Drawing.Point(15, 97);
+			this.commentBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.commentBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.commentBox.Location = new System.Drawing.Point(15, 71);
 			this.commentBox.Multiline = true;
 			this.commentBox.Name = "commentBox";
-			this.commentBox.Size = new System.Drawing.Size(289, 191);
+			this.commentBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+			this.commentBox.Size = new System.Drawing.Size(238, 217);
 			this.commentBox.TabIndex = 50;
+			this.commentBox.WordWrap = false;
 			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(12, 81);
+			this.label4.Location = new System.Drawing.Point(12, 55);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(51, 13);
 			this.label4.TabIndex = 49;
 			this.label4.Text = "Comment";
 			// 
-			// AddFunctionForm
+			// AddFunctionLabelForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(320, 332);
+			this.ClientSize = new System.Drawing.Size(268, 332);
 			this.Controls.Add(this.commentBox);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.cancelButton);
 			this.Controls.Add(this.okButton);
-			this.Controls.Add(this.guessLengthButton);
-			this.Controls.Add(this.lengthBox);
-			this.Controls.Add(this.label3);
-			this.Controls.Add(this.isFunctionCheckBox);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.offsetBox);
 			this.Controls.Add(this.nameBox);
 			this.Controls.Add(this.label1);
-			this.Name = "AddFunctionForm";
+			this.Name = "AddFunctionLabelForm";
 			this.Text = "Add Label";
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -181,10 +147,6 @@
 		private System.Windows.Forms.TextBox nameBox;
 		private System.Windows.Forms.TextBox offsetBox;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.CheckBox isFunctionCheckBox;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.TextBox lengthBox;
-		private System.Windows.Forms.Button guessLengthButton;
 		private System.Windows.Forms.Button okButton;
 		private System.Windows.Forms.Button cancelButton;
 		private System.Windows.Forms.TextBox commentBox;

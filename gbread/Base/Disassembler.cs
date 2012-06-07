@@ -9,8 +9,6 @@ namespace GBRead.Base
 	{
 		private BinFile CoreFile;
 
-		public BinFile AttachedFile { get { return CoreFile; } }
-
 		private LabelContainer lc;
 
 		#region Options
@@ -116,7 +114,6 @@ namespace GBRead.Base
 			int currentOffset = cLabel.Offset;
 			int guessedLength = GuessFunctionLength(cLabel);
 			ret.AppendLine(cLabel.ToASMCommentString());
-			if (cLabel.Length == 0) ret.AppendFormat(";Guessed length: 0x{0:X} bytes{1}", guessedLength, Environment.NewLine);
 			while (currentOffset < cLabel.Offset + guessedLength)
 			{
 				GBInstruction isu = new GBInstruction();
@@ -163,9 +160,10 @@ namespace GBRead.Base
 			while (current < start + length)
 			{
 				byte currentInst = (byte)file.ReadByte(current);
-				if (lc.DataList.Contains(new DataLabel(current)))
+				codeSearch = lc.TryGetFuncLabel(current);
+				dataSearch = lc.TryGetDataLabel(current);
+				if (dataSearch != null)
 				{
-					dataSearch = (DataLabel)lc.TryGetDataLabel(current);
 					if (HideDefinedData)
 					{
 						output.AppendLine(String.Format("INCBIN \"{0}.bin\"", dataSearch.Name));
@@ -176,25 +174,11 @@ namespace GBRead.Base
 					}
 					current += dataSearch.Length;
 				}
-				else if (lc.Contains(new FunctionLabel(current)))
+				else if (codeSearch != null)
 				{
-					codeSearch = (FunctionLabel)lc.TryGetFuncLabel(current);
-					if (HideDefinedFunctions && codeSearch.Length != 0)
-					{
-						output.AppendLine(String.Format("INCBIN \"Func_{0}.bin\"", codeSearch.Name));
-						current += codeSearch.Length;
-					}
-					else if (codeSearch.Length != 0)
-					{
-						output.AppendLine(ShowCodeLabel(codeSearch));
-						current += codeSearch.Length;
-					}
-					else
-					{
-						output.AppendLine(codeSearch.ToASMCommentString());
-						output.AppendLine(GetInstruction(file, baseOffset, current, ref isu));
-						current += isu.InstSize;
-					}
+					output.AppendLine(codeSearch.ToASMCommentString());
+					output.AppendLine(GetInstruction(file, baseOffset, current, ref isu));
+					current += isu.InstSize;
 				}
 				else
 				{
@@ -347,10 +331,10 @@ namespace GBRead.Base
 					{
 						int currentCall = GetBankAdjustedAddress(isu.Bank, curCallAddr);
 						FunctionLabel rc = new FunctionLabel(currentCall);
-						if (IsValidFunction(currentOffset) && IsValidFunction(currentCall) && !lc.Contains(rc))
+						if (IsValidFunction(currentOffset) && IsValidFunction(currentCall) && lc.TryGetFuncLabel(currentCall) == null)
 						{
 							FunctionLabel fl = new FunctionLabel(currentCall);
-							lc.AddLabel(fl);
+							lc.AddFuncLabel(fl);
 						}
 					}
 				}
@@ -409,7 +393,8 @@ namespace GBRead.Base
 				{
 					FuncRefType refType = FuncRefType.None;
 					int currentOffset = c.Offset;
-					while (currentOffset < c.Offset + c.Length)
+					int curLen = GuessFunctionLength(c);
+					while (currentOffset < c.Offset + curLen)
 					{
 						if (currentOffset < 0x4000 && searchLabel.Offset > 0x3FFF)
 						{
@@ -532,10 +517,10 @@ namespace GBRead.Base
 			{
 				foreach (FunctionLabel c in lc.FuncList)
 				{
-					if (c.Length == 0) continue;
 					VarRefType result = VarRefType.None;
 					int currentOffset = c.Offset;
-					while (currentOffset < c.Offset + c.Length)
+					int curLen = GuessFunctionLength(c);
+					while (currentOffset < c.Offset + curLen)
 					{
 						if (lc.isAddressMarkedAsData(currentOffset))
 						{
@@ -689,7 +674,6 @@ namespace GBRead.Base
 
 		public int GuessFunctionLength(FunctionLabel cLabel)
 		{
-			if (cLabel.Length != 0) return cLabel.Length;
 			int currentOffset = cLabel.Offset;
 			int maxLength = 0x4000 - (cLabel.Offset & 0x3FFF);
 			bool done = false;
@@ -807,7 +791,8 @@ namespace GBRead.Base
 					if (instType == InstructionType.jp || instType == InstructionType.call || instType == InstructionType.jr)
 					{
 						int intArg = GetBankAdjustedAddress(bank, arg.NumArg);
-						if (arg.NumArg < 0x8000 && lc.Contains(new FunctionLabel(intArg)))
+						FunctionLabel labelAtOffset = lc.TryGetFuncLabel(intArg);
+						if (arg.NumArg < 0x8000 && labelAtOffset != null)
 						{
 							return lc.TryGetFuncLabel(intArg).Name;
 						}
@@ -819,13 +804,15 @@ namespace GBRead.Base
 					else if (instType == InstructionType.ld)
 					{
 						string numArg = "";
-						if (lc.Contains(new VarLabel(arg.NumArg)))
+						VarLabel varLabelAtOffset = lc.TryGetVarLabel(arg.NumArg);
+						DataLabel dataLabelAtOffset = lc.TryGetDataLabel(GetBankAdjustedAddress((byte)(address >> 14), arg.NumArg));
+						if (varLabelAtOffset != null)
 						{
-							numArg = lc.TryGetVarLabel(arg.NumArg).Name;
+							numArg = varLabelAtOffset.Name;
 						}
-						else if (lc.Contains(new DataLabel(GetBankAdjustedAddress((byte)(address >> 14), arg.NumArg))))
+						else if (dataLabelAtOffset != null)
 						{
-							numArg = lc.TryGetDataLabel(GetBankAdjustedAddress((byte)(address >> 14), arg.NumArg)).Name;
+							numArg = dataLabelAtOffset.Name;
 						}
 						else numArg = NumberToASMString(arg.NumArg, NumberType.Word);
 						if (arg.ArgType == GBArgumentType.MemMapWord)
@@ -1445,10 +1432,6 @@ namespace GBRead.Base
 			{InstructionType.ret, 0xC9 },
 			{InstructionType.reti, 0xD9 },
 			{InstructionType.stop, 0x10 }
-		};
-
-		private Dictionary<InstructionType, byte[]> SingleArgumentStaticArgs = new Dictionary<InstructionType, byte[]>()
-		{
 		};
 	}
 }

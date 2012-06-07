@@ -32,7 +32,7 @@ namespace GBRead.Forms
 
 				if (priorLabel != null)
 				{
-					refContainer.RemoveLabel(priorLabel);
+					refContainer.RemoveVarLabel(priorLabel);
 					oc.Remove(priorLabel);
 					nameBox.Text = priorLabel.Name;
 					offsetBox.Text = priorLabel.Value.ToString("X");
@@ -68,7 +68,7 @@ namespace GBRead.Forms
 			{
 				Error.ShowErrorMessage(ErrorMessage.NAME_IS_INVALID);
 			}
-			else if (refContainer.IsSymbolDefined(nameBox.Text))
+			else if (refContainer.IsNameDefined(nameBox.Text))
 			{
 				Error.ShowErrorMessage(ErrorMessage.NAME_ALREADY_DEFINED);
 			}
@@ -79,7 +79,7 @@ namespace GBRead.Forms
 			else
 			{
 				priorLabel = new VarLabel(val, nameBox.Text, (VariableType)dataTypeBox.SelectedIndex, commentBox.Lines);
-				refContainer.AddLabel(priorLabel);
+				refContainer.AddVarLabel(priorLabel);
 				oc.Add(priorLabel);
 				this.DialogResult = System.Windows.Forms.DialogResult.OK;
 			}

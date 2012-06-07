@@ -32,12 +32,10 @@ namespace GBRead.Forms
 				priorLabel = newPriorLabel;
 				if (priorLabel != null)
 				{
-					refContainer.RemoveLabel(priorLabel);
+					refContainer.RemoveFuncLabel(priorLabel);
 					oc.Remove(priorLabel);
 					nameBox.Text = priorLabel.Name;
 					offsetBox.Text = priorLabel.Offset.ToString("X");
-					lengthBox.Text = priorLabel.Length.ToString("X");
-					if (priorLabel.Length > 0) isFunctionCheckBox.CheckState = CheckState.Checked;
 					if (priorLabel.Comment != null)
 					{
 						for (int i = 0; i < priorLabel.Comment.Length; i++)
@@ -65,12 +63,11 @@ namespace GBRead.Forms
 		private void okButton_Click(object sender, EventArgs e)
 		{
 			int off = -1;
-			int len = 0;
 			if (!RegularValidation.IsWord(nameBox.Text))
 			{
 				Error.ShowErrorMessage(ErrorMessage.NAME_IS_INVALID);
 			}
-			else if (refContainer.IsSymbolDefined(nameBox.Text))
+			else if (refContainer.IsNameDefined(nameBox.Text))
 			{
 				Error.ShowErrorMessage(ErrorMessage.NAME_ALREADY_DEFINED);
 			}
@@ -78,28 +75,13 @@ namespace GBRead.Forms
 			{
 				Error.ShowErrorMessage(ErrorMessage.OFFSET_IS_INVALID);
 			}
-			else if (isFunctionCheckBox.Checked && (!Int32.TryParse(lengthBox.Text, NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture, out len) || len <= 0))
-			{
-				Error.ShowErrorMessage(ErrorMessage.LENGTH_IS_INVALID);
-			}
 			else
 			{
-				priorLabel = new FunctionLabel(off, nameBox.Text, isFunctionCheckBox.Checked ? len : 0, commentBox.Lines);
-				refContainer.AddLabel(priorLabel);
+				priorLabel = new FunctionLabel(off, nameBox.Text, commentBox.Lines);
+				refContainer.AddFuncLabel(priorLabel);
 				oc.Add(priorLabel);
 				this.DialogResult = System.Windows.Forms.DialogResult.OK;
 			}
-		}
-
-		private void guessLengthButton_Click(object sender, EventArgs e)
-		{
-			int off = -1;
-			if (!InputValidation.TryParseOffsetString(offsetBox.Text, out off))
-			{
-				MessageBox.Show("The offset is not valid.", "Error", MessageBoxButtons.OK);
-			}
-			FunctionLabel fl = new FunctionLabel(off);
-			lengthBox.Text = dc.GuessFunctionLength(fl).ToString("X");
 		}
 	}
 }

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Text;
-using System.Collections.Generic;
 
 namespace GBRead.Base
 {
@@ -56,22 +54,18 @@ namespace GBRead.Base
 			{
 				return _name.CompareTo(comp._name);
 			}
-			else throw new ArgumentException("Object is not a proper label.");
+			else throw new ArgumentException("Object is not initialized.");
 		}
 
 	}
 
 	public class FunctionLabel : GenericLabel
 	{
-		private int _length;
 		public int Offset { get { return _value; } set { _value = value; } }
-		public int Length { get { return _length; } set { _length = value; } }
-		public int Bank { get { return _value >> 14; } }
-		public FunctionLabel(int newOffset, string labelName = "", int labelLength = 0, string[] commentLines = null)
+		public FunctionLabel(int newOffset, string labelName = "", string[] commentLines = null)
 		{
 			_value = newOffset;
 			_name = labelName.Equals(String.Empty) ? String.Format("F_{0:X6}", newOffset) : labelName;
-			_length = labelLength;
 			if (commentLines != null)
 			{
 				_comment = new string[commentLines.Length];
@@ -79,14 +73,13 @@ namespace GBRead.Base
 			}
 		}
 
-		public FunctionLabel(FunctionLabel prev) : this(prev._value, prev._name, prev._length, prev._comment) { }
+		public FunctionLabel(FunctionLabel prev) : this(prev._value, prev._name, prev._comment) { }
 
 		public override string ToSaveFileString()
 		{
 			string returned = ".label";
 			returned += Environment.NewLine + "_n:" + _name;
 			returned += Environment.NewLine + "_o:" + _value.ToString("X");
-			if (_length != 0) returned += Environment.NewLine + "_l:" + _length.ToString("X");
 			if (_comment != null)
 			{
 				foreach (string x in _comment)
@@ -101,10 +94,6 @@ namespace GBRead.Base
 		{
 			string returned = "";
 			returned += _name + ":";
-			if (_length != 0)
-			{
-				returned += String.Format("{0};Size: 0x{1:X} bytes", Environment.NewLine, _length);
-			}
 			if (_comment != null)
 			{
 				foreach (string commentLine in _comment)
@@ -119,7 +108,7 @@ namespace GBRead.Base
 		{
 			if (obj is FunctionLabel)
 			{
-				return ((FunctionLabel)obj)._value.Equals(_value);
+				return ((FunctionLabel)obj)._value == _value;
 			}
 			else return false;
 		}
@@ -193,7 +182,7 @@ namespace GBRead.Base
 		{
 			if (obj is DataLabel)
 			{
-				return ((DataLabel)obj)._value.Equals(_value);
+				return ((DataLabel)obj)._value == _value;
 			}
 			else return false;
 		}
@@ -276,7 +265,7 @@ namespace GBRead.Base
 		{
 			if (obj is VarLabel)
 			{
-				return ((VarLabel)obj)._value.Equals(_value);
+				return ((VarLabel)obj)._value == _value;
 			}
 			else return false;
 		}

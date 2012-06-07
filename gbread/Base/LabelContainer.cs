@@ -7,7 +7,7 @@ namespace GBRead.Base
 {
 	public class LabelContainer
 	{
-		private object labelListLock = new object();
+		private object funcListLock = new object();
 		private object dataListLock = new object();
 		private object varListLock = new object();
 		private object symbolListLock = new object();
@@ -15,13 +15,9 @@ namespace GBRead.Base
 		private List<GenericLabel> _funcList;
 		private List<GenericLabel> _dataList;
 		private List<GenericLabel> _varList;
+		private HashSet<string> _symbolList = new HashSet<string>();
 
 		private HashSet<int> dataAddrs;
-		private HashSet<int> varTableDict;
-		private HashSet<int> funcTableDict;
-		private HashSet<int> dataTableDict;
-
-		private HashSet<string> DefinedSymbols;
 
 		#region Default Var List
 
@@ -86,33 +82,46 @@ namespace GBRead.Base
 
 		#endregion Default Var List
 
-		public List<GenericLabel> FuncList
+		public IList<GenericLabel> FuncList
 		{
 			get
 			{
-				lock (labelListLock)
+				lock (funcListLock)
 				{
-					return _funcList;
+					return _funcList.AsReadOnly();
 				}
 			}
 		}
-		public List<GenericLabel> DataList
+
+		public IList<GenericLabel> DataList
 		{
 			get
 			{
 				lock (dataListLock)
 				{
-					return _dataList;
+					return _dataList.AsReadOnly();
 				}
 			}
 		}
-		public List<GenericLabel> VarList
+
+		public IList<GenericLabel> VarList
 		{
 			get
 			{
 				lock (varListLock)
 				{
-					return _varList;
+					return _varList.AsReadOnly();
+				}
+			}
+		}
+
+		private HashSet<string> SymbolList
+		{
+			get
+			{
+				lock (symbolListLock)
+				{
+					return _symbolList;
 				}
 			}
 		}
@@ -127,103 +136,130 @@ namespace GBRead.Base
 			ClearAllLists();
 			foreach (VarLabel vls in defaultVars)
 			{
-				AddLabel(vls);
+				AddVarLabel(vls);
 			}
-			AddLabel(new DataLabel(0x104, 0x4C, "Header"));
+			AddDataLabel(new DataLabel(0x104, 0x4C, "Header"));
 		}
-
-		#region Symbol Maintenance
-		public bool IsSymbolDefined(string name)
-		{
-			lock (symbolListLock)
-			{
-				return DefinedSymbols.Contains(name);
-			}
-		}
-
-		private bool AddSymbol(string name)
-		{
-			lock (symbolListLock)
-			{
-				return DefinedSymbols.Add(name);
-			}
-		}
-
-		private void RemoveSymbol(string name)
-		{
-			lock (symbolListLock)
-			{
-				DefinedSymbols.Remove(name);
-			}
-		}
-		#endregion
 
 		#region Adding, clearing, and removing labels
 
-		public void AddLabel(GenericLabel toBeAdded)
+		public FunctionLabel TryGetFuncLabel(int current)
 		{
-			if (toBeAdded == null || IsSymbolDefined(toBeAdded.Name)) return;
-			if (toBeAdded is VarLabel)
+			lock (funcListLock)
 			{
-				lock (varListLock)
-				{
-					AddSymbol(toBeAdded.Name);
-					_varList.Add(toBeAdded);
-					varTableDict.Add(toBeAdded.Value);
-				}
-				return;
-			}
-			else if (toBeAdded is FunctionLabel)
-			{
-				lock (labelListLock)
-				{
-					AddSymbol(toBeAdded.Name);
-					_funcList.Add(toBeAdded);
-					funcTableDict.Add(toBeAdded.Value);
-				}
-				return;
-			}
-			else if (toBeAdded is DataLabel)
-			{
-				lock (dataListLock)
-				{
-					AddSymbol(toBeAdded.Name);
-					_dataList.Add(toBeAdded);
-					dataTableDict.Add(toBeAdded.Value);
-					RegisterDataAddresses(((DataLabel)toBeAdded).Offset, ((DataLabel)toBeAdded).Length);
-				}
-				return;
+				int x = _funcList.IndexOf(new FunctionLabel(current));
+				if (x < 0) return null;
+				return (FunctionLabel)_funcList[x];
 			}
 		}
 
-		public void RemoveLabel(GenericLabel toBeRemoved)
+		public DataLabel TryGetDataLabel(int current)
 		{
-			if (toBeRemoved is FunctionLabel)
+			lock (dataListLock)
 			{
-				lock (labelListLock)
+				int x = _dataList.IndexOf(new DataLabel(current));
+				if (x < 0) return null;
+				return (DataLabel)_dataList[x];
+			}
+		}
+
+		public VarLabel TryGetVarLabel(ushort current)
+		{
+			lock (varListLock)
+			{
+				int x = _varList.IndexOf(new VarLabel(current));
+				if (x < 0) return null;
+				return (VarLabel)_varList[x];
+			}
+		}
+
+		public bool IsNameDefined(string name)
+		{
+			//Note: this function will not help if, in between calling this and
+			//AddLabel, another thread adds a label with the same name
+			//first.
+			lock (symbolListLock)
+			{
+				if (String.IsNullOrEmpty(name)) return false;
+				return _symbolList.Contains(name);
+			}
+		}
+
+		public void AddFuncLabel(FunctionLabel toBeAdded)
+		{
+			lock (symbolListLock)
+			{
+				lock (funcListLock)
 				{
-					_funcList.Remove(toBeRemoved);
-					funcTableDict.Remove(toBeRemoved.Value);
+					if (_symbolList.Contains(toBeAdded.Name)) return;
+					_funcList.Add(toBeAdded);
+					_symbolList.Add(toBeAdded.Name);
 				}
 			}
-			else if (toBeRemoved is DataLabel)
+		}
+
+		public void AddDataLabel(DataLabel toBeAdded)
+		{
+			lock (symbolListLock)
+			{
+				lock (dataListLock)
+				{
+					if (_symbolList.Contains(toBeAdded.Name)) return;
+					_dataList.Add(toBeAdded);
+					_symbolList.Add(toBeAdded.Name);
+					RegisterDataAddresses(toBeAdded.Offset, toBeAdded.Length);
+				}
+			}
+		}
+
+		public void AddVarLabel(VarLabel toBeAdded)
+		{
+			lock (symbolListLock)
+			{
+				lock (varListLock)
+				{
+					if (_symbolList.Contains(toBeAdded.Name)) return;
+					_varList.Add(toBeAdded);
+					_symbolList.Add(toBeAdded.Name);
+				}
+			}
+		}
+
+		public void RemoveFuncLabel(FunctionLabel toBeRemoved)
+		{
+			lock (symbolListLock)
+			{
+				lock (funcListLock)
+				{
+					_funcList.Remove(toBeRemoved);
+					_symbolList.Remove(toBeRemoved.Name);
+				}
+			}
+		}
+
+		public void RemoveDataLabel(DataLabel toBeRemoved)
+		{
+			lock (symbolListLock)
 			{
 				lock (dataListLock)
 				{
 					_dataList.Remove(toBeRemoved);
-					dataTableDict.Remove(toBeRemoved.Value);
-					DeregisterDataAddresses(((DataLabel)toBeRemoved).Offset, ((DataLabel)toBeRemoved).Length);
+					DeregisterDataAddresses(toBeRemoved.Offset, toBeRemoved.Length);
+					_symbolList.Remove(toBeRemoved.Name);
 				}
 			}
-			else if (toBeRemoved is VarLabel)
+		}
+
+		public void RemoveVarLabel(VarLabel toBeRemoved)
+		{
+			lock (symbolListLock)
 			{
 				lock (varListLock)
 				{
 					_varList.Remove(toBeRemoved);
-					varTableDict.Remove(toBeRemoved.Value);
+					_symbolList.Remove(toBeRemoved.Name);
 				}
 			}
-			RemoveSymbol(toBeRemoved.Name);
 		}
 
 		private void RegisterDataAddresses(int offset, int length)
@@ -262,17 +298,24 @@ namespace GBRead.Base
 			ClearFuncList();
 			ClearDataList();
 			ClearVarList();
-			ClearSymbolList();
 		}
 
 		public void ClearFuncList()
 		{
-			lock (labelListLock)
+			lock (funcListLock)
 			{
-				if (_funcList == null) _funcList = new List<GenericLabel>();
-				_funcList.Clear();
-				if (funcTableDict == null) funcTableDict = new HashSet<int>();
-				funcTableDict.Clear();
+				lock (symbolListLock)
+				{
+					if (_funcList == null) _funcList = new List<GenericLabel>();
+					if (_funcList.Count != 0)
+					{
+						foreach (GenericLabel l in _funcList)
+						{
+
+						}
+					}
+					_funcList.Clear();
+				}
 			}
 		}
 
@@ -282,8 +325,6 @@ namespace GBRead.Base
 			{
 				if (_dataList == null) _dataList = new List<GenericLabel>();
 				else _dataList.Clear();
-				if (dataTableDict == null) dataTableDict = new HashSet<int>();
-				else dataTableDict.Clear();
 				if (dataAddrs == null) dataAddrs = new HashSet<int>();
 				dataAddrs.Clear();
 			}
@@ -295,75 +336,6 @@ namespace GBRead.Base
 			{
 				if (_varList == null) _varList = new List<GenericLabel>();
 				else _varList.Clear();
-				if (varTableDict == null) varTableDict = new HashSet<int>();
-				else varTableDict.Clear();
-			}
-		}
-
-		private void ClearSymbolList()
-		{
-			if (DefinedSymbols == null)
-			{
-				DefinedSymbols = new HashSet<string>();
-			}
-			DefinedSymbols.Clear();
-		}
-
-		public bool Contains(GenericLabel ls)
-		{
-			if (ls == null) return false;
-			if (ls is FunctionLabel)
-			{
-				lock (labelListLock)
-				{
-					return funcTableDict.Contains(ls.Value);
-				}
-			}
-			if (ls is VarLabel)
-			{
-				lock (varListLock)
-				{
-					return varTableDict.Contains(ls.Value);
-				}
-			}
-			if (ls is DataLabel)
-			{
-				lock (dataListLock)
-				{
-					return dataTableDict.Contains(ls.Value);
-				}
-			}
-			return false;
-		}
-
-		public GenericLabel TryGetFuncLabel(int value)
-		{
-			lock (labelListLock)
-			{
-				if (funcTableDict.Contains(value)) return _funcList.Find(x => x.Value == value);
-				else return null;
-			}
-		}
-
-		public GenericLabel TryGetDataLabel(int value)
-		{
-			lock (dataListLock)
-			{
-				if (dataTableDict.Contains(value)) return _dataList.Find(x => x.Value == value);
-				else return null;
-			}
-		}
-
-		public GenericLabel TryGetVarLabel(int value)
-		{
-			lock (varListLock)
-			{
-				if (varTableDict.Contains(value))
-				{
-					if (varTableDict.Contains(value)) return _varList.Find(x => x.Value == value);
-					else return null;
-				}
-				else return null;
 			}
 		}
 
@@ -381,7 +353,7 @@ namespace GBRead.Base
 					tr.Read(test, 0, 3);
 					if (test[0] != 'g' || test[1] != 'b' || test[2] != 'r')
 					{
-						LoadLabelFile_Old(tr, tw);
+						return;
 					}
 					else
 					{
@@ -394,12 +366,25 @@ namespace GBRead.Base
 								buf.Add(tr.ReadLine());
 							}
 
+							#region Handler for CRC
+
+							if (currentLine.Equals(".crc", StringComparison.OrdinalIgnoreCase))
+							{
+								//Check against file CRC here.
+								//If mismatch, prompt the user, and continue from there.
+								//Options:
+								//-Ask to continue or not
+								//-Silent fail
+								//-Notify that file can't be loaded, and silent fail.
+							}
+
+							#endregion Handler for CRC
+
 							#region Handler for labels
 
-							if (currentLine.Equals(".label", StringComparison.OrdinalIgnoreCase))
+							else if (currentLine.Equals(".label", StringComparison.OrdinalIgnoreCase))
 							{
 								int offset = 0;
-								int length = 0;
 								string name = String.Empty;
 								List<string> cmtBuf = new List<string>();
 								bool offsetGood = false;
@@ -410,13 +395,6 @@ namespace GBRead.Base
 									if (code.Equals("_o:", StringComparison.OrdinalIgnoreCase))
 									{
 										offsetGood = InputValidation.TryParseOffsetString(val, out offset);
-									}
-									else if (code.Equals("_l:", StringComparison.OrdinalIgnoreCase))
-									{
-										if (!InputValidation.TryParseOffsetString(val, out length))
-										{
-											length = 0;
-										}
 									}
 									else if (code.Equals("_n:", StringComparison.OrdinalIgnoreCase) && RegularValidation.IsWord(val))
 									{
@@ -429,8 +407,8 @@ namespace GBRead.Base
 								}
 								if (offsetGood)
 								{
-									FunctionLabel fl = new FunctionLabel(offset, name, length, cmtBuf.ToArray());
-									AddLabel(fl);
+									FunctionLabel fl = new FunctionLabel(offset, name, cmtBuf.ToArray());
+									AddFuncLabel(fl);
 								}
 								else
 								{
@@ -498,7 +476,7 @@ namespace GBRead.Base
 								if (offsetGood && lengthGood)
 								{
 									DataLabel ds = new DataLabel(offset, length, name, dataDiv, cmtBuf.ToArray(), dst);
-									AddLabel(ds);
+									AddDataLabel(ds);
 								}
 								else
 								{
@@ -553,7 +531,7 @@ namespace GBRead.Base
 								if (variableGood)
 								{
 									VarLabel vl = new VarLabel(variable, name, vt, cmtBuf.ToArray());
-									AddLabel(vl);
+									AddVarLabel(vl);
 								}
 								else
 								{
@@ -577,122 +555,6 @@ namespace GBRead.Base
 			}
 		}
 
-		public void LoadLabelFile_Old(TextReader tr, TextWriter tw)
-		{
-			string currentline;
-			while ((currentline = tr.ReadLine()) != null)
-			{
-				string[] line = currentline.Split(new Char[] { ',' });
-
-				#region Loading Labels
-
-				if (line[0].Equals("label", StringComparison.OrdinalIgnoreCase) && line.Length >= 5)
-				{
-					int off;
-					int len;
-					bool offGood = InputValidation.TryParseOffsetString(line[1], out off);
-					bool lenGood = InputValidation.TryParseOffsetString(line[3], out len);
-					if (!offGood)
-					{
-						tw.WriteLine("One of the lines of your function list ({0}) has an invalid offset.", currentline);
-					}
-					else if (!lenGood)
-					{
-						tw.WriteLine("One of the lines of your function list ({0}) has an invalid length.", currentline);
-					}
-					else
-					{
-						List<string> comment = null;
-						if (line.Length >= 5)
-						{
-							comment = new List<string>();
-							for (int i = 4; i < line.Length; i++)
-							{
-								comment.Add(line[i]);
-							}
-						}
-						FunctionLabel fl = new FunctionLabel(off, line[2], len, comment.ToArray());
-						AddLabel(fl);
-					}
-				}
-
-				#endregion Loading Labels
-
-				#region Loading Data
-
-				else if (line[0].Equals("data", StringComparison.OrdinalIgnoreCase))
-				{
-					int off;
-					int len;
-					bool offGood = InputValidation.TryParseOffsetString(line[1], out off);
-					bool lenGood = InputValidation.TryParseOffsetString(line[3], out len);
-					if (off < 0)
-					{
-						tw.WriteLine("One of the lines of your function list ({0}) has an invalid offset.", currentline);
-					}
-					else if (len < 1)
-					{
-						tw.WriteLine("One of the lines of your function list ({0}) has an invalid length.", currentline);
-					}
-					else
-					{
-						List<string> comment = null;
-						if (line.Length >= 5)
-						{
-							comment = new List<string>();
-							for (int i = 4; i < line.Length; i++)
-							{
-								comment.Add(line[i]);
-							}
-						}
-						DataLabel ds = new DataLabel(off, len, line[2], 0, comment.ToArray(), DataSectionType.Data);
-						AddLabel(ds);
-					}
-				}
-
-				#endregion Loading Data
-
-				#region Loading Vars
-
-				else if (line[0].Equals("var", StringComparison.OrdinalIgnoreCase))
-				{
-					if (line.Length < 2)
-					{
-						tw.WriteLine("One of the lines of your function list ({0}) can't be loaded.", currentline);
-					}
-					else
-					{
-						int off;
-						bool offGood = InputValidation.TryParseOffsetString(line[1], out off);
-						if (off < 0)
-						{
-							tw.WriteLine("One of the lines of your function list ({0}) has an invalid offset.", currentline);
-						}
-						else if (off > 0xFFFF)
-						{
-							tw.WriteLine("One of the lines of your function list ({0}) has an offset larget than 0xFFFF.", currentline);
-						}
-						else
-						{
-							List<string> comment = null;
-							if (line.Length >= 4)
-							{
-								comment = new List<string>();
-								for (int i = 3; i < line.Length; i++)
-								{
-									comment.Add(line[i]);
-								}
-							}
-							VarLabel vl = new VarLabel(off, line[2], VariableType.Byte, comment.ToArray());
-							AddLabel(vl);
-						}
-					}
-				}
-
-				#endregion Loading Vars
-			}
-		}
-
 		public void SaveLabelFile(string fileName)
 		{
 			using (TextWriter functions = new StreamWriter(fileName, false, Encoding.UTF8))
@@ -708,12 +570,9 @@ namespace GBRead.Base
 		private string FunctionListToSaveFileFormat()
 		{
 			StringBuilder sb = new StringBuilder(String.Empty);
-			lock (labelListLock)
+			foreach (GenericLabel s in FuncList)
 			{
-				foreach (GenericLabel s in _funcList)
-				{
-					sb.AppendLine(s.ToSaveFileString());
-				}
+				sb.AppendLine(s.ToSaveFileString());
 			}
 			return sb.ToString();
 		}
@@ -721,12 +580,9 @@ namespace GBRead.Base
 		private string DataListToSaveFileFormat()
 		{
 			StringBuilder sb = new StringBuilder(String.Empty);
-			lock (dataListLock)
+			foreach (GenericLabel s in DataList)
 			{
-				foreach (GenericLabel s in _dataList)
-				{
-					sb.AppendLine(s.ToSaveFileString());
-				}
+				sb.AppendLine(s.ToSaveFileString());
 			}
 			return sb.ToString();
 		}
@@ -734,16 +590,13 @@ namespace GBRead.Base
 		private string VarListToSaveFileFormat()
 		{
 			StringBuilder sb = new StringBuilder(String.Empty);
-			lock (varListLock)
+			foreach (GenericLabel s in VarList)
 			{
-				foreach (GenericLabel s in _varList)
-				{
-					sb.AppendLine(s.ToSaveFileString());
-				}
+				sb.AppendLine(s.ToSaveFileString());
 			}
 			return sb.ToString();
 		}
 
-		#endregion Loading and Saving GenericLabel Files
+		#endregion Loading and Saving Label Files		
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace GBRead.Base
 {
@@ -12,14 +13,6 @@ namespace GBRead.Base
 			get
 			{
 				return binFile;
-			}
-		}
-
-		public byte this[int index]
-		{
-			get
-			{
-				return binFile[index];
 			}
 		}
 

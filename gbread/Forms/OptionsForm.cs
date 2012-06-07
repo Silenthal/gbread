@@ -21,7 +21,6 @@ namespace GBRead.Forms
 			shb = sh;
 			printOffsetsCheckBox.Checked = op.PrintOffsets;
 			hideDataSectionsCheckBox.Checked = op.HideDefinedData;
-			hideFunctionsCheckBox.Checked = op.HideDefinedFunctions;
 			printBitPatternCheckBox.Checked = op.PrintBitPattern;
 			printCommentsCheckBox.Checked = op.PrintComments;
 			wordWrapCheckBox.Checked = mf.isWordWrap;
@@ -94,7 +93,6 @@ namespace GBRead.Forms
 			}
 			disassembler.PrintOffsets = printOffsetsCheckBox.Checked;
 			disassembler.HideDefinedData = hideDataSectionsCheckBox.Checked;
-			disassembler.HideDefinedFunctions = hideFunctionsCheckBox.Checked;
 			disassembler.PrintBitPattern = printBitPatternCheckBox.Checked;
 			mfo.isWordWrap = wordWrapCheckBox.Checked;
 			shb.HighlightComments = highlightCommentsCheckBox.Checked;

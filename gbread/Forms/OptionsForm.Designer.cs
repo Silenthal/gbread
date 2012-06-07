@@ -33,7 +33,6 @@ namespace GBRead.Forms
 			System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Main Window");
 			System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Highlighting");
 			this.printOffsetsCheckBox = new System.Windows.Forms.CheckBox();
-			this.hideFunctionsCheckBox = new System.Windows.Forms.CheckBox();
 			this.hideDataSectionsCheckBox = new System.Windows.Forms.CheckBox();
 			this.printCommentsCheckBox = new System.Windows.Forms.CheckBox();
 			this.cancelButton = new System.Windows.Forms.Button();
@@ -72,16 +71,6 @@ namespace GBRead.Forms
 			this.printOffsetsCheckBox.Text = "Print Offsets";
 			this.printOffsetsCheckBox.UseVisualStyleBackColor = true;
 			// 
-			// hideFunctionsCheckBox
-			// 
-			this.hideFunctionsCheckBox.AutoSize = true;
-			this.hideFunctionsCheckBox.Location = new System.Drawing.Point(3, 95);
-			this.hideFunctionsCheckBox.Name = "hideFunctionsCheckBox";
-			this.hideFunctionsCheckBox.Size = new System.Drawing.Size(137, 17);
-			this.hideFunctionsCheckBox.TabIndex = 4;
-			this.hideFunctionsCheckBox.Text = "Hide Defined Functions";
-			this.hideFunctionsCheckBox.UseVisualStyleBackColor = true;
-			// 
 			// hideDataSectionsCheckBox
 			// 
 			this.hideDataSectionsCheckBox.AutoSize = true;
@@ -105,6 +94,7 @@ namespace GBRead.Forms
 			// cancelButton
 			// 
 			this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.cancelButton.Location = new System.Drawing.Point(342, 267);
 			this.cancelButton.Name = "cancelButton";
 			this.cancelButton.Size = new System.Drawing.Size(81, 23);
@@ -115,6 +105,7 @@ namespace GBRead.Forms
 			// saveButton
 			// 
 			this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.saveButton.Location = new System.Drawing.Point(255, 267);
 			this.saveButton.Name = "saveButton";
 			this.saveButton.Size = new System.Drawing.Size(81, 23);
@@ -187,7 +178,6 @@ namespace GBRead.Forms
 			this.mainWindowPanel.Controls.Add(this.wordWrapCheckBox);
 			this.mainWindowPanel.Controls.Add(this.groupBox1);
 			this.mainWindowPanel.Controls.Add(this.printCommentsCheckBox);
-			this.mainWindowPanel.Controls.Add(this.hideFunctionsCheckBox);
 			this.mainWindowPanel.Controls.Add(this.hideDataSectionsCheckBox);
 			this.mainWindowPanel.Controls.Add(this.printBitPatternCheckBox);
 			this.mainWindowPanel.Controls.Add(this.printOffsetsCheckBox);
@@ -346,8 +336,7 @@ namespace GBRead.Forms
 
         #endregion
 
-        private System.Windows.Forms.CheckBox printOffsetsCheckBox;
-        private System.Windows.Forms.CheckBox hideFunctionsCheckBox;
+		private System.Windows.Forms.CheckBox printOffsetsCheckBox;
         private System.Windows.Forms.CheckBox hideDataSectionsCheckBox;
         private System.Windows.Forms.CheckBox printCommentsCheckBox;
         private System.Windows.Forms.Button cancelButton;

@@ -45,6 +45,7 @@
 			// 
 			// assembleButton
 			// 
+			this.assembleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.assembleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.assembleButton.Location = new System.Drawing.Point(12, 417);
 			this.assembleButton.Name = "assembleButton";
@@ -74,6 +75,7 @@
 			// 
 			// insertButton
 			// 
+			this.insertButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.insertButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.insertButton.Location = new System.Drawing.Point(289, 417);
 			this.insertButton.Name = "insertButton";
@@ -156,6 +158,7 @@
 			// cancelButton
 			// 
 			this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.cancelButton.Location = new System.Drawing.Point(562, 417);
 			this.cancelButton.Name = "cancelButton";

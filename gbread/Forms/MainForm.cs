@@ -87,7 +87,7 @@ namespace GBRead.Forms
 				}
 				else if (e.KeyCode == Keys.Delete)
 				{
-					labelContainer.RemoveLabel((FunctionLabel)codeLabelBox.SelectedItem);
+					labelContainer.RemoveFuncLabel((FunctionLabel)codeLabelBox.SelectedItem);
 					UpdateLabelBoxView();
 				}
 			}
@@ -131,7 +131,7 @@ namespace GBRead.Forms
 			}
 			else if (e.KeyCode == Keys.Delete)
 			{
-				labelContainer.RemoveLabel((DataLabel)dataLabelBox.SelectedItem);
+				labelContainer.RemoveDataLabel((DataLabel)dataLabelBox.SelectedItem);
 				UpdateDataBoxView();
 			}
 		}
@@ -167,7 +167,7 @@ namespace GBRead.Forms
 			}
 			else if (e.KeyCode == Keys.Delete)
 			{
-				labelContainer.RemoveLabel((VarLabel)varLabelBox.SelectedItem);
+				labelContainer.RemoveVarLabel((VarLabel)varLabelBox.SelectedItem);
 				UpdateVarBoxView();
 			}
 		}
@@ -199,7 +199,7 @@ namespace GBRead.Forms
 
 		private void removeFunctionLabelMenuItem_Click(object sender, EventArgs e)
 		{
-			labelContainer.RemoveLabel((FunctionLabel)codeLabelBox.SelectedItem);
+			labelContainer.RemoveFuncLabel((FunctionLabel)codeLabelBox.SelectedItem);
 			codeLabelBox.Items.Remove(codeLabelBox.SelectedItem);
 		}
 
@@ -228,7 +228,7 @@ namespace GBRead.Forms
 
 		private void removeDataSectionMenuItem_Click(object sender, EventArgs e)
 		{
-			labelContainer.RemoveLabel((DataLabel)dataLabelBox.SelectedItem);
+			labelContainer.RemoveDataLabel((DataLabel)dataLabelBox.SelectedItem);
 			dataLabelBox.Items.Remove(dataLabelBox.SelectedItem);
 		}
 
@@ -263,7 +263,7 @@ namespace GBRead.Forms
 
 		private void removeVariableToolStripMenuItem3_Click(object sender, EventArgs e)
 		{
-			labelContainer.RemoveLabel((VarLabel)varLabelBox.SelectedItem);
+			labelContainer.RemoveVarLabel((VarLabel)varLabelBox.SelectedItem);
 			varLabelBox.Items.Remove(varLabelBox.SelectedItem);
 		}
 
@@ -291,24 +291,15 @@ namespace GBRead.Forms
 				labelContainer.LoadDefaultLabels(romFile.Length);
 				foreach (FunctionLabel f in labelContainer.FuncList)
 				{
-					if (!codeLabelBox.Items.Contains(f))
-					{
-						codeLabelBox.Items.Add(f);
-					}
+					codeLabelBox.Items.Add(f);
 				}
 				foreach (DataLabel f in labelContainer.DataList)
 				{
-					if (!dataLabelBox.Items.Contains(f))
-					{
-						dataLabelBox.Items.Add(f);
-					}
+					dataLabelBox.Items.Add(f);
 				}
 				foreach (VarLabel f in labelContainer.VarList)
 				{
-					if (!varLabelBox.Items.Contains(f))
-					{
-						varLabelBox.Items.Add(f);
-					}
+					varLabelBox.Items.Add(f);
 				}
 				startBox.Focus();
 			}
@@ -549,7 +540,6 @@ namespace GBRead.Forms
 				StringFormat sf = new StringFormat();
 				sf.Alignment = StringAlignment.Near;
 				sf.LineAlignment = StringAlignment.Center;
-				if (ds.Length > 0) itemBrush = Brushes.Green;
 				e.Graphics.DrawString(ds.ToString(), e.Font, itemBrush, codeLabelBox.GetItemRectangle(e.Index), sf);
 			}
 			e.DrawFocusRectangle();
@@ -673,6 +663,22 @@ namespace GBRead.Forms
 		}
 
 		#endregion Box Update Invocations
+
+		private void addNewButton_Click(object sender, EventArgs e)
+		{
+			switch (LabelTabControl.SelectedIndex)
+			{
+				case 0:
+					addFunctionLabelMenuItem_Click(sender, e);
+					return;
+				case 1:
+					addDataSectionMenuItem_Click(sender, e);
+					return;
+				case 2:
+					addVariableToolStripMenuItem_Click(sender, e);
+					return;
+			}
+		}
 	}
 
 	public class MainFormOptions

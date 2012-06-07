@@ -42,13 +42,14 @@
 			// 
 			// dataTypeBox
 			// 
+			this.dataTypeBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dataTypeBox.FormattingEnabled = true;
 			this.dataTypeBox.Items.AddRange(new object[] {
             "Byte",
             "Word"});
 			this.dataTypeBox.Location = new System.Drawing.Point(75, 58);
 			this.dataTypeBox.Name = "dataTypeBox";
-			this.dataTypeBox.Size = new System.Drawing.Size(69, 21);
+			this.dataTypeBox.Size = new System.Drawing.Size(76, 21);
 			this.dataTypeBox.TabIndex = 44;
 			this.dataTypeBox.Visible = false;
 			// 
@@ -64,8 +65,10 @@
 			// 
 			// cancelButton
 			// 
+			this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelButton.Location = new System.Drawing.Point(176, 297);
+			this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.cancelButton.Location = new System.Drawing.Point(172, 297);
 			this.cancelButton.Name = "cancelButton";
 			this.cancelButton.Size = new System.Drawing.Size(81, 23);
 			this.cancelButton.TabIndex = 43;
@@ -74,6 +77,8 @@
 			// 
 			// okButton
 			// 
+			this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.okButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.okButton.Location = new System.Drawing.Point(15, 297);
 			this.okButton.Name = "okButton";
 			this.okButton.Size = new System.Drawing.Size(75, 23);
@@ -93,17 +98,19 @@
 			// 
 			// offsetBox
 			// 
+			this.offsetBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.offsetBox.Location = new System.Drawing.Point(53, 32);
 			this.offsetBox.Name = "offsetBox";
-			this.offsetBox.Size = new System.Drawing.Size(91, 20);
+			this.offsetBox.Size = new System.Drawing.Size(98, 20);
 			this.offsetBox.TabIndex = 38;
 			this.offsetBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.formBox_keyDown);
 			// 
 			// nameBox
 			// 
+			this.nameBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.nameBox.Location = new System.Drawing.Point(53, 6);
 			this.nameBox.Name = "nameBox";
-			this.nameBox.Size = new System.Drawing.Size(204, 20);
+			this.nameBox.Size = new System.Drawing.Size(200, 20);
 			this.nameBox.TabIndex = 37;
 			this.nameBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.formBox_keyDown);
 			// 
@@ -127,17 +134,22 @@
 			// 
 			// commentBox
 			// 
+			this.commentBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.commentBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.commentBox.Location = new System.Drawing.Point(15, 100);
 			this.commentBox.Multiline = true;
 			this.commentBox.Name = "commentBox";
-			this.commentBox.Size = new System.Drawing.Size(242, 191);
+			this.commentBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+			this.commentBox.Size = new System.Drawing.Size(238, 191);
 			this.commentBox.TabIndex = 48;
 			// 
-			// AddVariableForm
+			// AddVarLabelForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(269, 333);
+			this.ClientSize = new System.Drawing.Size(268, 333);
 			this.Controls.Add(this.commentBox);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.dataTypeBox);
@@ -148,7 +160,7 @@
 			this.Controls.Add(this.offsetBox);
 			this.Controls.Add(this.nameBox);
 			this.Controls.Add(this.label1);
-			this.Name = "AddVariableForm";
+			this.Name = "AddVarLabelForm";
 			this.Text = "AddVariableForm";
 			this.ResumeLayout(false);
 			this.PerformLayout();

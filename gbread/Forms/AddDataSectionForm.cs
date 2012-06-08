@@ -1,56 +1,43 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Globalization;
+using System.Windows.Forms;
 using GBRead.Base;
 
 namespace GBRead.Forms
 {
 	public partial class AddDataLabelForm : Form
 	{
-		Disassembler dc;
-		ListBox.ObjectCollection oc;
-		LabelContainer refContainer;
-		LabelEditMode lem;
-		DataLabel priorLabel;
-		public AddDataLabelForm(Disassembler dcs, LabelContainer lc, ListBox.ObjectCollection ocs, LabelEditMode nlem, DataLabel newPriorLabel = null)
+		DataLabel editedLabel;
+		LabelEditMode editingMode;
+		LabelContainer labelContainer;
+		ListBox.ObjectCollection listBoxLabelCollection;
+
+		public AddDataLabelForm(LabelContainer lblContainer, ListBox.ObjectCollection lbLabelCollection, LabelEditMode editMode, DataLabel newPriorLabel = null)
 		{
 			InitializeComponent();
-			dc = dcs;
-			refContainer = lc;
-			oc = ocs;
-			if (nlem == LabelEditMode.Edit)
+			labelContainer = lblContainer;
+			listBoxLabelCollection = lbLabelCollection;
+			editingMode = editMode;
+			editedLabel = newPriorLabel;
+			if (editMode == LabelEditMode.Edit)
 			{
 				Text = "Edit Data Section";
-				lem = nlem;
-				priorLabel = newPriorLabel;
-				if (priorLabel != null)
+				if (editedLabel != null)
 				{
-					refContainer.RemoveDataLabel(priorLabel);
-					oc.Remove(priorLabel);
-					nameBox.Text = priorLabel.Name;
-					offsetBox.Text = priorLabel.Offset.ToString("X");
-					lengthBox.Text = priorLabel.Length.ToString("X");
-					dataTypeBox.SelectedIndex = (int)priorLabel.DSectionType;
-					rowLengthBox.Text = priorLabel.DataLineLength.ToString("X");
-					if (priorLabel.Comment != null)
+					nameBox.Text = editedLabel.Name;
+					offsetBox.Text = editedLabel.Offset.ToString("X");
+					lengthBox.Text = editedLabel.Length.ToString("X");
+					dataTypeBox.SelectedIndex = (int)editedLabel.DSectionType;
+					rowLengthBox.Text = editedLabel.DataLineLength.ToString("X");
+					if (editedLabel.Comment != null)
 					{
-						for (int i = 0; i < priorLabel.Comment.Length; i++)
+						for (int i = 0; i < editedLabel.Comment.Length; i++)
 						{
-							commentBox.Text += priorLabel.Comment[i];
-							if (i != priorLabel.Comment.Length - 1) commentBox.Text += Environment.NewLine;
+							commentBox.Text += editedLabel.Comment[i];
+							if (i != editedLabel.Comment.Length - 1) commentBox.Text += Environment.NewLine;
 						}
 					}
 				}
-			}
-			else
-			{
-				priorLabel = null;
 			}
 		}
 
@@ -64,6 +51,9 @@ namespace GBRead.Forms
 
 		private void okButton_Click(object sender, EventArgs e)
 		{
+			bool checkNameCollision = editingMode == LabelEditMode.Add ?
+				true :
+				!nameBox.Text.Equals(editedLabel.Name, StringComparison.Ordinal);
 			int off = -1;
 			int len = 0;
 			int rlen = 0;
@@ -71,7 +61,7 @@ namespace GBRead.Forms
 			{
 				Error.ShowErrorMessage(ErrorMessage.NAME_IS_INVALID);
 			}
-			else if (refContainer.IsNameDefined(nameBox.Text))
+			else if (checkNameCollision && labelContainer.IsNameDefined(nameBox.Text))
 			{
 				Error.ShowErrorMessage(ErrorMessage.NAME_ALREADY_DEFINED);
 			}
@@ -89,9 +79,14 @@ namespace GBRead.Forms
 			}
 			else
 			{
-				priorLabel = new DataLabel(off, len, nameBox.Text, rlen, commentBox.Lines, (DataSectionType)dataTypeBox.SelectedIndex);
-				refContainer.AddDataLabel(priorLabel);
-				oc.Add(priorLabel);
+				if (editingMode == LabelEditMode.Edit)
+				{
+					labelContainer.RemoveDataLabel(editedLabel);
+					listBoxLabelCollection.Remove(editedLabel);
+				}
+				editedLabel = new DataLabel(off, len, nameBox.Text, rlen, commentBox.Lines, (DataSectionType)dataTypeBox.SelectedIndex);
+				labelContainer.AddDataLabel(editedLabel);
+				listBoxLabelCollection.Add(editedLabel);
 				this.DialogResult = System.Windows.Forms.DialogResult.OK;
 			}
 		}

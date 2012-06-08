@@ -178,11 +178,11 @@ namespace GBRead.Forms
 
 		#region CodeLabelBox Menu
 
-		private void addFunctionLabelMenuItem_Click(object sender, EventArgs e)
+		private void addFuncLabelMenuItem_Click(object sender, EventArgs e)
 		{
 			if (romFile.FileLoaded)
 			{
-				AddFunctionLabelForm af = new AddFunctionLabelForm(disassembler, labelContainer, codeLabelBox.Items, LabelEditMode.Add);
+				AddFunctionLabelForm af = new AddFunctionLabelForm(labelContainer, codeLabelBox.Items, LabelEditMode.Add);
 				af.ShowDialog();
 			}
 			else
@@ -191,13 +191,13 @@ namespace GBRead.Forms
 			}
 		}
 
-		private void renameFunctionLabelMenuItem_Click(object sender, EventArgs e)
+		private void renameFuncLabelMenuItem_Click(object sender, EventArgs e)
 		{
-			AddFunctionLabelForm af = new AddFunctionLabelForm(disassembler, labelContainer, codeLabelBox.Items, LabelEditMode.Edit, (FunctionLabel)codeLabelBox.SelectedItem);
+			AddFunctionLabelForm af = new AddFunctionLabelForm(labelContainer, codeLabelBox.Items, LabelEditMode.Edit, (FunctionLabel)codeLabelBox.SelectedItem);
 			af.ShowDialog();
 		}
 
-		private void removeFunctionLabelMenuItem_Click(object sender, EventArgs e)
+		private void removeFuncLabelMenuItem_Click(object sender, EventArgs e)
 		{
 			labelContainer.RemoveFuncLabel((FunctionLabel)codeLabelBox.SelectedItem);
 			codeLabelBox.Items.Remove(codeLabelBox.SelectedItem);
@@ -207,11 +207,11 @@ namespace GBRead.Forms
 
 		#region DataLabelBox Menus
 
-		private void addDataSectionMenuItem_Click(object sender, EventArgs e)
+		private void addDataLabelMenuItem_Click(object sender, EventArgs e)
 		{
 			if (romFile.FileLoaded)
 			{
-				AddDataLabelForm ad = new AddDataLabelForm(disassembler, labelContainer, dataLabelBox.Items, LabelEditMode.Add);
+				AddDataLabelForm ad = new AddDataLabelForm(labelContainer, dataLabelBox.Items, LabelEditMode.Add);
 				ad.ShowDialog();
 			}
 			else
@@ -220,13 +220,13 @@ namespace GBRead.Forms
 			}
 		}
 
-		private void renameDataSectionMenuItem_Click(object sender, EventArgs e)
+		private void renameDataLabelMenuItem_Click(object sender, EventArgs e)
 		{
-			AddDataLabelForm ad = new AddDataLabelForm(disassembler, labelContainer, dataLabelBox.Items, LabelEditMode.Edit, (DataLabel)dataLabelBox.SelectedItem);
+			AddDataLabelForm ad = new AddDataLabelForm(labelContainer, dataLabelBox.Items, LabelEditMode.Edit, (DataLabel)dataLabelBox.SelectedItem);
 			ad.ShowDialog();
 		}
 
-		private void removeDataSectionMenuItem_Click(object sender, EventArgs e)
+		private void removeDataLabelMenuItem_Click(object sender, EventArgs e)
 		{
 			labelContainer.RemoveDataLabel((DataLabel)dataLabelBox.SelectedItem);
 			dataLabelBox.Items.Remove(dataLabelBox.SelectedItem);
@@ -246,7 +246,7 @@ namespace GBRead.Forms
 		{
 			if (romFile.FileLoaded)
 			{
-				AddVarLabelForm av = new AddVarLabelForm(disassembler, labelContainer, varLabelBox.Items, LabelEditMode.Add);
+				AddVarLabelForm av = new AddVarLabelForm(labelContainer, varLabelBox.Items, LabelEditMode.Add);
 				av.ShowDialog();
 			}
 			else
@@ -257,7 +257,7 @@ namespace GBRead.Forms
 
 		private void editVariableToolStripMenuItem2_Click(object sender, EventArgs e)
 		{
-			AddVarLabelForm av = new AddVarLabelForm(disassembler, labelContainer, varLabelBox.Items, LabelEditMode.Edit, (VarLabel)varLabelBox.SelectedItem);
+			AddVarLabelForm av = new AddVarLabelForm(labelContainer, varLabelBox.Items, LabelEditMode.Edit, (VarLabel)varLabelBox.SelectedItem);
 			av.ShowDialog();
 		}
 
@@ -310,13 +310,13 @@ namespace GBRead.Forms
 			Application.Exit();
 		}
 
-		private void loadFunctionListToolStripMenuItem_Click(object sender, EventArgs e)
+		private void loadLabelsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			if (romFile.FileLoaded)
 			{
 				OpenFileDialog ofd = new OpenFileDialog();
-				ofd.Title = "Load Function/Data/Variable List...";
-				ofd.Filter = "Function/Data/Variable List|*.txt|All Files|*";
+				ofd.Title = "Load Labels...";
+				ofd.Filter = "Label File|*.txt|All Files|*";
 				ofd.FileName = "";
 				if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 				{
@@ -350,16 +350,16 @@ namespace GBRead.Forms
 			}
 		}
 
-		private void saveCalledFunctionsListToolStripMenuItem_Click(object sender, EventArgs e)
+		private void saveLabelsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			SaveFileDialog sfd = new SaveFileDialog();
-			sfd.Title = "Save Function/Data/Variable List...";
+			sfd.Title = "Save Labels...";
 			sfd.FileName = "";
-			sfd.Filter = "Function/Data/Variable List|*.txt|All Files|*";
+			sfd.Filter = "Label File|*.txt|All Files|*";
 			if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 			{
 				labelContainer.SaveLabelFile(sfd.FileName);
-				MessageBox.Show(String.Format("Saved Functions and Data to{0}{1}", Environment.NewLine, sfd.FileName), "Success", MessageBoxButtons.OK);
+				MessageBox.Show(String.Format("Saved Labels to{0}{1}", Environment.NewLine, sfd.FileName), "Success", MessageBoxButtons.OK);
 			}
 		}
 
@@ -484,7 +484,7 @@ namespace GBRead.Forms
 			int end;
 			InputValidation.TryParseOffsetString(startBox.Text, out start);
 			InputValidation.TryParseOffsetString(endBox.Text, out end);
-			Thread pasmThread = new Thread(new ThreadStart(() =>
+			new Thread(new ThreadStart(() =>
 			{
 				if (romFile.FileLoaded)
 				{
@@ -513,8 +513,7 @@ namespace GBRead.Forms
 				{
 					Error.ShowErrorMessage(ErrorMessage.NO_FILE);
 				}
-			}));
-			pasmThread.Start();
+			})).Start();
 		}
 
 		private void startEndBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -669,10 +668,10 @@ namespace GBRead.Forms
 			switch (LabelTabControl.SelectedIndex)
 			{
 				case 0:
-					addFunctionLabelMenuItem_Click(sender, e);
+					addFuncLabelMenuItem_Click(sender, e);
 					return;
 				case 1:
-					addDataSectionMenuItem_Click(sender, e);
+					addDataLabelMenuItem_Click(sender, e);
 					return;
 				case 2:
 					addVariableToolStripMenuItem_Click(sender, e);

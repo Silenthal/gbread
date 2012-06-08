@@ -66,11 +66,11 @@ namespace GBRead.Base
 			new VarLabel(0xFF4B, "WX"),
 			new VarLabel(0xFF4D, "KEY1"),
 			new VarLabel(0xFF4F, "VBK"),
-			new VarLabel(0xFF51, "HDMA1", VariableType.Byte, new string[1]{"New DMA Source - High"}),
-			new VarLabel(0xFF52, "HDMA2", VariableType.Byte, new string[1]{"New DMA Source - Low"}),
-			new VarLabel(0xFF53, "HDMA3", VariableType.Byte, new string[1]{"New DMA Destination - High"}),
-			new VarLabel(0xFF54, "HDMA4", VariableType.Byte, new string[1]{"New DMA Destination - Low"}),
-			new VarLabel(0xFF55, "HDMA5", VariableType.Byte, new string[1]{"New DMA Length/Mode/Start"}),
+			new VarLabel(0xFF51, "HDMA1", new string[1]{"New DMA Source - High"}),
+			new VarLabel(0xFF52, "HDMA2", new string[1]{"New DMA Source - Low"}),
+			new VarLabel(0xFF53, "HDMA3", new string[1]{"New DMA Destination - High"}),
+			new VarLabel(0xFF54, "HDMA4", new string[1]{"New DMA Destination - Low"}),
+			new VarLabel(0xFF55, "HDMA5", new string[1]{"New DMA Length/Mode/Start"}),
 			new VarLabel(0xFF56, "RP"),
 			new VarLabel(0xFF68, "BGPI"),
 			new VarLabel(0xFF69, "BGPD"),
@@ -498,7 +498,6 @@ namespace GBRead.Base
 								string name = String.Empty;
 								List<string> cmtBuf = new List<string>();
 								bool variableGood = false;
-								VariableType vt = VariableType.Byte;
 								foreach (string x in buf)
 								{
 									string code = x.Substring(0, 3);
@@ -514,23 +513,13 @@ namespace GBRead.Base
 										case 'c':
 											cmtBuf.Add(val);
 											break;
-										case 't':
-											if (val == "Byte")
-											{
-												vt = VariableType.Byte;
-											}
-											else if (val == "Word")
-											{
-												vt = VariableType.Word;
-											}
-											break;
 										default:
 											break;
 									}
 								}
 								if (variableGood)
 								{
-									VarLabel vl = new VarLabel(variable, name, vt, cmtBuf.ToArray());
+									VarLabel vl = new VarLabel(variable, name, cmtBuf.ToArray());
 									AddVarLabel(vl);
 								}
 								else

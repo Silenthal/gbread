@@ -151,14 +151,14 @@
 			this.loadFunctionListToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
 			this.loadFunctionListToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
 			this.loadFunctionListToolStripMenuItem.Text = "&Load Function/Data/Var List";
-			this.loadFunctionListToolStripMenuItem.Click += new System.EventHandler(this.loadFunctionListToolStripMenuItem_Click);
+			this.loadFunctionListToolStripMenuItem.Click += new System.EventHandler(this.loadLabelsToolStripMenuItem_Click);
 			// 
 			// saveCalledFunctionsListToolStripMenuItem
 			// 
 			this.saveCalledFunctionsListToolStripMenuItem.Name = "saveCalledFunctionsListToolStripMenuItem";
 			this.saveCalledFunctionsListToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
 			this.saveCalledFunctionsListToolStripMenuItem.Text = "Save &Function/Data/Var List";
-			this.saveCalledFunctionsListToolStripMenuItem.Click += new System.EventHandler(this.saveCalledFunctionsListToolStripMenuItem_Click);
+			this.saveCalledFunctionsListToolStripMenuItem.Click += new System.EventHandler(this.saveLabelsToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator3
 			// 
@@ -295,21 +295,21 @@
 			this.addToolStripMenuItem.Name = "addToolStripMenuItem";
 			this.addToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
 			this.addToolStripMenuItem.Text = "Add New Label";
-			this.addToolStripMenuItem.Click += new System.EventHandler(this.addFunctionLabelMenuItem_Click);
+			this.addToolStripMenuItem.Click += new System.EventHandler(this.addFuncLabelMenuItem_Click);
 			// 
 			// renameLabelToolStripMenuItem
 			// 
 			this.renameLabelToolStripMenuItem.Name = "renameLabelToolStripMenuItem";
 			this.renameLabelToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
 			this.renameLabelToolStripMenuItem.Text = "Edit";
-			this.renameLabelToolStripMenuItem.Click += new System.EventHandler(this.renameFunctionLabelMenuItem_Click);
+			this.renameLabelToolStripMenuItem.Click += new System.EventHandler(this.renameFuncLabelMenuItem_Click);
 			// 
 			// removeToolStripMenuItem
 			// 
 			this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
 			this.removeToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
 			this.removeToolStripMenuItem.Text = "Remove";
-			this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeFunctionLabelMenuItem_Click);
+			this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeFuncLabelMenuItem_Click);
 			// 
 			// searchForFunctionsThatCallThisOneToolStripMenuItem1
 			// 
@@ -330,7 +330,7 @@
 			this.addANewLabelToolStripMenuItem.Name = "addANewLabelToolStripMenuItem";
 			this.addANewLabelToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
 			this.addANewLabelToolStripMenuItem.Text = "Add New Label";
-			this.addANewLabelToolStripMenuItem.Click += new System.EventHandler(this.addFunctionLabelMenuItem_Click);
+			this.addANewLabelToolStripMenuItem.Click += new System.EventHandler(this.addFuncLabelMenuItem_Click);
 			// 
 			// dataLabelBoxContextMenu
 			// 
@@ -348,21 +348,21 @@
 			this.addToolStripMenuItem1.Name = "addToolStripMenuItem1";
 			this.addToolStripMenuItem1.Size = new System.Drawing.Size(192, 22);
 			this.addToolStripMenuItem1.Text = "Add New Data Section";
-			this.addToolStripMenuItem1.Click += new System.EventHandler(this.addDataSectionMenuItem_Click);
+			this.addToolStripMenuItem1.Click += new System.EventHandler(this.addDataLabelMenuItem_Click);
 			// 
 			// renameADataSectionToolStripMenuItem
 			// 
 			this.renameADataSectionToolStripMenuItem.Name = "renameADataSectionToolStripMenuItem";
 			this.renameADataSectionToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
 			this.renameADataSectionToolStripMenuItem.Text = "Edit";
-			this.renameADataSectionToolStripMenuItem.Click += new System.EventHandler(this.renameDataSectionMenuItem_Click);
+			this.renameADataSectionToolStripMenuItem.Click += new System.EventHandler(this.renameDataLabelMenuItem_Click);
 			// 
 			// removeToolStripMenuItem1
 			// 
 			this.removeToolStripMenuItem1.Name = "removeToolStripMenuItem1";
 			this.removeToolStripMenuItem1.Size = new System.Drawing.Size(192, 22);
 			this.removeToolStripMenuItem1.Text = "Remove";
-			this.removeToolStripMenuItem1.Click += new System.EventHandler(this.removeDataSectionMenuItem_Click);
+			this.removeToolStripMenuItem1.Click += new System.EventHandler(this.removeDataLabelMenuItem_Click);
 			// 
 			// findReferencesToolStripMenuItem
 			// 
@@ -390,7 +390,7 @@
 			this.addANewDataSectionToolStripMenuItem1.Name = "addANewDataSectionToolStripMenuItem1";
 			this.addANewDataSectionToolStripMenuItem1.Size = new System.Drawing.Size(192, 22);
 			this.addANewDataSectionToolStripMenuItem1.Text = "Add New Data Section";
-			this.addANewDataSectionToolStripMenuItem1.Click += new System.EventHandler(this.addDataSectionMenuItem_Click);
+			this.addANewDataSectionToolStripMenuItem1.Click += new System.EventHandler(this.addDataLabelMenuItem_Click);
 			// 
 			// progressLabel
 			// 

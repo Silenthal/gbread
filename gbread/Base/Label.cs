@@ -4,8 +4,6 @@ namespace GBRead.Base
 {
 	public enum DataSectionType { Data, Image }
 
-	public enum VariableType { Byte, Word }
-
 	public enum OffsetFormat { Hex, Decimal, BBOO }
 
 	public class GBPalette
@@ -196,13 +194,10 @@ namespace GBRead.Base
 	public class VarLabel : GenericLabel
 	{
 		public int Variable { get { return _value; } set { _value = value & 0xFFFF; } }
-		private VariableType varType;
-		public VariableType VarType { get { return varType; } set { varType = value; } }
-		public VarLabel(int a, string n = "", VariableType vType = VariableType.Byte, string[] cmt = null)
+		public VarLabel(int a, string n = "", string[] cmt = null)
 		{
 			_name = n.Equals(String.Empty) ? String.Format("V_{0:X4}", a) : n;
 			_value = a;
-			varType = vType;
 			if (cmt != null)
 			{
 				_comment = new string[cmt.Length];
@@ -210,7 +205,7 @@ namespace GBRead.Base
 			}
 		}
 
-		public VarLabel(VarLabel prev) : this(prev._value, prev._name, prev.varType, prev._comment) { }
+		public VarLabel(VarLabel prev) : this(prev._value, prev._name,  prev._comment) { }
 
 		public override string ToASMCommentString()
 		{
@@ -234,7 +229,6 @@ namespace GBRead.Base
 			string returned = ".var" + Environment.NewLine;
 			returned += "_n:" + _name + Environment.NewLine;
 			returned += "_v:" + _value.ToString("X") + Environment.NewLine;
-			returned += "_t:" + varType.ToString();
 			if (_comment != null)
 			{
 				foreach (string x in _comment)

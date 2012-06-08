@@ -1,55 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Globalization;
 using System.Windows.Forms;
 using GBRead.Base;
-using System.Globalization;
 
 namespace GBRead.Forms
 {
 	public partial class AddVarLabelForm : Form
 	{
-		Disassembler dc;
-		LabelContainer refContainer;
-		LabelEditMode lem;
-		VarLabel priorLabel;
-		ListBox.ObjectCollection oc;
-		public AddVarLabelForm(Disassembler dcs, LabelContainer lc, ListBox.ObjectCollection ocs, LabelEditMode nlem, VarLabel newPriorLabel = null)
+		VarLabel editedLabel;
+		LabelEditMode editingMode;
+		LabelContainer labelContainer;
+		ListBox.ObjectCollection listBoxLabelCollection;
+
+		public AddVarLabelForm(LabelContainer lblContainer, ListBox.ObjectCollection lbLabelCollection, LabelEditMode editMode, VarLabel newPriorLabel = null)
 		{
 			InitializeComponent();
-			dc = dcs;
-			refContainer = lc;
-			oc = ocs;
-			if (nlem == LabelEditMode.Edit)
+			labelContainer = lblContainer;
+			listBoxLabelCollection = lbLabelCollection;
+			editingMode = editMode;
+			editedLabel = newPriorLabel;
+			if (editMode == LabelEditMode.Edit)
 			{
 				Text = "Edit Variable";
-				lem = nlem;
-				priorLabel = newPriorLabel;
-
-				if (priorLabel != null)
+				if (editedLabel != null)
 				{
-					refContainer.RemoveVarLabel(priorLabel);
-					oc.Remove(priorLabel);
-					nameBox.Text = priorLabel.Name;
-					offsetBox.Text = priorLabel.Value.ToString("X");
-					dataTypeBox.SelectedIndex = (int)priorLabel.VarType;
-					if (priorLabel.Comment != null)
+					nameBox.Text = editedLabel.Name;
+					offsetBox.Text = editedLabel.Value.ToString("X");
+					if (editedLabel.Comment != null)
 					{
-						for (int i = 0; i < priorLabel.Comment.Length; i++)
+						for (int i = 0; i < editedLabel.Comment.Length; i++)
 						{
-							commentBox.Text += priorLabel.Comment[i];
-							if (i != priorLabel.Comment.Length - 1) commentBox.Text += Environment.NewLine;
+							commentBox.Text += editedLabel.Comment[i];
+							if (i != editedLabel.Comment.Length - 1) commentBox.Text += Environment.NewLine;
 						}
 					}
 				}
-			}
-			else
-			{
-				priorLabel = null;
 			}
 		}
 
@@ -63,12 +48,15 @@ namespace GBRead.Forms
 
 		private void okButton_Click(object sender, EventArgs e)
 		{
+			bool checkNameCollision = editingMode == LabelEditMode.Add ?
+				true :
+				!nameBox.Text.Equals(editedLabel.Name, StringComparison.Ordinal);
 			int val = 0;
 			if (!RegularValidation.IsWord(nameBox.Text))
 			{
 				Error.ShowErrorMessage(ErrorMessage.NAME_IS_INVALID);
 			}
-			else if (refContainer.IsNameDefined(nameBox.Text))
+			else if (checkNameCollision && labelContainer.IsNameDefined(nameBox.Text))
 			{
 				Error.ShowErrorMessage(ErrorMessage.NAME_ALREADY_DEFINED);
 			}
@@ -78,9 +66,14 @@ namespace GBRead.Forms
 			}
 			else
 			{
-				priorLabel = new VarLabel(val, nameBox.Text, (VariableType)dataTypeBox.SelectedIndex, commentBox.Lines);
-				refContainer.AddVarLabel(priorLabel);
-				oc.Add(priorLabel);
+				if (editingMode == LabelEditMode.Edit)
+				{
+					labelContainer.RemoveVarLabel(editedLabel);
+					listBoxLabelCollection.Remove(editedLabel);
+				}
+				editedLabel = new VarLabel(val, nameBox.Text, commentBox.Lines);
+				labelContainer.AddVarLabel(editedLabel);
+				listBoxLabelCollection.Add(editedLabel);
 				this.DialogResult = System.Windows.Forms.DialogResult.OK;
 			}
 		}

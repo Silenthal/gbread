@@ -52,7 +52,7 @@
 			this.cancelButton.Location = new System.Drawing.Point(172, 353);
 			this.cancelButton.Name = "cancelButton";
 			this.cancelButton.Size = new System.Drawing.Size(81, 23);
-			this.cancelButton.TabIndex = 21;
+			this.cancelButton.TabIndex = 7;
 			this.cancelButton.Text = "Cancel";
 			this.cancelButton.UseVisualStyleBackColor = true;
 			// 
@@ -63,7 +63,7 @@
 			this.okButton.Location = new System.Drawing.Point(15, 353);
 			this.okButton.Name = "okButton";
 			this.okButton.Size = new System.Drawing.Size(75, 23);
-			this.okButton.TabIndex = 20;
+			this.okButton.TabIndex = 6;
 			this.okButton.Text = "OK";
 			this.okButton.UseVisualStyleBackColor = true;
 			// 
@@ -73,7 +73,7 @@
 			this.lengthBox.Location = new System.Drawing.Point(95, 58);
 			this.lengthBox.Name = "lengthBox";
 			this.lengthBox.Size = new System.Drawing.Size(56, 20);
-			this.lengthBox.TabIndex = 18;
+			this.lengthBox.TabIndex = 2;
 			this.lengthBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.formBox_keyDown);
 			// 
 			// label3
@@ -100,7 +100,7 @@
 			this.offsetBox.Location = new System.Drawing.Point(53, 32);
 			this.offsetBox.Name = "offsetBox";
 			this.offsetBox.Size = new System.Drawing.Size(98, 20);
-			this.offsetBox.TabIndex = 14;
+			this.offsetBox.TabIndex = 1;
 			this.offsetBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.formBox_keyDown);
 			// 
 			// nameBox
@@ -109,7 +109,7 @@
 			this.nameBox.Location = new System.Drawing.Point(53, 6);
 			this.nameBox.Name = "nameBox";
 			this.nameBox.Size = new System.Drawing.Size(200, 20);
-			this.nameBox.TabIndex = 13;
+			this.nameBox.TabIndex = 0;
 			this.nameBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.formBox_keyDown);
 			// 
 			// label1
@@ -137,7 +137,7 @@
 			this.rowLengthBox.Location = new System.Drawing.Point(96, 111);
 			this.rowLengthBox.Name = "rowLengthBox";
 			this.rowLengthBox.Size = new System.Drawing.Size(55, 20);
-			this.rowLengthBox.TabIndex = 33;
+			this.rowLengthBox.TabIndex = 4;
 			this.rowLengthBox.Visible = false;
 			this.rowLengthBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.formBox_keyDown);
 			// 
@@ -151,7 +151,7 @@
 			this.dataTypeBox.Location = new System.Drawing.Point(75, 84);
 			this.dataTypeBox.Name = "dataTypeBox";
 			this.dataTypeBox.Size = new System.Drawing.Size(76, 21);
-			this.dataTypeBox.TabIndex = 32;
+			this.dataTypeBox.TabIndex = 3;
 			this.dataTypeBox.Visible = false;
 			// 
 			// dataLabelDataTypeLabel
@@ -175,7 +175,7 @@
 			this.commentBox.Name = "commentBox";
 			this.commentBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
 			this.commentBox.Size = new System.Drawing.Size(238, 191);
-			this.commentBox.TabIndex = 50;
+			this.commentBox.TabIndex = 5;
 			// 
 			// label4
 			// 

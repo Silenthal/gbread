@@ -53,7 +53,7 @@
 			this.nameBox.Location = new System.Drawing.Point(53, 6);
 			this.nameBox.Name = "nameBox";
 			this.nameBox.Size = new System.Drawing.Size(200, 20);
-			this.nameBox.TabIndex = 1;
+			this.nameBox.TabIndex = 0;
 			this.nameBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.formBox_keyDown);
 			// 
 			// offsetBox
@@ -62,7 +62,7 @@
 			this.offsetBox.Location = new System.Drawing.Point(53, 32);
 			this.offsetBox.Name = "offsetBox";
 			this.offsetBox.Size = new System.Drawing.Size(98, 20);
-			this.offsetBox.TabIndex = 2;
+			this.offsetBox.TabIndex = 1;
 			this.offsetBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.formBox_keyDown);
 			// 
 			// label2
@@ -81,7 +81,7 @@
 			this.okButton.Location = new System.Drawing.Point(15, 294);
 			this.okButton.Name = "okButton";
 			this.okButton.Size = new System.Drawing.Size(75, 23);
-			this.okButton.TabIndex = 10;
+			this.okButton.TabIndex = 3;
 			this.okButton.Text = "OK";
 			this.okButton.UseVisualStyleBackColor = true;
 			this.okButton.Click += new System.EventHandler(this.okButton_Click);
@@ -94,7 +94,7 @@
 			this.cancelButton.Location = new System.Drawing.Point(172, 294);
 			this.cancelButton.Name = "cancelButton";
 			this.cancelButton.Size = new System.Drawing.Size(81, 23);
-			this.cancelButton.TabIndex = 11;
+			this.cancelButton.TabIndex = 4;
 			this.cancelButton.Text = "Cancel";
 			this.cancelButton.UseVisualStyleBackColor = true;
 			// 
@@ -109,7 +109,7 @@
 			this.commentBox.Name = "commentBox";
 			this.commentBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
 			this.commentBox.Size = new System.Drawing.Size(238, 217);
-			this.commentBox.TabIndex = 50;
+			this.commentBox.TabIndex = 2;
 			this.commentBox.WordWrap = false;
 			// 
 			// label4

@@ -19,6 +19,7 @@ namespace GBRead.Forms
 			listBoxLabelCollection = lbLabelCollection;
 			editingMode = editMode;
 			editedLabel = newPriorLabel;
+			dataTypeBox.SelectedIndex = 0;
 			if (editMode == LabelEditMode.Edit)
 			{
 				Text = "Edit Data Section";

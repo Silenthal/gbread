@@ -66,6 +66,7 @@
 			this.okButton.TabIndex = 6;
 			this.okButton.Text = "OK";
 			this.okButton.UseVisualStyleBackColor = true;
+			this.okButton.Click += new System.EventHandler(this.okButton_Click);
 			// 
 			// lengthBox
 			// 
@@ -129,7 +130,6 @@
 			this.dataLabelRowLengthLabel.Size = new System.Drawing.Size(78, 13);
 			this.dataLabelRowLengthLabel.TabIndex = 35;
 			this.dataLabelRowLengthLabel.Text = "Data Row Size";
-			this.dataLabelRowLengthLabel.Visible = false;
 			// 
 			// rowLengthBox
 			// 
@@ -138,7 +138,7 @@
 			this.rowLengthBox.Name = "rowLengthBox";
 			this.rowLengthBox.Size = new System.Drawing.Size(55, 20);
 			this.rowLengthBox.TabIndex = 4;
-			this.rowLengthBox.Visible = false;
+			this.rowLengthBox.Text = "8";
 			this.rowLengthBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.formBox_keyDown);
 			// 
 			// dataTypeBox
@@ -152,7 +152,6 @@
 			this.dataTypeBox.Name = "dataTypeBox";
 			this.dataTypeBox.Size = new System.Drawing.Size(76, 21);
 			this.dataTypeBox.TabIndex = 3;
-			this.dataTypeBox.Visible = false;
 			// 
 			// dataLabelDataTypeLabel
 			// 
@@ -162,7 +161,6 @@
 			this.dataLabelDataTypeLabel.Size = new System.Drawing.Size(57, 13);
 			this.dataLabelDataTypeLabel.TabIndex = 34;
 			this.dataLabelDataTypeLabel.Text = "Data Type";
-			this.dataLabelDataTypeLabel.Visible = false;
 			// 
 			// commentBox
 			// 
@@ -206,7 +204,7 @@
 			this.Controls.Add(this.nameBox);
 			this.Controls.Add(this.label1);
 			this.Name = "AddDataLabelForm";
-			this.Text = "AddDataSectionForm";
+			this.Text = "Add Data Label";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

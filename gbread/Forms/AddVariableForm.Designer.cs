@@ -134,7 +134,7 @@
 			this.Controls.Add(this.nameBox);
 			this.Controls.Add(this.label1);
 			this.Name = "AddVarLabelForm";
-			this.Text = "AddVariableForm";
+			this.Text = "Add Variable";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

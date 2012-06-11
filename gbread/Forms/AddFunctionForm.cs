@@ -22,7 +22,7 @@ namespace GBRead.Forms
 			editedLabel = newPriorLabel;
 			if (editingMode == LabelEditMode.Edit)
 			{
-				Text = "Edit Function";
+				Text = "Edit Label";
 				if (editedLabel != null)
 				{
 					nameBox.Text = editedLabel.Name;

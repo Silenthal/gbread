@@ -128,7 +128,7 @@
 			// 
 			this.openToolStripMenuItem.Name = "openToolStripMenuItem";
 			this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-			this.openToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
+			this.openToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
 			this.openToolStripMenuItem.Text = "&Open GB/C File";
 			this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
 			// 
@@ -136,52 +136,52 @@
 			// 
 			this.saveChangedFileToolStripMenuItem.Name = "saveChangedFileToolStripMenuItem";
 			this.saveChangedFileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-			this.saveChangedFileToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
+			this.saveChangedFileToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
 			this.saveChangedFileToolStripMenuItem.Text = "&Save GB/C File...";
 			this.saveChangedFileToolStripMenuItem.Click += new System.EventHandler(this.saveChangedFileToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator2
 			// 
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(259, 6);
+			this.toolStripSeparator2.Size = new System.Drawing.Size(246, 6);
 			// 
 			// loadFunctionListToolStripMenuItem
 			// 
 			this.loadFunctionListToolStripMenuItem.Name = "loadFunctionListToolStripMenuItem";
 			this.loadFunctionListToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-			this.loadFunctionListToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
-			this.loadFunctionListToolStripMenuItem.Text = "&Load Function/Data/Var List";
+			this.loadFunctionListToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+			this.loadFunctionListToolStripMenuItem.Text = "&Load Labels and Variables";
 			this.loadFunctionListToolStripMenuItem.Click += new System.EventHandler(this.loadLabelsToolStripMenuItem_Click);
 			// 
 			// saveCalledFunctionsListToolStripMenuItem
 			// 
 			this.saveCalledFunctionsListToolStripMenuItem.Name = "saveCalledFunctionsListToolStripMenuItem";
-			this.saveCalledFunctionsListToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
-			this.saveCalledFunctionsListToolStripMenuItem.Text = "Save &Function/Data/Var List";
+			this.saveCalledFunctionsListToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+			this.saveCalledFunctionsListToolStripMenuItem.Text = "Save Labels and Variables";
 			this.saveCalledFunctionsListToolStripMenuItem.Click += new System.EventHandler(this.saveLabelsToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator3
 			// 
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(259, 6);
+			this.toolStripSeparator3.Size = new System.Drawing.Size(246, 6);
 			// 
 			// saveEntireFileASMToolStripMenuItem
 			// 
 			this.saveEntireFileASMToolStripMenuItem.Name = "saveEntireFileASMToolStripMenuItem";
-			this.saveEntireFileASMToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
+			this.saveEntireFileASMToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
 			this.saveEntireFileASMToolStripMenuItem.Text = "Save &Entire File ASM";
 			this.saveEntireFileASMToolStripMenuItem.Click += new System.EventHandler(this.saveEntireFileASMToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(259, 6);
+			this.toolStripSeparator1.Size = new System.Drawing.Size(246, 6);
 			// 
 			// exitToolStripMenuItem
 			// 
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
 			this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
 			this.exitToolStripMenuItem.Text = "E&xit";
 			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
 			// 

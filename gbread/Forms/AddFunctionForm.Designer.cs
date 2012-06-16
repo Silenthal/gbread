@@ -88,10 +88,10 @@
 			// 
 			// cancelButton
 			// 
-			this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.cancelButton.Location = new System.Drawing.Point(172, 294);
+			this.cancelButton.Location = new System.Drawing.Point(288, 294);
 			this.cancelButton.Name = "cancelButton";
 			this.cancelButton.Size = new System.Drawing.Size(81, 23);
 			this.cancelButton.TabIndex = 4;
@@ -108,7 +108,7 @@
 			this.commentBox.Multiline = true;
 			this.commentBox.Name = "commentBox";
 			this.commentBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.commentBox.Size = new System.Drawing.Size(238, 217);
+			this.commentBox.Size = new System.Drawing.Size(354, 217);
 			this.commentBox.TabIndex = 2;
 			this.commentBox.WordWrap = false;
 			// 
@@ -125,7 +125,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(268, 332);
+			this.ClientSize = new System.Drawing.Size(384, 332);
 			this.Controls.Add(this.commentBox);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.cancelButton);

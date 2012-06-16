@@ -41,10 +41,10 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label1.Location = new System.Drawing.Point(12, 47);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(127, 16);
+			this.label1.Size = new System.Drawing.Size(106, 13);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Insert At Offset (hex):";
 			// 
@@ -54,35 +54,36 @@
 			// 
 			// offsetBox
 			// 
+			this.offsetBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.offsetBox.Location = new System.Drawing.Point(145, 46);
 			this.offsetBox.Name = "offsetBox";
-			this.offsetBox.Size = new System.Drawing.Size(100, 20);
+			this.offsetBox.Size = new System.Drawing.Size(100, 21);
 			this.offsetBox.TabIndex = 1;
 			// 
 			// fileSizeLabel
 			// 
 			this.fileSizeLabel.AutoSize = true;
-			this.fileSizeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.fileSizeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.fileSizeLabel.Location = new System.Drawing.Point(12, 102);
 			this.fileSizeLabel.Name = "fileSizeLabel";
-			this.fileSizeLabel.Size = new System.Drawing.Size(62, 16);
+			this.fileSizeLabel.Size = new System.Drawing.Size(49, 13);
 			this.fileSizeLabel.TabIndex = 3;
 			this.fileSizeLabel.Text = "File Size:";
 			// 
 			// fileNameLabel
 			// 
 			this.fileNameLabel.AutoSize = true;
-			this.fileNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.fileNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.fileNameLabel.Location = new System.Drawing.Point(12, 74);
 			this.fileNameLabel.Name = "fileNameLabel";
-			this.fileNameLabel.Size = new System.Drawing.Size(73, 16);
+			this.fileNameLabel.Size = new System.Drawing.Size(57, 13);
 			this.fileNameLabel.TabIndex = 4;
 			this.fileNameLabel.Text = "File Name:";
 			// 
 			// loadFileButton
 			// 
 			this.loadFileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.loadFileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.loadFileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.loadFileButton.Location = new System.Drawing.Point(12, 12);
 			this.loadFileButton.Name = "loadFileButton";
 			this.loadFileButton.Size = new System.Drawing.Size(109, 23);
@@ -94,7 +95,7 @@
 			// insertFileButton
 			// 
 			this.insertFileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.insertFileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.insertFileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.insertFileButton.Location = new System.Drawing.Point(12, 131);
 			this.insertFileButton.Name = "insertFileButton";
 			this.insertFileButton.Size = new System.Drawing.Size(109, 23);
@@ -107,7 +108,7 @@
 			// 
 			this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.cancelButton.Location = new System.Drawing.Point(145, 131);
 			this.cancelButton.Name = "cancelButton";
 			this.cancelButton.Size = new System.Drawing.Size(97, 23);

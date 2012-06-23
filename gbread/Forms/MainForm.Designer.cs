@@ -51,12 +51,12 @@
 			this.printASMButton = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.codeLabelBoxContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.funcLabelBoxContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.renameLabelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.searchForFunctionsThatCallThisOneToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.codeLabelBoxContextMenu2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.funcLabelBoxContextMenu2 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.addANewLabelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.dataLabelBoxContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,15 +76,15 @@
 			this.dataLabelTabPage = new System.Windows.Forms.TabPage();
 			this.dataLabelBox = new System.Windows.Forms.ListBox();
 			this.functionLabelTabPage = new System.Windows.Forms.TabPage();
-			this.codeLabelBox = new System.Windows.Forms.ListBox();
+			this.funcLabelBox = new System.Windows.Forms.ListBox();
 			this.LabelTabControl = new System.Windows.Forms.TabControl();
 			this.varLabelTabPage = new System.Windows.Forms.TabPage();
 			this.varLabelBox = new System.Windows.Forms.ListBox();
 			this.addNewButton = new System.Windows.Forms.Button();
 			this.mainTextBox = new GBRead.SyntaxHighlightingTextBox();
 			this.menuStrip1.SuspendLayout();
-			this.codeLabelBoxContextMenu.SuspendLayout();
-			this.codeLabelBoxContextMenu2.SuspendLayout();
+			this.funcLabelBoxContextMenu.SuspendLayout();
+			this.funcLabelBoxContextMenu2.SuspendLayout();
 			this.dataLabelBoxContextMenu.SuspendLayout();
 			this.dataLabelContextMenu2.SuspendLayout();
 			this.varLabelBoxContextMenu.SuspendLayout();
@@ -282,13 +282,13 @@
 			// 
 			// codeLabelBoxContextMenu
 			// 
-			this.codeLabelBoxContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.funcLabelBoxContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripMenuItem,
             this.renameLabelToolStripMenuItem,
             this.removeToolStripMenuItem,
             this.searchForFunctionsThatCallThisOneToolStripMenuItem1});
-			this.codeLabelBoxContextMenu.Name = "functionBoxContextMenu";
-			this.codeLabelBoxContextMenu.Size = new System.Drawing.Size(167, 92);
+			this.funcLabelBoxContextMenu.Name = "functionBoxContextMenu";
+			this.funcLabelBoxContextMenu.Size = new System.Drawing.Size(167, 92);
 			// 
 			// addToolStripMenuItem
 			// 
@@ -320,10 +320,10 @@
 			// 
 			// codeLabelBoxContextMenu2
 			// 
-			this.codeLabelBoxContextMenu2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.funcLabelBoxContextMenu2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addANewLabelToolStripMenuItem});
-			this.codeLabelBoxContextMenu2.Name = "functionBoxContextMenu2";
-			this.codeLabelBoxContextMenu2.Size = new System.Drawing.Size(155, 26);
+			this.funcLabelBoxContextMenu2.Name = "functionBoxContextMenu2";
+			this.funcLabelBoxContextMenu2.Size = new System.Drawing.Size(155, 26);
 			// 
 			// addANewLabelToolStripMenuItem
 			// 
@@ -478,7 +478,7 @@
 			// 
 			// functionLabelTabPage
 			// 
-			this.functionLabelTabPage.Controls.Add(this.codeLabelBox);
+			this.functionLabelTabPage.Controls.Add(this.funcLabelBox);
 			this.functionLabelTabPage.Location = new System.Drawing.Point(4, 22);
 			this.functionLabelTabPage.Name = "functionLabelTabPage";
 			this.functionLabelTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -489,22 +489,22 @@
 			// 
 			// codeLabelBox
 			// 
-			this.codeLabelBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.codeLabelBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-			this.codeLabelBox.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.codeLabelBox.FormattingEnabled = true;
-			this.codeLabelBox.HorizontalScrollbar = true;
-			this.codeLabelBox.ItemHeight = 11;
-			this.codeLabelBox.Location = new System.Drawing.Point(3, 3);
-			this.codeLabelBox.Name = "codeLabelBox";
-			this.codeLabelBox.Size = new System.Drawing.Size(252, 247);
-			this.codeLabelBox.Sorted = true;
-			this.codeLabelBox.TabIndex = 0;
-			this.codeLabelBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.codeLabelBox_MouseClick);
-			this.codeLabelBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.codeLabelBox_DrawItem);
-			this.codeLabelBox.DoubleClick += new System.EventHandler(this.codeLabelBox_DoubleClick);
-			this.codeLabelBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.codeLabelBox_KeyDown);
-			this.codeLabelBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.codeLabelBox_MouseClick);
+			this.funcLabelBox.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.funcLabelBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+			this.funcLabelBox.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.funcLabelBox.FormattingEnabled = true;
+			this.funcLabelBox.HorizontalScrollbar = true;
+			this.funcLabelBox.ItemHeight = 11;
+			this.funcLabelBox.Location = new System.Drawing.Point(3, 3);
+			this.funcLabelBox.Name = "codeLabelBox";
+			this.funcLabelBox.Size = new System.Drawing.Size(252, 247);
+			this.funcLabelBox.Sorted = true;
+			this.funcLabelBox.TabIndex = 0;
+			this.funcLabelBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.funcLabelBox_MouseClick);
+			this.funcLabelBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.funcLabelBox_DrawItem);
+			this.funcLabelBox.DoubleClick += new System.EventHandler(this.funcLabelBox_DoubleClick);
+			this.funcLabelBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.funcLabelBox_KeyDown);
+			this.funcLabelBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.funcLabelBox_MouseClick);
 			// 
 			// LabelTabControl
 			// 
@@ -598,8 +598,8 @@
 			this.Text = "GBRead";
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
-			this.codeLabelBoxContextMenu.ResumeLayout(false);
-			this.codeLabelBoxContextMenu2.ResumeLayout(false);
+			this.funcLabelBoxContextMenu.ResumeLayout(false);
+			this.funcLabelBoxContextMenu2.ResumeLayout(false);
 			this.dataLabelBoxContextMenu.ResumeLayout(false);
 			this.dataLabelContextMenu2.ResumeLayout(false);
 			this.varLabelBoxContextMenu.ResumeLayout(false);
@@ -626,11 +626,11 @@
         private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.ToolStripMenuItem saveCalledFunctionsListToolStripMenuItem;
-        private System.Windows.Forms.ContextMenuStrip codeLabelBoxContextMenu;
+        private System.Windows.Forms.ContextMenuStrip funcLabelBoxContextMenu;
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadFunctionListToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem renameLabelToolStripMenuItem;
-        private System.Windows.Forms.ContextMenuStrip codeLabelBoxContextMenu2;
+        private System.Windows.Forms.ContextMenuStrip funcLabelBoxContextMenu2;
         private System.Windows.Forms.ToolStripMenuItem addANewLabelToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 		private System.Windows.Forms.ContextMenuStrip dataLabelBoxContextMenu;
@@ -659,7 +659,7 @@
 		private System.Windows.Forms.TabPage dataLabelTabPage;
 		private System.Windows.Forms.ListBox dataLabelBox;
 		private System.Windows.Forms.TabPage functionLabelTabPage;
-		private System.Windows.Forms.ListBox codeLabelBox;
+		private System.Windows.Forms.ListBox funcLabelBox;
 		private System.Windows.Forms.TabControl LabelTabControl;
 		private System.Windows.Forms.ToolStripMenuItem findReferencesToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;

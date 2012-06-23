@@ -9,17 +9,17 @@ namespace GBRead.Forms
 {
 	public partial class MainForm : Form
 	{
-		string currentFileLoaded = "";
+		private string currentFileLoaded = "";
 
-		LabelContainer labelContainer;
+		private LabelContainer labelContainer;
 
-		Disassembler disassembler;
+		private Disassembler disassembler;
 
-		Assembler assembler;
+		private Assembler assembler;
 
-		BinFile romFile;
+		private BinFile romFile;
 
-		MainFormOptions mainFormOptions = new MainFormOptions();
+		private MainFormOptions mainFormOptions = new MainFormOptions();
 
 		public MainForm(BinFile cs, Disassembler ds, Assembler ac, LabelContainer lcnew)
 		{
@@ -28,6 +28,9 @@ namespace GBRead.Forms
 			assembler = ac;
 			labelContainer = lcnew;
 			romFile = cs;
+			funcLabelBox.DataSource = labelContainer.FuncList;
+			dataLabelBox.DataSource = labelContainer.DataList;
+			varLabelBox.DataSource = labelContainer.VarList;
 		}
 
 		protected override void OnFormClosing(FormClosingEventArgs e)
@@ -57,133 +60,17 @@ namespace GBRead.Forms
 			options.MainForm_HighlightRegisters = mainTextBox.SyntaxHighlighter.HighlightRegisters;
 		}
 
-		#region Code Label Box Handlers
-
-		private void codeLabelBox_DoubleClick(object sender, EventArgs e)
-		{
-			if (codeLabelBox.SelectedItem != null)
-			{
-				UpdateMainTextBox(disassembler.ShowCodeLabel((FunctionLabel)codeLabelBox.SelectedItem), TextBoxWriteMode.Overwrite);
-			}
-		}
-
-		private void codeLabelBox_MouseClick(object sender, MouseEventArgs e)
-		{
-			if (e.Button == System.Windows.Forms.MouseButtons.Right)
-			{
-				codeLabelBox.SelectedIndex = codeLabelBox.IndexFromPoint(e.X, e.Y);
-				if (codeLabelBox.SelectedItem != null) codeLabelBoxContextMenu.Show(MousePosition);
-				else codeLabelBoxContextMenu2.Show(MousePosition);
-			}
-		}
-
-		private void codeLabelBox_KeyDown(object sender, KeyEventArgs e)
-		{
-			if (codeLabelBox.SelectedIndex != -1)
-			{
-				if (e.KeyCode == Keys.Enter)
-				{
-					UpdateMainTextBox(disassembler.ShowCodeLabel((FunctionLabel)codeLabelBox.SelectedItem), TextBoxWriteMode.Overwrite);
-				}
-				else if (e.KeyCode == Keys.Delete)
-				{
-					labelContainer.RemoveFuncLabel((FunctionLabel)codeLabelBox.SelectedItem);
-					UpdateLabelBoxView();
-				}
-			}
-		}
-
-		#endregion Code Label Box Handlers
-
-		#region Data Label Box Handlers
-
-		private void dataLabelBox_DoubleClick(object sender, EventArgs e)
-		{
-			if (dataLabelBox.SelectedItem != null)
-			{
-				if (((DataLabel)dataLabelBox.SelectedItem).DSectionType == DataSectionType.Image)
-				{
-					ImageDisplayForm img = new ImageDisplayForm(romFile, (DataLabel)dataLabelBox.SelectedItem);
-					img.ShowDialog();
-				}
-				else
-				{
-					UpdateMainTextBox(disassembler.ShowDataLabel((DataLabel)dataLabelBox.SelectedItem), TextBoxWriteMode.Overwrite);
-				}
-			}
-		}
-
-		private void dataLabelBox_MouseClick(object sender, MouseEventArgs e)
-		{
-			if (e.Button == System.Windows.Forms.MouseButtons.Right)
-			{
-				dataLabelBox.SelectedIndex = dataLabelBox.IndexFromPoint(e.X, e.Y);
-				if (dataLabelBox.SelectedItem != null) dataLabelBoxContextMenu.Show(MousePosition);
-				else dataLabelContextMenu2.Show(MousePosition);
-			}
-		}
-
-		private void dataLabelBox_KeyDown(object sender, KeyEventArgs e)
-		{
-			if (e.KeyCode == Keys.Enter)
-			{
-				UpdateMainTextBox(disassembler.ShowDataLabel((DataLabel)dataLabelBox.SelectedItem), TextBoxWriteMode.Overwrite);
-			}
-			else if (e.KeyCode == Keys.Delete)
-			{
-				labelContainer.RemoveDataLabel((DataLabel)dataLabelBox.SelectedItem);
-				UpdateDataBoxView();
-			}
-		}
-
-		#endregion Data Label Box Handlers
-
-		#region Variable Label Box Handlers
-
-		private void varLabelBox_MouseClick(object sender, MouseEventArgs e)
-		{
-			if (e.Button == System.Windows.Forms.MouseButtons.Right)
-			{
-				varLabelBox.SelectedIndex = varLabelBox.IndexFromPoint(e.X, e.Y);
-				if (varLabelBox.SelectedItem != null) varLabelBoxContextMenu.Show(MousePosition);
-				else varLabelBoxContextMenu2.Show(MousePosition);
-			}
-		}
-
-		private void varLabelBox_DoubleClick(object sender, EventArgs e)
-		{
-			if (varLabelBox.SelectedItem != null)
-			{
-				VarLabel selectedLabel = (VarLabel)varLabelBox.SelectedItem;
-				UpdateMainTextBox(disassembler.ShowVarLabel(selectedLabel), TextBoxWriteMode.Overwrite);
-			}
-		}
-
-		private void varLabelBox_KeyDown(object sender, KeyEventArgs e)
-		{
-			if (e.KeyCode == Keys.Enter)
-			{
-				UpdateMainTextBox(disassembler.ShowVarLabel((VarLabel)varLabelBox.SelectedItem), TextBoxWriteMode.Overwrite);
-			}
-			else if (e.KeyCode == Keys.Delete)
-			{
-				labelContainer.RemoveVarLabel((VarLabel)varLabelBox.SelectedItem);
-				UpdateVarBoxView();
-			}
-		}
-
-		#endregion Variable Label Box Handlers
-
 		#region Menu Item Handlers
 
-		#region CodeLabelBox Menu
+		#region FuncLabelBox Menu
 
 		private void addFuncLabelMenuItem_Click(object sender, EventArgs e)
 		{
 			if (romFile.FileLoaded)
 			{
-				AddFunctionLabelForm af = new AddFunctionLabelForm(labelContainer, codeLabelBox.Items, LabelEditMode.Add);
+				AddFunctionLabelForm af = new AddFunctionLabelForm(labelContainer, LabelEditMode.Add);
 				af.ShowDialog();
+				UpdateFuncBoxView();
 			}
 			else
 			{
@@ -193,17 +80,18 @@ namespace GBRead.Forms
 
 		private void renameFuncLabelMenuItem_Click(object sender, EventArgs e)
 		{
-			AddFunctionLabelForm af = new AddFunctionLabelForm(labelContainer, codeLabelBox.Items, LabelEditMode.Edit, (FunctionLabel)codeLabelBox.SelectedItem);
+			AddFunctionLabelForm af = new AddFunctionLabelForm(labelContainer, LabelEditMode.Edit, (FunctionLabel)funcLabelBox.SelectedItem);
 			af.ShowDialog();
+			UpdateFuncBoxView();
 		}
 
 		private void removeFuncLabelMenuItem_Click(object sender, EventArgs e)
 		{
-			labelContainer.RemoveFuncLabel((FunctionLabel)codeLabelBox.SelectedItem);
-			codeLabelBox.Items.Remove(codeLabelBox.SelectedItem);
+			labelContainer.RemoveFuncLabel((FunctionLabel)funcLabelBox.SelectedItem);
+			UpdateFuncBoxView();
 		}
 
-		#endregion CodeLabelBox Menu
+		#endregion FuncLabelBox Menu
 
 		#region DataLabelBox Menus
 
@@ -211,8 +99,9 @@ namespace GBRead.Forms
 		{
 			if (romFile.FileLoaded)
 			{
-				AddDataLabelForm ad = new AddDataLabelForm(labelContainer, dataLabelBox.Items, LabelEditMode.Add);
+				AddDataLabelForm ad = new AddDataLabelForm(labelContainer, LabelEditMode.Add);
 				ad.ShowDialog();
+				UpdateDataBoxView();
 			}
 			else
 			{
@@ -222,14 +111,15 @@ namespace GBRead.Forms
 
 		private void renameDataLabelMenuItem_Click(object sender, EventArgs e)
 		{
-			AddDataLabelForm ad = new AddDataLabelForm(labelContainer, dataLabelBox.Items, LabelEditMode.Edit, (DataLabel)dataLabelBox.SelectedItem);
+			AddDataLabelForm ad = new AddDataLabelForm(labelContainer, LabelEditMode.Edit, (DataLabel)dataLabelBox.SelectedItem);
 			ad.ShowDialog();
+			UpdateDataBoxView();
 		}
 
 		private void removeDataLabelMenuItem_Click(object sender, EventArgs e)
 		{
 			labelContainer.RemoveDataLabel((DataLabel)dataLabelBox.SelectedItem);
-			dataLabelBox.Items.Remove(dataLabelBox.SelectedItem);
+			UpdateDataBoxView();
 		}
 
 		private void findReferencesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -246,8 +136,9 @@ namespace GBRead.Forms
 		{
 			if (romFile.FileLoaded)
 			{
-				AddVarLabelForm av = new AddVarLabelForm(labelContainer, varLabelBox.Items, LabelEditMode.Add);
+				AddVarLabelForm av = new AddVarLabelForm(labelContainer, LabelEditMode.Add);
 				av.ShowDialog();
+				UpdateVarBoxView();
 			}
 			else
 			{
@@ -257,14 +148,15 @@ namespace GBRead.Forms
 
 		private void editVariableToolStripMenuItem2_Click(object sender, EventArgs e)
 		{
-			AddVarLabelForm av = new AddVarLabelForm(labelContainer, varLabelBox.Items, LabelEditMode.Edit, (VarLabel)varLabelBox.SelectedItem);
+			AddVarLabelForm av = new AddVarLabelForm(labelContainer, LabelEditMode.Edit, (VarLabel)varLabelBox.SelectedItem);
 			av.ShowDialog();
+			UpdateVarBoxView();
 		}
 
 		private void removeVariableToolStripMenuItem3_Click(object sender, EventArgs e)
 		{
 			labelContainer.RemoveVarLabel((VarLabel)varLabelBox.SelectedItem);
-			varLabelBox.Items.Remove(varLabelBox.SelectedItem);
+			UpdateVarBoxView();
 		}
 
 		#endregion VarLabelBox Menus
@@ -284,23 +176,10 @@ namespace GBRead.Forms
 				this.Text = "GBRead - " + ofd.SafeFileName;
 				UpdateMainTextBox(romFile.GetBinInfo(), TextBoxWriteMode.Overwrite);
 				currentFileLoaded = ofd.FileName;
-				labelContainer.ClearAllLists();
-				codeLabelBox.Items.Clear();
-				dataLabelBox.Items.Clear();
-				varLabelBox.Items.Clear();
-				labelContainer.LoadDefaultLabels(romFile.Length);
-				foreach (FunctionLabel f in labelContainer.FuncList)
-				{
-					codeLabelBox.Items.Add(f);
-				}
-				foreach (DataLabel f in labelContainer.DataList)
-				{
-					dataLabelBox.Items.Add(f);
-				}
-				foreach (VarLabel f in labelContainer.VarList)
-				{
-					varLabelBox.Items.Add(f);
-				}
+				labelContainer.Initialize();
+				UpdateFuncBoxView();
+				UpdateDataBoxView();
+				UpdateVarBoxView();
 				startBox.Focus();
 			}
 		}
@@ -321,27 +200,9 @@ namespace GBRead.Forms
 				if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 				{
 					labelContainer.LoadLabelFile(ofd.FileName);
-					foreach (FunctionLabel f in labelContainer.FuncList)
-					{
-						if (!codeLabelBox.Items.Contains(f))
-						{
-							codeLabelBox.Items.Add(f);
-						}
-					}
-					foreach (DataLabel f in labelContainer.DataList)
-					{
-						if (!dataLabelBox.Items.Contains(f))
-						{
-							dataLabelBox.Items.Add(f);
-						}
-					}
-					foreach (VarLabel f in labelContainer.VarList)
-					{
-						if (!varLabelBox.Items.Contains(f))
-						{
-							varLabelBox.Items.Add(f);
-						}
-					}
+					UpdateFuncBoxView();
+					UpdateDataBoxView();
+					UpdateVarBoxView();
 				}
 			}
 			else
@@ -374,18 +235,18 @@ namespace GBRead.Forms
 				if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 				{
 					new Thread(new ThreadStart(() =>
+					{
+						if (romFile.FileLoaded)
 						{
-							if (romFile.FileLoaded)
+							UpdateProgressLabel("Working...", TextBoxWriteMode.Overwrite);
+							using (StreamWriter sw = new StreamWriter(sfd.FileName, false))
 							{
-								UpdateProgressLabel("Working...", TextBoxWriteMode.Overwrite);
-								using (StreamWriter sw = new StreamWriter(sfd.FileName, false))
-								{
-									sw.Write(disassembler.GetFullASM());
-								}
-								UpdateProgressLabel("", TextBoxWriteMode.Overwrite);
-								MessageBox.Show(String.Format("Saved All ASM to{0}{1}", Environment.NewLine, sfd.FileName), "Success", MessageBoxButtons.OK);
+								sw.Write(disassembler.GetFullASM());
 							}
-						})).Start();
+							UpdateProgressLabel("", TextBoxWriteMode.Overwrite);
+							MessageBox.Show(String.Format("Saved All ASM to{0}{1}", Environment.NewLine, sfd.FileName), "Success", MessageBoxButtons.OK);
+						}
+					})).Start();
 				}
 			}
 			else
@@ -468,7 +329,7 @@ namespace GBRead.Forms
 			if (romFile.FileLoaded)
 			{
 				disassembler.AutoPopulateFunctionList();
-				UpdateLabelBoxView();
+				UpdateFuncBoxView();
 			}
 			else
 			{
@@ -529,17 +390,17 @@ namespace GBRead.Forms
 			}
 		}
 
-		private void codeLabelBox_DrawItem(object sender, DrawItemEventArgs e)
+		private void funcLabelBox_DrawItem(object sender, DrawItemEventArgs e)
 		{
 			e.DrawBackground();
-			if (codeLabelBox.Items.Count > 0)
+			if (funcLabelBox.Items.Count > 0)
 			{
-				FunctionLabel ds = (FunctionLabel)codeLabelBox.Items[e.Index];
+				FunctionLabel ds = (FunctionLabel)funcLabelBox.Items[e.Index];
 				Brush itemBrush = Brushes.Black;
 				StringFormat sf = new StringFormat();
 				sf.Alignment = StringAlignment.Near;
 				sf.LineAlignment = StringAlignment.Center;
-				e.Graphics.DrawString(ds.ToString(), e.Font, itemBrush, codeLabelBox.GetItemRectangle(e.Index), sf);
+				e.Graphics.DrawString(ds.ToString(), e.Font, itemBrush, funcLabelBox.GetItemRectangle(e.Index), sf);
 			}
 			e.DrawFocusRectangle();
 		}
@@ -599,22 +460,139 @@ namespace GBRead.Forms
 		{
 			if (romFile.FileLoaded)
 			{
-				UpdateMainTextBox(disassembler.SearchForFunctionCall((FunctionLabel)codeLabelBox.SelectedItem), TextBoxWriteMode.Overwrite);
+				UpdateMainTextBox(disassembler.SearchForFunctionCall((FunctionLabel)funcLabelBox.SelectedItem), TextBoxWriteMode.Overwrite);
 			}
 		}
 
 		#endregion Menu Item Handlers
 
+		#region Function Label Box Handlers
+
+		private void funcLabelBox_DoubleClick(object sender, EventArgs e)
+		{
+			if (funcLabelBox.SelectedItem != null)
+			{
+				UpdateMainTextBox(disassembler.ShowFuncLabel((FunctionLabel)funcLabelBox.SelectedItem), TextBoxWriteMode.Overwrite);
+			}
+		}
+
+		private void funcLabelBox_MouseClick(object sender, MouseEventArgs e)
+		{
+			if (e.Button == System.Windows.Forms.MouseButtons.Right)
+			{
+				funcLabelBox.SelectedIndex = funcLabelBox.IndexFromPoint(e.X, e.Y);
+				if (funcLabelBox.SelectedItem != null) funcLabelBoxContextMenu.Show(MousePosition);
+				else funcLabelBoxContextMenu2.Show(MousePosition);
+			}
+		}
+
+		private void funcLabelBox_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (funcLabelBox.SelectedIndex != -1)
+			{
+				if (e.KeyCode == Keys.Enter)
+				{
+					UpdateMainTextBox(disassembler.ShowFuncLabel((FunctionLabel)funcLabelBox.SelectedItem), TextBoxWriteMode.Overwrite);
+				}
+				else if (e.KeyCode == Keys.Delete)
+				{
+					labelContainer.RemoveFuncLabel((FunctionLabel)funcLabelBox.SelectedItem);
+					UpdateFuncBoxView();
+				}
+			}
+		}
+
+		#endregion Function Label Box Handlers
+
+		#region Data Label Box Handlers
+
+		private void dataLabelBox_DoubleClick(object sender, EventArgs e)
+		{
+			if (dataLabelBox.SelectedItem != null)
+			{
+				if (((DataLabel)dataLabelBox.SelectedItem).DSectionType == DataSectionType.Image)
+				{
+					ImageDisplayForm img = new ImageDisplayForm(romFile, (DataLabel)dataLabelBox.SelectedItem);
+					img.ShowDialog();
+				}
+				else
+				{
+					UpdateMainTextBox(disassembler.ShowDataLabel((DataLabel)dataLabelBox.SelectedItem), TextBoxWriteMode.Overwrite);
+				}
+			}
+		}
+
+		private void dataLabelBox_MouseClick(object sender, MouseEventArgs e)
+		{
+			if (e.Button == System.Windows.Forms.MouseButtons.Right)
+			{
+				dataLabelBox.SelectedIndex = dataLabelBox.IndexFromPoint(e.X, e.Y);
+				if (dataLabelBox.SelectedItem != null) dataLabelBoxContextMenu.Show(MousePosition);
+				else dataLabelContextMenu2.Show(MousePosition);
+			}
+		}
+
+		private void dataLabelBox_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+			{
+				UpdateMainTextBox(disassembler.ShowDataLabel((DataLabel)dataLabelBox.SelectedItem), TextBoxWriteMode.Overwrite);
+			}
+			else if (e.KeyCode == Keys.Delete)
+			{
+				labelContainer.RemoveDataLabel((DataLabel)dataLabelBox.SelectedItem);
+				UpdateDataBoxView();
+			}
+		}
+
+		#endregion Data Label Box Handlers
+
+		#region Variable Label Box Handlers
+
+		private void varLabelBox_MouseClick(object sender, MouseEventArgs e)
+		{
+			if (e.Button == System.Windows.Forms.MouseButtons.Right)
+			{
+				varLabelBox.SelectedIndex = varLabelBox.IndexFromPoint(e.X, e.Y);
+				if (varLabelBox.SelectedItem != null) varLabelBoxContextMenu.Show(MousePosition);
+				else varLabelBoxContextMenu2.Show(MousePosition);
+			}
+		}
+
+		private void varLabelBox_DoubleClick(object sender, EventArgs e)
+		{
+			if (varLabelBox.SelectedItem != null)
+			{
+				VarLabel selectedLabel = (VarLabel)varLabelBox.SelectedItem;
+				UpdateMainTextBox(disassembler.ShowVarLabel(selectedLabel), TextBoxWriteMode.Overwrite);
+			}
+		}
+
+		private void varLabelBox_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+			{
+				UpdateMainTextBox(disassembler.ShowVarLabel((VarLabel)varLabelBox.SelectedItem), TextBoxWriteMode.Overwrite);
+			}
+			else if (e.KeyCode == Keys.Delete)
+			{
+				labelContainer.RemoveVarLabel((VarLabel)varLabelBox.SelectedItem);
+				UpdateVarBoxView();
+			}
+		}
+
+		#endregion Variable Label Box Handlers
+
 		#region List Management
+
+		private void UpdateFuncBoxView()
+		{
+			((CurrencyManager)funcLabelBox.BindingContext[labelContainer.FuncList]).Refresh();
+		}
 
 		private void UpdateDataBoxView()
 		{
 			((CurrencyManager)dataLabelBox.BindingContext[labelContainer.DataList]).Refresh();
-		}
-
-		private void UpdateLabelBoxView()
-		{
-			((CurrencyManager)codeLabelBox.BindingContext[labelContainer.FuncList]).Refresh();
 		}
 
 		private void UpdateVarBoxView()
@@ -626,7 +604,7 @@ namespace GBRead.Forms
 
 		#region Box Update Invocations
 
-		delegate void UpdateTextBoxDelegate(string updateText, TextBoxWriteMode overwriteExistingText);
+		private delegate void UpdateTextBoxDelegate(string updateText, TextBoxWriteMode overwriteExistingText);
 
 		private void UpdateProgressLabel(string newLabel, TextBoxWriteMode overwriteExistingText = TextBoxWriteMode.Append)
 		{

@@ -8,22 +8,16 @@ namespace GBRead.Base
 {
 	class GBImage
 	{
-
-		public GBImage()
-		{
-
-		}
-
 		public static List<Bitmap> renderImageTiles(BinFile dxtFile, int offset, int length, Color[] palette)
 		{
 			List<Bitmap> tileList = new List<Bitmap>();
 			for (int i = offset; i < offset + length; i += 0x10)
 			{
-				Bitmap ft = new Bitmap(8, 8);
-				for (int ix = 0; ix < 8; ix++)
+				Bitmap tile = new Bitmap(8, 8);
+				for (int tileRow = 0; tileRow < 8; tileRow++)
 				{
-					int colorLow = dxtFile.ReadByte(i + (2 * ix));
-					int colorHigh = dxtFile.ReadByte(i + (2 * ix) + 1);
+					int colorLow = dxtFile.ReadByte(i + (2 * tileRow));
+					int colorHigh = dxtFile.ReadByte(i + (2 * tileRow) + 1);
 					int color1 = (((colorHigh >> 7) & 1) << 1) | ((colorLow >> 7) & 1);
 					int color2 = (((colorHigh >> 6) & 1) << 1) | ((colorLow >> 6) & 1);
 					int color3 = (((colorHigh >> 5) & 1) << 1) | ((colorLow >> 5) & 1);
@@ -32,16 +26,16 @@ namespace GBRead.Base
 					int color6 = (((colorHigh >> 2) & 1) << 1) | ((colorLow >> 2) & 1);
 					int color7 = (((colorHigh >> 1) & 1) << 1) | ((colorLow >> 1) & 1);
 					int color8 = ((colorHigh & 1) << 1) | (colorLow & 1);
-					ft.SetPixel(0, ix, palette[color1]);
-					ft.SetPixel(1, ix, palette[color2]);
-					ft.SetPixel(2, ix, palette[color3]);
-					ft.SetPixel(3, ix, palette[color4]);
-					ft.SetPixel(4, ix, palette[color5]);
-					ft.SetPixel(5, ix, palette[color6]);
-					ft.SetPixel(6, ix, palette[color7]);
-					ft.SetPixel(7, ix, palette[color8]);
+					tile.SetPixel(0, tileRow, palette[color1]);
+					tile.SetPixel(1, tileRow, palette[color2]);
+					tile.SetPixel(2, tileRow, palette[color3]);
+					tile.SetPixel(3, tileRow, palette[color4]);
+					tile.SetPixel(4, tileRow, palette[color5]);
+					tile.SetPixel(5, tileRow, palette[color6]);
+					tile.SetPixel(6, tileRow, palette[color7]);
+					tile.SetPixel(7, tileRow, palette[color8]);
 				}
-				tileList.Add(ft);
+				tileList.Add(tile);
 			}
 			return tileList;
 		}

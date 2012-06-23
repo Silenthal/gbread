@@ -12,12 +12,44 @@ namespace GBRead.Base
 		private object varListLock = new object();
 		private object symbolListLock = new object();
 
-		private List<GenericLabel> _funcList;
-		private List<GenericLabel> _dataList;
-		private List<GenericLabel> _varList;
+		private List<FunctionLabel> _funcList = new List<FunctionLabel>();
+		private List<DataLabel> _dataList = new List<DataLabel>();
+		private List<VarLabel> _varList = new List<VarLabel>();
 		private HashSet<string> _symbolList = new HashSet<string>();
+		private HashSet<int> dataAddrs = new HashSet<int>();
 
-		private HashSet<int> dataAddrs;
+		public IList<FunctionLabel> FuncList
+		{
+			get
+			{
+				lock (funcListLock)
+				{
+					return _funcList;
+				}
+			}
+		}
+
+		public IList<DataLabel> DataList
+		{
+			get
+			{
+				lock (dataListLock)
+				{
+					return _dataList;
+				}
+			}
+		}
+
+		public IList<VarLabel> VarList
+		{
+			get
+			{
+				lock (varListLock)
+				{
+					return _varList;
+				}
+			}
+		}
 
 		#region Default Var List
 
@@ -82,63 +114,35 @@ namespace GBRead.Base
 
 		#endregion Default Var List
 
-		public IList<GenericLabel> FuncList
+		public LabelContainer()
 		{
-			get
+		}
+
+		public void Initialize()
+		{
+			lock (symbolListLock)
 			{
 				lock (funcListLock)
 				{
-					return _funcList.AsReadOnly();
+					_funcList.Clear();
 				}
-			}
-		}
-
-		public IList<GenericLabel> DataList
-		{
-			get
-			{
 				lock (dataListLock)
 				{
-					return _dataList.AsReadOnly();
+					_dataList.Clear();
+					dataAddrs.Clear();
 				}
-			}
-		}
-
-		public IList<GenericLabel> VarList
-		{
-			get
-			{
 				lock (varListLock)
 				{
-					return _varList.AsReadOnly();
+					_varList.Clear();
 				}
+				_symbolList.Clear();
 			}
-		}
-
-		private HashSet<string> SymbolList
-		{
-			get
-			{
-				lock (symbolListLock)
-				{
-					return _symbolList;
-				}
-			}
-		}
-
-		public LabelContainer()
-		{
-			ClearAllLists();
-		}
-
-		public void LoadDefaultLabels(int newFileSize)
-		{
-			ClearAllLists();
 			foreach (VarLabel vls in defaultVars)
 			{
 				AddVarLabel(vls);
 			}
 			AddDataLabel(new DataLabel(0x104, 0x4C, "Header"));
+			AddFuncLabel(new FunctionLabel(122, "test"));
 		}
 
 		#region Adding, clearing, and removing labels
@@ -173,6 +177,24 @@ namespace GBRead.Base
 			}
 		}
 
+		public bool isAddressMarkedAsData(int address)
+		{
+			lock (dataListLock)
+			{
+				return dataAddrs.Contains(address);
+			}
+		}
+
+		public int GetNextNonDataAddress(int address)
+		{
+			int offset = address;
+			lock (dataListLock)
+			{
+				while (dataAddrs.Contains(offset++)) { }
+			}
+			return offset;
+		}
+
 		public bool IsNameDefined(string name)
 		{
 			//Note: this function will not help if, in between calling this and
@@ -191,7 +213,7 @@ namespace GBRead.Base
 			{
 				lock (funcListLock)
 				{
-					if (_symbolList.Contains(toBeAdded.Name)) return;
+					if (_symbolList.Contains(toBeAdded.Name) || _funcList.Contains(toBeAdded)) return;
 					_funcList.Add(toBeAdded);
 					_symbolList.Add(toBeAdded.Name);
 				}
@@ -204,7 +226,7 @@ namespace GBRead.Base
 			{
 				lock (dataListLock)
 				{
-					if (_symbolList.Contains(toBeAdded.Name)) return;
+					if (_symbolList.Contains(toBeAdded.Name) || _dataList.Contains(toBeAdded)) return;
 					_dataList.Add(toBeAdded);
 					_symbolList.Add(toBeAdded.Name);
 					RegisterDataAddresses(toBeAdded.Offset, toBeAdded.Length);
@@ -218,7 +240,7 @@ namespace GBRead.Base
 			{
 				lock (varListLock)
 				{
-					if (_symbolList.Contains(toBeAdded.Name)) return;
+					if (_symbolList.Contains(toBeAdded.Name) || _varList.Contains(toBeAdded)) return;
 					_varList.Add(toBeAdded);
 					_symbolList.Add(toBeAdded.Name);
 				}
@@ -266,77 +288,13 @@ namespace GBRead.Base
 		{
 			for (int i = offset; i < offset + length; i++)
 			{
-				if (!dataAddrs.Contains(i)) dataAddrs.Add(i);
+				dataAddrs.Add(i);
 			}
 		}
 
 		private void DeregisterDataAddresses(int offset, int length)
 		{
-			dataAddrs.RemoveWhere(x => x > offset && x < offset + length);
-		}
-
-		public bool isAddressMarkedAsData(int address)
-		{
-			lock (dataListLock)
-			{
-				return dataAddrs.Contains(address);
-			}
-		}
-
-		public int GetNextNonDataAddress(int address)
-		{
-			int offset = address;
-			lock (dataListLock)
-			{
-				while (dataAddrs.Contains(offset++)) { }
-			}
-			return offset;
-		}
-
-		public void ClearAllLists()
-		{
-			ClearFuncList();
-			ClearDataList();
-			ClearVarList();
-		}
-
-		public void ClearFuncList()
-		{
-			lock (funcListLock)
-			{
-				lock (symbolListLock)
-				{
-					if (_funcList == null) _funcList = new List<GenericLabel>();
-					if (_funcList.Count != 0)
-					{
-						foreach (GenericLabel l in _funcList)
-						{
-
-						}
-					}
-					_funcList.Clear();
-				}
-			}
-		}
-
-		public void ClearDataList()
-		{
-			lock (dataListLock)
-			{
-				if (_dataList == null) _dataList = new List<GenericLabel>();
-				else _dataList.Clear();
-				if (dataAddrs == null) dataAddrs = new HashSet<int>();
-				dataAddrs.Clear();
-			}
-		}
-
-		public void ClearVarList()
-		{
-			lock (varListLock)
-			{
-				if (_varList == null) _varList = new List<GenericLabel>();
-				else _varList.Clear();
-			}
+			dataAddrs.RemoveWhere(x => x >= offset && x < offset + length);
 		}
 
 		#endregion Adding, clearing, and removing labels
@@ -559,7 +517,7 @@ namespace GBRead.Base
 		private string FunctionListToSaveFileFormat()
 		{
 			StringBuilder sb = new StringBuilder(String.Empty);
-			foreach (GenericLabel s in FuncList)
+			foreach (FunctionLabel s in FuncList)
 			{
 				sb.AppendLine(s.ToSaveFileString());
 			}
@@ -569,7 +527,7 @@ namespace GBRead.Base
 		private string DataListToSaveFileFormat()
 		{
 			StringBuilder sb = new StringBuilder(String.Empty);
-			foreach (GenericLabel s in DataList)
+			foreach (DataLabel s in DataList)
 			{
 				sb.AppendLine(s.ToSaveFileString());
 			}
@@ -579,13 +537,13 @@ namespace GBRead.Base
 		private string VarListToSaveFileFormat()
 		{
 			StringBuilder sb = new StringBuilder(String.Empty);
-			foreach (GenericLabel s in VarList)
+			foreach (VarLabel s in VarList)
 			{
 				sb.AppendLine(s.ToSaveFileString());
 			}
 			return sb.ToString();
 		}
 
-		#endregion Loading and Saving Label Files		
+		#endregion Loading and Saving Label Files
 	}
 }

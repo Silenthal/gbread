@@ -108,7 +108,7 @@ namespace GBRead.Base
 			return ret.ToString();
 		}
 
-		public string ShowCodeLabel(FunctionLabel cLabel)
+		public string ShowFuncLabel(FunctionLabel cLabel)
 		{
 			StringBuilder ret = new StringBuilder(String.Empty);
 			int currentOffset = cLabel.Offset;
@@ -315,26 +315,47 @@ namespace GBRead.Base
 			int currentOffset = 0;
 			while (currentOffset < CoreFile.Length)
 			{
-				byte currentInst = (byte)CoreFile.ReadByte(currentOffset);
+				int curr = CoreFile.ReadByte(currentOffset);
+				if (curr == Int32.MinValue) return;
+				byte currentInst = (byte)curr;
 				GBInstruction isu = new GBInstruction();
 				bool success = false;
 				if (lc.isAddressMarkedAsData(currentOffset))
 				{
-					success = GBASM.CreateDBInstruction(CoreFile.MainFile, 0, currentOffset, ref isu);
+					currentOffset = lc.GetNextNonDataAddress(currentOffset);
+					continue;
 				}
 				else success = GBASM.GetInstruction(CoreFile.MainFile, 0, currentOffset, ref isu);
 				if (!success) return;
 				if (isu.InstType == InstructionType.call)
 				{
 					ushort curCallAddr = (isu.ArgCount == 1) ? isu.Arg1.NumArg : isu.Arg2.NumArg;
-					if (!(curCallAddr > 0x3FFF && currentOffset < 0x4000))
+					if (currentOffset < 0x4000)
 					{
-						int currentCall = GetBankAdjustedAddress(isu.Bank, curCallAddr);
-						FunctionLabel rc = new FunctionLabel(currentCall);
-						if (IsValidFunction(currentOffset) && IsValidFunction(currentCall) && lc.TryGetFuncLabel(currentCall) == null)
+						if (curCallAddr < 0x4000)
 						{
-							FunctionLabel fl = new FunctionLabel(currentCall);
-							lc.AddFuncLabel(fl);
+							if (lc.TryGetFuncLabel(curCallAddr) == null)
+							{
+								lc.AddFuncLabel(new FunctionLabel(curCallAddr));
+							}
+						}
+					}
+					else
+					{
+						if (curCallAddr < 0x4000)
+						{
+							if (lc.TryGetFuncLabel(curCallAddr) == null)
+							{
+								lc.AddFuncLabel(new FunctionLabel(curCallAddr));
+							}
+						}
+						else
+						{
+							int currentCall = GetBankAdjustedAddress(isu.Bank, curCallAddr);
+							if (lc.TryGetFuncLabel(currentCall) == null)
+							{
+								lc.AddFuncLabel(new FunctionLabel(currentCall));
+							}
 						}
 					}
 				}
@@ -678,7 +699,7 @@ namespace GBRead.Base
 			int maxLength = 0x4000 - (cLabel.Offset & 0x3FFF);
 			bool done = false;
 			int nopCount = 0;
-			List<int> jumpSites = new List<int>();
+			List<int> jumpLocs = new List<int>();
 			bool endpoint = false;
 			while (!done)
 			{
@@ -726,7 +747,7 @@ namespace GBRead.Base
 								if (isu.Arg1.NumArg == isu.Address + 1) break;
 								jumpedOffset = GetBankAdjustedAddress(isu.Bank, isu.Arg2.NumArg);
 							}
-							if (jumpedOffset > currentOffset) jumpSites.Add(jumpedOffset);
+							if (jumpedOffset > currentOffset) jumpLocs.Add(jumpedOffset);
 							if (isu.ArgCount == 1)
 							{
 								endpoint = true;
@@ -741,9 +762,9 @@ namespace GBRead.Base
 
 				if (endpoint)
 				{
-					if (jumpSites.Contains(currentOffset))
+					if (jumpLocs.Contains(currentOffset))
 					{
-						jumpSites.Remove(currentOffset);
+						jumpLocs.Remove(currentOffset);
 						endpoint = false;
 					}
 					else

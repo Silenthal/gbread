@@ -10,13 +10,11 @@ namespace GBRead.Forms
 		DataLabel editedLabel;
 		LabelEditMode editingMode;
 		LabelContainer labelContainer;
-		ListBox.ObjectCollection listBoxLabelCollection;
-
-		public AddDataLabelForm(LabelContainer lblContainer, ListBox.ObjectCollection lbLabelCollection, LabelEditMode editMode, DataLabel newPriorLabel = null)
+		
+		public AddDataLabelForm(LabelContainer lblContainer, LabelEditMode editMode, DataLabel newPriorLabel = null)
 		{
 			InitializeComponent();
 			labelContainer = lblContainer;
-			listBoxLabelCollection = lbLabelCollection;
 			editingMode = editMode;
 			editedLabel = newPriorLabel;
 			dataTypeBox.SelectedIndex = 0;
@@ -83,11 +81,9 @@ namespace GBRead.Forms
 				if (editingMode == LabelEditMode.Edit)
 				{
 					labelContainer.RemoveDataLabel(editedLabel);
-					listBoxLabelCollection.Remove(editedLabel);
 				}
 				editedLabel = new DataLabel(off, len, nameBox.Text, rlen, commentBox.Lines, (DataSectionType)dataTypeBox.SelectedIndex);
 				labelContainer.AddDataLabel(editedLabel);
-				listBoxLabelCollection.Add(editedLabel);
 				this.DialogResult = System.Windows.Forms.DialogResult.OK;
 			}
 		}

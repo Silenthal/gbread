@@ -10,13 +10,11 @@ namespace GBRead.Forms
 		VarLabel editedLabel;
 		LabelEditMode editingMode;
 		LabelContainer labelContainer;
-		ListBox.ObjectCollection listBoxLabelCollection;
 
-		public AddVarLabelForm(LabelContainer lblContainer, ListBox.ObjectCollection lbLabelCollection, LabelEditMode editMode, VarLabel newPriorLabel = null)
+		public AddVarLabelForm(LabelContainer lblContainer, LabelEditMode editMode, VarLabel newPriorLabel = null)
 		{
 			InitializeComponent();
 			labelContainer = lblContainer;
-			listBoxLabelCollection = lbLabelCollection;
 			editingMode = editMode;
 			editedLabel = newPriorLabel;
 			if (editMode == LabelEditMode.Edit)
@@ -69,11 +67,9 @@ namespace GBRead.Forms
 				if (editingMode == LabelEditMode.Edit)
 				{
 					labelContainer.RemoveVarLabel(editedLabel);
-					listBoxLabelCollection.Remove(editedLabel);
 				}
 				editedLabel = new VarLabel(val, nameBox.Text, commentBox.Lines);
 				labelContainer.AddVarLabel(editedLabel);
-				listBoxLabelCollection.Add(editedLabel);
 				this.DialogResult = System.Windows.Forms.DialogResult.OK;
 			}
 		}

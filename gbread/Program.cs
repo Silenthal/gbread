@@ -16,22 +16,22 @@ namespace GBRead
 			OptionsManager opm = new OptionsManager();
 			opm.LoadOptions();
 
-			BinFile cs = new GBBinFile();
-			LabelContainer lc = new LabelContainer();
-			Disassembler dc = new Disassembler(cs, lc);
-			Assembler ac = new Assembler(lc);
+			BinFile bFile = new GBBinFile();
+			LabelContainer lContainer = new LabelContainer();
+			Disassembler dsembler = new Disassembler(bFile, lContainer);
+			Assembler asmbler = new Assembler(lContainer);
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			MainForm mf = new MainForm(cs, dc, ac, lc);
+			MainForm mainForm = new MainForm(bFile, dsembler, asmbler, lContainer);
 			
-			mf.GetOptions(opm.options);
-			dc.GetOptions(opm.options);
+			mainForm.GetOptions(opm.options);
+			dsembler.GetOptions(opm.options);
 			
-			Application.Run(mf);
+			Application.Run(mainForm);
 			
-			mf.SetOptions(ref opm.options);
-			dc.SetOptions(ref opm.options);
+			mainForm.SetOptions(ref opm.options);
+			dsembler.SetOptions(ref opm.options);
 			
 			opm.SaveOptions();
 		}

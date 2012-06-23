@@ -11,13 +11,11 @@ namespace GBRead.Forms
 		FunctionLabel editedLabel;
 		LabelEditMode editingMode;
 		LabelContainer labelContainer;
-		ListBox.ObjectCollection listBoxLabelCollection;
 
-		public AddFunctionLabelForm(LabelContainer lblContainer, ListBox.ObjectCollection lbLabelCollection, LabelEditMode editMode, FunctionLabel newPriorLabel = null)
+		public AddFunctionLabelForm(LabelContainer lblContainer, LabelEditMode editMode, FunctionLabel newPriorLabel = null)
 		{
 			InitializeComponent();
 			labelContainer = lblContainer;
-			listBoxLabelCollection = lbLabelCollection;
 			editingMode = editMode;
 			editedLabel = newPriorLabel;
 			if (editingMode == LabelEditMode.Edit)
@@ -70,11 +68,9 @@ namespace GBRead.Forms
 				if (editingMode == LabelEditMode.Edit)
 				{
 					labelContainer.RemoveFuncLabel(editedLabel);
-					listBoxLabelCollection.Remove(editedLabel);
 				}
 				editedLabel = new FunctionLabel(off, nameBox.Text, commentBox.Lines);
 				labelContainer.AddFuncLabel(editedLabel);
-				listBoxLabelCollection.Add(editedLabel);
 				this.DialogResult = System.Windows.Forms.DialogResult.OK;
 			}
 		}

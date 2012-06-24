@@ -33,14 +33,13 @@ In that case...
 
 c. Mark Functions, Data, and Variables
 -For sections that you think are used as functions or data, you can add a 
-marker to set them off. To do so, click "Add Label", enter the offset, name, 
-and length, and click "Add Label" again. You can add data sections the same 
+marker to set them off. To do so, click [Add New...], enter the offset, name,
+and optional comment, and then [OK]. You can add data sections the same 
 way, as well as specify commonly used variables. Data sections are just areas
-where you feel that the CPU won't execute normally, like a table of pointers, 
-or dialogue, for example. Data sections can be defined as uncompressed tiles
-(images)as well. Variables can be defined, for when you suspect a certain
-location in the memory map is used repeatedly (e.g. [$FF41], the LCD Status
-register).
+like tables of pointers, dialogue, and other places you are sure aren't data. 
+Data sections can be defined as uncompressed tiles (images)as well.
+Variables can be defined, for when you suspect a certain location in the
+memory map is used repeatedly (e.g. [$FF41], the LCD Status register).
 
 d. Insertion
 You can insert ASM at a specified place, or a binary file. See 'about asm.txt'
@@ -115,10 +114,6 @@ it points to the right bank, if possible. Some functions may be missed through
 this method, and there will be tens to hundreds of invalid ones as well, so 
 try to use it as more of a jumping off point.
 
--Find Any Bank Changes In Saved Functions
-Lists any function in the list that loads any number to memory location
-[$2000 - $2FFF] (which changes the bank on most memory bank controllers).
-
 g. Options
 -Word Wrap
 Controls the behavior of the main text window when printing text to either
@@ -148,9 +143,10 @@ abbreviated format.
 Ex: rlc b ;Rotate Left Carry B
 ...not so useful if you know what everything does, though.
 
--Hide Defined Data,Hide Defined Functions
-Instead of printing out the entire function/data section, a placeholder will
-be printed : INCLUDE "blah.bin"
+-Hide Defined Data
+Instead of printing out the entire data section, a placeholder will
+be printed : INCLUDE "blah.bin". Can be used to make looking at certain
+sections easier.
 
 -Highlighting
 This option section controls the highlighting of certain key terms in the main
@@ -167,12 +163,3 @@ Controls the highlighting of comments (lines preceded with ; or #)
 Controls the highlighting of labels(lines ending with :)
 --Offsets
 Controls the highlighting of the BB:OOOO format offsets.
-
--Labels
-This section concerns the sort order of the three main lists. There's a
-different toggle for each one.
---Sort by Name
-Sorts each label by name.
---Sort by Value
-Sorts each label by its offset (function/data labels), or its value
-(var labels).

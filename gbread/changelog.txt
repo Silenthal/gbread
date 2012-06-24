@@ -208,8 +208,10 @@ instruction.
 -[Fix]Fixed the broken "Search for Calls"
 -[Fix]Changed the default 'header' label to start at $104.
 
-r15(???)
-
+r15(2012/6/24)
+-[Change]Various miscellaneous things.
+-[Remove]Function length, "guessed" length. Current length options in label
+files will be ignored.
 
 Upcoming:
 -Whatever suggestions that fit with the program(so send 'em if you've got 'em)

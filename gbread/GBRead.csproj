@@ -38,7 +38,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>$(SolutionDir)Build\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -47,7 +47,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>$(SolutionDir)Build\Release\</OutputPath>
     <DefineConstants>
     </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -59,9 +59,6 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LibGBasm, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>LibGBasm.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -77,8 +74,12 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Patch\BPS\BPS.cs" />
+    <Compile Include="ASM\GBInstructions.cs" />
+    <Compile Include="ASM\InstructionUnit.cs" />
+    <Compile Include="ASM\LibGBasm.cs" />
     <Compile Include="Base\CRC32.cs" />
     <Compile Include="Base\GBImage.cs" />
+    <Compile Include="Base\Utility.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="Base\GBBinFile.cs" />
     <Compile Include="Forms\AddDataSectionForm.cs">
@@ -233,12 +234,11 @@
     <Content Include="changelog.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LibGBasm.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="default.txt" />
     <Content Include="readme.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="settings.txt" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

@@ -93,7 +93,7 @@ namespace GBRead
 		public static void ShowErrorMessage(CompError c)
 		{
 			string errorMessage = "Line " + c.lineNumber + ": " + c.fullLine + Environment.NewLine;
-			errorMessage += String.Format(ErrorMessages[c.errorMessage], c.extraInfo1);
+			errorMessage += String.Format(ErrorMessages[c.errorMessage], c.extraInfo1, c.extraInfo2);
 			MessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK);
 		}
 	}

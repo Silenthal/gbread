@@ -212,6 +212,13 @@ r15(2012/6/24)
 -[Change]Various miscellaneous things.
 -[Remove]Function length, "guessed" length. Current length options in label
 files will be ignored.
+-[Fix]Miscellaneous errors.
+
+r16(Late 2012)
+-[Change]New save file format, settings.txt. Option setting details can be
+found in the readme.
+-[Change]Added default.txt. This file contains default labels that are loaded
+whenever a new project is opened.
 
 Upcoming:
 -Whatever suggestions that fit with the program(so send 'em if you've got 'em)

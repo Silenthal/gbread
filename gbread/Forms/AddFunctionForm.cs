@@ -69,7 +69,7 @@ namespace GBRead.Forms
 				{
 					labelContainer.RemoveFuncLabel(editedLabel);
 				}
-				editedLabel = new FunctionLabel(off, nameBox.Text, commentBox.Lines);
+				editedLabel = new FunctionLabel(off, nameBox.Text, commentBox.Text);
 				labelContainer.AddFuncLabel(editedLabel);
 				this.DialogResult = System.Windows.Forms.DialogResult.OK;
 			}

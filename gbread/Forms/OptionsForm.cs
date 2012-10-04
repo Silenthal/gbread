@@ -26,7 +26,7 @@ namespace GBRead.Forms
 			wordWrapCheckBox.Checked = mf.isWordWrap;
 			switch (op.PrintedOffsetFormat)
 			{
-				case OffsetFormat.BBOO:
+				case OffsetFormat.BankOffset:
 					offsetNumberFormatBox.SelectedIndex = 0;
 					break;
 				case OffsetFormat.Hex:
@@ -73,7 +73,7 @@ namespace GBRead.Forms
 			switch (offsetNumberFormatBox.SelectedIndex)
 			{
 				case 0:
-					disassembler.PrintedOffsetFormat = OffsetFormat.BBOO;
+					disassembler.PrintedOffsetFormat = OffsetFormat.BankOffset;
 					break;
 				case 1:
 					disassembler.PrintedOffsetFormat = OffsetFormat.Hex;

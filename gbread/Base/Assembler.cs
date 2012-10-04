@@ -1616,6 +1616,8 @@ namespace GBRead.Base
 
 		public enum TokenType
 		{
+			EQUAL, 
+			COMMA, 
 			CONDITION,
 			INSTRUCTION,
 			LABEL,

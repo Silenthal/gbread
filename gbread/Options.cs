@@ -1,180 +1,268 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 using GBRead.Base;
 
 namespace GBRead
 {
-	public class OptionsManager
-	{
-		public Options options;
+    public class OptionsManager
+    {
+        public Options options;
 
-		private static byte saveFileVersion = 5;
+        private static string saveFileName = "settings.txt";
 
-		private static string saveFileName = "options.dat";
+        public OptionsManager()
+        {
+            options = new Options();
+        }
 
-		private static byte[] saveFileHeader = new byte[4]
-		{
-			(byte)'G',
-			(byte)'B',
-			(byte)'O',
-			saveFileVersion
-		};
+        public void LoadOptions()
+        {
+            try
+            {
+                using (StreamReader bw = new StreamReader(File.OpenRead(saveFileName)))
+                {
+                    string line;
+                    while ((line = bw.ReadLine()) != null)
+                    {
+                        if (line.Length == 0 || line[0] == ';')
+                        {
+                            continue;
+                        }
+                        string[] f = line.Split('=');
+                        if (f.Length != 2)
+                        {
+                            continue;
+                        }
+                        options.SetOption(f[0], f[1]);
+                    }
+                }
+            }
+            catch { }
+        }
 
-		public OptionsManager()
-		{
-			options = new Options();
-		}
+        public void SaveOptions()
+        {
+            using (StreamWriter bw = new StreamWriter(File.OpenWrite(saveFileName)))
+            {
+                bw.WriteLine("[Main]");
+                bw.WriteLine(options.GetOptionAsString(options.Main_WordWrapTag));
+                bw.WriteLine();
+                bw.WriteLine("[Disassembler]");
+                bw.WriteLine(options.GetOptionAsString(options.DS_PrintOffsetsTag));
+                bw.WriteLine(options.GetOptionAsString(options.DS_PrintBitPatternTag));
+                bw.WriteLine(options.GetOptionAsString(options.DS_PrintCommentsTag));
+                bw.WriteLine(options.GetOptionAsString(options.DS_PrintedOffsetFormatTag));
+                bw.WriteLine(options.GetOptionAsString(options.DS_InstNumFormatTag));
+                bw.WriteLine(options.GetOptionAsString(options.DS_HideDefDataTag));
+            }
+        }
+    }
 
-		public void LoadOptions()
-		{
-			try
-			{
-				using (Stream bw = File.OpenRead(saveFileName))
-				{
-					if (!bw.CanRead) return;
-					BinaryFormatter bf = new BinaryFormatter();
-					if (bw.Length < saveFileHeader.Length) return;
-					byte[] header = new byte[saveFileHeader.Length];
-					bw.Read(header, 0, header.Length);
-					switch (header[3])
-					{
-						case 4:
-						case 5:
-							options = (Options)bf.Deserialize(bw);
-							break;
-						default:
-							break;
-					}
-				}
-			}
-			catch { }
-		}
+    public class Options
+    {
+        #region Public Properties
 
-		public void SaveOptions()
-		{
-			using (Stream bw = File.OpenWrite(saveFileName))
-			{
-				BinaryFormatter bf = new BinaryFormatter();
-				bw.Write(saveFileHeader, 0, saveFileHeader.Length);
-				bf.Serialize(bw, options);
-			}
-		}
-	}
+        public bool MainForm_WordWrap
+        {
+            get
+            {
+                return (bool)opts[Main_WordWrapTag];
+            }
 
-	[Serializable()]
-	public class Options : ISerializable
-	{
-		#region Public Properties
+            set
+            {
+                opts[Main_WordWrapTag] = value;
+            }
+        }
 
-		public bool MainForm_WordWrap { get; set; }
+        public bool MainForm_HighlightComments { get; set; }
 
-		public bool MainForm_HighlightComments { get; set; }
+        public bool MainForm_HighlightSyntax { get; set; }
 
-		public bool MainForm_HighlightSyntax { get; set; }
+        public bool MainForm_HighlightNumbers { get; set; }
 
-		public bool MainForm_HighlightNumbers { get; set; }
+        public bool MainForm_HighlightOffsets { get; set; }
 
-		public bool MainForm_HighlightOffsets { get; set; }
+        public bool MainForm_HighlightKeywords { get; set; }
 
-		public bool MainForm_HighlightKeywords { get; set; }
+        public bool MainForm_HighlightLabels { get; set; }
 
-		public bool MainForm_HighlightLabels { get; set; }
+        public bool MainForm_HighlightRegisters { get; set; }
 
-		public bool MainForm_HighlightRegisters { get; set; }
+        public bool Disassembler_PrintOffsets
+        {
+            get
+            {
+                return (bool)opts[DS_PrintOffsetsTag];
+            }
 
-		public bool Disassembler_PrintOffsets { get; set; }
+            set
+            {
+                opts[DS_PrintOffsetsTag] = value;
+            }
+        }
 
-		public bool Disassembler_PrintBitPattern { get; set; }
+        public bool Disassembler_PrintBitPattern
+        {
+            get
+            {
+                return (bool)opts[DS_PrintBitPatternTag];
+            }
 
-		public OffsetFormat Disassembler_PrintedOffsetFormat { get; set; }
+            set
+            {
+                opts[DS_PrintBitPatternTag] = value;
+            }
+        }
 
-		public OffsetFormat Disassembler_InstructionNumberFormat { get; set; }
+        public OffsetFormat Disassembler_PrintedOffsetFormat
+        {
+            get
+            {
+                return (OffsetFormat)opts[DS_PrintedOffsetFormatTag];
+            }
 
-		public bool Disassembler_PrintComments { get; set; }
+            set
+            {
+                opts[DS_PrintedOffsetFormatTag] = value;
+            }
+        }
 
-		public bool Disassembler_HideDefinedFunctions { get; set; }
+        public OffsetFormat Disassembler_InstructionNumberFormat
+        {
+            get
+            {
+                return (OffsetFormat)opts[DS_InstNumFormatTag];
+            }
 
-		public bool Disassembler_HideDefinedData { get; set; }
+            set
+            {
+                opts[DS_InstNumFormatTag] = value;
+            }
+        }
 
-		#endregion Public Properties
+        public bool Disassembler_PrintComments
+        {
+            get
+            {
+                return (bool)opts[DS_PrintCommentsTag];
+            }
 
-		#region Tags
+            set
+            {
+                opts[DS_PrintCommentsTag] = value;
+            }
+        }
 
-		private string MF_WWTag = "MF_WW";
-		private string MF_HighlightCommentsTag = "MF_HighlightComments";
-		private string MF_HighlightSyntaxTag = "MF_HighlightSyntax";
-		private string MF_HighlightNumbersTag = "MF_HighlightNumbers";
-		private string MF_HighlightOffsetsTag = "MF_HighlightOffsets";
-		private string MF_HighlightKeywordsTag = "MF_HighlightKeywords";
-		private string MF_HighlightLabelsTag = "MF_HighlightLabels";
-		private string MF_HighlightRegistersTag = "MF_HighlightRegisters";
+        public bool Disassembler_HideDefinedFunctions { get; set; }
 
-		private string DSMPrintOffsetsTag = "DSM_PrintOffsets";
-		private string DSMPrintBitPatternTag = "DSM_PrintBP";
-		private string DSMPrintedOffsetFormatTag = "DSM_PrintedOffFormat";
-		private string DSMInstNumFormatTag = "DSM_InstNumFormat";
-		private string DSMPrintCommentsTag = "DSM_PrintComments";
-		private string DSMHideDefDataTag = "DSM_HideDefData";
+        public bool Disassembler_HideDefinedData
+        {
+            get
+            {
+                return (bool)opts[DS_HideDefDataTag];
+            }
 
-		#endregion Tags
+            set
+            {
+                opts[DS_HideDefDataTag] = value;
+            }
+        }
 
-		public Options()
-		{
-			MainForm_WordWrap = false;
-			MainForm_HighlightComments = true;
-			MainForm_HighlightSyntax = false;
-			MainForm_HighlightNumbers = false;
-			MainForm_HighlightOffsets = false;
-			MainForm_HighlightKeywords = true;
-			MainForm_HighlightLabels = true;
-			MainForm_HighlightRegisters = false;
+        #endregion Public Properties
 
-			Disassembler_PrintOffsets = true;
-			Disassembler_PrintBitPattern = true;
-			Disassembler_PrintedOffsetFormat = OffsetFormat.BBOO;
-			Disassembler_InstructionNumberFormat = OffsetFormat.Hex;
-			Disassembler_PrintComments = false;
-			Disassembler_HideDefinedData = false;
-		}
+        #region Tags
 
-		public Options(SerializationInfo info, StreamingContext context)
-		{
-			MainForm_WordWrap = info.GetBoolean(MF_WWTag);
-			MainForm_HighlightComments = info.GetBoolean(MF_HighlightCommentsTag);
-			MainForm_HighlightSyntax = info.GetBoolean(MF_HighlightSyntaxTag);
-			MainForm_HighlightNumbers = info.GetBoolean(MF_HighlightNumbersTag);
-			MainForm_HighlightOffsets = info.GetBoolean(MF_HighlightOffsetsTag);
-			MainForm_HighlightKeywords = info.GetBoolean(MF_HighlightKeywordsTag);
-			MainForm_HighlightLabels = info.GetBoolean(MF_HighlightLabelsTag);
-			MainForm_HighlightRegisters = info.GetBoolean(MF_HighlightRegistersTag);
+        public string Main_WordWrapTag = "bWordWrap";
+        public string MF_HighlightCommentsTag = "MF_HighlightComments";
+        public string MF_HighlightSyntaxTag = "MF_HighlightSyntax";
+        public string MF_HighlightNumbersTag = "MF_HighlightNumbers";
+        public string MF_HighlightOffsetsTag = "MF_HighlightOffsets";
+        public string MF_HighlightKeywordsTag = "MF_HighlightKeywords";
+        public string MF_HighlightLabelsTag = "MF_HighlightLabels";
+        public string MF_HighlightRegistersTag = "MF_HighlightRegisters";
 
-			Disassembler_PrintOffsets = info.GetBoolean(DSMPrintOffsetsTag);
-			Disassembler_PrintBitPattern = info.GetBoolean(DSMPrintBitPatternTag);
-			Disassembler_PrintedOffsetFormat = (OffsetFormat)info.GetValue(DSMPrintedOffsetFormatTag, typeof(OffsetFormat));
-			Disassembler_InstructionNumberFormat = (OffsetFormat)info.GetValue(DSMInstNumFormatTag, typeof(OffsetFormat));
-			Disassembler_PrintComments = info.GetBoolean(DSMPrintCommentsTag);
-			Disassembler_HideDefinedData = info.GetBoolean(DSMHideDefDataTag);
-		}
+        public string DS_PrintOffsetsTag = "bPrintOffsets";
+        public string DS_PrintBitPatternTag = "bPrintBytes";
+        public string DS_PrintedOffsetFormatTag = "eOffsetFormat";
+        public string DS_InstNumFormatTag = "eNumberFormat";
+        public string DS_PrintCommentsTag = "bPrintComments";
+        public string DS_HideDefDataTag = "bHideDefinedData";
 
-		public void GetObjectData(SerializationInfo info, StreamingContext context)
-		{
-			info.AddValue(MF_WWTag, MainForm_WordWrap);
-			info.AddValue(MF_HighlightCommentsTag, MainForm_HighlightComments);
-			info.AddValue(MF_HighlightSyntaxTag, MainForm_HighlightSyntax);
-			info.AddValue(MF_HighlightNumbersTag, MainForm_HighlightNumbers);
-			info.AddValue(MF_HighlightOffsetsTag, MainForm_HighlightOffsets);
-			info.AddValue(MF_HighlightKeywordsTag, MainForm_HighlightKeywords);
-			info.AddValue(MF_HighlightLabelsTag, MainForm_HighlightLabels);
-			info.AddValue(MF_HighlightRegistersTag, MainForm_HighlightRegisters);
+        #endregion Tags
 
-			info.AddValue(DSMPrintOffsetsTag, Disassembler_PrintOffsets);
-			info.AddValue(DSMPrintBitPatternTag, Disassembler_PrintBitPattern);
-			info.AddValue(DSMPrintedOffsetFormatTag, Disassembler_PrintedOffsetFormat);
-			info.AddValue(DSMInstNumFormatTag, Disassembler_InstructionNumberFormat);
-			info.AddValue(DSMPrintCommentsTag, Disassembler_PrintComments);
-			info.AddValue(DSMHideDefDataTag, Disassembler_HideDefinedData);
-		}
-	}
+        // TODO: separate options for "extended comments" and regular comments.
+        private Dictionary<string, object> opts = new Dictionary<string, object>()
+        {
+            {"bWordWrap", true},
+            {"bPrintOffsets", true},
+            {"bPrintBytes", true},
+            {"eOffsetFormat", OffsetFormat.BankOffset},
+            {"eNumberFormat", OffsetFormat.Hex},
+            {"bPrintComments", false},
+            {"bHideDefinedData", false}
+        };
+
+        public Options()
+        {
+
+        }
+
+        public void SetOption(string option, string value)
+        {
+            if (opts.ContainsKey(option))
+            {
+                switch (option[0])
+                {
+                    case 'b':
+                        {
+                            bool opt;
+                            if (Boolean.TryParse(value, out opt))
+                            {
+                                opts[option] = opt;
+                            }
+                        }
+                        break;
+                    case 'e':
+                        {
+                            OffsetFormat opt;
+                            try
+                            {
+                                opt = (OffsetFormat)Enum.Parse(typeof(OffsetFormat), value);
+                                opts[option] = opt;
+                            }
+                            catch (ArgumentException)
+                            {
+                                break;
+                            }
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        public string GetOptionAsString(string option)
+        {
+            if (opts.ContainsKey(option))
+            {
+                switch (option[0])
+                {
+                    case 'b':
+                        {
+                            return option + "=" + ((bool)opts[option]).ToString();
+                        }
+                    case 'e':
+                        {
+                            return option + "=" + ((OffsetFormat)opts[option]).ToString();
+                        }
+                    default:
+                        return "";
+                }
+            }
+            return "";
+        }
+    }
 }

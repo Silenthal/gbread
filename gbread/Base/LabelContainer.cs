@@ -1,549 +1,662 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-
-namespace GBRead.Base
+﻿namespace GBRead.Base
 {
-	public class LabelContainer
-	{
-		private object funcListLock = new object();
-		private object dataListLock = new object();
-		private object varListLock = new object();
-		private object symbolListLock = new object();
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
 
-		private List<FunctionLabel> _funcList = new List<FunctionLabel>();
-		private List<DataLabel> _dataList = new List<DataLabel>();
-		private List<VarLabel> _varList = new List<VarLabel>();
-		private HashSet<string> _symbolList = new HashSet<string>();
-		private HashSet<int> dataAddrs = new HashSet<int>();
+    public class LabelContainer
+    {
+        #region Private members
 
-		public IList<FunctionLabel> FuncList
-		{
-			get
-			{
-				lock (funcListLock)
-				{
-					return _funcList;
-				}
-			}
-		}
+        private object funcListLock = new object();
+        private object dataListLock = new object();
+        private object varListLock = new object();
+        private object commentListLock = new object();
+        private object symbolListLock = new object();
 
-		public IList<DataLabel> DataList
-		{
-			get
-			{
-				lock (dataListLock)
-				{
-					return _dataList;
-				}
-			}
-		}
+        private List<FunctionLabel> _funcList = new List<FunctionLabel>();
+        private List<DataLabel> _dataList = new List<DataLabel>();
+        private List<VarLabel> _varList = new List<VarLabel>();
+        private Dictionary<int, string> _commentList = new Dictionary<int, string>();
+        private Dictionary<string, int> _symbolList = new Dictionary<string, int>();
+        private HashSet<int> dataAddrs = new HashSet<int>();
 
-		public IList<VarLabel> VarList
-		{
-			get
-			{
-				lock (varListLock)
-				{
-					return _varList;
-				}
-			}
-		}
+        #endregion Private members
 
-		#region Default Var List
+        #region Public Properties
 
-		private static List<GenericLabel> defaultVars = new List<GenericLabel>()
-		{
-			new VarLabel(0xFF00, "JOYP"),
-			new VarLabel(0xFF01, "SB"),
-			new VarLabel(0xFF02, "SC"),
-			new VarLabel(0xFF04, "DIV"),
-			new VarLabel(0xFF05, "TIMA"),
-			new VarLabel(0xFF06, "TMA"),
-			new VarLabel(0xFF07, "TAC"),
-			new VarLabel(0xFF0F, "IF"),
-			new VarLabel(0xFF10, "NR10"),
-			new VarLabel(0xFF11, "NR11"),
-			new VarLabel(0xFF12, "NR12"),
-			new VarLabel(0xFF13, "NR13"),
-			new VarLabel(0xFF14, "NR14"),
-			new VarLabel(0xFF16, "NR21"),
-			new VarLabel(0xFF17, "NR22"),
-			new VarLabel(0xFF18, "NR23"),
-			new VarLabel(0xFF19, "NR24"),
-			new VarLabel(0xFF1A, "NR30"),
-			new VarLabel(0xFF1B, "NR31"),
-			new VarLabel(0xFF1C, "NR32"),
-			new VarLabel(0xFF1D, "NR33"),
-			new VarLabel(0xFF1E, "NR34"),
-			new VarLabel(0xFF20, "NR41"),
-			new VarLabel(0xFF21, "NR42"),
-			new VarLabel(0xFF22, "NR43"),
-			new VarLabel(0xFF23, "NR44"),
-			new VarLabel(0xFF24, "NR50"),
-			new VarLabel(0xFF25, "NR51"),
-			new VarLabel(0xFF26, "NR52"),
-			new VarLabel(0xFF40, "LCDC"),
-			new VarLabel(0xFF41, "STAT"),
-			new VarLabel(0xFF42, "SCY"),
-			new VarLabel(0xFF43, "SCX"),
-			new VarLabel(0xFF44, "LY"),
-			new VarLabel(0xFF45, "LYC"),
-			new VarLabel(0xFF46, "DMA"),
-			new VarLabel(0xFF47, "BGP"),
-			new VarLabel(0xFF48, "OBP0"),
-			new VarLabel(0xFF49, "OBP1"),
-			new VarLabel(0xFF4A, "WY"),
-			new VarLabel(0xFF4B, "WX"),
-			new VarLabel(0xFF4D, "KEY1"),
-			new VarLabel(0xFF4F, "VBK"),
-			new VarLabel(0xFF51, "HDMA1", new string[1]{"New DMA Source - High"}),
-			new VarLabel(0xFF52, "HDMA2", new string[1]{"New DMA Source - Low"}),
-			new VarLabel(0xFF53, "HDMA3", new string[1]{"New DMA Destination - High"}),
-			new VarLabel(0xFF54, "HDMA4", new string[1]{"New DMA Destination - Low"}),
-			new VarLabel(0xFF55, "HDMA5", new string[1]{"New DMA Length/Mode/Start"}),
-			new VarLabel(0xFF56, "RP"),
-			new VarLabel(0xFF68, "BGPI"),
-			new VarLabel(0xFF69, "BGPD"),
-			new VarLabel(0xFF6A, "OBPI"),
-			new VarLabel(0xFF6B, "OBPD"),
-			new VarLabel(0xFF70, "SVBK"),
-			new VarLabel(0xFFFF, "IE"),
-		};
+        public IList<FunctionLabel> FuncList
+        {
+            get
+            {
+                lock (funcListLock)
+                {
+                    return _funcList;
+                }
+            }
+        }
 
-		#endregion Default Var List
+        public IList<DataLabel> DataList
+        {
+            get
+            {
+                lock (dataListLock)
+                {
+                    return _dataList;
+                }
+            }
+        }
 
-		public LabelContainer()
-		{
-		}
+        public IList<VarLabel> VarList
+        {
+            get
+            {
+                lock (varListLock)
+                {
+                    return _varList;
+                }
+            }
+        }
 
-		public void Initialize()
-		{
-			lock (symbolListLock)
-			{
-				lock (funcListLock)
-				{
-					_funcList.Clear();
-				}
-				lock (dataListLock)
-				{
-					_dataList.Clear();
-					dataAddrs.Clear();
-				}
-				lock (varListLock)
-				{
-					_varList.Clear();
-				}
-				_symbolList.Clear();
-			}
-			foreach (VarLabel vls in defaultVars)
-			{
-				AddVarLabel(vls);
-			}
-			AddDataLabel(new DataLabel(0x104, 0x4C, "Header"));
-			AddFuncLabel(new FunctionLabel(122, "test"));
-		}
+        #endregion Public Properties
 
-		#region Adding, clearing, and removing labels
+        public LabelContainer()
+        {
+        }
 
-		public FunctionLabel TryGetFuncLabel(int current)
-		{
-			lock (funcListLock)
-			{
-				int x = _funcList.IndexOf(new FunctionLabel(current));
-				if (x < 0) return null;
-				return (FunctionLabel)_funcList[x];
-			}
-		}
+        public void Initialize()
+        {
+            lock (symbolListLock)
+            {
+                lock (funcListLock)
+                {
+                    _funcList.Clear();
+                }
+                lock (dataListLock)
+                {
+                    _dataList.Clear();
+                    dataAddrs.Clear();
+                }
+                lock (varListLock)
+                {
+                    _varList.Clear();
+                }
+                lock (commentListLock)
+                {
+                    _commentList.Clear();
+                }
+                _symbolList.Clear();
+            }
+            if (File.Exists("default.txt"))
+            {
+                LoadLabelFile("default.txt");
+            }
+        }
 
-		public DataLabel TryGetDataLabel(int current)
-		{
-			lock (dataListLock)
-			{
-				int x = _dataList.IndexOf(new DataLabel(current));
-				if (x < 0) return null;
-				return (DataLabel)_dataList[x];
-			}
-		}
+        #region Adding, clearing, and removing labels
 
-		public VarLabel TryGetVarLabel(ushort current)
-		{
-			lock (varListLock)
-			{
-				int x = _varList.IndexOf(new VarLabel(current));
-				if (x < 0) return null;
-				return (VarLabel)_varList[x];
-			}
-		}
+        public bool TryGetFuncLabel(int current, out FunctionLabel label)
+        {
+            lock (funcListLock)
+            {
+                var s = from item in _funcList where item.Value == current select item;
+                var success = s.Count() != 0;
+                label = success ? s.First() : new FunctionLabel(current);
+                return success;
+            }
+        }
 
-		public bool isAddressMarkedAsData(int address)
-		{
-			lock (dataListLock)
-			{
-				return dataAddrs.Contains(address);
-			}
-		}
+        public bool TryGetDataLabel(int current, out DataLabel label)
+        {
+            lock (dataListLock)
+            {
+                var s = from item in _dataList where item.Value == current select item;
+                var success = s.Count() != 0;
+                label = success ? s.First() : new DataLabel(current);
+                return success;
+            }
+        }
 
-		public int GetNextNonDataAddress(int address)
-		{
-			int offset = address;
-			lock (dataListLock)
-			{
-				while (dataAddrs.Contains(offset++)) { }
-			}
-			return offset;
-		}
+        public bool TryGetVarLabel(ushort current, out VarLabel label)
+        {
+            lock (varListLock)
+            {
+                var s = from item in _varList where item.Value == current select item;
+                var success = s.Count() != 0;
+                label = success ? s.First() : new VarLabel(current);
+                return success;
+            }
+        }
 
-		public bool IsNameDefined(string name)
-		{
-			//Note: this function will not help if, in between calling this and
-			//AddLabel, another thread adds a label with the same name
-			//first.
-			lock (symbolListLock)
-			{
-				if (String.IsNullOrEmpty(name)) return false;
-				return _symbolList.Contains(name);
-			}
-		}
+        public bool isAddressMarkedAsData(int address)
+        {
+            lock (dataListLock)
+            {
+                return dataAddrs.Contains(address);
+            }
+        }
 
-		public void AddFuncLabel(FunctionLabel toBeAdded)
-		{
-			lock (symbolListLock)
-			{
-				lock (funcListLock)
-				{
-					if (_symbolList.Contains(toBeAdded.Name) || _funcList.Contains(toBeAdded)) return;
-					_funcList.Add(toBeAdded);
-					_symbolList.Add(toBeAdded.Name);
-				}
-			}
-		}
+        public int GetNextNonDataAddress(int address)
+        {
+            int offset = address;
+            lock (dataListLock)
+            {
+                while (dataAddrs.Contains(offset++)) { }
+            }
+            return offset;
+        }
 
-		public void AddDataLabel(DataLabel toBeAdded)
-		{
-			lock (symbolListLock)
-			{
-				lock (dataListLock)
-				{
-					if (_symbolList.Contains(toBeAdded.Name) || _dataList.Contains(toBeAdded)) return;
-					_dataList.Add(toBeAdded);
-					_symbolList.Add(toBeAdded.Name);
-					RegisterDataAddresses(toBeAdded.Offset, toBeAdded.Length);
-				}
-			}
-		}
+        public bool IsNameDefined(string name)
+        {
+            //Note: this function will not help if, in between calling this and
+            //AddLabel, another thread adds a label with the same name
+            //first.
+            lock (symbolListLock)
+            {
+                if (String.IsNullOrEmpty(name))
+                    return false;
+                return _symbolList.ContainsKey(name);
+            }
+        }
 
-		public void AddVarLabel(VarLabel toBeAdded)
-		{
-			lock (symbolListLock)
-			{
-				lock (varListLock)
-				{
-					if (_symbolList.Contains(toBeAdded.Name) || _varList.Contains(toBeAdded)) return;
-					_varList.Add(toBeAdded);
-					_symbolList.Add(toBeAdded.Name);
-				}
-			}
-		}
+        public void AddFuncLabel(FunctionLabel toBeAdded)
+        {
+            lock (symbolListLock)
+            {
+                lock (funcListLock)
+                {
+                    if (_symbolList.ContainsKey(toBeAdded.Name) || _funcList.Contains(toBeAdded))
+                        return;
+                    _funcList.Add(toBeAdded);
+                    _symbolList.Add(toBeAdded.Name, toBeAdded.Offset);
+                }
+            }
+        }
 
-		public void RemoveFuncLabel(FunctionLabel toBeRemoved)
-		{
-			lock (symbolListLock)
-			{
-				lock (funcListLock)
-				{
-					_funcList.Remove(toBeRemoved);
-					_symbolList.Remove(toBeRemoved.Name);
-				}
-			}
-		}
+        public void AddDataLabel(DataLabel toBeAdded)
+        {
+            lock (symbolListLock)
+            {
+                lock (dataListLock)
+                {
+                    if (_symbolList.ContainsKey(toBeAdded.Name) || _dataList.Contains(toBeAdded))
+                        return;
+                    _dataList.Add(toBeAdded);
+                    _symbolList.Add(toBeAdded.Name, toBeAdded.Value);
+                    RegisterDataAddresses(toBeAdded.Offset, toBeAdded.Length);
+                }
+            }
+        }
 
-		public void RemoveDataLabel(DataLabel toBeRemoved)
-		{
-			lock (symbolListLock)
-			{
-				lock (dataListLock)
-				{
-					_dataList.Remove(toBeRemoved);
-					DeregisterDataAddresses(toBeRemoved.Offset, toBeRemoved.Length);
-					_symbolList.Remove(toBeRemoved.Name);
-				}
-			}
-		}
+        public void AddVarLabel(VarLabel toBeAdded)
+        {
+            lock (symbolListLock)
+            {
+                lock (varListLock)
+                {
+                    if (_symbolList.ContainsKey(toBeAdded.Name) || _varList.Contains(toBeAdded))
+                        return;
+                    _varList.Add(toBeAdded);
+                    _symbolList.Add(toBeAdded.Name, toBeAdded.Value);
+                }
+            }
+        }
 
-		public void RemoveVarLabel(VarLabel toBeRemoved)
-		{
-			lock (symbolListLock)
-			{
-				lock (varListLock)
-				{
-					_varList.Remove(toBeRemoved);
-					_symbolList.Remove(toBeRemoved.Name);
-				}
-			}
-		}
+        public void AddComment(int offset, string comment)
+        {
+            lock (commentListLock)
+            {
+                if (_commentList.ContainsKey(offset))
+                {
+                    _commentList[offset] = comment;
+                }
+                else
+                {
+                    _commentList.Add(offset, comment);
+                }
+            }
+        }
 
-		private void RegisterDataAddresses(int offset, int length)
-		{
-			for (int i = offset; i < offset + length; i++)
-			{
-				dataAddrs.Add(i);
-			}
-		}
+        public void RemoveFuncLabel(FunctionLabel toBeRemoved)
+        {
+            lock (symbolListLock)
+            {
+                lock (funcListLock)
+                {
+                    _funcList.Remove(toBeRemoved);
+                    _symbolList.Remove(toBeRemoved.Name);
+                }
+            }
+        }
 
-		private void DeregisterDataAddresses(int offset, int length)
-		{
-			dataAddrs.RemoveWhere(x => x >= offset && x < offset + length);
-		}
+        public void RemoveDataLabel(DataLabel toBeRemoved)
+        {
+            lock (symbolListLock)
+            {
+                lock (dataListLock)
+                {
+                    _dataList.Remove(toBeRemoved);
+                    DeregisterDataAddresses(toBeRemoved.Offset, toBeRemoved.Length);
+                    _symbolList.Remove(toBeRemoved.Name);
+                }
+            }
+        }
 
-		#endregion Adding, clearing, and removing labels
+        public void RemoveVarLabel(VarLabel toBeRemoved)
+        {
+            lock (symbolListLock)
+            {
+                lock (varListLock)
+                {
+                    _varList.Remove(toBeRemoved);
+                    _symbolList.Remove(toBeRemoved.Name);
+                }
+            }
+        }
 
-		#region Loading and Saving Label Files
+        public void RemoveComment(int offset)
+        {
+            lock (commentListLock)
+            {
+                if (_commentList.ContainsKey(offset))
+                {
+                    _commentList.Remove(offset);
+                }
+            }
+        }
 
-		public void LoadLabelFile(string fileName)
-		{
-			using (TextReader tr = new StreamReader(fileName))
-			{
-				using (TextWriter tw = new StreamWriter("err.txt"))
-				{
-					char[] test = new char[3];
-					tr.Read(test, 0, 3);
-					if (test[0] != 'g' || test[1] != 'b' || test[2] != 'r')
-					{
-						return;
-					}
-					else
-					{
-						string currentLine;
-						while ((currentLine = tr.ReadLine()) != null)
-						{
-							List<string> buf = new List<string>();
-							while (tr.Peek() == '_')
-							{
-								buf.Add(tr.ReadLine());
-							}
+        private void RegisterDataAddresses(int offset, int length)
+        {
+            for (int i = offset; i < offset + length; i++)
+            {
+                dataAddrs.Add(i);
+            }
+        }
 
-							#region Handler for CRC
+        private void DeregisterDataAddresses(int offset, int length)
+        {
+            dataAddrs.RemoveWhere(x => x >= offset && x < offset + length);
+        }
 
-							if (currentLine.Equals(".crc", StringComparison.OrdinalIgnoreCase))
-							{
-								//Check against file CRC here.
-								//If mismatch, prompt the user, and continue from there.
-								//Options:
-								//-Ask to continue or not
-								//-Silent fail
-								//-Notify that file can't be loaded, and silent fail.
-							}
+        #endregion Adding, clearing, and removing labels
 
-							#endregion Handler for CRC
+        #region Loading and Saving Label Files
 
-							#region Handler for labels
+        public void LoadLabelFile(string fileName)
+        {
+            using (TextReader tr = new StreamReader(fileName))
+            {
+                using (TextWriter tw = new StreamWriter("err.txt"))
+                {
+                    if (tr.ReadLine() != "gbr")
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        string currentLine;
+                        while ((currentLine = tr.ReadLine()) != null)
+                        {
+                            List<string> buf = new List<string>();
+                            while (tr.Peek() != '.')
+                            {
+                                string s = tr.ReadLine();
+                                if (s != "")
+                                {
+                                    buf.Add(tr.ReadLine());
+                                }
+                            }
+                            switch (currentLine.ToLower())
+                            {
+                                case ".label":
+                                    {
+                                        int offset = 0;
+                                        string name = "";
+                                        List<string> cmtBuf = new List<string>();
+                                        bool offsetGood = false;
+                                        foreach (string x in buf)
+                                        {
+                                            string[] opt = x.Split(':');
+                                            if (opt.Length == 1)
+                                            {
+                                                cmtBuf.Add(x);
+                                            }
+                                            switch (opt[0].ToLower())
+                                            {
+                                                case "_o":
+                                                    {
+                                                        offsetGood = InputValidation.TryParseOffsetString(opt[1], out offset);
+                                                    }
 
-							else if (currentLine.Equals(".label", StringComparison.OrdinalIgnoreCase))
-							{
-								int offset = 0;
-								string name = String.Empty;
-								List<string> cmtBuf = new List<string>();
-								bool offsetGood = false;
-								foreach (string x in buf)
-								{
-									string code = x.Substring(0, 3);
-									string val = x.Substring(3, x.Length - 3);
-									if (code.Equals("_o:", StringComparison.OrdinalIgnoreCase))
-									{
-										offsetGood = InputValidation.TryParseOffsetString(val, out offset);
-									}
-									else if (code.Equals("_n:", StringComparison.OrdinalIgnoreCase) && RegularValidation.IsWord(val))
-									{
-										name = val;
-									}
-									else if (code.Equals("_c:", StringComparison.OrdinalIgnoreCase))
-									{
-										cmtBuf.Add(val);
-									}
-								}
-								if (offsetGood)
-								{
-									FunctionLabel fl = new FunctionLabel(offset, name, cmtBuf.ToArray());
-									AddFuncLabel(fl);
-								}
-								else
-								{
-									tw.WriteLine("Unrecognized section:");
-									foreach (string x in buf)
-									{
-										tw.WriteLine(x);
-									}
-								}
-							}
+                                                    break;
 
-							#endregion Handler for labels
+                                                case "_n":
+                                                    {
+                                                        name = opt[1];
+                                                    }
 
-							#region Handler for data
+                                                    break;
 
-							else if (currentLine.Equals(".data", StringComparison.OrdinalIgnoreCase))
-							{
-								int offset = -1;
-								int length = -1;
-								int dataDiv = 0;
-								string name = String.Empty;
-								DataSectionType dst = DataSectionType.Data;
-								List<string> cmtBuf = new List<string>();
-								bool offsetGood = false;
-								bool lengthGood = false;
-								bool dataDivGood = false;
-								foreach (string x in buf)
-								{
-									string code = x.Substring(0, 3);
-									string val = x.Substring(3, x.Length - 3);
-									switch (code[1])
-									{
-										case 'o':
-											offsetGood = InputValidation.TryParseOffsetString(val, out offset);
-											break;
-										case 'l':
-											lengthGood = InputValidation.TryParseOffsetString(val, out length);
-											break;
-										case 'd':
-											dataDivGood = InputValidation.TryParseOffsetString(val, out dataDiv);
-											break;
-										case 'n':
-											if (RegularValidation.IsWord(val)) name = val;
-											break;
-										case 'c':
-											cmtBuf.Add(val);
-											break;
-										case 'p':
-											dst = DataSectionType.Image;
-											break;
-										case 't':
-											if (val == "Data")
-											{
-												dst = DataSectionType.Data;
-											}
-											else if (val == "Image")
-											{
-												dst = DataSectionType.Image;
-											}
-											break;
-										default:
-											break;
-									}
-								}
-								if (offsetGood && lengthGood)
-								{
-									DataLabel ds = new DataLabel(offset, length, name, dataDiv, cmtBuf.ToArray(), dst);
-									AddDataLabel(ds);
-								}
-								else
-								{
-									tw.WriteLine("Unrecognized section:");
-									foreach (string x in buf)
-									{
-										tw.WriteLine(x);
-									}
-								}
-							}
+                                                case "_c":
+                                                    {
+                                                        cmtBuf.Add(x.Substring(0, 3));
+                                                    }
 
-							#endregion Handler for data
+                                                    break;
+                                                default:
+                                                    {
+                                                        cmtBuf.Add(x);
+                                                    }
 
-							#region Handler for variables
+                                                    break;
+                                            }
+                                        }
+                                        if (offsetGood)
+                                        {
+                                            FunctionLabel fl = new FunctionLabel(offset, name, string.Join(Environment.NewLine, cmtBuf.ToArray()));
+                                            AddFuncLabel(fl);
+                                        }
+                                        else
+                                        {
+                                            tw.WriteLine("Unrecognized section:");
+                                            foreach (string x in buf)
+                                            {
+                                                tw.WriteLine(x);
+                                            }
+                                        }
+                                    }
+                                    break;
 
-							else if (currentLine.Equals(".var"))
-							{
-								int variable = -1;
-								string name = String.Empty;
-								List<string> cmtBuf = new List<string>();
-								bool variableGood = false;
-								foreach (string x in buf)
-								{
-									string code = x.Substring(0, 3);
-									string val = x.Substring(3, x.Length - 3);
-									switch (code[1])
-									{
-										case 'v':
-											variableGood = InputValidation.TryParseOffsetString(val, out variable);
-											break;
-										case 'n':
-											if (RegularValidation.IsWord(val)) name = val;
-											break;
-										case 'c':
-											cmtBuf.Add(val);
-											break;
-										default:
-											break;
-									}
-								}
-								if (variableGood)
-								{
-									VarLabel vl = new VarLabel(variable, name, cmtBuf.ToArray());
-									AddVarLabel(vl);
-								}
-								else
-								{
-									tw.WriteLine("Unrecognized section:");
-									foreach (string x in buf)
-									{
-										tw.WriteLine(x);
-									}
-								}
-							}
+                                case ".data":
+                                    {
+                                        int offset = -1;
+                                        int length = -1;
+                                        int dataDiv = 0;
+                                        string name = String.Empty;
+                                        DataSectionType dst = DataSectionType.Data;
+                                        List<string> cmtBuf = new List<string>();
+                                        GBPalette gbp = new GBPalette();
+                                        bool offsetGood = false;
+                                        bool lengthGood = false;
+                                        bool dataDivGood = false;
+                                        foreach (string x in buf)
+                                        {
+                                            string[] opt = x.Split(':');
+                                            if (opt.Length == 1)
+                                            {
+                                                cmtBuf.Add(x);
+                                            }
+                                            switch (opt[0].ToLower())
+                                            {
+                                                case "_o":
+                                                    {
+                                                        offsetGood = InputValidation.TryParseOffsetString(opt[1], out offset);
+                                                    }
 
-							#endregion Handler for variables
+                                                    break;
 
-							else
-							{
-								tw.WriteLine("Unrecognized section heading: " + currentLine);
-							}
-						}
-					}
-				}
-			}
-		}
+                                                case "_l":
+                                                    {
+                                                        lengthGood = InputValidation.TryParseOffsetString(opt[1], out length);
+                                                    }
+                                                    break;
 
-		public void SaveLabelFile(string fileName)
-		{
-			using (TextWriter functions = new StreamWriter(fileName, false, Encoding.UTF8))
-			{
-				functions.WriteLine("gbr");
-				functions.WriteLine(FunctionListToSaveFileFormat());
-				functions.WriteLine(DataListToSaveFileFormat());
-				functions.WriteLine(VarListToSaveFileFormat());
-				functions.Close();
-			}
-		}
+                                                case "_d":
+                                                    {
+                                                        dataDivGood = InputValidation.TryParseOffsetString(opt[1], out dataDiv);
+                                                    }
+                                                    break;
 
-		private string FunctionListToSaveFileFormat()
-		{
-			StringBuilder sb = new StringBuilder(String.Empty);
-			foreach (FunctionLabel s in FuncList)
-			{
-				sb.AppendLine(s.ToSaveFileString());
-			}
-			return sb.ToString();
-		}
+                                                case "_n":
+                                                    if (RegularValidation.IsWord(opt[1]))
+                                                    {
+                                                        name = opt[1];
+                                                    }
 
-		private string DataListToSaveFileFormat()
-		{
-			StringBuilder sb = new StringBuilder(String.Empty);
-			foreach (DataLabel s in DataList)
-			{
-				sb.AppendLine(s.ToSaveFileString());
-			}
-			return sb.ToString();
-		}
+                                                    break;
 
-		private string VarListToSaveFileFormat()
-		{
-			StringBuilder sb = new StringBuilder(String.Empty);
-			foreach (VarLabel s in VarList)
-			{
-				sb.AppendLine(s.ToSaveFileString());
-			}
-			return sb.ToString();
-		}
+                                                case "_c":
+                                                    {
+                                                        cmtBuf.Add(x.Substring(0, 3));
+                                                    }
 
-		#endregion Loading and Saving Label Files
-	}
+                                                    break;
+
+                                                case "_p1":
+                                                    {
+                                                        dst = DataSectionType.Image;
+                                                        InputValidation.TryParseOffsetString(opt[1], out gbp.Col_1);
+                                                    }
+
+                                                    break;
+
+                                                case "_p2":
+                                                    {
+                                                        dst = DataSectionType.Image;
+                                                        InputValidation.TryParseOffsetString(opt[1], out gbp.Col_2);
+                                                    }
+
+                                                    break;
+
+                                                case "_p3":
+                                                    {
+                                                        dst = DataSectionType.Image;
+                                                        InputValidation.TryParseOffsetString(opt[1], out gbp.Col_3);
+                                                    }
+
+                                                    break;
+
+                                                case "_p4":
+                                                    {
+                                                        dst = DataSectionType.Image;
+                                                        InputValidation.TryParseOffsetString(opt[1], out gbp.Col_4);
+                                                    }
+
+                                                    break;
+                                                default:
+                                                    {
+                                                        cmtBuf.Add(x);
+                                                    }
+                                                    break;
+                                            }
+                                        }
+                                        if (offsetGood && lengthGood)
+                                        {
+                                            DataLabel ds = new DataLabel(offset, length, name, dataDiv, string.Join(Environment.NewLine, cmtBuf.ToArray()), dst, gbp);
+                                            AddDataLabel(ds);
+                                        }
+                                        else
+                                        {
+                                            tw.WriteLine("Unrecognized section:");
+                                            foreach (string x in buf)
+                                            {
+                                                tw.WriteLine(x);
+                                            }
+                                        }
+                                    }
+
+                                    break;
+
+                                case ".var":
+                                    {
+                                        int variable = -1;
+                                        string name = String.Empty;
+                                        List<string> cmtBuf = new List<string>();
+                                        bool variableGood = false;
+                                        foreach (string x in buf)
+                                        {
+                                            string code = x.Substring(0, 3);
+                                            string val = x.Substring(3, x.Length - 3);
+                                            switch (code[1])
+                                            {
+                                                case 'v':
+                                                    variableGood = InputValidation.TryParseOffsetString(val, out variable);
+                                                    break;
+
+                                                case 'n':
+                                                    if (RegularValidation.IsWord(val))
+                                                        name = val;
+                                                    break;
+
+                                                case 'c':
+                                                    cmtBuf.Add(val);
+                                                    break;
+                                                default:
+                                                    break;
+                                            }
+                                        }
+                                        if (variableGood)
+                                        {
+                                            VarLabel vl = new VarLabel(variable, name, string.Join(Environment.NewLine, cmtBuf.ToArray()));
+                                            AddVarLabel(vl);
+                                        }
+                                        else
+                                        {
+                                            tw.WriteLine("Unrecognized section:");
+                                            foreach (string x in buf)
+                                            {
+                                                tw.WriteLine(x);
+                                            }
+                                        }
+                                    }
+
+                                    break;
+
+                                case ".comment":
+                                    {
+                                        int offset = 0;
+                                        string name = String.Empty;
+                                        List<string> cmtBuf = new List<string>();
+                                        bool offsetGood = false;
+                                        foreach (string x in buf)
+                                        {
+                                            string code = x.Substring(0, 3).ToLower();
+                                            string val = x.Substring(3, x.Length - 3);
+                                            switch (code)
+                                            {
+                                                case "_o:":
+                                                    offsetGood = InputValidation.TryParseOffsetString(val, out offset);
+                                                    break;
+                                                default:
+                                                    cmtBuf.Add(val);
+                                                    break;
+                                            }
+                                        }
+                                        if (offsetGood)
+                                        {
+                                            AddComment(offset, string.Join(Environment.NewLine, cmtBuf.ToArray()));
+                                        }
+                                        else
+                                        {
+                                            tw.WriteLine("Unrecognized section:");
+                                            foreach (string x in buf)
+                                            {
+                                                tw.WriteLine(x);
+                                            }
+                                        }
+                                    }
+                                    break;
+                                default:
+                                    tw.WriteLine("Unrecognized section heading: " + currentLine);
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public void SaveLabelFile(string fileName)
+        {
+            using (TextWriter functions = new StreamWriter(fileName, false, Encoding.UTF8))
+            {
+                functions.WriteLine("gbr");
+                if (FuncList.Count != 0)
+                {
+                    functions.WriteLine(FunctionListToSaveFileFormat());
+                }
+                if (DataList.Count != 0)
+                {
+                    functions.WriteLine(DataListToSaveFileFormat());
+                }
+                if (VarList.Count != 0)
+                {
+                    functions.WriteLine(VarListToSaveFileFormat());
+                }
+                if (_commentList.Count != 0)
+                {
+                    functions.WriteLine(CommentListToSaveFileFormat());
+                }
+                functions.Close();
+            }
+        }
+
+        // TODO: Make sure everything saves and loads properly.
+
+        private string FunctionListToSaveFileFormat()
+        {
+            StringBuilder sb = new StringBuilder(String.Empty);
+            foreach (FunctionLabel s in FuncList)
+            {
+                sb.AppendLine(".label");
+                sb.AppendLine("_n:" + s.Name);
+                sb.AppendLine("_o:" + s.Offset);
+            }
+            return sb.ToString();
+        }
+
+        private string DataListToSaveFileFormat()
+        {
+            StringBuilder sb = new StringBuilder(String.Empty);
+            foreach (DataLabel s in DataList)
+            {
+                sb.AppendLine(".data");
+                sb.AppendLine("_n:" + s.Name);
+                sb.AppendLine("_o:" + s.Offset.ToString("X"));
+                sb.AppendLine("_l:" + s.Length.ToString("X"));
+                sb.AppendLine("_t:" + s.DSectionType);
+                sb.AppendLine("_d:" + s.DataLineLength.ToString("X"));
+                if (s.DSectionType == DataSectionType.Image)
+                {
+                    sb.AppendLine("_p1:" + s.Palette.Col_1.ToString("X"));
+                    sb.AppendLine("_p2:" + s.Palette.Col_2.ToString("X"));
+                    sb.AppendLine("_p3:" + s.Palette.Col_3.ToString("X"));
+                    sb.AppendLine("_p4:" + s.Palette.Col_4.ToString("X"));
+                }
+            }
+            return sb.ToString();
+        }
+
+        private string VarListToSaveFileFormat()
+        {
+            StringBuilder sb = new StringBuilder(String.Empty);
+            foreach (VarLabel s in VarList)
+            {
+                sb.AppendLine(".var");
+                sb.AppendLine("_n:" + s.Name);
+                sb.AppendLine("_v:" + s.Variable.ToString("X"));
+            }
+            return sb.ToString();
+        }
+
+        private string CommentListToSaveFileFormat()
+        {
+            if (_commentList.Count == 0)
+            {
+                return "";
+            }
+            StringBuilder ret = new StringBuilder();
+            foreach (KeyValuePair<int, string> kvp in _commentList)
+            {
+                ret.AppendLine(".comment");
+                ret.AppendLine("_o:" + kvp.Key.ToString("X"));
+                ret.AppendLine("_c:" + kvp.Value);
+            }
+            return ret.ToString();
+        }
+
+        #endregion Loading and Saving Label Files
+    }
 }

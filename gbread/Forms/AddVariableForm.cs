@@ -68,7 +68,7 @@ namespace GBRead.Forms
 				{
 					labelContainer.RemoveVarLabel(editedLabel);
 				}
-				editedLabel = new VarLabel(val, nameBox.Text, commentBox.Lines);
+				editedLabel = new VarLabel(val, nameBox.Text, commentBox.Text);
 				labelContainer.AddVarLabel(editedLabel);
 				this.DialogResult = System.Windows.Forms.DialogResult.OK;
 			}

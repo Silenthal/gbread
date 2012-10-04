@@ -82,7 +82,7 @@ namespace GBRead.Forms
 				{
 					labelContainer.RemoveDataLabel(editedLabel);
 				}
-				editedLabel = new DataLabel(off, len, nameBox.Text, rlen, commentBox.Lines, (DataSectionType)dataTypeBox.SelectedIndex);
+				editedLabel = new DataLabel(off, len, nameBox.Text, rlen, commentBox.Text, (DataSectionType)dataTypeBox.SelectedIndex);
 				labelContainer.AddDataLabel(editedLabel);
 				this.DialogResult = System.Windows.Forms.DialogResult.OK;
 			}

@@ -12,7 +12,7 @@
 
         private LabelContainer lc;
 
-        private Dictionary<int, GBInstruction> instructionCache;
+        private Dictionary<int, GBInstruction> instructionCache = new Dictionary<int, GBInstruction>();
 
         #region Options
 
@@ -36,7 +36,6 @@
         {
             CoreFile = cs;
             lc = lcs;
-            instructionCache = new Dictionary<int, GBInstruction>();
             PrintOffsets = true;
             PrintedOffsetFormat = OffsetFormat.BankOffset;
             InstructionNumberFormat = OffsetFormat.Hex;

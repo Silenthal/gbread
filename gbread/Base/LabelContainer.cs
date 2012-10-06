@@ -393,7 +393,10 @@
 
                                                 case "_n":
                                                     {
-                                                        name = kvp.Value;
+                                                        if (RegularValidation.IsWord(kvp.Value))
+                                                        {
+                                                            name = kvp.Value;
+                                                        }
                                                     }
 
                                                     break;

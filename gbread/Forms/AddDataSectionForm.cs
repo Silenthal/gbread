@@ -60,7 +60,7 @@ namespace GBRead.Forms
 			{
 				Error.ShowErrorMessage(ErrorMessage.NAME_IS_INVALID);
 			}
-			else if (checkNameCollision && labelContainer.IsNameDefined(nameBox.Text))
+			else if (checkNameCollision && labelContainer.SymbolList.ContainsKey(nameBox.Text))
 			{
 				Error.ShowErrorMessage(ErrorMessage.NAME_ALREADY_DEFINED);
 			}

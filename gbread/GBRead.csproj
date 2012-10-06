@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GBRead</RootNamespace>
     <AssemblyName>gbread</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -82,6 +82,12 @@
     <Compile Include="Base\Utility.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="Base\GBBinFile.cs" />
+    <Compile Include="Forms\AddCommentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddCommentForm.Designer.cs">
+      <DependentUpon>AddCommentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddDataSectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Base\Validation.cs" />
+    <EmbeddedResource Include="Forms\AddCommentForm.resx">
+      <DependentUpon>AddCommentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddDataSectionForm.resx">
       <DependentUpon>AddDataSectionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,7 +243,9 @@
     <Content Include="changelog.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="default.txt" />
+    <Content Include="default.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="readme.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

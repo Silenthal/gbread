@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using LibGBasm;
-
-namespace GBRead.Base
+﻿namespace GBRead.Base
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using LibGBasm;
+
     public class Disassembler
     {
         private BinFile CoreFile;
@@ -73,42 +74,29 @@ namespace GBRead.Base
 
         #region Label Display
 
-        public string ShowDataLabel(DataLabel dLabel)
+        // TODO: Handle the case where the DL goes out of bounds.
+        public string ShowDataLabel(DataLabel dataLabel)
         {
             StringBuilder ret = new StringBuilder(String.Empty);
-            int off = dLabel.Offset;
-            ret.AppendLine(dLabel.ToASMCommentString());
-            switch (dLabel.DSectionType)
+            ret.AppendLine(dataLabel.ToASMCommentString());
+            var labelsIn = (
+                from s in lc.FuncList
+                where s.Offset >= dataLabel.Offset && s.Offset < dataLabel.Offset + dataLabel.Length
+                select new { Name = s.Name, Offset = s.Offset, Comment = s.ToASMCommentString() })
+                .Concat(
+                from s in lc.DataList
+                where s.Offset > dataLabel.Offset && s.Offset < dataLabel.Offset + dataLabel.Length
+                select new { Name = s.Name, Offset = s.Offset, Comment = s.ToASMCommentString() })
+                .OrderBy(s => s.Offset)
+                .ThenBy(s => s.Name);
+            int currentLoc = dataLabel.Offset;
+            foreach (var label in labelsIn)
             {
-                case DataSectionType.Data:
-                case DataSectionType.Image:
-                    for (int i = 0; i < dLabel.Length; i++)
-                    {
-                        if (i % dLabel.DataLineLength == 0)
-                            ret.Append("\tdb ");
-                        byte x = (byte)CoreFile.ReadByte(off + i);
-                        switch (InstructionNumberFormat)
-                        {
-                            case OffsetFormat.Decimal:
-                                ret.Append(x.ToString());
-                                break;
-                            default:
-                                ret.Append("$" + x.ToString("X2"));
-                                break;
-                        }
-                        if (i % dLabel.DataLineLength == dLabel.DataLineLength - 1 || i == dLabel.Length - 1)
-                        {
-                            ret.AppendLine();
-                        }
-                        else
-                        {
-                            ret.Append(",");
-                        }
-                    }
-                    break;
-                default:
-                    break;
+                ret.Append(GetDBSection(currentLoc, label.Offset - currentLoc, dataLabel.DataLineLength));
+                ret.AppendLine(label.Comment);
+                currentLoc = label.Offset;
             }
+            ret.Append(GetDBSection(currentLoc, dataLabel.Length, dataLabel.DataLineLength));
             return ret.ToString();
         }
 
@@ -146,6 +134,46 @@ namespace GBRead.Base
             return ret.ToString();
         }
 
+        private string GetDBSection(int off, int len, int lineSize)
+        {
+            if (len == 0)
+            {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            int afterLast = off + len;
+            for (int currentOffset = off; currentOffset < afterLast; currentOffset += lineSize)
+            {
+                int dbCount = currentOffset + lineSize > afterLast ? afterLast - currentOffset : lineSize;
+                int last = currentOffset + dbCount - 1;
+                sb.Append("    db ");
+                for (int curOff = currentOffset; curOff < last; curOff++)
+                {
+                    byte curByte = (byte)CoreFile.ReadByte(curOff);
+                    switch (InstructionNumberFormat)
+                    {
+                        case OffsetFormat.Decimal:
+                            sb.Append(curByte.ToString() + ", ");
+                            break;
+                        default:
+                            sb.Append("$" + curByte.ToString("X2") + ", ");
+                            break;
+                    }
+                }
+                switch (InstructionNumberFormat)
+                {
+                    case OffsetFormat.Decimal:
+                        sb.Append(((byte)CoreFile.ReadByte(last)).ToString());
+                        break;
+                    default:
+                        sb.Append("$" + ((byte)CoreFile.ReadByte(last)).ToString("X2"));
+                        break;
+                }
+                sb.AppendLine();
+            }
+            return sb.ToString();
+        }
+
         #endregion Label Display
 
         #region Disassembly
@@ -157,31 +185,33 @@ namespace GBRead.Base
 
         public string PrintASM(BinFile file, int baseOffset, int start, int length)
         {
-            StringBuilder output = new StringBuilder(String.Empty);
-            int current = start;
-            DataLabel dataSearch = new DataLabel(current);
-            FunctionLabel codeSearch = new FunctionLabel(current);
+            StringBuilder output = new StringBuilder();
             GBInstruction isu = new GBInstruction();
+            int current = start;
             while (current < start + length)
             {
-                byte currentInst = (byte)file.ReadByte(current);
-                if (lc.TryGetDataLabel(current, out dataSearch))
+                var labelsAt = from s in lc.FuncList
+                               where s.Offset == current
+                               orderby s.Name
+                               select s;
+                var dataAt = from s in lc.DataList
+                             where s.Offset == current
+                             select s;
+                foreach (var f in labelsAt)
+                {
+                    output.AppendLine(f.ToASMCommentString());
+                }
+                if (dataAt.Count() != 0)
                 {
                     if (HideDefinedData)
                     {
-                        output.AppendLine(String.Format("INCBIN \"{0}.bin\"", dataSearch.Name));
+                        output.AppendLine(String.Format("INCBIN \"{0}.bin\"", dataAt.First().Name));
                     }
                     else
                     {
-                        output.Append(ShowDataLabel(dataSearch));
+                        output.Append(ShowDataLabel(dataAt.First()));
                     }
-                    current += dataSearch.Length;
-                }
-                else if (lc.TryGetFuncLabel(current, out codeSearch))
-                {
-                    output.AppendLine(codeSearch.ToASMCommentString());
-                    output.AppendLine(GetInstruction(file, baseOffset, current, ref isu));
-                    current += isu.InstSize;
+                    current += dataAt.First().Length;
                 }
                 else
                 {
@@ -194,14 +224,15 @@ namespace GBRead.Base
 
         private string GetInstruction(BinFile refFile, int OrgOffset, int BinaryOffset, ref GBInstruction isu)
         {
-            if (instructionCache.ContainsKey(OrgOffset + BinaryOffset))
+            int currentAddress = OrgOffset + BinaryOffset;
+            if (instructionCache.ContainsKey(currentAddress))
             {
-                isu = instructionCache[OrgOffset + BinaryOffset];
+                isu = instructionCache[currentAddress];
             }
             else
             {
                 bool success = false;
-                if (lc.isAddressMarkedAsData(OrgOffset + BinaryOffset))
+                if (lc.isAddressMarkedAsData(currentAddress))
                 {
                     success = GBASM.CreateDBInstruction(refFile.MainFile, OrgOffset, BinaryOffset, ref isu);
                 }
@@ -213,7 +244,7 @@ namespace GBRead.Base
                 {
                     return "--Error--";
                 }
-                instructionCache.Add(isu.Bank + isu.Address, isu);
+                instructionCache.Add(Utility.GetRealAddress(isu.Bank, isu.Address), isu);
             }
             StringBuilder returned = new StringBuilder();
 
@@ -230,23 +261,12 @@ namespace GBRead.Base
 
             if (PrintBitPattern)
             {
+                var bp = new string[] { "  ", "  ", "  ", "  " };
                 for (int i = 0; i < isu.InstSize; i++)
                 {
-                    returned.Append(refFile.ReadByte(BinaryOffset + i).ToString("X2"));
+                    bp[i] = refFile.ReadByte(BinaryOffset + i).ToString("X2");
                 }
-                switch (isu.InstSize)
-                {
-                    case 2:
-                        returned.Append("    ");
-                        break;
-
-                    case 1:
-                        returned.Append("      ");
-                        break;
-                    default:
-                        returned.Append("  ");
-                        break;
-                }
+                returned.Append(string.Join("",bp));
             }
 
             #endregion Check bit pattern printing
@@ -254,18 +274,22 @@ namespace GBRead.Base
             #region Print instruction
 
             if (!(PrintBitPattern || PrintOffsets))
-                returned.Append("\t");
-            returned.Append(isu.InstType.ToString("G"));
+            {
+                returned.Append("    "); 
+            }
+            returned.Append(isu.InstType.ToString());
             string numArg = "";
             if (isu.ArgCount > 0)
             {
                 returned.Append(" ");
-                returned.Append(ArgumentToASMString(isu.Bank, isu.Address, isu.InstType, isu.Arg1));
+                numArg = ArgumentToASMString(isu.Bank, isu.Address, isu.InstType, isu.Arg1);
+                returned.Append(numArg);
             }
             if (isu.ArgCount == 2)
             {
                 returned.Append(",");
-                returned.Append(ArgumentToASMString(isu.Bank, isu.Address, isu.InstType, isu.Arg2));
+                numArg = ArgumentToASMString(isu.Bank, isu.Address, isu.InstType, isu.Arg2);
+                returned.Append(numArg);
             }
 
             #endregion Print instruction
@@ -274,15 +298,16 @@ namespace GBRead.Base
 
             if (PrintComments)
             {
-                int tCount = returned.Length;
-                returned.Append("\t\t;");
+                returned.Append("  ;");
                 int x = refFile.ReadByte(BinaryOffset);
                 if (refFile.ReadByte(BinaryOffset) == 0xCB)
                 {
                     returned.AppendFormat(CBLongInst[x], numArg);
                 }
                 else
+                {
                     returned.AppendFormat(longInst[x], numArg);
+                }
             }
 
             #endregion Check comments

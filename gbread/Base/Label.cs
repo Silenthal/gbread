@@ -43,6 +43,12 @@
 
     public abstract class GenericLabel : IComparable<GenericLabel>
     {
+        protected static int counter = 0;
+
+        protected int _id;
+
+        public int ID { get { return _id; } protected set { _id = value; } }
+
         protected int _value;
 
         public int Value { get { return _value; } }
@@ -64,7 +70,7 @@
 
         public override int GetHashCode()
         {
-            return _value.GetHashCode();
+            return _id;
         }
 
         public int CompareTo(GenericLabel comp)
@@ -74,7 +80,21 @@
                 return _name.CompareTo(comp._name);
             }
             else
+            {
                 throw new ArgumentException("Object is not initialized.");
+            }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is GenericLabel)
+            {
+                return (obj as GenericLabel)._id == _id;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 
@@ -82,13 +102,14 @@
     {
         public int Offset { get { return _value; } set { _value = value; } }
 
-        public FunctionLabel(int newOffset, string labelName = "", string commentLines = "")
+        public FunctionLabel(int newOffset, string labelName = "", string nComment = "")
         {
+            _id = System.Threading.Interlocked.Increment(ref counter);
             _value = newOffset;
             _name = labelName.Equals(String.Empty) ? String.Format("F_{0:X6}", newOffset) : labelName;
-            if (!String.IsNullOrEmpty(commentLines))
+            if (!String.IsNullOrEmpty(nComment))
             {
-                _comment = commentLines;
+                _comment = nComment;
             }
         }
 
@@ -106,21 +127,6 @@
                 }
             }
             return returned;
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (obj is FunctionLabel)
-            {
-                return ((FunctionLabel)obj)._value == _value;
-            }
-            else
-                return false;
-        }
-
-        public override int GetHashCode()
-        {
-            return _value.GetHashCode();
         }
     }
 
@@ -143,6 +149,7 @@
 
         public DataLabel(int newOffset, int newLength = 1, string labelName = "", int dataLen = 8, string cmt = "", DataSectionType dst = DataSectionType.Data, GBPalette pal = null)
         {
+            _id = System.Threading.Interlocked.Increment(ref counter);
             _value = newOffset;
             _length = newLength;
             _name = labelName == String.Empty ? String.Format("DS_{0:X6}", newOffset) : labelName;
@@ -151,7 +158,9 @@
                 _comment = cmt;
             }
             if (dataLen <= 0)
+            {
                 dataLen = 8;
+            }
             _dataLineLength = dataLen;
             dataSectType = dst;
             if (pal != null)
@@ -166,7 +175,7 @@
         {
             string returned = "";
             returned += _name + ":" + Environment.NewLine;
-            returned += String.Format("{0};Size: 0x{1:X} bytes", Environment.NewLine, _length);
+            returned += String.Format(";Size: 0x{0:X} bytes", _length);
             if (_comment != null)
             {
                 foreach (string commentLine in _comment.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries))
@@ -176,21 +185,6 @@
             }
             return returned;
         }
-
-        public override bool Equals(object obj)
-        {
-            if (obj is DataLabel)
-            {
-                return ((DataLabel)obj)._value == _value;
-            }
-            else
-                return false;
-        }
-
-        public override int GetHashCode()
-        {
-            return _value.GetHashCode();
-        }
     }
 
     public class VarLabel : GenericLabel
@@ -199,6 +193,7 @@
 
         public VarLabel(int a, string n = "", string cmt = "")
         {
+            _id = System.Threading.Interlocked.Increment(ref counter);
             _name = n.Equals(String.Empty) ? String.Format("V_{0:X4}", a) : n;
             _value = a;
             if (!String.IsNullOrEmpty(cmt))
@@ -236,21 +231,6 @@
             }
             returned += Environment.NewLine;
             return returned;
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (obj is VarLabel)
-            {
-                return ((VarLabel)obj)._value == _value;
-            }
-            else
-                return false;
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
         }
     }
 }

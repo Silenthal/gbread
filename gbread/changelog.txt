@@ -219,6 +219,7 @@ r16(Late 2012)
 found in the readme.
 -[Change]Added default.txt. This file contains default labels that are loaded
 whenever a new project is opened.
+-[Fix]Tightened up the assembler a little bit.
 
 Upcoming:
 -Whatever suggestions that fit with the program(so send 'em if you've got 'em)

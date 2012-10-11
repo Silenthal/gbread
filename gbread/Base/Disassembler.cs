@@ -12,8 +12,6 @@
 
         private LabelContainer lc;
 
-        private Dictionary<int, GBInstruction> instructionCache = new Dictionary<int, GBInstruction>();
-
         #region Options
 
         public bool PrintOffsets { get; set; }
@@ -224,26 +222,18 @@
         private string GetInstruction(BinFile refFile, int OrgOffset, int BinaryOffset, ref GBInstruction isu)
         {
             int currentAddress = OrgOffset + BinaryOffset;
-            if (instructionCache.ContainsKey(currentAddress))
+            bool success = false;
+            if (lc.isAddressMarkedAsData(currentAddress))
             {
-                isu = instructionCache[currentAddress];
+                success = GBASM.CreateDBInstruction(refFile.MainFile, OrgOffset, BinaryOffset, ref isu);
             }
             else
             {
-                bool success = false;
-                if (lc.isAddressMarkedAsData(currentAddress))
-                {
-                    success = GBASM.CreateDBInstruction(refFile.MainFile, OrgOffset, BinaryOffset, ref isu);
-                }
-                else
-                {
-                    success = GBASM.GetInstruction(refFile.MainFile, OrgOffset, BinaryOffset, ref isu);
-                }
-                if (!success)
-                {
-                    return "--Error--";
-                }
-                instructionCache.Add(Utility.GetRealAddress(isu.Bank, isu.Address), isu);
+                success = GBASM.GetInstruction(refFile.MainFile, OrgOffset, BinaryOffset, ref isu);
+            }
+            if (!success)
+            {
+                return "--Error--";
             }
             StringBuilder returned = new StringBuilder();
 

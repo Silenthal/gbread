@@ -49,26 +49,32 @@ namespace LibGBasm
         /// The bank containing the instruction.
         /// </summary>
         public byte Bank;
+
         /// <summary>
         /// The address of the instruction.
         /// </summary>
         public ushort Address;
+
         /// <summary>
         /// The size of the argument, in bytes.
         /// </summary>
         public int InstSize;
+
         /// <summary>
         /// The type of instruction.
         /// </summary>
         public InstructionType InstType;
+
         /// <summary>
         /// The number of arguments to this instruction.
         /// </summary>
         public int ArgCount;
+
         /// <summary>
         /// The first argument of the instruction.
         /// </summary>
         public GBArgument Arg1;
+
         /// <summary>
         /// The second argument of the instruction.
         /// </summary>
@@ -84,18 +90,22 @@ namespace LibGBasm
         /// The type of argument.
         /// </summary>
         public GBArgumentType ArgType;
+
         /// <summary>
         /// The number value of the argument.
         /// </summary>
         public ushort NumArg;
+
         /// <summary>
         /// The RegisterSingle value of the argument, if it has one.
         /// </summary>
         public GBRegisterSingle RegSingleArg;
+
         /// <summary>
         /// The RegisterDouble value of the argument, if it has one.
         /// </summary>
         public GBRegisterDouble RegDoubleArg;
+
         /// <summary>
         /// The Conditional value of the argument, if it has one.
         /// </summary>

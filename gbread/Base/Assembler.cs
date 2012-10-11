@@ -8,105 +8,139 @@
 
     public class Assembler
     {
-        private int NOT_A_NUMBER = Int32.MaxValue;
+        private enum NumType { Decimal, Binary, Octal, Hex }
+
+        private Regex binaryRegex = new Regex(@"^(0b|%)[01]+$", RegexOptions.IgnoreCase);
+        private Regex octalRegex = new Regex(@"^(0o|&)[0-7]+$", RegexOptions.IgnoreCase);
+        private Regex hexRegex = new Regex(@"^(0x|[$])[0-9a-f]+$", RegexOptions.IgnoreCase);
+        private Regex conditionalInstRegex = new Regex(@"^(call|jp|jr|ret)$", RegexOptions.IgnoreCase);
+        private Regex regSingleRegex = new Regex(@"^(a|b|c|d|e|h|l|\[hl\])$", RegexOptions.IgnoreCase);
+        private Regex regDoubleRegex = new Regex(@"^(af|bc|de|hl|sp)$", RegexOptions.IgnoreCase);
 
         private int NumStringToInt(string check)
         {
-            bool good = false;
-            int temp;
-            bool isHex = false;
-            if (check.Length > 1)
+            int temp = 0;
+            NumType numType = NumType.Decimal;
+            if (check.StartsWith("0x", StringComparison.OrdinalIgnoreCase))
             {
-                if (check.Substring(0, 2).Equals("0x", StringComparison.OrdinalIgnoreCase))
-                {
-                    check = check.Substring(2);
-                    isHex = true;
-                }
-                else if (check[0].Equals('$'))
-                {
-                    check = check.Substring(1);
-                    isHex = true;
-                }
+                check = check.Substring(2);
+                numType = NumType.Hex;
             }
-            if (isHex) good = Int32.TryParse(check, NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture, out temp);
-            else good = Int32.TryParse(check, out temp);
-            return good ? temp : NOT_A_NUMBER;
+            else if (check.StartsWith("$"))
+            {
+                check = check.Substring(1);
+                numType = NumType.Hex;
+            }
+            else if (check.StartsWith("0o", StringComparison.OrdinalIgnoreCase))
+            {
+                check = check.Substring(2);
+                numType = NumType.Octal;
+            }
+            else if (check.StartsWith("&"))
+            {
+                check = check.Substring(1);
+                numType = NumType.Octal;
+            }
+            else if (check.StartsWith("0b", StringComparison.OrdinalIgnoreCase))
+            {
+                check = check.Substring(2);
+                numType = NumType.Binary;
+            }
+            else if (check.StartsWith("%"))
+            {
+                check = check.Substring(1);
+                numType = NumType.Binary;
+            }
+            switch (numType)
+            {
+                case NumType.Decimal:
+                    {
+                        temp = BaseXToDecimal(10, check);
+                    }
+                    break;
+
+                case NumType.Hex:
+                    {
+                        temp = Int32.Parse(check, NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture);
+                    }
+                    break;
+
+                case NumType.Octal:
+                    {
+                        temp = BaseXToDecimal(8, check);
+                    }
+                    break;
+
+                case NumType.Binary:
+                    {
+                        temp = BaseXToDecimal(2, check);
+                    }
+                    break;
+            }
+            return temp;
         }
 
-        private bool isLabel(string check)
+        private int BaseXToDecimal(int baseNum, string input)
         {
-            if (check[check.Length - 1].Equals(':'))
+            double ret = 0;
+            for (int i = input.Length - 1; i >= 0; i--)
             {
-                return isGoodWord(check.Substring(0, check.Length - 1));
+                int power = input.Length - i - 1;
+                ret += Char.GetNumericValue(input[i]) * Math.Pow(baseNum, power);
             }
-            else return false;
+            return (int)ret;
         }
 
         private bool isGoodWord(string check)
         {
-            if (!Char.IsLetter(check[0])) return false;
+            if (!Char.IsLetter(check[0]))
+                return false;
             foreach (char s in check.Substring(1))
             {
-                if (!(Char.IsLetterOrDigit(s) || s.Equals('_'))) return false;
+                if (!(Char.IsLetterOrDigit(s) || s.Equals('_')))
+                    return false;
             }
             return true;
         }
 
         private bool isConditionalInst(string check)
         {
-            if (check.Equals("call", StringComparison.OrdinalIgnoreCase)) return true;
-            else if (check.Equals("jp", StringComparison.OrdinalIgnoreCase)) return true;
-            else if (check.Equals("jr", StringComparison.OrdinalIgnoreCase)) return true;
-            else if (check.Equals("ret", StringComparison.OrdinalIgnoreCase)) return true;
-            else return false;
+            return conditionalInstRegex.IsMatch(check);
         }
 
         private bool isNumber(string check)
         {
             int temp;
-            if (Int32.TryParse(check, out temp)) return true;
-            else if (check.Length >= 2 && check[0].Equals('$'))
+            if (Int32.TryParse(check, out temp))
             {
-                return Int32.TryParse(check.Substring(1), NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture, out temp);
+                return true;
             }
-            else if (check.Length > 2 && check[0].Equals('0') && Char.ToLower(check[1]).Equals('x'))
-            {
-                return Int32.TryParse(check.Substring(2), NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture, out temp);
-            }
-            else return false;
+            else return binaryRegex.IsMatch(check) || octalRegex.IsMatch(check) || hexRegex.IsMatch(check);
         }
 
         private bool isMemoryRef(string check)
         {
             if (check.Length > 2)
+            {
                 return (check[0].Equals('[') && check[check.Length - 1].Equals(']') && !check.Equals("[hl]", StringComparison.OrdinalIgnoreCase));
-            else return false;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private bool isRegSingle(string check)
         {
-            if (check.Equals("a", StringComparison.OrdinalIgnoreCase)) return true;
-            else if (check.Equals("b", StringComparison.OrdinalIgnoreCase)) return true;
-            else if (check.Equals("c", StringComparison.OrdinalIgnoreCase)) return true;
-            else if (check.Equals("d", StringComparison.OrdinalIgnoreCase)) return true;
-            else if (check.Equals("e", StringComparison.OrdinalIgnoreCase)) return true;
-            else if (check.Equals("h", StringComparison.OrdinalIgnoreCase)) return true;
-            else if (check.Equals("l", StringComparison.OrdinalIgnoreCase)) return true;
-            else if (check.Equals("[hl]", StringComparison.OrdinalIgnoreCase)) return true;
-            else return false;
+            return regSingleRegex.IsMatch(check);
         }
 
         private bool isRegDouble(string check)
         {
-            if (check.Equals("af", StringComparison.OrdinalIgnoreCase)) return true;
-            else if (check.Equals("bc", StringComparison.OrdinalIgnoreCase)) return true;
-            else if (check.Equals("de", StringComparison.OrdinalIgnoreCase)) return true;
-            else if (check.Equals("hl", StringComparison.OrdinalIgnoreCase)) return true;
-            else if (check.Equals("sp", StringComparison.OrdinalIgnoreCase)) return true;
-            else return false;
+            return regDoubleRegex.IsMatch(check);
         }
 
-        struct InstructionToken
+        private struct InstructionToken
         {
             public TokenType specifier;
             public string tokenVal;
@@ -121,14 +155,6 @@
         };
 
         private LabelContainer lc;
-
-        #region Regexes
-
-        private Regex equalRegex = new Regex(@"\.?(equ)|=", RegexOptions.Compiled | RegexOptions.IgnoreCase);
-        private Regex assignmentRegex = new Regex(@"^(\w+)\s+((equ)|=)\s+(.*)$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
-
-        #endregion
-
 
         public Assembler(LabelContainer newlc)
         {
@@ -156,143 +182,152 @@
                 variableDict.Add(vlp.Name, vlp.Variable);
             }
 
+            var tokenLines = new List<Token>[lines.Length];
+            for (int i = 0; i < lines.Length; i++)
+            {
+                tokenLines[i] = Tokenizer.Tokenize(i, lines[i]);
+            }
+
             #endregion Initializing lists
 
             #region Presizing arrays
 
-            for (int i = 0; i < lines.Length; i++)
+            for (int i = 0; i < tokenLines.Length; i++)
             {
-                int commentIndex = lines[i].IndexOfAny(commentChars);
-                if (commentIndex != -1) lines[i] = lines[i].Substring(0, commentIndex);
-                lines[i] = lines[i].Trim();
-
                 #region If line is empty
 
-                if (lines[i].Equals(String.Empty)) continue;
+                if (tokenLines[i].Count == 0)
+                {
+                    continue;
+                }
 
                 #endregion If line is empty
 
                 #region If line is assignment
 
-                else if (equalRegex.Match(lines[i]).Success)
+                if (tokenLines[i].Count < 5
+                    && tokenLines[i][0].Type == Base.TokenType.Identifier
+                    && tokenLines[i][1].Type == Base.TokenType.Equal
+                    && tokenLines[i][2].Type == Base.TokenType.Number)
                 {
-                    Match mt = assignmentRegex.Match(lines[i]);
-                    string varName = String.Empty;
-                    string varVal = String.Empty;
-                    if (mt.Success)
+                    var varName = tokenLines[i][0].Lexeme.ToString();
+                    var varVal = NumStringToInt(tokenLines[i][2].Lexeme.ToString());
+                    if (isGoodWord(varName))
                     {
-                        varName = mt.Groups[1].Value;
-                        varVal = mt.Groups[4].Value;
-                        if (isGoodWord(varName))
+                        if (variableDict.ContainsKey(varName))
                         {
-                            if (variableDict.ContainsKey(varName))
-                            {
-                                error = new CompError(lines[i], i + 1, ErrorMessage.VARIABLE_ALREADY_DEFINED, varName);
-                                return null;
-                            }
-                            else if (!isNumber(varVal))
-                            {
-                                error = new CompError(lines[i], i + 1, ErrorMessage.VARIABLE_NOT_ASSIGNED_NUMBER, varVal);
-                                return null;
-                            }
-                            else
-                            {
-                                variableDict.Add(varName, NumStringToInt(varVal));
-                                lines[i] = String.Empty;
-                            }
+                            error = new CompError(lines[i], i + 1, ErrorMessage.VARIABLE_ALREADY_DEFINED, varName);
+                            return null;
                         }
                         else
                         {
-                            error = new CompError(lines[i], i + 1, ErrorMessage.VARIABLE_NAME_INVALID, varName);
-                            return null;
+                            variableDict.Add(varName, varVal);
+                            continue;
                         }
                     }
                     else
                     {
-                        error = new CompError(lines[i], i + 1, ErrorMessage.UNRECOGNIZED_LINE, lines[i]);
+                        error = new CompError(lines[i], i + 1, ErrorMessage.VARIABLE_NAME_INVALID, varName);
                         return null;
                     }
                 }
 
                 #endregion If line is assignment
 
-                #region If line is data field
-
-                else if (Regex.Match(lines[i], @"^([Dd][BbWw])").Success)
-                {
-                    string identifier = lines[i].Substring(0, 2);
-                    lines[i] = Regex.Replace(lines[i], @"\s*", @"");
-                    string[] argList = lines[i].Substring(2).Split(new Char[] { ',' });
-                    if (argList.Length > 0)
-                    {
-                        Dictionary<string, int> dataWordsDict = new Dictionary<string, int>
-                        {
-                            {"db", 1},
-                            {"dw", 2}
-                        };
-                        int dataSize = dataWordsDict[identifier];
-                        for (int dCount = 0; dCount < argList.Length; dCount++)
-                        {
-                            currentPreOffset += dataSize;
-                        }
-                    }
-                    else
-                    {
-                        error = new CompError(lines[i], i + 1, ErrorMessage.DATA_ARGUMENTS_UNRECOGNIZED, lines[i]);
-                        return null;
-                    }
-                }
-
-                #endregion If line is data field
-
                 #region If line is label
 
-                else if (isLabel(lines[i]))
+                if (tokenLines[i][0].Type == Base.TokenType.GlobalLabel)
                 {
-                    if (callDict.ContainsKey(lines[i]))
+                    if (callDict.ContainsKey(tokenLines[i][0].Lexeme.ToString()))
                     {
                         error = new CompError(lines[i], i + 1, ErrorMessage.LABEL_ALREADY_DEFINED, lines[i]);
                         return null;
                     }
                     else
                     {
-                        callDict.Add(lines[i].Substring(0, lines[i].Length - 1), currentPreOffset);
-                        lines[i] = String.Empty;
-                        continue;
+                        callDict.Add(tokenLines[i][0].Lexeme.ToString(), currentPreOffset);
+                        tokenLines[i].RemoveAt(0);
+                        if (tokenLines[i].Count == 0)
+                        {
+                            continue;
+                        }
                     }
                 }
 
                 #endregion If line is label
 
+                #region If line is data field
+
+                if (tokenLines[i][0].Type == Base.TokenType.Keyword_db
+                    || tokenLines[i][0].Type == Base.TokenType.Keyword_dw)
+                {
+                    int x = 1;
+                    while (x < tokenLines[i].Count)
+                    {
+                        if ((tokenLines[i][x].Type == Base.TokenType.Identifier
+                            || tokenLines[i][x].Type == Base.TokenType.Number)
+                            && (x == tokenLines[i].Count - 1 || tokenLines[i][x + 1].Type == Base.TokenType.Comma))
+                        {
+                            if (tokenLines[i][0].Type == Base.TokenType.Keyword_db)
+                            {
+                                currentPreOffset += 1;
+                            }
+                            else
+                            {
+                                currentPreOffset += 2;
+                            }
+                            if (++x == tokenLines[i].Count)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                x++;
+                            }
+                        }
+                        else
+                        {
+                            error = new CompError(lines[i], i + 1, ErrorMessage.DATA_ARGUMENTS_UNRECOGNIZED, lines[i]);
+                            return null;
+                        }
+                    }
+                }
+
+                #endregion If line is data field
+
                 #region If line is instruction, or otherwise.
 
-                else
+                else if (tokenLines[i][0].Type.ToString().StartsWith("Keyword"))
                 {
                     #region Instruction split
 
-                    Match instMatch = Regex.Match(lines[i], @"^(\w+)\s*(([\w\[\]\$\-]+)\s*(,\s*([\w\[\]\$\-]+))?)?");
-                    string inst = String.Empty;
-                    string arg1 = String.Empty;
-                    string arg2 = String.Empty;
-                    string instArgKey = String.Empty;
+                    string inst = tokenLines[i][0].Lexeme.ToString().ToLower();
+                    string arg1 = "";
+                    string arg2 = "";
+                    string instArgKey = "";
 
                     #region Assign arg strings.
 
-                    if (instMatch.Success)
+                    int curArg = 1;
+                    while (curArg < tokenLines[i].Count && tokenLines[i][curArg].Type != Base.TokenType.Comma)
                     {
-                        inst = instMatch.Groups[1].Value.ToLower();
-                        arg1 = instMatch.Groups[3].Value;
-                        arg2 = instMatch.Groups[5].Value;
-                        if (arithmeticArgs.Contains<string>(inst) && arg1.Equals("a", StringComparison.OrdinalIgnoreCase) && !arg2.Equals(String.Empty))
+                        arg1 += tokenLines[i][curArg].Lexeme.ToString().ToLower();
+                        curArg++;
+                    }
+                    if (curArg != tokenLines[i].Count)
+                    {
+                        curArg++;
+                        while (curArg < tokenLines[i].Count && tokenLines[i][curArg].Type != Base.TokenType.Comma)
                         {
-                            arg1 = arg2;
-                            arg2 = String.Empty;
+                            arg2 += tokenLines[i][curArg].Lexeme.ToString().ToLower();
+                            curArg++;
                         }
                     }
-                    else
+
+                    if (arithmeticArgs.Contains(inst) && arg1 == "a" && arg2 != "")
                     {
-                        error = new CompError(lines[i], i + 1, ErrorMessage.UNRECOGNIZED_LINE);
-                        return null;
+                        arg1 = arg2;
+                        arg2 = "";
                     }
 
                     #endregion Assign arg strings.
@@ -305,7 +340,7 @@
                         currentPreOffset += staticArgs[instArgKey].Length;
                         continue;
                     }
-                    else if (Regex.Match(instArgKey, @"srl [AaBbCcDdEeHhLl][AaBbCcDdEeHhLl],[1-7]").Success)
+                    else if (Regex.Match(instArgKey, @"srl [a-ehl][a-ehl],[1-7]", RegexOptions.IgnoreCase).Success)
                     {
                         byte[] b1 = staticArgs["srl " + arg1.Substring(0, 1).ToLower()];
                         byte[] b2 = staticArgs["rr " + arg1.Substring(1, 1).ToLower()];
@@ -324,7 +359,10 @@
 
                     #region Arg 1 Handling
 
-                    if (arg1.Equals(String.Empty)) arg1Token = new InstructionToken(TokenType.NONE, arg1);
+                    if (arg1 == "")
+                    {
+                        arg1Token = new InstructionToken(TokenType.NONE, arg1);
+                    }
                     else if (isMemoryRef(arg1))
                     {
                         arg1 = arg1.Substring(1, arg1.Length - 2);
@@ -345,9 +383,18 @@
                             error = new CompError(lines[i], i + 1, ErrorMessage.UNKNOWN_MEMORY_REFERENCE, arg1);
                         }
                     }
-                    else if (isConditionalInst(inst) && conditionBytes.ContainsKey(arg1)) arg1Token = new InstructionToken(TokenType.CONDITION, arg1, conditionBytes[arg1]);
-                    else if (isRegSingle(arg1)) arg1Token = new InstructionToken(TokenType.REG_SINGLE, arg1.ToLowerInvariant(), regSingleBytes[arg1]);
-                    else if (isRegDouble(arg1)) arg1Token = new InstructionToken(TokenType.REG_DOUBLE, arg1.ToLowerInvariant(), regDoubleBytes[arg1]);
+                    else if (isConditionalInst(inst) && conditionBytes.ContainsKey(arg1))
+                    {
+                        arg1Token = new InstructionToken(TokenType.CONDITION, arg1, conditionBytes[arg1]);
+                    }
+                    else if (isRegSingle(arg1))
+                    {
+                        arg1Token = new InstructionToken(TokenType.REG_SINGLE, arg1.ToLowerInvariant(), regSingleBytes[arg1]);
+                    }
+                    else if (isRegDouble(arg1))
+                    {
+                        arg1Token = new InstructionToken(TokenType.REG_DOUBLE, arg1.ToLowerInvariant(), regDoubleBytes[arg1]);
+                    }
                     else if (variableDict.ContainsKey(arg1))
                     {
                         arg1Token = new InstructionToken(TokenType.NUMBER, arg1, variableDict[arg1]);
@@ -356,7 +403,8 @@
                     {
                         arg1Token = new InstructionToken(TokenType.LABEL, arg1, 0);
                     }
-                    else if (isNumber(arg1)) arg1Token = new InstructionToken(TokenType.NUMBER, arg1, 0);
+                    else if (isNumber(arg1))
+                        arg1Token = new InstructionToken(TokenType.NUMBER, arg1, 0);
                     else
                     {
                         error = new CompError(lines[i], i + 1, ErrorMessage.UNKNOWN_ARGUMENT, arg1);
@@ -366,7 +414,10 @@
 
                     #region Arg 2 Handling
 
-                    if (arg2.Equals(String.Empty)) arg2Token = new InstructionToken(TokenType.NONE, arg2);
+                    if (arg2.Equals(String.Empty))
+                    {
+                        arg2Token = new InstructionToken(TokenType.NONE, arg2);
+                    }
                     else if (isMemoryRef(arg2))
                     {
                         arg2 = arg2.Substring(1, arg2.Length - 2);
@@ -387,9 +438,18 @@
                             error = new CompError(lines[i], i + 1, ErrorMessage.UNKNOWN_MEMORY_REFERENCE, arg2);
                         }
                     }
-                    else if (isConditionalInst(inst) && conditionBytes.ContainsKey(arg2)) arg2Token = new InstructionToken(TokenType.CONDITION, arg2, conditionBytes[arg2]);
-                    else if (isRegSingle(arg2)) arg2Token = new InstructionToken(TokenType.REG_SINGLE, arg2.ToLowerInvariant(), regSingleBytes[arg2]);
-                    else if (isRegDouble(arg2)) arg2Token = new InstructionToken(TokenType.REG_DOUBLE, arg2.ToLowerInvariant(), regDoubleBytes[arg2]);
+                    else if (isConditionalInst(inst) && conditionBytes.ContainsKey(arg2))
+                    {
+                        arg2Token = new InstructionToken(TokenType.CONDITION, arg2, conditionBytes[arg2]);
+                    }
+                    else if (isRegSingle(arg2))
+                    {
+                        arg2Token = new InstructionToken(TokenType.REG_SINGLE, arg2.ToLowerInvariant(), regSingleBytes[arg2]);
+                    }
+                    else if (isRegDouble(arg2))
+                    {
+                        arg2Token = new InstructionToken(TokenType.REG_DOUBLE, arg2.ToLowerInvariant(), regDoubleBytes[arg2]);
+                    }
                     else if (variableDict.ContainsKey(arg2))
                     {
                         arg2Token = new InstructionToken(TokenType.NUMBER, arg2, variableDict[arg2]);
@@ -398,7 +458,8 @@
                     {
                         arg2Token = new InstructionToken(TokenType.LABEL, arg2, 0);
                     }
-                    else if (isNumber(arg2)) arg2Token = new InstructionToken(TokenType.NUMBER, arg2, 0);
+                    else if (isNumber(arg2))
+                        arg2Token = new InstructionToken(TokenType.NUMBER, arg2, 0);
                     else
                     {
                         error = new CompError(lines[i], i + 1, ErrorMessage.UNKNOWN_ARGUMENT, arg2);
@@ -595,58 +656,72 @@
 
             #region Adding Data
 
-            for (int i = 0; i < lines.Length; i++)
+            for (int i = 0; i < tokenLines.Length; i++)
             {
                 #region If line is empty
 
-                if (lines[i].Equals(String.Empty)) continue;
+                if (tokenLines[i].Count == 0)
+                {
+                    continue;
+                }
 
                 #endregion If line is empty
 
                 #region If line is data field
 
-                else if (Regex.Match(lines[i], @"^([Dd][BbWw])").Success)
+                if (tokenLines[i][0].Type == Base.TokenType.Keyword_db
+                || tokenLines[i][0].Type == Base.TokenType.Keyword_dw)
                 {
-                    string identifier = lines[i].Substring(0, 2).ToLower();
-                    string[] argList = lines[i].Substring(2).Split(new Char[] { ',' });
-                    if (argList.Length > 0)
+                    int writeSize = 0;
+                    if (tokenLines[i][0].Type == Base.TokenType.Keyword_db)
                     {
-                        Dictionary<string, int> dataWordsDict = new Dictionary<string, int>
-                        {
-                            {"db", 1},
-                            {"dw", 2}
-                        };
-                        int dataSize = dataWordsDict[identifier];
-                        for (int dCount = 0; dCount < argList.Length; dCount++)
-                        {
-                            int varValue = -1;
-                            if (isNumber(argList[dCount]))
-                            {
-                                varValue = NumStringToInt(argList[dCount]);
-                            }
-                            else if (variableDict.ContainsKey(argList[dCount]))
-                            {
-                                varValue = variableDict[argList[dCount]];
-                            }
-                            else if (callDict.ContainsKey(argList[dCount]))
-                            {
-                                varValue = callDict[argList[dCount]];
-                            }
-                            else
-                            {
-                                error = new CompError(lines[i], i + 1, ErrorMessage.DATA_SINGLE_ARG_UNRECOGNIZED, argList[dCount]);
-                                return null;
-                            }
-                            for (int ds = 0; ds < dataSize; ds++)
-                            {
-                                returnedArray[returnedArrayOffset++] = (byte)(varValue >> (8 * ds));
-                            }
-                        }
+                        writeSize = 1;
                     }
                     else
                     {
-                        error = new CompError(lines[i], i + 1, ErrorMessage.DATA_ARGUMENTS_UNRECOGNIZED, lines[i]);
-                        return null;
+                        writeSize = 2;
+                    }
+                    int x = 1;
+                    while (x < tokenLines[i].Count)
+                    {
+                        if ((tokenLines[i][x].Type == Base.TokenType.Identifier
+                            || tokenLines[i][x].Type == Base.TokenType.Number)
+                            && (x == tokenLines[i].Count - 1 || tokenLines[i][x + 1].Type == Base.TokenType.Comma))
+                        {
+                            int vVal = -1;
+                            string arg = tokenLines[i][x].Lexeme.ToString();
+                            Base.TokenType type = tokenLines[i][x].Type;
+                            if (type == Base.TokenType.Number)
+                            {
+                                vVal = NumStringToInt(arg);
+                            }
+                            else if (variableDict.ContainsKey(arg))
+                            {
+                                vVal = variableDict[arg];
+                            }
+                            else
+                            {
+                                error = new CompError(lines[i], i + 1, ErrorMessage.DATA_SINGLE_ARG_UNRECOGNIZED, arg);
+                                return null;
+                            }
+                            for (int ds = 0; ds < writeSize; ds++)
+                            {
+                                returnedArray[returnedArrayOffset++] = (byte)(vVal >> (8 * ds));
+                            }
+                            if (++x == tokenLines[i].Count)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                x++;
+                            }
+                        }
+                        else
+                        {
+                            error = new CompError(lines[i], i + 1, ErrorMessage.DATA_ARGUMENTS_UNRECOGNIZED, lines[i]);
+                            return null;
+                        }
                     }
                 }
 
@@ -654,31 +729,35 @@
 
                 #region If line is instruction, or otherwise.
 
-                else
+                else if (tokenLines[i][0].Type.ToString().StartsWith("Keyword"))
                 {
-                    Match instMatch = Regex.Match(lines[i], @"^\s*(\w+)\s*(([\w\[\]\$\-]+)\s*(,\s*([\w\[\]\$\-]+))?)?");
-                    string inst = String.Empty;
-                    string arg1 = String.Empty;
-                    string arg2 = String.Empty;
-                    string instArgKey = String.Empty;
+                    string inst = tokenLines[i][0].Lexeme.ToString().ToLower();
+                    string arg1 = "";
+                    string arg2 = "";
+                    string instArgKey = "";
 
                     #region Assign arg strings.
 
-                    if (instMatch.Success)
+                    int curArg = 1;
+                    while (curArg < tokenLines[i].Count && tokenLines[i][curArg].Type != Base.TokenType.Comma)
                     {
-                        inst = instMatch.Groups[1].Value.ToLower();
-                        arg1 = instMatch.Groups[3].Value;
-                        arg2 = instMatch.Groups[5].Value;
-                        if (arithmeticArgs.Contains<string>(inst) && arg1.Equals("a", StringComparison.OrdinalIgnoreCase) && !arg2.Equals(String.Empty))
+                        arg1 += tokenLines[i][curArg].Lexeme.ToString().ToLower();
+                        curArg++;
+                    }
+                    if (curArg != tokenLines[i].Count)
+                    {
+                        curArg++;
+                        while (curArg < tokenLines[i].Count && tokenLines[i][curArg].Type != Base.TokenType.Comma)
                         {
-                            arg1 = arg2;
-                            arg2 = String.Empty;
+                            arg2 += tokenLines[i][curArg].Lexeme.ToString().ToLower();
+                            curArg++;
                         }
                     }
-                    else
+
+                    if (arithmeticArgs.Contains(inst) && arg1 == "a" && arg2 != "")
                     {
-                        error = new CompError(lines[i], i + 1, ErrorMessage.UNRECOGNIZED_LINE);
-                        return null;
+                        arg1 = arg2;
+                        arg2 = "";
                     }
 
                     #endregion Assign arg strings.
@@ -695,7 +774,7 @@
                         currentOffset += staticArgs[instArgKey].Length;
                         continue;
                     }
-                    else if (Regex.Match(instArgKey, @"srl [AaBbCcDdEeHhLl][AaBbCcDdEeHhLl],[1-7]").Success)
+                    else if (Regex.Match(instArgKey, @"srl [a-ehl][a-ehl],[1-7]", RegexOptions.IgnoreCase).Success)
                     {
                         byte[] b1 = staticArgs["srl " + arg1.Substring(0, 1).ToLower()];
                         byte[] b2 = staticArgs["rr " + arg1.Substring(1, 1).ToLower()];
@@ -721,7 +800,10 @@
 
                     #region Arg 1 Handling
 
-                    if (arg1.Equals(String.Empty)) arg1Token = new InstructionToken(TokenType.NONE, arg1);
+                    if (arg1.Equals(String.Empty))
+                    {
+                        arg1Token = new InstructionToken(TokenType.NONE, arg1);
+                    }
                     else if (isMemoryRef(arg1))
                     {
                         arg1 = arg1.Substring(1, arg1.Length - 2);
@@ -744,9 +826,12 @@
                             error = new CompError(lines[i], i + 1, ErrorMessage.UNKNOWN_MEMORY_REFERENCE, arg1);
                         }
                     }
-                    else if (isConditionalInst(inst) && conditionBytes.ContainsKey(arg1)) arg1Token = new InstructionToken(TokenType.CONDITION, arg1, conditionBytes[arg1]);
-                    else if (isRegSingle(arg1)) arg1Token = new InstructionToken(TokenType.REG_SINGLE, arg1.ToLowerInvariant(), regSingleBytes[arg1]);
-                    else if (isRegDouble(arg1)) arg1Token = new InstructionToken(TokenType.REG_DOUBLE, arg1.ToLowerInvariant(), regDoubleBytes[arg1]);
+                    else if (isConditionalInst(inst) && conditionBytes.ContainsKey(arg1))
+                        arg1Token = new InstructionToken(TokenType.CONDITION, arg1, conditionBytes[arg1]);
+                    else if (isRegSingle(arg1))
+                        arg1Token = new InstructionToken(TokenType.REG_SINGLE, arg1.ToLowerInvariant(), regSingleBytes[arg1]);
+                    else if (isRegDouble(arg1))
+                        arg1Token = new InstructionToken(TokenType.REG_DOUBLE, arg1.ToLowerInvariant(), regDoubleBytes[arg1]);
                     else if (callDict.ContainsKey(arg1))
                     {
                         int memLoc = callDict[arg1];
@@ -757,7 +842,8 @@
                     {
                         arg1Token = new InstructionToken(TokenType.NUMBER, arg1, variableDict[arg1]);
                     }
-                    else if (isNumber(arg1)) arg1Token = new InstructionToken(TokenType.NUMBER, arg1, NumStringToInt(arg1));
+                    else if (isNumber(arg1))
+                        arg1Token = new InstructionToken(TokenType.NUMBER, arg1, NumStringToInt(arg1));
                     else
                     {
                         error = new CompError(lines[i], i + 1, ErrorMessage.UNKNOWN_ARGUMENT, arg1);
@@ -767,7 +853,8 @@
 
                     #region Arg 2 Handling
 
-                    if (arg2.Equals(String.Empty)) arg2Token = new InstructionToken(TokenType.NONE, arg2);
+                    if (arg2.Equals(String.Empty))
+                        arg2Token = new InstructionToken(TokenType.NONE, arg2);
                     else if (isMemoryRef(arg2))
                     {
                         arg2 = arg2.Substring(1, arg2.Length - 2);
@@ -790,9 +877,12 @@
                             error = new CompError(lines[i], i + 1, ErrorMessage.UNKNOWN_MEMORY_REFERENCE, arg2);
                         }
                     }
-                    else if (isConditionalInst(inst) && conditionBytes.ContainsKey(arg2)) arg2Token = new InstructionToken(TokenType.CONDITION, arg2, conditionBytes[arg2]);
-                    else if (isRegSingle(arg2)) arg2Token = new InstructionToken(TokenType.REG_SINGLE, arg2.ToLowerInvariant(), regSingleBytes[arg2]);
-                    else if (isRegDouble(arg2)) arg2Token = new InstructionToken(TokenType.REG_DOUBLE, arg2.ToLowerInvariant(), regDoubleBytes[arg2]);
+                    else if (isConditionalInst(inst) && conditionBytes.ContainsKey(arg2))
+                        arg2Token = new InstructionToken(TokenType.CONDITION, arg2, conditionBytes[arg2]);
+                    else if (isRegSingle(arg2))
+                        arg2Token = new InstructionToken(TokenType.REG_SINGLE, arg2.ToLowerInvariant(), regSingleBytes[arg2]);
+                    else if (isRegDouble(arg2))
+                        arg2Token = new InstructionToken(TokenType.REG_DOUBLE, arg2.ToLowerInvariant(), regDoubleBytes[arg2]);
                     else if (callDict.ContainsKey(arg2))
                     {
                         int memLoc = callDict[arg2];
@@ -803,7 +893,8 @@
                     {
                         arg2Token = new InstructionToken(TokenType.NUMBER, arg2, variableDict[arg2]);
                     }
-                    else if (isNumber(arg2)) arg2Token = new InstructionToken(TokenType.NUMBER, arg2, NumStringToInt(arg2));
+                    else if (isNumber(arg2))
+                        arg2Token = new InstructionToken(TokenType.NUMBER, arg2, NumStringToInt(arg2));
                     else
                     {
                         error = new CompError(lines[i], i + 1, ErrorMessage.UNKNOWN_ARGUMENT, arg2);
@@ -1007,9 +1098,12 @@
                         else if ((inst.Equals("call", StringComparison.OrdinalIgnoreCase) || inst.Equals("jp", StringComparison.OrdinalIgnoreCase) || inst.Equals("jr", StringComparison.OrdinalIgnoreCase)) && arg1Token.specifier == TokenType.CONDITION && (arg2Token.specifier == TokenType.LABEL || arg2Token.specifier == TokenType.NUMBER))
                         {
                             byte instByte;
-                            if (inst.Equals("call", StringComparison.OrdinalIgnoreCase)) instByte = 0xC4;
-                            else if (inst.Equals("jp", StringComparison.OrdinalIgnoreCase)) instByte = 0xC2;
-                            else instByte = 0x20;
+                            if (inst.Equals("call", StringComparison.OrdinalIgnoreCase))
+                                instByte = 0xC4;
+                            else if (inst.Equals("jp", StringComparison.OrdinalIgnoreCase))
+                                instByte = 0xC2;
+                            else
+                                instByte = 0x20;
                             instByte += (byte)(8 * arg1Token.tokenAsInteger);
                             if (inst.Equals("jr", StringComparison.OrdinalIgnoreCase))
                             {
@@ -1061,12 +1155,6 @@
             success = true;
             return returnedArray;
         }
-
-        private static char[] commentChars = new char[2]
-        {
-                  ';',
-                  '#'
-        };
 
         #region Assembly Keywords
 
@@ -1550,7 +1638,7 @@
 
         #region Single Argument Instructions
 
-        static Dictionary<string, byte> singleIntArgBytes = new Dictionary<string, byte>
+        private static Dictionary<string, byte> singleIntArgBytes = new Dictionary<string, byte>
         {
             {"add", 0xC6},
             {"adc", 0xCE},
@@ -1569,7 +1657,7 @@
 
         #region Two Argument Instructions
 
-        static string[] doubleArgumentInst = new string[]
+        private static string[] doubleArgumentInst = new string[]
         {
             "add",
             "call",
@@ -1583,7 +1671,7 @@
 
         #region Register Identification
 
-        static Dictionary<string, byte> regSingleBytes = new Dictionary<string, byte>
+        private static Dictionary<string, byte> regSingleBytes = new Dictionary<string, byte>
         {
             {"b", 0},
             {"c", 1},
@@ -1595,7 +1683,7 @@
             {"a", 7}
         };
 
-        static Dictionary<string, byte> conditionBytes = new Dictionary<string, byte>
+        private static Dictionary<string, byte> conditionBytes = new Dictionary<string, byte>
         {
             {"nz", 0},
             {"z", 1},
@@ -1603,7 +1691,7 @@
             {"c", 3}
         };
 
-        static Dictionary<string, byte> regDoubleBytes = new Dictionary<string, byte>
+        private static Dictionary<string, byte> regDoubleBytes = new Dictionary<string, byte>
         {
             {"bc", 0},
             {"de", 1},
@@ -1616,8 +1704,8 @@
 
         public enum TokenType
         {
-            EQUAL, 
-            COMMA, 
+            EQUAL,
+            COMMA,
             CONDITION,
             INSTRUCTION,
             LABEL,

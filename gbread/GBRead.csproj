@@ -73,12 +73,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Patch\BPS\BPS.cs" />
     <Compile Include="ASM\GBInstructions.cs" />
     <Compile Include="ASM\InstructionUnit.cs" />
     <Compile Include="ASM\LibGBasm.cs" />
     <Compile Include="Base\CRC32.cs" />
     <Compile Include="Base\GBImage.cs" />
+    <Compile Include="Base\Token.cs" />
+    <Compile Include="Base\Tokenizer.cs" />
     <Compile Include="Base\Utility.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="Base\GBBinFile.cs" />
@@ -167,7 +168,6 @@
     <Compile Include="Forms\InsertCodeForm.Designer.cs">
       <DependentUpon>InsertCodeForm.cs</DependentUpon>
     </Compile>
-    <None Include="Patch\IPS\IPS.cs" />
     <Compile Include="Forms\OptionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +254,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

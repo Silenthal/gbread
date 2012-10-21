@@ -198,8 +198,8 @@
             this.insertASMAtLocationToolStripMenuItem,
             this.insertExternalBinaryAtLocationToolStripMenuItem});
             this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
-            this.insertToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.insertToolStripMenuItem.Text = "&Insert";
+            this.insertToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.insertToolStripMenuItem.Text = "&Edit";
             // 
             // insertASMAtLocationToolStripMenuItem
             // 

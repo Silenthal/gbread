@@ -59,6 +59,11 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr.Runtime">
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)Lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -72,14 +77,19 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <Compile Include="ASM\GBInstructions.cs" />
     <Compile Include="ASM\InstructionUnit.cs" />
     <Compile Include="ASM\LibGBasm.cs" />
+    <Compile Include="Base\CaseInsensitiveStringStream.cs" />
+    <Compile Include="Base\CodeGenerator.cs" />
     <Compile Include="Base\CRC32.cs" />
     <Compile Include="Base\GBImage.cs" />
-    <Compile Include="Base\Token.cs" />
-    <Compile Include="Base\Tokenizer.cs" />
+    <Compile Include="Base\GBXErrInfo.cs" />
+    <Compile Include="Base\GBXLexer.cs" />
+    <Compile Include="Base\GBXParser.cs" />
     <Compile Include="Base\Utility.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="Base\GBBinFile.cs" />
@@ -256,6 +266,10 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>mkdir "$(TargetDir)Lib"
+xcopy /R /y "$(SolutionDir)Lib\*.dll" "$(TargetDir)Lib\"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

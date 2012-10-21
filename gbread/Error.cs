@@ -7,6 +7,7 @@ namespace GBRead
     //Note: work on a proper error class.
     public enum ErrorMessage
     {
+        NO_ERROR,
         DATA_ARGUMENTS_UNRECOGNIZED, 
         DATA_SINGLE_ARG_UNRECOGNIZED, 
         DOUBLE_ARG_UNRECOGNIZED, 
@@ -35,17 +36,13 @@ namespace GBRead
         LENGTH_IS_INVALID, 
         ROW_LENGTH_IS_INVALID,
         VARIABLE_IS_INVALID,
-        LabelShouldBeFirst,
-        ImproperVariableAssignment, 
-        TokenNotRecognized,
-        MemoryMapContainsInvalidArgs,
-        ArgumentListInvalid,
-        SyntaxError,
+        CUSTOM,
     }
 
     public struct CompError
     {
         public int lineNumber;
+        public int characterNumber;
         public ErrorMessage errorMessage;
         public string extraInfo1;
         public string extraInfo2;
@@ -53,6 +50,7 @@ namespace GBRead
         public CompError(string fLine, int lNum, ErrorMessage cError, string eInfo1 = "", string eInfo2 = "")
         {
             lineNumber = lNum;
+            characterNumber = 0;
             errorMessage = cError;
             extraInfo1 = eInfo1;
             extraInfo2 = eInfo2;
@@ -91,12 +89,7 @@ namespace GBRead
             {ErrorMessage.OFFSET_IS_INVALID,            "The offset is invalid."}, 
             {ErrorMessage.LENGTH_IS_INVALID,            "The length is invalid."}, 
             {ErrorMessage.VARIABLE_IS_INVALID,          "The value is invalid."},
-            {ErrorMessage.LabelShouldBeFirst,           "The label ({0}) on this line is not the first work is misplaced."},
-            {ErrorMessage.ImproperVariableAssignment,   "There is an improper variable assignment on this line."},
-            {ErrorMessage.TokenNotRecognized,           "The word ({0}) was not recognized."},
-            {ErrorMessage.MemoryMapContainsInvalidArgs, "The memory map contains invalid arguments."},
-            {ErrorMessage.ArgumentListInvalid,          "Arguments should follow instructions and be separated by commas if there is more than one."},
-            {ErrorMessage.SyntaxError,                  "This line contains an unknown syntax error."},
+            {ErrorMessage.CUSTOM,                       "{0}"},
         };
         public static void ShowErrorMessage(ErrorMessage errorOptions)
         {
@@ -104,7 +97,7 @@ namespace GBRead
         }
         public static void ShowErrorMessage(CompError c)
         {
-            string errorMessage = "Line " + c.lineNumber + ": " + c.fullLine + Environment.NewLine;
+            string errorMessage = "Line " + c.lineNumber + ", Char " + c.characterNumber + ": " + c.fullLine + Environment.NewLine;
             errorMessage += String.Format(ErrorMessages[c.errorMessage], c.extraInfo1, c.extraInfo2);
             MessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK);
         }

@@ -22,7 +22,6 @@
         {
         }
 
-        // Only the lookahead is converted to lowercase. The original case is preserved in the stream.
         public override int LA(int i)
         {
             if (i == 0)
@@ -40,7 +39,7 @@
                 return (int)CharStreamConstants.EndOfFile;
             }
 
-            return Char.ToLowerInvariant(data[(p + i) - 1]); // This is how "case insensitive" is defined, i.e., could also use a special culture...
+            return Char.ToLowerInvariant(data[(p + i) - 1]);
         }
     }
 }

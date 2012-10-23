@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.4 GBX.g 2012-10-20 22:49:39
+// $ANTLR 3.4 GBX.g 2012-10-23 10:18:08
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -24,18 +24,17 @@
 
 #pragma warning disable 3021
 
-
-
 namespace GBRead.Base
 {
-    using Antlr.Runtime;
     using System.Collections.Generic;
+    using Antlr.Runtime;
+
     [System.CodeDom.Compiler.GeneratedCode("ANTLR", "3.4")]
     [System.CLSCompliant(false)]
     public partial class GBXLexer : Antlr.Runtime.Lexer
     {
         public const int EOF = -1;
-        public const int T__145 = 145;
+        public const int T__146 = 146;
         public const int AMP_MARK = 4;
         public const int ASSIGNMENT = 5;
         public const int BANG_MARK = 6;
@@ -60,123 +59,124 @@ namespace GBRead.Base
         public const int DD = 25;
         public const int DQ = 26;
         public const int DW = 27;
-        public const int EQUAL_MARK = 28;
-        public const int EQUIV_MARK = 29;
-        public const int ESC_SEQ = 30;
-        public const int EXPORT = 31;
-        public const int EXPRESSION = 32;
-        public const int FSLASH_MARK = 33;
-        public const int GLOBAL = 34;
-        public const int GLOBAL_LABEL = 35;
-        public const int GTE_MARK = 36;
-        public const int GT_MARK = 37;
-        public const int HEX_DIGIT = 38;
-        public const int HEX_NUMBER = 39;
-        public const int HOME = 40;
-        public const int ID = 41;
-        public const int IMPORT = 42;
-        public const int INCBIN = 43;
-        public const int INCLUDE = 44;
-        public const int INST_ADC = 45;
-        public const int INST_ADD = 46;
-        public const int INST_AND = 47;
-        public const int INST_BIT = 48;
-        public const int INST_CALL = 49;
-        public const int INST_CCF = 50;
-        public const int INST_CP = 51;
-        public const int INST_CPL = 52;
-        public const int INST_DAA = 53;
-        public const int INST_DEC = 54;
-        public const int INST_DI = 55;
-        public const int INST_EI = 56;
-        public const int INST_HALT = 57;
-        public const int INST_INC = 58;
-        public const int INST_JP = 59;
-        public const int INST_JR = 60;
-        public const int INST_LD = 61;
-        public const int INST_LDD = 62;
-        public const int INST_LDHL = 63;
-        public const int INST_LDI = 64;
-        public const int INST_LDIO = 65;
-        public const int INST_NOP = 66;
-        public const int INST_OR = 67;
-        public const int INST_POP = 68;
-        public const int INST_PUSH = 69;
-        public const int INST_RES = 70;
-        public const int INST_RET = 71;
-        public const int INST_RETI = 72;
-        public const int INST_RL = 73;
-        public const int INST_RLA = 74;
-        public const int INST_RLC = 75;
-        public const int INST_RLCA = 76;
-        public const int INST_RR = 77;
-        public const int INST_RRA = 78;
-        public const int INST_RRC = 79;
-        public const int INST_RRCA = 80;
-        public const int INST_RST = 81;
-        public const int INST_SBC = 82;
-        public const int INST_SCF = 83;
-        public const int INST_SET = 84;
-        public const int INST_SLA = 85;
-        public const int INST_SRA = 86;
-        public const int INST_SRL = 87;
-        public const int INST_STOP = 88;
-        public const int INST_SUB = 89;
-        public const int INST_SWAP = 90;
-        public const int INST_XOR = 91;
-        public const int INT = 92;
-        public const int LABEL = 93;
-        public const int LEFT_BRACKET = 94;
-        public const int LEFT_PARENS = 95;
-        public const int LOCAL_LABEL = 96;
-        public const int LSHIFT_MARK = 97;
-        public const int LTE_MARK = 98;
-        public const int LT_MARK = 99;
-        public const int MEM_REF = 100;
-        public const int MINUS_MARK = 101;
-        public const int NUMBER = 102;
-        public const int OCTAL_ESC = 103;
-        public const int OCT_DIGIT = 104;
-        public const int OCT_NUMBER = 105;
-        public const int ORG = 106;
-        public const int PERCENT_MARK = 107;
-        public const int PLUS_MARK = 108;
-        public const int POUND_MARK = 109;
-        public const int QUEST_MARK = 110;
-        public const int REG_A = 111;
-        public const int REG_B = 112;
-        public const int REG_C = 113;
-        public const int REG_D = 114;
-        public const int REG_E = 115;
-        public const int REG_H = 116;
-        public const int REG_L = 117;
-        public const int RIGHT_BRACKET = 118;
-        public const int RIGHT_PARENS = 119;
-        public const int ROOT = 120;
-        public const int RR_AF = 121;
-        public const int RR_BC = 122;
-        public const int RR_DE = 123;
-        public const int RR_HL = 124;
-        public const int RR_REF_BC = 125;
-        public const int RR_REF_C = 126;
-        public const int RR_REF_DE = 127;
-        public const int RR_REF_HL = 128;
-        public const int RR_SP = 129;
-        public const int RSHIFT_MARK = 130;
-        public const int SECTION = 131;
-        public const int SEMI_MARK = 132;
-        public const int STAR_MARK = 133;
-        public const int STATEMENT = 134;
-        public const int STRING = 135;
-        public const int TILDE_MARK = 136;
-        public const int TIMES = 137;
-        public const int UNARY_OP = 138;
-        public const int UNDERSCORE_MARK = 139;
-        public const int UNICODE_ESC = 140;
-        public const int VAR = 141;
-        public const int WS = 142;
-        public const int XDEF = 143;
-        public const int XREF = 144;
+        public const int EQU = 28;
+        public const int EQUAL_MARK = 29;
+        public const int EQUIV_MARK = 30;
+        public const int ESC_SEQ = 31;
+        public const int EXPORT = 32;
+        public const int EXPRESSION = 33;
+        public const int FSLASH_MARK = 34;
+        public const int GLOBAL = 35;
+        public const int GLOBAL_LABEL = 36;
+        public const int GTE_MARK = 37;
+        public const int GT_MARK = 38;
+        public const int HEX_DIGIT = 39;
+        public const int HEX_NUMBER = 40;
+        public const int HOME = 41;
+        public const int ID = 42;
+        public const int IMPORT = 43;
+        public const int INCBIN = 44;
+        public const int INCLUDE = 45;
+        public const int INST_ADC = 46;
+        public const int INST_ADD = 47;
+        public const int INST_AND = 48;
+        public const int INST_BIT = 49;
+        public const int INST_CALL = 50;
+        public const int INST_CCF = 51;
+        public const int INST_CP = 52;
+        public const int INST_CPL = 53;
+        public const int INST_DAA = 54;
+        public const int INST_DEC = 55;
+        public const int INST_DI = 56;
+        public const int INST_EI = 57;
+        public const int INST_HALT = 58;
+        public const int INST_INC = 59;
+        public const int INST_JP = 60;
+        public const int INST_JR = 61;
+        public const int INST_LD = 62;
+        public const int INST_LDD = 63;
+        public const int INST_LDHL = 64;
+        public const int INST_LDI = 65;
+        public const int INST_LDIO = 66;
+        public const int INST_NOP = 67;
+        public const int INST_OR = 68;
+        public const int INST_POP = 69;
+        public const int INST_PUSH = 70;
+        public const int INST_RES = 71;
+        public const int INST_RET = 72;
+        public const int INST_RETI = 73;
+        public const int INST_RL = 74;
+        public const int INST_RLA = 75;
+        public const int INST_RLC = 76;
+        public const int INST_RLCA = 77;
+        public const int INST_RR = 78;
+        public const int INST_RRA = 79;
+        public const int INST_RRC = 80;
+        public const int INST_RRCA = 81;
+        public const int INST_RST = 82;
+        public const int INST_SBC = 83;
+        public const int INST_SCF = 84;
+        public const int INST_SET = 85;
+        public const int INST_SLA = 86;
+        public const int INST_SRA = 87;
+        public const int INST_SRL = 88;
+        public const int INST_STOP = 89;
+        public const int INST_SUB = 90;
+        public const int INST_SWAP = 91;
+        public const int INST_XOR = 92;
+        public const int INT = 93;
+        public const int LABEL = 94;
+        public const int LEFT_BRACKET = 95;
+        public const int LEFT_PARENS = 96;
+        public const int LOCAL_LABEL = 97;
+        public const int LSHIFT_MARK = 98;
+        public const int LTE_MARK = 99;
+        public const int LT_MARK = 100;
+        public const int MEM_REF = 101;
+        public const int MINUS_MARK = 102;
+        public const int NUMBER = 103;
+        public const int OCTAL_ESC = 104;
+        public const int OCT_DIGIT = 105;
+        public const int OCT_NUMBER = 106;
+        public const int ORG = 107;
+        public const int PERCENT_MARK = 108;
+        public const int PLUS_MARK = 109;
+        public const int POUND_MARK = 110;
+        public const int QUEST_MARK = 111;
+        public const int REG_A = 112;
+        public const int REG_B = 113;
+        public const int REG_C = 114;
+        public const int REG_D = 115;
+        public const int REG_E = 116;
+        public const int REG_H = 117;
+        public const int REG_L = 118;
+        public const int RIGHT_BRACKET = 119;
+        public const int RIGHT_PARENS = 120;
+        public const int ROOT = 121;
+        public const int RR_AF = 122;
+        public const int RR_BC = 123;
+        public const int RR_DE = 124;
+        public const int RR_HL = 125;
+        public const int RR_REF_BC = 126;
+        public const int RR_REF_C = 127;
+        public const int RR_REF_DE = 128;
+        public const int RR_REF_HL = 129;
+        public const int RR_SP = 130;
+        public const int RSHIFT_MARK = 131;
+        public const int SECTION = 132;
+        public const int SEMI_MARK = 133;
+        public const int STAR_MARK = 134;
+        public const int STATEMENT = 135;
+        public const int STRING = 136;
+        public const int TILDE_MARK = 137;
+        public const int TIMES = 138;
+        public const int UNARY_OP = 139;
+        public const int UNDERSCORE_MARK = 140;
+        public const int UNICODE_ESC = 141;
+        public const int VAR = 142;
+        public const int WS = 143;
+        public const int XDEF = 144;
+        public const int XREF = 145;
 
         private List<ErrInfo> Errors = new List<ErrInfo>();
 
@@ -219,19 +219,19 @@ namespace GBRead.Base
         partial void EnterRule(string ruleName, int ruleIndex);
         partial void LeaveRule(string ruleName, int ruleIndex);
 
-        partial void EnterRule_T__145();
-        partial void LeaveRule_T__145();
+        partial void EnterRule_T__146();
+        partial void LeaveRule_T__146();
 
-        // $ANTLR start "T__145"
-        [GrammarRule("T__145")]
-        private void mT__145()
+        // $ANTLR start "T__146"
+        [GrammarRule("T__146")]
+        private void mT__146()
         {
-            EnterRule_T__145();
-            EnterRule("T__145", 1);
-            TraceIn("T__145", 1);
+            EnterRule_T__146();
+            EnterRule("T__146", 1);
+            TraceIn("T__146", 1);
             try
             {
-                int _type = T__145;
+                int _type = T__146;
                 int _channel = DefaultTokenChannel;
                 // GBX.g:25:8: ( '.' )
                 DebugEnterAlt(1);
@@ -247,12 +247,12 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("T__145", 1);
-                LeaveRule("T__145", 1);
-                LeaveRule_T__145();
+                TraceOut("T__146", 1);
+                LeaveRule("T__146", 1);
+                LeaveRule_T__146();
             }
         }
-        // $ANTLR end "T__145"
+        // $ANTLR end "T__146"
 
         partial void EnterRule_SECTION();
         partial void LeaveRule_SECTION();
@@ -902,6 +902,42 @@ namespace GBRead.Base
         }
         // $ANTLR end "TIMES"
 
+        partial void EnterRule_EQU();
+        partial void LeaveRule_EQU();
+
+        // $ANTLR start "EQU"
+        [GrammarRule("EQU")]
+        private void mEQU()
+        {
+            EnterRule_EQU();
+            EnterRule("EQU", 20);
+            TraceIn("EQU", 20);
+            try
+            {
+                int _type = EQU;
+                int _channel = DefaultTokenChannel;
+                // GBX.g:239:8: ( 'equ' )
+                DebugEnterAlt(1);
+                // GBX.g:239:10: 'equ'
+                {
+                    DebugLocation(239, 10);
+                    Match("equ");
+
+
+                }
+
+                state.type = _type;
+                state.channel = _channel;
+            }
+            finally
+            {
+                TraceOut("EQU", 20);
+                LeaveRule("EQU", 20);
+                LeaveRule_EQU();
+            }
+        }
+        // $ANTLR end "EQU"
+
         partial void EnterRule_INST_ADC();
         partial void LeaveRule_INST_ADC();
 
@@ -910,17 +946,17 @@ namespace GBRead.Base
         private void mINST_ADC()
         {
             EnterRule_INST_ADC();
-            EnterRule("INST_ADC", 20);
-            TraceIn("INST_ADC", 20);
+            EnterRule("INST_ADC", 21);
+            TraceIn("INST_ADC", 21);
             try
             {
                 int _type = INST_ADC;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:240:11: ( 'adc' )
+                // GBX.g:241:11: ( 'adc' )
                 DebugEnterAlt(1);
-                // GBX.g:240:13: 'adc'
+                // GBX.g:241:13: 'adc'
                 {
-                    DebugLocation(240, 13);
+                    DebugLocation(241, 13);
                     Match("adc");
 
 
@@ -931,8 +967,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_ADC", 20);
-                LeaveRule("INST_ADC", 20);
+                TraceOut("INST_ADC", 21);
+                LeaveRule("INST_ADC", 21);
                 LeaveRule_INST_ADC();
             }
         }
@@ -946,17 +982,17 @@ namespace GBRead.Base
         private void mINST_ADD()
         {
             EnterRule_INST_ADD();
-            EnterRule("INST_ADD", 21);
-            TraceIn("INST_ADD", 21);
+            EnterRule("INST_ADD", 22);
+            TraceIn("INST_ADD", 22);
             try
             {
                 int _type = INST_ADD;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:241:11: ( 'add' )
+                // GBX.g:242:11: ( 'add' )
                 DebugEnterAlt(1);
-                // GBX.g:241:13: 'add'
+                // GBX.g:242:13: 'add'
                 {
-                    DebugLocation(241, 13);
+                    DebugLocation(242, 13);
                     Match("add");
 
 
@@ -967,8 +1003,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_ADD", 21);
-                LeaveRule("INST_ADD", 21);
+                TraceOut("INST_ADD", 22);
+                LeaveRule("INST_ADD", 22);
                 LeaveRule_INST_ADD();
             }
         }
@@ -982,17 +1018,17 @@ namespace GBRead.Base
         private void mINST_AND()
         {
             EnterRule_INST_AND();
-            EnterRule("INST_AND", 22);
-            TraceIn("INST_AND", 22);
+            EnterRule("INST_AND", 23);
+            TraceIn("INST_AND", 23);
             try
             {
                 int _type = INST_AND;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:242:11: ( 'and' )
+                // GBX.g:243:11: ( 'and' )
                 DebugEnterAlt(1);
-                // GBX.g:242:13: 'and'
+                // GBX.g:243:13: 'and'
                 {
-                    DebugLocation(242, 13);
+                    DebugLocation(243, 13);
                     Match("and");
 
 
@@ -1003,8 +1039,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_AND", 22);
-                LeaveRule("INST_AND", 22);
+                TraceOut("INST_AND", 23);
+                LeaveRule("INST_AND", 23);
                 LeaveRule_INST_AND();
             }
         }
@@ -1018,17 +1054,17 @@ namespace GBRead.Base
         private void mINST_BIT()
         {
             EnterRule_INST_BIT();
-            EnterRule("INST_BIT", 23);
-            TraceIn("INST_BIT", 23);
+            EnterRule("INST_BIT", 24);
+            TraceIn("INST_BIT", 24);
             try
             {
                 int _type = INST_BIT;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:243:11: ( 'bit' )
+                // GBX.g:244:11: ( 'bit' )
                 DebugEnterAlt(1);
-                // GBX.g:243:13: 'bit'
+                // GBX.g:244:13: 'bit'
                 {
-                    DebugLocation(243, 13);
+                    DebugLocation(244, 13);
                     Match("bit");
 
 
@@ -1039,8 +1075,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_BIT", 23);
-                LeaveRule("INST_BIT", 23);
+                TraceOut("INST_BIT", 24);
+                LeaveRule("INST_BIT", 24);
                 LeaveRule_INST_BIT();
             }
         }
@@ -1054,17 +1090,17 @@ namespace GBRead.Base
         private void mINST_CALL()
         {
             EnterRule_INST_CALL();
-            EnterRule("INST_CALL", 24);
-            TraceIn("INST_CALL", 24);
+            EnterRule("INST_CALL", 25);
+            TraceIn("INST_CALL", 25);
             try
             {
                 int _type = INST_CALL;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:244:12: ( 'call' )
+                // GBX.g:245:12: ( 'call' )
                 DebugEnterAlt(1);
-                // GBX.g:244:14: 'call'
+                // GBX.g:245:14: 'call'
                 {
-                    DebugLocation(244, 14);
+                    DebugLocation(245, 14);
                     Match("call");
 
 
@@ -1075,8 +1111,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_CALL", 24);
-                LeaveRule("INST_CALL", 24);
+                TraceOut("INST_CALL", 25);
+                LeaveRule("INST_CALL", 25);
                 LeaveRule_INST_CALL();
             }
         }
@@ -1090,17 +1126,17 @@ namespace GBRead.Base
         private void mINST_CCF()
         {
             EnterRule_INST_CCF();
-            EnterRule("INST_CCF", 25);
-            TraceIn("INST_CCF", 25);
+            EnterRule("INST_CCF", 26);
+            TraceIn("INST_CCF", 26);
             try
             {
                 int _type = INST_CCF;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:245:11: ( 'ccf' )
+                // GBX.g:246:11: ( 'ccf' )
                 DebugEnterAlt(1);
-                // GBX.g:245:13: 'ccf'
+                // GBX.g:246:13: 'ccf'
                 {
-                    DebugLocation(245, 13);
+                    DebugLocation(246, 13);
                     Match("ccf");
 
 
@@ -1111,8 +1147,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_CCF", 25);
-                LeaveRule("INST_CCF", 25);
+                TraceOut("INST_CCF", 26);
+                LeaveRule("INST_CCF", 26);
                 LeaveRule_INST_CCF();
             }
         }
@@ -1126,17 +1162,17 @@ namespace GBRead.Base
         private void mINST_CP()
         {
             EnterRule_INST_CP();
-            EnterRule("INST_CP", 26);
-            TraceIn("INST_CP", 26);
+            EnterRule("INST_CP", 27);
+            TraceIn("INST_CP", 27);
             try
             {
                 int _type = INST_CP;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:246:11: ( 'cp' )
+                // GBX.g:247:11: ( 'cp' )
                 DebugEnterAlt(1);
-                // GBX.g:246:13: 'cp'
+                // GBX.g:247:13: 'cp'
                 {
-                    DebugLocation(246, 13);
+                    DebugLocation(247, 13);
                     Match("cp");
 
 
@@ -1147,8 +1183,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_CP", 26);
-                LeaveRule("INST_CP", 26);
+                TraceOut("INST_CP", 27);
+                LeaveRule("INST_CP", 27);
                 LeaveRule_INST_CP();
             }
         }
@@ -1162,17 +1198,17 @@ namespace GBRead.Base
         private void mINST_CPL()
         {
             EnterRule_INST_CPL();
-            EnterRule("INST_CPL", 27);
-            TraceIn("INST_CPL", 27);
+            EnterRule("INST_CPL", 28);
+            TraceIn("INST_CPL", 28);
             try
             {
                 int _type = INST_CPL;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:247:11: ( 'cpl' )
+                // GBX.g:248:11: ( 'cpl' )
                 DebugEnterAlt(1);
-                // GBX.g:247:13: 'cpl'
+                // GBX.g:248:13: 'cpl'
                 {
-                    DebugLocation(247, 13);
+                    DebugLocation(248, 13);
                     Match("cpl");
 
 
@@ -1183,8 +1219,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_CPL", 27);
-                LeaveRule("INST_CPL", 27);
+                TraceOut("INST_CPL", 28);
+                LeaveRule("INST_CPL", 28);
                 LeaveRule_INST_CPL();
             }
         }
@@ -1198,17 +1234,17 @@ namespace GBRead.Base
         private void mINST_DAA()
         {
             EnterRule_INST_DAA();
-            EnterRule("INST_DAA", 28);
-            TraceIn("INST_DAA", 28);
+            EnterRule("INST_DAA", 29);
+            TraceIn("INST_DAA", 29);
             try
             {
                 int _type = INST_DAA;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:248:11: ( 'daa' )
+                // GBX.g:249:11: ( 'daa' )
                 DebugEnterAlt(1);
-                // GBX.g:248:13: 'daa'
+                // GBX.g:249:13: 'daa'
                 {
-                    DebugLocation(248, 13);
+                    DebugLocation(249, 13);
                     Match("daa");
 
 
@@ -1219,8 +1255,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_DAA", 28);
-                LeaveRule("INST_DAA", 28);
+                TraceOut("INST_DAA", 29);
+                LeaveRule("INST_DAA", 29);
                 LeaveRule_INST_DAA();
             }
         }
@@ -1234,17 +1270,17 @@ namespace GBRead.Base
         private void mINST_DEC()
         {
             EnterRule_INST_DEC();
-            EnterRule("INST_DEC", 29);
-            TraceIn("INST_DEC", 29);
+            EnterRule("INST_DEC", 30);
+            TraceIn("INST_DEC", 30);
             try
             {
                 int _type = INST_DEC;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:249:11: ( 'dec' )
+                // GBX.g:250:11: ( 'dec' )
                 DebugEnterAlt(1);
-                // GBX.g:249:13: 'dec'
+                // GBX.g:250:13: 'dec'
                 {
-                    DebugLocation(249, 13);
+                    DebugLocation(250, 13);
                     Match("dec");
 
 
@@ -1255,8 +1291,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_DEC", 29);
-                LeaveRule("INST_DEC", 29);
+                TraceOut("INST_DEC", 30);
+                LeaveRule("INST_DEC", 30);
                 LeaveRule_INST_DEC();
             }
         }
@@ -1270,17 +1306,17 @@ namespace GBRead.Base
         private void mINST_DI()
         {
             EnterRule_INST_DI();
-            EnterRule("INST_DI", 30);
-            TraceIn("INST_DI", 30);
+            EnterRule("INST_DI", 31);
+            TraceIn("INST_DI", 31);
             try
             {
                 int _type = INST_DI;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:250:11: ( 'di' )
+                // GBX.g:251:11: ( 'di' )
                 DebugEnterAlt(1);
-                // GBX.g:250:13: 'di'
+                // GBX.g:251:13: 'di'
                 {
-                    DebugLocation(250, 13);
+                    DebugLocation(251, 13);
                     Match("di");
 
 
@@ -1291,8 +1327,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_DI", 30);
-                LeaveRule("INST_DI", 30);
+                TraceOut("INST_DI", 31);
+                LeaveRule("INST_DI", 31);
                 LeaveRule_INST_DI();
             }
         }
@@ -1306,17 +1342,17 @@ namespace GBRead.Base
         private void mINST_EI()
         {
             EnterRule_INST_EI();
-            EnterRule("INST_EI", 31);
-            TraceIn("INST_EI", 31);
+            EnterRule("INST_EI", 32);
+            TraceIn("INST_EI", 32);
             try
             {
                 int _type = INST_EI;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:251:11: ( 'ei' )
+                // GBX.g:252:11: ( 'ei' )
                 DebugEnterAlt(1);
-                // GBX.g:251:13: 'ei'
+                // GBX.g:252:13: 'ei'
                 {
-                    DebugLocation(251, 13);
+                    DebugLocation(252, 13);
                     Match("ei");
 
 
@@ -1327,8 +1363,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_EI", 31);
-                LeaveRule("INST_EI", 31);
+                TraceOut("INST_EI", 32);
+                LeaveRule("INST_EI", 32);
                 LeaveRule_INST_EI();
             }
         }
@@ -1342,17 +1378,17 @@ namespace GBRead.Base
         private void mINST_HALT()
         {
             EnterRule_INST_HALT();
-            EnterRule("INST_HALT", 32);
-            TraceIn("INST_HALT", 32);
+            EnterRule("INST_HALT", 33);
+            TraceIn("INST_HALT", 33);
             try
             {
                 int _type = INST_HALT;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:252:12: ( 'halt' )
+                // GBX.g:253:12: ( 'halt' )
                 DebugEnterAlt(1);
-                // GBX.g:252:14: 'halt'
+                // GBX.g:253:14: 'halt'
                 {
-                    DebugLocation(252, 14);
+                    DebugLocation(253, 14);
                     Match("halt");
 
 
@@ -1363,8 +1399,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_HALT", 32);
-                LeaveRule("INST_HALT", 32);
+                TraceOut("INST_HALT", 33);
+                LeaveRule("INST_HALT", 33);
                 LeaveRule_INST_HALT();
             }
         }
@@ -1378,17 +1414,17 @@ namespace GBRead.Base
         private void mINST_INC()
         {
             EnterRule_INST_INC();
-            EnterRule("INST_INC", 33);
-            TraceIn("INST_INC", 33);
+            EnterRule("INST_INC", 34);
+            TraceIn("INST_INC", 34);
             try
             {
                 int _type = INST_INC;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:253:11: ( 'inc' )
+                // GBX.g:254:11: ( 'inc' )
                 DebugEnterAlt(1);
-                // GBX.g:253:13: 'inc'
+                // GBX.g:254:13: 'inc'
                 {
-                    DebugLocation(253, 13);
+                    DebugLocation(254, 13);
                     Match("inc");
 
 
@@ -1399,8 +1435,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_INC", 33);
-                LeaveRule("INST_INC", 33);
+                TraceOut("INST_INC", 34);
+                LeaveRule("INST_INC", 34);
                 LeaveRule_INST_INC();
             }
         }
@@ -1414,17 +1450,17 @@ namespace GBRead.Base
         private void mINST_JP()
         {
             EnterRule_INST_JP();
-            EnterRule("INST_JP", 34);
-            TraceIn("INST_JP", 34);
+            EnterRule("INST_JP", 35);
+            TraceIn("INST_JP", 35);
             try
             {
                 int _type = INST_JP;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:254:11: ( 'jp' )
+                // GBX.g:255:11: ( 'jp' )
                 DebugEnterAlt(1);
-                // GBX.g:254:13: 'jp'
+                // GBX.g:255:13: 'jp'
                 {
-                    DebugLocation(254, 13);
+                    DebugLocation(255, 13);
                     Match("jp");
 
 
@@ -1435,8 +1471,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_JP", 34);
-                LeaveRule("INST_JP", 34);
+                TraceOut("INST_JP", 35);
+                LeaveRule("INST_JP", 35);
                 LeaveRule_INST_JP();
             }
         }
@@ -1450,17 +1486,17 @@ namespace GBRead.Base
         private void mINST_JR()
         {
             EnterRule_INST_JR();
-            EnterRule("INST_JR", 35);
-            TraceIn("INST_JR", 35);
+            EnterRule("INST_JR", 36);
+            TraceIn("INST_JR", 36);
             try
             {
                 int _type = INST_JR;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:255:11: ( 'jr' )
+                // GBX.g:256:11: ( 'jr' )
                 DebugEnterAlt(1);
-                // GBX.g:255:13: 'jr'
+                // GBX.g:256:13: 'jr'
                 {
-                    DebugLocation(255, 13);
+                    DebugLocation(256, 13);
                     Match("jr");
 
 
@@ -1471,8 +1507,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_JR", 35);
-                LeaveRule("INST_JR", 35);
+                TraceOut("INST_JR", 36);
+                LeaveRule("INST_JR", 36);
                 LeaveRule_INST_JR();
             }
         }
@@ -1486,17 +1522,17 @@ namespace GBRead.Base
         private void mINST_LDHL()
         {
             EnterRule_INST_LDHL();
-            EnterRule("INST_LDHL", 36);
-            TraceIn("INST_LDHL", 36);
+            EnterRule("INST_LDHL", 37);
+            TraceIn("INST_LDHL", 37);
             try
             {
                 int _type = INST_LDHL;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:256:12: ( 'ldhl' )
+                // GBX.g:257:12: ( 'ldhl' )
                 DebugEnterAlt(1);
-                // GBX.g:256:14: 'ldhl'
+                // GBX.g:257:14: 'ldhl'
                 {
-                    DebugLocation(256, 14);
+                    DebugLocation(257, 14);
                     Match("ldhl");
 
 
@@ -1507,8 +1543,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_LDHL", 36);
-                LeaveRule("INST_LDHL", 36);
+                TraceOut("INST_LDHL", 37);
+                LeaveRule("INST_LDHL", 37);
                 LeaveRule_INST_LDHL();
             }
         }
@@ -1522,17 +1558,17 @@ namespace GBRead.Base
         private void mINST_LDIO()
         {
             EnterRule_INST_LDIO();
-            EnterRule("INST_LDIO", 37);
-            TraceIn("INST_LDIO", 37);
+            EnterRule("INST_LDIO", 38);
+            TraceIn("INST_LDIO", 38);
             try
             {
                 int _type = INST_LDIO;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:257:12: ( 'ldio' )
+                // GBX.g:258:12: ( 'ldio' )
                 DebugEnterAlt(1);
-                // GBX.g:257:14: 'ldio'
+                // GBX.g:258:14: 'ldio'
                 {
-                    DebugLocation(257, 14);
+                    DebugLocation(258, 14);
                     Match("ldio");
 
 
@@ -1543,8 +1579,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_LDIO", 37);
-                LeaveRule("INST_LDIO", 37);
+                TraceOut("INST_LDIO", 38);
+                LeaveRule("INST_LDIO", 38);
                 LeaveRule_INST_LDIO();
             }
         }
@@ -1558,17 +1594,17 @@ namespace GBRead.Base
         private void mINST_LDI()
         {
             EnterRule_INST_LDI();
-            EnterRule("INST_LDI", 38);
-            TraceIn("INST_LDI", 38);
+            EnterRule("INST_LDI", 39);
+            TraceIn("INST_LDI", 39);
             try
             {
                 int _type = INST_LDI;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:258:11: ( 'ldi' )
+                // GBX.g:259:11: ( 'ldi' )
                 DebugEnterAlt(1);
-                // GBX.g:258:13: 'ldi'
+                // GBX.g:259:13: 'ldi'
                 {
-                    DebugLocation(258, 13);
+                    DebugLocation(259, 13);
                     Match("ldi");
 
 
@@ -1579,8 +1615,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_LDI", 38);
-                LeaveRule("INST_LDI", 38);
+                TraceOut("INST_LDI", 39);
+                LeaveRule("INST_LDI", 39);
                 LeaveRule_INST_LDI();
             }
         }
@@ -1594,17 +1630,17 @@ namespace GBRead.Base
         private void mINST_LDD()
         {
             EnterRule_INST_LDD();
-            EnterRule("INST_LDD", 39);
-            TraceIn("INST_LDD", 39);
+            EnterRule("INST_LDD", 40);
+            TraceIn("INST_LDD", 40);
             try
             {
                 int _type = INST_LDD;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:259:11: ( 'ldd' )
+                // GBX.g:260:11: ( 'ldd' )
                 DebugEnterAlt(1);
-                // GBX.g:259:13: 'ldd'
+                // GBX.g:260:13: 'ldd'
                 {
-                    DebugLocation(259, 13);
+                    DebugLocation(260, 13);
                     Match("ldd");
 
 
@@ -1615,8 +1651,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_LDD", 39);
-                LeaveRule("INST_LDD", 39);
+                TraceOut("INST_LDD", 40);
+                LeaveRule("INST_LDD", 40);
                 LeaveRule_INST_LDD();
             }
         }
@@ -1630,17 +1666,17 @@ namespace GBRead.Base
         private void mINST_LD()
         {
             EnterRule_INST_LD();
-            EnterRule("INST_LD", 40);
-            TraceIn("INST_LD", 40);
+            EnterRule("INST_LD", 41);
+            TraceIn("INST_LD", 41);
             try
             {
                 int _type = INST_LD;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:260:11: ( 'ld' )
+                // GBX.g:261:11: ( 'ld' )
                 DebugEnterAlt(1);
-                // GBX.g:260:13: 'ld'
+                // GBX.g:261:13: 'ld'
                 {
-                    DebugLocation(260, 13);
+                    DebugLocation(261, 13);
                     Match("ld");
 
 
@@ -1651,8 +1687,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_LD", 40);
-                LeaveRule("INST_LD", 40);
+                TraceOut("INST_LD", 41);
+                LeaveRule("INST_LD", 41);
                 LeaveRule_INST_LD();
             }
         }
@@ -1666,17 +1702,17 @@ namespace GBRead.Base
         private void mINST_NOP()
         {
             EnterRule_INST_NOP();
-            EnterRule("INST_NOP", 41);
-            TraceIn("INST_NOP", 41);
+            EnterRule("INST_NOP", 42);
+            TraceIn("INST_NOP", 42);
             try
             {
                 int _type = INST_NOP;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:261:11: ( 'nop' )
+                // GBX.g:262:11: ( 'nop' )
                 DebugEnterAlt(1);
-                // GBX.g:261:13: 'nop'
+                // GBX.g:262:13: 'nop'
                 {
-                    DebugLocation(261, 13);
+                    DebugLocation(262, 13);
                     Match("nop");
 
 
@@ -1687,8 +1723,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_NOP", 41);
-                LeaveRule("INST_NOP", 41);
+                TraceOut("INST_NOP", 42);
+                LeaveRule("INST_NOP", 42);
                 LeaveRule_INST_NOP();
             }
         }
@@ -1702,17 +1738,17 @@ namespace GBRead.Base
         private void mINST_OR()
         {
             EnterRule_INST_OR();
-            EnterRule("INST_OR", 42);
-            TraceIn("INST_OR", 42);
+            EnterRule("INST_OR", 43);
+            TraceIn("INST_OR", 43);
             try
             {
                 int _type = INST_OR;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:262:11: ( 'or' )
+                // GBX.g:263:11: ( 'or' )
                 DebugEnterAlt(1);
-                // GBX.g:262:13: 'or'
+                // GBX.g:263:13: 'or'
                 {
-                    DebugLocation(262, 13);
+                    DebugLocation(263, 13);
                     Match("or");
 
 
@@ -1723,8 +1759,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_OR", 42);
-                LeaveRule("INST_OR", 42);
+                TraceOut("INST_OR", 43);
+                LeaveRule("INST_OR", 43);
                 LeaveRule_INST_OR();
             }
         }
@@ -1738,17 +1774,17 @@ namespace GBRead.Base
         private void mINST_POP()
         {
             EnterRule_INST_POP();
-            EnterRule("INST_POP", 43);
-            TraceIn("INST_POP", 43);
+            EnterRule("INST_POP", 44);
+            TraceIn("INST_POP", 44);
             try
             {
                 int _type = INST_POP;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:263:11: ( 'pop' )
+                // GBX.g:264:11: ( 'pop' )
                 DebugEnterAlt(1);
-                // GBX.g:263:13: 'pop'
+                // GBX.g:264:13: 'pop'
                 {
-                    DebugLocation(263, 13);
+                    DebugLocation(264, 13);
                     Match("pop");
 
 
@@ -1759,8 +1795,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_POP", 43);
-                LeaveRule("INST_POP", 43);
+                TraceOut("INST_POP", 44);
+                LeaveRule("INST_POP", 44);
                 LeaveRule_INST_POP();
             }
         }
@@ -1774,17 +1810,17 @@ namespace GBRead.Base
         private void mINST_PUSH()
         {
             EnterRule_INST_PUSH();
-            EnterRule("INST_PUSH", 44);
-            TraceIn("INST_PUSH", 44);
+            EnterRule("INST_PUSH", 45);
+            TraceIn("INST_PUSH", 45);
             try
             {
                 int _type = INST_PUSH;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:264:12: ( 'push' )
+                // GBX.g:265:12: ( 'push' )
                 DebugEnterAlt(1);
-                // GBX.g:264:14: 'push'
+                // GBX.g:265:14: 'push'
                 {
-                    DebugLocation(264, 14);
+                    DebugLocation(265, 14);
                     Match("push");
 
 
@@ -1795,8 +1831,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_PUSH", 44);
-                LeaveRule("INST_PUSH", 44);
+                TraceOut("INST_PUSH", 45);
+                LeaveRule("INST_PUSH", 45);
                 LeaveRule_INST_PUSH();
             }
         }
@@ -1810,17 +1846,17 @@ namespace GBRead.Base
         private void mINST_RES()
         {
             EnterRule_INST_RES();
-            EnterRule("INST_RES", 45);
-            TraceIn("INST_RES", 45);
+            EnterRule("INST_RES", 46);
+            TraceIn("INST_RES", 46);
             try
             {
                 int _type = INST_RES;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:265:11: ( 'res' )
+                // GBX.g:266:11: ( 'res' )
                 DebugEnterAlt(1);
-                // GBX.g:265:13: 'res'
+                // GBX.g:266:13: 'res'
                 {
-                    DebugLocation(265, 13);
+                    DebugLocation(266, 13);
                     Match("res");
 
 
@@ -1831,8 +1867,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_RES", 45);
-                LeaveRule("INST_RES", 45);
+                TraceOut("INST_RES", 46);
+                LeaveRule("INST_RES", 46);
                 LeaveRule_INST_RES();
             }
         }
@@ -1846,17 +1882,17 @@ namespace GBRead.Base
         private void mINST_RET()
         {
             EnterRule_INST_RET();
-            EnterRule("INST_RET", 46);
-            TraceIn("INST_RET", 46);
+            EnterRule("INST_RET", 47);
+            TraceIn("INST_RET", 47);
             try
             {
                 int _type = INST_RET;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:266:11: ( 'ret' )
+                // GBX.g:267:11: ( 'ret' )
                 DebugEnterAlt(1);
-                // GBX.g:266:13: 'ret'
+                // GBX.g:267:13: 'ret'
                 {
-                    DebugLocation(266, 13);
+                    DebugLocation(267, 13);
                     Match("ret");
 
 
@@ -1867,8 +1903,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_RET", 46);
-                LeaveRule("INST_RET", 46);
+                TraceOut("INST_RET", 47);
+                LeaveRule("INST_RET", 47);
                 LeaveRule_INST_RET();
             }
         }
@@ -1882,17 +1918,17 @@ namespace GBRead.Base
         private void mINST_RETI()
         {
             EnterRule_INST_RETI();
-            EnterRule("INST_RETI", 47);
-            TraceIn("INST_RETI", 47);
+            EnterRule("INST_RETI", 48);
+            TraceIn("INST_RETI", 48);
             try
             {
                 int _type = INST_RETI;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:267:12: ( 'reti' )
+                // GBX.g:268:12: ( 'reti' )
                 DebugEnterAlt(1);
-                // GBX.g:267:14: 'reti'
+                // GBX.g:268:14: 'reti'
                 {
-                    DebugLocation(267, 14);
+                    DebugLocation(268, 14);
                     Match("reti");
 
 
@@ -1903,8 +1939,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_RETI", 47);
-                LeaveRule("INST_RETI", 47);
+                TraceOut("INST_RETI", 48);
+                LeaveRule("INST_RETI", 48);
                 LeaveRule_INST_RETI();
             }
         }
@@ -1918,17 +1954,17 @@ namespace GBRead.Base
         private void mINST_RLA()
         {
             EnterRule_INST_RLA();
-            EnterRule("INST_RLA", 48);
-            TraceIn("INST_RLA", 48);
+            EnterRule("INST_RLA", 49);
+            TraceIn("INST_RLA", 49);
             try
             {
                 int _type = INST_RLA;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:268:11: ( 'rla' )
+                // GBX.g:269:11: ( 'rla' )
                 DebugEnterAlt(1);
-                // GBX.g:268:13: 'rla'
+                // GBX.g:269:13: 'rla'
                 {
-                    DebugLocation(268, 13);
+                    DebugLocation(269, 13);
                     Match("rla");
 
 
@@ -1939,8 +1975,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_RLA", 48);
-                LeaveRule("INST_RLA", 48);
+                TraceOut("INST_RLA", 49);
+                LeaveRule("INST_RLA", 49);
                 LeaveRule_INST_RLA();
             }
         }
@@ -1954,17 +1990,17 @@ namespace GBRead.Base
         private void mINST_RL()
         {
             EnterRule_INST_RL();
-            EnterRule("INST_RL", 49);
-            TraceIn("INST_RL", 49);
+            EnterRule("INST_RL", 50);
+            TraceIn("INST_RL", 50);
             try
             {
                 int _type = INST_RL;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:269:11: ( 'rl' )
+                // GBX.g:270:11: ( 'rl' )
                 DebugEnterAlt(1);
-                // GBX.g:269:13: 'rl'
+                // GBX.g:270:13: 'rl'
                 {
-                    DebugLocation(269, 13);
+                    DebugLocation(270, 13);
                     Match("rl");
 
 
@@ -1975,8 +2011,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_RL", 49);
-                LeaveRule("INST_RL", 49);
+                TraceOut("INST_RL", 50);
+                LeaveRule("INST_RL", 50);
                 LeaveRule_INST_RL();
             }
         }
@@ -1990,17 +2026,17 @@ namespace GBRead.Base
         private void mINST_RLCA()
         {
             EnterRule_INST_RLCA();
-            EnterRule("INST_RLCA", 50);
-            TraceIn("INST_RLCA", 50);
+            EnterRule("INST_RLCA", 51);
+            TraceIn("INST_RLCA", 51);
             try
             {
                 int _type = INST_RLCA;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:270:12: ( 'rlca' )
+                // GBX.g:271:12: ( 'rlca' )
                 DebugEnterAlt(1);
-                // GBX.g:270:14: 'rlca'
+                // GBX.g:271:14: 'rlca'
                 {
-                    DebugLocation(270, 14);
+                    DebugLocation(271, 14);
                     Match("rlca");
 
 
@@ -2011,8 +2047,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_RLCA", 50);
-                LeaveRule("INST_RLCA", 50);
+                TraceOut("INST_RLCA", 51);
+                LeaveRule("INST_RLCA", 51);
                 LeaveRule_INST_RLCA();
             }
         }
@@ -2026,17 +2062,17 @@ namespace GBRead.Base
         private void mINST_RLC()
         {
             EnterRule_INST_RLC();
-            EnterRule("INST_RLC", 51);
-            TraceIn("INST_RLC", 51);
+            EnterRule("INST_RLC", 52);
+            TraceIn("INST_RLC", 52);
             try
             {
                 int _type = INST_RLC;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:271:11: ( 'rlc' )
+                // GBX.g:272:11: ( 'rlc' )
                 DebugEnterAlt(1);
-                // GBX.g:271:13: 'rlc'
+                // GBX.g:272:13: 'rlc'
                 {
-                    DebugLocation(271, 13);
+                    DebugLocation(272, 13);
                     Match("rlc");
 
 
@@ -2047,8 +2083,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_RLC", 51);
-                LeaveRule("INST_RLC", 51);
+                TraceOut("INST_RLC", 52);
+                LeaveRule("INST_RLC", 52);
                 LeaveRule_INST_RLC();
             }
         }
@@ -2062,17 +2098,17 @@ namespace GBRead.Base
         private void mINST_RRA()
         {
             EnterRule_INST_RRA();
-            EnterRule("INST_RRA", 52);
-            TraceIn("INST_RRA", 52);
+            EnterRule("INST_RRA", 53);
+            TraceIn("INST_RRA", 53);
             try
             {
                 int _type = INST_RRA;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:272:11: ( 'rra' )
+                // GBX.g:273:11: ( 'rra' )
                 DebugEnterAlt(1);
-                // GBX.g:272:13: 'rra'
+                // GBX.g:273:13: 'rra'
                 {
-                    DebugLocation(272, 13);
+                    DebugLocation(273, 13);
                     Match("rra");
 
 
@@ -2083,8 +2119,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_RRA", 52);
-                LeaveRule("INST_RRA", 52);
+                TraceOut("INST_RRA", 53);
+                LeaveRule("INST_RRA", 53);
                 LeaveRule_INST_RRA();
             }
         }
@@ -2098,17 +2134,17 @@ namespace GBRead.Base
         private void mINST_RR()
         {
             EnterRule_INST_RR();
-            EnterRule("INST_RR", 53);
-            TraceIn("INST_RR", 53);
+            EnterRule("INST_RR", 54);
+            TraceIn("INST_RR", 54);
             try
             {
                 int _type = INST_RR;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:273:11: ( 'rr' )
+                // GBX.g:274:11: ( 'rr' )
                 DebugEnterAlt(1);
-                // GBX.g:273:13: 'rr'
+                // GBX.g:274:13: 'rr'
                 {
-                    DebugLocation(273, 13);
+                    DebugLocation(274, 13);
                     Match("rr");
 
 
@@ -2119,8 +2155,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_RR", 53);
-                LeaveRule("INST_RR", 53);
+                TraceOut("INST_RR", 54);
+                LeaveRule("INST_RR", 54);
                 LeaveRule_INST_RR();
             }
         }
@@ -2134,17 +2170,17 @@ namespace GBRead.Base
         private void mINST_RRCA()
         {
             EnterRule_INST_RRCA();
-            EnterRule("INST_RRCA", 54);
-            TraceIn("INST_RRCA", 54);
+            EnterRule("INST_RRCA", 55);
+            TraceIn("INST_RRCA", 55);
             try
             {
                 int _type = INST_RRCA;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:274:12: ( 'rrca' )
+                // GBX.g:275:12: ( 'rrca' )
                 DebugEnterAlt(1);
-                // GBX.g:274:14: 'rrca'
+                // GBX.g:275:14: 'rrca'
                 {
-                    DebugLocation(274, 14);
+                    DebugLocation(275, 14);
                     Match("rrca");
 
 
@@ -2155,8 +2191,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_RRCA", 54);
-                LeaveRule("INST_RRCA", 54);
+                TraceOut("INST_RRCA", 55);
+                LeaveRule("INST_RRCA", 55);
                 LeaveRule_INST_RRCA();
             }
         }
@@ -2170,17 +2206,17 @@ namespace GBRead.Base
         private void mINST_RRC()
         {
             EnterRule_INST_RRC();
-            EnterRule("INST_RRC", 55);
-            TraceIn("INST_RRC", 55);
+            EnterRule("INST_RRC", 56);
+            TraceIn("INST_RRC", 56);
             try
             {
                 int _type = INST_RRC;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:275:11: ( 'rrc' )
+                // GBX.g:276:11: ( 'rrc' )
                 DebugEnterAlt(1);
-                // GBX.g:275:13: 'rrc'
+                // GBX.g:276:13: 'rrc'
                 {
-                    DebugLocation(275, 13);
+                    DebugLocation(276, 13);
                     Match("rrc");
 
 
@@ -2191,8 +2227,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_RRC", 55);
-                LeaveRule("INST_RRC", 55);
+                TraceOut("INST_RRC", 56);
+                LeaveRule("INST_RRC", 56);
                 LeaveRule_INST_RRC();
             }
         }
@@ -2206,17 +2242,17 @@ namespace GBRead.Base
         private void mINST_RST()
         {
             EnterRule_INST_RST();
-            EnterRule("INST_RST", 56);
-            TraceIn("INST_RST", 56);
+            EnterRule("INST_RST", 57);
+            TraceIn("INST_RST", 57);
             try
             {
                 int _type = INST_RST;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:276:11: ( 'rst' )
+                // GBX.g:277:11: ( 'rst' )
                 DebugEnterAlt(1);
-                // GBX.g:276:13: 'rst'
+                // GBX.g:277:13: 'rst'
                 {
-                    DebugLocation(276, 13);
+                    DebugLocation(277, 13);
                     Match("rst");
 
 
@@ -2227,8 +2263,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_RST", 56);
-                LeaveRule("INST_RST", 56);
+                TraceOut("INST_RST", 57);
+                LeaveRule("INST_RST", 57);
                 LeaveRule_INST_RST();
             }
         }
@@ -2242,17 +2278,17 @@ namespace GBRead.Base
         private void mINST_SBC()
         {
             EnterRule_INST_SBC();
-            EnterRule("INST_SBC", 57);
-            TraceIn("INST_SBC", 57);
+            EnterRule("INST_SBC", 58);
+            TraceIn("INST_SBC", 58);
             try
             {
                 int _type = INST_SBC;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:277:11: ( 'sbc' )
+                // GBX.g:278:11: ( 'sbc' )
                 DebugEnterAlt(1);
-                // GBX.g:277:13: 'sbc'
+                // GBX.g:278:13: 'sbc'
                 {
-                    DebugLocation(277, 13);
+                    DebugLocation(278, 13);
                     Match("sbc");
 
 
@@ -2263,8 +2299,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_SBC", 57);
-                LeaveRule("INST_SBC", 57);
+                TraceOut("INST_SBC", 58);
+                LeaveRule("INST_SBC", 58);
                 LeaveRule_INST_SBC();
             }
         }
@@ -2278,17 +2314,17 @@ namespace GBRead.Base
         private void mINST_SCF()
         {
             EnterRule_INST_SCF();
-            EnterRule("INST_SCF", 58);
-            TraceIn("INST_SCF", 58);
+            EnterRule("INST_SCF", 59);
+            TraceIn("INST_SCF", 59);
             try
             {
                 int _type = INST_SCF;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:278:11: ( 'scf' )
+                // GBX.g:279:11: ( 'scf' )
                 DebugEnterAlt(1);
-                // GBX.g:278:13: 'scf'
+                // GBX.g:279:13: 'scf'
                 {
-                    DebugLocation(278, 13);
+                    DebugLocation(279, 13);
                     Match("scf");
 
 
@@ -2299,8 +2335,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_SCF", 58);
-                LeaveRule("INST_SCF", 58);
+                TraceOut("INST_SCF", 59);
+                LeaveRule("INST_SCF", 59);
                 LeaveRule_INST_SCF();
             }
         }
@@ -2314,17 +2350,17 @@ namespace GBRead.Base
         private void mINST_SET()
         {
             EnterRule_INST_SET();
-            EnterRule("INST_SET", 59);
-            TraceIn("INST_SET", 59);
+            EnterRule("INST_SET", 60);
+            TraceIn("INST_SET", 60);
             try
             {
                 int _type = INST_SET;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:279:11: ( 'set' )
+                // GBX.g:280:11: ( 'set' )
                 DebugEnterAlt(1);
-                // GBX.g:279:13: 'set'
+                // GBX.g:280:13: 'set'
                 {
-                    DebugLocation(279, 13);
+                    DebugLocation(280, 13);
                     Match("set");
 
 
@@ -2335,8 +2371,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_SET", 59);
-                LeaveRule("INST_SET", 59);
+                TraceOut("INST_SET", 60);
+                LeaveRule("INST_SET", 60);
                 LeaveRule_INST_SET();
             }
         }
@@ -2350,17 +2386,17 @@ namespace GBRead.Base
         private void mINST_SLA()
         {
             EnterRule_INST_SLA();
-            EnterRule("INST_SLA", 60);
-            TraceIn("INST_SLA", 60);
+            EnterRule("INST_SLA", 61);
+            TraceIn("INST_SLA", 61);
             try
             {
                 int _type = INST_SLA;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:280:11: ( 'sla' )
+                // GBX.g:281:11: ( 'sla' )
                 DebugEnterAlt(1);
-                // GBX.g:280:13: 'sla'
+                // GBX.g:281:13: 'sla'
                 {
-                    DebugLocation(280, 13);
+                    DebugLocation(281, 13);
                     Match("sla");
 
 
@@ -2371,8 +2407,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_SLA", 60);
-                LeaveRule("INST_SLA", 60);
+                TraceOut("INST_SLA", 61);
+                LeaveRule("INST_SLA", 61);
                 LeaveRule_INST_SLA();
             }
         }
@@ -2386,17 +2422,17 @@ namespace GBRead.Base
         private void mINST_SRA()
         {
             EnterRule_INST_SRA();
-            EnterRule("INST_SRA", 61);
-            TraceIn("INST_SRA", 61);
+            EnterRule("INST_SRA", 62);
+            TraceIn("INST_SRA", 62);
             try
             {
                 int _type = INST_SRA;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:281:11: ( 'sra' )
+                // GBX.g:282:11: ( 'sra' )
                 DebugEnterAlt(1);
-                // GBX.g:281:13: 'sra'
+                // GBX.g:282:13: 'sra'
                 {
-                    DebugLocation(281, 13);
+                    DebugLocation(282, 13);
                     Match("sra");
 
 
@@ -2407,8 +2443,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_SRA", 61);
-                LeaveRule("INST_SRA", 61);
+                TraceOut("INST_SRA", 62);
+                LeaveRule("INST_SRA", 62);
                 LeaveRule_INST_SRA();
             }
         }
@@ -2422,17 +2458,17 @@ namespace GBRead.Base
         private void mINST_SRL()
         {
             EnterRule_INST_SRL();
-            EnterRule("INST_SRL", 62);
-            TraceIn("INST_SRL", 62);
+            EnterRule("INST_SRL", 63);
+            TraceIn("INST_SRL", 63);
             try
             {
                 int _type = INST_SRL;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:282:11: ( 'srl' )
+                // GBX.g:283:11: ( 'srl' )
                 DebugEnterAlt(1);
-                // GBX.g:282:13: 'srl'
+                // GBX.g:283:13: 'srl'
                 {
-                    DebugLocation(282, 13);
+                    DebugLocation(283, 13);
                     Match("srl");
 
 
@@ -2443,8 +2479,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_SRL", 62);
-                LeaveRule("INST_SRL", 62);
+                TraceOut("INST_SRL", 63);
+                LeaveRule("INST_SRL", 63);
                 LeaveRule_INST_SRL();
             }
         }
@@ -2458,17 +2494,17 @@ namespace GBRead.Base
         private void mINST_STOP()
         {
             EnterRule_INST_STOP();
-            EnterRule("INST_STOP", 63);
-            TraceIn("INST_STOP", 63);
+            EnterRule("INST_STOP", 64);
+            TraceIn("INST_STOP", 64);
             try
             {
                 int _type = INST_STOP;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:283:12: ( 'stop' )
+                // GBX.g:284:12: ( 'stop' )
                 DebugEnterAlt(1);
-                // GBX.g:283:14: 'stop'
+                // GBX.g:284:14: 'stop'
                 {
-                    DebugLocation(283, 14);
+                    DebugLocation(284, 14);
                     Match("stop");
 
 
@@ -2479,8 +2515,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_STOP", 63);
-                LeaveRule("INST_STOP", 63);
+                TraceOut("INST_STOP", 64);
+                LeaveRule("INST_STOP", 64);
                 LeaveRule_INST_STOP();
             }
         }
@@ -2494,17 +2530,17 @@ namespace GBRead.Base
         private void mINST_SUB()
         {
             EnterRule_INST_SUB();
-            EnterRule("INST_SUB", 64);
-            TraceIn("INST_SUB", 64);
+            EnterRule("INST_SUB", 65);
+            TraceIn("INST_SUB", 65);
             try
             {
                 int _type = INST_SUB;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:284:11: ( 'sub' )
+                // GBX.g:285:11: ( 'sub' )
                 DebugEnterAlt(1);
-                // GBX.g:284:13: 'sub'
+                // GBX.g:285:13: 'sub'
                 {
-                    DebugLocation(284, 13);
+                    DebugLocation(285, 13);
                     Match("sub");
 
 
@@ -2515,8 +2551,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_SUB", 64);
-                LeaveRule("INST_SUB", 64);
+                TraceOut("INST_SUB", 65);
+                LeaveRule("INST_SUB", 65);
                 LeaveRule_INST_SUB();
             }
         }
@@ -2530,17 +2566,17 @@ namespace GBRead.Base
         private void mINST_SWAP()
         {
             EnterRule_INST_SWAP();
-            EnterRule("INST_SWAP", 65);
-            TraceIn("INST_SWAP", 65);
+            EnterRule("INST_SWAP", 66);
+            TraceIn("INST_SWAP", 66);
             try
             {
                 int _type = INST_SWAP;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:285:12: ( 'swap' )
+                // GBX.g:286:12: ( 'swap' )
                 DebugEnterAlt(1);
-                // GBX.g:285:14: 'swap'
+                // GBX.g:286:14: 'swap'
                 {
-                    DebugLocation(285, 14);
+                    DebugLocation(286, 14);
                     Match("swap");
 
 
@@ -2551,8 +2587,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_SWAP", 65);
-                LeaveRule("INST_SWAP", 65);
+                TraceOut("INST_SWAP", 66);
+                LeaveRule("INST_SWAP", 66);
                 LeaveRule_INST_SWAP();
             }
         }
@@ -2566,17 +2602,17 @@ namespace GBRead.Base
         private void mINST_XOR()
         {
             EnterRule_INST_XOR();
-            EnterRule("INST_XOR", 66);
-            TraceIn("INST_XOR", 66);
+            EnterRule("INST_XOR", 67);
+            TraceIn("INST_XOR", 67);
             try
             {
                 int _type = INST_XOR;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:286:11: ( 'xor' )
+                // GBX.g:287:11: ( 'xor' )
                 DebugEnterAlt(1);
-                // GBX.g:286:13: 'xor'
+                // GBX.g:287:13: 'xor'
                 {
-                    DebugLocation(286, 13);
+                    DebugLocation(287, 13);
                     Match("xor");
 
 
@@ -2587,8 +2623,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INST_XOR", 66);
-                LeaveRule("INST_XOR", 66);
+                TraceOut("INST_XOR", 67);
+                LeaveRule("INST_XOR", 67);
                 LeaveRule_INST_XOR();
             }
         }
@@ -2602,17 +2638,17 @@ namespace GBRead.Base
         private void mRR_AF()
         {
             EnterRule_RR_AF();
-            EnterRule("RR_AF", 67);
-            TraceIn("RR_AF", 67);
+            EnterRule("RR_AF", 68);
+            TraceIn("RR_AF", 68);
             try
             {
                 int _type = RR_AF;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:287:9: ( 'af' )
+                // GBX.g:288:9: ( 'af' )
                 DebugEnterAlt(1);
-                // GBX.g:287:11: 'af'
+                // GBX.g:288:11: 'af'
                 {
-                    DebugLocation(287, 11);
+                    DebugLocation(288, 11);
                     Match("af");
 
 
@@ -2623,8 +2659,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("RR_AF", 67);
-                LeaveRule("RR_AF", 67);
+                TraceOut("RR_AF", 68);
+                LeaveRule("RR_AF", 68);
                 LeaveRule_RR_AF();
             }
         }
@@ -2638,17 +2674,17 @@ namespace GBRead.Base
         private void mRR_BC()
         {
             EnterRule_RR_BC();
-            EnterRule("RR_BC", 68);
-            TraceIn("RR_BC", 68);
+            EnterRule("RR_BC", 69);
+            TraceIn("RR_BC", 69);
             try
             {
                 int _type = RR_BC;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:288:9: ( 'bc' )
+                // GBX.g:289:9: ( 'bc' )
                 DebugEnterAlt(1);
-                // GBX.g:288:11: 'bc'
+                // GBX.g:289:11: 'bc'
                 {
-                    DebugLocation(288, 11);
+                    DebugLocation(289, 11);
                     Match("bc");
 
 
@@ -2659,8 +2695,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("RR_BC", 68);
-                LeaveRule("RR_BC", 68);
+                TraceOut("RR_BC", 69);
+                LeaveRule("RR_BC", 69);
                 LeaveRule_RR_BC();
             }
         }
@@ -2674,17 +2710,17 @@ namespace GBRead.Base
         private void mRR_DE()
         {
             EnterRule_RR_DE();
-            EnterRule("RR_DE", 69);
-            TraceIn("RR_DE", 69);
+            EnterRule("RR_DE", 70);
+            TraceIn("RR_DE", 70);
             try
             {
                 int _type = RR_DE;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:289:9: ( 'de' )
+                // GBX.g:290:9: ( 'de' )
                 DebugEnterAlt(1);
-                // GBX.g:289:11: 'de'
+                // GBX.g:290:11: 'de'
                 {
-                    DebugLocation(289, 11);
+                    DebugLocation(290, 11);
                     Match("de");
 
 
@@ -2695,8 +2731,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("RR_DE", 69);
-                LeaveRule("RR_DE", 69);
+                TraceOut("RR_DE", 70);
+                LeaveRule("RR_DE", 70);
                 LeaveRule_RR_DE();
             }
         }
@@ -2710,17 +2746,17 @@ namespace GBRead.Base
         private void mRR_HL()
         {
             EnterRule_RR_HL();
-            EnterRule("RR_HL", 70);
-            TraceIn("RR_HL", 70);
+            EnterRule("RR_HL", 71);
+            TraceIn("RR_HL", 71);
             try
             {
                 int _type = RR_HL;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:290:9: ( 'hl' )
+                // GBX.g:291:9: ( 'hl' )
                 DebugEnterAlt(1);
-                // GBX.g:290:11: 'hl'
+                // GBX.g:291:11: 'hl'
                 {
-                    DebugLocation(290, 11);
+                    DebugLocation(291, 11);
                     Match("hl");
 
 
@@ -2731,8 +2767,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("RR_HL", 70);
-                LeaveRule("RR_HL", 70);
+                TraceOut("RR_HL", 71);
+                LeaveRule("RR_HL", 71);
                 LeaveRule_RR_HL();
             }
         }
@@ -2746,17 +2782,17 @@ namespace GBRead.Base
         private void mRR_SP()
         {
             EnterRule_RR_SP();
-            EnterRule("RR_SP", 71);
-            TraceIn("RR_SP", 71);
+            EnterRule("RR_SP", 72);
+            TraceIn("RR_SP", 72);
             try
             {
                 int _type = RR_SP;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:291:9: ( 'sp' )
+                // GBX.g:292:9: ( 'sp' )
                 DebugEnterAlt(1);
-                // GBX.g:291:11: 'sp'
+                // GBX.g:292:11: 'sp'
                 {
-                    DebugLocation(291, 11);
+                    DebugLocation(292, 11);
                     Match("sp");
 
 
@@ -2767,8 +2803,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("RR_SP", 71);
-                LeaveRule("RR_SP", 71);
+                TraceOut("RR_SP", 72);
+                LeaveRule("RR_SP", 72);
                 LeaveRule_RR_SP();
             }
         }
@@ -2782,17 +2818,17 @@ namespace GBRead.Base
         private void mCC_NC()
         {
             EnterRule_CC_NC();
-            EnterRule("CC_NC", 72);
-            TraceIn("CC_NC", 72);
+            EnterRule("CC_NC", 73);
+            TraceIn("CC_NC", 73);
             try
             {
                 int _type = CC_NC;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:292:9: ( 'nc' )
+                // GBX.g:293:9: ( 'nc' )
                 DebugEnterAlt(1);
-                // GBX.g:292:11: 'nc'
+                // GBX.g:293:11: 'nc'
                 {
-                    DebugLocation(292, 11);
+                    DebugLocation(293, 11);
                     Match("nc");
 
 
@@ -2803,8 +2839,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("CC_NC", 72);
-                LeaveRule("CC_NC", 72);
+                TraceOut("CC_NC", 73);
+                LeaveRule("CC_NC", 73);
                 LeaveRule_CC_NC();
             }
         }
@@ -2818,17 +2854,17 @@ namespace GBRead.Base
         private void mCC_NZ()
         {
             EnterRule_CC_NZ();
-            EnterRule("CC_NZ", 73);
-            TraceIn("CC_NZ", 73);
+            EnterRule("CC_NZ", 74);
+            TraceIn("CC_NZ", 74);
             try
             {
                 int _type = CC_NZ;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:293:9: ( 'nz' )
+                // GBX.g:294:9: ( 'nz' )
                 DebugEnterAlt(1);
-                // GBX.g:293:11: 'nz'
+                // GBX.g:294:11: 'nz'
                 {
-                    DebugLocation(293, 11);
+                    DebugLocation(294, 11);
                     Match("nz");
 
 
@@ -2839,8 +2875,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("CC_NZ", 73);
-                LeaveRule("CC_NZ", 73);
+                TraceOut("CC_NZ", 74);
+                LeaveRule("CC_NZ", 74);
                 LeaveRule_CC_NZ();
             }
         }
@@ -2854,17 +2890,17 @@ namespace GBRead.Base
         private void mCC_Z()
         {
             EnterRule_CC_Z();
-            EnterRule("CC_Z", 74);
-            TraceIn("CC_Z", 74);
+            EnterRule("CC_Z", 75);
+            TraceIn("CC_Z", 75);
             try
             {
                 int _type = CC_Z;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:294:8: ( 'z' )
+                // GBX.g:295:8: ( 'z' )
                 DebugEnterAlt(1);
-                // GBX.g:294:10: 'z'
+                // GBX.g:295:10: 'z'
                 {
-                    DebugLocation(294, 10);
+                    DebugLocation(295, 10);
                     Match('z');
 
                 }
@@ -2874,8 +2910,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("CC_Z", 74);
-                LeaveRule("CC_Z", 74);
+                TraceOut("CC_Z", 75);
+                LeaveRule("CC_Z", 75);
                 LeaveRule_CC_Z();
             }
         }
@@ -2889,17 +2925,17 @@ namespace GBRead.Base
         private void mREG_A()
         {
             EnterRule_REG_A();
-            EnterRule("REG_A", 75);
-            TraceIn("REG_A", 75);
+            EnterRule("REG_A", 76);
+            TraceIn("REG_A", 76);
             try
             {
                 int _type = REG_A;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:295:9: ( 'a' )
+                // GBX.g:296:9: ( 'a' )
                 DebugEnterAlt(1);
-                // GBX.g:295:11: 'a'
+                // GBX.g:296:11: 'a'
                 {
-                    DebugLocation(295, 11);
+                    DebugLocation(296, 11);
                     Match('a');
 
                 }
@@ -2909,8 +2945,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("REG_A", 75);
-                LeaveRule("REG_A", 75);
+                TraceOut("REG_A", 76);
+                LeaveRule("REG_A", 76);
                 LeaveRule_REG_A();
             }
         }
@@ -2924,17 +2960,17 @@ namespace GBRead.Base
         private void mREG_B()
         {
             EnterRule_REG_B();
-            EnterRule("REG_B", 76);
-            TraceIn("REG_B", 76);
+            EnterRule("REG_B", 77);
+            TraceIn("REG_B", 77);
             try
             {
                 int _type = REG_B;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:296:9: ( 'b' )
+                // GBX.g:297:9: ( 'b' )
                 DebugEnterAlt(1);
-                // GBX.g:296:11: 'b'
+                // GBX.g:297:11: 'b'
                 {
-                    DebugLocation(296, 11);
+                    DebugLocation(297, 11);
                     Match('b');
 
                 }
@@ -2944,8 +2980,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("REG_B", 76);
-                LeaveRule("REG_B", 76);
+                TraceOut("REG_B", 77);
+                LeaveRule("REG_B", 77);
                 LeaveRule_REG_B();
             }
         }
@@ -2959,17 +2995,17 @@ namespace GBRead.Base
         private void mREG_C()
         {
             EnterRule_REG_C();
-            EnterRule("REG_C", 77);
-            TraceIn("REG_C", 77);
+            EnterRule("REG_C", 78);
+            TraceIn("REG_C", 78);
             try
             {
                 int _type = REG_C;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:297:9: ( 'c' )
+                // GBX.g:298:9: ( 'c' )
                 DebugEnterAlt(1);
-                // GBX.g:297:11: 'c'
+                // GBX.g:298:11: 'c'
                 {
-                    DebugLocation(297, 11);
+                    DebugLocation(298, 11);
                     Match('c');
 
                 }
@@ -2979,8 +3015,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("REG_C", 77);
-                LeaveRule("REG_C", 77);
+                TraceOut("REG_C", 78);
+                LeaveRule("REG_C", 78);
                 LeaveRule_REG_C();
             }
         }
@@ -2994,17 +3030,17 @@ namespace GBRead.Base
         private void mREG_D()
         {
             EnterRule_REG_D();
-            EnterRule("REG_D", 78);
-            TraceIn("REG_D", 78);
+            EnterRule("REG_D", 79);
+            TraceIn("REG_D", 79);
             try
             {
                 int _type = REG_D;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:298:9: ( 'd' )
+                // GBX.g:299:9: ( 'd' )
                 DebugEnterAlt(1);
-                // GBX.g:298:11: 'd'
+                // GBX.g:299:11: 'd'
                 {
-                    DebugLocation(298, 11);
+                    DebugLocation(299, 11);
                     Match('d');
 
                 }
@@ -3014,8 +3050,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("REG_D", 78);
-                LeaveRule("REG_D", 78);
+                TraceOut("REG_D", 79);
+                LeaveRule("REG_D", 79);
                 LeaveRule_REG_D();
             }
         }
@@ -3029,17 +3065,17 @@ namespace GBRead.Base
         private void mREG_E()
         {
             EnterRule_REG_E();
-            EnterRule("REG_E", 79);
-            TraceIn("REG_E", 79);
+            EnterRule("REG_E", 80);
+            TraceIn("REG_E", 80);
             try
             {
                 int _type = REG_E;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:299:9: ( 'e' )
+                // GBX.g:300:9: ( 'e' )
                 DebugEnterAlt(1);
-                // GBX.g:299:11: 'e'
+                // GBX.g:300:11: 'e'
                 {
-                    DebugLocation(299, 11);
+                    DebugLocation(300, 11);
                     Match('e');
 
                 }
@@ -3049,8 +3085,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("REG_E", 79);
-                LeaveRule("REG_E", 79);
+                TraceOut("REG_E", 80);
+                LeaveRule("REG_E", 80);
                 LeaveRule_REG_E();
             }
         }
@@ -3064,17 +3100,17 @@ namespace GBRead.Base
         private void mREG_H()
         {
             EnterRule_REG_H();
-            EnterRule("REG_H", 80);
-            TraceIn("REG_H", 80);
+            EnterRule("REG_H", 81);
+            TraceIn("REG_H", 81);
             try
             {
                 int _type = REG_H;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:300:9: ( 'h' )
+                // GBX.g:301:9: ( 'h' )
                 DebugEnterAlt(1);
-                // GBX.g:300:11: 'h'
+                // GBX.g:301:11: 'h'
                 {
-                    DebugLocation(300, 11);
+                    DebugLocation(301, 11);
                     Match('h');
 
                 }
@@ -3084,8 +3120,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("REG_H", 80);
-                LeaveRule("REG_H", 80);
+                TraceOut("REG_H", 81);
+                LeaveRule("REG_H", 81);
                 LeaveRule_REG_H();
             }
         }
@@ -3099,17 +3135,17 @@ namespace GBRead.Base
         private void mREG_L()
         {
             EnterRule_REG_L();
-            EnterRule("REG_L", 81);
-            TraceIn("REG_L", 81);
+            EnterRule("REG_L", 82);
+            TraceIn("REG_L", 82);
             try
             {
                 int _type = REG_L;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:301:9: ( 'l' )
+                // GBX.g:302:9: ( 'l' )
                 DebugEnterAlt(1);
-                // GBX.g:301:11: 'l'
+                // GBX.g:302:11: 'l'
                 {
-                    DebugLocation(301, 11);
+                    DebugLocation(302, 11);
                     Match('l');
 
                 }
@@ -3119,8 +3155,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("REG_L", 81);
-                LeaveRule("REG_L", 81);
+                TraceOut("REG_L", 82);
+                LeaveRule("REG_L", 82);
                 LeaveRule_REG_L();
             }
         }
@@ -3134,17 +3170,17 @@ namespace GBRead.Base
         private void mQUEST_MARK()
         {
             EnterRule_QUEST_MARK();
-            EnterRule("QUEST_MARK", 82);
-            TraceIn("QUEST_MARK", 82);
+            EnterRule("QUEST_MARK", 83);
+            TraceIn("QUEST_MARK", 83);
             try
             {
                 int _type = QUEST_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:303:13: ( '?' )
+                // GBX.g:304:13: ( '?' )
                 DebugEnterAlt(1);
-                // GBX.g:303:15: '?'
+                // GBX.g:304:15: '?'
                 {
-                    DebugLocation(303, 15);
+                    DebugLocation(304, 15);
                     Match('?');
 
                 }
@@ -3154,8 +3190,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("QUEST_MARK", 82);
-                LeaveRule("QUEST_MARK", 82);
+                TraceOut("QUEST_MARK", 83);
+                LeaveRule("QUEST_MARK", 83);
                 LeaveRule_QUEST_MARK();
             }
         }
@@ -3169,17 +3205,17 @@ namespace GBRead.Base
         private void mBANG_MARK()
         {
             EnterRule_BANG_MARK();
-            EnterRule("BANG_MARK", 83);
-            TraceIn("BANG_MARK", 83);
+            EnterRule("BANG_MARK", 84);
+            TraceIn("BANG_MARK", 84);
             try
             {
                 int _type = BANG_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:304:12: ( '!' )
+                // GBX.g:305:12: ( '!' )
                 DebugEnterAlt(1);
-                // GBX.g:304:14: '!'
+                // GBX.g:305:14: '!'
                 {
-                    DebugLocation(304, 14);
+                    DebugLocation(305, 14);
                     Match('!');
 
                 }
@@ -3189,8 +3225,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("BANG_MARK", 83);
-                LeaveRule("BANG_MARK", 83);
+                TraceOut("BANG_MARK", 84);
+                LeaveRule("BANG_MARK", 84);
                 LeaveRule_BANG_MARK();
             }
         }
@@ -3204,17 +3240,17 @@ namespace GBRead.Base
         private void mSTAR_MARK()
         {
             EnterRule_STAR_MARK();
-            EnterRule("STAR_MARK", 84);
-            TraceIn("STAR_MARK", 84);
+            EnterRule("STAR_MARK", 85);
+            TraceIn("STAR_MARK", 85);
             try
             {
                 int _type = STAR_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:305:12: ( '*' )
+                // GBX.g:306:12: ( '*' )
                 DebugEnterAlt(1);
-                // GBX.g:305:14: '*'
+                // GBX.g:306:14: '*'
                 {
-                    DebugLocation(305, 14);
+                    DebugLocation(306, 14);
                     Match('*');
 
                 }
@@ -3224,8 +3260,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("STAR_MARK", 84);
-                LeaveRule("STAR_MARK", 84);
+                TraceOut("STAR_MARK", 85);
+                LeaveRule("STAR_MARK", 85);
                 LeaveRule_STAR_MARK();
             }
         }
@@ -3239,17 +3275,17 @@ namespace GBRead.Base
         private void mPLUS_MARK()
         {
             EnterRule_PLUS_MARK();
-            EnterRule("PLUS_MARK", 85);
-            TraceIn("PLUS_MARK", 85);
+            EnterRule("PLUS_MARK", 86);
+            TraceIn("PLUS_MARK", 86);
             try
             {
                 int _type = PLUS_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:306:12: ( '+' )
+                // GBX.g:307:12: ( '+' )
                 DebugEnterAlt(1);
-                // GBX.g:306:14: '+'
+                // GBX.g:307:14: '+'
                 {
-                    DebugLocation(306, 14);
+                    DebugLocation(307, 14);
                     Match('+');
 
                 }
@@ -3259,8 +3295,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("PLUS_MARK", 85);
-                LeaveRule("PLUS_MARK", 85);
+                TraceOut("PLUS_MARK", 86);
+                LeaveRule("PLUS_MARK", 86);
                 LeaveRule_PLUS_MARK();
             }
         }
@@ -3274,17 +3310,17 @@ namespace GBRead.Base
         private void mMINUS_MARK()
         {
             EnterRule_MINUS_MARK();
-            EnterRule("MINUS_MARK", 86);
-            TraceIn("MINUS_MARK", 86);
+            EnterRule("MINUS_MARK", 87);
+            TraceIn("MINUS_MARK", 87);
             try
             {
                 int _type = MINUS_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:307:13: ( '-' )
+                // GBX.g:308:13: ( '-' )
                 DebugEnterAlt(1);
-                // GBX.g:307:15: '-'
+                // GBX.g:308:15: '-'
                 {
-                    DebugLocation(307, 15);
+                    DebugLocation(308, 15);
                     Match('-');
 
                 }
@@ -3294,8 +3330,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("MINUS_MARK", 86);
-                LeaveRule("MINUS_MARK", 86);
+                TraceOut("MINUS_MARK", 87);
+                LeaveRule("MINUS_MARK", 87);
                 LeaveRule_MINUS_MARK();
             }
         }
@@ -3309,17 +3345,17 @@ namespace GBRead.Base
         private void mTILDE_MARK()
         {
             EnterRule_TILDE_MARK();
-            EnterRule("TILDE_MARK", 87);
-            TraceIn("TILDE_MARK", 87);
+            EnterRule("TILDE_MARK", 88);
+            TraceIn("TILDE_MARK", 88);
             try
             {
                 int _type = TILDE_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:308:13: ( '~' )
+                // GBX.g:309:13: ( '~' )
                 DebugEnterAlt(1);
-                // GBX.g:308:15: '~'
+                // GBX.g:309:15: '~'
                 {
-                    DebugLocation(308, 15);
+                    DebugLocation(309, 15);
                     Match('~');
 
                 }
@@ -3329,8 +3365,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("TILDE_MARK", 87);
-                LeaveRule("TILDE_MARK", 87);
+                TraceOut("TILDE_MARK", 88);
+                LeaveRule("TILDE_MARK", 88);
                 LeaveRule_TILDE_MARK();
             }
         }
@@ -3344,17 +3380,17 @@ namespace GBRead.Base
         private void mBOOL_OR_MARK()
         {
             EnterRule_BOOL_OR_MARK();
-            EnterRule("BOOL_OR_MARK", 88);
-            TraceIn("BOOL_OR_MARK", 88);
+            EnterRule("BOOL_OR_MARK", 89);
+            TraceIn("BOOL_OR_MARK", 89);
             try
             {
                 int _type = BOOL_OR_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:309:14: ( '||' )
+                // GBX.g:310:14: ( '||' )
                 DebugEnterAlt(1);
-                // GBX.g:309:16: '||'
+                // GBX.g:310:16: '||'
                 {
-                    DebugLocation(309, 16);
+                    DebugLocation(310, 16);
                     Match("||");
 
 
@@ -3365,8 +3401,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("BOOL_OR_MARK", 88);
-                LeaveRule("BOOL_OR_MARK", 88);
+                TraceOut("BOOL_OR_MARK", 89);
+                LeaveRule("BOOL_OR_MARK", 89);
                 LeaveRule_BOOL_OR_MARK();
             }
         }
@@ -3380,17 +3416,17 @@ namespace GBRead.Base
         private void mBAR_MARK()
         {
             EnterRule_BAR_MARK();
-            EnterRule("BAR_MARK", 89);
-            TraceIn("BAR_MARK", 89);
+            EnterRule("BAR_MARK", 90);
+            TraceIn("BAR_MARK", 90);
             try
             {
                 int _type = BAR_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:310:11: ( '|' )
+                // GBX.g:311:11: ( '|' )
                 DebugEnterAlt(1);
-                // GBX.g:310:13: '|'
+                // GBX.g:311:13: '|'
                 {
-                    DebugLocation(310, 13);
+                    DebugLocation(311, 13);
                     Match('|');
 
                 }
@@ -3400,8 +3436,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("BAR_MARK", 89);
-                LeaveRule("BAR_MARK", 89);
+                TraceOut("BAR_MARK", 90);
+                LeaveRule("BAR_MARK", 90);
                 LeaveRule_BAR_MARK();
             }
         }
@@ -3415,17 +3451,17 @@ namespace GBRead.Base
         private void mBOOL_AND_MARK()
         {
             EnterRule_BOOL_AND_MARK();
-            EnterRule("BOOL_AND_MARK", 90);
-            TraceIn("BOOL_AND_MARK", 90);
+            EnterRule("BOOL_AND_MARK", 91);
+            TraceIn("BOOL_AND_MARK", 91);
             try
             {
                 int _type = BOOL_AND_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:311:15: ( '&&' )
+                // GBX.g:312:15: ( '&&' )
                 DebugEnterAlt(1);
-                // GBX.g:311:17: '&&'
+                // GBX.g:312:17: '&&'
                 {
-                    DebugLocation(311, 17);
+                    DebugLocation(312, 17);
                     Match("&&");
 
 
@@ -3436,8 +3472,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("BOOL_AND_MARK", 90);
-                LeaveRule("BOOL_AND_MARK", 90);
+                TraceOut("BOOL_AND_MARK", 91);
+                LeaveRule("BOOL_AND_MARK", 91);
                 LeaveRule_BOOL_AND_MARK();
             }
         }
@@ -3451,17 +3487,17 @@ namespace GBRead.Base
         private void mAMP_MARK()
         {
             EnterRule_AMP_MARK();
-            EnterRule("AMP_MARK", 91);
-            TraceIn("AMP_MARK", 91);
+            EnterRule("AMP_MARK", 92);
+            TraceIn("AMP_MARK", 92);
             try
             {
                 int _type = AMP_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:312:11: ( '&' )
+                // GBX.g:313:11: ( '&' )
                 DebugEnterAlt(1);
-                // GBX.g:312:13: '&'
+                // GBX.g:313:13: '&'
                 {
-                    DebugLocation(312, 13);
+                    DebugLocation(313, 13);
                     Match('&');
 
                 }
@@ -3471,8 +3507,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("AMP_MARK", 91);
-                LeaveRule("AMP_MARK", 91);
+                TraceOut("AMP_MARK", 92);
+                LeaveRule("AMP_MARK", 92);
                 LeaveRule_AMP_MARK();
             }
         }
@@ -3486,17 +3522,17 @@ namespace GBRead.Base
         private void mUNDERSCORE_MARK()
         {
             EnterRule_UNDERSCORE_MARK();
-            EnterRule("UNDERSCORE_MARK", 92);
-            TraceIn("UNDERSCORE_MARK", 92);
+            EnterRule("UNDERSCORE_MARK", 93);
+            TraceIn("UNDERSCORE_MARK", 93);
             try
             {
                 int _type = UNDERSCORE_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:313:17: ( '_' )
+                // GBX.g:314:17: ( '_' )
                 DebugEnterAlt(1);
-                // GBX.g:313:19: '_'
+                // GBX.g:314:19: '_'
                 {
-                    DebugLocation(313, 19);
+                    DebugLocation(314, 19);
                     Match('_');
 
                 }
@@ -3506,8 +3542,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("UNDERSCORE_MARK", 92);
-                LeaveRule("UNDERSCORE_MARK", 92);
+                TraceOut("UNDERSCORE_MARK", 93);
+                LeaveRule("UNDERSCORE_MARK", 93);
                 LeaveRule_UNDERSCORE_MARK();
             }
         }
@@ -3521,17 +3557,17 @@ namespace GBRead.Base
         private void mFSLASH_MARK()
         {
             EnterRule_FSLASH_MARK();
-            EnterRule("FSLASH_MARK", 93);
-            TraceIn("FSLASH_MARK", 93);
+            EnterRule("FSLASH_MARK", 94);
+            TraceIn("FSLASH_MARK", 94);
             try
             {
                 int _type = FSLASH_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:314:14: ( '/' )
+                // GBX.g:315:14: ( '/' )
                 DebugEnterAlt(1);
-                // GBX.g:314:16: '/'
+                // GBX.g:315:16: '/'
                 {
-                    DebugLocation(314, 16);
+                    DebugLocation(315, 16);
                     Match('/');
 
                 }
@@ -3541,8 +3577,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("FSLASH_MARK", 93);
-                LeaveRule("FSLASH_MARK", 93);
+                TraceOut("FSLASH_MARK", 94);
+                LeaveRule("FSLASH_MARK", 94);
                 LeaveRule_FSLASH_MARK();
             }
         }
@@ -3556,17 +3592,17 @@ namespace GBRead.Base
         private void mBSLASH_MARK()
         {
             EnterRule_BSLASH_MARK();
-            EnterRule("BSLASH_MARK", 94);
-            TraceIn("BSLASH_MARK", 94);
+            EnterRule("BSLASH_MARK", 95);
+            TraceIn("BSLASH_MARK", 95);
             try
             {
                 int _type = BSLASH_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:315:14: ( '\\\\' )
+                // GBX.g:316:14: ( '\\\\' )
                 DebugEnterAlt(1);
-                // GBX.g:315:16: '\\\\'
+                // GBX.g:316:16: '\\\\'
                 {
-                    DebugLocation(315, 16);
+                    DebugLocation(316, 16);
                     Match('\\');
 
                 }
@@ -3576,8 +3612,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("BSLASH_MARK", 94);
-                LeaveRule("BSLASH_MARK", 94);
+                TraceOut("BSLASH_MARK", 95);
+                LeaveRule("BSLASH_MARK", 95);
                 LeaveRule_BSLASH_MARK();
             }
         }
@@ -3591,17 +3627,17 @@ namespace GBRead.Base
         private void mCARET_MARK()
         {
             EnterRule_CARET_MARK();
-            EnterRule("CARET_MARK", 95);
-            TraceIn("CARET_MARK", 95);
+            EnterRule("CARET_MARK", 96);
+            TraceIn("CARET_MARK", 96);
             try
             {
                 int _type = CARET_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:316:13: ( '^' )
+                // GBX.g:317:13: ( '^' )
                 DebugEnterAlt(1);
-                // GBX.g:316:15: '^'
+                // GBX.g:317:15: '^'
                 {
-                    DebugLocation(316, 15);
+                    DebugLocation(317, 15);
                     Match('^');
 
                 }
@@ -3611,8 +3647,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("CARET_MARK", 95);
-                LeaveRule("CARET_MARK", 95);
+                TraceOut("CARET_MARK", 96);
+                LeaveRule("CARET_MARK", 96);
                 LeaveRule_CARET_MARK();
             }
         }
@@ -3626,17 +3662,17 @@ namespace GBRead.Base
         private void mCOLON_MARK()
         {
             EnterRule_COLON_MARK();
-            EnterRule("COLON_MARK", 96);
-            TraceIn("COLON_MARK", 96);
+            EnterRule("COLON_MARK", 97);
+            TraceIn("COLON_MARK", 97);
             try
             {
                 int _type = COLON_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:317:13: ( ':' )
+                // GBX.g:318:13: ( ':' )
                 DebugEnterAlt(1);
-                // GBX.g:317:15: ':'
+                // GBX.g:318:15: ':'
                 {
-                    DebugLocation(317, 15);
+                    DebugLocation(318, 15);
                     Match(':');
 
                 }
@@ -3646,8 +3682,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("COLON_MARK", 96);
-                LeaveRule("COLON_MARK", 96);
+                TraceOut("COLON_MARK", 97);
+                LeaveRule("COLON_MARK", 97);
                 LeaveRule_COLON_MARK();
             }
         }
@@ -3661,17 +3697,17 @@ namespace GBRead.Base
         private void mEQUIV_MARK()
         {
             EnterRule_EQUIV_MARK();
-            EnterRule("EQUIV_MARK", 97);
-            TraceIn("EQUIV_MARK", 97);
+            EnterRule("EQUIV_MARK", 98);
+            TraceIn("EQUIV_MARK", 98);
             try
             {
                 int _type = EQUIV_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:318:13: ( '==' )
+                // GBX.g:319:13: ( '==' )
                 DebugEnterAlt(1);
-                // GBX.g:318:15: '=='
+                // GBX.g:319:15: '=='
                 {
-                    DebugLocation(318, 15);
+                    DebugLocation(319, 15);
                     Match("==");
 
 
@@ -3682,8 +3718,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("EQUIV_MARK", 97);
-                LeaveRule("EQUIV_MARK", 97);
+                TraceOut("EQUIV_MARK", 98);
+                LeaveRule("EQUIV_MARK", 98);
                 LeaveRule_EQUIV_MARK();
             }
         }
@@ -3697,17 +3733,17 @@ namespace GBRead.Base
         private void mLTE_MARK()
         {
             EnterRule_LTE_MARK();
-            EnterRule("LTE_MARK", 98);
-            TraceIn("LTE_MARK", 98);
+            EnterRule("LTE_MARK", 99);
+            TraceIn("LTE_MARK", 99);
             try
             {
                 int _type = LTE_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:319:11: ( '<=' )
+                // GBX.g:320:11: ( '<=' )
                 DebugEnterAlt(1);
-                // GBX.g:319:13: '<='
+                // GBX.g:320:13: '<='
                 {
-                    DebugLocation(319, 13);
+                    DebugLocation(320, 13);
                     Match("<=");
 
 
@@ -3718,8 +3754,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("LTE_MARK", 98);
-                LeaveRule("LTE_MARK", 98);
+                TraceOut("LTE_MARK", 99);
+                LeaveRule("LTE_MARK", 99);
                 LeaveRule_LTE_MARK();
             }
         }
@@ -3733,17 +3769,17 @@ namespace GBRead.Base
         private void mGTE_MARK()
         {
             EnterRule_GTE_MARK();
-            EnterRule("GTE_MARK", 99);
-            TraceIn("GTE_MARK", 99);
+            EnterRule("GTE_MARK", 100);
+            TraceIn("GTE_MARK", 100);
             try
             {
                 int _type = GTE_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:320:11: ( '>=' )
+                // GBX.g:321:11: ( '>=' )
                 DebugEnterAlt(1);
-                // GBX.g:320:13: '>='
+                // GBX.g:321:13: '>='
                 {
-                    DebugLocation(320, 13);
+                    DebugLocation(321, 13);
                     Match(">=");
 
 
@@ -3754,8 +3790,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("GTE_MARK", 99);
-                LeaveRule("GTE_MARK", 99);
+                TraceOut("GTE_MARK", 100);
+                LeaveRule("GTE_MARK", 100);
                 LeaveRule_GTE_MARK();
             }
         }
@@ -3769,17 +3805,17 @@ namespace GBRead.Base
         private void mLSHIFT_MARK()
         {
             EnterRule_LSHIFT_MARK();
-            EnterRule("LSHIFT_MARK", 100);
-            TraceIn("LSHIFT_MARK", 100);
+            EnterRule("LSHIFT_MARK", 101);
+            TraceIn("LSHIFT_MARK", 101);
             try
             {
                 int _type = LSHIFT_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:321:14: ( '<<' )
+                // GBX.g:322:14: ( '<<' )
                 DebugEnterAlt(1);
-                // GBX.g:321:16: '<<'
+                // GBX.g:322:16: '<<'
                 {
-                    DebugLocation(321, 16);
+                    DebugLocation(322, 16);
                     Match("<<");
 
 
@@ -3790,8 +3826,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("LSHIFT_MARK", 100);
-                LeaveRule("LSHIFT_MARK", 100);
+                TraceOut("LSHIFT_MARK", 101);
+                LeaveRule("LSHIFT_MARK", 101);
                 LeaveRule_LSHIFT_MARK();
             }
         }
@@ -3805,17 +3841,17 @@ namespace GBRead.Base
         private void mRSHIFT_MARK()
         {
             EnterRule_RSHIFT_MARK();
-            EnterRule("RSHIFT_MARK", 101);
-            TraceIn("RSHIFT_MARK", 101);
+            EnterRule("RSHIFT_MARK", 102);
+            TraceIn("RSHIFT_MARK", 102);
             try
             {
                 int _type = RSHIFT_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:322:14: ( '>>' )
+                // GBX.g:323:14: ( '>>' )
                 DebugEnterAlt(1);
-                // GBX.g:322:16: '>>'
+                // GBX.g:323:16: '>>'
                 {
-                    DebugLocation(322, 16);
+                    DebugLocation(323, 16);
                     Match(">>");
 
 
@@ -3826,8 +3862,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("RSHIFT_MARK", 101);
-                LeaveRule("RSHIFT_MARK", 101);
+                TraceOut("RSHIFT_MARK", 102);
+                LeaveRule("RSHIFT_MARK", 102);
                 LeaveRule_RSHIFT_MARK();
             }
         }
@@ -3841,17 +3877,17 @@ namespace GBRead.Base
         private void mGT_MARK()
         {
             EnterRule_GT_MARK();
-            EnterRule("GT_MARK", 102);
-            TraceIn("GT_MARK", 102);
+            EnterRule("GT_MARK", 103);
+            TraceIn("GT_MARK", 103);
             try
             {
                 int _type = GT_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:323:11: ( '>' )
+                // GBX.g:324:11: ( '>' )
                 DebugEnterAlt(1);
-                // GBX.g:323:13: '>'
+                // GBX.g:324:13: '>'
                 {
-                    DebugLocation(323, 13);
+                    DebugLocation(324, 13);
                     Match('>');
 
                 }
@@ -3861,8 +3897,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("GT_MARK", 102);
-                LeaveRule("GT_MARK", 102);
+                TraceOut("GT_MARK", 103);
+                LeaveRule("GT_MARK", 103);
                 LeaveRule_GT_MARK();
             }
         }
@@ -3876,17 +3912,17 @@ namespace GBRead.Base
         private void mLT_MARK()
         {
             EnterRule_LT_MARK();
-            EnterRule("LT_MARK", 103);
-            TraceIn("LT_MARK", 103);
+            EnterRule("LT_MARK", 104);
+            TraceIn("LT_MARK", 104);
             try
             {
                 int _type = LT_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:324:11: ( '<' )
+                // GBX.g:325:11: ( '<' )
                 DebugEnterAlt(1);
-                // GBX.g:324:13: '<'
+                // GBX.g:325:13: '<'
                 {
-                    DebugLocation(324, 13);
+                    DebugLocation(325, 13);
                     Match('<');
 
                 }
@@ -3896,8 +3932,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("LT_MARK", 103);
-                LeaveRule("LT_MARK", 103);
+                TraceOut("LT_MARK", 104);
+                LeaveRule("LT_MARK", 104);
                 LeaveRule_LT_MARK();
             }
         }
@@ -3911,17 +3947,17 @@ namespace GBRead.Base
         private void mEQUAL_MARK()
         {
             EnterRule_EQUAL_MARK();
-            EnterRule("EQUAL_MARK", 104);
-            TraceIn("EQUAL_MARK", 104);
+            EnterRule("EQUAL_MARK", 105);
+            TraceIn("EQUAL_MARK", 105);
             try
             {
                 int _type = EQUAL_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:325:13: ( '=' )
+                // GBX.g:326:13: ( '=' )
                 DebugEnterAlt(1);
-                // GBX.g:325:15: '='
+                // GBX.g:326:15: '='
                 {
-                    DebugLocation(325, 15);
+                    DebugLocation(326, 15);
                     Match('=');
 
                 }
@@ -3931,8 +3967,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("EQUAL_MARK", 104);
-                LeaveRule("EQUAL_MARK", 104);
+                TraceOut("EQUAL_MARK", 105);
+                LeaveRule("EQUAL_MARK", 105);
                 LeaveRule_EQUAL_MARK();
             }
         }
@@ -3946,17 +3982,17 @@ namespace GBRead.Base
         private void mSEMI_MARK()
         {
             EnterRule_SEMI_MARK();
-            EnterRule("SEMI_MARK", 105);
-            TraceIn("SEMI_MARK", 105);
+            EnterRule("SEMI_MARK", 106);
+            TraceIn("SEMI_MARK", 106);
             try
             {
                 int _type = SEMI_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:326:12: ( ';' )
+                // GBX.g:327:12: ( ';' )
                 DebugEnterAlt(1);
-                // GBX.g:326:14: ';'
+                // GBX.g:327:14: ';'
                 {
-                    DebugLocation(326, 14);
+                    DebugLocation(327, 14);
                     Match(';');
 
                 }
@@ -3966,8 +4002,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("SEMI_MARK", 105);
-                LeaveRule("SEMI_MARK", 105);
+                TraceOut("SEMI_MARK", 106);
+                LeaveRule("SEMI_MARK", 106);
                 LeaveRule_SEMI_MARK();
             }
         }
@@ -3981,17 +4017,17 @@ namespace GBRead.Base
         private void mPOUND_MARK()
         {
             EnterRule_POUND_MARK();
-            EnterRule("POUND_MARK", 106);
-            TraceIn("POUND_MARK", 106);
+            EnterRule("POUND_MARK", 107);
+            TraceIn("POUND_MARK", 107);
             try
             {
                 int _type = POUND_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:327:13: ( '#' )
+                // GBX.g:328:13: ( '#' )
                 DebugEnterAlt(1);
-                // GBX.g:327:15: '#'
+                // GBX.g:328:15: '#'
                 {
-                    DebugLocation(327, 15);
+                    DebugLocation(328, 15);
                     Match('#');
 
                 }
@@ -4001,8 +4037,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("POUND_MARK", 106);
-                LeaveRule("POUND_MARK", 106);
+                TraceOut("POUND_MARK", 107);
+                LeaveRule("POUND_MARK", 107);
                 LeaveRule_POUND_MARK();
             }
         }
@@ -4016,17 +4052,17 @@ namespace GBRead.Base
         private void mPERCENT_MARK()
         {
             EnterRule_PERCENT_MARK();
-            EnterRule("PERCENT_MARK", 107);
-            TraceIn("PERCENT_MARK", 107);
+            EnterRule("PERCENT_MARK", 108);
+            TraceIn("PERCENT_MARK", 108);
             try
             {
                 int _type = PERCENT_MARK;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:328:14: ( '%' )
+                // GBX.g:329:14: ( '%' )
                 DebugEnterAlt(1);
-                // GBX.g:328:16: '%'
+                // GBX.g:329:16: '%'
                 {
-                    DebugLocation(328, 16);
+                    DebugLocation(329, 16);
                     Match('%');
 
                 }
@@ -4036,8 +4072,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("PERCENT_MARK", 107);
-                LeaveRule("PERCENT_MARK", 107);
+                TraceOut("PERCENT_MARK", 108);
+                LeaveRule("PERCENT_MARK", 108);
                 LeaveRule_PERCENT_MARK();
             }
         }
@@ -4051,17 +4087,17 @@ namespace GBRead.Base
         private void mCOMMA()
         {
             EnterRule_COMMA();
-            EnterRule("COMMA", 108);
-            TraceIn("COMMA", 108);
+            EnterRule("COMMA", 109);
+            TraceIn("COMMA", 109);
             try
             {
                 int _type = COMMA;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:329:9: ( ',' )
+                // GBX.g:330:9: ( ',' )
                 DebugEnterAlt(1);
-                // GBX.g:329:11: ','
+                // GBX.g:330:11: ','
                 {
-                    DebugLocation(329, 11);
+                    DebugLocation(330, 11);
                     Match(',');
 
                 }
@@ -4071,8 +4107,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("COMMA", 108);
-                LeaveRule("COMMA", 108);
+                TraceOut("COMMA", 109);
+                LeaveRule("COMMA", 109);
                 LeaveRule_COMMA();
             }
         }
@@ -4086,17 +4122,17 @@ namespace GBRead.Base
         private void mLEFT_PARENS()
         {
             EnterRule_LEFT_PARENS();
-            EnterRule("LEFT_PARENS", 109);
-            TraceIn("LEFT_PARENS", 109);
+            EnterRule("LEFT_PARENS", 110);
+            TraceIn("LEFT_PARENS", 110);
             try
             {
                 int _type = LEFT_PARENS;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:330:14: ( '(' )
+                // GBX.g:331:14: ( '(' )
                 DebugEnterAlt(1);
-                // GBX.g:330:16: '('
+                // GBX.g:331:16: '('
                 {
-                    DebugLocation(330, 16);
+                    DebugLocation(331, 16);
                     Match('(');
 
                 }
@@ -4106,8 +4142,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("LEFT_PARENS", 109);
-                LeaveRule("LEFT_PARENS", 109);
+                TraceOut("LEFT_PARENS", 110);
+                LeaveRule("LEFT_PARENS", 110);
                 LeaveRule_LEFT_PARENS();
             }
         }
@@ -4121,17 +4157,17 @@ namespace GBRead.Base
         private void mRIGHT_PARENS()
         {
             EnterRule_RIGHT_PARENS();
-            EnterRule("RIGHT_PARENS", 110);
-            TraceIn("RIGHT_PARENS", 110);
+            EnterRule("RIGHT_PARENS", 111);
+            TraceIn("RIGHT_PARENS", 111);
             try
             {
                 int _type = RIGHT_PARENS;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:331:14: ( ')' )
+                // GBX.g:332:14: ( ')' )
                 DebugEnterAlt(1);
-                // GBX.g:331:16: ')'
+                // GBX.g:332:16: ')'
                 {
-                    DebugLocation(331, 16);
+                    DebugLocation(332, 16);
                     Match(')');
 
                 }
@@ -4141,8 +4177,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("RIGHT_PARENS", 110);
-                LeaveRule("RIGHT_PARENS", 110);
+                TraceOut("RIGHT_PARENS", 111);
+                LeaveRule("RIGHT_PARENS", 111);
                 LeaveRule_RIGHT_PARENS();
             }
         }
@@ -4156,17 +4192,17 @@ namespace GBRead.Base
         private void mLEFT_BRACKET()
         {
             EnterRule_LEFT_BRACKET();
-            EnterRule("LEFT_BRACKET", 111);
-            TraceIn("LEFT_BRACKET", 111);
+            EnterRule("LEFT_BRACKET", 112);
+            TraceIn("LEFT_BRACKET", 112);
             try
             {
                 int _type = LEFT_BRACKET;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:332:14: ( '[' )
+                // GBX.g:333:14: ( '[' )
                 DebugEnterAlt(1);
-                // GBX.g:332:16: '['
+                // GBX.g:333:16: '['
                 {
-                    DebugLocation(332, 16);
+                    DebugLocation(333, 16);
                     Match('[');
 
                 }
@@ -4176,8 +4212,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("LEFT_BRACKET", 111);
-                LeaveRule("LEFT_BRACKET", 111);
+                TraceOut("LEFT_BRACKET", 112);
+                LeaveRule("LEFT_BRACKET", 112);
                 LeaveRule_LEFT_BRACKET();
             }
         }
@@ -4191,17 +4227,17 @@ namespace GBRead.Base
         private void mRIGHT_BRACKET()
         {
             EnterRule_RIGHT_BRACKET();
-            EnterRule("RIGHT_BRACKET", 112);
-            TraceIn("RIGHT_BRACKET", 112);
+            EnterRule("RIGHT_BRACKET", 113);
+            TraceIn("RIGHT_BRACKET", 113);
             try
             {
                 int _type = RIGHT_BRACKET;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:333:15: ( ']' )
+                // GBX.g:334:15: ( ']' )
                 DebugEnterAlt(1);
-                // GBX.g:333:17: ']'
+                // GBX.g:334:17: ']'
                 {
-                    DebugLocation(333, 17);
+                    DebugLocation(334, 17);
                     Match(']');
 
                 }
@@ -4211,8 +4247,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("RIGHT_BRACKET", 112);
-                LeaveRule("RIGHT_BRACKET", 112);
+                TraceOut("RIGHT_BRACKET", 113);
+                LeaveRule("RIGHT_BRACKET", 113);
                 LeaveRule_RIGHT_BRACKET();
             }
         }
@@ -4226,17 +4262,17 @@ namespace GBRead.Base
         private void mID()
         {
             EnterRule_ID();
-            EnterRule("ID", 113);
-            TraceIn("ID", 113);
+            EnterRule("ID", 114);
+            TraceIn("ID", 114);
             try
             {
                 int _type = ID;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:335:7: ( ( 'a' .. 'z' | '_' ) ( 'a' .. 'z' | '0' .. '9' | '_' )+ )
+                // GBX.g:336:7: ( ( 'a' .. 'z' | '_' ) ( 'a' .. 'z' | '0' .. '9' | '_' )+ )
                 DebugEnterAlt(1);
-                // GBX.g:335:9: ( 'a' .. 'z' | '_' ) ( 'a' .. 'z' | '0' .. '9' | '_' )+
+                // GBX.g:336:9: ( 'a' .. 'z' | '_' ) ( 'a' .. 'z' | '0' .. '9' | '_' )+
                 {
-                    DebugLocation(335, 9);
+                    DebugLocation(336, 9);
                     if (input.LA(1) == '_' || (input.LA(1) >= 'a' && input.LA(1) <= 'z'))
                     {
                         input.Consume();
@@ -4249,8 +4285,8 @@ namespace GBRead.Base
                         throw mse;
                     }
 
-                    DebugLocation(335, 24);
-                    // GBX.g:335:24: ( 'a' .. 'z' | '0' .. '9' | '_' )+
+                    DebugLocation(336, 24);
+                    // GBX.g:336:24: ( 'a' .. 'z' | '0' .. '9' | '_' )+
                     int cnt1 = 0;
                     try
                     {
@@ -4277,7 +4313,7 @@ namespace GBRead.Base
                                     DebugEnterAlt(1);
                                     // GBX.g:
                                     {
-                                        DebugLocation(335, 24);
+                                        DebugLocation(336, 24);
                                         input.Consume();
 
 
@@ -4308,8 +4344,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("ID", 113);
-                LeaveRule("ID", 113);
+                TraceOut("ID", 114);
+                LeaveRule("ID", 114);
                 LeaveRule_ID();
             }
         }
@@ -4323,13 +4359,13 @@ namespace GBRead.Base
         private void mNUMBER()
         {
             EnterRule_NUMBER();
-            EnterRule("NUMBER", 114);
-            TraceIn("NUMBER", 114);
+            EnterRule("NUMBER", 115);
+            TraceIn("NUMBER", 115);
             try
             {
                 int _type = NUMBER;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:337:10: ( INT | HEX_NUMBER | BIN_NUMBER | OCT_NUMBER )
+                // GBX.g:338:10: ( INT | HEX_NUMBER | BIN_NUMBER | OCT_NUMBER )
                 int alt2 = 4;
                 try
                 {
@@ -4405,36 +4441,36 @@ namespace GBRead.Base
                 {
                     case 1:
                         DebugEnterAlt(1);
-                        // GBX.g:337:12: INT
+                        // GBX.g:338:12: INT
                         {
-                            DebugLocation(337, 12);
+                            DebugLocation(338, 12);
                             mINT();
 
                         }
                         break;
                     case 2:
                         DebugEnterAlt(2);
-                        // GBX.g:338:7: HEX_NUMBER
+                        // GBX.g:339:7: HEX_NUMBER
                         {
-                            DebugLocation(338, 7);
+                            DebugLocation(339, 7);
                             mHEX_NUMBER();
 
                         }
                         break;
                     case 3:
                         DebugEnterAlt(3);
-                        // GBX.g:339:7: BIN_NUMBER
+                        // GBX.g:340:7: BIN_NUMBER
                         {
-                            DebugLocation(339, 7);
+                            DebugLocation(340, 7);
                             mBIN_NUMBER();
 
                         }
                         break;
                     case 4:
                         DebugEnterAlt(4);
-                        // GBX.g:340:7: OCT_NUMBER
+                        // GBX.g:341:7: OCT_NUMBER
                         {
-                            DebugLocation(340, 7);
+                            DebugLocation(341, 7);
                             mOCT_NUMBER();
 
                         }
@@ -4446,8 +4482,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("NUMBER", 114);
-                LeaveRule("NUMBER", 114);
+                TraceOut("NUMBER", 115);
+                LeaveRule("NUMBER", 115);
                 LeaveRule_NUMBER();
             }
         }
@@ -4461,20 +4497,20 @@ namespace GBRead.Base
         private void mSTRING()
         {
             EnterRule_STRING();
-            EnterRule("STRING", 115);
-            TraceIn("STRING", 115);
+            EnterRule("STRING", 116);
+            TraceIn("STRING", 116);
             try
             {
                 int _type = STRING;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:342:10: ( '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"' )
+                // GBX.g:343:10: ( '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"' )
                 DebugEnterAlt(1);
-                // GBX.g:342:13: '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"'
+                // GBX.g:343:13: '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"'
                 {
-                    DebugLocation(342, 13);
+                    DebugLocation(343, 13);
                     Match('\"');
-                    DebugLocation(342, 17);
-                    // GBX.g:342:17: ( ESC_SEQ |~ ( '\\\\' | '\"' ) )*
+                    DebugLocation(343, 17);
+                    // GBX.g:343:17: ( ESC_SEQ |~ ( '\\\\' | '\"' ) )*
                     try
                     {
                         DebugEnterSubRule(3);
@@ -4502,18 +4538,18 @@ namespace GBRead.Base
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:342:19: ESC_SEQ
+                                    // GBX.g:343:19: ESC_SEQ
                                     {
-                                        DebugLocation(342, 19);
+                                        DebugLocation(343, 19);
                                         mESC_SEQ();
 
                                     }
                                     break;
                                 case 2:
                                     DebugEnterAlt(2);
-                                    // GBX.g:342:29: ~ ( '\\\\' | '\"' )
+                                    // GBX.g:343:29: ~ ( '\\\\' | '\"' )
                                     {
-                                        DebugLocation(342, 29);
+                                        DebugLocation(343, 29);
                                         input.Consume();
 
 
@@ -4531,7 +4567,7 @@ namespace GBRead.Base
                     }
                     finally { DebugExitSubRule(3); }
 
-                    DebugLocation(342, 44);
+                    DebugLocation(343, 44);
                     Match('\"');
 
                 }
@@ -4541,8 +4577,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("STRING", 115);
-                LeaveRule("STRING", 115);
+                TraceOut("STRING", 116);
+                LeaveRule("STRING", 116);
                 LeaveRule_STRING();
             }
         }
@@ -4556,20 +4592,20 @@ namespace GBRead.Base
         private void mCHAR()
         {
             EnterRule_CHAR();
-            EnterRule("CHAR", 116);
-            TraceIn("CHAR", 116);
+            EnterRule("CHAR", 117);
+            TraceIn("CHAR", 117);
             try
             {
                 int _type = CHAR;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:343:8: ( '\\'' ( ESC_SEQ |~ ( '\\'' | '\\\\' ) ) '\\'' )
+                // GBX.g:344:8: ( '\\'' ( ESC_SEQ |~ ( '\\'' | '\\\\' ) ) '\\'' )
                 DebugEnterAlt(1);
-                // GBX.g:343:11: '\\'' ( ESC_SEQ |~ ( '\\'' | '\\\\' ) ) '\\''
+                // GBX.g:344:11: '\\'' ( ESC_SEQ |~ ( '\\'' | '\\\\' ) ) '\\''
                 {
-                    DebugLocation(343, 11);
+                    DebugLocation(344, 11);
                     Match('\'');
-                    DebugLocation(343, 16);
-                    // GBX.g:343:16: ( ESC_SEQ |~ ( '\\'' | '\\\\' ) )
+                    DebugLocation(344, 16);
+                    // GBX.g:344:16: ( ESC_SEQ |~ ( '\\'' | '\\\\' ) )
                     int alt4 = 2;
                     try
                     {
@@ -4599,18 +4635,18 @@ namespace GBRead.Base
                         {
                             case 1:
                                 DebugEnterAlt(1);
-                                // GBX.g:343:18: ESC_SEQ
+                                // GBX.g:344:18: ESC_SEQ
                                 {
-                                    DebugLocation(343, 18);
+                                    DebugLocation(344, 18);
                                     mESC_SEQ();
 
                                 }
                                 break;
                             case 2:
                                 DebugEnterAlt(2);
-                                // GBX.g:343:28: ~ ( '\\'' | '\\\\' )
+                                // GBX.g:344:28: ~ ( '\\'' | '\\\\' )
                                 {
-                                    DebugLocation(343, 28);
+                                    DebugLocation(344, 28);
                                     input.Consume();
 
 
@@ -4621,7 +4657,7 @@ namespace GBRead.Base
                     }
                     finally { DebugExitSubRule(4); }
 
-                    DebugLocation(343, 43);
+                    DebugLocation(344, 43);
                     Match('\'');
 
                 }
@@ -4631,8 +4667,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("CHAR", 116);
-                LeaveRule("CHAR", 116);
+                TraceOut("CHAR", 117);
+                LeaveRule("CHAR", 117);
                 LeaveRule_CHAR();
             }
         }
@@ -4646,13 +4682,13 @@ namespace GBRead.Base
         private void mCOMMENT()
         {
             EnterRule_COMMENT();
-            EnterRule("COMMENT", 117);
-            TraceIn("COMMENT", 117);
+            EnterRule("COMMENT", 118);
+            TraceIn("COMMENT", 118);
             try
             {
                 int _type = COMMENT;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:345:11: ( ( '//' | '#' | ';' ) (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
+                // GBX.g:346:11: ( ( '//' | '#' | ';' ) (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
                 int alt9 = 2;
                 try
                 {
@@ -4694,10 +4730,10 @@ namespace GBRead.Base
                 {
                     case 1:
                         DebugEnterAlt(1);
-                        // GBX.g:345:15: ( '//' | '#' | ';' ) (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+                        // GBX.g:346:15: ( '//' | '#' | ';' ) (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
                         {
-                            DebugLocation(345, 15);
-                            // GBX.g:345:15: ( '//' | '#' | ';' )
+                            DebugLocation(346, 15);
+                            // GBX.g:346:15: ( '//' | '#' | ';' )
                             int alt5 = 3;
                             try
                             {
@@ -4736,9 +4772,9 @@ namespace GBRead.Base
                                 {
                                     case 1:
                                         DebugEnterAlt(1);
-                                        // GBX.g:345:16: '//'
+                                        // GBX.g:346:16: '//'
                                         {
-                                            DebugLocation(345, 16);
+                                            DebugLocation(346, 16);
                                             Match("//");
 
 
@@ -4746,18 +4782,18 @@ namespace GBRead.Base
                                         break;
                                     case 2:
                                         DebugEnterAlt(2);
-                                        // GBX.g:345:21: '#'
+                                        // GBX.g:346:21: '#'
                                         {
-                                            DebugLocation(345, 21);
+                                            DebugLocation(346, 21);
                                             Match('#');
 
                                         }
                                         break;
                                     case 3:
                                         DebugEnterAlt(3);
-                                        // GBX.g:345:25: ';'
+                                        // GBX.g:346:25: ';'
                                         {
-                                            DebugLocation(345, 25);
+                                            DebugLocation(346, 25);
                                             Match(';');
 
                                         }
@@ -4767,8 +4803,8 @@ namespace GBRead.Base
                             }
                             finally { DebugExitSubRule(5); }
 
-                            DebugLocation(345, 30);
-                            // GBX.g:345:30: (~ ( '\\n' | '\\r' ) )*
+                            DebugLocation(346, 30);
+                            // GBX.g:346:30: (~ ( '\\n' | '\\r' ) )*
                             try
                             {
                                 DebugEnterSubRule(6);
@@ -4794,7 +4830,7 @@ namespace GBRead.Base
                                             DebugEnterAlt(1);
                                             // GBX.g:
                                             {
-                                                DebugLocation(345, 30);
+                                                DebugLocation(346, 30);
                                                 input.Consume();
 
 
@@ -4812,8 +4848,8 @@ namespace GBRead.Base
                             }
                             finally { DebugExitSubRule(6); }
 
-                            DebugLocation(345, 44);
-                            // GBX.g:345:44: ( '\\r' )?
+                            DebugLocation(346, 44);
+                            // GBX.g:346:44: ( '\\r' )?
                             int alt7 = 2;
                             try
                             {
@@ -4833,9 +4869,9 @@ namespace GBRead.Base
                                 {
                                     case 1:
                                         DebugEnterAlt(1);
-                                        // GBX.g:345:44: '\\r'
+                                        // GBX.g:346:44: '\\r'
                                         {
-                                            DebugLocation(345, 44);
+                                            DebugLocation(346, 44);
                                             Match('\r');
 
                                         }
@@ -4845,22 +4881,22 @@ namespace GBRead.Base
                             }
                             finally { DebugExitSubRule(7); }
 
-                            DebugLocation(345, 50);
+                            DebugLocation(346, 50);
                             Match('\n');
-                            DebugLocation(345, 55);
+                            DebugLocation(346, 55);
                             _channel = Hidden;
 
                         }
                         break;
                     case 2:
                         DebugEnterAlt(2);
-                        // GBX.g:346:9: '/*' ( options {greedy=false; } : . )* '*/'
+                        // GBX.g:347:9: '/*' ( options {greedy=false; } : . )* '*/'
                         {
-                            DebugLocation(346, 9);
+                            DebugLocation(347, 9);
                             Match("/*");
 
-                            DebugLocation(346, 14);
-                            // GBX.g:346:14: ( options {greedy=false; } : . )*
+                            DebugLocation(347, 14);
+                            // GBX.g:347:14: ( options {greedy=false; } : . )*
                             try
                             {
                                 DebugEnterSubRule(8);
@@ -4899,9 +4935,9 @@ namespace GBRead.Base
                                     {
                                         case 1:
                                             DebugEnterAlt(1);
-                                            // GBX.g:346:42: .
+                                            // GBX.g:347:42: .
                                             {
-                                                DebugLocation(346, 42);
+                                                DebugLocation(347, 42);
                                                 MatchAny();
 
                                             }
@@ -4918,10 +4954,10 @@ namespace GBRead.Base
                             }
                             finally { DebugExitSubRule(8); }
 
-                            DebugLocation(346, 47);
+                            DebugLocation(347, 47);
                             Match("*/");
 
-                            DebugLocation(346, 52);
+                            DebugLocation(347, 52);
                             _channel = Hidden;
 
                         }
@@ -4933,8 +4969,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("COMMENT", 117);
-                LeaveRule("COMMENT", 117);
+                TraceOut("COMMENT", 118);
+                LeaveRule("COMMENT", 118);
                 LeaveRule_COMMENT();
             }
         }
@@ -4948,16 +4984,16 @@ namespace GBRead.Base
         private void mINT()
         {
             EnterRule_INT();
-            EnterRule("INT", 118);
-            TraceIn("INT", 118);
+            EnterRule("INT", 119);
+            TraceIn("INT", 119);
             try
             {
-                // GBX.g:350:8: ( ( '0' .. '9' )+ )
+                // GBX.g:351:8: ( ( '0' .. '9' )+ )
                 DebugEnterAlt(1);
-                // GBX.g:350:10: ( '0' .. '9' )+
+                // GBX.g:351:10: ( '0' .. '9' )+
                 {
-                    DebugLocation(350, 10);
-                    // GBX.g:350:10: ( '0' .. '9' )+
+                    DebugLocation(351, 10);
+                    // GBX.g:351:10: ( '0' .. '9' )+
                     int cnt10 = 0;
                     try
                     {
@@ -4984,7 +5020,7 @@ namespace GBRead.Base
                                     DebugEnterAlt(1);
                                     // GBX.g:
                                     {
-                                        DebugLocation(350, 10);
+                                        DebugLocation(351, 10);
                                         input.Consume();
 
 
@@ -5013,8 +5049,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("INT", 118);
-                LeaveRule("INT", 118);
+                TraceOut("INT", 119);
+                LeaveRule("INT", 119);
                 LeaveRule_INT();
             }
         }
@@ -5028,11 +5064,11 @@ namespace GBRead.Base
         private void mHEX_NUMBER()
         {
             EnterRule_HEX_NUMBER();
-            EnterRule("HEX_NUMBER", 119);
-            TraceIn("HEX_NUMBER", 119);
+            EnterRule("HEX_NUMBER", 120);
+            TraceIn("HEX_NUMBER", 120);
             try
             {
-                // GBX.g:352:13: ( '$' ( HEX_DIGIT )+ | '0' 'x' ( HEX_DIGIT )+ )
+                // GBX.g:353:13: ( '$' ( HEX_DIGIT )+ | '0' 'x' ( HEX_DIGIT )+ )
                 int alt13 = 2;
                 try
                 {
@@ -5059,12 +5095,12 @@ namespace GBRead.Base
                 {
                     case 1:
                         DebugEnterAlt(1);
-                        // GBX.g:352:15: '$' ( HEX_DIGIT )+
+                        // GBX.g:353:15: '$' ( HEX_DIGIT )+
                         {
-                            DebugLocation(352, 15);
+                            DebugLocation(353, 15);
                             Match('$');
-                            DebugLocation(352, 18);
-                            // GBX.g:352:18: ( HEX_DIGIT )+
+                            DebugLocation(353, 18);
+                            // GBX.g:353:18: ( HEX_DIGIT )+
                             int cnt11 = 0;
                             try
                             {
@@ -5091,7 +5127,7 @@ namespace GBRead.Base
                                             DebugEnterAlt(1);
                                             // GBX.g:
                                             {
-                                                DebugLocation(352, 18);
+                                                DebugLocation(353, 18);
                                                 input.Consume();
 
 
@@ -5119,14 +5155,14 @@ namespace GBRead.Base
                         break;
                     case 2:
                         DebugEnterAlt(2);
-                        // GBX.g:353:7: '0' 'x' ( HEX_DIGIT )+
+                        // GBX.g:354:7: '0' 'x' ( HEX_DIGIT )+
                         {
-                            DebugLocation(353, 7);
+                            DebugLocation(354, 7);
                             Match('0');
-                            DebugLocation(353, 10);
+                            DebugLocation(354, 10);
                             Match('x');
-                            DebugLocation(353, 13);
-                            // GBX.g:353:13: ( HEX_DIGIT )+
+                            DebugLocation(354, 13);
+                            // GBX.g:354:13: ( HEX_DIGIT )+
                             int cnt12 = 0;
                             try
                             {
@@ -5153,7 +5189,7 @@ namespace GBRead.Base
                                             DebugEnterAlt(1);
                                             // GBX.g:
                                             {
-                                                DebugLocation(353, 13);
+                                                DebugLocation(354, 13);
                                                 input.Consume();
 
 
@@ -5184,8 +5220,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("HEX_NUMBER", 119);
-                LeaveRule("HEX_NUMBER", 119);
+                TraceOut("HEX_NUMBER", 120);
+                LeaveRule("HEX_NUMBER", 120);
                 LeaveRule_HEX_NUMBER();
             }
         }
@@ -5199,11 +5235,11 @@ namespace GBRead.Base
         private void mBIN_NUMBER()
         {
             EnterRule_BIN_NUMBER();
-            EnterRule("BIN_NUMBER", 120);
-            TraceIn("BIN_NUMBER", 120);
+            EnterRule("BIN_NUMBER", 121);
+            TraceIn("BIN_NUMBER", 121);
             try
             {
-                // GBX.g:355:13: ( '%' ( BIN_DIGIT )+ | '0' 'b' ( BIN_DIGIT )+ )
+                // GBX.g:356:13: ( '%' ( BIN_DIGIT )+ | '0' 'b' ( BIN_DIGIT )+ )
                 int alt16 = 2;
                 try
                 {
@@ -5230,12 +5266,12 @@ namespace GBRead.Base
                 {
                     case 1:
                         DebugEnterAlt(1);
-                        // GBX.g:355:15: '%' ( BIN_DIGIT )+
+                        // GBX.g:356:15: '%' ( BIN_DIGIT )+
                         {
-                            DebugLocation(355, 15);
+                            DebugLocation(356, 15);
                             Match('%');
-                            DebugLocation(355, 18);
-                            // GBX.g:355:18: ( BIN_DIGIT )+
+                            DebugLocation(356, 18);
+                            // GBX.g:356:18: ( BIN_DIGIT )+
                             int cnt14 = 0;
                             try
                             {
@@ -5262,7 +5298,7 @@ namespace GBRead.Base
                                             DebugEnterAlt(1);
                                             // GBX.g:
                                             {
-                                                DebugLocation(355, 18);
+                                                DebugLocation(356, 18);
                                                 input.Consume();
 
 
@@ -5290,14 +5326,14 @@ namespace GBRead.Base
                         break;
                     case 2:
                         DebugEnterAlt(2);
-                        // GBX.g:356:7: '0' 'b' ( BIN_DIGIT )+
+                        // GBX.g:357:7: '0' 'b' ( BIN_DIGIT )+
                         {
-                            DebugLocation(356, 7);
+                            DebugLocation(357, 7);
                             Match('0');
-                            DebugLocation(356, 10);
+                            DebugLocation(357, 10);
                             Match('b');
-                            DebugLocation(356, 13);
-                            // GBX.g:356:13: ( BIN_DIGIT )+
+                            DebugLocation(357, 13);
+                            // GBX.g:357:13: ( BIN_DIGIT )+
                             int cnt15 = 0;
                             try
                             {
@@ -5324,7 +5360,7 @@ namespace GBRead.Base
                                             DebugEnterAlt(1);
                                             // GBX.g:
                                             {
-                                                DebugLocation(356, 13);
+                                                DebugLocation(357, 13);
                                                 input.Consume();
 
 
@@ -5355,8 +5391,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("BIN_NUMBER", 120);
-                LeaveRule("BIN_NUMBER", 120);
+                TraceOut("BIN_NUMBER", 121);
+                LeaveRule("BIN_NUMBER", 121);
                 LeaveRule_BIN_NUMBER();
             }
         }
@@ -5370,11 +5406,11 @@ namespace GBRead.Base
         private void mOCT_NUMBER()
         {
             EnterRule_OCT_NUMBER();
-            EnterRule("OCT_NUMBER", 121);
-            TraceIn("OCT_NUMBER", 121);
+            EnterRule("OCT_NUMBER", 122);
+            TraceIn("OCT_NUMBER", 122);
             try
             {
-                // GBX.g:358:13: ( '&' ( OCT_DIGIT )+ | '0' 'o' ( OCT_DIGIT )+ )
+                // GBX.g:359:13: ( '&' ( OCT_DIGIT )+ | '0' 'o' ( OCT_DIGIT )+ )
                 int alt19 = 2;
                 try
                 {
@@ -5401,12 +5437,12 @@ namespace GBRead.Base
                 {
                     case 1:
                         DebugEnterAlt(1);
-                        // GBX.g:358:15: '&' ( OCT_DIGIT )+
+                        // GBX.g:359:15: '&' ( OCT_DIGIT )+
                         {
-                            DebugLocation(358, 15);
+                            DebugLocation(359, 15);
                             Match('&');
-                            DebugLocation(358, 18);
-                            // GBX.g:358:18: ( OCT_DIGIT )+
+                            DebugLocation(359, 18);
+                            // GBX.g:359:18: ( OCT_DIGIT )+
                             int cnt17 = 0;
                             try
                             {
@@ -5433,7 +5469,7 @@ namespace GBRead.Base
                                             DebugEnterAlt(1);
                                             // GBX.g:
                                             {
-                                                DebugLocation(358, 18);
+                                                DebugLocation(359, 18);
                                                 input.Consume();
 
 
@@ -5461,14 +5497,14 @@ namespace GBRead.Base
                         break;
                     case 2:
                         DebugEnterAlt(2);
-                        // GBX.g:359:7: '0' 'o' ( OCT_DIGIT )+
+                        // GBX.g:360:7: '0' 'o' ( OCT_DIGIT )+
                         {
-                            DebugLocation(359, 7);
+                            DebugLocation(360, 7);
                             Match('0');
-                            DebugLocation(359, 10);
+                            DebugLocation(360, 10);
                             Match('o');
-                            DebugLocation(359, 13);
-                            // GBX.g:359:13: ( OCT_DIGIT )+
+                            DebugLocation(360, 13);
+                            // GBX.g:360:13: ( OCT_DIGIT )+
                             int cnt18 = 0;
                             try
                             {
@@ -5495,7 +5531,7 @@ namespace GBRead.Base
                                             DebugEnterAlt(1);
                                             // GBX.g:
                                             {
-                                                DebugLocation(359, 13);
+                                                DebugLocation(360, 13);
                                                 input.Consume();
 
 
@@ -5526,8 +5562,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("OCT_NUMBER", 121);
-                LeaveRule("OCT_NUMBER", 121);
+                TraceOut("OCT_NUMBER", 122);
+                LeaveRule("OCT_NUMBER", 122);
                 LeaveRule_OCT_NUMBER();
             }
         }
@@ -5541,15 +5577,15 @@ namespace GBRead.Base
         private void mHEX_DIGIT()
         {
             EnterRule_HEX_DIGIT();
-            EnterRule("HEX_DIGIT", 122);
-            TraceIn("HEX_DIGIT", 122);
+            EnterRule("HEX_DIGIT", 123);
+            TraceIn("HEX_DIGIT", 123);
             try
             {
-                // GBX.g:361:13: ( ( '0' .. '9' | 'a' .. 'f' ) )
+                // GBX.g:362:13: ( ( '0' .. '9' | 'a' .. 'f' ) )
                 DebugEnterAlt(1);
                 // GBX.g:
                 {
-                    DebugLocation(361, 13);
+                    DebugLocation(362, 13);
                     if ((input.LA(1) >= '0' && input.LA(1) <= '9') || (input.LA(1) >= 'a' && input.LA(1) <= 'f'))
                     {
                         input.Consume();
@@ -5568,8 +5604,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("HEX_DIGIT", 122);
-                LeaveRule("HEX_DIGIT", 122);
+                TraceOut("HEX_DIGIT", 123);
+                LeaveRule("HEX_DIGIT", 123);
                 LeaveRule_HEX_DIGIT();
             }
         }
@@ -5583,15 +5619,15 @@ namespace GBRead.Base
         private void mOCT_DIGIT()
         {
             EnterRule_OCT_DIGIT();
-            EnterRule("OCT_DIGIT", 123);
-            TraceIn("OCT_DIGIT", 123);
+            EnterRule("OCT_DIGIT", 124);
+            TraceIn("OCT_DIGIT", 124);
             try
             {
-                // GBX.g:363:12: ( ( '0' .. '7' ) )
+                // GBX.g:364:12: ( ( '0' .. '7' ) )
                 DebugEnterAlt(1);
                 // GBX.g:
                 {
-                    DebugLocation(363, 12);
+                    DebugLocation(364, 12);
                     if ((input.LA(1) >= '0' && input.LA(1) <= '7'))
                     {
                         input.Consume();
@@ -5610,8 +5646,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("OCT_DIGIT", 123);
-                LeaveRule("OCT_DIGIT", 123);
+                TraceOut("OCT_DIGIT", 124);
+                LeaveRule("OCT_DIGIT", 124);
                 LeaveRule_OCT_DIGIT();
             }
         }
@@ -5625,15 +5661,15 @@ namespace GBRead.Base
         private void mBIN_DIGIT()
         {
             EnterRule_BIN_DIGIT();
-            EnterRule("BIN_DIGIT", 124);
-            TraceIn("BIN_DIGIT", 124);
+            EnterRule("BIN_DIGIT", 125);
+            TraceIn("BIN_DIGIT", 125);
             try
             {
-                // GBX.g:365:12: ( ( '0' .. '1' ) )
+                // GBX.g:366:12: ( ( '0' .. '1' ) )
                 DebugEnterAlt(1);
                 // GBX.g:
                 {
-                    DebugLocation(365, 12);
+                    DebugLocation(366, 12);
                     if ((input.LA(1) >= '0' && input.LA(1) <= '1'))
                     {
                         input.Consume();
@@ -5652,8 +5688,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("BIN_DIGIT", 124);
-                LeaveRule("BIN_DIGIT", 124);
+                TraceOut("BIN_DIGIT", 125);
+                LeaveRule("BIN_DIGIT", 125);
                 LeaveRule_BIN_DIGIT();
             }
         }
@@ -5667,11 +5703,11 @@ namespace GBRead.Base
         private void mESC_SEQ()
         {
             EnterRule_ESC_SEQ();
-            EnterRule("ESC_SEQ", 125);
-            TraceIn("ESC_SEQ", 125);
+            EnterRule("ESC_SEQ", 126);
+            TraceIn("ESC_SEQ", 126);
             try
             {
-                // GBX.g:368:11: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESC | OCTAL_ESC )
+                // GBX.g:369:11: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESC | OCTAL_ESC )
                 int alt20 = 3;
                 try
                 {
@@ -5732,11 +5768,11 @@ namespace GBRead.Base
                 {
                     case 1:
                         DebugEnterAlt(1);
-                        // GBX.g:368:15: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
+                        // GBX.g:369:15: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
                         {
-                            DebugLocation(368, 15);
+                            DebugLocation(369, 15);
                             Match('\\');
-                            DebugLocation(368, 20);
+                            DebugLocation(369, 20);
                             input.Consume();
 
 
@@ -5744,18 +5780,18 @@ namespace GBRead.Base
                         break;
                     case 2:
                         DebugEnterAlt(2);
-                        // GBX.g:369:9: UNICODE_ESC
+                        // GBX.g:370:9: UNICODE_ESC
                         {
-                            DebugLocation(369, 9);
+                            DebugLocation(370, 9);
                             mUNICODE_ESC();
 
                         }
                         break;
                     case 3:
                         DebugEnterAlt(3);
-                        // GBX.g:370:9: OCTAL_ESC
+                        // GBX.g:371:9: OCTAL_ESC
                         {
-                            DebugLocation(370, 9);
+                            DebugLocation(371, 9);
                             mOCTAL_ESC();
 
                         }
@@ -5765,8 +5801,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("ESC_SEQ", 125);
-                LeaveRule("ESC_SEQ", 125);
+                TraceOut("ESC_SEQ", 126);
+                LeaveRule("ESC_SEQ", 126);
                 LeaveRule_ESC_SEQ();
             }
         }
@@ -5780,11 +5816,11 @@ namespace GBRead.Base
         private void mOCTAL_ESC()
         {
             EnterRule_OCTAL_ESC();
-            EnterRule("OCTAL_ESC", 126);
-            TraceIn("OCTAL_ESC", 126);
+            EnterRule("OCTAL_ESC", 127);
+            TraceIn("OCTAL_ESC", 127);
             try
             {
-                // GBX.g:372:12: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
+                // GBX.g:373:12: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
                 int alt21 = 3;
                 try
                 {
@@ -5849,17 +5885,17 @@ namespace GBRead.Base
                 {
                     case 1:
                         DebugEnterAlt(1);
-                        // GBX.g:372:16: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
+                        // GBX.g:373:16: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
                         {
-                            DebugLocation(372, 16);
+                            DebugLocation(373, 16);
                             Match('\\');
-                            DebugLocation(372, 21);
+                            DebugLocation(373, 21);
                             input.Consume();
 
-                            DebugLocation(372, 32);
+                            DebugLocation(373, 32);
                             input.Consume();
 
-                            DebugLocation(372, 43);
+                            DebugLocation(373, 43);
                             input.Consume();
 
 
@@ -5867,14 +5903,14 @@ namespace GBRead.Base
                         break;
                     case 2:
                         DebugEnterAlt(2);
-                        // GBX.g:373:9: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
+                        // GBX.g:374:9: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
                         {
-                            DebugLocation(373, 9);
+                            DebugLocation(374, 9);
                             Match('\\');
-                            DebugLocation(373, 14);
+                            DebugLocation(374, 14);
                             input.Consume();
 
-                            DebugLocation(373, 25);
+                            DebugLocation(374, 25);
                             input.Consume();
 
 
@@ -5882,11 +5918,11 @@ namespace GBRead.Base
                         break;
                     case 3:
                         DebugEnterAlt(3);
-                        // GBX.g:374:9: '\\\\' ( '0' .. '7' )
+                        // GBX.g:375:9: '\\\\' ( '0' .. '7' )
                         {
-                            DebugLocation(374, 9);
+                            DebugLocation(375, 9);
                             Match('\\');
-                            DebugLocation(374, 14);
+                            DebugLocation(375, 14);
                             input.Consume();
 
 
@@ -5897,8 +5933,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("OCTAL_ESC", 126);
-                LeaveRule("OCTAL_ESC", 126);
+                TraceOut("OCTAL_ESC", 127);
+                LeaveRule("OCTAL_ESC", 127);
                 LeaveRule_OCTAL_ESC();
             }
         }
@@ -5912,25 +5948,25 @@ namespace GBRead.Base
         private void mUNICODE_ESC()
         {
             EnterRule_UNICODE_ESC();
-            EnterRule("UNICODE_ESC", 127);
-            TraceIn("UNICODE_ESC", 127);
+            EnterRule("UNICODE_ESC", 128);
+            TraceIn("UNICODE_ESC", 128);
             try
             {
-                // GBX.g:376:14: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
+                // GBX.g:377:14: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
                 DebugEnterAlt(1);
-                // GBX.g:376:18: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+                // GBX.g:377:18: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
                 {
-                    DebugLocation(376, 18);
+                    DebugLocation(377, 18);
                     Match('\\');
-                    DebugLocation(376, 23);
+                    DebugLocation(377, 23);
                     Match('u');
-                    DebugLocation(376, 27);
+                    DebugLocation(377, 27);
                     mHEX_DIGIT();
-                    DebugLocation(376, 37);
+                    DebugLocation(377, 37);
                     mHEX_DIGIT();
-                    DebugLocation(376, 47);
+                    DebugLocation(377, 47);
                     mHEX_DIGIT();
-                    DebugLocation(376, 57);
+                    DebugLocation(377, 57);
                     mHEX_DIGIT();
 
                 }
@@ -5938,8 +5974,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("UNICODE_ESC", 127);
-                LeaveRule("UNICODE_ESC", 127);
+                TraceOut("UNICODE_ESC", 128);
+                LeaveRule("UNICODE_ESC", 128);
                 LeaveRule_UNICODE_ESC();
             }
         }
@@ -5953,17 +5989,17 @@ namespace GBRead.Base
         private void mWS()
         {
             EnterRule_WS();
-            EnterRule("WS", 128);
-            TraceIn("WS", 128);
+            EnterRule("WS", 129);
+            TraceIn("WS", 129);
             try
             {
                 int _type = WS;
                 int _channel = DefaultTokenChannel;
-                // GBX.g:377:7: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
+                // GBX.g:378:7: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
                 DebugEnterAlt(1);
-                // GBX.g:377:11: ( ' ' | '\\t' | '\\r' | '\\n' )
+                // GBX.g:378:11: ( ' ' | '\\t' | '\\r' | '\\n' )
                 {
-                    DebugLocation(377, 11);
+                    DebugLocation(378, 11);
                     if ((input.LA(1) >= '\t' && input.LA(1) <= '\n') || input.LA(1) == '\r' || input.LA(1) == ' ')
                     {
                         input.Consume();
@@ -5976,7 +6012,7 @@ namespace GBRead.Base
                         throw mse;
                     }
 
-                    DebugLocation(377, 36);
+                    DebugLocation(378, 36);
                     _channel = Hidden;
 
                 }
@@ -5986,8 +6022,8 @@ namespace GBRead.Base
             }
             finally
             {
-                TraceOut("WS", 128);
-                LeaveRule("WS", 128);
+                TraceOut("WS", 129);
+                LeaveRule("WS", 129);
                 LeaveRule_WS();
             }
         }
@@ -5995,8 +6031,8 @@ namespace GBRead.Base
 
         public override void mTokens()
         {
-            // GBX.g:1:8: ( T__145 | SECTION | CODE | DATA | HOME | BANK | ORG | IMPORT | EXPORT | GLOBAL | XREF | XDEF | DB | DW | DD | DQ | INCLUDE | INCBIN | TIMES | INST_ADC | INST_ADD | INST_AND | INST_BIT | INST_CALL | INST_CCF | INST_CP | INST_CPL | INST_DAA | INST_DEC | INST_DI | INST_EI | INST_HALT | INST_INC | INST_JP | INST_JR | INST_LDHL | INST_LDIO | INST_LDI | INST_LDD | INST_LD | INST_NOP | INST_OR | INST_POP | INST_PUSH | INST_RES | INST_RET | INST_RETI | INST_RLA | INST_RL | INST_RLCA | INST_RLC | INST_RRA | INST_RR | INST_RRCA | INST_RRC | INST_RST | INST_SBC | INST_SCF | INST_SET | INST_SLA | INST_SRA | INST_SRL | INST_STOP | INST_SUB | INST_SWAP | INST_XOR | RR_AF | RR_BC | RR_DE | RR_HL | RR_SP | CC_NC | CC_NZ | CC_Z | REG_A | REG_B | REG_C | REG_D | REG_E | REG_H | REG_L | QUEST_MARK | BANG_MARK | STAR_MARK | PLUS_MARK | MINUS_MARK | TILDE_MARK | BOOL_OR_MARK | BAR_MARK | BOOL_AND_MARK | AMP_MARK | UNDERSCORE_MARK | FSLASH_MARK | BSLASH_MARK | CARET_MARK | COLON_MARK | EQUIV_MARK | LTE_MARK | GTE_MARK | LSHIFT_MARK | RSHIFT_MARK | GT_MARK | LT_MARK | EQUAL_MARK | SEMI_MARK | POUND_MARK | PERCENT_MARK | COMMA | LEFT_PARENS | RIGHT_PARENS | LEFT_BRACKET | RIGHT_BRACKET | ID | NUMBER | STRING | CHAR | COMMENT | WS )
-            int alt22 = 118;
+            // GBX.g:1:8: ( T__146 | SECTION | CODE | DATA | HOME | BANK | ORG | IMPORT | EXPORT | GLOBAL | XREF | XDEF | DB | DW | DD | DQ | INCLUDE | INCBIN | TIMES | EQU | INST_ADC | INST_ADD | INST_AND | INST_BIT | INST_CALL | INST_CCF | INST_CP | INST_CPL | INST_DAA | INST_DEC | INST_DI | INST_EI | INST_HALT | INST_INC | INST_JP | INST_JR | INST_LDHL | INST_LDIO | INST_LDI | INST_LDD | INST_LD | INST_NOP | INST_OR | INST_POP | INST_PUSH | INST_RES | INST_RET | INST_RETI | INST_RLA | INST_RL | INST_RLCA | INST_RLC | INST_RRA | INST_RR | INST_RRCA | INST_RRC | INST_RST | INST_SBC | INST_SCF | INST_SET | INST_SLA | INST_SRA | INST_SRL | INST_STOP | INST_SUB | INST_SWAP | INST_XOR | RR_AF | RR_BC | RR_DE | RR_HL | RR_SP | CC_NC | CC_NZ | CC_Z | REG_A | REG_B | REG_C | REG_D | REG_E | REG_H | REG_L | QUEST_MARK | BANG_MARK | STAR_MARK | PLUS_MARK | MINUS_MARK | TILDE_MARK | BOOL_OR_MARK | BAR_MARK | BOOL_AND_MARK | AMP_MARK | UNDERSCORE_MARK | FSLASH_MARK | BSLASH_MARK | CARET_MARK | COLON_MARK | EQUIV_MARK | LTE_MARK | GTE_MARK | LSHIFT_MARK | RSHIFT_MARK | GT_MARK | LT_MARK | EQUAL_MARK | SEMI_MARK | POUND_MARK | PERCENT_MARK | COMMA | LEFT_PARENS | RIGHT_PARENS | LEFT_BRACKET | RIGHT_BRACKET | ID | NUMBER | STRING | CHAR | COMMENT | WS )
+            int alt22 = 119;
             try
             {
                 DebugEnterDecision(22, false);
@@ -6015,10 +6051,10 @@ namespace GBRead.Base
             {
                 case 1:
                     DebugEnterAlt(1);
-                    // GBX.g:1:10: T__145
+                    // GBX.g:1:10: T__146
                     {
                         DebugLocation(1, 10);
-                        mT__145();
+                        mT__146();
 
                     }
                     break;
@@ -6186,891 +6222,900 @@ namespace GBRead.Base
                     break;
                 case 20:
                     DebugEnterAlt(20);
-                    // GBX.g:1:113: INST_ADC
+                    // GBX.g:1:113: EQU
                     {
                         DebugLocation(1, 113);
-                        mINST_ADC();
+                        mEQU();
 
                     }
                     break;
                 case 21:
                     DebugEnterAlt(21);
-                    // GBX.g:1:122: INST_ADD
+                    // GBX.g:1:117: INST_ADC
                     {
-                        DebugLocation(1, 122);
-                        mINST_ADD();
+                        DebugLocation(1, 117);
+                        mINST_ADC();
 
                     }
                     break;
                 case 22:
                     DebugEnterAlt(22);
-                    // GBX.g:1:131: INST_AND
+                    // GBX.g:1:126: INST_ADD
                     {
-                        DebugLocation(1, 131);
-                        mINST_AND();
+                        DebugLocation(1, 126);
+                        mINST_ADD();
 
                     }
                     break;
                 case 23:
                     DebugEnterAlt(23);
-                    // GBX.g:1:140: INST_BIT
+                    // GBX.g:1:135: INST_AND
                     {
-                        DebugLocation(1, 140);
-                        mINST_BIT();
+                        DebugLocation(1, 135);
+                        mINST_AND();
 
                     }
                     break;
                 case 24:
                     DebugEnterAlt(24);
-                    // GBX.g:1:149: INST_CALL
+                    // GBX.g:1:144: INST_BIT
                     {
-                        DebugLocation(1, 149);
-                        mINST_CALL();
+                        DebugLocation(1, 144);
+                        mINST_BIT();
 
                     }
                     break;
                 case 25:
                     DebugEnterAlt(25);
-                    // GBX.g:1:159: INST_CCF
+                    // GBX.g:1:153: INST_CALL
                     {
-                        DebugLocation(1, 159);
-                        mINST_CCF();
+                        DebugLocation(1, 153);
+                        mINST_CALL();
 
                     }
                     break;
                 case 26:
                     DebugEnterAlt(26);
-                    // GBX.g:1:168: INST_CP
+                    // GBX.g:1:163: INST_CCF
                     {
-                        DebugLocation(1, 168);
-                        mINST_CP();
+                        DebugLocation(1, 163);
+                        mINST_CCF();
 
                     }
                     break;
                 case 27:
                     DebugEnterAlt(27);
-                    // GBX.g:1:176: INST_CPL
+                    // GBX.g:1:172: INST_CP
                     {
-                        DebugLocation(1, 176);
-                        mINST_CPL();
+                        DebugLocation(1, 172);
+                        mINST_CP();
 
                     }
                     break;
                 case 28:
                     DebugEnterAlt(28);
-                    // GBX.g:1:185: INST_DAA
+                    // GBX.g:1:180: INST_CPL
                     {
-                        DebugLocation(1, 185);
-                        mINST_DAA();
+                        DebugLocation(1, 180);
+                        mINST_CPL();
 
                     }
                     break;
                 case 29:
                     DebugEnterAlt(29);
-                    // GBX.g:1:194: INST_DEC
+                    // GBX.g:1:189: INST_DAA
                     {
-                        DebugLocation(1, 194);
-                        mINST_DEC();
+                        DebugLocation(1, 189);
+                        mINST_DAA();
 
                     }
                     break;
                 case 30:
                     DebugEnterAlt(30);
-                    // GBX.g:1:203: INST_DI
+                    // GBX.g:1:198: INST_DEC
                     {
-                        DebugLocation(1, 203);
-                        mINST_DI();
+                        DebugLocation(1, 198);
+                        mINST_DEC();
 
                     }
                     break;
                 case 31:
                     DebugEnterAlt(31);
-                    // GBX.g:1:211: INST_EI
+                    // GBX.g:1:207: INST_DI
                     {
-                        DebugLocation(1, 211);
-                        mINST_EI();
+                        DebugLocation(1, 207);
+                        mINST_DI();
 
                     }
                     break;
                 case 32:
                     DebugEnterAlt(32);
-                    // GBX.g:1:219: INST_HALT
+                    // GBX.g:1:215: INST_EI
                     {
-                        DebugLocation(1, 219);
-                        mINST_HALT();
+                        DebugLocation(1, 215);
+                        mINST_EI();
 
                     }
                     break;
                 case 33:
                     DebugEnterAlt(33);
-                    // GBX.g:1:229: INST_INC
+                    // GBX.g:1:223: INST_HALT
                     {
-                        DebugLocation(1, 229);
-                        mINST_INC();
+                        DebugLocation(1, 223);
+                        mINST_HALT();
 
                     }
                     break;
                 case 34:
                     DebugEnterAlt(34);
-                    // GBX.g:1:238: INST_JP
+                    // GBX.g:1:233: INST_INC
                     {
-                        DebugLocation(1, 238);
-                        mINST_JP();
+                        DebugLocation(1, 233);
+                        mINST_INC();
 
                     }
                     break;
                 case 35:
                     DebugEnterAlt(35);
-                    // GBX.g:1:246: INST_JR
+                    // GBX.g:1:242: INST_JP
                     {
-                        DebugLocation(1, 246);
-                        mINST_JR();
+                        DebugLocation(1, 242);
+                        mINST_JP();
 
                     }
                     break;
                 case 36:
                     DebugEnterAlt(36);
-                    // GBX.g:1:254: INST_LDHL
+                    // GBX.g:1:250: INST_JR
                     {
-                        DebugLocation(1, 254);
-                        mINST_LDHL();
+                        DebugLocation(1, 250);
+                        mINST_JR();
 
                     }
                     break;
                 case 37:
                     DebugEnterAlt(37);
-                    // GBX.g:1:264: INST_LDIO
+                    // GBX.g:1:258: INST_LDHL
                     {
-                        DebugLocation(1, 264);
-                        mINST_LDIO();
+                        DebugLocation(1, 258);
+                        mINST_LDHL();
 
                     }
                     break;
                 case 38:
                     DebugEnterAlt(38);
-                    // GBX.g:1:274: INST_LDI
+                    // GBX.g:1:268: INST_LDIO
                     {
-                        DebugLocation(1, 274);
-                        mINST_LDI();
+                        DebugLocation(1, 268);
+                        mINST_LDIO();
 
                     }
                     break;
                 case 39:
                     DebugEnterAlt(39);
-                    // GBX.g:1:283: INST_LDD
+                    // GBX.g:1:278: INST_LDI
                     {
-                        DebugLocation(1, 283);
-                        mINST_LDD();
+                        DebugLocation(1, 278);
+                        mINST_LDI();
 
                     }
                     break;
                 case 40:
                     DebugEnterAlt(40);
-                    // GBX.g:1:292: INST_LD
+                    // GBX.g:1:287: INST_LDD
                     {
-                        DebugLocation(1, 292);
-                        mINST_LD();
+                        DebugLocation(1, 287);
+                        mINST_LDD();
 
                     }
                     break;
                 case 41:
                     DebugEnterAlt(41);
-                    // GBX.g:1:300: INST_NOP
+                    // GBX.g:1:296: INST_LD
                     {
-                        DebugLocation(1, 300);
-                        mINST_NOP();
+                        DebugLocation(1, 296);
+                        mINST_LD();
 
                     }
                     break;
                 case 42:
                     DebugEnterAlt(42);
-                    // GBX.g:1:309: INST_OR
+                    // GBX.g:1:304: INST_NOP
                     {
-                        DebugLocation(1, 309);
-                        mINST_OR();
+                        DebugLocation(1, 304);
+                        mINST_NOP();
 
                     }
                     break;
                 case 43:
                     DebugEnterAlt(43);
-                    // GBX.g:1:317: INST_POP
+                    // GBX.g:1:313: INST_OR
                     {
-                        DebugLocation(1, 317);
-                        mINST_POP();
+                        DebugLocation(1, 313);
+                        mINST_OR();
 
                     }
                     break;
                 case 44:
                     DebugEnterAlt(44);
-                    // GBX.g:1:326: INST_PUSH
+                    // GBX.g:1:321: INST_POP
                     {
-                        DebugLocation(1, 326);
-                        mINST_PUSH();
+                        DebugLocation(1, 321);
+                        mINST_POP();
 
                     }
                     break;
                 case 45:
                     DebugEnterAlt(45);
-                    // GBX.g:1:336: INST_RES
+                    // GBX.g:1:330: INST_PUSH
                     {
-                        DebugLocation(1, 336);
-                        mINST_RES();
+                        DebugLocation(1, 330);
+                        mINST_PUSH();
 
                     }
                     break;
                 case 46:
                     DebugEnterAlt(46);
-                    // GBX.g:1:345: INST_RET
+                    // GBX.g:1:340: INST_RES
                     {
-                        DebugLocation(1, 345);
-                        mINST_RET();
+                        DebugLocation(1, 340);
+                        mINST_RES();
 
                     }
                     break;
                 case 47:
                     DebugEnterAlt(47);
-                    // GBX.g:1:354: INST_RETI
+                    // GBX.g:1:349: INST_RET
                     {
-                        DebugLocation(1, 354);
-                        mINST_RETI();
+                        DebugLocation(1, 349);
+                        mINST_RET();
 
                     }
                     break;
                 case 48:
                     DebugEnterAlt(48);
-                    // GBX.g:1:364: INST_RLA
+                    // GBX.g:1:358: INST_RETI
                     {
-                        DebugLocation(1, 364);
-                        mINST_RLA();
+                        DebugLocation(1, 358);
+                        mINST_RETI();
 
                     }
                     break;
                 case 49:
                     DebugEnterAlt(49);
-                    // GBX.g:1:373: INST_RL
+                    // GBX.g:1:368: INST_RLA
                     {
-                        DebugLocation(1, 373);
-                        mINST_RL();
+                        DebugLocation(1, 368);
+                        mINST_RLA();
 
                     }
                     break;
                 case 50:
                     DebugEnterAlt(50);
-                    // GBX.g:1:381: INST_RLCA
+                    // GBX.g:1:377: INST_RL
                     {
-                        DebugLocation(1, 381);
-                        mINST_RLCA();
+                        DebugLocation(1, 377);
+                        mINST_RL();
 
                     }
                     break;
                 case 51:
                     DebugEnterAlt(51);
-                    // GBX.g:1:391: INST_RLC
+                    // GBX.g:1:385: INST_RLCA
                     {
-                        DebugLocation(1, 391);
-                        mINST_RLC();
+                        DebugLocation(1, 385);
+                        mINST_RLCA();
 
                     }
                     break;
                 case 52:
                     DebugEnterAlt(52);
-                    // GBX.g:1:400: INST_RRA
+                    // GBX.g:1:395: INST_RLC
                     {
-                        DebugLocation(1, 400);
-                        mINST_RRA();
+                        DebugLocation(1, 395);
+                        mINST_RLC();
 
                     }
                     break;
                 case 53:
                     DebugEnterAlt(53);
-                    // GBX.g:1:409: INST_RR
+                    // GBX.g:1:404: INST_RRA
                     {
-                        DebugLocation(1, 409);
-                        mINST_RR();
+                        DebugLocation(1, 404);
+                        mINST_RRA();
 
                     }
                     break;
                 case 54:
                     DebugEnterAlt(54);
-                    // GBX.g:1:417: INST_RRCA
+                    // GBX.g:1:413: INST_RR
                     {
-                        DebugLocation(1, 417);
-                        mINST_RRCA();
+                        DebugLocation(1, 413);
+                        mINST_RR();
 
                     }
                     break;
                 case 55:
                     DebugEnterAlt(55);
-                    // GBX.g:1:427: INST_RRC
+                    // GBX.g:1:421: INST_RRCA
                     {
-                        DebugLocation(1, 427);
-                        mINST_RRC();
+                        DebugLocation(1, 421);
+                        mINST_RRCA();
 
                     }
                     break;
                 case 56:
                     DebugEnterAlt(56);
-                    // GBX.g:1:436: INST_RST
+                    // GBX.g:1:431: INST_RRC
                     {
-                        DebugLocation(1, 436);
-                        mINST_RST();
+                        DebugLocation(1, 431);
+                        mINST_RRC();
 
                     }
                     break;
                 case 57:
                     DebugEnterAlt(57);
-                    // GBX.g:1:445: INST_SBC
+                    // GBX.g:1:440: INST_RST
                     {
-                        DebugLocation(1, 445);
-                        mINST_SBC();
+                        DebugLocation(1, 440);
+                        mINST_RST();
 
                     }
                     break;
                 case 58:
                     DebugEnterAlt(58);
-                    // GBX.g:1:454: INST_SCF
+                    // GBX.g:1:449: INST_SBC
                     {
-                        DebugLocation(1, 454);
-                        mINST_SCF();
+                        DebugLocation(1, 449);
+                        mINST_SBC();
 
                     }
                     break;
                 case 59:
                     DebugEnterAlt(59);
-                    // GBX.g:1:463: INST_SET
+                    // GBX.g:1:458: INST_SCF
                     {
-                        DebugLocation(1, 463);
-                        mINST_SET();
+                        DebugLocation(1, 458);
+                        mINST_SCF();
 
                     }
                     break;
                 case 60:
                     DebugEnterAlt(60);
-                    // GBX.g:1:472: INST_SLA
+                    // GBX.g:1:467: INST_SET
                     {
-                        DebugLocation(1, 472);
-                        mINST_SLA();
+                        DebugLocation(1, 467);
+                        mINST_SET();
 
                     }
                     break;
                 case 61:
                     DebugEnterAlt(61);
-                    // GBX.g:1:481: INST_SRA
+                    // GBX.g:1:476: INST_SLA
                     {
-                        DebugLocation(1, 481);
-                        mINST_SRA();
+                        DebugLocation(1, 476);
+                        mINST_SLA();
 
                     }
                     break;
                 case 62:
                     DebugEnterAlt(62);
-                    // GBX.g:1:490: INST_SRL
+                    // GBX.g:1:485: INST_SRA
                     {
-                        DebugLocation(1, 490);
-                        mINST_SRL();
+                        DebugLocation(1, 485);
+                        mINST_SRA();
 
                     }
                     break;
                 case 63:
                     DebugEnterAlt(63);
-                    // GBX.g:1:499: INST_STOP
+                    // GBX.g:1:494: INST_SRL
                     {
-                        DebugLocation(1, 499);
-                        mINST_STOP();
+                        DebugLocation(1, 494);
+                        mINST_SRL();
 
                     }
                     break;
                 case 64:
                     DebugEnterAlt(64);
-                    // GBX.g:1:509: INST_SUB
+                    // GBX.g:1:503: INST_STOP
                     {
-                        DebugLocation(1, 509);
-                        mINST_SUB();
+                        DebugLocation(1, 503);
+                        mINST_STOP();
 
                     }
                     break;
                 case 65:
                     DebugEnterAlt(65);
-                    // GBX.g:1:518: INST_SWAP
+                    // GBX.g:1:513: INST_SUB
                     {
-                        DebugLocation(1, 518);
-                        mINST_SWAP();
+                        DebugLocation(1, 513);
+                        mINST_SUB();
 
                     }
                     break;
                 case 66:
                     DebugEnterAlt(66);
-                    // GBX.g:1:528: INST_XOR
+                    // GBX.g:1:522: INST_SWAP
                     {
-                        DebugLocation(1, 528);
-                        mINST_XOR();
+                        DebugLocation(1, 522);
+                        mINST_SWAP();
 
                     }
                     break;
                 case 67:
                     DebugEnterAlt(67);
-                    // GBX.g:1:537: RR_AF
+                    // GBX.g:1:532: INST_XOR
                     {
-                        DebugLocation(1, 537);
-                        mRR_AF();
+                        DebugLocation(1, 532);
+                        mINST_XOR();
 
                     }
                     break;
                 case 68:
                     DebugEnterAlt(68);
-                    // GBX.g:1:543: RR_BC
+                    // GBX.g:1:541: RR_AF
                     {
-                        DebugLocation(1, 543);
-                        mRR_BC();
+                        DebugLocation(1, 541);
+                        mRR_AF();
 
                     }
                     break;
                 case 69:
                     DebugEnterAlt(69);
-                    // GBX.g:1:549: RR_DE
+                    // GBX.g:1:547: RR_BC
                     {
-                        DebugLocation(1, 549);
-                        mRR_DE();
+                        DebugLocation(1, 547);
+                        mRR_BC();
 
                     }
                     break;
                 case 70:
                     DebugEnterAlt(70);
-                    // GBX.g:1:555: RR_HL
+                    // GBX.g:1:553: RR_DE
                     {
-                        DebugLocation(1, 555);
-                        mRR_HL();
+                        DebugLocation(1, 553);
+                        mRR_DE();
 
                     }
                     break;
                 case 71:
                     DebugEnterAlt(71);
-                    // GBX.g:1:561: RR_SP
+                    // GBX.g:1:559: RR_HL
                     {
-                        DebugLocation(1, 561);
-                        mRR_SP();
+                        DebugLocation(1, 559);
+                        mRR_HL();
 
                     }
                     break;
                 case 72:
                     DebugEnterAlt(72);
-                    // GBX.g:1:567: CC_NC
+                    // GBX.g:1:565: RR_SP
                     {
-                        DebugLocation(1, 567);
-                        mCC_NC();
+                        DebugLocation(1, 565);
+                        mRR_SP();
 
                     }
                     break;
                 case 73:
                     DebugEnterAlt(73);
-                    // GBX.g:1:573: CC_NZ
+                    // GBX.g:1:571: CC_NC
                     {
-                        DebugLocation(1, 573);
-                        mCC_NZ();
+                        DebugLocation(1, 571);
+                        mCC_NC();
 
                     }
                     break;
                 case 74:
                     DebugEnterAlt(74);
-                    // GBX.g:1:579: CC_Z
+                    // GBX.g:1:577: CC_NZ
                     {
-                        DebugLocation(1, 579);
-                        mCC_Z();
+                        DebugLocation(1, 577);
+                        mCC_NZ();
 
                     }
                     break;
                 case 75:
                     DebugEnterAlt(75);
-                    // GBX.g:1:584: REG_A
+                    // GBX.g:1:583: CC_Z
                     {
-                        DebugLocation(1, 584);
-                        mREG_A();
+                        DebugLocation(1, 583);
+                        mCC_Z();
 
                     }
                     break;
                 case 76:
                     DebugEnterAlt(76);
-                    // GBX.g:1:590: REG_B
+                    // GBX.g:1:588: REG_A
                     {
-                        DebugLocation(1, 590);
-                        mREG_B();
+                        DebugLocation(1, 588);
+                        mREG_A();
 
                     }
                     break;
                 case 77:
                     DebugEnterAlt(77);
-                    // GBX.g:1:596: REG_C
+                    // GBX.g:1:594: REG_B
                     {
-                        DebugLocation(1, 596);
-                        mREG_C();
+                        DebugLocation(1, 594);
+                        mREG_B();
 
                     }
                     break;
                 case 78:
                     DebugEnterAlt(78);
-                    // GBX.g:1:602: REG_D
+                    // GBX.g:1:600: REG_C
                     {
-                        DebugLocation(1, 602);
-                        mREG_D();
+                        DebugLocation(1, 600);
+                        mREG_C();
 
                     }
                     break;
                 case 79:
                     DebugEnterAlt(79);
-                    // GBX.g:1:608: REG_E
+                    // GBX.g:1:606: REG_D
                     {
-                        DebugLocation(1, 608);
-                        mREG_E();
+                        DebugLocation(1, 606);
+                        mREG_D();
 
                     }
                     break;
                 case 80:
                     DebugEnterAlt(80);
-                    // GBX.g:1:614: REG_H
+                    // GBX.g:1:612: REG_E
                     {
-                        DebugLocation(1, 614);
-                        mREG_H();
+                        DebugLocation(1, 612);
+                        mREG_E();
 
                     }
                     break;
                 case 81:
                     DebugEnterAlt(81);
-                    // GBX.g:1:620: REG_L
+                    // GBX.g:1:618: REG_H
                     {
-                        DebugLocation(1, 620);
-                        mREG_L();
+                        DebugLocation(1, 618);
+                        mREG_H();
 
                     }
                     break;
                 case 82:
                     DebugEnterAlt(82);
-                    // GBX.g:1:626: QUEST_MARK
+                    // GBX.g:1:624: REG_L
                     {
-                        DebugLocation(1, 626);
-                        mQUEST_MARK();
+                        DebugLocation(1, 624);
+                        mREG_L();
 
                     }
                     break;
                 case 83:
                     DebugEnterAlt(83);
-                    // GBX.g:1:637: BANG_MARK
+                    // GBX.g:1:630: QUEST_MARK
                     {
-                        DebugLocation(1, 637);
-                        mBANG_MARK();
+                        DebugLocation(1, 630);
+                        mQUEST_MARK();
 
                     }
                     break;
                 case 84:
                     DebugEnterAlt(84);
-                    // GBX.g:1:647: STAR_MARK
+                    // GBX.g:1:641: BANG_MARK
                     {
-                        DebugLocation(1, 647);
-                        mSTAR_MARK();
+                        DebugLocation(1, 641);
+                        mBANG_MARK();
 
                     }
                     break;
                 case 85:
                     DebugEnterAlt(85);
-                    // GBX.g:1:657: PLUS_MARK
+                    // GBX.g:1:651: STAR_MARK
                     {
-                        DebugLocation(1, 657);
-                        mPLUS_MARK();
+                        DebugLocation(1, 651);
+                        mSTAR_MARK();
 
                     }
                     break;
                 case 86:
                     DebugEnterAlt(86);
-                    // GBX.g:1:667: MINUS_MARK
+                    // GBX.g:1:661: PLUS_MARK
                     {
-                        DebugLocation(1, 667);
-                        mMINUS_MARK();
+                        DebugLocation(1, 661);
+                        mPLUS_MARK();
 
                     }
                     break;
                 case 87:
                     DebugEnterAlt(87);
-                    // GBX.g:1:678: TILDE_MARK
+                    // GBX.g:1:671: MINUS_MARK
                     {
-                        DebugLocation(1, 678);
-                        mTILDE_MARK();
+                        DebugLocation(1, 671);
+                        mMINUS_MARK();
 
                     }
                     break;
                 case 88:
                     DebugEnterAlt(88);
-                    // GBX.g:1:689: BOOL_OR_MARK
+                    // GBX.g:1:682: TILDE_MARK
                     {
-                        DebugLocation(1, 689);
-                        mBOOL_OR_MARK();
+                        DebugLocation(1, 682);
+                        mTILDE_MARK();
 
                     }
                     break;
                 case 89:
                     DebugEnterAlt(89);
-                    // GBX.g:1:702: BAR_MARK
+                    // GBX.g:1:693: BOOL_OR_MARK
                     {
-                        DebugLocation(1, 702);
-                        mBAR_MARK();
+                        DebugLocation(1, 693);
+                        mBOOL_OR_MARK();
 
                     }
                     break;
                 case 90:
                     DebugEnterAlt(90);
-                    // GBX.g:1:711: BOOL_AND_MARK
+                    // GBX.g:1:706: BAR_MARK
                     {
-                        DebugLocation(1, 711);
-                        mBOOL_AND_MARK();
+                        DebugLocation(1, 706);
+                        mBAR_MARK();
 
                     }
                     break;
                 case 91:
                     DebugEnterAlt(91);
-                    // GBX.g:1:725: AMP_MARK
+                    // GBX.g:1:715: BOOL_AND_MARK
                     {
-                        DebugLocation(1, 725);
-                        mAMP_MARK();
+                        DebugLocation(1, 715);
+                        mBOOL_AND_MARK();
 
                     }
                     break;
                 case 92:
                     DebugEnterAlt(92);
-                    // GBX.g:1:734: UNDERSCORE_MARK
+                    // GBX.g:1:729: AMP_MARK
                     {
-                        DebugLocation(1, 734);
-                        mUNDERSCORE_MARK();
+                        DebugLocation(1, 729);
+                        mAMP_MARK();
 
                     }
                     break;
                 case 93:
                     DebugEnterAlt(93);
-                    // GBX.g:1:750: FSLASH_MARK
+                    // GBX.g:1:738: UNDERSCORE_MARK
                     {
-                        DebugLocation(1, 750);
-                        mFSLASH_MARK();
+                        DebugLocation(1, 738);
+                        mUNDERSCORE_MARK();
 
                     }
                     break;
                 case 94:
                     DebugEnterAlt(94);
-                    // GBX.g:1:762: BSLASH_MARK
+                    // GBX.g:1:754: FSLASH_MARK
                     {
-                        DebugLocation(1, 762);
-                        mBSLASH_MARK();
+                        DebugLocation(1, 754);
+                        mFSLASH_MARK();
 
                     }
                     break;
                 case 95:
                     DebugEnterAlt(95);
-                    // GBX.g:1:774: CARET_MARK
+                    // GBX.g:1:766: BSLASH_MARK
                     {
-                        DebugLocation(1, 774);
-                        mCARET_MARK();
+                        DebugLocation(1, 766);
+                        mBSLASH_MARK();
 
                     }
                     break;
                 case 96:
                     DebugEnterAlt(96);
-                    // GBX.g:1:785: COLON_MARK
+                    // GBX.g:1:778: CARET_MARK
                     {
-                        DebugLocation(1, 785);
-                        mCOLON_MARK();
+                        DebugLocation(1, 778);
+                        mCARET_MARK();
 
                     }
                     break;
                 case 97:
                     DebugEnterAlt(97);
-                    // GBX.g:1:796: EQUIV_MARK
+                    // GBX.g:1:789: COLON_MARK
                     {
-                        DebugLocation(1, 796);
-                        mEQUIV_MARK();
+                        DebugLocation(1, 789);
+                        mCOLON_MARK();
 
                     }
                     break;
                 case 98:
                     DebugEnterAlt(98);
-                    // GBX.g:1:807: LTE_MARK
+                    // GBX.g:1:800: EQUIV_MARK
                     {
-                        DebugLocation(1, 807);
-                        mLTE_MARK();
+                        DebugLocation(1, 800);
+                        mEQUIV_MARK();
 
                     }
                     break;
                 case 99:
                     DebugEnterAlt(99);
-                    // GBX.g:1:816: GTE_MARK
+                    // GBX.g:1:811: LTE_MARK
                     {
-                        DebugLocation(1, 816);
-                        mGTE_MARK();
+                        DebugLocation(1, 811);
+                        mLTE_MARK();
 
                     }
                     break;
                 case 100:
                     DebugEnterAlt(100);
-                    // GBX.g:1:825: LSHIFT_MARK
+                    // GBX.g:1:820: GTE_MARK
                     {
-                        DebugLocation(1, 825);
-                        mLSHIFT_MARK();
+                        DebugLocation(1, 820);
+                        mGTE_MARK();
 
                     }
                     break;
                 case 101:
                     DebugEnterAlt(101);
-                    // GBX.g:1:837: RSHIFT_MARK
+                    // GBX.g:1:829: LSHIFT_MARK
                     {
-                        DebugLocation(1, 837);
-                        mRSHIFT_MARK();
+                        DebugLocation(1, 829);
+                        mLSHIFT_MARK();
 
                     }
                     break;
                 case 102:
                     DebugEnterAlt(102);
-                    // GBX.g:1:849: GT_MARK
+                    // GBX.g:1:841: RSHIFT_MARK
                     {
-                        DebugLocation(1, 849);
-                        mGT_MARK();
+                        DebugLocation(1, 841);
+                        mRSHIFT_MARK();
 
                     }
                     break;
                 case 103:
                     DebugEnterAlt(103);
-                    // GBX.g:1:857: LT_MARK
+                    // GBX.g:1:853: GT_MARK
                     {
-                        DebugLocation(1, 857);
-                        mLT_MARK();
+                        DebugLocation(1, 853);
+                        mGT_MARK();
 
                     }
                     break;
                 case 104:
                     DebugEnterAlt(104);
-                    // GBX.g:1:865: EQUAL_MARK
+                    // GBX.g:1:861: LT_MARK
                     {
-                        DebugLocation(1, 865);
-                        mEQUAL_MARK();
+                        DebugLocation(1, 861);
+                        mLT_MARK();
 
                     }
                     break;
                 case 105:
                     DebugEnterAlt(105);
-                    // GBX.g:1:876: SEMI_MARK
+                    // GBX.g:1:869: EQUAL_MARK
                     {
-                        DebugLocation(1, 876);
-                        mSEMI_MARK();
+                        DebugLocation(1, 869);
+                        mEQUAL_MARK();
 
                     }
                     break;
                 case 106:
                     DebugEnterAlt(106);
-                    // GBX.g:1:886: POUND_MARK
+                    // GBX.g:1:880: SEMI_MARK
                     {
-                        DebugLocation(1, 886);
-                        mPOUND_MARK();
+                        DebugLocation(1, 880);
+                        mSEMI_MARK();
 
                     }
                     break;
                 case 107:
                     DebugEnterAlt(107);
-                    // GBX.g:1:897: PERCENT_MARK
+                    // GBX.g:1:890: POUND_MARK
                     {
-                        DebugLocation(1, 897);
-                        mPERCENT_MARK();
+                        DebugLocation(1, 890);
+                        mPOUND_MARK();
 
                     }
                     break;
                 case 108:
                     DebugEnterAlt(108);
-                    // GBX.g:1:910: COMMA
+                    // GBX.g:1:901: PERCENT_MARK
                     {
-                        DebugLocation(1, 910);
-                        mCOMMA();
+                        DebugLocation(1, 901);
+                        mPERCENT_MARK();
 
                     }
                     break;
                 case 109:
                     DebugEnterAlt(109);
-                    // GBX.g:1:916: LEFT_PARENS
+                    // GBX.g:1:914: COMMA
                     {
-                        DebugLocation(1, 916);
-                        mLEFT_PARENS();
+                        DebugLocation(1, 914);
+                        mCOMMA();
 
                     }
                     break;
                 case 110:
                     DebugEnterAlt(110);
-                    // GBX.g:1:928: RIGHT_PARENS
+                    // GBX.g:1:920: LEFT_PARENS
                     {
-                        DebugLocation(1, 928);
-                        mRIGHT_PARENS();
+                        DebugLocation(1, 920);
+                        mLEFT_PARENS();
 
                     }
                     break;
                 case 111:
                     DebugEnterAlt(111);
-                    // GBX.g:1:941: LEFT_BRACKET
+                    // GBX.g:1:932: RIGHT_PARENS
                     {
-                        DebugLocation(1, 941);
-                        mLEFT_BRACKET();
+                        DebugLocation(1, 932);
+                        mRIGHT_PARENS();
 
                     }
                     break;
                 case 112:
                     DebugEnterAlt(112);
-                    // GBX.g:1:954: RIGHT_BRACKET
+                    // GBX.g:1:945: LEFT_BRACKET
                     {
-                        DebugLocation(1, 954);
-                        mRIGHT_BRACKET();
+                        DebugLocation(1, 945);
+                        mLEFT_BRACKET();
 
                     }
                     break;
                 case 113:
                     DebugEnterAlt(113);
-                    // GBX.g:1:968: ID
+                    // GBX.g:1:958: RIGHT_BRACKET
                     {
-                        DebugLocation(1, 968);
-                        mID();
+                        DebugLocation(1, 958);
+                        mRIGHT_BRACKET();
 
                     }
                     break;
                 case 114:
                     DebugEnterAlt(114);
-                    // GBX.g:1:971: NUMBER
+                    // GBX.g:1:972: ID
                     {
-                        DebugLocation(1, 971);
-                        mNUMBER();
+                        DebugLocation(1, 972);
+                        mID();
 
                     }
                     break;
                 case 115:
                     DebugEnterAlt(115);
-                    // GBX.g:1:978: STRING
+                    // GBX.g:1:975: NUMBER
                     {
-                        DebugLocation(1, 978);
-                        mSTRING();
+                        DebugLocation(1, 975);
+                        mNUMBER();
 
                     }
                     break;
                 case 116:
                     DebugEnterAlt(116);
-                    // GBX.g:1:985: CHAR
+                    // GBX.g:1:982: STRING
                     {
-                        DebugLocation(1, 985);
-                        mCHAR();
+                        DebugLocation(1, 982);
+                        mSTRING();
 
                     }
                     break;
                 case 117:
                     DebugEnterAlt(117);
-                    // GBX.g:1:990: COMMENT
+                    // GBX.g:1:989: CHAR
                     {
-                        DebugLocation(1, 990);
-                        mCOMMENT();
+                        DebugLocation(1, 989);
+                        mCHAR();
 
                     }
                     break;
                 case 118:
                     DebugEnterAlt(118);
-                    // GBX.g:1:998: WS
+                    // GBX.g:1:994: COMMENT
                     {
-                        DebugLocation(1, 998);
+                        DebugLocation(1, 994);
+                        mCOMMENT();
+
+                    }
+                    break;
+                case 119:
+                    DebugEnterAlt(119);
+                    // GBX.g:1:1002: WS
+                    {
+                        DebugLocation(1, 1002);
                         mWS();
 
                     }
@@ -7093,89 +7138,91 @@ namespace GBRead.Base
         private class DFA22 : DFA
         {
             private const string DFA22_eotS =
-                "\x3\xFFFF\x1\x3E\x1\x46\x1\x4A\x1\x4E\x2\xFFFF\x1\x54\x3\xFFFF\x1\x5D" +
-                "\x1\xFFFF\x1\x61\x3\xFFFF\x1\x6B\x6\xFFFF\x1\x6D\x1\x6F\x1\x70\x1\x72" +
-                "\x3\xFFFF\x1\x74\x1\x77\x1\x7A\x1\x7B\x1\x7C\x1\x7D\xA\xFFFF\x8\x2C\x1" +
-                "\x88\x3\x2C\x1\x8D\x1\xFFFF\x1\x2C\x1\x90\x1\x91\x1\x92\x1\x93\x1\x95" +
-                "\x1\x96\x1\xFFFF\x2\x2C\x1\x99\x1\xFFFF\x2\x2C\x1\x9C\x1\xFFFF\x1\x9E" +
-                "\x3\x2C\x1\xA2\x1\xFFFF\x7\x2C\x1\xAB\x1\xFFFF\x1\xAC\x1\xAD\x1\xB1\x1" +
-                "\xFFFF\x1\x2C\x1\xB3\x1\xB4\x3\x2C\x1\xBB\x1\xBE\x1\x2C\x13\xFFFF\x1" +
-                "\x2C\x1\xC1\x1\xC2\x1\xC3\x1\xC4\x1\xC5\x1\xC6\x1\x2C\x1\xC8\x1\x2C\x1" +
-                "\xFFFF\x2\x2C\x1\xCC\x1\xCD\x1\xFFFF\x1\x2C\x1\xCF\x4\xFFFF\x1\xD0\x2" +
-                "\xFFFF\x2\x2C\x1\xFFFF\x1\x2C\x1\xD4\x1\xFFFF\x1\xD5\x1\xFFFF\x1\x2C" +
-                "\x1\xD9\x1\x2C\x1\xFFFF\x3\x2C\x1\xDE\x1\x2C\x1\xE0\x1\xE1\x1\xE2\x3" +
-                "\xFFFF\x1\x2C\x1\xE5\x1\xE6\x1\xFFFF\x1\xE7\x2\xFFFF\x1\xE8\x1\x2C\x1" +
-                "\xEA\x1\xEC\x1\xED\x1\xEF\x1\xFFFF\x1\xF0\x1\xF2\x1\xFFFF\x1\xF3\x1\x2C" +
-                "\x6\xFFFF\x1\xF5\x1\xFFFF\x1\xF6\x1\xF7\x1\xF8\x2\xFFFF\x1\xF9\x2\xFFFF" +
-                "\x1\xFA\x1\xFB\x1\xFC\x2\xFFFF\x3\x2C\x1\xFFFF\x2\x2C\x1\x102\x1\x103" +
-                "\x1\xFFFF\x1\x2C\x3\xFFFF\x1\x105\x1\x106\x4\xFFFF\x1\x107\x1\xFFFF\x1" +
-                "\x108\x2\xFFFF\x1\x109\x2\xFFFF\x1\x10A\x2\xFFFF\x1\x2C\x8\xFFFF\x5\x2C" +
-                "\x2\xFFFF\x1\x111\x6\xFFFF\x1\x2C\x1\x113\x1\x2C\x1\x115\x1\x116\x1\x117" +
-                "\x1\xFFFF\x1\x118\x1\xFFFF\x1\x119\x5\xFFFF";
+                "\x3\xFFFF\x1\x3E\x1\x46\x1\x4A\x1\x4E\x2\xFFFF\x1\x55\x3\xFFFF\x1\x5E" +
+                "\x1\xFFFF\x1\x62\x3\xFFFF\x1\x6C\x6\xFFFF\x1\x6E\x1\x70\x1\x71\x1\x73" +
+                "\x3\xFFFF\x1\x75\x1\x78\x1\x7B\x1\x7C\x1\x7D\x1\x7E\xA\xFFFF\x8\x2C\x1" +
+                "\x89\x3\x2C\x1\x8E\x1\xFFFF\x1\x2C\x1\x91\x1\x92\x1\x93\x1\x94\x1\x96" +
+                "\x1\x97\x1\xFFFF\x2\x2C\x1\x9A\x1\xFFFF\x2\x2C\x1\x9D\x1\xFFFF\x1\x9F" +
+                "\x4\x2C\x1\xA4\x1\xFFFF\x7\x2C\x1\xAD\x1\xFFFF\x1\xAE\x1\xAF\x1\xB3\x1" +
+                "\xFFFF\x1\x2C\x1\xB5\x1\xB6\x3\x2C\x1\xBD\x1\xC0\x1\x2C\x13\xFFFF\x1" +
+                "\x2C\x1\xC3\x1\xC4\x1\xC5\x1\xC6\x1\xC7\x1\xC8\x1\x2C\x1\xCA\x1\x2C\x1" +
+                "\xFFFF\x2\x2C\x1\xCE\x1\xCF\x1\xFFFF\x1\x2C\x1\xD1\x4\xFFFF\x1\xD2\x2" +
+                "\xFFFF\x2\x2C\x1\xFFFF\x1\x2C\x1\xD6\x1\xFFFF\x1\xD7\x1\xFFFF\x1\x2C" +
+                "\x1\xDB\x1\x2C\x1\xDD\x1\xFFFF\x3\x2C\x1\xE1\x1\x2C\x1\xE3\x1\xE4\x1" +
+                "\xE5\x3\xFFFF\x1\x2C\x1\xE8\x1\xE9\x1\xFFFF\x1\xEA\x2\xFFFF\x1\xEB\x1" +
+                "\x2C\x1\xED\x1\xEF\x1\xF0\x1\xF2\x1\xFFFF\x1\xF3\x1\xF5\x1\xFFFF\x1\xF6" +
+                "\x1\x2C\x6\xFFFF\x1\xF8\x1\xFFFF\x1\xF9\x1\xFA\x1\xFB\x2\xFFFF\x1\xFC" +
+                "\x2\xFFFF\x1\xFD\x1\xFE\x1\xFF\x2\xFFFF\x3\x2C\x1\xFFFF\x1\x2C\x1\xFFFF" +
+                "\x1\x2C\x1\x105\x1\x106\x1\xFFFF\x1\x2C\x3\xFFFF\x1\x108\x1\x109\x4\xFFFF" +
+                "\x1\x10A\x1\xFFFF\x1\x10B\x2\xFFFF\x1\x10C\x2\xFFFF\x1\x10D\x2\xFFFF" +
+                "\x1\x2C\x8\xFFFF\x5\x2C\x2\xFFFF\x1\x114\x6\xFFFF\x1\x2C\x1\x116\x1\x2C" +
+                "\x1\x118\x1\x119\x1\x11A\x1\xFFFF\x1\x11B\x1\xFFFF\x1\x11C\x5\xFFFF";
 
             private const string DFA22_eofS =
-                "\x11A\xFFFF";
+                "\x11D\xFFFF";
 
             private const string DFA22_minS =
                 "\x1\x9\x1\xFFFF\x12\x30\x6\xFFFF\x1\x7C\x1\x26\x1\x30\x1\x2A\x3\xFFFF" +
                 "\x1\x3D\x1\x3C\x1\x3D\x2\x0\x1\x30\xA\xFFFF\x2\x63\x1\x66\x2\x61\x1\x6F" +
                 "\x1\x62\x1\x61\x1\x30\x1\x64\x1\x6C\x1\x66\x1\x30\x1\xFFFF\x1\x61\x6" +
                 "\x30\x1\xFFFF\x1\x6D\x1\x6C\x1\x30\x1\xFFFF\x1\x6E\x1\x74\x1\x30\x1\xFFFF" +
-                "\x1\x30\x1\x70\x1\x63\x1\x70\x1\x30\x1\xFFFF\x1\x6F\x2\x65\x1\x72\x1" +
-                "\x6D\x1\x63\x1\x64\x1\x30\x1\xFFFF\x3\x30\x1\xFFFF\x1\x70\x2\x30\x1\x70" +
-                "\x2\x73\x2\x30\x1\x74\x13\xFFFF\x1\x74\x6\x30\x1\x70\x1\x30\x1\x70\x1" +
-                "\xFFFF\x1\x65\x1\x6C\x2\x30\x1\xFFFF\x1\x61\x1\x30\x4\xFFFF\x1\x30\x2" +
-                "\xFFFF\x1\x65\x1\x74\x1\xFFFF\x1\x6B\x1\x30\x1\xFFFF\x1\x30\x1\xFFFF" +
-                "\x1\x6F\x1\x30\x1\x6F\x1\xFFFF\x1\x62\x2\x66\x1\x30\x1\x65\x3\x30\x3" +
-                "\xFFFF\x1\x6C\x2\x30\x1\xFFFF\x1\x30\x2\xFFFF\x1\x30\x1\x68\x4\x30\x1" +
-                "\xFFFF\x2\x30\x1\xFFFF\x1\x30\x1\x69\x6\xFFFF\x1\x30\x1\xFFFF\x3\x30" +
-                "\x2\xFFFF\x1\x30\x2\xFFFF\x3\x30\x2\xFFFF\x1\x72\x1\x75\x1\x69\x1\xFFFF" +
-                "\x1\x72\x1\x61\x2\x30\x1\xFFFF\x1\x73\x3\xFFFF\x2\x30\x4\xFFFF\x1\x30" +
-                "\x1\xFFFF\x1\x30\x2\xFFFF\x1\x30\x2\xFFFF\x1\x30\x2\xFFFF\x1\x6F\x8\xFFFF" +
-                "\x1\x74\x1\x64\x1\x6E\x1\x74\x1\x6C\x2\xFFFF\x1\x30\x6\xFFFF\x1\x6E\x1" +
-                "\x30\x1\x65\x3\x30\x1\xFFFF\x1\x30\x1\xFFFF\x1\x30\x5\xFFFF";
+                "\x1\x30\x1\x70\x1\x63\x1\x70\x1\x75\x1\x30\x1\xFFFF\x1\x6F\x2\x65\x1" +
+                "\x72\x1\x6D\x1\x63\x1\x64\x1\x30\x1\xFFFF\x3\x30\x1\xFFFF\x1\x70\x2\x30" +
+                "\x1\x70\x2\x73\x2\x30\x1\x74\x13\xFFFF\x1\x74\x6\x30\x1\x70\x1\x30\x1" +
+                "\x70\x1\xFFFF\x1\x65\x1\x6C\x2\x30\x1\xFFFF\x1\x61\x1\x30\x4\xFFFF\x1" +
+                "\x30\x2\xFFFF\x1\x65\x1\x74\x1\xFFFF\x1\x6B\x1\x30\x1\xFFFF\x1\x30\x1" +
+                "\xFFFF\x1\x6F\x1\x30\x1\x6F\x1\x30\x1\xFFFF\x1\x62\x2\x66\x1\x30\x1\x65" +
+                "\x3\x30\x3\xFFFF\x1\x6C\x2\x30\x1\xFFFF\x1\x30\x2\xFFFF\x1\x30\x1\x68" +
+                "\x4\x30\x1\xFFFF\x2\x30\x1\xFFFF\x1\x30\x1\x69\x6\xFFFF\x1\x30\x1\xFFFF" +
+                "\x3\x30\x2\xFFFF\x1\x30\x2\xFFFF\x3\x30\x2\xFFFF\x1\x72\x1\x75\x1\x69" +
+                "\x1\xFFFF\x1\x72\x1\xFFFF\x1\x61\x2\x30\x1\xFFFF\x1\x73\x3\xFFFF\x2\x30" +
+                "\x4\xFFFF\x1\x30\x1\xFFFF\x1\x30\x2\xFFFF\x1\x30\x2\xFFFF\x1\x30\x2\xFFFF" +
+                "\x1\x6F\x8\xFFFF\x1\x74\x1\x64\x1\x6E\x1\x74\x1\x6C\x2\xFFFF\x1\x30\x6" +
+                "\xFFFF\x1\x6E\x1\x30\x1\x65\x3\x30\x1\xFFFF\x1\x30\x1\xFFFF\x1\x30\x5" +
+                "\xFFFF";
 
             private const string DFA22_maxS =
                 "\x1\x7E\x1\xFFFF\x12\x7A\x6\xFFFF\x1\x7C\x1\x37\x1\x7A\x1\x2F\x3\xFFFF" +
                 "\x2\x3D\x1\x3E\x2\xFFFF\x1\x31\xA\xFFFF\x1\x74\x1\x63\x1\x66\x1\x61\x1" +
                 "\x6C\x1\x6F\x1\x62\x1\x61\x1\x7A\x1\x64\x1\x6C\x1\x66\x1\x7A\x1\xFFFF" +
                 "\x1\x74\x6\x7A\x1\xFFFF\x1\x6D\x1\x6C\x1\x7A\x1\xFFFF\x1\x6E\x1\x74\x1" +
-                "\x7A\x1\xFFFF\x1\x7A\x1\x70\x1\x63\x1\x70\x1\x7A\x1\xFFFF\x1\x6F\x2\x65" +
-                "\x1\x72\x1\x6D\x2\x64\x1\x7A\x1\xFFFF\x3\x7A\x1\xFFFF\x1\x70\x2\x7A\x1" +
-                "\x70\x1\x73\x1\x74\x2\x7A\x1\x74\x13\xFFFF\x1\x74\x6\x7A\x1\x70\x1\x7A" +
-                "\x1\x70\x1\xFFFF\x1\x65\x1\x6C\x2\x7A\x1\xFFFF\x1\x61\x1\x7A\x4\xFFFF" +
-                "\x1\x7A\x2\xFFFF\x1\x65\x1\x74\x1\xFFFF\x1\x6B\x1\x7A\x1\xFFFF\x1\x7A" +
-                "\x1\xFFFF\x1\x6F\x1\x7A\x1\x6F\x1\xFFFF\x1\x62\x2\x66\x1\x7A\x1\x65\x3" +
-                "\x7A\x3\xFFFF\x1\x6C\x2\x7A\x1\xFFFF\x1\x7A\x2\xFFFF\x1\x7A\x1\x68\x4" +
-                "\x7A\x1\xFFFF\x2\x7A\x1\xFFFF\x1\x7A\x1\x69\x6\xFFFF\x1\x7A\x1\xFFFF" +
-                "\x3\x7A\x2\xFFFF\x1\x7A\x2\xFFFF\x3\x7A\x2\xFFFF\x1\x72\x1\x75\x1\x69" +
-                "\x1\xFFFF\x1\x72\x1\x61\x2\x7A\x1\xFFFF\x1\x73\x3\xFFFF\x2\x7A\x4\xFFFF" +
-                "\x1\x7A\x1\xFFFF\x1\x7A\x2\xFFFF\x1\x7A\x2\xFFFF\x1\x7A\x2\xFFFF\x1\x6F" +
-                "\x8\xFFFF\x1\x74\x1\x64\x1\x6E\x1\x74\x1\x6C\x2\xFFFF\x1\x7A\x6\xFFFF" +
-                "\x1\x6E\x1\x7A\x1\x65\x3\x7A\x1\xFFFF\x1\x7A\x1\xFFFF\x1\x7A\x5\xFFFF";
+                "\x7A\x1\xFFFF\x1\x7A\x1\x70\x1\x63\x1\x70\x1\x75\x1\x7A\x1\xFFFF\x1\x6F" +
+                "\x2\x65\x1\x72\x1\x6D\x2\x64\x1\x7A\x1\xFFFF\x3\x7A\x1\xFFFF\x1\x70\x2" +
+                "\x7A\x1\x70\x1\x73\x1\x74\x2\x7A\x1\x74\x13\xFFFF\x1\x74\x6\x7A\x1\x70" +
+                "\x1\x7A\x1\x70\x1\xFFFF\x1\x65\x1\x6C\x2\x7A\x1\xFFFF\x1\x61\x1\x7A\x4" +
+                "\xFFFF\x1\x7A\x2\xFFFF\x1\x65\x1\x74\x1\xFFFF\x1\x6B\x1\x7A\x1\xFFFF" +
+                "\x1\x7A\x1\xFFFF\x1\x6F\x1\x7A\x1\x6F\x1\x7A\x1\xFFFF\x1\x62\x2\x66\x1" +
+                "\x7A\x1\x65\x3\x7A\x3\xFFFF\x1\x6C\x2\x7A\x1\xFFFF\x1\x7A\x2\xFFFF\x1" +
+                "\x7A\x1\x68\x4\x7A\x1\xFFFF\x2\x7A\x1\xFFFF\x1\x7A\x1\x69\x6\xFFFF\x1" +
+                "\x7A\x1\xFFFF\x3\x7A\x2\xFFFF\x1\x7A\x2\xFFFF\x3\x7A\x2\xFFFF\x1\x72" +
+                "\x1\x75\x1\x69\x1\xFFFF\x1\x72\x1\xFFFF\x1\x61\x2\x7A\x1\xFFFF\x1\x73" +
+                "\x3\xFFFF\x2\x7A\x4\xFFFF\x1\x7A\x1\xFFFF\x1\x7A\x2\xFFFF\x1\x7A\x2\xFFFF" +
+                "\x1\x7A\x2\xFFFF\x1\x6F\x8\xFFFF\x1\x74\x1\x64\x1\x6E\x1\x74\x1\x6C\x2" +
+                "\xFFFF\x1\x7A\x6\xFFFF\x1\x6E\x1\x7A\x1\x65\x3\x7A\x1\xFFFF\x1\x7A\x1" +
+                "\xFFFF\x1\x7A\x5\xFFFF";
 
             private const string DFA22_acceptS =
-                "\x1\xFFFF\x1\x1\x12\xFFFF\x1\x52\x1\x53\x1\x54\x1\x55\x1\x56\x1\x57\x4" +
-                "\xFFFF\x1\x5E\x1\x5F\x1\x60\x6\xFFFF\x1\x6C\x1\x6D\x1\x6E\x1\x6F\x1\x70" +
-                "\x1\x71\x1\x72\x1\x73\x1\x74\x1\x76\xD\xFFFF\x1\x4D\x7\xFFFF\x1\x4E\x3" +
-                "\xFFFF\x1\x50\x3\xFFFF\x1\x4C\x5\xFFFF\x1\x4F\x8\xFFFF\x1\x4B\x3\xFFFF" +
-                "\x1\x51\x9\xFFFF\x1\x4A\x1\x58\x1\x59\x1\x5A\x1\x5B\x1\x5C\x1\x75\x1" +
-                "\x5D\x1\x61\x1\x68\x1\x62\x1\x64\x1\x67\x1\x63\x1\x65\x1\x66\x1\x69\x1" +
-                "\x6A\x1\x6B\xA\xFFFF\x1\x47\x4\xFFFF\x1\x1A\x2\xFFFF\x1\xD\x1\xE\x1\xF" +
-                "\x1\x10\x1\xFFFF\x1\x45\x1\x1E\x2\xFFFF\x1\x46\x2\xFFFF\x1\x44\x1\xFFFF" +
-                "\x1\x2A\x3\xFFFF\x1\x1F\x8\xFFFF\x1\x43\x1\x22\x1\x23\x3\xFFFF\x1\x28" +
-                "\x1\xFFFF\x1\x48\x1\x49\x6\xFFFF\x1\x31\x2\xFFFF\x1\x35\x2\xFFFF\x1\x3B" +
-                "\x1\x39\x1\x3A\x1\x3C\x1\x3D\x1\x3E\x1\xFFFF\x1\x40\x3\xFFFF\x1\x19\x1" +
-                "\x1B\x1\xFFFF\x1\x1C\x1\x1D\x3\xFFFF\x1\x17\x1\x7\x3\xFFFF\x1\x21\x4" +
-                "\xFFFF\x1\x42\x1\xFFFF\x1\x14\x1\x15\x1\x16\x2\xFFFF\x1\x26\x1\x27\x1" +
-                "\x29\x1\x2B\x1\xFFFF\x1\x2D\x1\xFFFF\x1\x2E\x1\x30\x1\xFFFF\x1\x33\x1" +
-                "\x34\x1\xFFFF\x1\x37\x1\x38\x1\xFFFF\x1\x3F\x1\x41\x1\x3\x1\x18\x1\x4" +
-                "\x1\x5\x1\x20\x1\x6\x5\xFFFF\x1\xB\x1\xC\x1\xFFFF\x1\x24\x1\x25\x1\x2C" +
-                "\x1\x2F\x1\x32\x1\x36\x6\xFFFF\x1\x13\x1\xFFFF\x1\x8\x1\xFFFF\x1\x12" +
-                "\x1\x9\x1\xA\x1\x2\x1\x11";
+                "\x1\xFFFF\x1\x1\x12\xFFFF\x1\x53\x1\x54\x1\x55\x1\x56\x1\x57\x1\x58\x4" +
+                "\xFFFF\x1\x5F\x1\x60\x1\x61\x6\xFFFF\x1\x6D\x1\x6E\x1\x6F\x1\x70\x1\x71" +
+                "\x1\x72\x1\x73\x1\x74\x1\x75\x1\x77\xD\xFFFF\x1\x4E\x7\xFFFF\x1\x4F\x3" +
+                "\xFFFF\x1\x51\x3\xFFFF\x1\x4D\x6\xFFFF\x1\x50\x8\xFFFF\x1\x4C\x3\xFFFF" +
+                "\x1\x52\x9\xFFFF\x1\x4B\x1\x59\x1\x5A\x1\x5B\x1\x5C\x1\x5D\x1\x76\x1" +
+                "\x5E\x1\x62\x1\x69\x1\x63\x1\x65\x1\x68\x1\x64\x1\x66\x1\x67\x1\x6A\x1" +
+                "\x6B\x1\x6C\xA\xFFFF\x1\x48\x4\xFFFF\x1\x1B\x2\xFFFF\x1\xD\x1\xE\x1\xF" +
+                "\x1\x10\x1\xFFFF\x1\x46\x1\x1F\x2\xFFFF\x1\x47\x2\xFFFF\x1\x45\x1\xFFFF" +
+                "\x1\x2B\x4\xFFFF\x1\x20\x8\xFFFF\x1\x44\x1\x23\x1\x24\x3\xFFFF\x1\x29" +
+                "\x1\xFFFF\x1\x49\x1\x4A\x6\xFFFF\x1\x32\x2\xFFFF\x1\x36\x2\xFFFF\x1\x3C" +
+                "\x1\x3A\x1\x3B\x1\x3D\x1\x3E\x1\x3F\x1\xFFFF\x1\x41\x3\xFFFF\x1\x1A\x1" +
+                "\x1C\x1\xFFFF\x1\x1D\x1\x1E\x3\xFFFF\x1\x18\x1\x7\x3\xFFFF\x1\x22\x1" +
+                "\xFFFF\x1\x14\x3\xFFFF\x1\x43\x1\xFFFF\x1\x15\x1\x16\x1\x17\x2\xFFFF" +
+                "\x1\x27\x1\x28\x1\x2A\x1\x2C\x1\xFFFF\x1\x2E\x1\xFFFF\x1\x2F\x1\x31\x1" +
+                "\xFFFF\x1\x34\x1\x35\x1\xFFFF\x1\x38\x1\x39\x1\xFFFF\x1\x40\x1\x42\x1" +
+                "\x3\x1\x19\x1\x4\x1\x5\x1\x21\x1\x6\x5\xFFFF\x1\xB\x1\xC\x1\xFFFF\x1" +
+                "\x25\x1\x26\x1\x2D\x1\x30\x1\x33\x1\x37\x6\xFFFF\x1\x13\x1\xFFFF\x1\x8" +
+                "\x1\xFFFF\x1\x12\x1\x9\x1\xA\x1\x2\x1\x11";
 
             private const string DFA22_specialS =
-                "\x24\xFFFF\x1\x0\x1\x1\xF4\xFFFF}>";
+                "\x24\xFFFF\x1\x0\x1\x1\xF7\xFFFF}>";
 
             private static readonly string[] DFA22_transitionS =
             {
@@ -7200,20 +7247,21 @@ namespace GBRead.Base
                 "\x11\x2C",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x11\x2C\x1\x4F\x8\x2C",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\xC\x2C\x1\x50\x1\x51\xC\x2C",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x8\x2C\x1\x53\xE\x2C\x1\x52\x2\x2C",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\xB\x2C\x1\x55\xE\x2C",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x3\x2C\x1\x57\xA\x2C\x1\x58\x2\x2C"+
-                "\x1\x56\x8\x2C",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x8\x2C\x1\x59\x11\x2C",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x3\x2C\x1\x5A\x1\x2C\x1\x5C\x7\x2C"+
-                "\x1\x5B\xC\x2C",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\xF\x2C\x1\x5E\x1\x2C\x1\x5F\x8\x2C",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x3\x2C\x1\x60\x16\x2C",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x2\x2C\x1\x63\xB\x2C\x1\x62\xA\x2C"+
-                "\x1\x64",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\xE\x2C\x1\x65\x5\x2C\x1\x66\x5\x2C",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x4\x2C\x1\x67\x6\x2C\x1\x68\x5\x2C"+
-                "\x1\x69\x1\x6A\x7\x2C",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x8\x2C\x1\x54\x7\x2C\x1\x53\x6\x2C"+
+                "\x1\x52\x2\x2C",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\xB\x2C\x1\x56\xE\x2C",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x3\x2C\x1\x58\xA\x2C\x1\x59\x2\x2C"+
+                "\x1\x57\x8\x2C",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x8\x2C\x1\x5A\x11\x2C",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x3\x2C\x1\x5B\x1\x2C\x1\x5D\x7\x2C"+
+                "\x1\x5C\xC\x2C",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\xF\x2C\x1\x5F\x1\x2C\x1\x60\x8\x2C",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x3\x2C\x1\x61\x16\x2C",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x2\x2C\x1\x64\xB\x2C\x1\x63\xA\x2C"+
+                "\x1\x65",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\xE\x2C\x1\x66\x5\x2C\x1\x67\x5\x2C",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x4\x2C\x1\x68\x6\x2C\x1\x69\x5\x2C"+
+                "\x1\x6A\x1\x6B\x7\x2C",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "",
                 "",
@@ -7221,18 +7269,18 @@ namespace GBRead.Base
                 "",
                 "",
                 "",
-                "\x1\x6C",
-                "\x1\x6E\x9\xFFFF\x8\x2D",
+                "\x1\x6D",
+                "\x1\x6F\x9\xFFFF\x8\x2D",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
-                "\x1\x71\x4\xFFFF\x1\x71",
+                "\x1\x72\x4\xFFFF\x1\x72",
                 "",
                 "",
                 "",
-                "\x1\x73",
-                "\x1\x76\x1\x75",
-                "\x1\x78\x1\x79",
-                "\x0\x71",
-                "\x0\x71",
+                "\x1\x74",
+                "\x1\x77\x1\x76",
+                "\x1\x79\x1\x7A",
+                "\x0\x72",
+                "\x0\x72",
                 "\x2\x2D",
                 "",
                 "",
@@ -7244,65 +7292,66 @@ namespace GBRead.Base
                 "",
                 "",
                 "",
-                "\x1\x7E\x10\xFFFF\x1\x7F",
-                "\x1\x80",
+                "\x1\x7F\x10\xFFFF\x1\x80",
                 "\x1\x81",
                 "\x1\x82",
-                "\x1\x83\xA\xFFFF\x1\x84",
-                "\x1\x85",
+                "\x1\x83",
+                "\x1\x84\xA\xFFFF\x1\x85",
                 "\x1\x86",
                 "\x1\x87",
+                "\x1\x88",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
-                "\x1\x89",
                 "\x1\x8A",
                 "\x1\x8B",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\xB\x2C\x1\x8C\xE\x2C",
+                "\x1\x8C",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\xB\x2C\x1\x8D\xE\x2C",
                 "",
-                "\x1\x8F\x12\xFFFF\x1\x8E",
+                "\x1\x90\x12\xFFFF\x1\x8F",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x2\x2C\x1\x94\x17\x2C",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x2\x2C\x1\x95\x17\x2C",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "",
-                "\x1\x97",
                 "\x1\x98",
+                "\x1\x99",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "",
-                "\x1\x9A",
                 "\x1\x9B",
+                "\x1\x9C",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x6\x2C\x1\x9D\x13\x2C",
-                "\x1\x9F",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x6\x2C\x1\x9E\x13\x2C",
                 "\x1\xA0",
                 "\x1\xA1",
+                "\x1\xA2",
+                "\x1\xA3",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "",
-                "\x1\xA3",
-                "\x1\xA4",
                 "\x1\xA5",
                 "\x1\xA6",
                 "\x1\xA7",
-                "\x1\xA8\x1\xA9",
-                "\x1\xAA",
+                "\x1\xA8",
+                "\x1\xA9",
+                "\x1\xAA\x1\xAB",
+                "\x1\xAC",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x3\x2C\x1\xB0\x3\x2C\x1\xAE\x1\xAF"+
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x3\x2C\x1\xB2\x3\x2C\x1\xB0\x1\xB1"+
                 "\x11\x2C",
                 "",
-                "\x1\xB2",
+                "\x1\xB4",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
-                "\x1\xB5",
-                "\x1\xB6",
-                "\x1\xB7\x1\xB8",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1\xB9\x1\x2C\x1\xBA\x17\x2C",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1\xBC\x1\x2C\x1\xBD\x17\x2C",
-                "\x1\xBF",
+                "\x1\xB7",
+                "\x1\xB8",
+                "\x1\xB9\x1\xBA",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1\xBB\x1\x2C\x1\xBC\x17\x2C",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1\xBE\x1\x2C\x1\xBF\x17\x2C",
+                "\x1\xC1",
                 "",
                 "",
                 "",
@@ -7322,23 +7371,23 @@ namespace GBRead.Base
                 "",
                 "",
                 "",
-                "\x1\xC0",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
+                "\x1\xC2",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
-                "\x1\xC7",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "\x1\xC9",
-                "",
-                "\x1\xCA",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "\x1\xCB",
+                "",
+                "\x1\xCC",
+                "\x1\xCD",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "",
-                "\x1\xCE",
+                "\x1\xD0",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "",
                 "",
@@ -7346,49 +7395,50 @@ namespace GBRead.Base
                 "",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "",
-                "",
-                "\x1\xD1",
-                "\x1\xD2",
                 "",
                 "\x1\xD3",
+                "\x1\xD4",
+                "",
+                "\x1\xD5",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "",
-                "\x1\xD6",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1\x2C\x1\xD8\x9\x2C\x1\xD7\xE\x2C",
-                "\x1\xDA",
-                "",
-                "\x1\xDB",
+                "\x1\xD8",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1\x2C\x1\xDA\x9\x2C\x1\xD9\xE\x2C",
                 "\x1\xDC",
-                "\x1\xDD",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
+                "",
+                "\x1\xDE",
                 "\x1\xDF",
+                "\x1\xE0",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
+                "\x1\xE2",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "",
                 "",
                 "",
-                "\x1\xE3",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\xE\x2C\x1\xE4\xB\x2C",
+                "\x1\xE6",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\xE\x2C\x1\xE7\xB\x2C",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "",
                 "",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
-                "\x1\xE9",
+                "\x1\xEC",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x8\x2C\x1\xEB\x11\x2C",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1\xEE\x19\x2C",
-                "",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x8\x2C\x1\xEE\x11\x2C",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1\xF1\x19\x2C",
                 "",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
-                "\x1\xF4",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1\xF4\x19\x2C",
+                "",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
+                "\x1\xF7",
                 "",
                 "",
                 "",
@@ -7409,17 +7459,18 @@ namespace GBRead.Base
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "",
-                "",
-                "\x1\xFD",
-                "\x1\xFE",
-                "\x1\xFF",
                 "",
                 "\x1\x100",
                 "\x1\x101",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
+                "\x1\x102",
+                "",
+                "\x1\x103",
                 "",
                 "\x1\x104",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
+                "",
+                "\x1\x107",
                 "",
                 "",
                 "",
@@ -7440,32 +7491,32 @@ namespace GBRead.Base
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "",
                 "",
-                "\x1\x10B",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "\x1\x10C",
-                "\x1\x10D",
                 "\x1\x10E",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
                 "\x1\x10F",
                 "\x1\x110",
-                "",
-                "",
-                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
+                "\x1\x111",
                 "\x1\x112",
+                "\x1\x113",
+                "",
+                "",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
-                "\x1\x114",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "\x1\x115",
+                "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
+                "\x1\x117",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
                 "\xA\x2C\x25\xFFFF\x1\x2C\x1\xFFFF\x1A\x2C",
@@ -7512,7 +7563,7 @@ namespace GBRead.Base
                 this.transition = DFA22_transition;
             }
 
-            public override string Description { get { return "1:1: Tokens : ( T__145 | SECTION | CODE | DATA | HOME | BANK | ORG | IMPORT | EXPORT | GLOBAL | XREF | XDEF | DB | DW | DD | DQ | INCLUDE | INCBIN | TIMES | INST_ADC | INST_ADD | INST_AND | INST_BIT | INST_CALL | INST_CCF | INST_CP | INST_CPL | INST_DAA | INST_DEC | INST_DI | INST_EI | INST_HALT | INST_INC | INST_JP | INST_JR | INST_LDHL | INST_LDIO | INST_LDI | INST_LDD | INST_LD | INST_NOP | INST_OR | INST_POP | INST_PUSH | INST_RES | INST_RET | INST_RETI | INST_RLA | INST_RL | INST_RLCA | INST_RLC | INST_RRA | INST_RR | INST_RRCA | INST_RRC | INST_RST | INST_SBC | INST_SCF | INST_SET | INST_SLA | INST_SRA | INST_SRL | INST_STOP | INST_SUB | INST_SWAP | INST_XOR | RR_AF | RR_BC | RR_DE | RR_HL | RR_SP | CC_NC | CC_NZ | CC_Z | REG_A | REG_B | REG_C | REG_D | REG_E | REG_H | REG_L | QUEST_MARK | BANG_MARK | STAR_MARK | PLUS_MARK | MINUS_MARK | TILDE_MARK | BOOL_OR_MARK | BAR_MARK | BOOL_AND_MARK | AMP_MARK | UNDERSCORE_MARK | FSLASH_MARK | BSLASH_MARK | CARET_MARK | COLON_MARK | EQUIV_MARK | LTE_MARK | GTE_MARK | LSHIFT_MARK | RSHIFT_MARK | GT_MARK | LT_MARK | EQUAL_MARK | SEMI_MARK | POUND_MARK | PERCENT_MARK | COMMA | LEFT_PARENS | RIGHT_PARENS | LEFT_BRACKET | RIGHT_BRACKET | ID | NUMBER | STRING | CHAR | COMMENT | WS );"; } }
+            public override string Description { get { return "1:1: Tokens : ( T__146 | SECTION | CODE | DATA | HOME | BANK | ORG | IMPORT | EXPORT | GLOBAL | XREF | XDEF | DB | DW | DD | DQ | INCLUDE | INCBIN | TIMES | EQU | INST_ADC | INST_ADD | INST_AND | INST_BIT | INST_CALL | INST_CCF | INST_CP | INST_CPL | INST_DAA | INST_DEC | INST_DI | INST_EI | INST_HALT | INST_INC | INST_JP | INST_JR | INST_LDHL | INST_LDIO | INST_LDI | INST_LDD | INST_LD | INST_NOP | INST_OR | INST_POP | INST_PUSH | INST_RES | INST_RET | INST_RETI | INST_RLA | INST_RL | INST_RLCA | INST_RLC | INST_RRA | INST_RR | INST_RRCA | INST_RRC | INST_RST | INST_SBC | INST_SCF | INST_SET | INST_SLA | INST_SRA | INST_SRL | INST_STOP | INST_SUB | INST_SWAP | INST_XOR | RR_AF | RR_BC | RR_DE | RR_HL | RR_SP | CC_NC | CC_NZ | CC_Z | REG_A | REG_B | REG_C | REG_D | REG_E | REG_H | REG_L | QUEST_MARK | BANG_MARK | STAR_MARK | PLUS_MARK | MINUS_MARK | TILDE_MARK | BOOL_OR_MARK | BAR_MARK | BOOL_AND_MARK | AMP_MARK | UNDERSCORE_MARK | FSLASH_MARK | BSLASH_MARK | CARET_MARK | COLON_MARK | EQUIV_MARK | LTE_MARK | GTE_MARK | LSHIFT_MARK | RSHIFT_MARK | GT_MARK | LT_MARK | EQUAL_MARK | SEMI_MARK | POUND_MARK | PERCENT_MARK | COMMA | LEFT_PARENS | RIGHT_PARENS | LEFT_BRACKET | RIGHT_BRACKET | ID | NUMBER | STRING | CHAR | COMMENT | WS );"; } }
 
             public override void Error(NoViableAltException nvae)
             {
@@ -7530,10 +7581,10 @@ namespace GBRead.Base
                     int LA22_36 = input.LA(1);
 
                     s = -1;
-                    if (((LA22_36 >= '\u0000' && LA22_36 <= '\uFFFF'))) { s = 113; }
+                    if (((LA22_36 >= '\u0000' && LA22_36 <= '\uFFFF'))) { s = 114; }
 
                     else
-                        s = 123;
+                        s = 124;
 
                     if (s >= 0)
                         return s;
@@ -7543,10 +7594,10 @@ namespace GBRead.Base
                     int LA22_37 = input.LA(1);
 
                     s = -1;
-                    if (((LA22_37 >= '\u0000' && LA22_37 <= '\uFFFF'))) { s = 113; }
+                    if (((LA22_37 >= '\u0000' && LA22_37 <= '\uFFFF'))) { s = 114; }
 
                     else
-                        s = 124;
+                        s = 125;
 
                     if (s >= 0)
                         return s;

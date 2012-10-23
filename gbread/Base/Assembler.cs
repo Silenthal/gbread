@@ -1,61 +1,11 @@
 ﻿namespace GBRead.Base
 {
-    using System;
     using System.Collections.Generic;
     using Antlr.Runtime;
     using Antlr.Runtime.Tree;
 
     public class Assembler
     {
-        private int NumStringToInt(string check)
-        {
-            check = check.ToLower();
-            if (check.StartsWith("0x"))
-            {
-                return Convert.ToInt32(check, 16);
-            }
-            else if (check.StartsWith("$"))
-            {
-                check = check.Substring(1);
-                return Convert.ToInt32(check, 16);
-            }
-            else if (check.StartsWith("0o"))
-            {
-                check = check.Substring(2);
-                return Convert.ToInt32(check, 8);
-            }
-            else if (check.StartsWith("&"))
-            {
-                check = check.Substring(1);
-                return Convert.ToInt32(check, 8);
-            }
-            else if (check.StartsWith("0b"))
-            {
-                check = check.Substring(2);
-                return Convert.ToInt32(check, 2);
-            }
-            else if (check.StartsWith("%"))
-            {
-                check = check.Substring(1);
-                return Convert.ToInt32(check, 2);
-            }
-            else
-            {
-                return Convert.ToInt32(check);
-            }
-        }
-
-        private int BaseXToDecimal(int baseNum, string input)
-        {
-            double ret = 0;
-            for (int i = input.Length - 1; i >= 0; i--)
-            {
-                int power = input.Length - i - 1;
-                ret += Char.GetNumericValue(input[i]) * Math.Pow(baseNum, power);
-            }
-            return (int)ret;
-        }
-
         private Dictionary<string, int> variableDict = new Dictionary<string, int>();
         private Dictionary<string, int> callDict = new Dictionary<string, int>();
 
@@ -1252,7 +1202,7 @@
                 {
                     case 0:
                         {
-                            result = NumStringToInt(eval.Text);
+                            result = Utility.NumStringToInt(eval.Text);
                             return ErrorMessage.NO_ERROR;
                         }
                     case 1:

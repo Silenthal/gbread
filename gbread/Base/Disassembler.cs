@@ -152,6 +152,7 @@
                         case OffsetFormat.Decimal:
                             sb.Append(curByte.ToString() + ", ");
                             break;
+
                         default:
                             sb.Append("$" + curByte.ToString("X2") + ", ");
                             break;
@@ -162,6 +163,7 @@
                     case OffsetFormat.Decimal:
                         sb.Append(((byte)CoreFile.ReadByte(last)).ToString());
                         break;
+
                     default:
                         sb.Append("$" + ((byte)CoreFile.ReadByte(last)).ToString("X2"));
                         break;
@@ -255,7 +257,7 @@
                 {
                     bp[i] = refFile.ReadByte(BinaryOffset + i).ToString("X2");
                 }
-                returned.Append(string.Join("",bp));
+                returned.Append(string.Join("", bp));
             }
 
             #endregion Check bit pattern printing
@@ -264,7 +266,7 @@
 
             if (!(PrintBitPattern || PrintOffsets))
             {
-                returned.Append("    "); 
+                returned.Append("    ");
             }
             returned.Append(isu.InstType.ToString());
             string numArg = "";
@@ -349,54 +351,32 @@
             int currentOffset = 0;
             while (currentOffset < CoreFile.Length)
             {
-                int curr = CoreFile.ReadByte(currentOffset);
-                if (curr == Int32.MinValue)
-                    return;
-                byte currentInst = (byte)curr;
-                GBInstruction isu = new GBInstruction();
-                bool success = false;
                 if (lc.isAddressMarkedAsData(currentOffset))
                 {
                     currentOffset = lc.GetNextNonDataAddress(currentOffset);
                     continue;
                 }
-                else
-                    success = GBASM.GetInstruction(CoreFile.MainFile, 0, currentOffset, ref isu);
-                if (!success)
+
+                GBInstruction isu = new GBInstruction();
+                if (!GBASM.GetInstruction(CoreFile.MainFile, 0, currentOffset, ref isu))
+                {
                     return;
+                }
+
                 if (isu.InstType == InstructionType.call)
                 {
-                    ushort curCallAddr = (isu.ArgCount == 1) ? isu.Arg1.NumArg : isu.Arg2.NumArg;
-                    FunctionLabel fc = new FunctionLabel(curCallAddr);
-                    if (currentOffset < 0x4000)
+                    ushort curCallAddress = (isu.ArgCount == 1) ? isu.Arg1.NumArg : isu.Arg2.NumArg;
+                    if (curCallAddress < 0x4000)
                     {
-                        if (curCallAddr < 0x4000)
-                        {
-                            if (lc.TryGetFuncLabel(curCallAddr, out fc))
-                            {
-                                lc.AddFuncLabel(new FunctionLabel(curCallAddr));
-                            }
-                        }
+                        lc.AddFuncLabel(new FunctionLabel(curCallAddress));
                     }
-                    else
+                    else if (currentOffset >= 0x4000)
                     {
-                        if (curCallAddr < 0x4000)
-                        {
-                            if (lc.TryGetFuncLabel(curCallAddr, out fc))
-                            {
-                                lc.AddFuncLabel(new FunctionLabel(curCallAddr));
-                            }
-                        }
-                        else
-                        {
-                            int currentCall = Utility.GetRealAddress(isu.Bank, curCallAddr);
-                            if (lc.TryGetFuncLabel(curCallAddr, out fc))
-                            {
-                                lc.AddFuncLabel(new FunctionLabel(currentCall));
-                            }
-                        }
+                        int curAdjustedCallAddress = Utility.GetRealAddress(isu.Bank, curCallAddress);
+                        lc.AddFuncLabel(new FunctionLabel(curAdjustedCallAddress));
                     }
                 }
+
                 currentOffset += isu.InstSize;
             }
         }

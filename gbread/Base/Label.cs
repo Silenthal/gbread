@@ -57,7 +57,7 @@
 
         public string Name { get { return _name; } set { _name = value; } }
 
-        protected string _comment;
+        protected string _comment = "";
 
         public string Comment { get { return _comment; } set { _comment = value; } }
 

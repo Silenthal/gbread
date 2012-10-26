@@ -1,12 +1,13 @@
-﻿using System;
-using System.Drawing;
-using System.IO;
-using System.Threading;
-using System.Windows.Forms;
-using GBRead.Base;
-
-namespace GBRead.Forms
+﻿namespace GBRead.Forms
 {
+    using System;
+    using System.Drawing;
+    using System.IO;
+    using System.Threading;
+    using System.Windows.Forms;
+    using GBRead.Base;
+    using ICSharpCode.AvalonEdit;
+
     public partial class MainForm : Form
     {
         private string currentFileLoaded = "";
@@ -21,9 +22,12 @@ namespace GBRead.Forms
 
         private MainFormOptions mainFormOptions = new MainFormOptions();
 
+        private TextEditor mainTextBox;
+
         public MainForm(BinFile cs, Disassembler ds, Assembler ac, LabelContainer lcnew)
         {
             InitializeComponent();
+            mainTextBox = ((TextBoxHost)elementHost2.Child).mainTextBox;
             disassembler = ds;
             assembler = ac;
             labelContainer = lcnew;
@@ -41,23 +45,11 @@ namespace GBRead.Forms
         public void GetOptions(Options options)
         {
             mainTextBox.WordWrap = options.MainForm_WordWrap;
-            mainTextBox.SyntaxHighlighter.HighlightComments = options.MainForm_HighlightComments;
-            mainTextBox.SyntaxHighlighter.HighlightKeywords = options.MainForm_HighlightKeywords;
-            mainTextBox.SyntaxHighlighter.HighlightLabels = options.MainForm_HighlightLabels;
-            mainTextBox.SyntaxHighlighter.HighlightNumbers = options.MainForm_HighlightNumbers;
-            mainTextBox.SyntaxHighlighter.HighlightOffsets = options.MainForm_HighlightOffsets;
-            mainTextBox.SyntaxHighlighter.HighlightRegisters = options.MainForm_HighlightRegisters;
         }
 
         public void SetOptions(ref Options options)
         {
             options.MainForm_WordWrap = mainTextBox.WordWrap;
-            options.MainForm_HighlightComments = mainTextBox.SyntaxHighlighter.HighlightComments;
-            options.MainForm_HighlightKeywords = mainTextBox.SyntaxHighlighter.HighlightKeywords;
-            options.MainForm_HighlightLabels = mainTextBox.SyntaxHighlighter.HighlightLabels;
-            options.MainForm_HighlightNumbers = mainTextBox.SyntaxHighlighter.HighlightNumbers;
-            options.MainForm_HighlightOffsets = mainTextBox.SyntaxHighlighter.HighlightOffsets;
-            options.MainForm_HighlightRegisters = mainTextBox.SyntaxHighlighter.HighlightRegisters;
         }
 
         #region Menu Item Handlers
@@ -234,8 +226,7 @@ namespace GBRead.Forms
                 sfd.FileName = "";
                 if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    new Thread(new ThreadStart(() =>
-                    {
+                    new Thread(new ThreadStart(() => {
                         if (romFile.FileLoaded)
                         {
                             UpdateProgressLabel("Working...", TextBoxWriteMode.Overwrite);
@@ -290,7 +281,7 @@ namespace GBRead.Forms
 
         private void optionsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            OptionsForm op = new OptionsForm(disassembler, labelContainer, mainFormOptions, mainTextBox.SyntaxHighlighter);
+            OptionsForm op = new OptionsForm(disassembler, labelContainer, mainFormOptions);
             op.ShowDialog();
             mainTextBox.WordWrap = mainFormOptions.isWordWrap;
         }
@@ -345,8 +336,7 @@ namespace GBRead.Forms
             int end;
             InputValidation.TryParseOffsetString(startBox.Text, out start);
             InputValidation.TryParseOffsetString(endBox.Text, out end);
-            new Thread(new ThreadStart(() =>
-            {
+            new Thread(new ThreadStart(() => {
                 if (romFile.FileLoaded)
                 {
                     if (start < 0 || end < 0)
@@ -420,6 +410,7 @@ namespace GBRead.Forms
                     case DataSectionType.Image:
                         itemBrush = Brushes.DeepPink;
                         break;
+
                     default:
                         break;
                 }
@@ -447,7 +438,7 @@ namespace GBRead.Forms
         {
             if (romFile.FileLoaded)
             {
-                InsertCodeForm iC = new InsertCodeForm(romFile, disassembler, assembler, mainTextBox.SyntaxHighlighter);
+                InsertCodeForm iC = new InsertCodeForm(romFile, disassembler, assembler);
                 iC.ShowDialog();
             }
             else
@@ -481,8 +472,10 @@ namespace GBRead.Forms
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
                 funcLabelBox.SelectedIndex = funcLabelBox.IndexFromPoint(e.X, e.Y);
-                if (funcLabelBox.SelectedItem != null) funcLabelBoxContextMenu.Show(MousePosition);
-                else funcLabelBoxContextMenu2.Show(MousePosition);
+                if (funcLabelBox.SelectedItem != null)
+                    funcLabelBoxContextMenu.Show(MousePosition);
+                else
+                    funcLabelBoxContextMenu2.Show(MousePosition);
             }
         }
 
@@ -527,8 +520,10 @@ namespace GBRead.Forms
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
                 dataLabelBox.SelectedIndex = dataLabelBox.IndexFromPoint(e.X, e.Y);
-                if (dataLabelBox.SelectedItem != null) dataLabelBoxContextMenu.Show(MousePosition);
-                else dataLabelContextMenu2.Show(MousePosition);
+                if (dataLabelBox.SelectedItem != null)
+                    dataLabelBoxContextMenu.Show(MousePosition);
+                else
+                    dataLabelContextMenu2.Show(MousePosition);
             }
         }
 
@@ -554,8 +549,10 @@ namespace GBRead.Forms
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
                 varLabelBox.SelectedIndex = varLabelBox.IndexFromPoint(e.X, e.Y);
-                if (varLabelBox.SelectedItem != null) varLabelBoxContextMenu.Show(MousePosition);
-                else varLabelBoxContextMenu2.Show(MousePosition);
+                if (varLabelBox.SelectedItem != null)
+                    varLabelBoxContextMenu.Show(MousePosition);
+                else
+                    varLabelBoxContextMenu2.Show(MousePosition);
             }
         }
 
@@ -615,8 +612,10 @@ namespace GBRead.Forms
             }
             else
             {
-                if (overwriteExistingText == TextBoxWriteMode.Overwrite) progressLabel.Text = newLabel;
-                else progressLabel.Text += newLabel;
+                if (overwriteExistingText == TextBoxWriteMode.Overwrite)
+                    progressLabel.Text = newLabel;
+                else
+                    progressLabel.Text += newLabel;
             }
         }
 
@@ -624,10 +623,9 @@ namespace GBRead.Forms
 
         private void UpdateMainTextBox(string text, TextBoxWriteMode overwriteExistingText)
         {
-            if (mainTextBox.InvokeRequired)
+            if (mainTextBox.Dispatcher.Thread != Thread.CurrentThread)
             {
-                UpdateTextBoxDelegate del = new UpdateTextBoxDelegate(UpdateMainTextBox);
-                mainTextBox.Invoke(del, new object[] { text, overwriteExistingText });
+                mainTextBox.Dispatcher.BeginInvoke(new UpdateTextBoxDelegate(UpdateMainTextBox), text, overwriteExistingText);
             }
             else
             {
@@ -648,9 +646,11 @@ namespace GBRead.Forms
                 case 0:
                     addFuncLabelMenuItem_Click(sender, e);
                     return;
+
                 case 1:
                     addDataLabelMenuItem_Click(sender, e);
                     return;
+
                 case 2:
                     addVariableToolStripMenuItem_Click(sender, e);
                     return;

@@ -64,6 +64,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(SolutionDir)Lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="ICSharpCode.AvalonEdit">
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)Lib\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -71,12 +76,16 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TextBoxHost.xaml.cs">
+      <DependentUpon>TextBoxHost.xaml</DependentUpon>
+    </Compile>
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
@@ -117,32 +126,7 @@
       <DependentUpon>AddVariableForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Options.cs" />
-    <Compile Include="SyntaxHighlightingTextBox\SHTBChar.cs" />
-    <Compile Include="SyntaxHighlightingTextBox\CommandManager.cs" />
-    <Compile Include="SyntaxHighlightingTextBox\Commands.cs" />
-    <None Include="SyntaxHighlightingTextBox\SHTBLineCollection.cs" />
-    <Compile Include="SyntaxHighlightingTextBox\SyntaxHighlightingTextBox.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="SyntaxHighlightingTextBox\FindForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SyntaxHighlightingTextBox\FindForm.Designer.cs">
-      <DependentUpon>FindForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SyntaxHighlightingTextBox\LimitedStack.cs" />
-    <Compile Include="SyntaxHighlightingTextBox\SHTBLine.cs" />
-    <Compile Include="SyntaxHighlightingTextBox\SHTBPlace.cs" />
-    <Compile Include="SyntaxHighlightingTextBox\SHTBRange.cs" />
-    <Compile Include="SyntaxHighlightingTextBox\ReplaceForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SyntaxHighlightingTextBox\ReplaceForm.Designer.cs">
-      <DependentUpon>ReplaceForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SyntaxHighlightingTextBox\SHTBStyle.cs" />
-    <Compile Include="SyntaxHighlightingTextBox\SyntaxHighlighter.cs" />
-    <Compile Include="SyntaxHighlightingTextBox\SHTBTypeDescriptor.cs" />
+    <EmbeddedResource Include="GB.xshd" />
     <Compile Include="Base\Assembler.cs" />
     <Compile Include="Base\BinFile.cs" />
     <Compile Include="Base\Label.cs" />
@@ -199,16 +183,6 @@
     <EmbeddedResource Include="Forms\AddVariableForm.resx">
       <DependentUpon>AddVariableForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SyntaxHighlightingTextBox\SyntaxHighlightingTextBox.resx">
-      <DependentUpon>SyntaxHighlightingTextBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SyntaxHighlightingTextBox\FindForm.resx">
-      <DependentUpon>FindForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SyntaxHighlightingTextBox\ReplaceForm.resx">
-      <DependentUpon>ReplaceForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormComponents\LineSeparator.resx">
       <DependentUpon>LineSeparator.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,11 +237,16 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Page Include="TextBoxHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>mkdir "$(TargetDir)Lib"
-xcopy /R /y "$(SolutionDir)Lib\*.dll" "$(TargetDir)Lib\"</PostBuildEvent>
+xcopy /R /C /y "$(SolutionDir)Lib\*.dll" "$(TargetDir)Lib\"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

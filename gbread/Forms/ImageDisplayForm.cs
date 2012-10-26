@@ -1,24 +1,25 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Forms;
-using System.Collections.Generic;
-using System.Drawing;
-using GBRead.Base;
-using System.Drawing.Drawing2D;
-using System.ComponentModel;
-
-namespace GBRead
+﻿namespace GBRead
 {
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Drawing;
+    using System.Drawing.Drawing2D;
+    using System.Windows.Forms;
+    using GBRead.Base;
+
     public partial class ImageDisplayForm : Form
     {
         // TODO: Fix the Image Display
-        BinFile bin;
-        Image igt;
+        private BinFile bin;
+
+        private Image igt;
+
         // TOOD: Use the data label's palette directly.
-        GBPalette gbs;
-        DataLabel dst;
-        int labelOff;
-        int labelLen;
+        private GBPalette gbs;
+
+        private DataLabel dst;
+        private int labelOff;
+        private int labelLen;
 
         public ImageDisplayForm(BinFile dt, DataLabel ds)
         {
@@ -62,9 +63,9 @@ namespace GBRead
         {
             Color[] palette = new Color[4]
             {
-                Color.FromArgb(gbs.Color_1_Red, gbs.Color_1_Green, gbs.Color_1_Blue), 
-                Color.FromArgb(gbs.Color_2_Red, gbs.Color_2_Green, gbs.Color_2_Blue), 
-                Color.FromArgb(gbs.Color_3_Red, gbs.Color_3_Green, gbs.Color_3_Blue), 
+                Color.FromArgb(gbs.Color_1_Red, gbs.Color_1_Green, gbs.Color_1_Blue),
+                Color.FromArgb(gbs.Color_2_Red, gbs.Color_2_Green, gbs.Color_2_Blue),
+                Color.FromArgb(gbs.Color_3_Red, gbs.Color_3_Green, gbs.Color_3_Blue),
                 Color.FromArgb(gbs.Color_4_Red, gbs.Color_4_Green, gbs.Color_4_Blue)
             };
             List<Bitmap> tileList = GBImage.renderImageTiles(bin, labelOff, labelLen, palette);
@@ -90,6 +91,7 @@ namespace GBRead
         }
 
         #region Changing color based on box values
+
         private void color1_SelectedIndexChanged(object sender, System.EventArgs e)
         {
             if (color1RedBox.SelectedIndex != -1 && color1GreenBox.SelectedIndex != -1 && color1BlueBox.SelectedIndex != -1)
@@ -137,6 +139,7 @@ namespace GBRead
                 InitializeImage();
             }
         }
-        #endregion
+
+        #endregion Changing color based on box values
     }
 }

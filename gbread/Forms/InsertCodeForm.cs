@@ -1,10 +1,10 @@
-﻿using System;
-using System.Windows.Forms;
-using System.Collections.Generic;
-using GBRead.Base;
-
-namespace GBRead.Forms
+﻿namespace GBRead.Forms
 {
+    using System;
+    using System.Windows.Forms;
+    using GBRead.Base;
+    using ICSharpCode.AvalonEdit;
+
     public partial class InsertCodeForm : Form
     {
         private BinFile baseFile;
@@ -13,16 +13,18 @@ namespace GBRead.Forms
         public BinFile preComCheck;
         private int insertOffset;
         public bool gcheckSuccess;
+        private TextEditor mainTextBox;
 
-        public InsertCodeForm(BinFile existing, Disassembler disassembler, Assembler asnew, Z80SyntaxHighlighter sh, int offset = 0)
+        public InsertCodeForm(BinFile existing, Disassembler disassembler, Assembler asnew, int offset = 0)
         {
             InitializeComponent();
+            mainTextBox = ((TextBoxHost)elementHost1.Child).mainTextBox;
+            mainTextBox.ShowLineNumbers = true;
             refFile = disassembler;
             baseFile = existing;
             gcheckSuccess = false;
             offsetBox.Text = offset.ToString("X");
             asm = asnew;
-            codeTextBox.SyntaxHighlighter = sh;
             insertOffset = -1;
         }
 
@@ -36,8 +38,8 @@ namespace GBRead.Forms
             {
                 insertOffset = off;
                 bool syntaxPass = false;
-                preComCheck = new GBBinFile(asm.AssembleASM(off, codeTextBox.Text, ref c, out syntaxPass));
-                
+                preComCheck = new GBBinFile(asm.AssembleASM(off, mainTextBox.Text, ref c, out syntaxPass));
+
                 if (!syntaxPass)
                 {
                     Error.ShowErrorMessage(c);

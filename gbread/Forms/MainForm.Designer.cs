@@ -81,8 +81,9 @@
             this.varLabelTabPage = new System.Windows.Forms.TabPage();
             this.varLabelBox = new System.Windows.Forms.ListBox();
             this.addNewButton = new System.Windows.Forms.Button();
-            this.mainTextBox = new GBRead.SyntaxHighlightingTextBox();
             this.addCommentButton = new System.Windows.Forms.Button();
+            this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
+            this.textBoxHost1 = new GBRead.TextBoxHost();
             this.menuStrip1.SuspendLayout();
             this.funcLabelBoxContextMenu.SuspendLayout();
             this.funcLabelBoxContextMenu2.SuspendLayout();
@@ -562,22 +563,6 @@
             this.addNewButton.UseVisualStyleBackColor = true;
             this.addNewButton.Click += new System.EventHandler(this.addNewButton_Click);
             // 
-            // mainTextBox
-            // 
-            this.mainTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mainTextBox.AutoScrollMinSize = new System.Drawing.Size(2, 14);
-            this.mainTextBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.mainTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.mainTextBox.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mainTextBox.Location = new System.Drawing.Point(12, 27);
-            this.mainTextBox.Name = "mainTextBox";
-            this.mainTextBox.ReadOnly = true;
-            this.mainTextBox.ShowLineNumbers = false;
-            this.mainTextBox.Size = new System.Drawing.Size(408, 279);
-            this.mainTextBox.TabIndex = 3;
-            // 
             // addCommentButton
             // 
             this.addCommentButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -590,16 +575,28 @@
             this.addCommentButton.UseVisualStyleBackColor = true;
             this.addCommentButton.Click += new System.EventHandler(this.addCommentButton_Click);
             // 
+            // elementHost2
+            // 
+            this.elementHost2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.elementHost2.Location = new System.Drawing.Point(12, 27);
+            this.elementHost2.Name = "elementHost2";
+            this.elementHost2.Size = new System.Drawing.Size(408, 279);
+            this.elementHost2.TabIndex = 26;
+            this.elementHost2.Text = "elementHost2";
+            this.elementHost2.Child = this.textBoxHost1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 361);
+            this.Controls.Add(this.elementHost2);
             this.Controls.Add(this.addCommentButton);
             this.Controls.Add(this.addNewButton);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.progressLabel);
-            this.Controls.Add(this.mainTextBox);
             this.Controls.Add(this.LabelTabControl);
             this.Controls.Add(this.printASMButton);
             this.Controls.Add(this.endBox);
@@ -668,8 +665,7 @@
 		private System.Windows.Forms.ToolStripMenuItem addAllCalledFunctionsToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem insertExternalBinaryAtLocationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchForFunctionsThatCallThisOneToolStripMenuItem1;
-		private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem1;
-		private SyntaxHighlightingTextBox mainTextBox;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem1;
 		private System.Windows.Forms.TabPage dataLabelTabPage;
 		private System.Windows.Forms.ListBox dataLabelBox;
 		private System.Windows.Forms.TabPage functionLabelTabPage;
@@ -683,6 +679,8 @@
 		private System.Windows.Forms.ListBox varLabelBox;
 		private System.Windows.Forms.Button addNewButton;
         private System.Windows.Forms.Button addCommentButton;
+        private System.Windows.Forms.Integration.ElementHost elementHost2;
+        private TextBoxHost textBoxHost1;
     }
 }
 

@@ -1,0 +1,77 @@
+﻿<SyntaxDefinition name="GB" xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+    <Color name="Comment" foreground="Green" />
+    <Color name="String" foreground="#A31414" />
+    <Color name="Label" foreground="Red" />
+    <Color name="Number" foreground="Magenta" />
+    <Color name="Function" fontWeight="bold" foreground="Blue" />
+    <Color name="Reserved" foreground="blue" />
+    <RuleSet>
+        <Span color="Comment" begin="'" />
+        <Span color="String">
+            <Begin>"</Begin>
+            <End>"</End>
+        </Span>
+        <Span color="Comment">
+            <Begin>/\*</Begin>
+            <End>\*/</End>
+        </Span>
+        
+        <Keywords color="Function">
+            <Word>adc</Word>
+            <Word>add</Word>
+            <Word>and</Word>
+            <Word>bit</Word>
+            <Word>call</Word>
+            <Word>ccf</Word>
+            <Word>cp</Word>
+            <Word>cpl</Word>
+            <Word>daa</Word>
+            <Word>dec</Word>
+            <Word>di</Word>
+            <Word>ei</Word>
+            <Word>halt</Word>
+            <Word>inc</Word>
+            <Word>jp</Word>
+            <Word>jr</Word>
+            <Word>ldhl</Word>
+            <Word>ldio</Word>
+            <Word>ldd</Word>
+            <Word>ldi</Word>
+            <Word>ld</Word>
+            <Word>nop</Word>
+            <Word>or</Word>
+            <Word>pop</Word>
+            <Word>push</Word>
+            <Word>res</Word>
+            <Word>ret</Word>
+            <Word>reti</Word>
+            <Word>rl</Word>
+            <Word>rla</Word>
+            <Word>rlc</Word>
+            <Word>rlca</Word>
+            <Word>rr</Word>
+            <Word>rra</Word>
+            <Word>rrc</Word>
+            <Word>rrca</Word>
+            <Word>rst</Word>
+            <Word>sbc</Word>
+            <Word>scf</Word>
+            <Word>set</Word>
+            <Word>sla</Word>
+            <Word>sra</Word>
+            <Word>srl</Word>
+            <Word>stop</Word>
+            <Word>sub</Word>
+            <Word>swap</Word>
+            <Word>xor</Word>
+        </Keywords>
+        
+        <Rule color="Number">\b\$[0-9a-fA-F]+\b</Rule>
+
+        <Rule color="Label">
+            ^\w[\d\w_]*::?
+        </Rule>
+
+    </RuleSet>
+
+</SyntaxDefinition>

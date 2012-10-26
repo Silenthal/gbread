@@ -6,8 +6,8 @@
 
     public class Assembler
     {
-        private Dictionary<string, int> variableDict = new Dictionary<string, int>();
-        private Dictionary<string, int> callDict = new Dictionary<string, int>();
+        private Dictionary<string, long> variableDict = new Dictionary<string, long>();
+        private Dictionary<string, long> callDict = new Dictionary<string, long>();
         private List<SymEntry> symFillTable = new List<SymEntry>();
 
         private CodeGenerator codeGen = new CodeGenerator();
@@ -106,7 +106,7 @@
                             error.extraInfo1 = idName;
                             return new byte[1];
                         }
-                        int result = 0;
+                        var result = 0L;
                         ErrorMessage emt = Evaluate(idValue, out result);
                         if (emt == ErrorMessage.NO_ERROR)
                         {
@@ -140,7 +140,7 @@
                                 }
                                 else
                                 {
-                                    callDict.Add(labelName, (int)(codeGen.Position + baseOffset));
+                                    callDict.Add(labelName, codeGen.Position + baseOffset);
                                 }
                             }
                         }
@@ -245,7 +245,7 @@
 
                             case "call":
                                 {
-                                    int memLoc = 0;
+                                    var memLoc = 0L;
                                     if (instField.ChildCount == 1)
                                     {
                                         if (callDict.ContainsKey(instField.GetChild(0).Text))
@@ -300,6 +300,42 @@
 
                             case "daa":
                                 codeGen.EmitDAA();
+                                break;
+
+                            case "db":
+                                {
+                                    if (!EvalDataFunc(codeGen.EmitByte, instField, ref error))
+                                    {
+                                        return new byte[1];
+                                    }
+                                }
+                                break;
+
+                            case "dw":
+                                {
+                                    if (!EvalDataFunc(codeGen.EmitWord, instField, ref error))
+                                    {
+                                        return new byte[1];
+                                    }
+                                }
+                                break;
+
+                            case "dd":
+                                {
+                                    if (!EvalDataFunc(codeGen.EmitDWord, instField, ref error))
+                                    {
+                                        return new byte[1];
+                                    }
+                                }
+                                break;
+
+                            case "dq":
+                                {
+                                    if (!EvalDataFunc(codeGen.EmitQWord, instField, ref error))
+                                    {
+                                        return new byte[1];
+                                    }
+                                }
                                 break;
 
                             case "dec":
@@ -387,7 +423,7 @@
                             case "jp":
                                 if (instField.ChildCount == 1)
                                 {
-                                    int memLoc = 0;
+                                    var memLoc = 0L;
                                     if (callDict.ContainsKey(instField.GetChild(0).Text))
                                     {
                                         memLoc = callDict[instField.GetChild(0).Text];
@@ -400,7 +436,7 @@
                                 }
                                 else
                                 {
-                                    int memLoc = 0;
+                                    var memLoc = 0L;
                                     if (callDict.ContainsKey(instField.GetChild(1).Text))
                                     {
                                         memLoc = callDict[instField.GetChild(1).Text];
@@ -420,7 +456,7 @@
                                     long diff = 0;
                                     if (callDict.ContainsKey(arg.Text))
                                     {
-                                        int memLoc = callDict[arg.Text];
+                                        var memLoc = callDict[arg.Text];
                                         diff = memLoc - (codeGen.Position + 2);
                                         if (diff < -128 || diff > 127)
                                         {
@@ -435,14 +471,14 @@
 
                                     if (sel == 0)
                                     {
-                                        codeGen.EmitJr((int)diff);
+                                        codeGen.EmitJr(diff);
                                     }
                                     else
                                     {
-                                        codeGen.EmitJrCCN(instField.GetChild(0).Text, (int)diff);
-                                    } 
+                                        codeGen.EmitJrCCN(instField.GetChild(0).Text, diff);
+                                    }
                                 }
-                                
+
                                 break;
 
                             case "ldhl":
@@ -509,7 +545,7 @@
                                             {
                                                 if (arg2.Text == ExpressionToken)
                                                 {
-                                                    int result = 0;
+                                                    var result = 0L;
                                                     ErrorMessage emt = Evaluate(arg2, out result);
                                                     if (emt == ErrorMessage.NO_ERROR)
                                                     {
@@ -523,7 +559,7 @@
                                                 }
                                                 else if (arg2.Text == MemRefToken)
                                                 {
-                                                    int result = 0;
+                                                    var result = 0L;
                                                     ErrorMessage emt = Evaluate(arg2.GetChild(0), out result);
                                                     if (emt == ErrorMessage.NO_ERROR)
                                                     {
@@ -551,7 +587,7 @@
                                             {
                                                 if (arg2.Text == ExpressionToken)
                                                 {
-                                                    int result = 0;
+                                                    var result = 0L;
                                                     ErrorMessage emt = Evaluate(arg2, out result);
                                                     if (emt == ErrorMessage.NO_ERROR)
                                                     {
@@ -574,7 +610,7 @@
                                         case "de":
                                         case "hl":
                                             {
-                                                int result = 0;
+                                                var result = 0L;
                                                 ErrorMessage emt = Evaluate(arg2, out result);
                                                 if (emt == ErrorMessage.NO_ERROR)
                                                 {
@@ -610,7 +646,7 @@
                                             {
                                                 if (arg2.Text == ExpressionToken)
                                                 {
-                                                    int result = 0;
+                                                    var result = 0L;
                                                     ErrorMessage emt = Evaluate(arg2, out result);
                                                     if (emt == ErrorMessage.NO_ERROR)
                                                     {
@@ -631,7 +667,7 @@
 
                                         case "MEM_REF":
                                             {
-                                                int result = 0;
+                                                var result = 0L;
                                                 ErrorMessage emt = Evaluate(arg1.GetChild(0), out result);
                                                 if (emt == ErrorMessage.NO_ERROR)
                                                 {
@@ -656,7 +692,7 @@
                                             {
                                                 if (arg2.Text == ExpressionToken)
                                                 {
-                                                    int result = 0;
+                                                    var result = 0L;
                                                     ErrorMessage emt = Evaluate(arg2, out result);
                                                     if (emt == ErrorMessage.NO_ERROR)
                                                     {
@@ -879,7 +915,7 @@
                     if (callDict.ContainsKey(se.label))
                     {
                         codeGen.Seek(se.offsetToFill);
-                        int memLoc = callDict[se.label];
+                        var memLoc = callDict[se.label];
                         if (se.isJR)
                         {
                             long diff = memLoc - (se.instructionPosition + 2);
@@ -888,7 +924,7 @@
                                 MakeErrorMessage(se, ErrorMessage.JR_OUT_OF_RANGE, ref error);
                                 return new byte[1];
                             }
-                            codeGen.EmitByte((int)diff);
+                            codeGen.EmitByte(diff);
                         }
                         else
                         {
@@ -934,9 +970,42 @@
             error.extraInfo1 = arg.Text;
         }
 
+        private bool EvalDataFunc(CodeGenerator.DataFuncDelegate dataFunc, ITree instField, ref CompError error)
+        {
+            if (instField.ChildCount == 0)
+            {
+                codeGen.EmitByte(0);
+            }
+            else
+            {
+                bool good = true;
+                for (int i = 0; i < instField.ChildCount; i++)
+                {
+                    var arg = instField.GetChild(i);
+                    var result = 0L;
+                    ErrorMessage emt = Evaluate(arg, out result);
+                    if (emt == ErrorMessage.NO_ERROR)
+                    {
+                        dataFunc(result);
+                    }
+                    else
+                    {
+                        MakeErrorMessage(arg, emt, ref error);
+                        good = false;
+                    }
+                    if (!good)
+                    {
+                        break;
+                    }
+                }
+                return good;
+            }
+            return true;
+        }
+
         private bool EvalArithArgFunc(CodeGenerator.ArithmeticFuncDelegate arithFunc, ITree arg, ref CompError error)
         {
-            int result = 0;
+            var result = 0L;
             ErrorMessage emt = Evaluate(arg, out result);
             if (emt == ErrorMessage.NO_ERROR)
             {
@@ -952,7 +1021,7 @@
 
         private bool EvalBitFunc(CodeGenerator.BitFunctionDelegate arithFunc, ITree arg, string reg, ref CompError error)
         {
-            int result = 0;
+            var result = 0L;
             ErrorMessage emt = Evaluate(arg, out result);
             if (emt == ErrorMessage.NO_ERROR)
             {
@@ -966,7 +1035,7 @@
             }
         }
 
-        private ErrorMessage Evaluate(ITree eval, out int result)
+        private ErrorMessage Evaluate(ITree eval, out long result)
         {
             result = 0;
             if (eval.Text == "EXPRESSION")
@@ -990,14 +1059,17 @@
             else
             {
                 // It's either an operator, or a number.
-                var res1 = 0;
-                var res2 = 0;
-                var res3 = 0;
+                var res1 = 0L;
+                var res2 = 0L;
+                var res3 = 0L;
                 switch (eval.ChildCount)
                 {
                     case 0:
                         {
-                            result = Utility.NumStringToInt(eval.Text);
+                            if (!Utility.NumStringToInt(eval.Text, out result))
+                            {
+                                return ErrorMessage.NumberOverflow;
+                            }
                             return ErrorMessage.NO_ERROR;
                         }
                     case 1:
@@ -1052,10 +1124,10 @@
                                     result = res1 % res2;
                                     return ErrorMessage.NO_ERROR;
                                 case "<<":
-                                    result = res1 << res2;
+                                    result = res1 << (int)res2;
                                     return ErrorMessage.NO_ERROR;
                                 case ">>":
-                                    result = res1 >> res2;
+                                    result = res1 >> (int)res2;
                                     return ErrorMessage.NO_ERROR;
                                 case "<":
                                     result = res1 < res2 ? 1 : 0;

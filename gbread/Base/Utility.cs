@@ -27,42 +27,93 @@
             }
         }
 
-        public static int NumStringToInt(string check)
+        public static bool NumStringToInt(string check, out long result)
         {
             check = check.ToLower();
+            result = 0;
             if (check.StartsWith("0x"))
             {
-                return Convert.ToInt32(check, 16);
+                try
+                {
+                    result = Convert.ToInt64(check, 16);
+                }
+                catch (OverflowException)
+                {
+                    return false;
+                }
             }
             else if (check.StartsWith("$"))
             {
                 check = check.Substring(1);
-                return Convert.ToInt32(check, 16);
+                try
+                {
+                    result = Convert.ToInt64(check, 16);
+                }
+                catch (OverflowException)
+                {
+                    return false;
+                }
             }
             else if (check.StartsWith("0o"))
             {
                 check = check.Substring(2);
-                return Convert.ToInt32(check, 8);
+                try
+                {
+                    result = Convert.ToInt64(check, 8);
+                }
+                catch (OverflowException)
+                {
+                    return false;
+                }
             }
             else if (check.StartsWith("&"))
             {
                 check = check.Substring(1);
-                return Convert.ToInt32(check, 8);
+                try
+                {
+                    result = Convert.ToInt64(check, 8);
+                }
+                catch (OverflowException)
+                {
+                    return false;
+                }
             }
             else if (check.StartsWith("0b"))
             {
                 check = check.Substring(2);
-                return Convert.ToInt32(check, 2);
+                try
+                {
+                    result = Convert.ToInt64(check, 2);
+                }
+                catch (OverflowException)
+                {
+                    return false;
+                }
             }
             else if (check.StartsWith("%"))
             {
                 check = check.Substring(1);
-                return Convert.ToInt32(check, 2);
+                try
+                {
+                    result = Convert.ToInt64(check, 2);
+                }
+                catch (OverflowException)
+                {
+                    return false;
+                }
             }
             else
             {
-                return Convert.ToInt32(check);
+                try
+                {
+                    result = Convert.ToInt64(check);
+                }
+                catch (OverflowException)
+                {
+                    return false;
+                }
             }
+            return true;
         }
     }
 }

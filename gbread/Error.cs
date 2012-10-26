@@ -36,6 +36,7 @@ namespace GBRead
         LENGTH_IS_INVALID, 
         ROW_LENGTH_IS_INVALID,
         VARIABLE_IS_INVALID,
+        NumberOverflow,
         CUSTOM,
     }
 
@@ -62,6 +63,7 @@ namespace GBRead
     {
         public static Dictionary<ErrorMessage, string> ErrorMessages = new Dictionary<ErrorMessage, string>()
         {
+            {ErrorMessage.NO_ERROR,                     "No error."},
             {ErrorMessage.END_INVALID,                  "Please make sure that your end position is a place in the file."}, 
             {ErrorMessage.FILE_TOO_LARGE,               "The file is too large for a GameBoy file."}, 
             {ErrorMessage.NO_FILE,                      "Please load a file."}, 
@@ -89,6 +91,7 @@ namespace GBRead
             {ErrorMessage.OFFSET_IS_INVALID,            "The offset is invalid."}, 
             {ErrorMessage.LENGTH_IS_INVALID,            "The length is invalid."}, 
             {ErrorMessage.VARIABLE_IS_INVALID,          "The value is invalid."},
+            {ErrorMessage.NumberOverflow,               "The number on this line is too long."},
             {ErrorMessage.CUSTOM,                       "{0}"},
         };
         public static void ShowErrorMessage(ErrorMessage errorOptions)

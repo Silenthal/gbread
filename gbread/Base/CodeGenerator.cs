@@ -9,9 +9,11 @@
     /// </summary>
     public class CodeGenerator
     {
-        public delegate void ArithmeticFuncDelegate(int arg);
+        public delegate void DataFuncDelegate(long arg);
 
-        public delegate void BitFunctionDelegate(int bit, string arg);
+        public delegate void ArithmeticFuncDelegate(long arg);
+
+        public delegate void BitFunctionDelegate(long bit, string arg);
 
         private MemoryStream ms;
 
@@ -44,18 +46,18 @@
             return ms.ToArray();
         }
 
-        public void EmitByte(int num)
+        public void EmitByte(long num)
         {
             ms.WriteByte((byte)num);
         }
 
-        public void EmitWord(int num)
+        public void EmitWord(long num)
         {
             ms.WriteByte((byte)num);
             ms.WriteByte((byte)(num >> 8));
         }
 
-        public void EmitDWord(int num)
+        public void EmitDWord(long num)
         {
             ms.WriteByte((byte)num);
             ms.WriteByte((byte)(num >> 8));
@@ -77,7 +79,7 @@
 
         #region ADC
 
-        public void EmitAdcN(int arg)
+        public void EmitAdcN(long arg)
         {
             EmitByte(0xCE);
             EmitByte(arg);
@@ -92,7 +94,7 @@
 
         #region ADD
 
-        public void EmitAddN(int arg)
+        public void EmitAddN(long arg)
         {
             EmitByte(0xC6);
             EmitByte(arg);
@@ -108,7 +110,7 @@
             EmitByte(0x09 + regDoubleBytes[reg]);
         }
 
-        public void EmitAddSPN(int arg)
+        public void EmitAddSPN(long arg)
         {
             EmitByte(0xE8);
             EmitByte(arg);
@@ -118,7 +120,7 @@
 
         #region AND
 
-        public void EmitAndN(int arg)
+        public void EmitAndN(long arg)
         {
             EmitByte(0xE6);
             EmitByte(arg);
@@ -133,7 +135,7 @@
 
         #region BIT
 
-        public void EmitBitXR(int bit, string reg)
+        public void EmitBitXR(long bit, string reg)
         {
             bit &= 7;
             EmitByte(0xCB);
@@ -144,13 +146,13 @@
 
         #region CALL
 
-        public void EmitCallN(int arg)
+        public void EmitCallN(long arg)
         {
             EmitByte(0xCD);
             EmitWord(arg);
         }
 
-        public void EmitCallCCN(string cond, int arg)
+        public void EmitCallCCN(string cond, long arg)
         {
             EmitByte(0xC4 + conditionBytes[cond]);
             EmitWord(arg);
@@ -169,7 +171,7 @@
 
         #region CP
 
-        public void EmitCpN(int arg)
+        public void EmitCpN(long arg)
         {
             EmitByte(0xFE);
             EmitByte(arg);
@@ -262,13 +264,13 @@
             EmitByte(0xE9);
         }
 
-        public void EmitJpN(int arg)
+        public void EmitJpN(long arg)
         {
             EmitByte(0xC3);
             EmitWord(arg);
         }
 
-        public void EmitJpCCN(string cond, int arg)
+        public void EmitJpCCN(string cond, long arg)
         {
             EmitByte(0xC2 + conditionBytes[cond]);
             EmitWord(arg);
@@ -278,13 +280,13 @@
 
         #region JR
 
-        public void EmitJr(int arg)
+        public void EmitJr(long arg)
         {
             EmitByte(0x18);
             EmitByte(arg);
         }
 
-        public void EmitJrCCN(string cond, int arg)
+        public void EmitJrCCN(string cond, long arg)
         {
             EmitByte(0x20 + conditionBytes[cond]);
             EmitByte(arg);
@@ -294,7 +296,7 @@
 
         #region LDHL
 
-        public void EmitLdHLSP(int arg)
+        public void EmitLdHLSP(long arg)
         {
             EmitByte(0xF8);
             EmitByte(arg);
@@ -304,13 +306,13 @@
 
         #region LDIO
 
-        public void EmitLdioAN(int arg)
+        public void EmitLdioAN(long arg)
         {
             EmitByte(0xF0);
             EmitByte(arg);
         }
 
-        public void EmitLdioNA(int arg)
+        public void EmitLdioNA(long arg)
         {
             EmitByte(0xE0);
             EmitByte(arg);
@@ -368,7 +370,7 @@
             EmitByte(0x1A);
         }
 
-        public void EmitLdANRef(int arg)
+        public void EmitLdANRef(long arg)
         {
             ushort pre = (byte)(arg >> 8);
             pre <<= 8;
@@ -384,13 +386,13 @@
             }
         }
 
-        public void EmitLdRN(string reg, int arg)
+        public void EmitLdRN(string reg, long arg)
         {
             EmitByte(0x06 + (8 * regSingleBytes[reg]));
             EmitByte(arg);
         }
 
-        public void EmitLdRRN(string reg, int arg)
+        public void EmitLdRRN(string reg, long arg)
         {
             EmitByte(0x01 + regDoubleBytes[reg]);
         }
@@ -415,7 +417,7 @@
             EmitByte(0x12);
         }
 
-        public void EmitLdNRefA(int arg)
+        public void EmitLdNRefA(long arg)
         {
             ushort pre = (byte)(arg >> 8);
             pre <<= 8;
@@ -431,7 +433,7 @@
             }
         }
 
-        public void EmitLdNRefSP(int arg)
+        public void EmitLdNRefSP(long arg)
         {
             EmitByte(0x08);
             EmitWord(arg);
@@ -450,7 +452,7 @@
 
         #region OR
 
-        public void EmitOrN(int arg)
+        public void EmitOrN(long arg)
         {
             EmitByte(0xF6);
             EmitByte(arg);
@@ -483,7 +485,7 @@
 
         #region RES
 
-        public void EmitResXR(int bit, string reg)
+        public void EmitResXR(long bit, string reg)
         {
             bit &= 7;
             EmitByte(0xCB);
@@ -593,7 +595,7 @@
 
         #region RST
 
-        public void EmitRst(int arg)
+        public void EmitRst(long arg)
         {
             arg &= 0x38;
             EmitByte(0xC7 + arg);
@@ -603,7 +605,7 @@
 
         #region SBC
 
-        public void EmitSbcN(int arg)
+        public void EmitSbcN(long arg)
         {
             EmitByte(0xDE);
             EmitByte(arg);
@@ -627,7 +629,7 @@
 
         #region SET
 
-        public void EmitSetXR(int bit, string reg)
+        public void EmitSetXR(long bit, string reg)
         {
             bit &= 7;
             EmitByte(0xC0 + (bit * 8) + regSingleBytes[reg]);
@@ -677,7 +679,7 @@
 
         #region SUB
 
-        public void EmitSubN(int arg)
+        public void EmitSubN(long arg)
         {
             EmitByte(0xD6);
             EmitByte(arg);
@@ -702,7 +704,7 @@
 
         #region XOR
 
-        public void EmitXorN(int arg)
+        public void EmitXorN(long arg)
         {
             EmitByte(0xEE);
             EmitByte(arg);

@@ -8,6 +8,9 @@
     {
         private Dictionary<string, int> variableDict = new Dictionary<string, int>();
         private Dictionary<string, int> callDict = new Dictionary<string, int>();
+        private List<SymEntry> symFillTable = new List<SymEntry>();
+
+        private CodeGenerator codeGen = new CodeGenerator();
 
         private LabelContainer lc;
 
@@ -15,6 +18,7 @@
         {
             public int line;
             public int charpos;
+            public long instructionPosition;
             public long offsetToFill;
             public string label;
             public bool isJR;
@@ -32,22 +36,27 @@
             error = new CompError();
             int currentOffset = baseOffset;
             int currentPreOffset = baseOffset;
-
-            List<SymEntry> symFillTable = new List<SymEntry>();
-
-            variableDict.Clear();
-            callDict.Clear();
+            codeGen.ClearStream();
 
             #region Dict Initialization
 
+            variableDict.Clear();
+            callDict.Clear();
+            symFillTable.Clear();
+
             foreach (FunctionLabel kvp in lc.FuncList)
             {
-                callDict.Add(kvp.Name, kvp.Offset);
+                callDict.Add(kvp.Name, Utility.GetPCAddress(kvp.Value));
             }
 
-            foreach (VarLabel vlp in lc.VarList)
+            foreach (DataLabel kvp in lc.DataList)
             {
-                variableDict.Add(vlp.Name, vlp.Variable);
+                callDict.Add(kvp.Name, Utility.GetPCAddress(kvp.Value));
+            }
+
+            foreach (VarLabel kvp in lc.VarList)
+            {
+                variableDict.Add(kvp.Name, Utility.GetPCAddress(kvp.Value));
             }
 
             #endregion Dict Initialization
@@ -62,9 +71,6 @@
             var syntaxTree = gbparse.program().Tree;
             var parseErrors = gblex.GetErrors();
             parseErrors.AddRange(gbparse.GetErrors());
-
-            #endregion Build AST
-
             if (parseErrors.Count != 0)
             {
                 var f = gbparse.GetErrors()[0];
@@ -75,7 +81,7 @@
                 return new byte[1];
             }
 
-            CodeGenerator codeGen = new CodeGenerator();
+            #endregion Build AST
 
             string ExpressionToken = "EXPRESSION";
             string HLRefToken = "RR_REF_HL";
@@ -134,7 +140,7 @@
                                 }
                                 else
                                 {
-                                    callDict.Add(labelName, (int)codeGen.Position);
+                                    callDict.Add(labelName, (int)(codeGen.Position + baseOffset));
                                 }
                             }
                         }
@@ -147,18 +153,8 @@
                                     var arg = instField.ChildCount == 1 ? instField.GetChild(0) : instField.GetChild(1);
                                     if (arg.Text == ExpressionToken)
                                     {
-                                        int result = 0;
-                                        ErrorMessage emt = Evaluate(arg, out result);
-                                        if (emt == ErrorMessage.NO_ERROR)
+                                        if (!EvalArithArgFunc(codeGen.EmitAdcN, arg, ref error))
                                         {
-                                            codeGen.EmitAdcN(result);
-                                        }
-                                        else
-                                        {
-                                            error = new CompError();
-                                            error.lineNumber = arg.Line;
-                                            error.characterNumber = arg.CharPositionInLine;
-                                            error.errorMessage = emt;
                                             return new byte[1];
                                         }
                                     }
@@ -176,18 +172,8 @@
                                         var arg = instField.GetChild(0);
                                         if (arg.Text == ExpressionToken)
                                         {
-                                            int result = 0;
-                                            ErrorMessage emt = Evaluate(arg, out result);
-                                            if (emt == ErrorMessage.NO_ERROR)
+                                            if (!EvalArithArgFunc(codeGen.EmitAddN, arg, ref error))
                                             {
-                                                codeGen.EmitAddN(result);
-                                            }
-                                            else
-                                            {
-                                                error = new CompError();
-                                                error.lineNumber = arg.Line;
-                                                error.characterNumber = arg.CharPositionInLine;
-                                                error.errorMessage = emt;
                                                 return new byte[1];
                                             }
                                         }
@@ -204,18 +190,8 @@
                                         {
                                             if (arg2.Text == ExpressionToken)
                                             {
-                                                int result = 0;
-                                                ErrorMessage emt = Evaluate(arg2, out result);
-                                                if (emt == ErrorMessage.NO_ERROR)
+                                                if (!EvalArithArgFunc(codeGen.EmitAddN, arg2, ref error))
                                                 {
-                                                    codeGen.EmitAddN(result);
-                                                }
-                                                else
-                                                {
-                                                    error = new CompError();
-                                                    error.lineNumber = arg2.Line;
-                                                    error.characterNumber = arg2.CharPositionInLine;
-                                                    error.errorMessage = emt;
                                                     return new byte[1];
                                                 }
                                             }
@@ -230,18 +206,8 @@
                                         }
                                         else
                                         {
-                                            int result = 0;
-                                            ErrorMessage emt = Evaluate(arg2, out result);
-                                            if (emt == ErrorMessage.NO_ERROR)
+                                            if (!EvalArithArgFunc(codeGen.EmitAddSPN, arg2, ref error))
                                             {
-                                                codeGen.EmitAddSPN(result);
-                                            }
-                                            else
-                                            {
-                                                error = new CompError();
-                                                error.lineNumber = arg2.Line;
-                                                error.characterNumber = arg2.CharPositionInLine;
-                                                error.errorMessage = emt;
                                                 return new byte[1];
                                             }
                                         }
@@ -254,18 +220,8 @@
                                     var arg = instField.ChildCount == 1 ? instField.GetChild(0) : instField.GetChild(1);
                                     if (arg.Text == ExpressionToken)
                                     {
-                                        int result = 0;
-                                        ErrorMessage emt = Evaluate(arg, out result);
-                                        if (emt == ErrorMessage.NO_ERROR)
+                                        if (!EvalArithArgFunc(codeGen.EmitAndN, arg, ref error))
                                         {
-                                            codeGen.EmitAndN(result);
-                                        }
-                                        else
-                                        {
-                                            error = new CompError();
-                                            error.lineNumber = arg.Line;
-                                            error.characterNumber = arg.CharPositionInLine;
-                                            error.errorMessage = emt;
                                             return new byte[1];
                                         }
                                     }
@@ -279,19 +235,9 @@
                             case "bit":
                                 {
                                     var arg = instField.GetChild(0);
-                                    var arg2 = instField.GetChild(1);
-                                    int result = 0;
-                                    ErrorMessage emt = Evaluate(arg, out result);
-                                    if (emt == ErrorMessage.NO_ERROR)
+                                    var arg2 = instField.GetChild(1).Text;
+                                    if (!EvalBitFunc(codeGen.EmitBitXR, arg, arg2, ref error))
                                     {
-                                        codeGen.EmitBitXR(result, arg2.Text);
-                                    }
-                                    else
-                                    {
-                                        error = new CompError();
-                                        error.lineNumber = arg.Line;
-                                        error.characterNumber = arg.CharPositionInLine;
-                                        error.errorMessage = emt;
                                         return new byte[1];
                                     }
                                 }
@@ -299,46 +245,28 @@
 
                             case "call":
                                 {
+                                    int memLoc = 0;
                                     if (instField.ChildCount == 1)
                                     {
-                                        int memLoc = 0;
                                         if (callDict.ContainsKey(instField.GetChild(0).Text))
                                         {
                                             memLoc = callDict[instField.GetChild(0).Text];
-                                            memLoc = memLoc < 0x4000 ? memLoc : ((memLoc % 0x4000) + 0x4000);
                                         }
                                         else
                                         {
-                                            // NOTE: Casting from long to int.
-                                            SymEntry se = new SymEntry();
-                                            se.line = instField.GetChild(0).Line;
-                                            se.charpos = instField.GetChild(0).CharPositionInLine;
-                                            se.label = instField.GetChild(0).Text;
-                                            se.isJR = false;
-                                            se.offsetToFill = (int)codeGen.Position + 1;
-                                            symFillTable.Add(se);
+                                            AddSymEntry(instField.GetChild(0), false, codeGen.Position, codeGen.Position + 1);
                                         }
                                         codeGen.EmitCallN(memLoc);
                                     }
                                     else
                                     {
-                                        int memLoc = 0;
                                         if (callDict.ContainsKey(instField.GetChild(1).Text))
                                         {
                                             memLoc = callDict[instField.GetChild(1).Text];
-                                            memLoc = memLoc < 0x4000 ? memLoc : ((memLoc % 0x4000) + 0x4000);
-                                            codeGen.EmitCallN(memLoc);
                                         }
                                         else
                                         {
-                                            // NOTE: Casting from long to int.
-                                            SymEntry se = new SymEntry();
-                                            se.line = instField.GetChild(1).Line;
-                                            se.charpos = instField.GetChild(1).CharPositionInLine;
-                                            se.label = instField.GetChild(1).Text;
-                                            se.isJR = false;
-                                            se.offsetToFill = (int)codeGen.Position + 1;
-                                            symFillTable.Add(se);
+                                            AddSymEntry(instField.GetChild(1), false, codeGen.Position, codeGen.Position + 1);
                                         }
                                         codeGen.EmitCallCCN(instField.GetChild(0).Text, memLoc);
                                     }
@@ -354,17 +282,8 @@
                                     var arg = instField.ChildCount == 1 ? instField.GetChild(0) : instField.GetChild(1);
                                     if (arg.Text == ExpressionToken)
                                     {
-                                        int result = 0;
-                                        ErrorMessage emt = Evaluate(arg, out result);
-                                        if (emt == ErrorMessage.NO_ERROR)
+                                        if (!EvalArithArgFunc(codeGen.EmitCpN, arg, ref error))
                                         {
-                                            codeGen.EmitCpN(result);
-                                        }
-                                        else
-                                        {
-                                            error.lineNumber = arg.Line;
-                                            error.characterNumber = arg.CharPositionInLine;
-                                            error.errorMessage = emt;
                                             return new byte[1];
                                         }
                                     }
@@ -411,10 +330,7 @@
 
                                         default:
                                             {
-                                                error.errorMessage = ErrorMessage.UNKNOWN_ARGUMENT;
-                                                error.lineNumber = instField.GetChild(0).Line;
-                                                error.characterNumber = instField.GetChild(0).CharPositionInLine;
-                                                error.extraInfo1 = instField.GetChild(0).Text;
+                                                MakeErrorMessage(instField.GetChild(0), ErrorMessage.UNKNOWN_ARGUMENT, ref error);
                                                 return new byte[1];
                                             }
                                     }
@@ -461,10 +377,7 @@
 
                                         default:
                                             {
-                                                error.errorMessage = ErrorMessage.UNKNOWN_ARGUMENT;
-                                                error.lineNumber = instField.GetChild(0).Line;
-                                                error.characterNumber = instField.GetChild(0).CharPositionInLine;
-                                                error.extraInfo1 = instField.GetChild(0).Text;
+                                                MakeErrorMessage(instField.GetChild(0), ErrorMessage.UNKNOWN_ARGUMENT, ref error);
                                                 return new byte[1];
                                             }
                                     }
@@ -478,18 +391,10 @@
                                     if (callDict.ContainsKey(instField.GetChild(0).Text))
                                     {
                                         memLoc = callDict[instField.GetChild(0).Text];
-                                        memLoc = memLoc < 0x4000 ? memLoc : ((memLoc % 0x4000) + 0x4000);
                                     }
                                     else
                                     {
-                                        // NOTE: Casting from long to int.
-                                        SymEntry se = new SymEntry();
-                                        se.line = instField.GetChild(0).Line;
-                                        se.charpos = instField.GetChild(0).CharPositionInLine;
-                                        se.label = instField.GetChild(0).Text;
-                                        se.isJR = false;
-                                        se.offsetToFill = (int)codeGen.Position + 1;
-                                        symFillTable.Add(se);
+                                        AddSymEntry(instField.GetChild(0), false, codeGen.Position, codeGen.Position + 1);
                                     }
                                     codeGen.EmitJpN(memLoc);
                                 }
@@ -499,98 +404,51 @@
                                     if (callDict.ContainsKey(instField.GetChild(1).Text))
                                     {
                                         memLoc = callDict[instField.GetChild(1).Text];
-                                        memLoc = memLoc < 0x4000 ? memLoc : ((memLoc % 0x4000) + 0x4000);
-                                        codeGen.EmitCallN(memLoc);
                                     }
                                     else
                                     {
-                                        // NOTE: Casting from long to int.
-                                        SymEntry se = new SymEntry();
-                                        se.line = instField.GetChild(1).Line;
-                                        se.charpos = instField.GetChild(2).CharPositionInLine;
-                                        se.label = instField.GetChild(1).Text;
-                                        se.isJR = false;
-                                        se.offsetToFill = (int)codeGen.Position + 1;
-                                        symFillTable.Add(se);
+                                        AddSymEntry(instField.GetChild(1), false, codeGen.Position, codeGen.Position + 1);
                                     }
                                     codeGen.EmitJpCCN(instField.GetChild(0).Text, memLoc);
                                 }
                                 break;
 
                             case "jr":
-                                if (instField.ChildCount == 1)
                                 {
+                                    int sel = instField.ChildCount - 1;
+                                    var arg = instField.GetChild(sel);
                                     long diff = 0;
-                                    if (callDict.ContainsKey(instField.GetChild(0).Text))
+                                    if (callDict.ContainsKey(arg.Text))
                                     {
-                                        int memLoc = callDict[instField.GetChild(0).Text];
-                                        memLoc = memLoc < 0x4000 ? memLoc : ((memLoc % 0x4000) + 0x4000);
+                                        int memLoc = callDict[arg.Text];
                                         diff = memLoc - (codeGen.Position + 2);
                                         if (diff < -128 || diff > 127)
                                         {
-                                            error.lineNumber = instField.GetChild(0).Line;
-                                            error.characterNumber = instField.GetChild(0).CharPositionInLine;
-                                            error.errorMessage = ErrorMessage.JR_OUT_OF_RANGE;
+                                            MakeErrorMessage(arg, ErrorMessage.JR_OUT_OF_RANGE, ref error);
                                             return new byte[1];
                                         }
                                     }
                                     else
                                     {
-                                        SymEntry se = new SymEntry();
-                                        se.line = instField.GetChild(0).Line;
-                                        se.charpos = instField.GetChild(0).CharPositionInLine;
-                                        se.label = instField.GetChild(0).Text;
-                                        se.isJR = false;
-                                        se.offsetToFill = codeGen.Position + 1;
-                                        symFillTable.Add(se);
+                                        AddSymEntry(arg, true, codeGen.Position, codeGen.Position + 1);
                                     }
-                                    codeGen.EmitJr((int)diff);
-                                }
-                                else
-                                {
-                                    long diff = 0;
-                                    if (callDict.ContainsKey(instField.GetChild(1).Text))
+
+                                    if (sel == 0)
                                     {
-                                        int memLoc = callDict[instField.GetChild(1).Text];
-                                        memLoc = memLoc < 0x4000 ? memLoc : ((memLoc % 0x4000) + 0x4000);
-                                        diff = memLoc - (codeGen.Position + 2);
-                                        if (diff < -128 || diff > 127)
-                                        {
-                                            error.lineNumber = instField.GetChild(1).Line;
-                                            error.characterNumber = instField.GetChild(1).CharPositionInLine;
-                                            error.errorMessage = ErrorMessage.JR_OUT_OF_RANGE;
-                                            return new byte[1];
-                                        }
+                                        codeGen.EmitJr((int)diff);
                                     }
                                     else
                                     {
-                                        SymEntry se = new SymEntry();
-                                        se.line = instField.GetChild(1).Line;
-                                        se.charpos = instField.GetChild(1).CharPositionInLine;
-                                        se.label = instField.GetChild(1).Text;
-                                        se.isJR = false;
-                                        se.offsetToFill = codeGen.Position + 1;
-                                        symFillTable.Add(se);
-                                    }
-                                    codeGen.EmitJrCCN(instField.GetChild(0).Text, (int)diff);
+                                        codeGen.EmitJrCCN(instField.GetChild(0).Text, (int)diff);
+                                    } 
                                 }
+                                
                                 break;
 
                             case "ldhl":
                                 {
-                                    int result = 0;
-                                    ITree arg = instField.GetChild(1);
-                                    ErrorMessage emt = Evaluate(arg, out result);
-                                    if (emt == ErrorMessage.NO_ERROR)
+                                    if (!EvalArithArgFunc(codeGen.EmitLdHLSP, instField.GetChild(1), ref error))
                                     {
-                                        codeGen.EmitLdHLSP(result);
-                                    }
-                                    else
-                                    {
-                                        error = new CompError();
-                                        error.lineNumber = arg.Line;
-                                        error.characterNumber = arg.CharPositionInLine;
-                                        error.errorMessage = emt;
                                         return new byte[1];
                                     }
                                 }
@@ -598,38 +456,17 @@
 
                             case "ldio":
                                 {
-                                    int result = 0;
                                     if (instField.GetChild(0).Text == MemRefToken)
                                     {
-                                        ITree arg = instField.GetChild(0).GetChild(0);
-                                        ErrorMessage emt = Evaluate(arg, out result);
-                                        if (emt == ErrorMessage.NO_ERROR)
+                                        if (!EvalArithArgFunc(codeGen.EmitLdioNA, instField.GetChild(0).GetChild(0), ref error))
                                         {
-                                            codeGen.EmitLdioNA(result);
-                                        }
-                                        else
-                                        {
-                                            error = new CompError();
-                                            error.lineNumber = arg.Line;
-                                            error.characterNumber = arg.CharPositionInLine;
-                                            error.errorMessage = emt;
                                             return new byte[1];
                                         }
                                     }
                                     else
                                     {
-                                        ITree arg = instField.GetChild(1).GetChild(0);
-                                        ErrorMessage emt = Evaluate(arg, out result);
-                                        if (emt == ErrorMessage.NO_ERROR)
+                                        if (!EvalArithArgFunc(codeGen.EmitLdioAN, instField.GetChild(1).GetChild(0), ref error))
                                         {
-                                            codeGen.EmitLdioAN(result);
-                                        }
-                                        else
-                                        {
-                                            error = new CompError();
-                                            error.lineNumber = arg.Line;
-                                            error.characterNumber = arg.CharPositionInLine;
-                                            error.errorMessage = emt;
                                             return new byte[1];
                                         }
                                     }
@@ -680,10 +517,7 @@
                                                     }
                                                     else
                                                     {
-                                                        error = new CompError();
-                                                        error.lineNumber = arg2.Line;
-                                                        error.characterNumber = arg2.CharPositionInLine;
-                                                        error.errorMessage = emt;
+                                                        MakeErrorMessage(arg2, emt, ref error);
                                                         return new byte[1];
                                                     }
                                                 }
@@ -697,10 +531,7 @@
                                                     }
                                                     else
                                                     {
-                                                        error = new CompError();
-                                                        error.lineNumber = arg2.Line;
-                                                        error.characterNumber = arg2.CharPositionInLine;
-                                                        error.errorMessage = emt;
+                                                        MakeErrorMessage(arg2, emt, ref error);
                                                         return new byte[1];
                                                     }
                                                 }
@@ -728,10 +559,7 @@
                                                     }
                                                     else
                                                     {
-                                                        error = new CompError();
-                                                        error.lineNumber = arg2.Line;
-                                                        error.characterNumber = arg2.CharPositionInLine;
-                                                        error.errorMessage = emt;
+                                                        MakeErrorMessage(arg2, emt, ref error);
                                                         return new byte[1];
                                                     }
                                                 }
@@ -754,10 +582,7 @@
                                                 }
                                                 else
                                                 {
-                                                    error = new CompError();
-                                                    error.lineNumber = arg2.Line;
-                                                    error.characterNumber = arg2.CharPositionInLine;
-                                                    error.errorMessage = emt;
+                                                    MakeErrorMessage(arg2, emt, ref error);
                                                     return new byte[1];
                                                 }
                                             }
@@ -793,10 +618,7 @@
                                                     }
                                                     else
                                                     {
-                                                        error = new CompError();
-                                                        error.lineNumber = arg2.Line;
-                                                        error.characterNumber = arg2.CharPositionInLine;
-                                                        error.errorMessage = emt;
+                                                        MakeErrorMessage(arg2, emt, ref error);
                                                         return new byte[1];
                                                     }
                                                 }
@@ -824,10 +646,7 @@
                                                 }
                                                 else
                                                 {
-                                                    error = new CompError();
-                                                    error.lineNumber = arg2.Line;
-                                                    error.characterNumber = arg2.CharPositionInLine;
-                                                    error.errorMessage = emt;
+                                                    MakeErrorMessage(arg2, emt, ref error);
                                                     return new byte[1];
                                                 }
                                             }
@@ -845,10 +664,7 @@
                                                     }
                                                     else
                                                     {
-                                                        error = new CompError();
-                                                        error.lineNumber = arg2.Line;
-                                                        error.characterNumber = arg2.CharPositionInLine;
-                                                        error.errorMessage = emt;
+                                                        MakeErrorMessage(arg2, emt, ref error);
                                                         return new byte[1];
                                                     }
                                                 }
@@ -874,18 +690,8 @@
                                     var arg = instField.ChildCount == 1 ? instField.GetChild(0) : instField.GetChild(1);
                                     if (arg.Text == ExpressionToken)
                                     {
-                                        int result = 0;
-                                        ErrorMessage emt = Evaluate(arg, out result);
-                                        if (emt == ErrorMessage.NO_ERROR)
+                                        if (!EvalArithArgFunc(codeGen.EmitOrN, arg, ref error))
                                         {
-                                            codeGen.EmitOrN(result);
-                                        }
-                                        else
-                                        {
-                                            error = new CompError();
-                                            error.lineNumber = arg.Line;
-                                            error.characterNumber = arg.CharPositionInLine;
-                                            error.errorMessage = emt;
                                             return new byte[1];
                                         }
                                     }
@@ -911,18 +717,9 @@
                             case "res":
                                 {
                                     var arg = instField.GetChild(0);
-                                    var arg2 = instField.GetChild(1);
-                                    int result = 0;
-                                    ErrorMessage emt = Evaluate(arg, out result);
-                                    if (emt == ErrorMessage.NO_ERROR)
+                                    var arg2 = instField.GetChild(1).Text;
+                                    if (!EvalBitFunc(codeGen.EmitResXR, arg, arg2, ref error))
                                     {
-                                        codeGen.EmitResXR(result, arg2.Text);
-                                    }
-                                    else
-                                    {
-                                        error.lineNumber = arg.Line;
-                                        error.characterNumber = arg.CharPositionInLine;
-                                        error.errorMessage = emt;
                                         return new byte[1];
                                     }
                                 }
@@ -930,17 +727,13 @@
 
                             case "ret":
                                 {
-                                    switch (instField.ChildCount)
+                                    if (instField.ChildCount != 0)
                                     {
-                                        case 1:
-                                            {
-                                                codeGen.EmitRetCC(instField.GetChild(0).Text);
-                                            }
-                                            break;
-
-                                        default:
-                                            codeGen.EmitRet();
-                                            break;
+                                        codeGen.EmitRetCC(instField.GetChild(0).Text);
+                                    }
+                                    else
+                                    {
+                                        codeGen.EmitRet();
                                     }
                                 }
                                 break;
@@ -983,17 +776,8 @@
 
                             case "rst":
                                 {
-                                    int result = 0;
-                                    ErrorMessage emt = Evaluate(instField.GetChild(0), out result);
-                                    if (emt == ErrorMessage.NO_ERROR)
+                                    if (!EvalArithArgFunc(codeGen.EmitRst, instField.GetChild(0), ref error))
                                     {
-                                        codeGen.EmitRst(result);
-                                    }
-                                    else
-                                    {
-                                        error.lineNumber = instField.GetChild(0).Line;
-                                        error.characterNumber = instField.GetChild(0).CharPositionInLine;
-                                        error.errorMessage = emt;
                                         return new byte[1];
                                     }
                                 }
@@ -1004,18 +788,8 @@
                                     var arg = instField.ChildCount == 1 ? instField.GetChild(0) : instField.GetChild(1);
                                     if (arg.Text == ExpressionToken)
                                     {
-                                        int result = 0;
-                                        ErrorMessage emt = Evaluate(arg, out result);
-                                        if (emt == ErrorMessage.NO_ERROR)
+                                        if (!EvalArithArgFunc(codeGen.EmitSbcN, arg, ref error))
                                         {
-                                            codeGen.EmitSbcN(result);
-                                        }
-                                        else
-                                        {
-                                            error = new CompError();
-                                            error.lineNumber = arg.Line;
-                                            error.characterNumber = arg.CharPositionInLine;
-                                            error.errorMessage = emt;
                                             return new byte[1];
                                         }
                                     }
@@ -1033,19 +807,9 @@
                             case "set":
                                 {
                                     var arg = instField.GetChild(0);
-                                    var arg2 = instField.GetChild(1);
-                                    int result = 0;
-                                    ErrorMessage emt = Evaluate(arg, out result);
-                                    if (emt == ErrorMessage.NO_ERROR)
+                                    var arg2 = instField.GetChild(1).Text;
+                                    if (!EvalBitFunc(codeGen.EmitSetXR, arg, arg2, ref error))
                                     {
-                                        codeGen.EmitSetXR(result, arg2.Text);
-                                    }
-                                    else
-                                    {
-                                        error = new CompError();
-                                        error.lineNumber = arg.Line;
-                                        error.characterNumber = arg.CharPositionInLine;
-                                        error.errorMessage = emt;
                                         return new byte[1];
                                     }
                                 }
@@ -1072,18 +836,8 @@
                                     var arg = instField.ChildCount == 1 ? instField.GetChild(0) : instField.GetChild(1);
                                     if (arg.Text == ExpressionToken)
                                     {
-                                        int result = 0;
-                                        ErrorMessage emt = Evaluate(arg, out result);
-                                        if (emt == ErrorMessage.NO_ERROR)
+                                        if (!EvalArithArgFunc(codeGen.EmitSubN, arg, ref error))
                                         {
-                                            codeGen.EmitSubN(result);
-                                        }
-                                        else
-                                        {
-                                            error = new CompError();
-                                            error.lineNumber = arg.Line;
-                                            error.characterNumber = arg.CharPositionInLine;
-                                            error.errorMessage = emt;
                                             return new byte[1];
                                         }
                                     }
@@ -1103,18 +857,8 @@
                                     var arg = instField.ChildCount == 1 ? instField.GetChild(0) : instField.GetChild(1);
                                     if (arg.Text == ExpressionToken)
                                     {
-                                        int result = 0;
-                                        ErrorMessage emt = Evaluate(arg, out result);
-                                        if (emt == ErrorMessage.NO_ERROR)
+                                        if (!EvalArithArgFunc(codeGen.EmitXorN, arg, ref error))
                                         {
-                                            codeGen.EmitXorN(result);
-                                        }
-                                        else
-                                        {
-                                            error = new CompError();
-                                            error.lineNumber = arg.Line;
-                                            error.characterNumber = arg.CharPositionInLine;
-                                            error.errorMessage = emt;
                                             return new byte[1];
                                         }
                                     }
@@ -1135,40 +879,91 @@
                     if (callDict.ContainsKey(se.label))
                     {
                         codeGen.Seek(se.offsetToFill);
-                        long diff = 0;
+                        int memLoc = callDict[se.label];
                         if (se.isJR)
                         {
-                            int memLoc = callDict[se.label];
-                            memLoc = memLoc < 0x4000 ? memLoc : ((memLoc % 0x4000) + 0x4000);
-                            diff = memLoc - (codeGen.Position + 2);
+                            long diff = memLoc - (se.instructionPosition + 2);
                             if (diff < -128 || diff > 127)
                             {
-                                error.lineNumber = se.line;
-                                error.characterNumber = se.charpos;
-                                error.errorMessage = ErrorMessage.JR_OUT_OF_RANGE;
+                                MakeErrorMessage(se, ErrorMessage.JR_OUT_OF_RANGE, ref error);
                                 return new byte[1];
                             }
                             codeGen.EmitByte((int)diff);
                         }
                         else
                         {
-                            int memLoc = callDict[se.label];
-                            memLoc = memLoc < 0x4000 ? memLoc : ((memLoc % 0x4000) + 0x4000);
                             codeGen.EmitWord(memLoc);
                         }
                     }
                     else
                     {
-                        error.errorMessage = ErrorMessage.UNKNOWN_ARGUMENT;
-                        error.lineNumber = se.line;
-                        error.characterNumber = se.charpos;
-                        error.extraInfo1 = se.label;
+                        MakeErrorMessage(se, ErrorMessage.UNKNOWN_ARGUMENT, ref error);
                         return new byte[0];
                     }
                 }
             }
             success = true;
             return codeGen.StreamToArray();
+        }
+
+        private void AddSymEntry(ITree arg, bool isJR, long position, long offsetToFill)
+        {
+            SymEntry se = new SymEntry();
+            se.line = arg.Line;
+            se.charpos = arg.CharPositionInLine;
+            se.instructionPosition = position;
+            se.label = arg.Text;
+            se.isJR = isJR;
+            se.offsetToFill = offsetToFill;
+            symFillTable.Add(se);
+        }
+
+        private void MakeErrorMessage(SymEntry se, ErrorMessage messageType, ref CompError error)
+        {
+            error.errorMessage = messageType;
+            error.lineNumber = se.line;
+            error.characterNumber = se.charpos;
+            error.extraInfo1 = se.label;
+        }
+
+        private void MakeErrorMessage(ITree arg, ErrorMessage messageType, ref CompError error)
+        {
+            error.lineNumber = arg.Line;
+            error.characterNumber = arg.CharPositionInLine;
+            error.errorMessage = messageType;
+            error.extraInfo1 = arg.Text;
+        }
+
+        private bool EvalArithArgFunc(CodeGenerator.ArithmeticFuncDelegate arithFunc, ITree arg, ref CompError error)
+        {
+            int result = 0;
+            ErrorMessage emt = Evaluate(arg, out result);
+            if (emt == ErrorMessage.NO_ERROR)
+            {
+                arithFunc(result);
+                return true;
+            }
+            else
+            {
+                MakeErrorMessage(arg, emt, ref error);
+                return false;
+            }
+        }
+
+        private bool EvalBitFunc(CodeGenerator.BitFunctionDelegate arithFunc, ITree arg, string reg, ref CompError error)
+        {
+            int result = 0;
+            ErrorMessage emt = Evaluate(arg, out result);
+            if (emt == ErrorMessage.NO_ERROR)
+            {
+                arithFunc(result, reg);
+                return true;
+            }
+            else
+            {
+                MakeErrorMessage(arg, emt, ref error);
+                return false;
+            }
         }
 
         private ErrorMessage Evaluate(ITree eval, out int result)

@@ -6,24 +6,33 @@
     using System.Linq;
     using System.Text;
 
+    public enum SymbolType
+    {
+        Generic,
+        Label,
+        DataLabel,
+        Variable
+    }
+
+    public struct SymValue
+    {
+        public SymbolType Type;
+        public int Value;
+    }
+
     public class LabelContainer
     {
         #region Private members
 
-        private object funcListLock = new object();
-        private object dataListLock = new object();
-        private object varListLock = new object();
         private object commentListLock = new object();
         private object symbolListLock = new object();
-        private object dataAddrLock = new object();
-
 
         private List<FunctionLabel> _funcList = new List<FunctionLabel>();
         private List<DataLabel> _dataList = new List<DataLabel>();
         private List<VarLabel> _varList = new List<VarLabel>();
         private Dictionary<int, string> _commentList = new Dictionary<int, string>();
-        private Dictionary<string, int> _symbolList = new Dictionary<string, int>();
-        private HashSet<int> dataAddrs = new HashSet<int>();
+        private Dictionary<string, SymValue> _symbolList = new Dictionary<string, SymValue>();
+        private HashSet<int> _dataAddrs = new HashSet<int>();
 
         #endregion Private members
 
@@ -33,7 +42,7 @@
         {
             get
             {
-                lock (funcListLock)
+                lock (symbolListLock)
                 {
                     return _funcList;
                 }
@@ -44,7 +53,7 @@
         {
             get
             {
-                lock (dataListLock)
+                lock (symbolListLock)
                 {
                     return _dataList;
                 }
@@ -55,7 +64,7 @@
         {
             get
             {
-                lock (varListLock)
+                lock (symbolListLock)
                 {
                     return _varList;
                 }
@@ -73,7 +82,7 @@
             }
         }
 
-        public Dictionary<string, int> SymbolList
+        public Dictionary<string, SymValue> SymbolList
         {
             get
             {
@@ -94,19 +103,10 @@
         {
             lock (symbolListLock)
             {
-                lock (funcListLock)
-                {
-                    _funcList.Clear();
-                }
-                lock (dataListLock)
-                {
-                    _dataList.Clear();
-                    dataAddrs.Clear();
-                }
-                lock (varListLock)
-                {
-                    _varList.Clear();
-                }
+                _funcList.Clear();
+                _dataList.Clear();
+                _dataAddrs.Clear();
+                _varList.Clear();
                 _symbolList.Clear();
             }
             lock (commentListLock)
@@ -123,9 +123,38 @@
 
         // TODO: Adjust behavior so that labels belonging to the same offset get printed.
 
+        public string GetSymbolName(SymbolType typeOfSymbol, int symbolValue)
+        {
+            lock (symbolListLock)
+            {
+                SymValue search = new SymValue() { Type = typeOfSymbol, Value = symbolValue };
+                var s = typeOfSymbol == SymbolType.Generic ?
+                    from item in _symbolList where item.Value.Value == search.Value && item.Value.Type != SymbolType.Variable select item.Key :
+                    from item in _symbolList where item.Value.Equals(search) select item.Key;
+                return s.Count() != 0 ? s.First() : "";
+            }
+        }
+
+        public bool GetSymbolValue(SymbolType symbolType, string symbolName, out SymValue symbolValue)
+        {
+            symbolValue = new SymValue() { Type = SymbolType.Generic, Value = -1 };
+            lock (symbolListLock)
+            {
+                if (_symbolList.ContainsKey(symbolName))
+                {
+                    symbolValue = _symbolList[symbolName];
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
         public bool TryGetFuncLabel(int current, out FunctionLabel label)
         {
-            lock (funcListLock)
+            lock (symbolListLock)
             {
                 var s = from item in _funcList where item.Offset == current select item;
                 var success = s.Count() != 0;
@@ -136,7 +165,7 @@
 
         public bool TryGetDataLabel(int current, out DataLabel label)
         {
-            lock (dataListLock)
+            lock (symbolListLock)
             {
                 var s = from item in _dataList where item.Offset == current select item;
                 var success = s.Count() != 0;
@@ -147,7 +176,7 @@
 
         public bool TryGetVarLabel(ushort current, out VarLabel label)
         {
-            lock (varListLock)
+            lock (symbolListLock)
             {
                 var s = from item in _varList where item.Variable == current select item;
                 var success = s.Count() != 0;
@@ -155,18 +184,15 @@
                 return success;
             }
         }
-        
+
         public void AddFuncLabel(FunctionLabel toBeAdded)
         {
             lock (symbolListLock)
             {
-                lock (funcListLock)
+                if (!_symbolList.ContainsKey(toBeAdded.Name))
                 {
-                    if (!_symbolList.ContainsKey(toBeAdded.Name))
-                    {
-                        _funcList.Add(toBeAdded);
-                        _symbolList.Add(toBeAdded.Name, toBeAdded.Offset); 
-                    }
+                    _funcList.Add(toBeAdded);
+                    _symbolList.Add(toBeAdded.Name, new SymValue() { Type = SymbolType.Label, Value = toBeAdded.Offset });
                 }
             }
         }
@@ -175,16 +201,13 @@
         {
             lock (symbolListLock)
             {
-                lock (dataListLock)
+                if (!_symbolList.ContainsKey(toBeAdded.Name))
                 {
-                    if (!_symbolList.ContainsKey(toBeAdded.Name))
+                    _dataList.Add(toBeAdded);
+                    _symbolList.Add(toBeAdded.Name, new SymValue() { Type = SymbolType.DataLabel, Value = toBeAdded.Offset });
+                    for (int i = toBeAdded.Offset; i < toBeAdded.Offset + toBeAdded.Length; i++)
                     {
-                        _dataList.Add(toBeAdded);
-                        _symbolList.Add(toBeAdded.Name, toBeAdded.Value);
-                        for (int i = toBeAdded.Offset; i < toBeAdded.Offset + toBeAdded.Length; i++)
-                        {
-                            dataAddrs.Add(i);
-                        } 
+                        _dataAddrs.Add(i);
                     }
                 }
             }
@@ -194,13 +217,10 @@
         {
             lock (symbolListLock)
             {
-                lock (varListLock)
+                if (!_symbolList.ContainsKey(toBeAdded.Name))
                 {
-                    if (!_symbolList.ContainsKey(toBeAdded.Name))
-                    {
-                        _varList.Add(toBeAdded);
-                        _symbolList.Add(toBeAdded.Name, toBeAdded.Value);
-                    }
+                    _varList.Add(toBeAdded);
+                    _symbolList.Add(toBeAdded.Name, new SymValue() { Type = SymbolType.Label, Value = toBeAdded.Variable });
                 }
             }
         }
@@ -228,11 +248,8 @@
         {
             lock (symbolListLock)
             {
-                lock (funcListLock)
-                {
-                    _funcList.Remove(toBeRemoved);
-                    _symbolList.Remove(toBeRemoved.Name);
-                }
+                _funcList.Remove(toBeRemoved);
+                _symbolList.Remove(toBeRemoved.Name);
             }
         }
 
@@ -240,12 +257,9 @@
         {
             lock (symbolListLock)
             {
-                lock (dataListLock)
-                {
-                    _dataList.Remove(toBeRemoved);
-                    _symbolList.Remove(toBeRemoved.Name);
-                    dataAddrs.RemoveWhere(x => x >= toBeRemoved.Offset && x < toBeRemoved.Offset + toBeRemoved.Length);
-                }
+                _dataList.Remove(toBeRemoved);
+                _symbolList.Remove(toBeRemoved.Name);
+                _dataAddrs.RemoveWhere(x => x >= toBeRemoved.Offset && x < toBeRemoved.Offset + toBeRemoved.Length);
             }
         }
 
@@ -253,11 +267,8 @@
         {
             lock (symbolListLock)
             {
-                lock (varListLock)
-                {
-                    _varList.Remove(toBeRemoved);
-                    _symbolList.Remove(toBeRemoved.Name);
-                }
+                _varList.Remove(toBeRemoved);
+                _symbolList.Remove(toBeRemoved.Name);
             }
         }
 
@@ -274,18 +285,18 @@
 
         public bool isAddressMarkedAsData(int address)
         {
-            lock (dataListLock)
+            lock (symbolListLock)
             {
-                return dataAddrs.Contains(address);
+                return _dataAddrs.Contains(address);
             }
         }
 
         public int GetNextNonDataAddress(int address)
         {
-            lock (dataListLock)
+            lock (symbolListLock)
             {
                 int offset = address;
-                while (dataAddrs.Contains(offset++)) { }
+                while (_dataAddrs.Contains(offset++)) { }
                 return offset;
             }
         }
@@ -321,24 +332,28 @@
                                         curItem++;
                                     }
                                     break;
+
                                 case ".data":
                                     {
                                         items.Add(new Dictionary<string, string>() { { "tag", "data" } });
                                         curItem++;
                                     }
                                     break;
+
                                 case ".var":
                                     {
                                         items.Add(new Dictionary<string, string>() { { "tag", "var" } });
                                         curItem++;
                                     }
                                     break;
+
                                 case ".comment":
                                     {
                                         items.Add(new Dictionary<string, string>() { { "tag", "comment" } });
                                         curItem++;
                                     }
                                     break;
+
                                 default:
                                     if (curItem == -1)
                                     {
@@ -370,7 +385,7 @@
                                     break;
                             }
                         }
-                        foreach(Dictionary<string, string> currentItem in items)
+                        foreach (Dictionary<string, string> currentItem in items)
                         {
                             switch (currentItem["tag"])
                             {
@@ -382,7 +397,7 @@
                                         bool offsetGood = false;
                                         foreach (KeyValuePair<string, string> kvp in currentItem)
                                         {
-                                            switch(kvp.Key)
+                                            switch (kvp.Key)
                                             {
                                                 case "_o":
                                                     {
@@ -460,6 +475,7 @@
                                                     }
 
                                                     break;
+
                                                 case "_d":
                                                     {
                                                         dataDivGood = InputValidation.TryParseOffsetString(kvp.Value, out dataDiv);
@@ -497,6 +513,7 @@
                                                     }
 
                                                     break;
+
                                                 case "_c":
                                                     {
                                                         comment = kvp.Value;
@@ -605,6 +622,7 @@
                                         }
                                     }
                                     break;
+
                                 default:
 
                                     break;

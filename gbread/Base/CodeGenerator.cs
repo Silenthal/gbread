@@ -3,11 +3,16 @@
     using System.Collections.Generic;
     using System.IO;
 
+    
     /// <summary>
     /// A class to generate machine code targeting the GB/C.
     /// </summary>
     public class CodeGenerator
     {
+        public delegate void ArithmeticFuncDelegate(int arg);
+
+        public delegate void BitFunctionDelegate(int bit, string arg);
+
         private MemoryStream ms;
 
         public long Position

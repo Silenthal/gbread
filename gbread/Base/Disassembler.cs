@@ -101,7 +101,7 @@
         {
             StringBuilder ret = new StringBuilder(String.Empty);
             int currentOffset = cLabel.Offset;
-            int guessedLength = GuessFunctionLength(cLabel);
+            int guessedLength = GuessLabelPrintLength(cLabel);
             ret.AppendLine(cLabel.ToASMCommentString());
             while (currentOffset < cLabel.Offset + guessedLength)
             {
@@ -224,18 +224,13 @@
         private string GetInstruction(BinFile refFile, int OrgOffset, int BinaryOffset, ref GBInstruction isu)
         {
             int currentAddress = OrgOffset + BinaryOffset;
-            bool success = false;
             if (lc.isAddressMarkedAsData(currentAddress))
             {
-                success = GBASM.CreateDBInstruction(refFile.MainFile, OrgOffset, BinaryOffset, ref isu);
+                GBASM.CreateDBInstruction(refFile.MainFile, OrgOffset, BinaryOffset, ref isu);
             }
             else
             {
-                success = GBASM.GetInstruction(refFile.MainFile, OrgOffset, BinaryOffset, ref isu);
-            }
-            if (!success)
-            {
-                return "--Error--";
+                GBASM.GetInstruction(refFile.MainFile, OrgOffset, BinaryOffset, ref isu);
             }
             StringBuilder returned = new StringBuilder();
 
@@ -243,7 +238,7 @@
 
             if (PrintOffsets)
             {
-                returned.Append(AddressToASMString(isu));
+                returned.Append(AddressToString(isu));
             }
 
             #endregion Check offset printing
@@ -273,13 +268,13 @@
             if (isu.ArgCount > 0)
             {
                 returned.Append(" ");
-                numArg = ArgumentToASMString(isu.Bank, isu.Address, isu.InstType, isu.Arg1);
+                numArg = ArgumentToString(isu.Bank, isu.Address, isu.InstType, isu.Arg1);
                 returned.Append(numArg);
             }
             if (isu.ArgCount == 2)
             {
                 returned.Append(",");
-                numArg = ArgumentToASMString(isu.Bank, isu.Address, isu.InstType, isu.Arg2);
+                numArg = ArgumentToString(isu.Bank, isu.Address, isu.InstType, isu.Arg2);
                 returned.Append(numArg);
             }
 
@@ -384,35 +379,35 @@
         public string SearchForFunctionCall(FunctionLabel labelName)
         {
             StringBuilder returned = new StringBuilder();
-            Dictionary<string, FuncRefType> ifResult = SearchForFunctionCall(labelName, SearchOptions.InFunctions);
-            Dictionary<string, FuncRefType> ofResult = SearchForFunctionCall(labelName, SearchOptions.InFile);
+            var ifResult = SearchForFunctionCall(labelName, SearchOptions.InFunctions);
+            var ofResult = SearchForFunctionCall(labelName, SearchOptions.InFile);
 
-            string functionUsedMessage = "{0} was referred to in these functions:{1}";
+            string functionUsedMessage = "{0} was referred to near these labels:{1}";
             string offsetUsedMessage = "{0} was referred to at these offsets:{1}";
 
             if (ifResult.Count == 0)
             {
-                returned.AppendFormat("{0} was not referred to in any of the saved functions.{1}", labelName.Name, Environment.NewLine);
+                returned.AppendLine(labelName.Name + " was not referred to near any of these labels.");
             }
             else
             {
                 returned.AppendFormat(functionUsedMessage, labelName.Name, Environment.NewLine);
-                foreach (KeyValuePair<string, FuncRefType> kvp in ifResult)
+                foreach (var kvp in ifResult)
                 {
-                    returned.AppendFormat("{0} ({1}){2}", kvp.Key, kvp.Value.ToString("G"), Environment.NewLine);
+                    returned.AppendFormat("{0} ({1}){2}", kvp.Key, kvp.Value.ToString(), Environment.NewLine);
                 }
             }
 
             if (ofResult.Count == 0)
             {
-                returned.AppendFormat("{0} was not referred to at any offset.{1}", labelName.Name, Environment.NewLine);
+                returned.AppendLine(labelName.Name + " was not referred to at any offset in disassembly.");
             }
             else
             {
                 returned.AppendFormat(offsetUsedMessage, labelName.Name, Environment.NewLine);
-                foreach (KeyValuePair<string, FuncRefType> kvp in ofResult)
+                foreach (var kvp in ofResult)
                 {
-                    returned.AppendFormat("{0} ({1}){2}", kvp.Key, kvp.Value.ToString("G"), Environment.NewLine);
+                    returned.AppendFormat("{0} ({1}){2}", kvp.Key, kvp.Value.ToString(), Environment.NewLine);
                 }
             }
             return returned.ToString();
@@ -420,7 +415,8 @@
 
         private Dictionary<string, FuncRefType> SearchForFunctionCall(FunctionLabel searchLabel, SearchOptions options)
         {
-            Dictionary<string, FuncRefType> results = new Dictionary<string, FuncRefType>();
+            var results = new Dictionary<string, FuncRefType>();
+            var searched = new HashSet<int>();
             if (options == SearchOptions.InFile)
             {
                 SearchFileRangeForFunctionCall(results, 0x0, CoreFile.Length, searchLabel);
@@ -432,7 +428,15 @@
                 {
                     FuncRefType refType = FuncRefType.None;
                     int currentOffset = c.Offset;
-                    int curLen = GuessFunctionLength(c);
+                    if (searched.Contains(currentOffset))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        searched.Add(currentOffset);
+                    }
+                    int curLen = GuessLabelPrintLength(c);
                     while (currentOffset < c.Offset + curLen)
                     {
                         if (currentOffset < 0x4000 && searchLabel.Offset > 0x3FFF)
@@ -510,9 +514,9 @@
         public string SearchForReference(GenericLabel search)
         {
             StringBuilder returned = new StringBuilder(String.Empty);
-            Dictionary<string, VarRefType> funcRefsNew = SearchFileForVarReference(search.Value, SearchOptions.InFunctions);
-            Dictionary<string, VarRefType> offRefsNew = SearchFileForVarReference(search.Value, SearchOptions.InFile);
-            string functionUsedMessage = "{0} was used in these functions:{1}";
+            var funcRefsNew = SearchFileForVarReference(search.Value, SearchOptions.InFunctions);
+            var offRefsNew = SearchFileForVarReference(search.Value, SearchOptions.InFile);
+            string functionUsedMessage = "{0} was used near these labels:{1}";
             string offsetUsedMessage = "{0} was used at these offsets:{1}";
 
             #region Var Refs in Functions
@@ -565,7 +569,7 @@
                 {
                     VarRefType result = VarRefType.None;
                     int currentOffset = c.Offset;
-                    int curLen = GuessFunctionLength(c);
+                    int curLen = GuessLabelPrintLength(c);
                     while (currentOffset < c.Offset + curLen)
                     {
                         if (lc.isAddressMarkedAsData(currentOffset))
@@ -575,7 +579,10 @@
                         }
                         GBInstruction isu = new GBInstruction();
                         if (!GBASM.GetInstruction(CoreFile.MainFile, 0, currentOffset, ref isu))
+                        {
                             break;
+                        }
+
                         if (isu.InstType == InstructionType.ld && isu.ArgCount == 2)
                         {
                             if (isu.Arg1.ArgType == GBArgumentType.MemMapWord && isu.Arg1.NumArg == searchWord)
@@ -636,140 +643,47 @@
 
         #region Utility Methods
 
-        private bool IsValidFunction(int functionOffset)
-        {
-            int currentOffset = functionOffset;
-            int maxLength = Math.Min((((functionOffset >> 14) + 1) << 14) - currentOffset, 0x200);
-            int nopCount = 0;
-            List<int> jumpSites = new List<int>();
-            bool endpoint = false;
-            bool done = false;
-            while (!done)
-            {
-                if (currentOffset >= CoreFile.Length)
-                    return false;
-                GBInstruction isu = new GBInstruction();
-                bool success = GBASM.GetInstruction(CoreFile.MainFile, 0, currentOffset, ref isu);
-                byte currentInst = (byte)CoreFile.ReadByte(currentOffset);
-                if (isu.InstType == InstructionType.db)
-                    return false;
-                byte nextByte = (byte)CoreFile.ReadByte(currentOffset + 1);
-                int nextWord = CoreFile.ReadWord(currentOffset + 1);
-                currentOffset += isu.InstSize;
-                maxLength -= isu.InstSize;
-
-                #region Cases for jumps, returns, NOPs, and other instructions
-
-                switch (isu.InstType)
-                {
-                    case InstructionType.nop:
-                        nopCount++;
-                        if (nopCount > 10)
-                            return false;
-                        break;
-
-                    case InstructionType.ret:
-                    case InstructionType.reti:
-                        if (isu.ArgCount == 0)
-                            endpoint = true;
-                        break;
-
-                    case InstructionType.jp:
-                    case InstructionType.jr:
-                        {
-                            int jumpedOffset = 0;
-                            if (isu.ArgCount == 1)
-                            {
-                                //jr $fe
-                                if (isu.Arg1.NumArg == isu.Address + 1)
-                                    return false;
-                                if (isu.Arg1.ArgType == GBArgumentType.RegisterDouble && isu.Arg1.RegDoubleArg == GBRegisterDouble.hl)
-                                {
-                                    //jp hl
-                                    endpoint = true;
-                                    break;
-                                }
-                                jumpedOffset = Utility.GetRealAddress(isu.Bank, isu.Arg1.NumArg);
-                            }
-                            else if (isu.ArgCount == 2)
-                            {
-                                if (isu.Arg2.NumArg == isu.Address + 1)
-                                    return false;
-                                jumpedOffset = Utility.GetRealAddress(isu.Bank, isu.Arg2.NumArg);
-                            }
-
-                            if (jumpedOffset > currentOffset)
-                                jumpSites.Add(jumpedOffset);
-                            if (isu.InstType == InstructionType.jr && isu.ArgCount == 1)
-                            {
-                                endpoint = true;
-                            }
-                            break;
-                        }
-                    default:
-                        break;
-                }
-
-                #endregion Cases for jumps, returns, NOPs, and other instructions
-
-                if (maxLength <= 0)
-                {
-                    if (jumpSites.Count != 0)
-                        return false;
-                    else if (!endpoint)
-                        return false;
-                }
-                if (endpoint)
-                {
-                    if (jumpSites.Contains(currentOffset))
-                    {
-                        jumpSites.Remove(currentOffset);
-                        endpoint = false;
-                    }
-                    else
-                        done = true;
-                }
-            }
-            return true;
-        }
-
-        public int GuessFunctionLength(FunctionLabel cLabel)
+        public int GuessLabelPrintLength(FunctionLabel cLabel)
         {
             int currentOffset = cLabel.Offset;
-            int maxLength = 0x4000 - (cLabel.Offset & 0x3FFF);
+            int maxLength = 0x4000 - (currentOffset & 0x3FFF);
             bool done = false;
             int nopCount = 0;
-            List<int> jumpLocs = new List<int>();
+            var jumpLocs = new List<int>();
             bool endpoint = false;
             while (!done)
             {
                 if (currentOffset >= CoreFile.Length)
                 {
-                    done = true;
-                    continue;
+                    break;
                 }
-                GBInstruction isu = new GBInstruction();
-                bool success = GBASM.GetInstruction(CoreFile.MainFile, 0, currentOffset, ref isu);
-                currentOffset += isu.InstSize;
-                maxLength -= isu.InstSize;
 
-                #region Cases for jumps, returns, NOPs, and other instructions
+                GBInstruction isu = new GBInstruction();
+                GBASM.GetInstruction(CoreFile.MainFile, 0, currentOffset, ref isu);
+                currentOffset += isu.InstSize;
+
+                if (currentOffset - cLabel.Offset >= maxLength)
+                {
+                    break;
+                }
 
                 switch (isu.InstType)
                 {
                     case InstructionType.nop:
                         nopCount++;
-                        if (nopCount > 10)
+                        if (nopCount > 3)
                         {
-                            done = true;
-                            continue;
+                            endpoint = true;
                         }
                         break;
 
                     case InstructionType.ret:
                     case InstructionType.reti:
                         if (isu.ArgCount == 0)
+                        {
                             endpoint = true;
+                        }
+
                         break;
 
                     case InstructionType.jp:
@@ -778,21 +692,16 @@
                             int jumpedOffset = 0;
                             if (isu.ArgCount == 1)
                             {
-                                if (isu.Arg1.NumArg == isu.Address + 1)
-                                {
-                                    done = true;
-                                    continue;
-                                }
                                 jumpedOffset = Utility.GetRealAddress(isu.Bank, isu.Arg1.NumArg);
                             }
                             else if (isu.ArgCount == 2)
                             {
-                                if (isu.Arg1.NumArg == isu.Address + 1)
-                                    break;
                                 jumpedOffset = Utility.GetRealAddress(isu.Bank, isu.Arg2.NumArg);
                             }
                             if (jumpedOffset > currentOffset)
+                            {
                                 jumpLocs.Add(jumpedOffset);
+                            }
                             if (isu.ArgCount == 1)
                             {
                                 endpoint = true;
@@ -802,9 +711,6 @@
                     default:
                         break;
                 }
-
-                #endregion Cases for jumps, returns, NOPs, and other instructions
-
                 if (endpoint)
                 {
                     if (jumpLocs.Contains(currentOffset))
@@ -817,37 +723,37 @@
                         done = true;
                     }
                 }
-                else if (maxLength <= 0)
-                {
-                    done = true;
-                }
             }
             return currentOffset - cLabel.Offset;
         }
 
-        private string AddressToASMString(GBInstruction isu)
+        private string AddressToString(GBInstruction isu)
         {
             switch (PrintedOffsetFormat)
             {
                 case OffsetFormat.BankOffset:
-                    return isu.Bank.ToString("X2") + ":" + isu.Address.ToString("X4") + "  ";
+                    {
+                        return isu.Bank.ToString("X2") + ":" + isu.Address.ToString("X4") + "  ";
+                    }
                 case OffsetFormat.Hex:
                 case OffsetFormat.Decimal:
                     {
-                        int address = (isu.Bank * 0x4000) + isu.Address;
-                        if (isu.Bank > 0)
-                            address -= 0x4000;
+                        int address = Utility.GetRealAddress(isu.Bank, isu.Address);
                         if (PrintedOffsetFormat == OffsetFormat.Hex)
+                        {
                             return address.ToString("X6") + "   ";
+                        }
                         else
-                            return address.ToString("D7") + "  ";
+                        {
+                            return address.ToString("D7") + "  "; 
+                        }
                     }
                 default:
                     return "";
             }
         }
 
-        private string ArgumentToASMString(byte bank, ushort address, InstructionType instType, GBArgument arg)
+        private string ArgumentToString(byte bank, ushort address, InstructionType instType, GBArgument arg)
         {
             switch (arg.ArgType)
             {
@@ -856,55 +762,45 @@
                 case GBArgumentType.Byte:
                     return NumberToASMString(arg.NumArg, NumberType.Byte);
                 case GBArgumentType.MemMapWord:
+                    {
+                        string vName = lc.GetSymbolName(SymbolType.Variable, arg.NumArg);
+                        if (vName != "")
+                        {
+                            return "[" + vName + "]";
+                        }
+                        else
+                        {
+                            return "[" + NumberToASMString(arg.NumArg, NumberType.Word) + "]";
+                        }
+                    }
                 case GBArgumentType.Word:
-                    if (instType == InstructionType.jp || instType == InstructionType.call || instType == InstructionType.jr)
                     {
-                        int intArg = Utility.GetRealAddress(bank, arg.NumArg);
-                        FunctionLabel labelAtOffset;
-                        lc.TryGetFuncLabel(intArg, out labelAtOffset);
-                        if (arg.NumArg < 0x8000 && lc.TryGetFuncLabel(intArg, out labelAtOffset))
+                        string vName = lc.GetSymbolName(SymbolType.Generic, Utility.GetRealAddress(bank, arg.NumArg));
+                        if (arg.NumArg < 0x8000 && vName != "")
                         {
-                            return labelAtOffset.Name;
+                            return vName;
                         }
-                        else
+                        if (instType == InstructionType.ld)
                         {
-                            return NumberToASMString(arg.NumArg, NumberType.Word);
+                            vName = lc.GetSymbolName(SymbolType.Variable, arg.NumArg);
+                            if (vName != "")
+                            {
+                                return vName;
+                            }
                         }
-                    }
-                    else if (instType == InstructionType.ld)
-                    {
-                        string numArg = "";
-                        VarLabel varLabelAtOffset;
-                        DataLabel dataLabelAtOffset;
-                        if (lc.TryGetVarLabel(arg.NumArg, out varLabelAtOffset))
-                        {
-                            numArg = varLabelAtOffset.Name;
-                        }
-                        else if (lc.TryGetDataLabel(Utility.GetRealAddress((byte)(address >> 14), arg.NumArg), out dataLabelAtOffset))
-                        {
-                            numArg = dataLabelAtOffset.Name;
-                        }
-                        else
-                            numArg = NumberToASMString(arg.NumArg, NumberType.Word);
-                        if (arg.ArgType == GBArgumentType.MemMapWord)
-                        {
-                            return "[" + numArg + "]";
-                        }
-                        else
-                            return numArg;
-                    }
-                    else
                         return NumberToASMString(arg.NumArg, NumberType.Word);
+                    }
+
                 case GBArgumentType.MemMapRegisterSingle:
-                    return "[" + arg.RegSingleArg.ToString("G") + "]";
+                    return "[" + arg.RegSingleArg.ToString() + "]";
                 case GBArgumentType.RegisterSingle:
-                    return arg.RegSingleArg.ToString("G");
+                    return arg.RegSingleArg.ToString();
                 case GBArgumentType.MemMapRegisterDouble:
-                    return "[" + arg.RegDoubleArg.ToString("G") + "]";
+                    return "[" + arg.RegDoubleArg.ToString() + "]";
                 case GBArgumentType.RegisterDouble:
-                    return arg.RegDoubleArg.ToString("G");
+                    return arg.RegDoubleArg.ToString();
                 case GBArgumentType.Conditional:
-                    return arg.CondArg.ToString("G");
+                    return arg.CondArg.ToString();
                 default:
                     return "";
             }

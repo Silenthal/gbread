@@ -319,7 +319,7 @@
                     }
                     else
                     {
-                        List<Dictionary<string, string>> items = new List<Dictionary<string, string>>();
+                        var items = new List<Dictionary<string, string>>();
                         int curItem = -1;
                         string currentLine;
                         while ((currentLine = tr.ReadLine()) != null)
@@ -364,7 +364,7 @@
                                     {
                                         if (items[curItem].ContainsKey("_c"))
                                         {
-                                            items[curItem]["_c"] = currentLine;
+                                            items[curItem]["_c"] += "\n" + currentLine;
                                         }
                                         else
                                         {
@@ -385,7 +385,7 @@
                                     break;
                             }
                         }
-                        foreach (Dictionary<string, string> currentItem in items)
+                        foreach (var currentItem in items)
                         {
                             switch (currentItem["tag"])
                             {
@@ -395,7 +395,7 @@
                                         string name = "";
                                         string comment = "";
                                         bool offsetGood = false;
-                                        foreach (KeyValuePair<string, string> kvp in currentItem)
+                                        foreach (var kvp in currentItem)
                                         {
                                             switch (kvp.Key)
                                             {
@@ -449,7 +449,7 @@
                                         bool offsetGood = false;
                                         bool lengthGood = false;
                                         bool dataDivGood = false;
-                                        foreach (KeyValuePair<string, string> kvp in currentItem)
+                                        foreach (var kvp in currentItem)
                                         {
                                             switch (kvp.Key)
                                             {
@@ -543,7 +543,7 @@
                                         string comment = "";
                                         bool variableGood = false;
 
-                                        foreach (KeyValuePair<string, string> kvp in currentItem)
+                                        foreach (var kvp in currentItem)
                                         {
                                             switch (kvp.Key)
                                             {
@@ -593,7 +593,7 @@
                                         string comment = "";
                                         bool offsetGood = false;
 
-                                        foreach (KeyValuePair<string, string> kvp in currentItem)
+                                        foreach (var kvp in currentItem)
                                         {
                                             switch (kvp.Key)
                                             {

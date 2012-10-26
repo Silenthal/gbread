@@ -119,12 +119,9 @@
         {
             string returned = "";
             returned += _name + ":";
-            if (_comment != null)
+            if (_comment != "")
             {
-                foreach (string commentLine in _comment.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries))
-                {
-                    returned += Environment.NewLine + ";" + commentLine;
-                }
+                returned += Environment.NewLine + ";" + _comment.Replace("\n", "\n;");
             }
             return returned;
         }
@@ -176,12 +173,9 @@
             string returned = "";
             returned += _name + ":" + Environment.NewLine;
             returned += String.Format(";Size: 0x{0:X} bytes", _length);
-            if (_comment != null)
+            if (_comment != "")
             {
-                foreach (string commentLine in _comment.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries))
-                {
-                    returned += Environment.NewLine + ";" + commentLine;
-                }
+                returned += Environment.NewLine + ";" + _comment.Replace("\n", "\n;");
             }
             return returned;
         }
@@ -207,12 +201,9 @@
         public override string ToASMCommentString()
         {
             string returned = "";
-            if (_comment != null)
+            if (_comment != "")
             {
-                foreach (string commentLine in _comment.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries))
-                {
-                    returned += ";" + commentLine + Environment.NewLine;
-                }
+                returned += Environment.NewLine + ";" + _comment.Replace("\n", "\n;");
             }
             returned += _name + " EQU $" + _value.ToString("X");
             return returned;
@@ -224,10 +215,7 @@
             returned += ";Value: " + _value.ToString("X4");
             if (_comment != null)
             {
-                foreach (string x in _comment.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries))
-                {
-                    returned += Environment.NewLine + ";" + x;
-                }
+                returned += Environment.NewLine + ";" + _comment.Replace("\n", "\n;");
             }
             returned += Environment.NewLine;
             return returned;

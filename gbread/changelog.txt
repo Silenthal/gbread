@@ -215,11 +215,12 @@ files will be ignored.
 -[Fix]Miscellaneous errors.
 
 r16(Late 2012)
+-[Add]Comments can be specified for disassembly. They are attached to specific
+offsets, and are printed whenever the instruction at that offset is printed.
+-[Add]Shiny new Add Comment button to add those comments :p
 -[Change]New save file format, settings.txt. Option setting details can be
 found in the readme.
 -[Change]Added default.txt. This file contains default labels that are loaded
 whenever a new project is opened.
--[Fix]Tightened up the assembler a little bit.
-
-Upcoming:
--Whatever suggestions that fit with the program(so send 'em if you've got 'em)
+-[Fix]New assembler engine powered by ANTLR(tm). So, it should be a lot more
+flexible, and simultaneously more strict.

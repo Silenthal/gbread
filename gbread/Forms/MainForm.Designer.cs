@@ -82,6 +82,7 @@
             this.varLabelBox = new System.Windows.Forms.ListBox();
             this.addNewButton = new System.Windows.Forms.Button();
             this.mainTextBox = new GBRead.SyntaxHighlightingTextBox();
+            this.addCommentButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.funcLabelBoxContextMenu.SuspendLayout();
             this.funcLabelBoxContextMenu2.SuspendLayout();
@@ -577,11 +578,24 @@
             this.mainTextBox.Size = new System.Drawing.Size(408, 279);
             this.mainTextBox.TabIndex = 3;
             // 
+            // addCommentButton
+            // 
+            this.addCommentButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.addCommentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addCommentButton.Location = new System.Drawing.Point(600, 327);
+            this.addCommentButton.Name = "addCommentButton";
+            this.addCommentButton.Size = new System.Drawing.Size(92, 23);
+            this.addCommentButton.TabIndex = 24;
+            this.addCommentButton.Text = "Add Comment...";
+            this.addCommentButton.UseVisualStyleBackColor = true;
+            this.addCommentButton.Click += new System.EventHandler(this.addCommentButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 361);
+            this.Controls.Add(this.addCommentButton);
             this.Controls.Add(this.addNewButton);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.progressLabel);
@@ -668,6 +682,7 @@
 		private System.Windows.Forms.TabPage varLabelTabPage;
 		private System.Windows.Forms.ListBox varLabelBox;
 		private System.Windows.Forms.Button addNewButton;
+        private System.Windows.Forms.Button addCommentButton;
     }
 }
 

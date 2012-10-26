@@ -99,28 +99,7 @@
 
         public string ShowFuncLabel(FunctionLabel cLabel)
         {
-            StringBuilder ret = new StringBuilder(String.Empty);
-            int currentOffset = cLabel.Offset;
-            int guessedLength = GuessLabelPrintLength(cLabel);
-            ret.AppendLine(cLabel.ToASMCommentString());
-            while (currentOffset < cLabel.Offset + guessedLength)
-            {
-                GBInstruction isu = new GBInstruction();
-                if (lc.isAddressMarkedAsData(currentOffset))
-                {
-                    DataLabel dl;
-                    lc.TryGetDataLabel(currentOffset, out dl);
-                    ret.Append(ShowDataLabel(dl));
-                    currentOffset += dl.Length;
-                    continue;
-                }
-                else
-                {
-                    ret.AppendLine(GetInstruction(CoreFile, 0, currentOffset, ref isu));
-                    currentOffset += isu.InstSize;
-                }
-            }
-            return ret.ToString();
+            return PrintASM(cLabel.Offset, GuessLabelPrintLength(cLabel.Offset));
         }
 
         public string ShowVarLabel(VarLabel vLabel)
@@ -196,10 +175,11 @@
                 var dataAt = from s in lc.DataList
                              where s.Offset == current
                              select s;
-                foreach (var f in labelsAt)
+                foreach (var label in labelsAt)
                 {
-                    output.AppendLine(f.ToASMCommentString());
+                    output.AppendLine(label.ToASMCommentString());
                 }
+                int advanceBy = 0;
                 if (dataAt.Count() != 0)
                 {
                     if (HideDefinedData)
@@ -210,13 +190,18 @@
                     {
                         output.Append(ShowDataLabel(dataAt.First()));
                     }
-                    current += dataAt.First().Length;
+                    advanceBy = dataAt.First().Length;
                 }
                 else
                 {
                     output.AppendLine(GetInstruction(file, baseOffset, current, ref isu));
-                    current += isu.InstSize;
+                    advanceBy = isu.InstSize;
                 }
+                if (lc.Comments.ContainsKey(current))
+                {
+                    output.AppendLine(";" + lc.Comments[current].Replace("\n", "\n;"));
+                }
+                current += advanceBy;
             }
             return output.ToString();
         }
@@ -234,35 +219,29 @@
             }
             StringBuilder returned = new StringBuilder();
 
-            #region Check offset printing
-
-            if (PrintOffsets)
+            if (PrintOffsets || PrintBitPattern)
             {
-                returned.Append(AddressToString(isu));
-            }
-
-            #endregion Check offset printing
-
-            #region Check bit pattern printing
-
-            if (PrintBitPattern)
-            {
-                var bp = new string[] { "  ", "  ", "  ", "  " };
-                for (int i = 0; i < isu.InstSize; i++)
+                returned.Append("/*");
+                if (PrintOffsets)
                 {
-                    bp[i] = refFile.ReadByte(BinaryOffset + i).ToString("X2");
+                    returned.Append(AddressToString(isu));
                 }
-                returned.Append(string.Join("", bp));
+                if (PrintBitPattern)
+                {
+                    var bp = new string[] { "  ", "  ", "  ", "  " };
+                    for (int i = 0; i < isu.InstSize; i++)
+                    {
+                        bp[i] = refFile.ReadByte(BinaryOffset + i).ToString("X2");
+                    }
+                    returned.Append(string.Join("", bp));
+                }
+                returned.Append("*/ ");
             }
-
-            #endregion Check bit pattern printing
-
-            #region Print instruction
-
-            if (!(PrintBitPattern || PrintOffsets))
+            else
             {
                 returned.Append("    ");
             }
+
             returned.Append(isu.InstType.ToString());
             string numArg = "";
             if (isu.ArgCount > 0)
@@ -277,8 +256,6 @@
                 numArg = ArgumentToString(isu.Bank, isu.Address, isu.InstType, isu.Arg2);
                 returned.Append(numArg);
             }
-
-            #endregion Print instruction
 
             #region Check comments
 
@@ -436,7 +413,7 @@
                     {
                         searched.Add(currentOffset);
                     }
-                    int curLen = GuessLabelPrintLength(c);
+                    int curLen = GuessLabelPrintLength(c.Offset);
                     while (currentOffset < c.Offset + curLen)
                     {
                         if (currentOffset < 0x4000 && searchLabel.Offset > 0x3FFF)
@@ -569,7 +546,7 @@
                 {
                     VarRefType result = VarRefType.None;
                     int currentOffset = c.Offset;
-                    int curLen = GuessLabelPrintLength(c);
+                    int curLen = GuessLabelPrintLength(c.Offset);
                     while (currentOffset < c.Offset + curLen)
                     {
                         if (lc.isAddressMarkedAsData(currentOffset))
@@ -643,9 +620,9 @@
 
         #region Utility Methods
 
-        public int GuessLabelPrintLength(FunctionLabel cLabel)
+        public int GuessLabelPrintLength(int offset)
         {
-            int currentOffset = cLabel.Offset;
+            int currentOffset = offset;
             int maxLength = 0x4000 - (currentOffset & 0x3FFF);
             bool done = false;
             int nopCount = 0;
@@ -662,7 +639,7 @@
                 GBASM.GetInstruction(CoreFile.MainFile, 0, currentOffset, ref isu);
                 currentOffset += isu.InstSize;
 
-                if (currentOffset - cLabel.Offset >= maxLength)
+                if (currentOffset - offset >= maxLength)
                 {
                     break;
                 }
@@ -724,7 +701,7 @@
                     }
                 }
             }
-            return currentOffset - cLabel.Offset;
+            return currentOffset - offset;
         }
 
         private string AddressToString(GBInstruction isu)

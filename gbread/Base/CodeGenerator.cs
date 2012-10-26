@@ -370,8 +370,18 @@
 
         public void EmitLdANRef(int arg)
         {
-            EmitByte(0xFA);
-            EmitWord(arg);
+            ushort pre = (byte)(arg >> 8);
+            pre <<= 8;
+            pre |= (byte)arg;
+            if (pre >= 0xFF00)
+            {
+                EmitLdioAN(arg);
+            }
+            else
+            {
+                EmitByte(0xFA);
+                EmitWord(arg);
+            }
         }
 
         public void EmitLdRN(string reg, int arg)
@@ -407,8 +417,18 @@
 
         public void EmitLdNRefA(int arg)
         {
-            EmitByte(0xEA);
-            EmitWord(arg);
+            ushort pre = (byte)(arg >> 8);
+            pre <<= 8;
+            pre |= (byte)arg;
+            if (pre >= 0xFF00)
+            {
+                EmitLdioNA(arg);
+            }
+            else
+            {
+                EmitByte(0xEA);
+                EmitWord(arg); 
+            }
         }
 
         public void EmitLdNRefSP(int arg)
@@ -650,8 +670,7 @@
         public void EmitStop()
         {
             EmitByte(0x10);
-
-            //EmitByte(0x00);
+            EmitByte(0x00);
         }
 
         #endregion STOP

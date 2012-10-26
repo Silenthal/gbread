@@ -6,7 +6,9 @@
     <Color name="Function" fontWeight="bold" foreground="Blue" />
     <Color name="Reserved" foreground="blue" />
     <RuleSet>
-        <Span color="Comment" begin="'" />
+        <Span color="Comment" begin=";" />
+        <Span color="Comment" begin="//" />
+        <Span color="Comment" begin="#" />
         <Span color="String">
             <Begin>"</Begin>
             <End>"</End>

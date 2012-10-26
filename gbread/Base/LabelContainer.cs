@@ -309,11 +309,11 @@
 
         public void LoadLabelFile(string fileName)
         {
-            using (TextReader tr = new StreamReader(fileName))
+            using (TextReader labelFile = new StreamReader(fileName))
             {
-                using (TextWriter tw = new StreamWriter("err.txt"))
+                using (TextWriter errFile = new StreamWriter("err.txt"))
                 {
-                    if (tr.ReadLine() != "gbr")
+                    if (labelFile.ReadLine() != "gbr")
                     {
                         return;
                     }
@@ -322,7 +322,7 @@
                         var items = new List<Dictionary<string, string>>();
                         int curItem = -1;
                         string currentLine;
-                        while ((currentLine = tr.ReadLine()) != null)
+                        while ((currentLine = labelFile.ReadLine()) != null)
                         {
                             switch (currentLine)
                             {
@@ -431,7 +431,7 @@
                                         }
                                         else
                                         {
-                                            tw.WriteLine("Label #" + items.IndexOf(currentItem) + " was unrecognized.");
+                                            errFile.WriteLine("Label #" + items.IndexOf(currentItem) + " was unrecognized.");
                                         }
                                     }
 
@@ -530,7 +530,7 @@
                                         }
                                         else
                                         {
-                                            tw.WriteLine("Label #" + items.IndexOf(currentItem) + " was unrecognized.");
+                                            errFile.WriteLine("Label #" + items.IndexOf(currentItem) + " was unrecognized.");
                                         }
                                     }
 
@@ -580,7 +580,7 @@
                                         }
                                         else
                                         {
-                                            tw.WriteLine("Label #" + items.IndexOf(currentItem) + " was unrecognized.");
+                                            errFile.WriteLine("Label #" + items.IndexOf(currentItem) + " was unrecognized.");
                                         }
                                     }
 
@@ -618,7 +618,7 @@
                                         }
                                         else
                                         {
-                                            tw.WriteLine("Label #" + items.IndexOf(currentItem) + " was unrecognized.");
+                                            errFile.WriteLine("Label #" + items.IndexOf(currentItem) + " was unrecognized.");
                                         }
                                     }
                                     break;
@@ -643,12 +643,14 @@
                     functions.WriteLine(".label");
                     functions.WriteLine("_n:" + s.Name);
                     functions.WriteLine("_o:" + s.Offset);
+                    functions.WriteLine("_c:" + s.Comment);
                 }
                 foreach (DataLabel s in DataList)
                 {
                     functions.WriteLine(".data");
                     functions.WriteLine("_n:" + s.Name);
                     functions.WriteLine("_o:" + s.Offset.ToString("X"));
+                    functions.WriteLine("_c:" + s.Comment);
                     functions.WriteLine("_l:" + s.Length.ToString("X"));
                     functions.WriteLine("_t:" + s.DSectionType);
                     functions.WriteLine("_d:" + s.DataLineLength.ToString("X"));
@@ -665,6 +667,7 @@
                     functions.WriteLine(".var");
                     functions.WriteLine("_n:" + s.Name);
                     functions.WriteLine("_v:" + s.Variable.ToString("X"));
+                    functions.WriteLine("_c:" + s.Comment);
                 }
                 foreach (KeyValuePair<int, string> kvp in _commentList)
                 {

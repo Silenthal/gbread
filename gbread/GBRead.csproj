@@ -83,6 +83,8 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\GBXLexer.cs" />
+    <Compile Include="Base\GBXParser.cs" />
     <Compile Include="TextBoxHost.xaml.cs">
       <DependentUpon>TextBoxHost.xaml</DependentUpon>
     </Compile>
@@ -96,8 +98,6 @@
     <Compile Include="Base\CodeGenerator.cs" />
     <Compile Include="Base\GBImage.cs" />
     <Compile Include="Base\GBXErrInfo.cs" />
-    <Compile Include="Base\GBXLexer.cs" />
-    <Compile Include="Base\GBXParser.cs" />
     <Compile Include="Base\Utility.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="Base\GBBinFile.cs" />

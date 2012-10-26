@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.4 GBX.g 2012-10-23 10:18:05
+// $ANTLR 3.4 GBX.g 2012-10-26 13:14:33
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -36,11 +36,10 @@ namespace GBRead.Base
     public partial class GBXParser : Antlr.Runtime.Parser
     {
         internal static readonly string[] tokenNames = new string[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "AMP_MARK", "ASSIGNMENT", "BANG_MARK", "BANK", "BAR_MARK", "BIN_DIGIT", "BIN_NUMBER", "BOOL_AND_MARK", "BOOL_OR_MARK", "BSLASH_MARK", "CARET_MARK", "CC_NC", "CC_NZ", "CC_Z", "CHAR", "CODE", "COLON_MARK", "COMMA", "COMMENT", "DATA", "DB", "DD", "DQ", "DW", "EQU", "EQUAL_MARK", "EQUIV_MARK", "ESC_SEQ", "EXPORT", "EXPRESSION", "FSLASH_MARK", "GLOBAL", "GLOBAL_LABEL", "GTE_MARK", "GT_MARK", "HEX_DIGIT", "HEX_NUMBER", "HOME", "ID", "IMPORT", "INCBIN", "INCLUDE", "INST_ADC", "INST_ADD", "INST_AND", "INST_BIT", "INST_CALL", "INST_CCF", "INST_CP", "INST_CPL", "INST_DAA", "INST_DEC", "INST_DI", "INST_EI", "INST_HALT", "INST_INC", "INST_JP", "INST_JR", "INST_LD", "INST_LDD", "INST_LDHL", "INST_LDI", "INST_LDIO", "INST_NOP", "INST_OR", "INST_POP", "INST_PUSH", "INST_RES", "INST_RET", "INST_RETI", "INST_RL", "INST_RLA", "INST_RLC", "INST_RLCA", "INST_RR", "INST_RRA", "INST_RRC", "INST_RRCA", "INST_RST", "INST_SBC", "INST_SCF", "INST_SET", "INST_SLA", "INST_SRA", "INST_SRL", "INST_STOP", "INST_SUB", "INST_SWAP", "INST_XOR", "INT", "LABEL", "LEFT_BRACKET", "LEFT_PARENS", "LOCAL_LABEL", "LSHIFT_MARK", "LTE_MARK", "LT_MARK", "MEM_REF", "MINUS_MARK", "NUMBER", "OCTAL_ESC", "OCT_DIGIT", "OCT_NUMBER", "ORG", "PERCENT_MARK", "PLUS_MARK", "POUND_MARK", "QUEST_MARK", "REG_A", "REG_B", "REG_C", "REG_D", "REG_E", "REG_H", "REG_L", "RIGHT_BRACKET", "RIGHT_PARENS", "ROOT", "RR_AF", "RR_BC", "RR_DE", "RR_HL", "RR_REF_BC", "RR_REF_C", "RR_REF_DE", "RR_REF_HL", "RR_SP", "RSHIFT_MARK", "SECTION", "SEMI_MARK", "STAR_MARK", "STATEMENT", "STRING", "TILDE_MARK", "TIMES", "UNARY_OP", "UNDERSCORE_MARK", "UNICODE_ESC", "VAR", "WS", "XDEF", "XREF", "'.'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "AMP_MARK", "ASSIGNMENT", "BANG_MARK", "BANK", "BAR_MARK", "BIN_DIGIT", "BIN_NUMBER", "BOOL_AND_MARK", "BOOL_OR_MARK", "BSLASH_MARK", "CARET_MARK", "CC_NC", "CC_NZ", "CC_Z", "CHAR", "CODE", "COLON_MARK", "COMMA", "COMMENT", "DATA", "DB", "DD", "DQ", "DW", "EQU", "EQUAL_MARK", "EQUIV_MARK", "ESC_SEQ", "EXPORT", "EXPRESSION", "FSLASH_MARK", "GLOBAL", "GLOBAL_LABEL", "GTE_MARK", "GT_MARK", "HEX_DIGIT", "HEX_NUMBER", "HOME", "ID", "IMPORT", "INCBIN", "INCLUDE", "INST_ADC", "INST_ADD", "INST_AND", "INST_BIT", "INST_CALL", "INST_CCF", "INST_CP", "INST_CPL", "INST_DAA", "INST_DEC", "INST_DI", "INST_EI", "INST_HALT", "INST_INC", "INST_JP", "INST_JR", "INST_LD", "INST_LDD", "INST_LDHL", "INST_LDI", "INST_LDIO", "INST_NOP", "INST_OR", "INST_POP", "INST_PUSH", "INST_RES", "INST_RET", "INST_RETI", "INST_RL", "INST_RLA", "INST_RLC", "INST_RLCA", "INST_RR", "INST_RRA", "INST_RRC", "INST_RRCA", "INST_RST", "INST_SBC", "INST_SCF", "INST_SET", "INST_SLA", "INST_SRA", "INST_SRL", "INST_STOP", "INST_SUB", "INST_SWAP", "INST_XOR", "INT", "LABEL", "LEFT_BRACKET", "LEFT_PARENS", "LOCAL_LABEL", "LSHIFT_MARK", "LTE_MARK", "LT_MARK", "MEM_REF", "MINUS_MARK", "NOT_EQUIV_MARK", "NUMBER", "OCTAL_ESC", "OCT_DIGIT", "OCT_NUMBER", "ORG", "PERCENT_MARK", "PLUS_MARK", "POUND_MARK", "QUEST_MARK", "REG_A", "REG_B", "REG_C", "REG_D", "REG_E", "REG_H", "REG_L", "RIGHT_BRACKET", "RIGHT_PARENS", "ROOT", "RR_AF", "RR_BC", "RR_DE", "RR_HL", "RR_REF_BC", "RR_REF_C", "RR_REF_DE", "RR_REF_HL", "RR_SP", "RSHIFT_MARK", "SECTION", "SEMI_MARK", "STAR_MARK", "STATEMENT", "STRING", "TILDE_MARK", "TIMES", "UNARY_OP", "UNDERSCORE_MARK", "UNICODE_ESC", "VAR", "WS", "XDEF", "XREF", "'.'"
         };
-
         public const int EOF = -1;
-        public const int T__146 = 146;
+        public const int T__147 = 147;
         public const int AMP_MARK = 4;
         public const int ASSIGNMENT = 5;
         public const int BANG_MARK = 6;
@@ -140,49 +139,50 @@ namespace GBRead.Base
         public const int LT_MARK = 100;
         public const int MEM_REF = 101;
         public const int MINUS_MARK = 102;
-        public const int NUMBER = 103;
-        public const int OCTAL_ESC = 104;
-        public const int OCT_DIGIT = 105;
-        public const int OCT_NUMBER = 106;
-        public const int ORG = 107;
-        public const int PERCENT_MARK = 108;
-        public const int PLUS_MARK = 109;
-        public const int POUND_MARK = 110;
-        public const int QUEST_MARK = 111;
-        public const int REG_A = 112;
-        public const int REG_B = 113;
-        public const int REG_C = 114;
-        public const int REG_D = 115;
-        public const int REG_E = 116;
-        public const int REG_H = 117;
-        public const int REG_L = 118;
-        public const int RIGHT_BRACKET = 119;
-        public const int RIGHT_PARENS = 120;
-        public const int ROOT = 121;
-        public const int RR_AF = 122;
-        public const int RR_BC = 123;
-        public const int RR_DE = 124;
-        public const int RR_HL = 125;
-        public const int RR_REF_BC = 126;
-        public const int RR_REF_C = 127;
-        public const int RR_REF_DE = 128;
-        public const int RR_REF_HL = 129;
-        public const int RR_SP = 130;
-        public const int RSHIFT_MARK = 131;
-        public const int SECTION = 132;
-        public const int SEMI_MARK = 133;
-        public const int STAR_MARK = 134;
-        public const int STATEMENT = 135;
-        public const int STRING = 136;
-        public const int TILDE_MARK = 137;
-        public const int TIMES = 138;
-        public const int UNARY_OP = 139;
-        public const int UNDERSCORE_MARK = 140;
-        public const int UNICODE_ESC = 141;
-        public const int VAR = 142;
-        public const int WS = 143;
-        public const int XDEF = 144;
-        public const int XREF = 145;
+        public const int NOT_EQUIV_MARK = 103;
+        public const int NUMBER = 104;
+        public const int OCTAL_ESC = 105;
+        public const int OCT_DIGIT = 106;
+        public const int OCT_NUMBER = 107;
+        public const int ORG = 108;
+        public const int PERCENT_MARK = 109;
+        public const int PLUS_MARK = 110;
+        public const int POUND_MARK = 111;
+        public const int QUEST_MARK = 112;
+        public const int REG_A = 113;
+        public const int REG_B = 114;
+        public const int REG_C = 115;
+        public const int REG_D = 116;
+        public const int REG_E = 117;
+        public const int REG_H = 118;
+        public const int REG_L = 119;
+        public const int RIGHT_BRACKET = 120;
+        public const int RIGHT_PARENS = 121;
+        public const int ROOT = 122;
+        public const int RR_AF = 123;
+        public const int RR_BC = 124;
+        public const int RR_DE = 125;
+        public const int RR_HL = 126;
+        public const int RR_REF_BC = 127;
+        public const int RR_REF_C = 128;
+        public const int RR_REF_DE = 129;
+        public const int RR_REF_HL = 130;
+        public const int RR_SP = 131;
+        public const int RSHIFT_MARK = 132;
+        public const int SECTION = 133;
+        public const int SEMI_MARK = 134;
+        public const int STAR_MARK = 135;
+        public const int STATEMENT = 136;
+        public const int STRING = 137;
+        public const int TILDE_MARK = 138;
+        public const int TIMES = 139;
+        public const int UNARY_OP = 140;
+        public const int UNDERSCORE_MARK = 141;
+        public const int UNICODE_ESC = 142;
+        public const int VAR = 143;
+        public const int WS = 144;
+        public const int XDEF = 145;
+        public const int XREF = 146;
 
         public GBXParser(ITokenStream input)
             : this(input, new RecognizerSharedState())
@@ -337,7 +337,7 @@ namespace GBRead.Base
                                     DebugEnterDecision(2, false);
                                     int LA2_0 = input.LA(1);
 
-                                    if (((LA2_0 >= DB && LA2_0 <= DW) || LA2_0 == ID || (LA2_0 >= INST_ADC && LA2_0 <= INST_XOR) || LA2_0 == 146))
+                                    if (((LA2_0 >= DB && LA2_0 <= DW) || LA2_0 == ID || (LA2_0 >= INST_ADC && LA2_0 <= INST_XOR) || LA2_0 == 147))
                                     {
                                         alt2 = 1;
                                     }
@@ -559,7 +559,7 @@ namespace GBRead.Base
 
                         {
                             // AST REWRITE
-                            // elements: ID, expression
+                            // elements: expression, ID
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -666,7 +666,7 @@ namespace GBRead.Base
                                     DebugEnterDecision(4, false);
                                     int LA4_0 = input.LA(1);
 
-                                    if ((LA4_0 == ID || LA4_0 == 146))
+                                    if ((LA4_0 == ID || LA4_0 == 147))
                                     {
                                         alt4 = 1;
                                     }
@@ -765,7 +765,7 @@ namespace GBRead.Base
 
                         {
                             // AST REWRITE
-                            // elements: label, data_def, instruction
+                            // elements: instruction, label, data_def
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -885,7 +885,7 @@ namespace GBRead.Base
                         {
                             alt6 = 1;
                         }
-                        else if ((LA6_0 == 146))
+                        else if ((LA6_0 == 147))
                         {
                             alt6 = 2;
                         }
@@ -1083,7 +1083,7 @@ namespace GBRead.Base
 
             CommonTree char_literal14_tree = default(CommonTree);
             CommonTree ID15_tree = default(CommonTree);
-            RewriteRuleITokenStream stream_146 = new RewriteRuleITokenStream(adaptor, "token 146");
+            RewriteRuleITokenStream stream_147 = new RewriteRuleITokenStream(adaptor, "token 147");
             RewriteRuleITokenStream stream_ID = new RewriteRuleITokenStream(adaptor, "token ID");
             try
             {
@@ -1096,8 +1096,8 @@ namespace GBRead.Base
                     // GBX.g:78:16: '.' ID
                     {
                         DebugLocation(78, 16);
-                        char_literal14 = (IToken)Match(input, 146, Follow._146_in_local_label261);
-                        stream_146.Add(char_literal14);
+                        char_literal14 = (IToken)Match(input, 147, Follow._147_in_local_label261);
+                        stream_147.Add(char_literal14);
 
                         DebugLocation(78, 20);
                         ID15 = (IToken)Match(input, ID, Follow._ID_in_local_label263);
@@ -4093,7 +4093,7 @@ namespace GBRead.Base
                                 DebugEnterDecision(20, false);
                                 int LA20_0 = input.LA(1);
 
-                                if (((LA20_0 >= CC_NC && LA20_0 <= CC_Z) || LA20_0 == ID || LA20_0 == REG_C || LA20_0 == 146))
+                                if (((LA20_0 >= CC_NC && LA20_0 <= CC_Z) || LA20_0 == ID || LA20_0 == REG_C || LA20_0 == 147))
                                 {
                                     alt20 = 1;
                                 }
@@ -4174,7 +4174,7 @@ namespace GBRead.Base
                                                     {
                                                         alt19 = 1;
                                                     }
-                                                    else if ((LA19_0 == 146))
+                                                    else if ((LA19_0 == 147))
                                                     {
                                                         alt19 = 2;
                                                     }
@@ -4364,7 +4364,7 @@ namespace GBRead.Base
                                 {
                                     alt22 = 1;
                                 }
-                                else if ((LA22_0 == 146))
+                                else if ((LA22_0 == 147))
                                 {
                                     alt22 = 2;
                                 }
@@ -5392,7 +5392,7 @@ namespace GBRead.Base
                                                     {
                                                         alt27 = 1;
                                                     }
-                                                    else if ((LA27_0 == BANG_MARK || LA27_0 == ID || LA27_0 == LEFT_PARENS || (LA27_0 >= MINUS_MARK && LA27_0 <= NUMBER) || LA27_0 == TILDE_MARK))
+                                                    else if ((LA27_0 == BANG_MARK || LA27_0 == ID || LA27_0 == LEFT_PARENS || LA27_0 == MINUS_MARK || LA27_0 == NUMBER || LA27_0 == TILDE_MARK))
                                                     {
                                                         alt27 = 2;
                                                     }
@@ -5587,7 +5587,7 @@ namespace GBRead.Base
                                                     {
                                                         alt29 = 1;
                                                     }
-                                                    else if ((LA29_0 == BANG_MARK || LA29_0 == ID || LA29_0 == LEFT_PARENS || (LA29_0 >= MINUS_MARK && LA29_0 <= NUMBER) || LA29_0 == TILDE_MARK))
+                                                    else if ((LA29_0 == BANG_MARK || LA29_0 == ID || LA29_0 == LEFT_PARENS || LA29_0 == MINUS_MARK || LA29_0 == NUMBER || LA29_0 == TILDE_MARK))
                                                     {
                                                         alt29 = 2;
                                                     }
@@ -9715,7 +9715,7 @@ namespace GBRead.Base
         partial void LeaveRule_equals_exp();
 
         // $ANTLR start "equals_exp"
-        // GBX.g:205:1: equals_exp : compare_exp ( ( '==' | '=' ) ^ compare_exp )? ;
+        // GBX.g:205:1: equals_exp : compare_exp ( ( '==' | '!=' ) ^ compare_exp )? ;
         [GrammarRule("equals_exp")]
         private AstParserRuleReturnScope<CommonTree, IToken> equals_exp()
         {
@@ -9735,12 +9735,12 @@ namespace GBRead.Base
             try
             {
                 DebugEnterRule(GrammarFileName, "equals_exp");
-                DebugLocation(205, 54);
+                DebugLocation(205, 55);
                 try
                 {
-                    // GBX.g:205:13: ( compare_exp ( ( '==' | '=' ) ^ compare_exp )? )
+                    // GBX.g:205:13: ( compare_exp ( ( '==' | '!=' ) ^ compare_exp )? )
                     DebugEnterAlt(1);
-                    // GBX.g:205:15: compare_exp ( ( '==' | '=' ) ^ compare_exp )?
+                    // GBX.g:205:15: compare_exp ( ( '==' | '!=' ) ^ compare_exp )?
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
@@ -9751,7 +9751,7 @@ namespace GBRead.Base
 
                         adaptor.AddChild(root_0, compare_exp282.Tree);
                         DebugLocation(205, 27);
-                        // GBX.g:205:27: ( ( '==' | '=' ) ^ compare_exp )?
+                        // GBX.g:205:27: ( ( '==' | '!=' ) ^ compare_exp )?
                         int alt54 = 2;
                         try
                         {
@@ -9761,7 +9761,7 @@ namespace GBRead.Base
                                 DebugEnterDecision(54, false);
                                 int LA54_0 = input.LA(1);
 
-                                if (((LA54_0 >= EQUAL_MARK && LA54_0 <= EQUIV_MARK)))
+                                if ((LA54_0 == EQUIV_MARK || LA54_0 == NOT_EQUIV_MARK))
                                 {
                                     alt54 = 1;
                                 }
@@ -9771,13 +9771,13 @@ namespace GBRead.Base
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:205:28: ( '==' | '=' ) ^ compare_exp
+                                    // GBX.g:205:28: ( '==' | '!=' ) ^ compare_exp
                                     {
-                                        DebugLocation(205, 38);
+                                        DebugLocation(205, 39);
 
                                         set283 = (IToken)input.LT(1);
                                         set283 = (IToken)input.LT(1);
-                                        if ((input.LA(1) >= EQUAL_MARK && input.LA(1) <= EQUIV_MARK))
+                                        if (input.LA(1) == EQUIV_MARK || input.LA(1) == NOT_EQUIV_MARK)
                                         {
                                             input.Consume();
                                             root_0 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(set283), root_0);
@@ -9790,7 +9790,7 @@ namespace GBRead.Base
                                             throw mse;
                                         }
 
-                                        DebugLocation(205, 42);
+                                        DebugLocation(205, 43);
                                         PushFollow(Follow._compare_exp_in_equals_exp1925);
                                         compare_exp284 = compare_exp();
                                         PopFollow();
@@ -9826,7 +9826,7 @@ namespace GBRead.Base
                     LeaveRule("equals_exp", 68);
                     LeaveRule_equals_exp();
                 }
-                DebugLocation(205, 54);
+                DebugLocation(205, 55);
             }
             finally { DebugExitRule(GrammarFileName, "equals_exp"); }
             return retval;
@@ -11063,24 +11063,24 @@ namespace GBRead.Base
 
         private static class Follow
         {
-            public static readonly BitSet _assignment_in_program143 = new BitSet(new ulong[] { 0xFFFFC4000F000002UL, 0x1FFFFFFFUL, 0x40000UL });
-            public static readonly BitSet _statement_in_program146 = new BitSet(new ulong[] { 0xFFFFC4000F000002UL, 0x1FFFFFFFUL, 0x40000UL });
+            public static readonly BitSet _assignment_in_program143 = new BitSet(new ulong[] { 0xFFFFC4000F000002UL, 0x1FFFFFFFUL, 0x80000UL });
+            public static readonly BitSet _statement_in_program146 = new BitSet(new ulong[] { 0xFFFFC4000F000002UL, 0x1FFFFFFFUL, 0x80000UL });
             public static readonly BitSet _ID_in_assignment168 = new BitSet(new ulong[] { 0x30000000UL });
-            public static readonly BitSet _EQUAL_MARK_in_assignment171 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
-            public static readonly BitSet _EQU_in_assignment173 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _EQUAL_MARK_in_assignment171 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
+            public static readonly BitSet _EQU_in_assignment173 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _expression_in_assignment176 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _label_in_statement195 = new BitSet(new ulong[] { 0xFFFFC4000F000000UL, 0x1FFFFFFFUL, 0x40000UL });
+            public static readonly BitSet _label_in_statement195 = new BitSet(new ulong[] { 0xFFFFC4000F000000UL, 0x1FFFFFFFUL, 0x80000UL });
             public static readonly BitSet _instruction_in_statement199 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _data_def_in_statement201 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _global_label_in_label227 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _local_label_in_label235 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _ID_in_global_label243 = new BitSet(new ulong[] { 0x100000UL });
             public static readonly BitSet _COLON_MARK_in_global_label245 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _146_in_local_label261 = new BitSet(new ulong[] { 0x40000000000UL });
+            public static readonly BitSet _147_in_local_label261 = new BitSet(new ulong[] { 0x40000000000UL });
             public static readonly BitSet _ID_in_local_label263 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _set_in_data_def280 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _set_in_data_def280 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _expression_in_data_def291 = new BitSet(new ulong[] { 0x200002UL });
-            public static readonly BitSet _COMMA_in_data_def293 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _COMMA_in_data_def293 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _expression_in_data_def296 = new BitSet(new ulong[] { 0x200002UL });
             public static readonly BitSet _op_adc_in_instruction307 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _op_add_in_instruction315 = new BitSet(new ulong[] { 0x2UL });
@@ -11129,41 +11129,41 @@ namespace GBRead.Base
             public static readonly BitSet _op_sub_in_instruction659 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _op_swap_in_instruction667 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _op_xor_in_instruction675 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_ADC_in_op_adc686 = new BitSet(new ulong[] { 0x40000000040UL, 0x7F00C180000000UL, 0x200UL });
+            public static readonly BitSet _INST_ADC_in_op_adc686 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
             public static readonly BitSet _REG_A_in_op_adc690 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_adc692 = new BitSet(new ulong[] { 0x40000000040UL, 0x7F00C180000000UL, 0x200UL });
+            public static readonly BitSet _COMMA_in_op_adc692 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
             public static readonly BitSet _arith_opt_in_op_adc697 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_ADD_in_op_add706 = new BitSet(new ulong[] { 0x40000000040UL, 0x207F00C180000000UL, 0x204UL });
+            public static readonly BitSet _INST_ADD_in_op_add706 = new BitSet(new ulong[] { 0x40000000040UL, 0x40FE014180000000UL, 0x408UL });
             public static readonly BitSet _REG_A_in_op_add712 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_add714 = new BitSet(new ulong[] { 0x40000000040UL, 0x7F00C180000000UL, 0x200UL });
+            public static readonly BitSet _COMMA_in_op_add714 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
             public static readonly BitSet _arith_opt_in_op_add719 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _RR_HL_in_op_add723 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_add725 = new BitSet(new ulong[] { 0x0UL, 0x3800000000000000UL, 0x4UL });
+            public static readonly BitSet _COMMA_in_op_add725 = new BitSet(new ulong[] { 0x0UL, 0x7000000000000000UL, 0x8UL });
             public static readonly BitSet _set_in_op_add728 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _RR_SP_in_op_add740 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_add742 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _COMMA_in_op_add742 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _expression_in_op_add745 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_AND_in_op_and756 = new BitSet(new ulong[] { 0x40000000040UL, 0x7F00C180000000UL, 0x200UL });
+            public static readonly BitSet _INST_AND_in_op_and756 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
             public static readonly BitSet _REG_A_in_op_and760 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_and762 = new BitSet(new ulong[] { 0x40000000040UL, 0x7F00C180000000UL, 0x200UL });
+            public static readonly BitSet _COMMA_in_op_and762 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
             public static readonly BitSet _arith_opt_in_op_and767 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_BIT_in_op_bit776 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _INST_BIT_in_op_bit776 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _expression_in_op_bit779 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_bit781 = new BitSet(new ulong[] { 0x0UL, 0x7F000080000000UL });
+            public static readonly BitSet _COMMA_in_op_bit781 = new BitSet(new ulong[] { 0x0UL, 0xFE000080000000UL });
             public static readonly BitSet _r8_in_op_bit785 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _rr_ref_hl_in_op_bit787 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_CALL_in_op_call797 = new BitSet(new ulong[] { 0x40000038000UL, 0x4000000000000UL });
+            public static readonly BitSet _INST_CALL_in_op_call797 = new BitSet(new ulong[] { 0x40000038000UL, 0x8000000000000UL });
             public static readonly BitSet _cond_opt_in_op_call801 = new BitSet(new ulong[] { 0x200000UL });
             public static readonly BitSet _COMMA_in_op_call803 = new BitSet(new ulong[] { 0x40000000000UL });
             public static readonly BitSet _ID_in_op_call808 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _INST_CCF_in_op_ccf817 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_CP_in_op_cp827 = new BitSet(new ulong[] { 0x40000000040UL, 0x7F00C180000000UL, 0x200UL });
+            public static readonly BitSet _INST_CP_in_op_cp827 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
             public static readonly BitSet _REG_A_in_op_cp831 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_cp833 = new BitSet(new ulong[] { 0x40000000040UL, 0x7F00C180000000UL, 0x200UL });
+            public static readonly BitSet _COMMA_in_op_cp833 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
             public static readonly BitSet _arith_opt_in_op_cp838 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _INST_CPL_in_op_cpl847 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _INST_DAA_in_op_daa857 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_DEC_in_op_dec867 = new BitSet(new ulong[] { 0x0UL, 0x387F000080000000UL, 0x4UL });
+            public static readonly BitSet _INST_DEC_in_op_dec867 = new BitSet(new ulong[] { 0x0UL, 0x70FE000080000000UL, 0x8UL });
             public static readonly BitSet _RR_BC_in_op_dec871 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _RR_DE_in_op_dec873 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _RR_HL_in_op_dec875 = new BitSet(new ulong[] { 0x2UL });
@@ -11173,142 +11173,142 @@ namespace GBRead.Base
             public static readonly BitSet _INST_DI_in_op_di891 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _INST_EI_in_op_ei901 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _INST_HALT_in_op_halt911 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_INC_in_op_inc921 = new BitSet(new ulong[] { 0x0UL, 0x387F000080000000UL, 0x4UL });
+            public static readonly BitSet _INST_INC_in_op_inc921 = new BitSet(new ulong[] { 0x0UL, 0x70FE000080000000UL, 0x8UL });
             public static readonly BitSet _RR_BC_in_op_inc925 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _RR_DE_in_op_inc927 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _RR_HL_in_op_inc929 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _RR_SP_in_op_inc931 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _r8_in_op_inc933 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _rr_ref_hl_in_op_inc935 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_JP_in_op_jp945 = new BitSet(new ulong[] { 0x40000038000UL, 0x2004000000000000UL, 0x40000UL });
+            public static readonly BitSet _INST_JP_in_op_jp945 = new BitSet(new ulong[] { 0x40000038000UL, 0x4008000000000000UL, 0x80000UL });
             public static readonly BitSet _cond_opt_in_op_jp951 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_jp953 = new BitSet(new ulong[] { 0x40000000000UL, 0x0UL, 0x40000UL });
+            public static readonly BitSet _COMMA_in_op_jp953 = new BitSet(new ulong[] { 0x40000000000UL, 0x0UL, 0x80000UL });
             public static readonly BitSet _ID_in_op_jp959 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _local_label_in_op_jp961 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _RR_HL_in_op_jp965 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_JR_in_op_jr975 = new BitSet(new ulong[] { 0x40000038000UL, 0x4000000000000UL, 0x40000UL });
+            public static readonly BitSet _INST_JR_in_op_jr975 = new BitSet(new ulong[] { 0x40000038000UL, 0x8000000000000UL, 0x80000UL });
             public static readonly BitSet _cond_opt_in_op_jr979 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_jr981 = new BitSet(new ulong[] { 0x40000000000UL, 0x0UL, 0x40000UL });
+            public static readonly BitSet _COMMA_in_op_jr981 = new BitSet(new ulong[] { 0x40000000000UL, 0x0UL, 0x80000UL });
             public static readonly BitSet _ID_in_op_jr987 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _local_label_in_op_jr989 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_LDHL_in_op_ldhl999 = new BitSet(new ulong[] { 0x0UL, 0x0UL, 0x4UL });
+            public static readonly BitSet _INST_LDHL_in_op_ldhl999 = new BitSet(new ulong[] { 0x0UL, 0x0UL, 0x8UL });
             public static readonly BitSet _RR_SP_in_op_ldhl1002 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ldhl1004 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _COMMA_in_op_ldhl1004 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _expression_in_op_ldhl1007 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_LDIO_in_op_ldio1016 = new BitSet(new ulong[] { 0x0UL, 0x1000080000000UL });
+            public static readonly BitSet _INST_LDIO_in_op_ldio1016 = new BitSet(new ulong[] { 0x0UL, 0x2000080000000UL });
             public static readonly BitSet _mem_ref_xp_in_op_ldio1021 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ldio1023 = new BitSet(new ulong[] { 0x0UL, 0x1000000000000UL });
+            public static readonly BitSet _COMMA_in_op_ldio1023 = new BitSet(new ulong[] { 0x0UL, 0x2000000000000UL });
             public static readonly BitSet _REG_A_in_op_ldio1026 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _REG_A_in_op_ldio1030 = new BitSet(new ulong[] { 0x200000UL });
             public static readonly BitSet _COMMA_in_op_ldio1032 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL });
             public static readonly BitSet _mem_ref_xp_in_op_ldio1035 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_LDD_in_op_ldd1046 = new BitSet(new ulong[] { 0x0UL, 0x1000080000000UL });
+            public static readonly BitSet _INST_LDD_in_op_ldd1046 = new BitSet(new ulong[] { 0x0UL, 0x2000080000000UL });
             public static readonly BitSet _rr_ref_hl_in_op_ldd1051 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ldd1053 = new BitSet(new ulong[] { 0x0UL, 0x1000000000000UL });
+            public static readonly BitSet _COMMA_in_op_ldd1053 = new BitSet(new ulong[] { 0x0UL, 0x2000000000000UL });
             public static readonly BitSet _REG_A_in_op_ldd1056 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _REG_A_in_op_ldd1060 = new BitSet(new ulong[] { 0x200000UL });
             public static readonly BitSet _COMMA_in_op_ldd1062 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL });
             public static readonly BitSet _rr_ref_hl_in_op_ldd1065 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_LDI_in_op_ldi1076 = new BitSet(new ulong[] { 0x0UL, 0x1000080000000UL });
+            public static readonly BitSet _INST_LDI_in_op_ldi1076 = new BitSet(new ulong[] { 0x0UL, 0x2000080000000UL });
             public static readonly BitSet _rr_ref_hl_in_op_ldi1081 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ldi1083 = new BitSet(new ulong[] { 0x0UL, 0x1000000000000UL });
+            public static readonly BitSet _COMMA_in_op_ldi1083 = new BitSet(new ulong[] { 0x0UL, 0x2000000000000UL });
             public static readonly BitSet _REG_A_in_op_ldi1086 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _REG_A_in_op_ldi1090 = new BitSet(new ulong[] { 0x200000UL });
             public static readonly BitSet _COMMA_in_op_ldi1092 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL });
             public static readonly BitSet _rr_ref_hl_in_op_ldi1095 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_LD_in_op_ld1106 = new BitSet(new ulong[] { 0x0UL, 0x387F000080000000UL, 0x4UL });
+            public static readonly BitSet _INST_LD_in_op_ld1106 = new BitSet(new ulong[] { 0x0UL, 0x70FE000080000000UL, 0x8UL });
             public static readonly BitSet _REG_A_in_op_ld1111 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ld1113 = new BitSet(new ulong[] { 0x40000000040UL, 0x7F00C180000000UL, 0x200UL });
+            public static readonly BitSet _COMMA_in_op_ld1113 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
             public static readonly BitSet _r8_in_op_ld1117 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _expression_in_op_ld1119 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _mem_ref_in_op_ld1121 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _set_in_op_ld1132 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ld1146 = new BitSet(new ulong[] { 0x40000000040UL, 0x7F00C180000000UL, 0x200UL });
+            public static readonly BitSet _COMMA_in_op_ld1146 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
             public static readonly BitSet _arith_opt_in_op_ld1149 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _set_in_op_ld1159 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ld1167 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _COMMA_in_op_ld1167 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _expression_in_op_ld1170 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _RR_SP_in_op_ld1180 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ld1182 = new BitSet(new ulong[] { 0x40000000040UL, 0x200000C100000000UL, 0x200UL });
+            public static readonly BitSet _COMMA_in_op_ld1182 = new BitSet(new ulong[] { 0x40000000040UL, 0x4000014100000000UL, 0x400UL });
             public static readonly BitSet _RR_HL_in_op_ld1186 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _expression_in_op_ld1188 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _rr_ref_c_in_op_ld1200 = new BitSet(new ulong[] { 0x200000UL });
             public static readonly BitSet _rr_ref_bc_in_op_ld1202 = new BitSet(new ulong[] { 0x200000UL });
             public static readonly BitSet _rr_ref_de_in_op_ld1204 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ld1207 = new BitSet(new ulong[] { 0x0UL, 0x1000000000000UL });
+            public static readonly BitSet _COMMA_in_op_ld1207 = new BitSet(new ulong[] { 0x0UL, 0x2000000000000UL });
             public static readonly BitSet _REG_A_in_op_ld1210 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _rr_ref_hl_in_op_ld1220 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ld1222 = new BitSet(new ulong[] { 0x40000000040UL, 0x7F00C100000000UL, 0x200UL });
+            public static readonly BitSet _COMMA_in_op_ld1222 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014100000000UL, 0x400UL });
             public static readonly BitSet _r8_in_op_ld1226 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _expression_in_op_ld1228 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _mem_ref_xp_in_op_ld1239 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ld1241 = new BitSet(new ulong[] { 0x0UL, 0x1000000000000UL, 0x4UL });
+            public static readonly BitSet _COMMA_in_op_ld1241 = new BitSet(new ulong[] { 0x0UL, 0x2000000000000UL, 0x8UL });
             public static readonly BitSet _set_in_op_ld1244 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _INST_NOP_in_op_nop1259 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_OR_in_op_or1269 = new BitSet(new ulong[] { 0x40000000040UL, 0x7F00C180000000UL, 0x200UL });
+            public static readonly BitSet _INST_OR_in_op_or1269 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
             public static readonly BitSet _REG_A_in_op_or1273 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_or1275 = new BitSet(new ulong[] { 0x40000000040UL, 0x7F00C180000000UL, 0x200UL });
+            public static readonly BitSet _COMMA_in_op_or1275 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
             public static readonly BitSet _arith_opt_in_op_or1280 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_POP_in_op_pop1289 = new BitSet(new ulong[] { 0x0UL, 0x3C00000000000000UL });
+            public static readonly BitSet _INST_POP_in_op_pop1289 = new BitSet(new ulong[] { 0x0UL, 0x7800000000000000UL });
             public static readonly BitSet _set_in_op_pop1292 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_PUSH_in_op_push1309 = new BitSet(new ulong[] { 0x0UL, 0x3C00000000000000UL });
+            public static readonly BitSet _INST_PUSH_in_op_push1309 = new BitSet(new ulong[] { 0x0UL, 0x7800000000000000UL });
             public static readonly BitSet _set_in_op_push1312 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_RES_in_op_res1329 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _INST_RES_in_op_res1329 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _expression_in_op_res1332 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_res1334 = new BitSet(new ulong[] { 0x0UL, 0x7F000080000000UL });
+            public static readonly BitSet _COMMA_in_op_res1334 = new BitSet(new ulong[] { 0x0UL, 0xFE000080000000UL });
             public static readonly BitSet _r8_in_op_res1338 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _rr_ref_hl_in_op_res1340 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_RET_in_op_ret1350 = new BitSet(new ulong[] { 0x38002UL, 0x4000000000000UL });
+            public static readonly BitSet _INST_RET_in_op_ret1350 = new BitSet(new ulong[] { 0x38002UL, 0x8000000000000UL });
             public static readonly BitSet _cond_opt_in_op_ret1353 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _INST_RETI_in_op_reti1363 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_RL_in_op_rl1373 = new BitSet(new ulong[] { 0x0UL, 0x7F000080000000UL });
+            public static readonly BitSet _INST_RL_in_op_rl1373 = new BitSet(new ulong[] { 0x0UL, 0xFE000080000000UL });
             public static readonly BitSet _r8_in_op_rl1377 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _rr_ref_hl_in_op_rl1379 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _INST_RLA_in_op_rla1389 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_RLC_in_op_rlc1399 = new BitSet(new ulong[] { 0x0UL, 0x7F000080000000UL });
+            public static readonly BitSet _INST_RLC_in_op_rlc1399 = new BitSet(new ulong[] { 0x0UL, 0xFE000080000000UL });
             public static readonly BitSet _r8_in_op_rlc1403 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _rr_ref_hl_in_op_rlc1405 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _INST_RLCA_in_op_rlca1415 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_RR_in_op_rr1425 = new BitSet(new ulong[] { 0x0UL, 0x7F000080000000UL });
+            public static readonly BitSet _INST_RR_in_op_rr1425 = new BitSet(new ulong[] { 0x0UL, 0xFE000080000000UL });
             public static readonly BitSet _r8_in_op_rr1429 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _rr_ref_hl_in_op_rr1431 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _INST_RRA_in_op_rra1441 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_RRC_in_op_rrc1451 = new BitSet(new ulong[] { 0x0UL, 0x7F000080000000UL });
+            public static readonly BitSet _INST_RRC_in_op_rrc1451 = new BitSet(new ulong[] { 0x0UL, 0xFE000080000000UL });
             public static readonly BitSet _r8_in_op_rrc1455 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _rr_ref_hl_in_op_rrc1457 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _INST_RRCA_in_op_rrca1467 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_RST_in_op_rst1477 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _INST_RST_in_op_rst1477 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _expression_in_op_rst1480 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_SBC_in_op_sbc1489 = new BitSet(new ulong[] { 0x40000000040UL, 0x7F00C180000000UL, 0x200UL });
+            public static readonly BitSet _INST_SBC_in_op_sbc1489 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
             public static readonly BitSet _REG_A_in_op_sbc1493 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_sbc1495 = new BitSet(new ulong[] { 0x40000000040UL, 0x7F00C180000000UL, 0x200UL });
+            public static readonly BitSet _COMMA_in_op_sbc1495 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
             public static readonly BitSet _arith_opt_in_op_sbc1500 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _INST_SCF_in_op_scf1509 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_SET_in_op_set1519 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _INST_SET_in_op_set1519 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _expression_in_op_set1522 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_set1524 = new BitSet(new ulong[] { 0x0UL, 0x7F000080000000UL });
+            public static readonly BitSet _COMMA_in_op_set1524 = new BitSet(new ulong[] { 0x0UL, 0xFE000080000000UL });
             public static readonly BitSet _r8_in_op_set1528 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _rr_ref_hl_in_op_set1530 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_SLA_in_op_sla1540 = new BitSet(new ulong[] { 0x0UL, 0x7F000080000000UL });
+            public static readonly BitSet _INST_SLA_in_op_sla1540 = new BitSet(new ulong[] { 0x0UL, 0xFE000080000000UL });
             public static readonly BitSet _r8_in_op_sla1544 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _rr_ref_hl_in_op_sla1546 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_SRA_in_op_sra1556 = new BitSet(new ulong[] { 0x0UL, 0x7F000080000000UL });
+            public static readonly BitSet _INST_SRA_in_op_sra1556 = new BitSet(new ulong[] { 0x0UL, 0xFE000080000000UL });
             public static readonly BitSet _r8_in_op_sra1560 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _rr_ref_hl_in_op_sra1562 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_SRL_in_op_srl1572 = new BitSet(new ulong[] { 0x0UL, 0x7F000080000000UL });
+            public static readonly BitSet _INST_SRL_in_op_srl1572 = new BitSet(new ulong[] { 0x0UL, 0xFE000080000000UL });
             public static readonly BitSet _r8_in_op_srl1576 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _rr_ref_hl_in_op_srl1578 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _INST_STOP_in_op_stop1588 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_SUB_in_op_sub1598 = new BitSet(new ulong[] { 0x40000000040UL, 0x7F00C180000000UL, 0x200UL });
+            public static readonly BitSet _INST_SUB_in_op_sub1598 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
             public static readonly BitSet _REG_A_in_op_sub1602 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_sub1604 = new BitSet(new ulong[] { 0x40000000040UL, 0x7F00C180000000UL, 0x200UL });
+            public static readonly BitSet _COMMA_in_op_sub1604 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
             public static readonly BitSet _arith_opt_in_op_sub1609 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_SWAP_in_op_swap1618 = new BitSet(new ulong[] { 0x0UL, 0x7F000080000000UL });
+            public static readonly BitSet _INST_SWAP_in_op_swap1618 = new BitSet(new ulong[] { 0x0UL, 0xFE000080000000UL });
             public static readonly BitSet _r8_in_op_swap1622 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _rr_ref_hl_in_op_swap1624 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_XOR_in_op_xor1634 = new BitSet(new ulong[] { 0x40000000040UL, 0x7F00C180000000UL, 0x200UL });
+            public static readonly BitSet _INST_XOR_in_op_xor1634 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
             public static readonly BitSet _REG_A_in_op_xor1638 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_xor1640 = new BitSet(new ulong[] { 0x40000000040UL, 0x7F00C180000000UL, 0x200UL });
+            public static readonly BitSet _COMMA_in_op_xor1640 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
             public static readonly BitSet _arith_opt_in_op_xor1644 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _r8_in_arith_opt1653 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _expression_in_arith_opt1655 = new BitSet(new ulong[] { 0x2UL });
@@ -11318,64 +11318,64 @@ namespace GBRead.Base
             public static readonly BitSet _rr_ref_de_in_mem_ref1698 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _rr_ref_hl_in_mem_ref1706 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _mem_ref_xp_in_mem_ref1714 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _LEFT_BRACKET_in_mem_ref_xp1723 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
-            public static readonly BitSet _expression_in_mem_ref_xp1725 = new BitSet(new ulong[] { 0x0UL, 0x80000000000000UL });
+            public static readonly BitSet _LEFT_BRACKET_in_mem_ref_xp1723 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
+            public static readonly BitSet _expression_in_mem_ref_xp1725 = new BitSet(new ulong[] { 0x0UL, 0x100000000000000UL });
             public static readonly BitSet _RIGHT_BRACKET_in_mem_ref_xp1727 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _cond_exp_in_expression1768 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _bool_or_exp_in_cond_exp1784 = new BitSet(new ulong[] { 0x2UL, 0x800000000000UL });
-            public static readonly BitSet _QUEST_MARK_in_cond_exp1787 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _bool_or_exp_in_cond_exp1784 = new BitSet(new ulong[] { 0x2UL, 0x1000000000000UL });
+            public static readonly BitSet _QUEST_MARK_in_cond_exp1787 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _bool_or_exp_in_cond_exp1794 = new BitSet(new ulong[] { 0x100000UL });
-            public static readonly BitSet _COLON_MARK_in_cond_exp1796 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _COLON_MARK_in_cond_exp1796 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _bool_or_exp_in_cond_exp1799 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _bool_and_exp_in_bool_or_exp1809 = new BitSet(new ulong[] { 0x1002UL });
-            public static readonly BitSet _BOOL_OR_MARK_in_bool_or_exp1811 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _BOOL_OR_MARK_in_bool_or_exp1811 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _bool_and_exp_in_bool_or_exp1818 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _or_exp_in_bool_and_exp1827 = new BitSet(new ulong[] { 0x802UL });
-            public static readonly BitSet _BOOL_AND_MARK_in_bool_and_exp1831 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _BOOL_AND_MARK_in_bool_and_exp1831 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _or_exp_in_bool_and_exp1838 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _xor_exp_in_or_exp1849 = new BitSet(new ulong[] { 0x102UL });
-            public static readonly BitSet _BAR_MARK_in_or_exp1853 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _BAR_MARK_in_or_exp1853 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _xor_exp_in_or_exp1860 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _and_exp_in_xor_exp1871 = new BitSet(new ulong[] { 0x4002UL });
-            public static readonly BitSet _CARET_MARK_in_xor_exp1875 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _CARET_MARK_in_xor_exp1875 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _and_exp_in_xor_exp1882 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _equals_exp_in_and_exp1893 = new BitSet(new ulong[] { 0x12UL });
-            public static readonly BitSet _AMP_MARK_in_and_exp1896 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _AMP_MARK_in_and_exp1896 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _equals_exp_in_and_exp1903 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _compare_exp_in_equals_exp1913 = new BitSet(new ulong[] { 0x60000002UL });
-            public static readonly BitSet _set_in_equals_exp1916 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _compare_exp_in_equals_exp1913 = new BitSet(new ulong[] { 0x40000002UL, 0x8000000000UL });
+            public static readonly BitSet _set_in_equals_exp1916 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _compare_exp_in_equals_exp1925 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _shift_exp_in_compare_exp1935 = new BitSet(new ulong[] { 0x6000000002UL, 0x1800000000UL });
-            public static readonly BitSet _set_in_compare_exp1938 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _set_in_compare_exp1938 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _shift_exp_in_compare_exp1949 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _add_exp_in_shift_exp1959 = new BitSet(new ulong[] { 0x2UL, 0x400000000UL, 0x8UL });
-            public static readonly BitSet _set_in_shift_exp1963 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _add_exp_in_shift_exp1959 = new BitSet(new ulong[] { 0x2UL, 0x400000000UL, 0x10UL });
+            public static readonly BitSet _set_in_shift_exp1963 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _shift_exp_in_shift_exp1972 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _multiply_exp_in_add_exp1983 = new BitSet(new ulong[] { 0x2UL, 0x204000000000UL });
-            public static readonly BitSet _set_in_add_exp1985 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _multiply_exp_in_add_exp1983 = new BitSet(new ulong[] { 0x2UL, 0x404000000000UL });
+            public static readonly BitSet _set_in_add_exp1985 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _multiply_exp_in_add_exp1995 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _unary_exp_in_multiply_exp2004 = new BitSet(new ulong[] { 0x400000002UL, 0x100000000000UL, 0x40UL });
-            public static readonly BitSet _set_in_multiply_exp2007 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _unary_exp_in_multiply_exp2004 = new BitSet(new ulong[] { 0x400000002UL, 0x200000000000UL, 0x80UL });
+            public static readonly BitSet _set_in_multiply_exp2007 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _unary_exp_in_multiply_exp2018 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _literal_in_unary_exp2028 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _set_in_unary_exp2036 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
+            public static readonly BitSet _set_in_unary_exp2036 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
             public static readonly BitSet _unary_exp_in_unary_exp2045 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _ID_in_literal2054 = new BitSet(new ulong[] { 0x2UL });
             public static readonly BitSet _NUMBER_in_literal2070 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _LEFT_PARENS_in_literal2078 = new BitSet(new ulong[] { 0x40000000040UL, 0xC100000000UL, 0x200UL });
-            public static readonly BitSet _expression_in_literal2080 = new BitSet(new ulong[] { 0x0UL, 0x100000000000000UL });
+            public static readonly BitSet _LEFT_PARENS_in_literal2078 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
+            public static readonly BitSet _expression_in_literal2080 = new BitSet(new ulong[] { 0x0UL, 0x200000000000000UL });
             public static readonly BitSet _RIGHT_PARENS_in_literal2082 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _LEFT_BRACKET_in_rr_ref_hl2095 = new BitSet(new ulong[] { 0x0UL, 0x2000000000000000UL });
-            public static readonly BitSet _RR_HL_in_rr_ref_hl2097 = new BitSet(new ulong[] { 0x0UL, 0x80000000000000UL });
+            public static readonly BitSet _LEFT_BRACKET_in_rr_ref_hl2095 = new BitSet(new ulong[] { 0x0UL, 0x4000000000000000UL });
+            public static readonly BitSet _RR_HL_in_rr_ref_hl2097 = new BitSet(new ulong[] { 0x0UL, 0x100000000000000UL });
             public static readonly BitSet _RIGHT_BRACKET_in_rr_ref_hl2099 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _LEFT_BRACKET_in_rr_ref_bc2111 = new BitSet(new ulong[] { 0x0UL, 0x800000000000000UL });
-            public static readonly BitSet _RR_BC_in_rr_ref_bc2113 = new BitSet(new ulong[] { 0x0UL, 0x80000000000000UL });
+            public static readonly BitSet _LEFT_BRACKET_in_rr_ref_bc2111 = new BitSet(new ulong[] { 0x0UL, 0x1000000000000000UL });
+            public static readonly BitSet _RR_BC_in_rr_ref_bc2113 = new BitSet(new ulong[] { 0x0UL, 0x100000000000000UL });
             public static readonly BitSet _RIGHT_BRACKET_in_rr_ref_bc2115 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _LEFT_BRACKET_in_rr_ref_de2127 = new BitSet(new ulong[] { 0x0UL, 0x1000000000000000UL });
-            public static readonly BitSet _RR_DE_in_rr_ref_de2129 = new BitSet(new ulong[] { 0x0UL, 0x80000000000000UL });
+            public static readonly BitSet _LEFT_BRACKET_in_rr_ref_de2127 = new BitSet(new ulong[] { 0x0UL, 0x2000000000000000UL });
+            public static readonly BitSet _RR_DE_in_rr_ref_de2129 = new BitSet(new ulong[] { 0x0UL, 0x100000000000000UL });
             public static readonly BitSet _RIGHT_BRACKET_in_rr_ref_de2131 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _LEFT_BRACKET_in_rr_ref_c2143 = new BitSet(new ulong[] { 0x0UL, 0x4000000000000UL });
-            public static readonly BitSet _REG_C_in_rr_ref_c2145 = new BitSet(new ulong[] { 0x0UL, 0x80000000000000UL });
+            public static readonly BitSet _LEFT_BRACKET_in_rr_ref_c2143 = new BitSet(new ulong[] { 0x0UL, 0x8000000000000UL });
+            public static readonly BitSet _REG_C_in_rr_ref_c2145 = new BitSet(new ulong[] { 0x0UL, 0x100000000000000UL });
             public static readonly BitSet _RIGHT_BRACKET_in_rr_ref_c2147 = new BitSet(new ulong[] { 0x2UL });
         }
 

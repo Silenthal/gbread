@@ -25,14 +25,9 @@
                 {
                     nameBox.Text = editedLabel.Name;
                     offsetBox.Text = editedLabel.Offset.ToString("X");
-                    if (editedLabel.Comment != null)
+                    if (!String.IsNullOrEmpty(editedLabel.Comment))
                     {
-                        for (int i = 0; i < editedLabel.Comment.Length; i++)
-                        {
-                            commentBox.Text += editedLabel.Comment[i];
-                            if (i != editedLabel.Comment.Length - 1)
-                                commentBox.Text += Environment.NewLine;
-                        }
+                        commentBox.Text = editedLabel.Comment;
                     }
                 }
             }

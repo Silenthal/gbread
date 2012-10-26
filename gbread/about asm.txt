@@ -8,21 +8,50 @@ You can use one of the many GB/C ASM resources available to learn more.
 Allowed words:
 Any of these language words:
 adc, add, and, bit, ccf, cp, cpl, daa, dec, di, ei, halt, inc, jp, jr, ld, ldd
-ldhl, ldi, nop, or, pop, push, res, ret, reti, rl, rla, rlc, rlca, rr, rra, 
-rrc, rrca, rst, sbc, scf, set, sla, sra, srl, stop, sub, sub, swap, swap, xor
+ldhl, ldi, ldio, nop, or, pop, push, res, ret, reti, rl, rla, rlc, rlca, rr,
+rra, rrc, rrca, rst, sbc, scf, set, sla, sra, srl, stop, sub, sub, swap, swap,
+xor
 
 As well as these directives (for data):
 db, dw
 
 Numbers:
-If writing a number, just type the number, no prefix (except
-negative sign for negative numbers).
-Ex: 23, 504
-If it's in hex, write the number with a 0x or $ preceding it.
-Ex: $5F, 0x032F
+Several different formats are supported:
+Regular numbers (no prefix): 34, 103
+Binary numbers (%) : %1101, %10001001
+Hex numbers ($) : $3F, $FF45
+Octal numbers (&) : &77, &34
 
-Numbers will be truncated to fit into instructions, so be careful to know how
-the instruction uses an integer argument.
+Any place where a number is accepted, an expression can be created. So, you
+can do something like:
+
+ld bc,TableBase + ($44 << 3)
+
+Supported operations, in order of precedence (high to low):
+~ (One's complement), - (Negative sign), ! (Unary boolean not)
+* (Multiply) / (Divide) % (Mod)
++ (Add) - (Subtract)
+<< (left shift) >> (right shift)
+< (Less) > (Greater) <= (Less or equal) >= (Greater or equal)
+== (equivalence operator)
+& (binary and)
+^ (binary xor)
+| (binary or)
+&& (boolean and)
+|| (boolean or)
+? : (conditional expression)
+
+Boolean operations return either a 1 (true), or 0 (false). A number evaluates
+to true if it's not equal to 0.
+
+Parenthesis can be used to group operations together.
+
+The final result of any expression will be truncated to fit into instructions,
+so be careful to know what type of number will be produced in the end
+
+Ex: ld a,$5000 + $34
+THe second argument takes a byte, so in the end, $5034 will be truncated to
+$34.
 
 Labels/Variables:
 Label and variable names have to start with a letter, and can contain letters,
@@ -39,11 +68,10 @@ Variable definition:
 Define certain values, using ([name] equ [value]), or ([name] = [value])
 Ex: 
 var2 equ $3456
-var3 equ $234
+var3 = $234
 Variables have no limit in themselves, but will be extended (or truncated) to
 fit the instruction that you use them in (either to the size of a byte, or a
-short). That is, with bytes, the var will be ANDed with 0xFF, and for shorts,
-ANDed with 0xFFFF.
+short).
 
 Label definition:
 You can define temporary labels while you're typing (for the purpose of call
@@ -58,8 +86,8 @@ jr label1
 
 Data definition:
 You can specify data to insert, at any place. Start with the size of data (db,
-dw), then the list of data being inserted, separated by commas. Variables can
-also be used in these definitions.
+dw), then the list of data being inserted, separated by commas. Variables and
+expressions can also be used in these definitions.
 Ex:
 db $23,$34,VAR_NAME
 dw $3149,$4794,$15F
@@ -67,6 +95,7 @@ dw $3149,$4794,$15F
 db is used to insert bytes (8-bit), and dw is used to insert words
 (16-bit, little endian). As with instructions, if numbers are too wide or too
 short, they will be extended or truncated to fit. For example,
+
 db $6534
 
 will be interpreted as
@@ -75,12 +104,20 @@ db $34
 
 .
 
+
 Comments:
-Append comments to lines with #, or ;.
+Append single line comments to lines with #, or ;.
 Ex:
 
 #This is a comment.
 ld a,b ;This is also a comment.
+
+C-style comments are also fine.
+
+//This is a single line comment.
+
+/* This is a
+multiline comment.*/
 
 Instructions:
 Just type the appropriate instruction in the proper place.
@@ -96,6 +133,9 @@ ldi a,[hl] ldi [hl],a
 Load [Location],A/A,[Location]
 This instruction will use the shorter form of the instruction (E0/F0)
 depending on whether the called location resides in [$FF00-$FFFF] or not.
+To make it explicit, use ldio:
+
+ldio a,[$34] -> ld a,[$FF34]
 
 Load HL, SP + Offset
 ldhl sp,x
@@ -111,32 +151,3 @@ Jump Relative
 Sometimes a jump will be possible, and sometimes it won't, like when the
 offset being jumped to lies outside of the range of jr. For this
 instruction, you can use a label, or an offset, to specify where to jump to.
-
-Extra Instructions:
-srl (r1)(r2),n
-
-Acts as a shorthand for when you want to do a shift of a register pair. r can
-be a, b, c, d, e, h, or l. n is a number from 1 to 7.
-
-Ex:
-srl bc,2
-
-expands to 
-
-srl b
-rr c
-srl b
-rr c
-
-This can be used for registers a, b, c, d, e, h, and l.
-
-srl al,3
-
-==
-
-srl a
-rr l
-srl a
-rr l
-srl a
-rr l

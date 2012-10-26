@@ -57,7 +57,7 @@
 
         public string Name { get { return _name; } set { _name = value; } }
 
-        protected string _comment = "";
+        protected string _comment;
 
         public string Comment { get { return _comment; } set { _comment = value; } }
 
@@ -107,6 +107,7 @@
             _id = System.Threading.Interlocked.Increment(ref counter);
             _value = newOffset;
             _name = labelName.Equals(String.Empty) ? String.Format("F_{0:X6}", newOffset) : labelName;
+            _comment = "";
             if (!String.IsNullOrEmpty(nComment))
             {
                 _comment = nComment;
@@ -150,6 +151,7 @@
             _value = newOffset;
             _length = newLength;
             _name = labelName == String.Empty ? String.Format("DS_{0:X6}", newOffset) : labelName;
+            _comment = "";
             if (!String.IsNullOrEmpty(cmt))
             {
                 _comment = cmt;
@@ -190,6 +192,7 @@
             _id = System.Threading.Interlocked.Increment(ref counter);
             _name = n.Equals(String.Empty) ? String.Format("V_{0:X4}", a) : n;
             _value = a;
+            _comment = "";
             if (!String.IsNullOrEmpty(cmt))
             {
                 _comment = cmt;

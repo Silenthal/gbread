@@ -17,7 +17,7 @@ This program can also insert data back into the original file, whether through
 ASM, or through an external binary.
 
 [2. Requirements]
-.Net Framework 3.5 or greater.
+.Net Framework 4 or greater.
 
 [3. Usage]
 
@@ -37,22 +37,32 @@ marker to set them off. To do so, click [Add New...], enter the offset, name,
 and optional comment, and then [OK]. You can add data sections the same 
 way, as well as specify commonly used variables. Data sections are just areas
 like tables of pointers, dialogue, and other places you are sure aren't data. 
-Data sections can be defined as uncompressed tiles (images)as well.
+Data sections can be defined as uncompressed tiles (images) as well.
 Variables can be defined, for when you suspect a certain location in the
 memory map is used repeatedly (e.g. [$FF41], the LCD Status register).
+Comments can also be added by themselves, through [Add Comments...].
 
-d. Insertion
+d. View Labels/Variables
+You can manage labels through clicking on them in the list to the right of the
+main box. Double clicking on a regular label or data section label will
+display the ASM following that label, while double clicking on a variable will
+display where it's being used. More options for each label can be found by
+right clicking on one.
+
+e. Code/Data Insertion
 You can insert ASM at a specified place, or a binary file. See 'about asm.txt'
 for more details.
 
-e. Saving
+f. Saving
 -In the File menu, you have several options for saving:
 
 Save File: Saves a copy of the file you are working on. If you've altered the
 file, you can save it this way.
-Save Function/Data/Var List : Saves the contents of the function/data/var
+Save Labels and Variables : Saves the contents of the function/data/var
 boxes. Save format is as follows:
 
+------------------------------------------------------------------------------
+gbr
 .label
 _n:<name>
 _o:<offset>
@@ -61,7 +71,9 @@ _c:<comment line>
 .data
 _n:<name>
 _o:<offset>
-_c:<comment line>
+_c:<comment>
+_l:<length>
+_t:<type>
 _d:<data row size>
 _p1:<palette color 1 (optional)>
 _p2:<palette color 2 (optional)>
@@ -73,9 +85,22 @@ _n:<name>
 _v:<value>
 _c:<comment line>
 
+gbr: The header of this save file format. Required.
+
 label,data,var - Needed to specify between the two different types.
-_c: Comment line. You can include multiple lines in a comment. Just prefix
-each line with _c:
+_n: Name. The symbol identifying the label/variable. Starts with a letter, and
+consists of letter, numbers, and underscore.
+
+_o: Offset. The offset of the label.
+
+_c: Comment. You can include multiple lines in a comment. Prefix is optional.
+Unlike the general comment, this one moves with the label.
+
+_l: Length. The length of the data label. In printing, this is used to decide
+how much to print. 
+
+_t: Type. The type of data label. Can be either Data (for regular data), or
+Image (for raw tiles).
 
 _d: Data Row Size. This determines where to place breaks when printing data
 in the program. For example:
@@ -99,14 +124,14 @@ p[9:5] = Green
 p[4:0] = Red
 
 Values are from 0-31 for each individual color, and the number itself can be
-from 0 to 0x7FFF.
+from 0 to 7FFF.
+------------------------------------------------------------------------------
 
-Entire File ASM: Will (try to) save the entire file in ASM form, with 
+Save Entire File ASM: Will (try to) save the entire file in ASM form, with 
 considerations made with respect to defined code/data sections, and variable
 values.
 
-f. Searching
-There are some searches you can perform to save time.
+g. Search
 
 -Find Called Functions
 Adds an entry in the code label table for every called offset, adjusted so that
@@ -147,19 +172,3 @@ Ex: rlc b ;Rotate Left Carry B
 Instead of printing out the entire data section, a placeholder will
 be printed : INCLUDE "blah.bin". Can be used to make looking at certain
 sections easier.
-
--Highlighting
-This option section controls the highlighting of certain key terms in the main
-window. Can be useful for seeing the different parts of the code more clearly.
---Instructions
-Controls the highlighting of instruction keywords, like ld, add, and so on.
---Numbers
-Controls the highlighting of numbers in the instruction.
---Registers
-Controls the highlighting of registers (a, b, c, hl), etc.
---Comments
-Controls the highlighting of comments (lines preceded with ; or #)
---Labels
-Controls the highlighting of labels(lines ending with :)
---Offsets
-Controls the highlighting of the BB:OOOO format offsets.

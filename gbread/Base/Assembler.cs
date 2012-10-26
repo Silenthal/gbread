@@ -1124,10 +1124,10 @@
                                     result = res1 % res2;
                                     return ErrorMessage.NO_ERROR;
                                 case "<<":
-                                    result = res1 << (int)res2;
+                                    result = res1 << (int)res2; // Right side has to be an int.
                                     return ErrorMessage.NO_ERROR;
                                 case ">>":
-                                    result = res1 >> (int)res2;
+                                    result = res1 >> (int)res2; // Right side has to be an int.
                                     return ErrorMessage.NO_ERROR;
                                 case "<":
                                     result = res1 < res2 ? 1 : 0;

@@ -86,14 +86,20 @@ jr label1
 
 Data definition:
 You can specify data to insert, at any place. Start with the size of data (db,
-dw), then the list of data being inserted, separated by commas. Variables and
-expressions can also be used in these definitions.
+dw, dd, dq), then the list of data being inserted, separated by commas.
+Variables and expressions can also be used in these definitions.
 Ex:
 db $23,$34,VAR_NAME
 dw $3149,$4794,$15F
+dd $43245628
+dq $993F6523B7D63468
 
-db is used to insert bytes (8-bit), and dw is used to insert words
-(16-bit, little endian). As with instructions, if numbers are too wide or too
+db : Byte
+dw : Word (16-bit)
+dd : Dword (32-bit)
+dq : Qword (64-bit)
+
+As with instructions, if numbers are too wide or too
 short, they will be extended or truncated to fit. For example,
 
 db $6534
@@ -103,7 +109,6 @@ will be interpreted as
 db $34
 
 .
-
 
 Comments:
 Append single line comments to lines with #, or ;.

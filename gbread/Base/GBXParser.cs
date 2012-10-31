@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.4 GBX.g 2012-10-26 13:14:33
+// $ANTLR 3.4 GBX.g 2012-10-31 19:18:21
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -24,6 +24,7 @@
 
 #pragma warning disable 3021
 
+
 namespace GBRead.Base
 {
     using System.Collections.Generic;
@@ -36,10 +37,11 @@ namespace GBRead.Base
     public partial class GBXParser : Antlr.Runtime.Parser
     {
         internal static readonly string[] tokenNames = new string[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "AMP_MARK", "ASSIGNMENT", "BANG_MARK", "BANK", "BAR_MARK", "BIN_DIGIT", "BIN_NUMBER", "BOOL_AND_MARK", "BOOL_OR_MARK", "BSLASH_MARK", "CARET_MARK", "CC_NC", "CC_NZ", "CC_Z", "CHAR", "CODE", "COLON_MARK", "COMMA", "COMMENT", "DATA", "DB", "DD", "DQ", "DW", "EQU", "EQUAL_MARK", "EQUIV_MARK", "ESC_SEQ", "EXPORT", "EXPRESSION", "FSLASH_MARK", "GLOBAL", "GLOBAL_LABEL", "GTE_MARK", "GT_MARK", "HEX_DIGIT", "HEX_NUMBER", "HOME", "ID", "IMPORT", "INCBIN", "INCLUDE", "INST_ADC", "INST_ADD", "INST_AND", "INST_BIT", "INST_CALL", "INST_CCF", "INST_CP", "INST_CPL", "INST_DAA", "INST_DEC", "INST_DI", "INST_EI", "INST_HALT", "INST_INC", "INST_JP", "INST_JR", "INST_LD", "INST_LDD", "INST_LDHL", "INST_LDI", "INST_LDIO", "INST_NOP", "INST_OR", "INST_POP", "INST_PUSH", "INST_RES", "INST_RET", "INST_RETI", "INST_RL", "INST_RLA", "INST_RLC", "INST_RLCA", "INST_RR", "INST_RRA", "INST_RRC", "INST_RRCA", "INST_RST", "INST_SBC", "INST_SCF", "INST_SET", "INST_SLA", "INST_SRA", "INST_SRL", "INST_STOP", "INST_SUB", "INST_SWAP", "INST_XOR", "INT", "LABEL", "LEFT_BRACKET", "LEFT_PARENS", "LOCAL_LABEL", "LSHIFT_MARK", "LTE_MARK", "LT_MARK", "MEM_REF", "MINUS_MARK", "NOT_EQUIV_MARK", "NUMBER", "OCTAL_ESC", "OCT_DIGIT", "OCT_NUMBER", "ORG", "PERCENT_MARK", "PLUS_MARK", "POUND_MARK", "QUEST_MARK", "REG_A", "REG_B", "REG_C", "REG_D", "REG_E", "REG_H", "REG_L", "RIGHT_BRACKET", "RIGHT_PARENS", "ROOT", "RR_AF", "RR_BC", "RR_DE", "RR_HL", "RR_REF_BC", "RR_REF_C", "RR_REF_DE", "RR_REF_HL", "RR_SP", "RSHIFT_MARK", "SECTION", "SEMI_MARK", "STAR_MARK", "STATEMENT", "STRING", "TILDE_MARK", "TIMES", "UNARY_OP", "UNDERSCORE_MARK", "UNICODE_ESC", "VAR", "WS", "XDEF", "XREF", "'.'"
-        };
+		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "AMP_MARK", "ASSIGNMENT", "BANG_MARK", "BANK", "BAR_MARK", "BIN_DIGIT", "BIN_NUMBER", "BOOL_AND_MARK", "BOOL_OR_MARK", "BSLASH_MARK", "CARET_MARK", "CC_NC", "CC_NZ", "CC_Z", "CHAR", "CODE", "COLON_MARK", "COMMA", "COMMENT", "DATA", "DB", "DD", "DQ", "DW", "EQU", "EQUAL_MARK", "EQUIV_MARK", "ESC_SEQ", "EXPORT", "EXPRESSION", "FSLASH_MARK", "GLOBAL", "GLOBAL_LABEL", "GTE_MARK", "GT_MARK", "HEX_DIGIT", "HEX_NUMBER", "HOME", "ID", "IMPORT", "INCBIN", "INCLUDE", "INST_ADC", "INST_ADD", "INST_AND", "INST_BIT", "INST_CALL", "INST_CCF", "INST_CP", "INST_CPL", "INST_DAA", "INST_DEC", "INST_DI", "INST_EI", "INST_HALT", "INST_INC", "INST_JP", "INST_JR", "INST_LD", "INST_LDD", "INST_LDHL", "INST_LDI", "INST_LDIO", "INST_NOP", "INST_OR", "INST_POP", "INST_PUSH", "INST_RES", "INST_RET", "INST_RETI", "INST_RL", "INST_RLA", "INST_RLC", "INST_RLCA", "INST_RR", "INST_RRA", "INST_RRC", "INST_RRCA", "INST_RST", "INST_SBC", "INST_SCF", "INST_SET", "INST_SLA", "INST_SRA", "INST_SRL", "INST_STOP", "INST_SUB", "INST_SWAP", "INST_XOR", "INT", "LABEL", "LEFT_BRACKET", "LEFT_CURLY", "LEFT_PARENS", "LOCAL_LABEL", "LOC_LABEL_RAND", "LSHIFT_MARK", "LTE_MARK", "LT_MARK", "MACRO", "MACROEND", "MACROSTART", "MACRO_ARG", "MACRO_CALL", "MEM_REF", "MINUS_MARK", "M_ARG1", "M_ARG2", "M_ARG3", "M_ARG4", "M_ARG5", "M_ARG6", "M_ARG7", "M_ARG8", "M_ARG9", "NOT_EQUIV_MARK", "NUMBER", "OCTAL_ESC", "OCT_DIGIT", "OCT_NUMBER", "ORG", "PERCENT_MARK", "PLUS_MARK", "POUND_MARK", "QUEST_MARK", "REG_A", "REG_B", "REG_C", "REG_D", "REG_E", "REG_H", "REG_L", "RIGHT_BRACKET", "RIGHT_CURLY", "RIGHT_PARENS", "ROOT", "RR_AF", "RR_BC", "RR_DE", "RR_HL", "RR_REF_BC", "RR_REF_C", "RR_REF_DE", "RR_REF_HL", "RR_SP", "RSHIFT_MARK", "SECTION", "SEMI_MARK", "STAR_MARK", "STATEMENT", "STRING", "TILDE_MARK", "TIMES", "UNARY_OP", "UNDERSCORE_MARK", "UNICODE_ESC", "VAR", "WS", "XDEF", "XREF", "'.'"
+	    };
+
         public const int EOF = -1;
-        public const int T__147 = 147;
+        public const int T__164 = 164;
         public const int AMP_MARK = 4;
         public const int ASSIGNMENT = 5;
         public const int BANG_MARK = 6;
@@ -132,57 +134,74 @@ namespace GBRead.Base
         public const int INT = 93;
         public const int LABEL = 94;
         public const int LEFT_BRACKET = 95;
-        public const int LEFT_PARENS = 96;
-        public const int LOCAL_LABEL = 97;
-        public const int LSHIFT_MARK = 98;
-        public const int LTE_MARK = 99;
-        public const int LT_MARK = 100;
-        public const int MEM_REF = 101;
-        public const int MINUS_MARK = 102;
-        public const int NOT_EQUIV_MARK = 103;
-        public const int NUMBER = 104;
-        public const int OCTAL_ESC = 105;
-        public const int OCT_DIGIT = 106;
-        public const int OCT_NUMBER = 107;
-        public const int ORG = 108;
-        public const int PERCENT_MARK = 109;
-        public const int PLUS_MARK = 110;
-        public const int POUND_MARK = 111;
-        public const int QUEST_MARK = 112;
-        public const int REG_A = 113;
-        public const int REG_B = 114;
-        public const int REG_C = 115;
-        public const int REG_D = 116;
-        public const int REG_E = 117;
-        public const int REG_H = 118;
-        public const int REG_L = 119;
-        public const int RIGHT_BRACKET = 120;
-        public const int RIGHT_PARENS = 121;
-        public const int ROOT = 122;
-        public const int RR_AF = 123;
-        public const int RR_BC = 124;
-        public const int RR_DE = 125;
-        public const int RR_HL = 126;
-        public const int RR_REF_BC = 127;
-        public const int RR_REF_C = 128;
-        public const int RR_REF_DE = 129;
-        public const int RR_REF_HL = 130;
-        public const int RR_SP = 131;
-        public const int RSHIFT_MARK = 132;
-        public const int SECTION = 133;
-        public const int SEMI_MARK = 134;
-        public const int STAR_MARK = 135;
-        public const int STATEMENT = 136;
-        public const int STRING = 137;
-        public const int TILDE_MARK = 138;
-        public const int TIMES = 139;
-        public const int UNARY_OP = 140;
-        public const int UNDERSCORE_MARK = 141;
-        public const int UNICODE_ESC = 142;
-        public const int VAR = 143;
-        public const int WS = 144;
-        public const int XDEF = 145;
-        public const int XREF = 146;
+        public const int LEFT_CURLY = 96;
+        public const int LEFT_PARENS = 97;
+        public const int LOCAL_LABEL = 98;
+        public const int LOC_LABEL_RAND = 99;
+        public const int LSHIFT_MARK = 100;
+        public const int LTE_MARK = 101;
+        public const int LT_MARK = 102;
+        public const int MACRO = 103;
+        public const int MACROEND = 104;
+        public const int MACROSTART = 105;
+        public const int MACRO_ARG = 106;
+        public const int MACRO_CALL = 107;
+        public const int MEM_REF = 108;
+        public const int MINUS_MARK = 109;
+        public const int M_ARG1 = 110;
+        public const int M_ARG2 = 111;
+        public const int M_ARG3 = 112;
+        public const int M_ARG4 = 113;
+        public const int M_ARG5 = 114;
+        public const int M_ARG6 = 115;
+        public const int M_ARG7 = 116;
+        public const int M_ARG8 = 117;
+        public const int M_ARG9 = 118;
+        public const int NOT_EQUIV_MARK = 119;
+        public const int NUMBER = 120;
+        public const int OCTAL_ESC = 121;
+        public const int OCT_DIGIT = 122;
+        public const int OCT_NUMBER = 123;
+        public const int ORG = 124;
+        public const int PERCENT_MARK = 125;
+        public const int PLUS_MARK = 126;
+        public const int POUND_MARK = 127;
+        public const int QUEST_MARK = 128;
+        public const int REG_A = 129;
+        public const int REG_B = 130;
+        public const int REG_C = 131;
+        public const int REG_D = 132;
+        public const int REG_E = 133;
+        public const int REG_H = 134;
+        public const int REG_L = 135;
+        public const int RIGHT_BRACKET = 136;
+        public const int RIGHT_CURLY = 137;
+        public const int RIGHT_PARENS = 138;
+        public const int ROOT = 139;
+        public const int RR_AF = 140;
+        public const int RR_BC = 141;
+        public const int RR_DE = 142;
+        public const int RR_HL = 143;
+        public const int RR_REF_BC = 144;
+        public const int RR_REF_C = 145;
+        public const int RR_REF_DE = 146;
+        public const int RR_REF_HL = 147;
+        public const int RR_SP = 148;
+        public const int RSHIFT_MARK = 149;
+        public const int SECTION = 150;
+        public const int SEMI_MARK = 151;
+        public const int STAR_MARK = 152;
+        public const int STATEMENT = 153;
+        public const int STRING = 154;
+        public const int TILDE_MARK = 155;
+        public const int TIMES = 156;
+        public const int UNARY_OP = 157;
+        public const int UNDERSCORE_MARK = 158;
+        public const int UNICODE_ESC = 159;
+        public const int VAR = 160;
+        public const int WS = 161;
+        public const int XDEF = 162;
+        public const int XREF = 163;
 
         public GBXParser(ITokenStream input)
             : this(input, new RecognizerSharedState())
@@ -242,7 +261,7 @@ namespace GBRead.Base
         partial void LeaveRule_program();
 
         // $ANTLR start "program"
-        // GBX.g:68:8: public program : ( assignment )* ( statement )* -> ^( ROOT ( assignment )* ( statement )* ) ;
+        // GBX.g:71:8: public program : ( assignment | statement | macro )* -> ^( ROOT ( assignment )* ( macro )* ( statement )* ) ;
         [GrammarRule("program")]
         public AstParserRuleReturnScope<CommonTree, IToken> program()
         {
@@ -256,44 +275,285 @@ namespace GBRead.Base
 
             AstParserRuleReturnScope<CommonTree, IToken> assignment1 = default(AstParserRuleReturnScope<CommonTree, IToken>);
             AstParserRuleReturnScope<CommonTree, IToken> statement2 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> macro3 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
             RewriteRuleSubtreeStream stream_statement = new RewriteRuleSubtreeStream(adaptor, "rule statement");
             RewriteRuleSubtreeStream stream_assignment = new RewriteRuleSubtreeStream(adaptor, "rule assignment");
+            RewriteRuleSubtreeStream stream_macro = new RewriteRuleSubtreeStream(adaptor, "rule macro");
             try
             {
                 DebugEnterRule(GrammarFileName, "program");
-                DebugLocation(68, 73);
+                DebugLocation(71, 87);
                 try
                 {
-                    // GBX.g:68:16: ( ( assignment )* ( statement )* -> ^( ROOT ( assignment )* ( statement )* ) )
+                    // GBX.g:71:16: ( ( assignment | statement | macro )* -> ^( ROOT ( assignment )* ( macro )* ( statement )* ) )
                     DebugEnterAlt(1);
-                    // GBX.g:68:18: ( assignment )* ( statement )*
+                    // GBX.g:71:18: ( assignment | statement | macro )*
                     {
-                        DebugLocation(68, 18);
-                        // GBX.g:68:18: ( assignment )*
+                        DebugLocation(71, 18);
+                        // GBX.g:71:18: ( assignment | statement | macro )*
                         try
                         {
                             DebugEnterSubRule(1);
                             while (true)
                             {
-                                int alt1 = 2;
+                                int alt1 = 4;
                                 try
                                 {
                                     DebugEnterDecision(1, false);
-                                    int LA1_0 = input.LA(1);
-
-                                    if ((LA1_0 == ID))
+                                    switch (input.LA(1))
                                     {
-                                        int LA1_1 = input.LA(2);
+                                        case ID:
+                                            {
+                                                switch (input.LA(2))
+                                                {
+                                                    case COLON_MARK:
+                                                        {
+                                                            int LA1_5 = input.LA(3);
 
-                                        if (((LA1_1 >= EQU && LA1_1 <= EQUAL_MARK)))
-                                        {
-                                            alt1 = 1;
-                                        }
+                                                            if (((LA1_5 >= DB && LA1_5 <= DW) || LA1_5 == ID || (LA1_5 >= INST_ADC && LA1_5 <= INST_XOR) || LA1_5 == 164))
+                                                            {
+                                                                alt1 = 2;
+                                                            }
+                                                            else if ((LA1_5 == MACROSTART))
+                                                            {
+                                                                alt1 = 3;
+                                                            }
 
 
+                                                        }
+                                                        break;
+                                                    case EQU:
+                                                    case EQUAL_MARK:
+                                                        {
+                                                            alt1 = 1;
+                                                        }
+                                                        break;
+                                                    case EOF:
+                                                    case BANG_MARK:
+                                                    case DB:
+                                                    case DD:
+                                                    case DQ:
+                                                    case DW:
+                                                    case ID:
+                                                    case INST_ADC:
+                                                    case INST_ADD:
+                                                    case INST_AND:
+                                                    case INST_BIT:
+                                                    case INST_CALL:
+                                                    case INST_CCF:
+                                                    case INST_CP:
+                                                    case INST_CPL:
+                                                    case INST_DAA:
+                                                    case INST_DEC:
+                                                    case INST_DI:
+                                                    case INST_EI:
+                                                    case INST_HALT:
+                                                    case INST_INC:
+                                                    case INST_JP:
+                                                    case INST_JR:
+                                                    case INST_LD:
+                                                    case INST_LDD:
+                                                    case INST_LDHL:
+                                                    case INST_LDI:
+                                                    case INST_LDIO:
+                                                    case INST_NOP:
+                                                    case INST_OR:
+                                                    case INST_POP:
+                                                    case INST_PUSH:
+                                                    case INST_RES:
+                                                    case INST_RET:
+                                                    case INST_RETI:
+                                                    case INST_RL:
+                                                    case INST_RLA:
+                                                    case INST_RLC:
+                                                    case INST_RLCA:
+                                                    case INST_RR:
+                                                    case INST_RRA:
+                                                    case INST_RRC:
+                                                    case INST_RRCA:
+                                                    case INST_RST:
+                                                    case INST_SBC:
+                                                    case INST_SCF:
+                                                    case INST_SET:
+                                                    case INST_SLA:
+                                                    case INST_SRA:
+                                                    case INST_SRL:
+                                                    case INST_STOP:
+                                                    case INST_SUB:
+                                                    case INST_SWAP:
+                                                    case INST_XOR:
+                                                    case LEFT_PARENS:
+                                                    case MINUS_MARK:
+                                                    case M_ARG1:
+                                                    case M_ARG2:
+                                                    case M_ARG3:
+                                                    case M_ARG4:
+                                                    case M_ARG5:
+                                                    case M_ARG6:
+                                                    case M_ARG7:
+                                                    case M_ARG8:
+                                                    case M_ARG9:
+                                                    case NUMBER:
+                                                    case TILDE_MARK:
+                                                    case 164:
+                                                        {
+                                                            alt1 = 2;
+                                                        }
+                                                        break;
+                                                }
+
+                                            }
+                                            break;
+                                        case 164:
+                                            {
+                                                int LA1_3 = input.LA(2);
+
+                                                if ((LA1_3 == ID))
+                                                {
+                                                    switch (input.LA(3))
+                                                    {
+                                                        case LOC_LABEL_RAND:
+                                                            {
+                                                                int LA1_9 = input.LA(4);
+
+                                                                if (((LA1_9 >= DB && LA1_9 <= DW) || LA1_9 == ID || (LA1_9 >= INST_ADC && LA1_9 <= INST_XOR) || LA1_9 == 164))
+                                                                {
+                                                                    alt1 = 2;
+                                                                }
+                                                                else if ((LA1_9 == MACROSTART))
+                                                                {
+                                                                    alt1 = 3;
+                                                                }
+
+
+                                                            }
+                                                            break;
+                                                        case DB:
+                                                        case DD:
+                                                        case DQ:
+                                                        case DW:
+                                                        case ID:
+                                                        case INST_ADC:
+                                                        case INST_ADD:
+                                                        case INST_AND:
+                                                        case INST_BIT:
+                                                        case INST_CALL:
+                                                        case INST_CCF:
+                                                        case INST_CP:
+                                                        case INST_CPL:
+                                                        case INST_DAA:
+                                                        case INST_DEC:
+                                                        case INST_DI:
+                                                        case INST_EI:
+                                                        case INST_HALT:
+                                                        case INST_INC:
+                                                        case INST_JP:
+                                                        case INST_JR:
+                                                        case INST_LD:
+                                                        case INST_LDD:
+                                                        case INST_LDHL:
+                                                        case INST_LDI:
+                                                        case INST_LDIO:
+                                                        case INST_NOP:
+                                                        case INST_OR:
+                                                        case INST_POP:
+                                                        case INST_PUSH:
+                                                        case INST_RES:
+                                                        case INST_RET:
+                                                        case INST_RETI:
+                                                        case INST_RL:
+                                                        case INST_RLA:
+                                                        case INST_RLC:
+                                                        case INST_RLCA:
+                                                        case INST_RR:
+                                                        case INST_RRA:
+                                                        case INST_RRC:
+                                                        case INST_RRCA:
+                                                        case INST_RST:
+                                                        case INST_SBC:
+                                                        case INST_SCF:
+                                                        case INST_SET:
+                                                        case INST_SLA:
+                                                        case INST_SRA:
+                                                        case INST_SRL:
+                                                        case INST_STOP:
+                                                        case INST_SUB:
+                                                        case INST_SWAP:
+                                                        case INST_XOR:
+                                                        case 164:
+                                                            {
+                                                                alt1 = 2;
+                                                            }
+                                                            break;
+                                                        case MACROSTART:
+                                                            {
+                                                                alt1 = 3;
+                                                            }
+                                                            break;
+                                                    }
+
+                                                }
+
+
+                                            }
+                                            break;
+                                        case DB:
+                                        case DD:
+                                        case DQ:
+                                        case DW:
+                                        case INST_ADC:
+                                        case INST_ADD:
+                                        case INST_AND:
+                                        case INST_BIT:
+                                        case INST_CALL:
+                                        case INST_CCF:
+                                        case INST_CP:
+                                        case INST_CPL:
+                                        case INST_DAA:
+                                        case INST_DEC:
+                                        case INST_DI:
+                                        case INST_EI:
+                                        case INST_HALT:
+                                        case INST_INC:
+                                        case INST_JP:
+                                        case INST_JR:
+                                        case INST_LD:
+                                        case INST_LDD:
+                                        case INST_LDHL:
+                                        case INST_LDI:
+                                        case INST_LDIO:
+                                        case INST_NOP:
+                                        case INST_OR:
+                                        case INST_POP:
+                                        case INST_PUSH:
+                                        case INST_RES:
+                                        case INST_RET:
+                                        case INST_RETI:
+                                        case INST_RL:
+                                        case INST_RLA:
+                                        case INST_RLC:
+                                        case INST_RLCA:
+                                        case INST_RR:
+                                        case INST_RRA:
+                                        case INST_RRC:
+                                        case INST_RRCA:
+                                        case INST_RST:
+                                        case INST_SBC:
+                                        case INST_SCF:
+                                        case INST_SET:
+                                        case INST_SLA:
+                                        case INST_SRA:
+                                        case INST_SRL:
+                                        case INST_STOP:
+                                        case INST_SUB:
+                                        case INST_SWAP:
+                                        case INST_XOR:
+                                            {
+                                                alt1 = 2;
+                                            }
+                                            break;
                                     }
-
 
                                 }
                                 finally { DebugExitDecision(1); }
@@ -301,14 +561,40 @@ namespace GBRead.Base
                                 {
                                     case 1:
                                         DebugEnterAlt(1);
-                                        // GBX.g:68:18: assignment
+                                        // GBX.g:71:19: assignment
                                         {
-                                            DebugLocation(68, 18);
-                                            PushFollow(Follow._assignment_in_program143);
+                                            DebugLocation(71, 19);
+                                            PushFollow(Follow._assignment_in_program156);
                                             assignment1 = assignment();
                                             PopFollow();
 
                                             stream_assignment.Add(assignment1.Tree);
+
+                                        }
+                                        break;
+                                    case 2:
+                                        DebugEnterAlt(2);
+                                        // GBX.g:71:30: statement
+                                        {
+                                            DebugLocation(71, 30);
+                                            PushFollow(Follow._statement_in_program158);
+                                            statement2 = statement();
+                                            PopFollow();
+
+                                            stream_statement.Add(statement2.Tree);
+
+                                        }
+                                        break;
+                                    case 3:
+                                        DebugEnterAlt(3);
+                                        // GBX.g:71:40: macro
+                                        {
+                                            DebugLocation(71, 40);
+                                            PushFollow(Follow._macro_in_program160);
+                                            macro3 = macro();
+                                            PopFollow();
+
+                                            stream_macro.Add(macro3.Tree);
 
                                         }
                                         break;
@@ -324,59 +610,11 @@ namespace GBRead.Base
                         }
                         finally { DebugExitSubRule(1); }
 
-                        DebugLocation(68, 30);
-                        // GBX.g:68:30: ( statement )*
-                        try
-                        {
-                            DebugEnterSubRule(2);
-                            while (true)
-                            {
-                                int alt2 = 2;
-                                try
-                                {
-                                    DebugEnterDecision(2, false);
-                                    int LA2_0 = input.LA(1);
-
-                                    if (((LA2_0 >= DB && LA2_0 <= DW) || LA2_0 == ID || (LA2_0 >= INST_ADC && LA2_0 <= INST_XOR) || LA2_0 == 147))
-                                    {
-                                        alt2 = 1;
-                                    }
-
-
-                                }
-                                finally { DebugExitDecision(2); }
-                                switch (alt2)
-                                {
-                                    case 1:
-                                        DebugEnterAlt(1);
-                                        // GBX.g:68:30: statement
-                                        {
-                                            DebugLocation(68, 30);
-                                            PushFollow(Follow._statement_in_program146);
-                                            statement2 = statement();
-                                            PopFollow();
-
-                                            stream_statement.Add(statement2.Tree);
-
-                                        }
-                                        break;
-
-                                    default:
-                                        goto loop2;
-                                }
-                            }
-
-                        loop2:
-                            ;
-
-                        }
-                        finally { DebugExitSubRule(2); }
-
 
 
                         {
                             // AST REWRITE
-                            // elements: statement, assignment
+                            // elements: macro, assignment, statement
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -386,29 +624,38 @@ namespace GBRead.Base
                             RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
 
                             root_0 = (CommonTree)adaptor.Nil();
-                            // 68:41: -> ^( ROOT ( assignment )* ( statement )* )
+                            // 71:48: -> ^( ROOT ( assignment )* ( macro )* ( statement )* )
                             {
-                                DebugLocation(68, 44);
-                                // GBX.g:68:44: ^( ROOT ( assignment )* ( statement )* )
+                                DebugLocation(71, 51);
+                                // GBX.g:71:51: ^( ROOT ( assignment )* ( macro )* ( statement )* )
                                 {
                                     CommonTree root_1 = (CommonTree)adaptor.Nil();
-                                    DebugLocation(68, 46);
+                                    DebugLocation(71, 53);
                                     root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(ROOT, "ROOT"), root_1);
 
-                                    DebugLocation(68, 51);
-                                    // GBX.g:68:51: ( assignment )*
+                                    DebugLocation(71, 58);
+                                    // GBX.g:71:58: ( assignment )*
                                     while (stream_assignment.HasNext)
                                     {
-                                        DebugLocation(68, 51);
+                                        DebugLocation(71, 58);
                                         adaptor.AddChild(root_1, stream_assignment.NextTree());
 
                                     }
                                     stream_assignment.Reset();
-                                    DebugLocation(68, 63);
-                                    // GBX.g:68:63: ( statement )*
+                                    DebugLocation(71, 70);
+                                    // GBX.g:71:70: ( macro )*
+                                    while (stream_macro.HasNext)
+                                    {
+                                        DebugLocation(71, 70);
+                                        adaptor.AddChild(root_1, stream_macro.NextTree());
+
+                                    }
+                                    stream_macro.Reset();
+                                    DebugLocation(71, 77);
+                                    // GBX.g:71:77: ( statement )*
                                     while (stream_statement.HasNext)
                                     {
-                                        DebugLocation(68, 63);
+                                        DebugLocation(71, 77);
                                         adaptor.AddChild(root_1, stream_statement.NextTree());
 
                                     }
@@ -443,7 +690,7 @@ namespace GBRead.Base
                     LeaveRule("program", 1);
                     LeaveRule_program();
                 }
-                DebugLocation(68, 73);
+                DebugLocation(71, 87);
             }
             finally { DebugExitRule(GrammarFileName, "program"); }
             return retval;
@@ -451,30 +698,139 @@ namespace GBRead.Base
         }
         // $ANTLR end "program"
 
-        partial void EnterRule_assignment();
-        partial void LeaveRule_assignment();
+        partial void EnterRule_label();
+        partial void LeaveRule_label();
 
-        // $ANTLR start "assignment"
-        // GBX.g:70:1: assignment : ID ( EQUAL_MARK | EQU ) expression -> ^( ASSIGNMENT ID expression ) ;
-        [GrammarRule("assignment")]
-        private AstParserRuleReturnScope<CommonTree, IToken> assignment()
+        // $ANTLR start "label"
+        // GBX.g:73:1: label : ( global_label | local_label );
+        [GrammarRule("label")]
+        private AstParserRuleReturnScope<CommonTree, IToken> label()
         {
-            EnterRule_assignment();
-            EnterRule("assignment", 2);
-            TraceIn("assignment", 2);
+            EnterRule_label();
+            EnterRule("label", 2);
+            TraceIn("label", 2);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken ID3 = default(IToken);
-            IToken EQUAL_MARK4 = default(IToken);
-            IToken EQU5 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> expression6 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> global_label4 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> local_label5 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree ID3_tree = default(CommonTree);
-            CommonTree EQUAL_MARK4_tree = default(CommonTree);
-            CommonTree EQU5_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "label");
+                DebugLocation(73, 17);
+                try
+                {
+                    // GBX.g:73:9: ( global_label | local_label )
+                    int alt2 = 2;
+                    try
+                    {
+                        DebugEnterDecision(2, false);
+                        int LA2_0 = input.LA(1);
+
+                        if ((LA2_0 == ID))
+                        {
+                            alt2 = 1;
+                        }
+                        else if ((LA2_0 == 164))
+                        {
+                            alt2 = 2;
+                        }
+                        else
+                        {
+                            NoViableAltException nvae = new NoViableAltException("", 2, 0, input);
+                            DebugRecognitionException(nvae);
+                            throw nvae;
+                        }
+                    }
+                    finally { DebugExitDecision(2); }
+                    switch (alt2)
+                    {
+                        case 1:
+                            DebugEnterAlt(1);
+                            // GBX.g:73:11: global_label
+                            {
+                                root_0 = (CommonTree)adaptor.Nil();
+
+                                DebugLocation(73, 11);
+                                PushFollow(Follow._global_label_in_label187);
+                                global_label4 = global_label();
+                                PopFollow();
+
+                                adaptor.AddChild(root_0, global_label4.Tree);
+
+                            }
+                            break;
+                        case 2:
+                            DebugEnterAlt(2);
+                            // GBX.g:74:7: local_label
+                            {
+                                root_0 = (CommonTree)adaptor.Nil();
+
+                                DebugLocation(74, 7);
+                                PushFollow(Follow._local_label_in_label195);
+                                local_label5 = local_label();
+                                PopFollow();
+
+                                adaptor.AddChild(root_0, local_label5.Tree);
+
+                            }
+                            break;
+
+                    }
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("label", 2);
+                    LeaveRule("label", 2);
+                    LeaveRule_label();
+                }
+                DebugLocation(74, 17);
+            }
+            finally { DebugExitRule(GrammarFileName, "label"); }
+            return retval;
+
+        }
+        // $ANTLR end "label"
+
+        partial void EnterRule_assignment();
+        partial void LeaveRule_assignment();
+
+        // $ANTLR start "assignment"
+        // GBX.g:76:1: assignment : ID ( EQUAL_MARK | EQU ) expression -> ^( ASSIGNMENT ID expression ) ;
+        [GrammarRule("assignment")]
+        private AstParserRuleReturnScope<CommonTree, IToken> assignment()
+        {
+            EnterRule_assignment();
+            EnterRule("assignment", 3);
+            TraceIn("assignment", 3);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken ID6 = default(IToken);
+            IToken EQUAL_MARK7 = default(IToken);
+            IToken EQU8 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> expression9 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+
+            CommonTree ID6_tree = default(CommonTree);
+            CommonTree EQUAL_MARK7_tree = default(CommonTree);
+            CommonTree EQU8_tree = default(CommonTree);
             RewriteRuleITokenStream stream_EQU = new RewriteRuleITokenStream(adaptor, "token EQU");
             RewriteRuleITokenStream stream_ID = new RewriteRuleITokenStream(adaptor, "token ID");
             RewriteRuleITokenStream stream_EQUAL_MARK = new RewriteRuleITokenStream(adaptor, "token EQUAL_MARK");
@@ -482,19 +838,19 @@ namespace GBRead.Base
             try
             {
                 DebugEnterRule(GrammarFileName, "assignment");
-                DebugLocation(70, 75);
+                DebugLocation(76, 75);
                 try
                 {
-                    // GBX.g:70:13: ( ID ( EQUAL_MARK | EQU ) expression -> ^( ASSIGNMENT ID expression ) )
+                    // GBX.g:76:13: ( ID ( EQUAL_MARK | EQU ) expression -> ^( ASSIGNMENT ID expression ) )
                     DebugEnterAlt(1);
-                    // GBX.g:70:15: ID ( EQUAL_MARK | EQU ) expression
+                    // GBX.g:76:15: ID ( EQUAL_MARK | EQU ) expression
                     {
-                        DebugLocation(70, 15);
-                        ID3 = (IToken)Match(input, ID, Follow._ID_in_assignment168);
-                        stream_ID.Add(ID3);
+                        DebugLocation(76, 15);
+                        ID6 = (IToken)Match(input, ID, Follow._ID_in_assignment204);
+                        stream_ID.Add(ID6);
 
-                        DebugLocation(70, 18);
-                        // GBX.g:70:18: ( EQUAL_MARK | EQU )
+                        DebugLocation(76, 18);
+                        // GBX.g:76:18: ( EQUAL_MARK | EQU )
                         int alt3 = 2;
                         try
                         {
@@ -524,22 +880,22 @@ namespace GBRead.Base
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:70:19: EQUAL_MARK
+                                    // GBX.g:76:19: EQUAL_MARK
                                     {
-                                        DebugLocation(70, 19);
-                                        EQUAL_MARK4 = (IToken)Match(input, EQUAL_MARK, Follow._EQUAL_MARK_in_assignment171);
-                                        stream_EQUAL_MARK.Add(EQUAL_MARK4);
+                                        DebugLocation(76, 19);
+                                        EQUAL_MARK7 = (IToken)Match(input, EQUAL_MARK, Follow._EQUAL_MARK_in_assignment207);
+                                        stream_EQUAL_MARK.Add(EQUAL_MARK7);
 
 
                                     }
                                     break;
                                 case 2:
                                     DebugEnterAlt(2);
-                                    // GBX.g:70:30: EQU
+                                    // GBX.g:76:30: EQU
                                     {
-                                        DebugLocation(70, 30);
-                                        EQU5 = (IToken)Match(input, EQU, Follow._EQU_in_assignment173);
-                                        stream_EQU.Add(EQU5);
+                                        DebugLocation(76, 30);
+                                        EQU8 = (IToken)Match(input, EQU, Follow._EQU_in_assignment209);
+                                        stream_EQU.Add(EQU8);
 
 
                                     }
@@ -549,17 +905,17 @@ namespace GBRead.Base
                         }
                         finally { DebugExitSubRule(3); }
 
-                        DebugLocation(70, 35);
-                        PushFollow(Follow._expression_in_assignment176);
-                        expression6 = expression();
+                        DebugLocation(76, 35);
+                        PushFollow(Follow._expression_in_assignment212);
+                        expression9 = expression();
                         PopFollow();
 
-                        stream_expression.Add(expression6.Tree);
+                        stream_expression.Add(expression9.Tree);
 
 
                         {
                             // AST REWRITE
-                            // elements: expression, ID
+                            // elements: ID, expression
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -569,18 +925,18 @@ namespace GBRead.Base
                             RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
 
                             root_0 = (CommonTree)adaptor.Nil();
-                            // 70:46: -> ^( ASSIGNMENT ID expression )
+                            // 76:46: -> ^( ASSIGNMENT ID expression )
                             {
-                                DebugLocation(70, 49);
-                                // GBX.g:70:49: ^( ASSIGNMENT ID expression )
+                                DebugLocation(76, 49);
+                                // GBX.g:76:49: ^( ASSIGNMENT ID expression )
                                 {
                                     CommonTree root_1 = (CommonTree)adaptor.Nil();
-                                    DebugLocation(70, 51);
+                                    DebugLocation(76, 51);
                                     root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(ASSIGNMENT, "ASSIGNMENT"), root_1);
 
-                                    DebugLocation(70, 62);
+                                    DebugLocation(76, 62);
                                     adaptor.AddChild(root_1, stream_ID.NextNode());
-                                    DebugLocation(70, 65);
+                                    DebugLocation(76, 65);
                                     adaptor.AddChild(root_1, stream_expression.NextTree());
 
                                     adaptor.AddChild(root_0, root_1);
@@ -608,11 +964,11 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("assignment", 2);
-                    LeaveRule("assignment", 2);
+                    TraceOut("assignment", 3);
+                    LeaveRule("assignment", 3);
                     LeaveRule_assignment();
                 }
-                DebugLocation(70, 75);
+                DebugLocation(76, 75);
             }
             finally { DebugExitRule(GrammarFileName, "assignment"); }
             return retval;
@@ -620,41 +976,55 @@ namespace GBRead.Base
         }
         // $ANTLR end "assignment"
 
-        partial void EnterRule_statement();
-        partial void LeaveRule_statement();
+        partial void EnterRule_macro();
+        partial void LeaveRule_macro();
 
-        // $ANTLR start "statement"
-        // GBX.g:72:1: statement : ( label )* ( instruction | data_def ) -> ^( STATEMENT ( label )* ( instruction )? ( data_def )? ) ;
-        [GrammarRule("statement")]
-        private AstParserRuleReturnScope<CommonTree, IToken> statement()
+        // $ANTLR start "macro"
+        // GBX.g:78:1: macro : label MACROSTART ( statement )* MACROEND -> ^( MACRO label ( statement )* ) ;
+        [GrammarRule("macro")]
+        private AstParserRuleReturnScope<CommonTree, IToken> macro()
         {
-            EnterRule_statement();
-            EnterRule("statement", 3);
-            TraceIn("statement", 3);
+            EnterRule_macro();
+            EnterRule("macro", 4);
+            TraceIn("macro", 4);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            AstParserRuleReturnScope<CommonTree, IToken> label7 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> instruction8 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> data_def9 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken MACROSTART11 = default(IToken);
+            IToken MACROEND13 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> label10 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> statement12 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            RewriteRuleSubtreeStream stream_data_def = new RewriteRuleSubtreeStream(adaptor, "rule data_def");
+            CommonTree MACROSTART11_tree = default(CommonTree);
+            CommonTree MACROEND13_tree = default(CommonTree);
+            RewriteRuleITokenStream stream_MACROSTART = new RewriteRuleITokenStream(adaptor, "token MACROSTART");
+            RewriteRuleITokenStream stream_MACROEND = new RewriteRuleITokenStream(adaptor, "token MACROEND");
+            RewriteRuleSubtreeStream stream_statement = new RewriteRuleSubtreeStream(adaptor, "rule statement");
             RewriteRuleSubtreeStream stream_label = new RewriteRuleSubtreeStream(adaptor, "rule label");
-            RewriteRuleSubtreeStream stream_instruction = new RewriteRuleSubtreeStream(adaptor, "rule instruction");
             try
             {
-                DebugEnterRule(GrammarFileName, "statement");
-                DebugLocation(72, 88);
+                DebugEnterRule(GrammarFileName, "macro");
+                DebugLocation(78, 75);
                 try
                 {
-                    // GBX.g:72:12: ( ( label )* ( instruction | data_def ) -> ^( STATEMENT ( label )* ( instruction )? ( data_def )? ) )
+                    // GBX.g:78:9: ( label MACROSTART ( statement )* MACROEND -> ^( MACRO label ( statement )* ) )
                     DebugEnterAlt(1);
-                    // GBX.g:72:14: ( label )* ( instruction | data_def )
+                    // GBX.g:78:11: label MACROSTART ( statement )* MACROEND
                     {
-                        DebugLocation(72, 14);
-                        // GBX.g:72:14: ( label )*
+                        DebugLocation(78, 11);
+                        PushFollow(Follow._label_in_macro232);
+                        label10 = label();
+                        PopFollow();
+
+                        stream_label.Add(label10.Tree);
+                        DebugLocation(78, 17);
+                        MACROSTART11 = (IToken)Match(input, MACROSTART, Follow._MACROSTART_in_macro234);
+                        stream_MACROSTART.Add(MACROSTART11);
+
+                        DebugLocation(78, 28);
+                        // GBX.g:78:28: ( statement )*
                         try
                         {
                             DebugEnterSubRule(4);
@@ -666,7 +1036,7 @@ namespace GBRead.Base
                                     DebugEnterDecision(4, false);
                                     int LA4_0 = input.LA(1);
 
-                                    if ((LA4_0 == ID || LA4_0 == 147))
+                                    if (((LA4_0 >= DB && LA4_0 <= DW) || LA4_0 == ID || (LA4_0 >= INST_ADC && LA4_0 <= INST_XOR) || LA4_0 == 164))
                                     {
                                         alt4 = 1;
                                     }
@@ -678,14 +1048,14 @@ namespace GBRead.Base
                                 {
                                     case 1:
                                         DebugEnterAlt(1);
-                                        // GBX.g:72:14: label
+                                        // GBX.g:78:28: statement
                                         {
-                                            DebugLocation(72, 14);
-                                            PushFollow(Follow._label_in_statement195);
-                                            label7 = label();
+                                            DebugLocation(78, 28);
+                                            PushFollow(Follow._statement_in_macro236);
+                                            statement12 = statement();
                                             PopFollow();
 
-                                            stream_label.Add(label7.Tree);
+                                            stream_statement.Add(statement12.Tree);
 
                                         }
                                         break;
@@ -701,71 +1071,15 @@ namespace GBRead.Base
                         }
                         finally { DebugExitSubRule(4); }
 
-                        DebugLocation(72, 21);
-                        // GBX.g:72:21: ( instruction | data_def )
-                        int alt5 = 2;
-                        try
-                        {
-                            DebugEnterSubRule(5);
-                            try
-                            {
-                                DebugEnterDecision(5, false);
-                                int LA5_0 = input.LA(1);
-
-                                if (((LA5_0 >= INST_ADC && LA5_0 <= INST_XOR)))
-                                {
-                                    alt5 = 1;
-                                }
-                                else if (((LA5_0 >= DB && LA5_0 <= DW)))
-                                {
-                                    alt5 = 2;
-                                }
-                                else
-                                {
-                                    NoViableAltException nvae = new NoViableAltException("", 5, 0, input);
-                                    DebugRecognitionException(nvae);
-                                    throw nvae;
-                                }
-                            }
-                            finally { DebugExitDecision(5); }
-                            switch (alt5)
-                            {
-                                case 1:
-                                    DebugEnterAlt(1);
-                                    // GBX.g:72:22: instruction
-                                    {
-                                        DebugLocation(72, 22);
-                                        PushFollow(Follow._instruction_in_statement199);
-                                        instruction8 = instruction();
-                                        PopFollow();
-
-                                        stream_instruction.Add(instruction8.Tree);
-
-                                    }
-                                    break;
-                                case 2:
-                                    DebugEnterAlt(2);
-                                    // GBX.g:72:34: data_def
-                                    {
-                                        DebugLocation(72, 34);
-                                        PushFollow(Follow._data_def_in_statement201);
-                                        data_def9 = data_def();
-                                        PopFollow();
-
-                                        stream_data_def.Add(data_def9.Tree);
-
-                                    }
-                                    break;
-
-                            }
-                        }
-                        finally { DebugExitSubRule(5); }
+                        DebugLocation(78, 39);
+                        MACROEND13 = (IToken)Match(input, MACROEND, Follow._MACROEND_in_macro239);
+                        stream_MACROEND.Add(MACROEND13);
 
 
 
                         {
                             // AST REWRITE
-                            // elements: instruction, label, data_def
+                            // elements: statement, label
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -775,42 +1089,26 @@ namespace GBRead.Base
                             RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
 
                             root_0 = (CommonTree)adaptor.Nil();
-                            // 72:44: -> ^( STATEMENT ( label )* ( instruction )? ( data_def )? )
+                            // 78:48: -> ^( MACRO label ( statement )* )
                             {
-                                DebugLocation(72, 47);
-                                // GBX.g:72:47: ^( STATEMENT ( label )* ( instruction )? ( data_def )? )
+                                DebugLocation(78, 51);
+                                // GBX.g:78:51: ^( MACRO label ( statement )* )
                                 {
                                     CommonTree root_1 = (CommonTree)adaptor.Nil();
-                                    DebugLocation(72, 49);
-                                    root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(STATEMENT, "STATEMENT"), root_1);
+                                    DebugLocation(78, 53);
+                                    root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(MACRO, "MACRO"), root_1);
 
-                                    DebugLocation(72, 59);
-                                    // GBX.g:72:59: ( label )*
-                                    while (stream_label.HasNext)
+                                    DebugLocation(78, 59);
+                                    adaptor.AddChild(root_1, stream_label.NextTree());
+                                    DebugLocation(78, 65);
+                                    // GBX.g:78:65: ( statement )*
+                                    while (stream_statement.HasNext)
                                     {
-                                        DebugLocation(72, 59);
-                                        adaptor.AddChild(root_1, stream_label.NextTree());
+                                        DebugLocation(78, 65);
+                                        adaptor.AddChild(root_1, stream_statement.NextTree());
 
                                     }
-                                    stream_label.Reset();
-                                    DebugLocation(72, 66);
-                                    // GBX.g:72:66: ( instruction )?
-                                    if (stream_instruction.HasNext)
-                                    {
-                                        DebugLocation(72, 66);
-                                        adaptor.AddChild(root_1, stream_instruction.NextTree());
-
-                                    }
-                                    stream_instruction.Reset();
-                                    DebugLocation(72, 79);
-                                    // GBX.g:72:79: ( data_def )?
-                                    if (stream_data_def.HasNext)
-                                    {
-                                        DebugLocation(72, 79);
-                                        adaptor.AddChild(root_1, stream_data_def.NextTree());
-
-                                    }
-                                    stream_data_def.Reset();
+                                    stream_statement.Reset();
 
                                     adaptor.AddChild(root_0, root_1);
                                 }
@@ -837,100 +1135,313 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("statement", 3);
-                    LeaveRule("statement", 3);
-                    LeaveRule_statement();
+                    TraceOut("macro", 4);
+                    LeaveRule("macro", 4);
+                    LeaveRule_macro();
                 }
-                DebugLocation(72, 88);
+                DebugLocation(78, 75);
             }
-            finally { DebugExitRule(GrammarFileName, "statement"); }
+            finally { DebugExitRule(GrammarFileName, "macro"); }
             return retval;
 
         }
-        // $ANTLR end "statement"
+        // $ANTLR end "macro"
 
-        partial void EnterRule_label();
-        partial void LeaveRule_label();
+        partial void EnterRule_statement();
+        partial void LeaveRule_statement();
 
-        // $ANTLR start "label"
-        // GBX.g:74:1: label : ( global_label | local_label );
-        [GrammarRule("label")]
-        private AstParserRuleReturnScope<CommonTree, IToken> label()
+        // $ANTLR start "statement"
+        // GBX.g:80:1: statement : ( label )* ( instruction | data_def | macro_call ) -> ^( STATEMENT ( label )* ( instruction )? ( data_def )? ( macro_call )? ) ;
+        [GrammarRule("statement")]
+        private AstParserRuleReturnScope<CommonTree, IToken> statement()
         {
-            EnterRule_label();
-            EnterRule("label", 4);
-            TraceIn("label", 4);
+            EnterRule_statement();
+            EnterRule("statement", 5);
+            TraceIn("statement", 5);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            AstParserRuleReturnScope<CommonTree, IToken> global_label10 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> local_label11 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> label14 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> instruction15 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> data_def16 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> macro_call17 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
+            RewriteRuleSubtreeStream stream_data_def = new RewriteRuleSubtreeStream(adaptor, "rule data_def");
+            RewriteRuleSubtreeStream stream_macro_call = new RewriteRuleSubtreeStream(adaptor, "rule macro_call");
+            RewriteRuleSubtreeStream stream_label = new RewriteRuleSubtreeStream(adaptor, "rule label");
+            RewriteRuleSubtreeStream stream_instruction = new RewriteRuleSubtreeStream(adaptor, "rule instruction");
             try
             {
-                DebugEnterRule(GrammarFileName, "label");
-                DebugLocation(74, 17);
+                DebugEnterRule(GrammarFileName, "statement");
+                DebugLocation(80, 111);
                 try
                 {
-                    // GBX.g:74:9: ( global_label | local_label )
-                    int alt6 = 2;
-                    try
+                    // GBX.g:80:12: ( ( label )* ( instruction | data_def | macro_call ) -> ^( STATEMENT ( label )* ( instruction )? ( data_def )? ( macro_call )? ) )
+                    DebugEnterAlt(1);
+                    // GBX.g:80:14: ( label )* ( instruction | data_def | macro_call )
                     {
-                        DebugEnterDecision(6, false);
-                        int LA6_0 = input.LA(1);
-
-                        if ((LA6_0 == ID))
+                        DebugLocation(80, 14);
+                        // GBX.g:80:14: ( label )*
+                        try
                         {
-                            alt6 = 1;
-                        }
-                        else if ((LA6_0 == 147))
-                        {
-                            alt6 = 2;
-                        }
-                        else
-                        {
-                            NoViableAltException nvae = new NoViableAltException("", 6, 0, input);
-                            DebugRecognitionException(nvae);
-                            throw nvae;
-                        }
-                    }
-                    finally { DebugExitDecision(6); }
-                    switch (alt6)
-                    {
-                        case 1:
-                            DebugEnterAlt(1);
-                            // GBX.g:74:11: global_label
+                            DebugEnterSubRule(5);
+                            while (true)
                             {
-                                root_0 = (CommonTree)adaptor.Nil();
+                                int alt5 = 2;
+                                try
+                                {
+                                    DebugEnterDecision(5, false);
+                                    int LA5_0 = input.LA(1);
 
-                                DebugLocation(74, 11);
-                                PushFollow(Follow._global_label_in_label227);
-                                global_label10 = global_label();
-                                PopFollow();
+                                    if ((LA5_0 == ID))
+                                    {
+                                        int LA5_2 = input.LA(2);
 
-                                adaptor.AddChild(root_0, global_label10.Tree);
+                                        if ((LA5_2 == COLON_MARK))
+                                        {
+                                            alt5 = 1;
+                                        }
+
+
+                                    }
+                                    else if ((LA5_0 == 164))
+                                    {
+                                        alt5 = 1;
+                                    }
+
+
+                                }
+                                finally { DebugExitDecision(5); }
+                                switch (alt5)
+                                {
+                                    case 1:
+                                        DebugEnterAlt(1);
+                                        // GBX.g:80:14: label
+                                        {
+                                            DebugLocation(80, 14);
+                                            PushFollow(Follow._label_in_statement259);
+                                            label14 = label();
+                                            PopFollow();
+
+                                            stream_label.Add(label14.Tree);
+
+                                        }
+                                        break;
+
+                                    default:
+                                        goto loop5;
+                                }
+                            }
+
+                        loop5:
+                            ;
+
+                        }
+                        finally { DebugExitSubRule(5); }
+
+                        DebugLocation(80, 21);
+                        // GBX.g:80:21: ( instruction | data_def | macro_call )
+                        int alt6 = 3;
+                        try
+                        {
+                            DebugEnterSubRule(6);
+                            try
+                            {
+                                DebugEnterDecision(6, false);
+                                switch (input.LA(1))
+                                {
+                                    case INST_ADC:
+                                    case INST_ADD:
+                                    case INST_AND:
+                                    case INST_BIT:
+                                    case INST_CALL:
+                                    case INST_CCF:
+                                    case INST_CP:
+                                    case INST_CPL:
+                                    case INST_DAA:
+                                    case INST_DEC:
+                                    case INST_DI:
+                                    case INST_EI:
+                                    case INST_HALT:
+                                    case INST_INC:
+                                    case INST_JP:
+                                    case INST_JR:
+                                    case INST_LD:
+                                    case INST_LDD:
+                                    case INST_LDHL:
+                                    case INST_LDI:
+                                    case INST_LDIO:
+                                    case INST_NOP:
+                                    case INST_OR:
+                                    case INST_POP:
+                                    case INST_PUSH:
+                                    case INST_RES:
+                                    case INST_RET:
+                                    case INST_RETI:
+                                    case INST_RL:
+                                    case INST_RLA:
+                                    case INST_RLC:
+                                    case INST_RLCA:
+                                    case INST_RR:
+                                    case INST_RRA:
+                                    case INST_RRC:
+                                    case INST_RRCA:
+                                    case INST_RST:
+                                    case INST_SBC:
+                                    case INST_SCF:
+                                    case INST_SET:
+                                    case INST_SLA:
+                                    case INST_SRA:
+                                    case INST_SRL:
+                                    case INST_STOP:
+                                    case INST_SUB:
+                                    case INST_SWAP:
+                                    case INST_XOR:
+                                        {
+                                            alt6 = 1;
+                                        }
+                                        break;
+                                    case DB:
+                                    case DD:
+                                    case DQ:
+                                    case DW:
+                                        {
+                                            alt6 = 2;
+                                        }
+                                        break;
+                                    case ID:
+                                        {
+                                            alt6 = 3;
+                                        }
+                                        break;
+                                    default:
+                                        {
+                                            NoViableAltException nvae = new NoViableAltException("", 6, 0, input);
+                                            DebugRecognitionException(nvae);
+                                            throw nvae;
+                                        }
+                                }
 
                             }
-                            break;
-                        case 2:
-                            DebugEnterAlt(2);
-                            // GBX.g:75:7: local_label
+                            finally { DebugExitDecision(6); }
+                            switch (alt6)
                             {
-                                root_0 = (CommonTree)adaptor.Nil();
+                                case 1:
+                                    DebugEnterAlt(1);
+                                    // GBX.g:80:22: instruction
+                                    {
+                                        DebugLocation(80, 22);
+                                        PushFollow(Follow._instruction_in_statement263);
+                                        instruction15 = instruction();
+                                        PopFollow();
 
-                                DebugLocation(75, 7);
-                                PushFollow(Follow._local_label_in_label235);
-                                local_label11 = local_label();
-                                PopFollow();
+                                        stream_instruction.Add(instruction15.Tree);
 
-                                adaptor.AddChild(root_0, local_label11.Tree);
+                                    }
+                                    break;
+                                case 2:
+                                    DebugEnterAlt(2);
+                                    // GBX.g:80:34: data_def
+                                    {
+                                        DebugLocation(80, 34);
+                                        PushFollow(Follow._data_def_in_statement265);
+                                        data_def16 = data_def();
+                                        PopFollow();
+
+                                        stream_data_def.Add(data_def16.Tree);
+
+                                    }
+                                    break;
+                                case 3:
+                                    DebugEnterAlt(3);
+                                    // GBX.g:80:43: macro_call
+                                    {
+                                        DebugLocation(80, 43);
+                                        PushFollow(Follow._macro_call_in_statement267);
+                                        macro_call17 = macro_call();
+                                        PopFollow();
+
+                                        stream_macro_call.Add(macro_call17.Tree);
+
+                                    }
+                                    break;
 
                             }
-                            break;
+                        }
+                        finally { DebugExitSubRule(6); }
+
+
+
+                        {
+                            // AST REWRITE
+                            // elements: data_def, instruction, label, macro_call
+                            // token labels: 
+                            // rule labels: retval
+                            // token list labels: 
+                            // rule list labels: 
+                            // wildcard labels: 
+                            retval.Tree = root_0;
+                            RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
+
+                            root_0 = (CommonTree)adaptor.Nil();
+                            // 80:55: -> ^( STATEMENT ( label )* ( instruction )? ( data_def )? ( macro_call )? )
+                            {
+                                DebugLocation(80, 58);
+                                // GBX.g:80:58: ^( STATEMENT ( label )* ( instruction )? ( data_def )? ( macro_call )? )
+                                {
+                                    CommonTree root_1 = (CommonTree)adaptor.Nil();
+                                    DebugLocation(80, 60);
+                                    root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(STATEMENT, "STATEMENT"), root_1);
+
+                                    DebugLocation(80, 70);
+                                    // GBX.g:80:70: ( label )*
+                                    while (stream_label.HasNext)
+                                    {
+                                        DebugLocation(80, 70);
+                                        adaptor.AddChild(root_1, stream_label.NextTree());
+
+                                    }
+                                    stream_label.Reset();
+                                    DebugLocation(80, 77);
+                                    // GBX.g:80:77: ( instruction )?
+                                    if (stream_instruction.HasNext)
+                                    {
+                                        DebugLocation(80, 77);
+                                        adaptor.AddChild(root_1, stream_instruction.NextTree());
+
+                                    }
+                                    stream_instruction.Reset();
+                                    DebugLocation(80, 90);
+                                    // GBX.g:80:90: ( data_def )?
+                                    if (stream_data_def.HasNext)
+                                    {
+                                        DebugLocation(80, 90);
+                                        adaptor.AddChild(root_1, stream_data_def.NextTree());
+
+                                    }
+                                    stream_data_def.Reset();
+                                    DebugLocation(80, 100);
+                                    // GBX.g:80:100: ( macro_call )?
+                                    if (stream_macro_call.HasNext)
+                                    {
+                                        DebugLocation(80, 100);
+                                        adaptor.AddChild(root_1, stream_macro_call.NextTree());
+
+                                    }
+                                    stream_macro_call.Reset();
+
+                                    adaptor.AddChild(root_0, root_1);
+                                }
+
+                            }
+
+                            retval.Tree = root_0;
+                        }
 
                     }
+
                     retval.Stop = (IToken)input.LT(-1);
 
                     retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
@@ -946,58 +1457,58 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("label", 4);
-                    LeaveRule("label", 4);
-                    LeaveRule_label();
+                    TraceOut("statement", 5);
+                    LeaveRule("statement", 5);
+                    LeaveRule_statement();
                 }
-                DebugLocation(75, 17);
+                DebugLocation(80, 111);
             }
-            finally { DebugExitRule(GrammarFileName, "label"); }
+            finally { DebugExitRule(GrammarFileName, "statement"); }
             return retval;
 
         }
-        // $ANTLR end "label"
+        // $ANTLR end "statement"
 
         partial void EnterRule_global_label();
         partial void LeaveRule_global_label();
 
         // $ANTLR start "global_label"
-        // GBX.g:77:1: global_label : ID ':' -> ^( GLOBAL_LABEL ID ) ;
+        // GBX.g:82:1: global_label : ID ':' -> ^( GLOBAL_LABEL ID ) ;
         [GrammarRule("global_label")]
         private AstParserRuleReturnScope<CommonTree, IToken> global_label()
         {
             EnterRule_global_label();
-            EnterRule("global_label", 5);
-            TraceIn("global_label", 5);
+            EnterRule("global_label", 6);
+            TraceIn("global_label", 6);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken ID12 = default(IToken);
-            IToken char_literal13 = default(IToken);
+            IToken ID18 = default(IToken);
+            IToken char_literal19 = default(IToken);
 
-            CommonTree ID12_tree = default(CommonTree);
-            CommonTree char_literal13_tree = default(CommonTree);
+            CommonTree ID18_tree = default(CommonTree);
+            CommonTree char_literal19_tree = default(CommonTree);
             RewriteRuleITokenStream stream_ID = new RewriteRuleITokenStream(adaptor, "token ID");
             RewriteRuleITokenStream stream_COLON_MARK = new RewriteRuleITokenStream(adaptor, "token COLON_MARK");
             try
             {
                 DebugEnterRule(GrammarFileName, "global_label");
-                DebugLocation(77, 43);
+                DebugLocation(82, 47);
                 try
                 {
-                    // GBX.g:77:14: ( ID ':' -> ^( GLOBAL_LABEL ID ) )
+                    // GBX.g:82:14: ( ID ':' -> ^( GLOBAL_LABEL ID ) )
                     DebugEnterAlt(1);
-                    // GBX.g:77:16: ID ':'
+                    // GBX.g:82:16: ID ':'
                     {
-                        DebugLocation(77, 16);
-                        ID12 = (IToken)Match(input, ID, Follow._ID_in_global_label243);
-                        stream_ID.Add(ID12);
+                        DebugLocation(82, 16);
+                        ID18 = (IToken)Match(input, ID, Follow._ID_in_global_label294);
+                        stream_ID.Add(ID18);
 
-                        DebugLocation(77, 19);
-                        char_literal13 = (IToken)Match(input, COLON_MARK, Follow._COLON_MARK_in_global_label245);
-                        stream_COLON_MARK.Add(char_literal13);
+                        DebugLocation(82, 19);
+                        char_literal19 = (IToken)Match(input, COLON_MARK, Follow._COLON_MARK_in_global_label296);
+                        stream_COLON_MARK.Add(char_literal19);
 
 
 
@@ -1013,16 +1524,16 @@ namespace GBRead.Base
                             RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
 
                             root_0 = (CommonTree)adaptor.Nil();
-                            // 77:23: -> ^( GLOBAL_LABEL ID )
+                            // 82:27: -> ^( GLOBAL_LABEL ID )
                             {
-                                DebugLocation(77, 26);
-                                // GBX.g:77:26: ^( GLOBAL_LABEL ID )
+                                DebugLocation(82, 30);
+                                // GBX.g:82:30: ^( GLOBAL_LABEL ID )
                                 {
                                     CommonTree root_1 = (CommonTree)adaptor.Nil();
-                                    DebugLocation(77, 28);
+                                    DebugLocation(82, 32);
                                     root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(GLOBAL_LABEL, "GLOBAL_LABEL"), root_1);
 
-                                    DebugLocation(77, 41);
+                                    DebugLocation(82, 45);
                                     adaptor.AddChild(root_1, stream_ID.NextNode());
 
                                     adaptor.AddChild(root_0, root_1);
@@ -1050,11 +1561,11 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("global_label", 5);
-                    LeaveRule("global_label", 5);
+                    TraceOut("global_label", 6);
+                    LeaveRule("global_label", 6);
                     LeaveRule_global_label();
                 }
-                DebugLocation(77, 43);
+                DebugLocation(82, 47);
             }
             finally { DebugExitRule(GrammarFileName, "global_label"); }
             return retval;
@@ -1066,48 +1577,86 @@ namespace GBRead.Base
         partial void LeaveRule_local_label();
 
         // $ANTLR start "local_label"
-        // GBX.g:78:1: local_label : '.' ID -> ^( LOCAL_LABEL ID ) ;
+        // GBX.g:83:1: local_label : '.' ID ( LOC_LABEL_RAND )? -> ^( LOCAL_LABEL ID ( LOC_LABEL_RAND )? ) ;
         [GrammarRule("local_label")]
         private AstParserRuleReturnScope<CommonTree, IToken> local_label()
         {
             EnterRule_local_label();
-            EnterRule("local_label", 6);
-            TraceIn("local_label", 6);
+            EnterRule("local_label", 7);
+            TraceIn("local_label", 7);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken char_literal14 = default(IToken);
-            IToken ID15 = default(IToken);
+            IToken char_literal20 = default(IToken);
+            IToken ID21 = default(IToken);
+            IToken LOC_LABEL_RAND22 = default(IToken);
 
-            CommonTree char_literal14_tree = default(CommonTree);
-            CommonTree ID15_tree = default(CommonTree);
-            RewriteRuleITokenStream stream_147 = new RewriteRuleITokenStream(adaptor, "token 147");
+            CommonTree char_literal20_tree = default(CommonTree);
+            CommonTree ID21_tree = default(CommonTree);
+            CommonTree LOC_LABEL_RAND22_tree = default(CommonTree);
+            RewriteRuleITokenStream stream_164 = new RewriteRuleITokenStream(adaptor, "token 164");
+            RewriteRuleITokenStream stream_LOC_LABEL_RAND = new RewriteRuleITokenStream(adaptor, "token LOC_LABEL_RAND");
             RewriteRuleITokenStream stream_ID = new RewriteRuleITokenStream(adaptor, "token ID");
             try
             {
                 DebugEnterRule(GrammarFileName, "local_label");
-                DebugLocation(78, 42);
+                DebugLocation(83, 74);
                 try
                 {
-                    // GBX.g:78:14: ( '.' ID -> ^( LOCAL_LABEL ID ) )
+                    // GBX.g:83:14: ( '.' ID ( LOC_LABEL_RAND )? -> ^( LOCAL_LABEL ID ( LOC_LABEL_RAND )? ) )
                     DebugEnterAlt(1);
-                    // GBX.g:78:16: '.' ID
+                    // GBX.g:83:16: '.' ID ( LOC_LABEL_RAND )?
                     {
-                        DebugLocation(78, 16);
-                        char_literal14 = (IToken)Match(input, 147, Follow._147_in_local_label261);
-                        stream_147.Add(char_literal14);
+                        DebugLocation(83, 16);
+                        char_literal20 = (IToken)Match(input, 164, Follow._164_in_local_label316);
+                        stream_164.Add(char_literal20);
 
-                        DebugLocation(78, 20);
-                        ID15 = (IToken)Match(input, ID, Follow._ID_in_local_label263);
-                        stream_ID.Add(ID15);
+                        DebugLocation(83, 20);
+                        ID21 = (IToken)Match(input, ID, Follow._ID_in_local_label318);
+                        stream_ID.Add(ID21);
+
+                        DebugLocation(83, 23);
+                        // GBX.g:83:23: ( LOC_LABEL_RAND )?
+                        int alt7 = 2;
+                        try
+                        {
+                            DebugEnterSubRule(7);
+                            try
+                            {
+                                DebugEnterDecision(7, false);
+                                int LA7_0 = input.LA(1);
+
+                                if ((LA7_0 == LOC_LABEL_RAND))
+                                {
+                                    alt7 = 1;
+                                }
+                            }
+                            finally { DebugExitDecision(7); }
+                            switch (alt7)
+                            {
+                                case 1:
+                                    DebugEnterAlt(1);
+                                    // GBX.g:83:23: LOC_LABEL_RAND
+                                    {
+                                        DebugLocation(83, 23);
+                                        LOC_LABEL_RAND22 = (IToken)Match(input, LOC_LABEL_RAND, Follow._LOC_LABEL_RAND_in_local_label320);
+                                        stream_LOC_LABEL_RAND.Add(LOC_LABEL_RAND22);
+
+
+                                    }
+                                    break;
+
+                            }
+                        }
+                        finally { DebugExitSubRule(7); }
 
 
 
                         {
                             // AST REWRITE
-                            // elements: ID
+                            // elements: ID, LOC_LABEL_RAND
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -1117,17 +1666,26 @@ namespace GBRead.Base
                             RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
 
                             root_0 = (CommonTree)adaptor.Nil();
-                            // 78:23: -> ^( LOCAL_LABEL ID )
+                            // 83:39: -> ^( LOCAL_LABEL ID ( LOC_LABEL_RAND )? )
                             {
-                                DebugLocation(78, 26);
-                                // GBX.g:78:26: ^( LOCAL_LABEL ID )
+                                DebugLocation(83, 42);
+                                // GBX.g:83:42: ^( LOCAL_LABEL ID ( LOC_LABEL_RAND )? )
                                 {
                                     CommonTree root_1 = (CommonTree)adaptor.Nil();
-                                    DebugLocation(78, 28);
+                                    DebugLocation(83, 44);
                                     root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(LOCAL_LABEL, "LOCAL_LABEL"), root_1);
 
-                                    DebugLocation(78, 40);
+                                    DebugLocation(83, 56);
                                     adaptor.AddChild(root_1, stream_ID.NextNode());
+                                    DebugLocation(83, 59);
+                                    // GBX.g:83:59: ( LOC_LABEL_RAND )?
+                                    if (stream_LOC_LABEL_RAND.HasNext)
+                                    {
+                                        DebugLocation(83, 59);
+                                        adaptor.AddChild(root_1, stream_LOC_LABEL_RAND.NextNode());
+
+                                    }
+                                    stream_LOC_LABEL_RAND.Reset();
 
                                     adaptor.AddChild(root_0, root_1);
                                 }
@@ -1154,11 +1712,11 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("local_label", 6);
-                    LeaveRule("local_label", 6);
+                    TraceOut("local_label", 7);
+                    LeaveRule("local_label", 7);
                     LeaveRule_local_label();
                 }
-                DebugLocation(78, 42);
+                DebugLocation(83, 74);
             }
             finally { DebugExitRule(GrammarFileName, "local_label"); }
             return retval;
@@ -1170,45 +1728,45 @@ namespace GBRead.Base
         partial void LeaveRule_data_def();
 
         // $ANTLR start "data_def"
-        // GBX.g:80:1: data_def : ( DB | DW | DD | DQ ) ^ expression ( COMMA ! expression )* ;
+        // GBX.g:85:1: data_def : ( DB | DW | DD | DQ ) ^ ( expression ( COMMA ! expression )* )? ;
         [GrammarRule("data_def")]
         private AstParserRuleReturnScope<CommonTree, IToken> data_def()
         {
             EnterRule_data_def();
-            EnterRule("data_def", 7);
-            TraceIn("data_def", 7);
+            EnterRule("data_def", 8);
+            TraceIn("data_def", 8);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken set16 = default(IToken);
-            IToken COMMA18 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> expression17 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> expression19 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken set23 = default(IToken);
+            IToken COMMA25 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> expression24 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> expression26 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree set16_tree = default(CommonTree);
-            CommonTree COMMA18_tree = default(CommonTree);
+            CommonTree set23_tree = default(CommonTree);
+            CommonTree COMMA25_tree = default(CommonTree);
             try
             {
                 DebugEnterRule(GrammarFileName, "data_def");
-                DebugLocation(80, 57);
+                DebugLocation(85, 60);
                 try
                 {
-                    // GBX.g:80:11: ( ( DB | DW | DD | DQ ) ^ expression ( COMMA ! expression )* )
+                    // GBX.g:85:11: ( ( DB | DW | DD | DQ ) ^ ( expression ( COMMA ! expression )* )? )
                     DebugEnterAlt(1);
-                    // GBX.g:80:13: ( DB | DW | DD | DQ ) ^ expression ( COMMA ! expression )*
+                    // GBX.g:85:13: ( DB | DW | DD | DQ ) ^ ( expression ( COMMA ! expression )* )?
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(80, 26);
+                        DebugLocation(85, 26);
 
-                        set16 = (IToken)input.LT(1);
-                        set16 = (IToken)input.LT(1);
+                        set23 = (IToken)input.LT(1);
+                        set23 = (IToken)input.LT(1);
                         if ((input.LA(1) >= DB && input.LA(1) <= DW))
                         {
                             input.Consume();
-                            root_0 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(set16), root_0);
+                            root_0 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(set23), root_0);
                             state.errorRecovery = false;
                         }
                         else
@@ -1218,61 +1776,96 @@ namespace GBRead.Base
                             throw mse;
                         }
 
-                        DebugLocation(80, 28);
-                        PushFollow(Follow._expression_in_data_def291);
-                        expression17 = expression();
-                        PopFollow();
-
-                        adaptor.AddChild(root_0, expression17.Tree);
-                        DebugLocation(80, 38);
-                        // GBX.g:80:38: ( COMMA ! expression )*
+                        DebugLocation(85, 28);
+                        // GBX.g:85:28: ( expression ( COMMA ! expression )* )?
+                        int alt9 = 2;
                         try
                         {
-                            DebugEnterSubRule(7);
-                            while (true)
+                            DebugEnterSubRule(9);
+                            try
                             {
-                                int alt7 = 2;
-                                try
+                                DebugEnterDecision(9, false);
+                                int LA9_0 = input.LA(1);
+
+                                if (((LA9_0 >= M_ARG1 && LA9_0 <= M_ARG9)))
                                 {
-                                    DebugEnterDecision(7, false);
-                                    int LA7_0 = input.LA(1);
-
-                                    if ((LA7_0 == COMMA))
-                                    {
-                                        alt7 = 1;
-                                    }
-
-
+                                    alt9 = 1;
                                 }
-                                finally { DebugExitDecision(7); }
-                                switch (alt7)
+                                else if ((LA9_0 == BANG_MARK || LA9_0 == ID || LA9_0 == LEFT_PARENS || LA9_0 == MINUS_MARK || LA9_0 == NUMBER || LA9_0 == TILDE_MARK))
                                 {
-                                    case 1:
-                                        DebugEnterAlt(1);
-                                        // GBX.g:80:39: COMMA ! expression
-                                        {
-                                            DebugLocation(80, 44);
-                                            COMMA18 = (IToken)Match(input, COMMA, Follow._COMMA_in_data_def293);
-                                            DebugLocation(80, 46);
-                                            PushFollow(Follow._expression_in_data_def296);
-                                            expression19 = expression();
-                                            PopFollow();
-
-                                            adaptor.AddChild(root_0, expression19.Tree);
-
-                                        }
-                                        break;
-
-                                    default:
-                                        goto loop7;
+                                    alt9 = 1;
                                 }
                             }
+                            finally { DebugExitDecision(9); }
+                            switch (alt9)
+                            {
+                                case 1:
+                                    DebugEnterAlt(1);
+                                    // GBX.g:85:29: expression ( COMMA ! expression )*
+                                    {
+                                        DebugLocation(85, 29);
+                                        PushFollow(Follow._expression_in_data_def353);
+                                        expression24 = expression();
+                                        PopFollow();
 
-                        loop7:
-                            ;
+                                        adaptor.AddChild(root_0, expression24.Tree);
+                                        DebugLocation(85, 39);
+                                        // GBX.g:85:39: ( COMMA ! expression )*
+                                        try
+                                        {
+                                            DebugEnterSubRule(8);
+                                            while (true)
+                                            {
+                                                int alt8 = 2;
+                                                try
+                                                {
+                                                    DebugEnterDecision(8, false);
+                                                    int LA8_0 = input.LA(1);
 
+                                                    if ((LA8_0 == COMMA))
+                                                    {
+                                                        alt8 = 1;
+                                                    }
+
+
+                                                }
+                                                finally { DebugExitDecision(8); }
+                                                switch (alt8)
+                                                {
+                                                    case 1:
+                                                        DebugEnterAlt(1);
+                                                        // GBX.g:85:40: COMMA ! expression
+                                                        {
+                                                            DebugLocation(85, 45);
+                                                            COMMA25 = (IToken)Match(input, COMMA, Follow._COMMA_in_data_def355);
+                                                            DebugLocation(85, 47);
+                                                            PushFollow(Follow._expression_in_data_def358);
+                                                            expression26 = expression();
+                                                            PopFollow();
+
+                                                            adaptor.AddChild(root_0, expression26.Tree);
+
+                                                        }
+                                                        break;
+
+                                                    default:
+                                                        goto loop8;
+                                                }
+                                            }
+
+                                        loop8:
+                                            ;
+
+                                        }
+                                        finally { DebugExitSubRule(8); }
+
+
+                                    }
+                                    break;
+
+                            }
                         }
-                        finally { DebugExitSubRule(7); }
+                        finally { DebugExitSubRule(9); }
 
 
                     }
@@ -1292,11 +1885,11 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("data_def", 7);
-                    LeaveRule("data_def", 7);
+                    TraceOut("data_def", 8);
+                    LeaveRule("data_def", 8);
                     LeaveRule_data_def();
                 }
-                DebugLocation(80, 57);
+                DebugLocation(85, 60);
             }
             finally { DebugExitRule(GrammarFileName, "data_def"); }
             return retval;
@@ -1304,1032 +1897,1237 @@ namespace GBRead.Base
         }
         // $ANTLR end "data_def"
 
-        partial void EnterRule_instruction();
-        partial void LeaveRule_instruction();
+        partial void EnterRule_macro_call();
+        partial void LeaveRule_macro_call();
 
-        // $ANTLR start "instruction"
-        // GBX.g:82:1: instruction : ( op_adc | op_add | op_and | op_bit | op_call | op_ccf | op_cp | op_cpl | op_daa | op_dec | op_di | op_ei | op_halt | op_inc | op_jp | op_jr | op_ldhl | op_ldio | op_ldd | op_ldi | op_ld | op_nop | op_or | op_pop | op_push | op_res | op_ret | op_reti | op_rl | op_rla | op_rlc | op_rlca | op_rr | op_rra | op_rrc | op_rrca | op_rst | op_sbc | op_scf | op_set | op_sla | op_sra | op_srl | op_stop | op_sub | op_swap | op_xor );
-        [GrammarRule("instruction")]
-        private AstParserRuleReturnScope<CommonTree, IToken> instruction()
+        // $ANTLR start "macro_call"
+        // GBX.g:87:1: macro_call : ID ( expression ( COMMA expression )* )? -> ^( MACRO_CALL ID ( expression )* ) ;
+        [GrammarRule("macro_call")]
+        private AstParserRuleReturnScope<CommonTree, IToken> macro_call()
         {
-            EnterRule_instruction();
-            EnterRule("instruction", 8);
-            TraceIn("instruction", 8);
+            EnterRule_macro_call();
+            EnterRule("macro_call", 9);
+            TraceIn("macro_call", 9);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            AstParserRuleReturnScope<CommonTree, IToken> op_adc20 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_add21 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_and22 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_bit23 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_call24 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_ccf25 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_cp26 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_cpl27 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_daa28 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_dec29 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_di30 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_ei31 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_halt32 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_inc33 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_jp34 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_jr35 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_ldhl36 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_ldio37 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_ldd38 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_ldi39 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_ld40 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_nop41 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_or42 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_pop43 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_push44 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_res45 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_ret46 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_reti47 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_rl48 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_rla49 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_rlc50 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_rlca51 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_rr52 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_rra53 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_rrc54 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_rrca55 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_rst56 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_sbc57 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_scf58 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_set59 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_sla60 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_sra61 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_srl62 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_stop63 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_sub64 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_swap65 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> op_xor66 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken ID27 = default(IToken);
+            IToken COMMA29 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> expression28 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> expression30 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+
+            CommonTree ID27_tree = default(CommonTree);
+            CommonTree COMMA29_tree = default(CommonTree);
+            RewriteRuleITokenStream stream_ID = new RewriteRuleITokenStream(adaptor, "token ID");
+            RewriteRuleITokenStream stream_COMMA = new RewriteRuleITokenStream(adaptor, "token COMMA");
+            RewriteRuleSubtreeStream stream_expression = new RewriteRuleSubtreeStream(adaptor, "rule expression");
+            try
+            {
+                DebugEnterRule(GrammarFileName, "macro_call");
+                DebugLocation(87, 82);
+                try
+                {
+                    // GBX.g:87:13: ( ID ( expression ( COMMA expression )* )? -> ^( MACRO_CALL ID ( expression )* ) )
+                    DebugEnterAlt(1);
+                    // GBX.g:87:15: ID ( expression ( COMMA expression )* )?
+                    {
+                        DebugLocation(87, 15);
+                        ID27 = (IToken)Match(input, ID, Follow._ID_in_macro_call371);
+                        stream_ID.Add(ID27);
+
+                        DebugLocation(87, 18);
+                        // GBX.g:87:18: ( expression ( COMMA expression )* )?
+                        int alt11 = 2;
+                        try
+                        {
+                            DebugEnterSubRule(11);
+                            try
+                            {
+                                DebugEnterDecision(11, false);
+                                int LA11_0 = input.LA(1);
+
+                                if (((LA11_0 >= M_ARG1 && LA11_0 <= M_ARG9)))
+                                {
+                                    alt11 = 1;
+                                }
+                                else if ((LA11_0 == BANG_MARK || LA11_0 == ID || LA11_0 == LEFT_PARENS || LA11_0 == MINUS_MARK || LA11_0 == NUMBER || LA11_0 == TILDE_MARK))
+                                {
+                                    alt11 = 1;
+                                }
+                            }
+                            finally { DebugExitDecision(11); }
+                            switch (alt11)
+                            {
+                                case 1:
+                                    DebugEnterAlt(1);
+                                    // GBX.g:87:19: expression ( COMMA expression )*
+                                    {
+                                        DebugLocation(87, 19);
+                                        PushFollow(Follow._expression_in_macro_call374);
+                                        expression28 = expression();
+                                        PopFollow();
+
+                                        stream_expression.Add(expression28.Tree);
+                                        DebugLocation(87, 30);
+                                        // GBX.g:87:30: ( COMMA expression )*
+                                        try
+                                        {
+                                            DebugEnterSubRule(10);
+                                            while (true)
+                                            {
+                                                int alt10 = 2;
+                                                try
+                                                {
+                                                    DebugEnterDecision(10, false);
+                                                    int LA10_0 = input.LA(1);
+
+                                                    if ((LA10_0 == COMMA))
+                                                    {
+                                                        alt10 = 1;
+                                                    }
+
+
+                                                }
+                                                finally { DebugExitDecision(10); }
+                                                switch (alt10)
+                                                {
+                                                    case 1:
+                                                        DebugEnterAlt(1);
+                                                        // GBX.g:87:31: COMMA expression
+                                                        {
+                                                            DebugLocation(87, 31);
+                                                            COMMA29 = (IToken)Match(input, COMMA, Follow._COMMA_in_macro_call377);
+                                                            stream_COMMA.Add(COMMA29);
+
+                                                            DebugLocation(87, 37);
+                                                            PushFollow(Follow._expression_in_macro_call379);
+                                                            expression30 = expression();
+                                                            PopFollow();
+
+                                                            stream_expression.Add(expression30.Tree);
+
+                                                        }
+                                                        break;
+
+                                                    default:
+                                                        goto loop10;
+                                                }
+                                            }
+
+                                        loop10:
+                                            ;
+
+                                        }
+                                        finally { DebugExitSubRule(10); }
+
+
+                                    }
+                                    break;
+
+                            }
+                        }
+                        finally { DebugExitSubRule(11); }
+
+
+
+                        {
+                            // AST REWRITE
+                            // elements: ID, expression
+                            // token labels: 
+                            // rule labels: retval
+                            // token list labels: 
+                            // rule list labels: 
+                            // wildcard labels: 
+                            retval.Tree = root_0;
+                            RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
+
+                            root_0 = (CommonTree)adaptor.Nil();
+                            // 87:52: -> ^( MACRO_CALL ID ( expression )* )
+                            {
+                                DebugLocation(87, 55);
+                                // GBX.g:87:55: ^( MACRO_CALL ID ( expression )* )
+                                {
+                                    CommonTree root_1 = (CommonTree)adaptor.Nil();
+                                    DebugLocation(87, 57);
+                                    root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(MACRO_CALL, "MACRO_CALL"), root_1);
+
+                                    DebugLocation(87, 68);
+                                    adaptor.AddChild(root_1, stream_ID.NextNode());
+                                    DebugLocation(87, 71);
+                                    // GBX.g:87:71: ( expression )*
+                                    while (stream_expression.HasNext)
+                                    {
+                                        DebugLocation(87, 71);
+                                        adaptor.AddChild(root_1, stream_expression.NextTree());
+
+                                    }
+                                    stream_expression.Reset();
+
+                                    adaptor.AddChild(root_0, root_1);
+                                }
+
+                            }
+
+                            retval.Tree = root_0;
+                        }
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("macro_call", 9);
+                    LeaveRule("macro_call", 9);
+                    LeaveRule_macro_call();
+                }
+                DebugLocation(87, 82);
+            }
+            finally { DebugExitRule(GrammarFileName, "macro_call"); }
+            return retval;
+
+        }
+        // $ANTLR end "macro_call"
+
+        partial void EnterRule_instruction();
+        partial void LeaveRule_instruction();
+
+        // $ANTLR start "instruction"
+        // GBX.g:89:1: instruction : ( op_adc | op_add | op_and | op_bit | op_call | op_ccf | op_cp | op_cpl | op_daa | op_dec | op_di | op_ei | op_halt | op_inc | op_jp | op_jr | op_ldhl | op_ldio | op_ldd | op_ldi | op_ld | op_nop | op_or | op_pop | op_push | op_res | op_ret | op_reti | op_rl | op_rla | op_rlc | op_rlca | op_rr | op_rra | op_rrc | op_rrca | op_rst | op_sbc | op_scf | op_set | op_sla | op_sra | op_srl | op_stop | op_sub | op_swap | op_xor );
+        [GrammarRule("instruction")]
+        private AstParserRuleReturnScope<CommonTree, IToken> instruction()
+        {
+            EnterRule_instruction();
+            EnterRule("instruction", 10);
+            TraceIn("instruction", 10);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            AstParserRuleReturnScope<CommonTree, IToken> op_adc31 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_add32 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_and33 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_bit34 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_call35 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_ccf36 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_cp37 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_cpl38 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_daa39 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_dec40 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_di41 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_ei42 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_halt43 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_inc44 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_jp45 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_jr46 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_ldhl47 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_ldio48 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_ldd49 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_ldi50 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_ld51 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_nop52 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_or53 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_pop54 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_push55 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_res56 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_ret57 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_reti58 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_rl59 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_rla60 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_rlc61 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_rlca62 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_rr63 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_rra64 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_rrc65 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_rrca66 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_rst67 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_sbc68 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_scf69 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_set70 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_sla71 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_sra72 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_srl73 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_stop74 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_sub75 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_swap76 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> op_xor77 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
             try
             {
                 DebugEnterRule(GrammarFileName, "instruction");
-                DebugLocation(82, 13);
+                DebugLocation(89, 13);
                 try
                 {
-                    // GBX.g:82:14: ( op_adc | op_add | op_and | op_bit | op_call | op_ccf | op_cp | op_cpl | op_daa | op_dec | op_di | op_ei | op_halt | op_inc | op_jp | op_jr | op_ldhl | op_ldio | op_ldd | op_ldi | op_ld | op_nop | op_or | op_pop | op_push | op_res | op_ret | op_reti | op_rl | op_rla | op_rlc | op_rlca | op_rr | op_rra | op_rrc | op_rrca | op_rst | op_sbc | op_scf | op_set | op_sla | op_sra | op_srl | op_stop | op_sub | op_swap | op_xor )
-                    int alt8 = 47;
+                    // GBX.g:89:14: ( op_adc | op_add | op_and | op_bit | op_call | op_ccf | op_cp | op_cpl | op_daa | op_dec | op_di | op_ei | op_halt | op_inc | op_jp | op_jr | op_ldhl | op_ldio | op_ldd | op_ldi | op_ld | op_nop | op_or | op_pop | op_push | op_res | op_ret | op_reti | op_rl | op_rla | op_rlc | op_rlca | op_rr | op_rra | op_rrc | op_rrca | op_rst | op_sbc | op_scf | op_set | op_sla | op_sra | op_srl | op_stop | op_sub | op_swap | op_xor )
+                    int alt12 = 47;
                     try
                     {
-                        DebugEnterDecision(8, false);
+                        DebugEnterDecision(12, false);
                         switch (input.LA(1))
                         {
                             case INST_ADC:
                                 {
-                                    alt8 = 1;
+                                    alt12 = 1;
                                 }
                                 break;
                             case INST_ADD:
                                 {
-                                    alt8 = 2;
+                                    alt12 = 2;
                                 }
                                 break;
                             case INST_AND:
                                 {
-                                    alt8 = 3;
+                                    alt12 = 3;
                                 }
                                 break;
                             case INST_BIT:
                                 {
-                                    alt8 = 4;
+                                    alt12 = 4;
                                 }
                                 break;
                             case INST_CALL:
                                 {
-                                    alt8 = 5;
+                                    alt12 = 5;
                                 }
                                 break;
                             case INST_CCF:
                                 {
-                                    alt8 = 6;
+                                    alt12 = 6;
                                 }
                                 break;
                             case INST_CP:
                                 {
-                                    alt8 = 7;
+                                    alt12 = 7;
                                 }
                                 break;
                             case INST_CPL:
                                 {
-                                    alt8 = 8;
+                                    alt12 = 8;
                                 }
                                 break;
                             case INST_DAA:
                                 {
-                                    alt8 = 9;
+                                    alt12 = 9;
                                 }
                                 break;
                             case INST_DEC:
                                 {
-                                    alt8 = 10;
+                                    alt12 = 10;
                                 }
                                 break;
                             case INST_DI:
                                 {
-                                    alt8 = 11;
+                                    alt12 = 11;
                                 }
                                 break;
                             case INST_EI:
                                 {
-                                    alt8 = 12;
+                                    alt12 = 12;
                                 }
                                 break;
                             case INST_HALT:
                                 {
-                                    alt8 = 13;
+                                    alt12 = 13;
                                 }
                                 break;
                             case INST_INC:
                                 {
-                                    alt8 = 14;
+                                    alt12 = 14;
                                 }
                                 break;
                             case INST_JP:
                                 {
-                                    alt8 = 15;
+                                    alt12 = 15;
                                 }
                                 break;
                             case INST_JR:
                                 {
-                                    alt8 = 16;
+                                    alt12 = 16;
                                 }
                                 break;
                             case INST_LDHL:
                                 {
-                                    alt8 = 17;
+                                    alt12 = 17;
                                 }
                                 break;
                             case INST_LDIO:
                                 {
-                                    alt8 = 18;
+                                    alt12 = 18;
                                 }
                                 break;
                             case INST_LDD:
                                 {
-                                    alt8 = 19;
+                                    alt12 = 19;
                                 }
                                 break;
                             case INST_LDI:
                                 {
-                                    alt8 = 20;
+                                    alt12 = 20;
                                 }
                                 break;
                             case INST_LD:
                                 {
-                                    alt8 = 21;
+                                    alt12 = 21;
                                 }
                                 break;
                             case INST_NOP:
                                 {
-                                    alt8 = 22;
+                                    alt12 = 22;
                                 }
                                 break;
                             case INST_OR:
                                 {
-                                    alt8 = 23;
+                                    alt12 = 23;
                                 }
                                 break;
                             case INST_POP:
                                 {
-                                    alt8 = 24;
+                                    alt12 = 24;
                                 }
                                 break;
                             case INST_PUSH:
                                 {
-                                    alt8 = 25;
+                                    alt12 = 25;
                                 }
                                 break;
                             case INST_RES:
                                 {
-                                    alt8 = 26;
+                                    alt12 = 26;
                                 }
                                 break;
                             case INST_RET:
                                 {
-                                    alt8 = 27;
+                                    alt12 = 27;
                                 }
                                 break;
                             case INST_RETI:
                                 {
-                                    alt8 = 28;
+                                    alt12 = 28;
                                 }
                                 break;
                             case INST_RL:
                                 {
-                                    alt8 = 29;
+                                    alt12 = 29;
                                 }
                                 break;
                             case INST_RLA:
                                 {
-                                    alt8 = 30;
+                                    alt12 = 30;
                                 }
                                 break;
                             case INST_RLC:
                                 {
-                                    alt8 = 31;
+                                    alt12 = 31;
                                 }
                                 break;
                             case INST_RLCA:
                                 {
-                                    alt8 = 32;
+                                    alt12 = 32;
                                 }
                                 break;
                             case INST_RR:
                                 {
-                                    alt8 = 33;
+                                    alt12 = 33;
                                 }
                                 break;
                             case INST_RRA:
                                 {
-                                    alt8 = 34;
+                                    alt12 = 34;
                                 }
                                 break;
                             case INST_RRC:
                                 {
-                                    alt8 = 35;
+                                    alt12 = 35;
                                 }
                                 break;
                             case INST_RRCA:
                                 {
-                                    alt8 = 36;
+                                    alt12 = 36;
                                 }
                                 break;
                             case INST_RST:
                                 {
-                                    alt8 = 37;
+                                    alt12 = 37;
                                 }
                                 break;
                             case INST_SBC:
                                 {
-                                    alt8 = 38;
+                                    alt12 = 38;
                                 }
                                 break;
                             case INST_SCF:
                                 {
-                                    alt8 = 39;
+                                    alt12 = 39;
                                 }
                                 break;
                             case INST_SET:
                                 {
-                                    alt8 = 40;
+                                    alt12 = 40;
                                 }
                                 break;
                             case INST_SLA:
                                 {
-                                    alt8 = 41;
+                                    alt12 = 41;
                                 }
                                 break;
                             case INST_SRA:
                                 {
-                                    alt8 = 42;
+                                    alt12 = 42;
                                 }
                                 break;
                             case INST_SRL:
                                 {
-                                    alt8 = 43;
+                                    alt12 = 43;
                                 }
                                 break;
                             case INST_STOP:
                                 {
-                                    alt8 = 44;
+                                    alt12 = 44;
                                 }
                                 break;
                             case INST_SUB:
                                 {
-                                    alt8 = 45;
+                                    alt12 = 45;
                                 }
                                 break;
                             case INST_SWAP:
                                 {
-                                    alt8 = 46;
+                                    alt12 = 46;
                                 }
                                 break;
                             case INST_XOR:
                                 {
-                                    alt8 = 47;
+                                    alt12 = 47;
                                 }
                                 break;
                             default:
                                 {
-                                    NoViableAltException nvae = new NoViableAltException("", 8, 0, input);
+                                    NoViableAltException nvae = new NoViableAltException("", 12, 0, input);
                                     DebugRecognitionException(nvae);
                                     throw nvae;
                                 }
                         }
 
                     }
-                    finally { DebugExitDecision(8); }
-                    switch (alt8)
+                    finally { DebugExitDecision(12); }
+                    switch (alt12)
                     {
                         case 1:
                             DebugEnterAlt(1);
-                            // GBX.g:82:16: op_adc
+                            // GBX.g:89:16: op_adc
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(82, 16);
-                                PushFollow(Follow._op_adc_in_instruction307);
-                                op_adc20 = op_adc();
+                                DebugLocation(89, 16);
+                                PushFollow(Follow._op_adc_in_instruction403);
+                                op_adc31 = op_adc();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_adc20.Tree);
+                                adaptor.AddChild(root_0, op_adc31.Tree);
 
                             }
                             break;
                         case 2:
                             DebugEnterAlt(2);
-                            // GBX.g:83:7: op_add
+                            // GBX.g:90:7: op_add
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(83, 7);
-                                PushFollow(Follow._op_add_in_instruction315);
-                                op_add21 = op_add();
+                                DebugLocation(90, 7);
+                                PushFollow(Follow._op_add_in_instruction411);
+                                op_add32 = op_add();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_add21.Tree);
+                                adaptor.AddChild(root_0, op_add32.Tree);
 
                             }
                             break;
                         case 3:
                             DebugEnterAlt(3);
-                            // GBX.g:84:7: op_and
+                            // GBX.g:91:7: op_and
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(84, 7);
-                                PushFollow(Follow._op_and_in_instruction323);
-                                op_and22 = op_and();
+                                DebugLocation(91, 7);
+                                PushFollow(Follow._op_and_in_instruction419);
+                                op_and33 = op_and();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_and22.Tree);
+                                adaptor.AddChild(root_0, op_and33.Tree);
 
                             }
                             break;
                         case 4:
                             DebugEnterAlt(4);
-                            // GBX.g:85:7: op_bit
+                            // GBX.g:92:7: op_bit
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(85, 7);
-                                PushFollow(Follow._op_bit_in_instruction331);
-                                op_bit23 = op_bit();
+                                DebugLocation(92, 7);
+                                PushFollow(Follow._op_bit_in_instruction427);
+                                op_bit34 = op_bit();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_bit23.Tree);
+                                adaptor.AddChild(root_0, op_bit34.Tree);
 
                             }
                             break;
                         case 5:
                             DebugEnterAlt(5);
-                            // GBX.g:86:7: op_call
+                            // GBX.g:93:7: op_call
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(86, 7);
-                                PushFollow(Follow._op_call_in_instruction339);
-                                op_call24 = op_call();
+                                DebugLocation(93, 7);
+                                PushFollow(Follow._op_call_in_instruction435);
+                                op_call35 = op_call();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_call24.Tree);
+                                adaptor.AddChild(root_0, op_call35.Tree);
 
                             }
                             break;
                         case 6:
                             DebugEnterAlt(6);
-                            // GBX.g:87:7: op_ccf
+                            // GBX.g:94:7: op_ccf
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(87, 7);
-                                PushFollow(Follow._op_ccf_in_instruction347);
-                                op_ccf25 = op_ccf();
+                                DebugLocation(94, 7);
+                                PushFollow(Follow._op_ccf_in_instruction443);
+                                op_ccf36 = op_ccf();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_ccf25.Tree);
+                                adaptor.AddChild(root_0, op_ccf36.Tree);
 
                             }
                             break;
                         case 7:
                             DebugEnterAlt(7);
-                            // GBX.g:88:7: op_cp
+                            // GBX.g:95:7: op_cp
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(88, 7);
-                                PushFollow(Follow._op_cp_in_instruction355);
-                                op_cp26 = op_cp();
+                                DebugLocation(95, 7);
+                                PushFollow(Follow._op_cp_in_instruction451);
+                                op_cp37 = op_cp();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_cp26.Tree);
+                                adaptor.AddChild(root_0, op_cp37.Tree);
 
                             }
                             break;
                         case 8:
                             DebugEnterAlt(8);
-                            // GBX.g:89:7: op_cpl
+                            // GBX.g:96:7: op_cpl
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(89, 7);
-                                PushFollow(Follow._op_cpl_in_instruction363);
-                                op_cpl27 = op_cpl();
+                                DebugLocation(96, 7);
+                                PushFollow(Follow._op_cpl_in_instruction459);
+                                op_cpl38 = op_cpl();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_cpl27.Tree);
+                                adaptor.AddChild(root_0, op_cpl38.Tree);
 
                             }
                             break;
                         case 9:
                             DebugEnterAlt(9);
-                            // GBX.g:90:7: op_daa
+                            // GBX.g:97:7: op_daa
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(90, 7);
-                                PushFollow(Follow._op_daa_in_instruction371);
-                                op_daa28 = op_daa();
+                                DebugLocation(97, 7);
+                                PushFollow(Follow._op_daa_in_instruction467);
+                                op_daa39 = op_daa();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_daa28.Tree);
+                                adaptor.AddChild(root_0, op_daa39.Tree);
 
                             }
                             break;
                         case 10:
                             DebugEnterAlt(10);
-                            // GBX.g:91:7: op_dec
+                            // GBX.g:98:7: op_dec
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(91, 7);
-                                PushFollow(Follow._op_dec_in_instruction379);
-                                op_dec29 = op_dec();
+                                DebugLocation(98, 7);
+                                PushFollow(Follow._op_dec_in_instruction475);
+                                op_dec40 = op_dec();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_dec29.Tree);
+                                adaptor.AddChild(root_0, op_dec40.Tree);
 
                             }
                             break;
                         case 11:
                             DebugEnterAlt(11);
-                            // GBX.g:92:7: op_di
+                            // GBX.g:99:7: op_di
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(92, 7);
-                                PushFollow(Follow._op_di_in_instruction387);
-                                op_di30 = op_di();
+                                DebugLocation(99, 7);
+                                PushFollow(Follow._op_di_in_instruction483);
+                                op_di41 = op_di();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_di30.Tree);
+                                adaptor.AddChild(root_0, op_di41.Tree);
 
                             }
                             break;
                         case 12:
                             DebugEnterAlt(12);
-                            // GBX.g:93:7: op_ei
+                            // GBX.g:100:7: op_ei
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(93, 7);
-                                PushFollow(Follow._op_ei_in_instruction395);
-                                op_ei31 = op_ei();
+                                DebugLocation(100, 7);
+                                PushFollow(Follow._op_ei_in_instruction491);
+                                op_ei42 = op_ei();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_ei31.Tree);
+                                adaptor.AddChild(root_0, op_ei42.Tree);
 
                             }
                             break;
                         case 13:
                             DebugEnterAlt(13);
-                            // GBX.g:94:7: op_halt
+                            // GBX.g:101:7: op_halt
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(94, 7);
-                                PushFollow(Follow._op_halt_in_instruction403);
-                                op_halt32 = op_halt();
+                                DebugLocation(101, 7);
+                                PushFollow(Follow._op_halt_in_instruction499);
+                                op_halt43 = op_halt();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_halt32.Tree);
+                                adaptor.AddChild(root_0, op_halt43.Tree);
 
                             }
                             break;
                         case 14:
                             DebugEnterAlt(14);
-                            // GBX.g:95:7: op_inc
+                            // GBX.g:102:7: op_inc
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(95, 7);
-                                PushFollow(Follow._op_inc_in_instruction411);
-                                op_inc33 = op_inc();
+                                DebugLocation(102, 7);
+                                PushFollow(Follow._op_inc_in_instruction507);
+                                op_inc44 = op_inc();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_inc33.Tree);
+                                adaptor.AddChild(root_0, op_inc44.Tree);
 
                             }
                             break;
                         case 15:
                             DebugEnterAlt(15);
-                            // GBX.g:96:7: op_jp
+                            // GBX.g:103:7: op_jp
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(96, 7);
-                                PushFollow(Follow._op_jp_in_instruction419);
-                                op_jp34 = op_jp();
+                                DebugLocation(103, 7);
+                                PushFollow(Follow._op_jp_in_instruction515);
+                                op_jp45 = op_jp();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_jp34.Tree);
+                                adaptor.AddChild(root_0, op_jp45.Tree);
 
                             }
                             break;
                         case 16:
                             DebugEnterAlt(16);
-                            // GBX.g:97:7: op_jr
+                            // GBX.g:104:7: op_jr
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(97, 7);
-                                PushFollow(Follow._op_jr_in_instruction427);
-                                op_jr35 = op_jr();
+                                DebugLocation(104, 7);
+                                PushFollow(Follow._op_jr_in_instruction523);
+                                op_jr46 = op_jr();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_jr35.Tree);
+                                adaptor.AddChild(root_0, op_jr46.Tree);
 
                             }
                             break;
                         case 17:
                             DebugEnterAlt(17);
-                            // GBX.g:98:7: op_ldhl
+                            // GBX.g:105:7: op_ldhl
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(98, 7);
-                                PushFollow(Follow._op_ldhl_in_instruction435);
-                                op_ldhl36 = op_ldhl();
+                                DebugLocation(105, 7);
+                                PushFollow(Follow._op_ldhl_in_instruction531);
+                                op_ldhl47 = op_ldhl();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_ldhl36.Tree);
+                                adaptor.AddChild(root_0, op_ldhl47.Tree);
 
                             }
                             break;
                         case 18:
                             DebugEnterAlt(18);
-                            // GBX.g:99:7: op_ldio
+                            // GBX.g:106:7: op_ldio
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(99, 7);
-                                PushFollow(Follow._op_ldio_in_instruction443);
-                                op_ldio37 = op_ldio();
+                                DebugLocation(106, 7);
+                                PushFollow(Follow._op_ldio_in_instruction539);
+                                op_ldio48 = op_ldio();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_ldio37.Tree);
+                                adaptor.AddChild(root_0, op_ldio48.Tree);
 
                             }
                             break;
                         case 19:
                             DebugEnterAlt(19);
-                            // GBX.g:100:7: op_ldd
+                            // GBX.g:107:7: op_ldd
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(100, 7);
-                                PushFollow(Follow._op_ldd_in_instruction451);
-                                op_ldd38 = op_ldd();
+                                DebugLocation(107, 7);
+                                PushFollow(Follow._op_ldd_in_instruction547);
+                                op_ldd49 = op_ldd();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_ldd38.Tree);
+                                adaptor.AddChild(root_0, op_ldd49.Tree);
 
                             }
                             break;
                         case 20:
                             DebugEnterAlt(20);
-                            // GBX.g:101:7: op_ldi
+                            // GBX.g:108:7: op_ldi
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(101, 7);
-                                PushFollow(Follow._op_ldi_in_instruction459);
-                                op_ldi39 = op_ldi();
+                                DebugLocation(108, 7);
+                                PushFollow(Follow._op_ldi_in_instruction555);
+                                op_ldi50 = op_ldi();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_ldi39.Tree);
+                                adaptor.AddChild(root_0, op_ldi50.Tree);
 
                             }
                             break;
                         case 21:
                             DebugEnterAlt(21);
-                            // GBX.g:102:7: op_ld
+                            // GBX.g:109:7: op_ld
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(102, 7);
-                                PushFollow(Follow._op_ld_in_instruction467);
-                                op_ld40 = op_ld();
+                                DebugLocation(109, 7);
+                                PushFollow(Follow._op_ld_in_instruction563);
+                                op_ld51 = op_ld();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_ld40.Tree);
+                                adaptor.AddChild(root_0, op_ld51.Tree);
 
                             }
                             break;
                         case 22:
                             DebugEnterAlt(22);
-                            // GBX.g:103:7: op_nop
+                            // GBX.g:110:7: op_nop
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(103, 7);
-                                PushFollow(Follow._op_nop_in_instruction475);
-                                op_nop41 = op_nop();
+                                DebugLocation(110, 7);
+                                PushFollow(Follow._op_nop_in_instruction571);
+                                op_nop52 = op_nop();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_nop41.Tree);
+                                adaptor.AddChild(root_0, op_nop52.Tree);
 
                             }
                             break;
                         case 23:
                             DebugEnterAlt(23);
-                            // GBX.g:104:7: op_or
+                            // GBX.g:111:7: op_or
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(104, 7);
-                                PushFollow(Follow._op_or_in_instruction483);
-                                op_or42 = op_or();
+                                DebugLocation(111, 7);
+                                PushFollow(Follow._op_or_in_instruction579);
+                                op_or53 = op_or();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_or42.Tree);
+                                adaptor.AddChild(root_0, op_or53.Tree);
 
                             }
                             break;
                         case 24:
                             DebugEnterAlt(24);
-                            // GBX.g:105:7: op_pop
+                            // GBX.g:112:7: op_pop
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(105, 7);
-                                PushFollow(Follow._op_pop_in_instruction491);
-                                op_pop43 = op_pop();
+                                DebugLocation(112, 7);
+                                PushFollow(Follow._op_pop_in_instruction587);
+                                op_pop54 = op_pop();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_pop43.Tree);
+                                adaptor.AddChild(root_0, op_pop54.Tree);
 
                             }
                             break;
                         case 25:
                             DebugEnterAlt(25);
-                            // GBX.g:106:7: op_push
+                            // GBX.g:113:7: op_push
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(106, 7);
-                                PushFollow(Follow._op_push_in_instruction499);
-                                op_push44 = op_push();
+                                DebugLocation(113, 7);
+                                PushFollow(Follow._op_push_in_instruction595);
+                                op_push55 = op_push();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_push44.Tree);
+                                adaptor.AddChild(root_0, op_push55.Tree);
 
                             }
                             break;
                         case 26:
                             DebugEnterAlt(26);
-                            // GBX.g:107:7: op_res
+                            // GBX.g:114:7: op_res
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(107, 7);
-                                PushFollow(Follow._op_res_in_instruction507);
-                                op_res45 = op_res();
+                                DebugLocation(114, 7);
+                                PushFollow(Follow._op_res_in_instruction603);
+                                op_res56 = op_res();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_res45.Tree);
+                                adaptor.AddChild(root_0, op_res56.Tree);
 
                             }
                             break;
                         case 27:
                             DebugEnterAlt(27);
-                            // GBX.g:108:7: op_ret
+                            // GBX.g:115:7: op_ret
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(108, 7);
-                                PushFollow(Follow._op_ret_in_instruction515);
-                                op_ret46 = op_ret();
+                                DebugLocation(115, 7);
+                                PushFollow(Follow._op_ret_in_instruction611);
+                                op_ret57 = op_ret();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_ret46.Tree);
+                                adaptor.AddChild(root_0, op_ret57.Tree);
 
                             }
                             break;
                         case 28:
                             DebugEnterAlt(28);
-                            // GBX.g:109:7: op_reti
+                            // GBX.g:116:7: op_reti
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(109, 7);
-                                PushFollow(Follow._op_reti_in_instruction523);
-                                op_reti47 = op_reti();
+                                DebugLocation(116, 7);
+                                PushFollow(Follow._op_reti_in_instruction619);
+                                op_reti58 = op_reti();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_reti47.Tree);
+                                adaptor.AddChild(root_0, op_reti58.Tree);
 
                             }
                             break;
                         case 29:
                             DebugEnterAlt(29);
-                            // GBX.g:110:7: op_rl
+                            // GBX.g:117:7: op_rl
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(110, 7);
-                                PushFollow(Follow._op_rl_in_instruction531);
-                                op_rl48 = op_rl();
+                                DebugLocation(117, 7);
+                                PushFollow(Follow._op_rl_in_instruction627);
+                                op_rl59 = op_rl();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_rl48.Tree);
+                                adaptor.AddChild(root_0, op_rl59.Tree);
 
                             }
                             break;
                         case 30:
                             DebugEnterAlt(30);
-                            // GBX.g:111:7: op_rla
+                            // GBX.g:118:7: op_rla
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(111, 7);
-                                PushFollow(Follow._op_rla_in_instruction539);
-                                op_rla49 = op_rla();
+                                DebugLocation(118, 7);
+                                PushFollow(Follow._op_rla_in_instruction635);
+                                op_rla60 = op_rla();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_rla49.Tree);
+                                adaptor.AddChild(root_0, op_rla60.Tree);
 
                             }
                             break;
                         case 31:
                             DebugEnterAlt(31);
-                            // GBX.g:112:7: op_rlc
+                            // GBX.g:119:7: op_rlc
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(112, 7);
-                                PushFollow(Follow._op_rlc_in_instruction547);
-                                op_rlc50 = op_rlc();
+                                DebugLocation(119, 7);
+                                PushFollow(Follow._op_rlc_in_instruction643);
+                                op_rlc61 = op_rlc();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_rlc50.Tree);
+                                adaptor.AddChild(root_0, op_rlc61.Tree);
 
                             }
                             break;
                         case 32:
                             DebugEnterAlt(32);
-                            // GBX.g:113:7: op_rlca
+                            // GBX.g:120:7: op_rlca
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(113, 7);
-                                PushFollow(Follow._op_rlca_in_instruction555);
-                                op_rlca51 = op_rlca();
+                                DebugLocation(120, 7);
+                                PushFollow(Follow._op_rlca_in_instruction651);
+                                op_rlca62 = op_rlca();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_rlca51.Tree);
+                                adaptor.AddChild(root_0, op_rlca62.Tree);
 
                             }
                             break;
                         case 33:
                             DebugEnterAlt(33);
-                            // GBX.g:114:7: op_rr
+                            // GBX.g:121:7: op_rr
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(114, 7);
-                                PushFollow(Follow._op_rr_in_instruction563);
-                                op_rr52 = op_rr();
+                                DebugLocation(121, 7);
+                                PushFollow(Follow._op_rr_in_instruction659);
+                                op_rr63 = op_rr();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_rr52.Tree);
+                                adaptor.AddChild(root_0, op_rr63.Tree);
 
                             }
                             break;
                         case 34:
                             DebugEnterAlt(34);
-                            // GBX.g:115:7: op_rra
+                            // GBX.g:122:7: op_rra
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(115, 7);
-                                PushFollow(Follow._op_rra_in_instruction571);
-                                op_rra53 = op_rra();
+                                DebugLocation(122, 7);
+                                PushFollow(Follow._op_rra_in_instruction667);
+                                op_rra64 = op_rra();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_rra53.Tree);
+                                adaptor.AddChild(root_0, op_rra64.Tree);
 
                             }
                             break;
                         case 35:
                             DebugEnterAlt(35);
-                            // GBX.g:116:7: op_rrc
+                            // GBX.g:123:7: op_rrc
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(116, 7);
-                                PushFollow(Follow._op_rrc_in_instruction579);
-                                op_rrc54 = op_rrc();
+                                DebugLocation(123, 7);
+                                PushFollow(Follow._op_rrc_in_instruction675);
+                                op_rrc65 = op_rrc();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_rrc54.Tree);
+                                adaptor.AddChild(root_0, op_rrc65.Tree);
 
                             }
                             break;
                         case 36:
                             DebugEnterAlt(36);
-                            // GBX.g:117:7: op_rrca
+                            // GBX.g:124:7: op_rrca
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(117, 7);
-                                PushFollow(Follow._op_rrca_in_instruction587);
-                                op_rrca55 = op_rrca();
+                                DebugLocation(124, 7);
+                                PushFollow(Follow._op_rrca_in_instruction683);
+                                op_rrca66 = op_rrca();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_rrca55.Tree);
+                                adaptor.AddChild(root_0, op_rrca66.Tree);
 
                             }
                             break;
                         case 37:
                             DebugEnterAlt(37);
-                            // GBX.g:118:7: op_rst
+                            // GBX.g:125:7: op_rst
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(118, 7);
-                                PushFollow(Follow._op_rst_in_instruction595);
-                                op_rst56 = op_rst();
+                                DebugLocation(125, 7);
+                                PushFollow(Follow._op_rst_in_instruction691);
+                                op_rst67 = op_rst();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_rst56.Tree);
+                                adaptor.AddChild(root_0, op_rst67.Tree);
 
                             }
                             break;
                         case 38:
                             DebugEnterAlt(38);
-                            // GBX.g:119:7: op_sbc
+                            // GBX.g:126:7: op_sbc
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(119, 7);
-                                PushFollow(Follow._op_sbc_in_instruction603);
-                                op_sbc57 = op_sbc();
+                                DebugLocation(126, 7);
+                                PushFollow(Follow._op_sbc_in_instruction699);
+                                op_sbc68 = op_sbc();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_sbc57.Tree);
+                                adaptor.AddChild(root_0, op_sbc68.Tree);
 
                             }
                             break;
                         case 39:
                             DebugEnterAlt(39);
-                            // GBX.g:120:7: op_scf
+                            // GBX.g:127:7: op_scf
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(120, 7);
-                                PushFollow(Follow._op_scf_in_instruction611);
-                                op_scf58 = op_scf();
+                                DebugLocation(127, 7);
+                                PushFollow(Follow._op_scf_in_instruction707);
+                                op_scf69 = op_scf();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_scf58.Tree);
+                                adaptor.AddChild(root_0, op_scf69.Tree);
 
                             }
                             break;
                         case 40:
                             DebugEnterAlt(40);
-                            // GBX.g:121:7: op_set
+                            // GBX.g:128:7: op_set
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(121, 7);
-                                PushFollow(Follow._op_set_in_instruction619);
-                                op_set59 = op_set();
+                                DebugLocation(128, 7);
+                                PushFollow(Follow._op_set_in_instruction715);
+                                op_set70 = op_set();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_set59.Tree);
+                                adaptor.AddChild(root_0, op_set70.Tree);
 
                             }
                             break;
                         case 41:
                             DebugEnterAlt(41);
-                            // GBX.g:122:7: op_sla
+                            // GBX.g:129:7: op_sla
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(122, 7);
-                                PushFollow(Follow._op_sla_in_instruction627);
-                                op_sla60 = op_sla();
+                                DebugLocation(129, 7);
+                                PushFollow(Follow._op_sla_in_instruction723);
+                                op_sla71 = op_sla();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_sla60.Tree);
+                                adaptor.AddChild(root_0, op_sla71.Tree);
 
                             }
                             break;
                         case 42:
                             DebugEnterAlt(42);
-                            // GBX.g:123:7: op_sra
+                            // GBX.g:130:7: op_sra
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(123, 7);
-                                PushFollow(Follow._op_sra_in_instruction635);
-                                op_sra61 = op_sra();
+                                DebugLocation(130, 7);
+                                PushFollow(Follow._op_sra_in_instruction731);
+                                op_sra72 = op_sra();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_sra61.Tree);
+                                adaptor.AddChild(root_0, op_sra72.Tree);
 
                             }
                             break;
                         case 43:
                             DebugEnterAlt(43);
-                            // GBX.g:124:7: op_srl
+                            // GBX.g:131:7: op_srl
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(124, 7);
-                                PushFollow(Follow._op_srl_in_instruction643);
-                                op_srl62 = op_srl();
+                                DebugLocation(131, 7);
+                                PushFollow(Follow._op_srl_in_instruction739);
+                                op_srl73 = op_srl();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_srl62.Tree);
+                                adaptor.AddChild(root_0, op_srl73.Tree);
 
                             }
                             break;
                         case 44:
                             DebugEnterAlt(44);
-                            // GBX.g:125:7: op_stop
+                            // GBX.g:132:7: op_stop
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(125, 7);
-                                PushFollow(Follow._op_stop_in_instruction651);
-                                op_stop63 = op_stop();
+                                DebugLocation(132, 7);
+                                PushFollow(Follow._op_stop_in_instruction747);
+                                op_stop74 = op_stop();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_stop63.Tree);
+                                adaptor.AddChild(root_0, op_stop74.Tree);
 
                             }
                             break;
                         case 45:
                             DebugEnterAlt(45);
-                            // GBX.g:126:7: op_sub
+                            // GBX.g:133:7: op_sub
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(126, 7);
-                                PushFollow(Follow._op_sub_in_instruction659);
-                                op_sub64 = op_sub();
+                                DebugLocation(133, 7);
+                                PushFollow(Follow._op_sub_in_instruction755);
+                                op_sub75 = op_sub();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_sub64.Tree);
+                                adaptor.AddChild(root_0, op_sub75.Tree);
 
                             }
                             break;
                         case 46:
                             DebugEnterAlt(46);
-                            // GBX.g:127:7: op_swap
+                            // GBX.g:134:7: op_swap
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(127, 7);
-                                PushFollow(Follow._op_swap_in_instruction667);
-                                op_swap65 = op_swap();
+                                DebugLocation(134, 7);
+                                PushFollow(Follow._op_swap_in_instruction763);
+                                op_swap76 = op_swap();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_swap65.Tree);
+                                adaptor.AddChild(root_0, op_swap76.Tree);
 
                             }
                             break;
                         case 47:
                             DebugEnterAlt(47);
-                            // GBX.g:128:7: op_xor
+                            // GBX.g:135:7: op_xor
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(128, 7);
-                                PushFollow(Follow._op_xor_in_instruction675);
-                                op_xor66 = op_xor();
+                                DebugLocation(135, 7);
+                                PushFollow(Follow._op_xor_in_instruction771);
+                                op_xor77 = op_xor();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, op_xor66.Tree);
+                                adaptor.AddChild(root_0, op_xor77.Tree);
 
                             }
                             break;
@@ -2350,11 +3148,11 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("instruction", 8);
-                    LeaveRule("instruction", 8);
+                    TraceOut("instruction", 10);
+                    LeaveRule("instruction", 10);
                     LeaveRule_instruction();
                 }
-                DebugLocation(128, 13);
+                DebugLocation(135, 13);
             }
             finally { DebugExitRule(GrammarFileName, "instruction"); }
             return retval;
@@ -2366,90 +3164,90 @@ namespace GBRead.Base
         partial void LeaveRule_op_adc();
 
         // $ANTLR start "op_adc"
-        // GBX.g:130:1: op_adc : INST_ADC ^ ( REG_A COMMA !)? arith_opt ;
+        // GBX.g:137:1: op_adc : INST_ADC ^ ( REG_A COMMA !)? arith_opt ;
         [GrammarRule("op_adc")]
         private AstParserRuleReturnScope<CommonTree, IToken> op_adc()
         {
             EnterRule_op_adc();
-            EnterRule("op_adc", 9);
-            TraceIn("op_adc", 9);
+            EnterRule("op_adc", 11);
+            TraceIn("op_adc", 11);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_ADC67 = default(IToken);
-            IToken REG_A68 = default(IToken);
-            IToken COMMA69 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> arith_opt70 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken INST_ADC78 = default(IToken);
+            IToken REG_A79 = default(IToken);
+            IToken COMMA80 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> arith_opt81 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree INST_ADC67_tree = default(CommonTree);
-            CommonTree REG_A68_tree = default(CommonTree);
-            CommonTree COMMA69_tree = default(CommonTree);
+            CommonTree INST_ADC78_tree = default(CommonTree);
+            CommonTree REG_A79_tree = default(CommonTree);
+            CommonTree COMMA80_tree = default(CommonTree);
             try
             {
                 DebugEnterRule(GrammarFileName, "op_adc");
-                DebugLocation(130, 46);
+                DebugLocation(137, 46);
                 try
                 {
-                    // GBX.g:130:10: ( INST_ADC ^ ( REG_A COMMA !)? arith_opt )
+                    // GBX.g:137:10: ( INST_ADC ^ ( REG_A COMMA !)? arith_opt )
                     DebugEnterAlt(1);
-                    // GBX.g:130:12: INST_ADC ^ ( REG_A COMMA !)? arith_opt
+                    // GBX.g:137:12: INST_ADC ^ ( REG_A COMMA !)? arith_opt
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(130, 20);
-                        INST_ADC67 = (IToken)Match(input, INST_ADC, Follow._INST_ADC_in_op_adc686);
-                        INST_ADC67_tree = (CommonTree)adaptor.Create(INST_ADC67);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_ADC67_tree, root_0);
-                        DebugLocation(130, 22);
-                        // GBX.g:130:22: ( REG_A COMMA !)?
-                        int alt9 = 2;
+                        DebugLocation(137, 20);
+                        INST_ADC78 = (IToken)Match(input, INST_ADC, Follow._INST_ADC_in_op_adc782);
+                        INST_ADC78_tree = (CommonTree)adaptor.Create(INST_ADC78);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_ADC78_tree, root_0);
+                        DebugLocation(137, 22);
+                        // GBX.g:137:22: ( REG_A COMMA !)?
+                        int alt13 = 2;
                         try
                         {
-                            DebugEnterSubRule(9);
+                            DebugEnterSubRule(13);
                             try
                             {
-                                DebugEnterDecision(9, false);
-                                int LA9_0 = input.LA(1);
+                                DebugEnterDecision(13, false);
+                                int LA13_0 = input.LA(1);
 
-                                if ((LA9_0 == REG_A))
+                                if ((LA13_0 == REG_A))
                                 {
-                                    int LA9_1 = input.LA(2);
+                                    int LA13_1 = input.LA(2);
 
-                                    if ((LA9_1 == COMMA))
+                                    if ((LA13_1 == COMMA))
                                     {
-                                        alt9 = 1;
+                                        alt13 = 1;
                                     }
                                 }
                             }
-                            finally { DebugExitDecision(9); }
-                            switch (alt9)
+                            finally { DebugExitDecision(13); }
+                            switch (alt13)
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:130:23: REG_A COMMA !
+                                    // GBX.g:137:23: REG_A COMMA !
                                     {
-                                        DebugLocation(130, 23);
-                                        REG_A68 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_adc690);
-                                        REG_A68_tree = (CommonTree)adaptor.Create(REG_A68);
-                                        adaptor.AddChild(root_0, REG_A68_tree);
-                                        DebugLocation(130, 34);
-                                        COMMA69 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_adc692);
+                                        DebugLocation(137, 23);
+                                        REG_A79 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_adc786);
+                                        REG_A79_tree = (CommonTree)adaptor.Create(REG_A79);
+                                        adaptor.AddChild(root_0, REG_A79_tree);
+                                        DebugLocation(137, 34);
+                                        COMMA80 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_adc788);
 
                                     }
                                     break;
 
                             }
                         }
-                        finally { DebugExitSubRule(9); }
+                        finally { DebugExitSubRule(13); }
 
-                        DebugLocation(130, 38);
-                        PushFollow(Follow._arith_opt_in_op_adc697);
-                        arith_opt70 = arith_opt();
+                        DebugLocation(137, 38);
+                        PushFollow(Follow._arith_opt_in_op_adc793);
+                        arith_opt81 = arith_opt();
                         PopFollow();
 
-                        adaptor.AddChild(root_0, arith_opt70.Tree);
+                        adaptor.AddChild(root_0, arith_opt81.Tree);
 
                     }
 
@@ -2468,11 +3266,11 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_adc", 9);
-                    LeaveRule("op_adc", 9);
+                    TraceOut("op_adc", 11);
+                    LeaveRule("op_adc", 11);
                     LeaveRule_op_adc();
                 }
-                DebugLocation(130, 46);
+                DebugLocation(137, 46);
             }
             finally { DebugExitRule(GrammarFileName, "op_adc"); }
             return retval;
@@ -2484,62 +3282,62 @@ namespace GBRead.Base
         partial void LeaveRule_op_add();
 
         // $ANTLR start "op_add"
-        // GBX.g:131:1: op_add : INST_ADD ^ ( ( ( REG_A COMMA !)? arith_opt ) | ( RR_HL COMMA ! ( RR_BC | RR_DE | RR_HL | RR_SP ) ) | ( RR_SP COMMA ! expression ) ) ;
+        // GBX.g:138:1: op_add : INST_ADD ^ ( ( ( REG_A COMMA !)? arith_opt ) | ( RR_HL COMMA ! ( RR_BC | RR_DE | RR_HL | RR_SP ) ) | ( RR_SP COMMA ! expression ) ) ;
         [GrammarRule("op_add")]
         private AstParserRuleReturnScope<CommonTree, IToken> op_add()
         {
             EnterRule_op_add();
-            EnterRule("op_add", 10);
-            TraceIn("op_add", 10);
+            EnterRule("op_add", 12);
+            TraceIn("op_add", 12);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_ADD71 = default(IToken);
-            IToken REG_A72 = default(IToken);
-            IToken COMMA73 = default(IToken);
-            IToken RR_HL75 = default(IToken);
-            IToken COMMA76 = default(IToken);
-            IToken set77 = default(IToken);
-            IToken RR_SP78 = default(IToken);
-            IToken COMMA79 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> arith_opt74 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> expression80 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken INST_ADD82 = default(IToken);
+            IToken REG_A83 = default(IToken);
+            IToken COMMA84 = default(IToken);
+            IToken RR_HL86 = default(IToken);
+            IToken COMMA87 = default(IToken);
+            IToken set88 = default(IToken);
+            IToken RR_SP89 = default(IToken);
+            IToken COMMA90 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> arith_opt85 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> expression91 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree INST_ADD71_tree = default(CommonTree);
-            CommonTree REG_A72_tree = default(CommonTree);
-            CommonTree COMMA73_tree = default(CommonTree);
-            CommonTree RR_HL75_tree = default(CommonTree);
-            CommonTree COMMA76_tree = default(CommonTree);
-            CommonTree set77_tree = default(CommonTree);
-            CommonTree RR_SP78_tree = default(CommonTree);
-            CommonTree COMMA79_tree = default(CommonTree);
+            CommonTree INST_ADD82_tree = default(CommonTree);
+            CommonTree REG_A83_tree = default(CommonTree);
+            CommonTree COMMA84_tree = default(CommonTree);
+            CommonTree RR_HL86_tree = default(CommonTree);
+            CommonTree COMMA87_tree = default(CommonTree);
+            CommonTree set88_tree = default(CommonTree);
+            CommonTree RR_SP89_tree = default(CommonTree);
+            CommonTree COMMA90_tree = default(CommonTree);
             try
             {
                 DebugEnterRule(GrammarFileName, "op_add");
-                DebugLocation(131, 117);
+                DebugLocation(138, 117);
                 try
                 {
-                    // GBX.g:131:10: ( INST_ADD ^ ( ( ( REG_A COMMA !)? arith_opt ) | ( RR_HL COMMA ! ( RR_BC | RR_DE | RR_HL | RR_SP ) ) | ( RR_SP COMMA ! expression ) ) )
+                    // GBX.g:138:10: ( INST_ADD ^ ( ( ( REG_A COMMA !)? arith_opt ) | ( RR_HL COMMA ! ( RR_BC | RR_DE | RR_HL | RR_SP ) ) | ( RR_SP COMMA ! expression ) ) )
                     DebugEnterAlt(1);
-                    // GBX.g:131:12: INST_ADD ^ ( ( ( REG_A COMMA !)? arith_opt ) | ( RR_HL COMMA ! ( RR_BC | RR_DE | RR_HL | RR_SP ) ) | ( RR_SP COMMA ! expression ) )
+                    // GBX.g:138:12: INST_ADD ^ ( ( ( REG_A COMMA !)? arith_opt ) | ( RR_HL COMMA ! ( RR_BC | RR_DE | RR_HL | RR_SP ) ) | ( RR_SP COMMA ! expression ) )
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(131, 20);
-                        INST_ADD71 = (IToken)Match(input, INST_ADD, Follow._INST_ADD_in_op_add706);
-                        INST_ADD71_tree = (CommonTree)adaptor.Create(INST_ADD71);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_ADD71_tree, root_0);
-                        DebugLocation(131, 22);
-                        // GBX.g:131:22: ( ( ( REG_A COMMA !)? arith_opt ) | ( RR_HL COMMA ! ( RR_BC | RR_DE | RR_HL | RR_SP ) ) | ( RR_SP COMMA ! expression ) )
-                        int alt11 = 3;
+                        DebugLocation(138, 20);
+                        INST_ADD82 = (IToken)Match(input, INST_ADD, Follow._INST_ADD_in_op_add802);
+                        INST_ADD82_tree = (CommonTree)adaptor.Create(INST_ADD82);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_ADD82_tree, root_0);
+                        DebugLocation(138, 22);
+                        // GBX.g:138:22: ( ( ( REG_A COMMA !)? arith_opt ) | ( RR_HL COMMA ! ( RR_BC | RR_DE | RR_HL | RR_SP ) ) | ( RR_SP COMMA ! expression ) )
+                        int alt15 = 3;
                         try
                         {
-                            DebugEnterSubRule(11);
+                            DebugEnterSubRule(15);
                             try
                             {
-                                DebugEnterDecision(11, false);
+                                DebugEnterDecision(15, false);
                                 switch (input.LA(1))
                                 {
                                     case BANG_MARK:
@@ -2547,6 +3345,15 @@ namespace GBRead.Base
                                     case LEFT_BRACKET:
                                     case LEFT_PARENS:
                                     case MINUS_MARK:
+                                    case M_ARG1:
+                                    case M_ARG2:
+                                    case M_ARG3:
+                                    case M_ARG4:
+                                    case M_ARG5:
+                                    case M_ARG6:
+                                    case M_ARG7:
+                                    case M_ARG8:
+                                    case M_ARG9:
                                     case NUMBER:
                                     case REG_A:
                                     case REG_B:
@@ -2557,88 +3364,88 @@ namespace GBRead.Base
                                     case REG_L:
                                     case TILDE_MARK:
                                         {
-                                            alt11 = 1;
+                                            alt15 = 1;
                                         }
                                         break;
                                     case RR_HL:
                                         {
-                                            alt11 = 2;
+                                            alt15 = 2;
                                         }
                                         break;
                                     case RR_SP:
                                         {
-                                            alt11 = 3;
+                                            alt15 = 3;
                                         }
                                         break;
                                     default:
                                         {
-                                            NoViableAltException nvae = new NoViableAltException("", 11, 0, input);
+                                            NoViableAltException nvae = new NoViableAltException("", 15, 0, input);
                                             DebugRecognitionException(nvae);
                                             throw nvae;
                                         }
                                 }
 
                             }
-                            finally { DebugExitDecision(11); }
-                            switch (alt11)
+                            finally { DebugExitDecision(15); }
+                            switch (alt15)
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:131:23: ( ( REG_A COMMA !)? arith_opt )
+                                    // GBX.g:138:23: ( ( REG_A COMMA !)? arith_opt )
                                     {
-                                        DebugLocation(131, 23);
-                                        // GBX.g:131:23: ( ( REG_A COMMA !)? arith_opt )
+                                        DebugLocation(138, 23);
+                                        // GBX.g:138:23: ( ( REG_A COMMA !)? arith_opt )
                                         DebugEnterAlt(1);
-                                        // GBX.g:131:24: ( REG_A COMMA !)? arith_opt
+                                        // GBX.g:138:24: ( REG_A COMMA !)? arith_opt
                                         {
-                                            DebugLocation(131, 24);
-                                            // GBX.g:131:24: ( REG_A COMMA !)?
-                                            int alt10 = 2;
+                                            DebugLocation(138, 24);
+                                            // GBX.g:138:24: ( REG_A COMMA !)?
+                                            int alt14 = 2;
                                             try
                                             {
-                                                DebugEnterSubRule(10);
+                                                DebugEnterSubRule(14);
                                                 try
                                                 {
-                                                    DebugEnterDecision(10, false);
-                                                    int LA10_0 = input.LA(1);
+                                                    DebugEnterDecision(14, false);
+                                                    int LA14_0 = input.LA(1);
 
-                                                    if ((LA10_0 == REG_A))
+                                                    if ((LA14_0 == REG_A))
                                                     {
-                                                        int LA10_1 = input.LA(2);
+                                                        int LA14_1 = input.LA(2);
 
-                                                        if ((LA10_1 == COMMA))
+                                                        if ((LA14_1 == COMMA))
                                                         {
-                                                            alt10 = 1;
+                                                            alt14 = 1;
                                                         }
                                                     }
                                                 }
-                                                finally { DebugExitDecision(10); }
-                                                switch (alt10)
+                                                finally { DebugExitDecision(14); }
+                                                switch (alt14)
                                                 {
                                                     case 1:
                                                         DebugEnterAlt(1);
-                                                        // GBX.g:131:25: REG_A COMMA !
+                                                        // GBX.g:138:25: REG_A COMMA !
                                                         {
-                                                            DebugLocation(131, 25);
-                                                            REG_A72 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_add712);
-                                                            REG_A72_tree = (CommonTree)adaptor.Create(REG_A72);
-                                                            adaptor.AddChild(root_0, REG_A72_tree);
-                                                            DebugLocation(131, 36);
-                                                            COMMA73 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_add714);
+                                                            DebugLocation(138, 25);
+                                                            REG_A83 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_add808);
+                                                            REG_A83_tree = (CommonTree)adaptor.Create(REG_A83);
+                                                            adaptor.AddChild(root_0, REG_A83_tree);
+                                                            DebugLocation(138, 36);
+                                                            COMMA84 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_add810);
 
                                                         }
                                                         break;
 
                                                 }
                                             }
-                                            finally { DebugExitSubRule(10); }
+                                            finally { DebugExitSubRule(14); }
 
-                                            DebugLocation(131, 40);
-                                            PushFollow(Follow._arith_opt_in_op_add719);
-                                            arith_opt74 = arith_opt();
+                                            DebugLocation(138, 40);
+                                            PushFollow(Follow._arith_opt_in_op_add815);
+                                            arith_opt85 = arith_opt();
                                             PopFollow();
 
-                                            adaptor.AddChild(root_0, arith_opt74.Tree);
+                                            adaptor.AddChild(root_0, arith_opt85.Tree);
 
                                         }
 
@@ -2647,26 +3454,26 @@ namespace GBRead.Base
                                     break;
                                 case 2:
                                     DebugEnterAlt(2);
-                                    // GBX.g:131:51: ( RR_HL COMMA ! ( RR_BC | RR_DE | RR_HL | RR_SP ) )
+                                    // GBX.g:138:51: ( RR_HL COMMA ! ( RR_BC | RR_DE | RR_HL | RR_SP ) )
                                     {
-                                        DebugLocation(131, 51);
-                                        // GBX.g:131:51: ( RR_HL COMMA ! ( RR_BC | RR_DE | RR_HL | RR_SP ) )
+                                        DebugLocation(138, 51);
+                                        // GBX.g:138:51: ( RR_HL COMMA ! ( RR_BC | RR_DE | RR_HL | RR_SP ) )
                                         DebugEnterAlt(1);
-                                        // GBX.g:131:52: RR_HL COMMA ! ( RR_BC | RR_DE | RR_HL | RR_SP )
+                                        // GBX.g:138:52: RR_HL COMMA ! ( RR_BC | RR_DE | RR_HL | RR_SP )
                                         {
-                                            DebugLocation(131, 52);
-                                            RR_HL75 = (IToken)Match(input, RR_HL, Follow._RR_HL_in_op_add723);
-                                            RR_HL75_tree = (CommonTree)adaptor.Create(RR_HL75);
-                                            adaptor.AddChild(root_0, RR_HL75_tree);
-                                            DebugLocation(131, 63);
-                                            COMMA76 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_add725);
-                                            DebugLocation(131, 65);
+                                            DebugLocation(138, 52);
+                                            RR_HL86 = (IToken)Match(input, RR_HL, Follow._RR_HL_in_op_add819);
+                                            RR_HL86_tree = (CommonTree)adaptor.Create(RR_HL86);
+                                            adaptor.AddChild(root_0, RR_HL86_tree);
+                                            DebugLocation(138, 63);
+                                            COMMA87 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_add821);
+                                            DebugLocation(138, 65);
 
-                                            set77 = (IToken)input.LT(1);
+                                            set88 = (IToken)input.LT(1);
                                             if ((input.LA(1) >= RR_BC && input.LA(1) <= RR_HL) || input.LA(1) == RR_SP)
                                             {
                                                 input.Consume();
-                                                adaptor.AddChild(root_0, (CommonTree)adaptor.Create(set77));
+                                                adaptor.AddChild(root_0, (CommonTree)adaptor.Create(set88));
                                                 state.errorRecovery = false;
                                             }
                                             else
@@ -2684,25 +3491,25 @@ namespace GBRead.Base
                                     break;
                                 case 3:
                                     DebugEnterAlt(3);
-                                    // GBX.g:131:92: ( RR_SP COMMA ! expression )
+                                    // GBX.g:138:92: ( RR_SP COMMA ! expression )
                                     {
-                                        DebugLocation(131, 92);
-                                        // GBX.g:131:92: ( RR_SP COMMA ! expression )
+                                        DebugLocation(138, 92);
+                                        // GBX.g:138:92: ( RR_SP COMMA ! expression )
                                         DebugEnterAlt(1);
-                                        // GBX.g:131:93: RR_SP COMMA ! expression
+                                        // GBX.g:138:93: RR_SP COMMA ! expression
                                         {
-                                            DebugLocation(131, 93);
-                                            RR_SP78 = (IToken)Match(input, RR_SP, Follow._RR_SP_in_op_add740);
-                                            RR_SP78_tree = (CommonTree)adaptor.Create(RR_SP78);
-                                            adaptor.AddChild(root_0, RR_SP78_tree);
-                                            DebugLocation(131, 104);
-                                            COMMA79 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_add742);
-                                            DebugLocation(131, 106);
-                                            PushFollow(Follow._expression_in_op_add745);
-                                            expression80 = expression();
+                                            DebugLocation(138, 93);
+                                            RR_SP89 = (IToken)Match(input, RR_SP, Follow._RR_SP_in_op_add836);
+                                            RR_SP89_tree = (CommonTree)adaptor.Create(RR_SP89);
+                                            adaptor.AddChild(root_0, RR_SP89_tree);
+                                            DebugLocation(138, 104);
+                                            COMMA90 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_add838);
+                                            DebugLocation(138, 106);
+                                            PushFollow(Follow._expression_in_op_add841);
+                                            expression91 = expression();
                                             PopFollow();
 
-                                            adaptor.AddChild(root_0, expression80.Tree);
+                                            adaptor.AddChild(root_0, expression91.Tree);
 
                                         }
 
@@ -2712,7 +3519,7 @@ namespace GBRead.Base
 
                             }
                         }
-                        finally { DebugExitSubRule(11); }
+                        finally { DebugExitSubRule(15); }
 
 
                     }
@@ -2732,11 +3539,11 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_add", 10);
-                    LeaveRule("op_add", 10);
+                    TraceOut("op_add", 12);
+                    LeaveRule("op_add", 12);
                     LeaveRule_op_add();
                 }
-                DebugLocation(131, 117);
+                DebugLocation(138, 117);
             }
             finally { DebugExitRule(GrammarFileName, "op_add"); }
             return retval;
@@ -2748,90 +3555,90 @@ namespace GBRead.Base
         partial void LeaveRule_op_and();
 
         // $ANTLR start "op_and"
-        // GBX.g:132:1: op_and : INST_AND ^ ( REG_A COMMA !)? arith_opt ;
+        // GBX.g:139:1: op_and : INST_AND ^ ( REG_A COMMA !)? arith_opt ;
         [GrammarRule("op_and")]
         private AstParserRuleReturnScope<CommonTree, IToken> op_and()
         {
             EnterRule_op_and();
-            EnterRule("op_and", 11);
-            TraceIn("op_and", 11);
+            EnterRule("op_and", 13);
+            TraceIn("op_and", 13);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_AND81 = default(IToken);
-            IToken REG_A82 = default(IToken);
-            IToken COMMA83 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> arith_opt84 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken INST_AND92 = default(IToken);
+            IToken REG_A93 = default(IToken);
+            IToken COMMA94 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> arith_opt95 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree INST_AND81_tree = default(CommonTree);
-            CommonTree REG_A82_tree = default(CommonTree);
-            CommonTree COMMA83_tree = default(CommonTree);
+            CommonTree INST_AND92_tree = default(CommonTree);
+            CommonTree REG_A93_tree = default(CommonTree);
+            CommonTree COMMA94_tree = default(CommonTree);
             try
             {
                 DebugEnterRule(GrammarFileName, "op_and");
-                DebugLocation(132, 46);
+                DebugLocation(139, 46);
                 try
                 {
-                    // GBX.g:132:10: ( INST_AND ^ ( REG_A COMMA !)? arith_opt )
+                    // GBX.g:139:10: ( INST_AND ^ ( REG_A COMMA !)? arith_opt )
                     DebugEnterAlt(1);
-                    // GBX.g:132:12: INST_AND ^ ( REG_A COMMA !)? arith_opt
+                    // GBX.g:139:12: INST_AND ^ ( REG_A COMMA !)? arith_opt
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(132, 20);
-                        INST_AND81 = (IToken)Match(input, INST_AND, Follow._INST_AND_in_op_and756);
-                        INST_AND81_tree = (CommonTree)adaptor.Create(INST_AND81);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_AND81_tree, root_0);
-                        DebugLocation(132, 22);
-                        // GBX.g:132:22: ( REG_A COMMA !)?
-                        int alt12 = 2;
+                        DebugLocation(139, 20);
+                        INST_AND92 = (IToken)Match(input, INST_AND, Follow._INST_AND_in_op_and852);
+                        INST_AND92_tree = (CommonTree)adaptor.Create(INST_AND92);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_AND92_tree, root_0);
+                        DebugLocation(139, 22);
+                        // GBX.g:139:22: ( REG_A COMMA !)?
+                        int alt16 = 2;
                         try
                         {
-                            DebugEnterSubRule(12);
+                            DebugEnterSubRule(16);
                             try
                             {
-                                DebugEnterDecision(12, false);
-                                int LA12_0 = input.LA(1);
+                                DebugEnterDecision(16, false);
+                                int LA16_0 = input.LA(1);
 
-                                if ((LA12_0 == REG_A))
+                                if ((LA16_0 == REG_A))
                                 {
-                                    int LA12_1 = input.LA(2);
+                                    int LA16_1 = input.LA(2);
 
-                                    if ((LA12_1 == COMMA))
+                                    if ((LA16_1 == COMMA))
                                     {
-                                        alt12 = 1;
+                                        alt16 = 1;
                                     }
                                 }
                             }
-                            finally { DebugExitDecision(12); }
-                            switch (alt12)
+                            finally { DebugExitDecision(16); }
+                            switch (alt16)
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:132:23: REG_A COMMA !
+                                    // GBX.g:139:23: REG_A COMMA !
                                     {
-                                        DebugLocation(132, 23);
-                                        REG_A82 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_and760);
-                                        REG_A82_tree = (CommonTree)adaptor.Create(REG_A82);
-                                        adaptor.AddChild(root_0, REG_A82_tree);
-                                        DebugLocation(132, 34);
-                                        COMMA83 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_and762);
+                                        DebugLocation(139, 23);
+                                        REG_A93 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_and856);
+                                        REG_A93_tree = (CommonTree)adaptor.Create(REG_A93);
+                                        adaptor.AddChild(root_0, REG_A93_tree);
+                                        DebugLocation(139, 34);
+                                        COMMA94 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_and858);
 
                                     }
                                     break;
 
                             }
                         }
-                        finally { DebugExitSubRule(12); }
+                        finally { DebugExitSubRule(16); }
 
-                        DebugLocation(132, 38);
-                        PushFollow(Follow._arith_opt_in_op_and767);
-                        arith_opt84 = arith_opt();
+                        DebugLocation(139, 38);
+                        PushFollow(Follow._arith_opt_in_op_and863);
+                        arith_opt95 = arith_opt();
                         PopFollow();
 
-                        adaptor.AddChild(root_0, arith_opt84.Tree);
+                        adaptor.AddChild(root_0, arith_opt95.Tree);
 
                     }
 
@@ -2850,11 +3657,11 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_and", 11);
-                    LeaveRule("op_and", 11);
+                    TraceOut("op_and", 13);
+                    LeaveRule("op_and", 13);
                     LeaveRule_op_and();
                 }
-                DebugLocation(132, 46);
+                DebugLocation(139, 46);
             }
             finally { DebugExitRule(GrammarFileName, "op_and"); }
             return retval;
@@ -2866,1141 +3673,102 @@ namespace GBRead.Base
         partial void LeaveRule_op_bit();
 
         // $ANTLR start "op_bit"
-        // GBX.g:133:1: op_bit : INST_BIT ^ expression COMMA ! ( r8 | rr_ref_hl ) ;
+        // GBX.g:140:1: op_bit : INST_BIT ^ expression COMMA ! ( r8 | rr_ref_hl ) ;
         [GrammarRule("op_bit")]
         private AstParserRuleReturnScope<CommonTree, IToken> op_bit()
         {
             EnterRule_op_bit();
-            EnterRule("op_bit", 12);
-            TraceIn("op_bit", 12);
+            EnterRule("op_bit", 14);
+            TraceIn("op_bit", 14);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_BIT85 = default(IToken);
-            IToken COMMA87 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> expression86 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> r888 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl89 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken INST_BIT96 = default(IToken);
+            IToken COMMA98 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> expression97 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> r899 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl100 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree INST_BIT85_tree = default(CommonTree);
-            CommonTree COMMA87_tree = default(CommonTree);
+            CommonTree INST_BIT96_tree = default(CommonTree);
+            CommonTree COMMA98_tree = default(CommonTree);
             try
             {
                 DebugEnterRule(GrammarFileName, "op_bit");
-                DebugLocation(133, 53);
+                DebugLocation(140, 53);
                 try
                 {
-                    // GBX.g:133:10: ( INST_BIT ^ expression COMMA ! ( r8 | rr_ref_hl ) )
+                    // GBX.g:140:10: ( INST_BIT ^ expression COMMA ! ( r8 | rr_ref_hl ) )
                     DebugEnterAlt(1);
-                    // GBX.g:133:12: INST_BIT ^ expression COMMA ! ( r8 | rr_ref_hl )
+                    // GBX.g:140:12: INST_BIT ^ expression COMMA ! ( r8 | rr_ref_hl )
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(133, 20);
-                        INST_BIT85 = (IToken)Match(input, INST_BIT, Follow._INST_BIT_in_op_bit776);
-                        INST_BIT85_tree = (CommonTree)adaptor.Create(INST_BIT85);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_BIT85_tree, root_0);
-                        DebugLocation(133, 22);
-                        PushFollow(Follow._expression_in_op_bit779);
-                        expression86 = expression();
+                        DebugLocation(140, 20);
+                        INST_BIT96 = (IToken)Match(input, INST_BIT, Follow._INST_BIT_in_op_bit872);
+                        INST_BIT96_tree = (CommonTree)adaptor.Create(INST_BIT96);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_BIT96_tree, root_0);
+                        DebugLocation(140, 22);
+                        PushFollow(Follow._expression_in_op_bit875);
+                        expression97 = expression();
                         PopFollow();
 
-                        adaptor.AddChild(root_0, expression86.Tree);
-                        DebugLocation(133, 38);
-                        COMMA87 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_bit781);
-                        DebugLocation(133, 40);
-                        // GBX.g:133:40: ( r8 | rr_ref_hl )
-                        int alt13 = 2;
-                        try
-                        {
-                            DebugEnterSubRule(13);
-                            try
-                            {
-                                DebugEnterDecision(13, false);
-                                int LA13_0 = input.LA(1);
-
-                                if (((LA13_0 >= REG_A && LA13_0 <= REG_L)))
-                                {
-                                    alt13 = 1;
-                                }
-                                else if ((LA13_0 == LEFT_BRACKET))
-                                {
-                                    alt13 = 2;
-                                }
-                                else
-                                {
-                                    NoViableAltException nvae = new NoViableAltException("", 13, 0, input);
-                                    DebugRecognitionException(nvae);
-                                    throw nvae;
-                                }
-                            }
-                            finally { DebugExitDecision(13); }
-                            switch (alt13)
-                            {
-                                case 1:
-                                    DebugEnterAlt(1);
-                                    // GBX.g:133:41: r8
-                                    {
-                                        DebugLocation(133, 41);
-                                        PushFollow(Follow._r8_in_op_bit785);
-                                        r888 = r8();
-                                        PopFollow();
-
-                                        adaptor.AddChild(root_0, r888.Tree);
-
-                                    }
-                                    break;
-                                case 2:
-                                    DebugEnterAlt(2);
-                                    // GBX.g:133:44: rr_ref_hl
-                                    {
-                                        DebugLocation(133, 44);
-                                        PushFollow(Follow._rr_ref_hl_in_op_bit787);
-                                        rr_ref_hl89 = rr_ref_hl();
-                                        PopFollow();
-
-                                        adaptor.AddChild(root_0, rr_ref_hl89.Tree);
-
-                                    }
-                                    break;
-
-                            }
-                        }
-                        finally { DebugExitSubRule(13); }
-
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_bit", 12);
-                    LeaveRule("op_bit", 12);
-                    LeaveRule_op_bit();
-                }
-                DebugLocation(133, 53);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_bit"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_bit"
-
-        partial void EnterRule_op_call();
-        partial void LeaveRule_op_call();
-
-        // $ANTLR start "op_call"
-        // GBX.g:134:1: op_call : INST_CALL ^ ( cond_opt COMMA !)? ID ;
-        [GrammarRule("op_call")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_call()
-        {
-            EnterRule_op_call();
-            EnterRule("op_call", 13);
-            TraceIn("op_call", 13);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_CALL90 = default(IToken);
-            IToken COMMA92 = default(IToken);
-            IToken ID93 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> cond_opt91 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-
-            CommonTree INST_CALL90_tree = default(CommonTree);
-            CommonTree COMMA92_tree = default(CommonTree);
-            CommonTree ID93_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_call");
-                DebugLocation(134, 44);
-                try
-                {
-                    // GBX.g:134:11: ( INST_CALL ^ ( cond_opt COMMA !)? ID )
-                    DebugEnterAlt(1);
-                    // GBX.g:134:13: INST_CALL ^ ( cond_opt COMMA !)? ID
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(134, 22);
-                        INST_CALL90 = (IToken)Match(input, INST_CALL, Follow._INST_CALL_in_op_call797);
-                        INST_CALL90_tree = (CommonTree)adaptor.Create(INST_CALL90);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_CALL90_tree, root_0);
-                        DebugLocation(134, 24);
-                        // GBX.g:134:24: ( cond_opt COMMA !)?
-                        int alt14 = 2;
-                        try
-                        {
-                            DebugEnterSubRule(14);
-                            try
-                            {
-                                DebugEnterDecision(14, false);
-                                int LA14_0 = input.LA(1);
-
-                                if (((LA14_0 >= CC_NC && LA14_0 <= CC_Z) || LA14_0 == REG_C))
-                                {
-                                    alt14 = 1;
-                                }
-                            }
-                            finally { DebugExitDecision(14); }
-                            switch (alt14)
-                            {
-                                case 1:
-                                    DebugEnterAlt(1);
-                                    // GBX.g:134:25: cond_opt COMMA !
-                                    {
-                                        DebugLocation(134, 25);
-                                        PushFollow(Follow._cond_opt_in_op_call801);
-                                        cond_opt91 = cond_opt();
-                                        PopFollow();
-
-                                        adaptor.AddChild(root_0, cond_opt91.Tree);
-                                        DebugLocation(134, 39);
-                                        COMMA92 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_call803);
-
-                                    }
-                                    break;
-
-                            }
-                        }
-                        finally { DebugExitSubRule(14); }
-
-                        DebugLocation(134, 43);
-                        ID93 = (IToken)Match(input, ID, Follow._ID_in_op_call808);
-                        ID93_tree = (CommonTree)adaptor.Create(ID93);
-                        adaptor.AddChild(root_0, ID93_tree);
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_call", 13);
-                    LeaveRule("op_call", 13);
-                    LeaveRule_op_call();
-                }
-                DebugLocation(134, 44);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_call"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_call"
-
-        partial void EnterRule_op_ccf();
-        partial void LeaveRule_op_ccf();
-
-        // $ANTLR start "op_ccf"
-        // GBX.g:135:1: op_ccf : INST_CCF ^;
-        [GrammarRule("op_ccf")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_ccf()
-        {
-            EnterRule_op_ccf();
-            EnterRule("op_ccf", 14);
-            TraceIn("op_ccf", 14);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_CCF94 = default(IToken);
-
-            CommonTree INST_CCF94_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_ccf");
-                DebugLocation(135, 20);
-                try
-                {
-                    // GBX.g:135:10: ( INST_CCF ^)
-                    DebugEnterAlt(1);
-                    // GBX.g:135:12: INST_CCF ^
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(135, 20);
-                        INST_CCF94 = (IToken)Match(input, INST_CCF, Follow._INST_CCF_in_op_ccf817);
-                        INST_CCF94_tree = (CommonTree)adaptor.Create(INST_CCF94);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_CCF94_tree, root_0);
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_ccf", 14);
-                    LeaveRule("op_ccf", 14);
-                    LeaveRule_op_ccf();
-                }
-                DebugLocation(135, 20);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_ccf"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_ccf"
-
-        partial void EnterRule_op_cp();
-        partial void LeaveRule_op_cp();
-
-        // $ANTLR start "op_cp"
-        // GBX.g:136:1: op_cp : INST_CP ^ ( REG_A COMMA !)? arith_opt ;
-        [GrammarRule("op_cp")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_cp()
-        {
-            EnterRule_op_cp();
-            EnterRule("op_cp", 15);
-            TraceIn("op_cp", 15);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_CP95 = default(IToken);
-            IToken REG_A96 = default(IToken);
-            IToken COMMA97 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> arith_opt98 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-
-            CommonTree INST_CP95_tree = default(CommonTree);
-            CommonTree REG_A96_tree = default(CommonTree);
-            CommonTree COMMA97_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_cp");
-                DebugLocation(136, 44);
-                try
-                {
-                    // GBX.g:136:9: ( INST_CP ^ ( REG_A COMMA !)? arith_opt )
-                    DebugEnterAlt(1);
-                    // GBX.g:136:11: INST_CP ^ ( REG_A COMMA !)? arith_opt
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(136, 18);
-                        INST_CP95 = (IToken)Match(input, INST_CP, Follow._INST_CP_in_op_cp827);
-                        INST_CP95_tree = (CommonTree)adaptor.Create(INST_CP95);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_CP95_tree, root_0);
-                        DebugLocation(136, 20);
-                        // GBX.g:136:20: ( REG_A COMMA !)?
-                        int alt15 = 2;
-                        try
-                        {
-                            DebugEnterSubRule(15);
-                            try
-                            {
-                                DebugEnterDecision(15, false);
-                                int LA15_0 = input.LA(1);
-
-                                if ((LA15_0 == REG_A))
-                                {
-                                    int LA15_1 = input.LA(2);
-
-                                    if ((LA15_1 == COMMA))
-                                    {
-                                        alt15 = 1;
-                                    }
-                                }
-                            }
-                            finally { DebugExitDecision(15); }
-                            switch (alt15)
-                            {
-                                case 1:
-                                    DebugEnterAlt(1);
-                                    // GBX.g:136:21: REG_A COMMA !
-                                    {
-                                        DebugLocation(136, 21);
-                                        REG_A96 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_cp831);
-                                        REG_A96_tree = (CommonTree)adaptor.Create(REG_A96);
-                                        adaptor.AddChild(root_0, REG_A96_tree);
-                                        DebugLocation(136, 32);
-                                        COMMA97 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_cp833);
-
-                                    }
-                                    break;
-
-                            }
-                        }
-                        finally { DebugExitSubRule(15); }
-
-                        DebugLocation(136, 36);
-                        PushFollow(Follow._arith_opt_in_op_cp838);
-                        arith_opt98 = arith_opt();
-                        PopFollow();
-
-                        adaptor.AddChild(root_0, arith_opt98.Tree);
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_cp", 15);
-                    LeaveRule("op_cp", 15);
-                    LeaveRule_op_cp();
-                }
-                DebugLocation(136, 44);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_cp"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_cp"
-
-        partial void EnterRule_op_cpl();
-        partial void LeaveRule_op_cpl();
-
-        // $ANTLR start "op_cpl"
-        // GBX.g:137:1: op_cpl : INST_CPL ^;
-        [GrammarRule("op_cpl")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_cpl()
-        {
-            EnterRule_op_cpl();
-            EnterRule("op_cpl", 16);
-            TraceIn("op_cpl", 16);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_CPL99 = default(IToken);
-
-            CommonTree INST_CPL99_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_cpl");
-                DebugLocation(137, 20);
-                try
-                {
-                    // GBX.g:137:10: ( INST_CPL ^)
-                    DebugEnterAlt(1);
-                    // GBX.g:137:12: INST_CPL ^
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(137, 20);
-                        INST_CPL99 = (IToken)Match(input, INST_CPL, Follow._INST_CPL_in_op_cpl847);
-                        INST_CPL99_tree = (CommonTree)adaptor.Create(INST_CPL99);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_CPL99_tree, root_0);
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_cpl", 16);
-                    LeaveRule("op_cpl", 16);
-                    LeaveRule_op_cpl();
-                }
-                DebugLocation(137, 20);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_cpl"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_cpl"
-
-        partial void EnterRule_op_daa();
-        partial void LeaveRule_op_daa();
-
-        // $ANTLR start "op_daa"
-        // GBX.g:138:1: op_daa : INST_DAA ^;
-        [GrammarRule("op_daa")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_daa()
-        {
-            EnterRule_op_daa();
-            EnterRule("op_daa", 17);
-            TraceIn("op_daa", 17);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_DAA100 = default(IToken);
-
-            CommonTree INST_DAA100_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_daa");
-                DebugLocation(138, 20);
-                try
-                {
-                    // GBX.g:138:10: ( INST_DAA ^)
-                    DebugEnterAlt(1);
-                    // GBX.g:138:12: INST_DAA ^
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(138, 20);
-                        INST_DAA100 = (IToken)Match(input, INST_DAA, Follow._INST_DAA_in_op_daa857);
-                        INST_DAA100_tree = (CommonTree)adaptor.Create(INST_DAA100);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_DAA100_tree, root_0);
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_daa", 17);
-                    LeaveRule("op_daa", 17);
-                    LeaveRule_op_daa();
-                }
-                DebugLocation(138, 20);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_daa"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_daa"
-
-        partial void EnterRule_op_dec();
-        partial void LeaveRule_op_dec();
-
-        // $ANTLR start "op_dec"
-        // GBX.g:139:1: op_dec : INST_DEC ^ ( RR_BC | RR_DE | RR_HL | RR_SP | r8 | rr_ref_hl ) ;
-        [GrammarRule("op_dec")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_dec()
-        {
-            EnterRule_op_dec();
-            EnterRule("op_dec", 18);
-            TraceIn("op_dec", 18);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_DEC101 = default(IToken);
-            IToken RR_BC102 = default(IToken);
-            IToken RR_DE103 = default(IToken);
-            IToken RR_HL104 = default(IToken);
-            IToken RR_SP105 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> r8106 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl107 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-
-            CommonTree INST_DEC101_tree = default(CommonTree);
-            CommonTree RR_BC102_tree = default(CommonTree);
-            CommonTree RR_DE103_tree = default(CommonTree);
-            CommonTree RR_HL104_tree = default(CommonTree);
-            CommonTree RR_SP105_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_dec");
-                DebugLocation(139, 59);
-                try
-                {
-                    // GBX.g:139:10: ( INST_DEC ^ ( RR_BC | RR_DE | RR_HL | RR_SP | r8 | rr_ref_hl ) )
-                    DebugEnterAlt(1);
-                    // GBX.g:139:12: INST_DEC ^ ( RR_BC | RR_DE | RR_HL | RR_SP | r8 | rr_ref_hl )
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(139, 20);
-                        INST_DEC101 = (IToken)Match(input, INST_DEC, Follow._INST_DEC_in_op_dec867);
-                        INST_DEC101_tree = (CommonTree)adaptor.Create(INST_DEC101);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_DEC101_tree, root_0);
-                        DebugLocation(139, 22);
-                        // GBX.g:139:22: ( RR_BC | RR_DE | RR_HL | RR_SP | r8 | rr_ref_hl )
-                        int alt16 = 6;
-                        try
-                        {
-                            DebugEnterSubRule(16);
-                            try
-                            {
-                                DebugEnterDecision(16, false);
-                                switch (input.LA(1))
-                                {
-                                    case RR_BC:
-                                        {
-                                            alt16 = 1;
-                                        }
-                                        break;
-                                    case RR_DE:
-                                        {
-                                            alt16 = 2;
-                                        }
-                                        break;
-                                    case RR_HL:
-                                        {
-                                            alt16 = 3;
-                                        }
-                                        break;
-                                    case RR_SP:
-                                        {
-                                            alt16 = 4;
-                                        }
-                                        break;
-                                    case REG_A:
-                                    case REG_B:
-                                    case REG_C:
-                                    case REG_D:
-                                    case REG_E:
-                                    case REG_H:
-                                    case REG_L:
-                                        {
-                                            alt16 = 5;
-                                        }
-                                        break;
-                                    case LEFT_BRACKET:
-                                        {
-                                            alt16 = 6;
-                                        }
-                                        break;
-                                    default:
-                                        {
-                                            NoViableAltException nvae = new NoViableAltException("", 16, 0, input);
-                                            DebugRecognitionException(nvae);
-                                            throw nvae;
-                                        }
-                                }
-
-                            }
-                            finally { DebugExitDecision(16); }
-                            switch (alt16)
-                            {
-                                case 1:
-                                    DebugEnterAlt(1);
-                                    // GBX.g:139:23: RR_BC
-                                    {
-                                        DebugLocation(139, 23);
-                                        RR_BC102 = (IToken)Match(input, RR_BC, Follow._RR_BC_in_op_dec871);
-                                        RR_BC102_tree = (CommonTree)adaptor.Create(RR_BC102);
-                                        adaptor.AddChild(root_0, RR_BC102_tree);
-
-                                    }
-                                    break;
-                                case 2:
-                                    DebugEnterAlt(2);
-                                    // GBX.g:139:29: RR_DE
-                                    {
-                                        DebugLocation(139, 29);
-                                        RR_DE103 = (IToken)Match(input, RR_DE, Follow._RR_DE_in_op_dec873);
-                                        RR_DE103_tree = (CommonTree)adaptor.Create(RR_DE103);
-                                        adaptor.AddChild(root_0, RR_DE103_tree);
-
-                                    }
-                                    break;
-                                case 3:
-                                    DebugEnterAlt(3);
-                                    // GBX.g:139:35: RR_HL
-                                    {
-                                        DebugLocation(139, 35);
-                                        RR_HL104 = (IToken)Match(input, RR_HL, Follow._RR_HL_in_op_dec875);
-                                        RR_HL104_tree = (CommonTree)adaptor.Create(RR_HL104);
-                                        adaptor.AddChild(root_0, RR_HL104_tree);
-
-                                    }
-                                    break;
-                                case 4:
-                                    DebugEnterAlt(4);
-                                    // GBX.g:139:41: RR_SP
-                                    {
-                                        DebugLocation(139, 41);
-                                        RR_SP105 = (IToken)Match(input, RR_SP, Follow._RR_SP_in_op_dec877);
-                                        RR_SP105_tree = (CommonTree)adaptor.Create(RR_SP105);
-                                        adaptor.AddChild(root_0, RR_SP105_tree);
-
-                                    }
-                                    break;
-                                case 5:
-                                    DebugEnterAlt(5);
-                                    // GBX.g:139:47: r8
-                                    {
-                                        DebugLocation(139, 47);
-                                        PushFollow(Follow._r8_in_op_dec879);
-                                        r8106 = r8();
-                                        PopFollow();
-
-                                        adaptor.AddChild(root_0, r8106.Tree);
-
-                                    }
-                                    break;
-                                case 6:
-                                    DebugEnterAlt(6);
-                                    // GBX.g:139:50: rr_ref_hl
-                                    {
-                                        DebugLocation(139, 50);
-                                        PushFollow(Follow._rr_ref_hl_in_op_dec881);
-                                        rr_ref_hl107 = rr_ref_hl();
-                                        PopFollow();
-
-                                        adaptor.AddChild(root_0, rr_ref_hl107.Tree);
-
-                                    }
-                                    break;
-
-                            }
-                        }
-                        finally { DebugExitSubRule(16); }
-
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_dec", 18);
-                    LeaveRule("op_dec", 18);
-                    LeaveRule_op_dec();
-                }
-                DebugLocation(139, 59);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_dec"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_dec"
-
-        partial void EnterRule_op_di();
-        partial void LeaveRule_op_di();
-
-        // $ANTLR start "op_di"
-        // GBX.g:140:1: op_di : INST_DI ^;
-        [GrammarRule("op_di")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_di()
-        {
-            EnterRule_op_di();
-            EnterRule("op_di", 19);
-            TraceIn("op_di", 19);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_DI108 = default(IToken);
-
-            CommonTree INST_DI108_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_di");
-                DebugLocation(140, 18);
-                try
-                {
-                    // GBX.g:140:9: ( INST_DI ^)
-                    DebugEnterAlt(1);
-                    // GBX.g:140:11: INST_DI ^
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(140, 18);
-                        INST_DI108 = (IToken)Match(input, INST_DI, Follow._INST_DI_in_op_di891);
-                        INST_DI108_tree = (CommonTree)adaptor.Create(INST_DI108);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_DI108_tree, root_0);
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_di", 19);
-                    LeaveRule("op_di", 19);
-                    LeaveRule_op_di();
-                }
-                DebugLocation(140, 18);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_di"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_di"
-
-        partial void EnterRule_op_ei();
-        partial void LeaveRule_op_ei();
-
-        // $ANTLR start "op_ei"
-        // GBX.g:141:1: op_ei : INST_EI ^;
-        [GrammarRule("op_ei")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_ei()
-        {
-            EnterRule_op_ei();
-            EnterRule("op_ei", 20);
-            TraceIn("op_ei", 20);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_EI109 = default(IToken);
-
-            CommonTree INST_EI109_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_ei");
-                DebugLocation(141, 18);
-                try
-                {
-                    // GBX.g:141:9: ( INST_EI ^)
-                    DebugEnterAlt(1);
-                    // GBX.g:141:11: INST_EI ^
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(141, 18);
-                        INST_EI109 = (IToken)Match(input, INST_EI, Follow._INST_EI_in_op_ei901);
-                        INST_EI109_tree = (CommonTree)adaptor.Create(INST_EI109);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_EI109_tree, root_0);
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_ei", 20);
-                    LeaveRule("op_ei", 20);
-                    LeaveRule_op_ei();
-                }
-                DebugLocation(141, 18);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_ei"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_ei"
-
-        partial void EnterRule_op_halt();
-        partial void LeaveRule_op_halt();
-
-        // $ANTLR start "op_halt"
-        // GBX.g:142:1: op_halt : INST_HALT ^;
-        [GrammarRule("op_halt")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_halt()
-        {
-            EnterRule_op_halt();
-            EnterRule("op_halt", 21);
-            TraceIn("op_halt", 21);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_HALT110 = default(IToken);
-
-            CommonTree INST_HALT110_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_halt");
-                DebugLocation(142, 22);
-                try
-                {
-                    // GBX.g:142:11: ( INST_HALT ^)
-                    DebugEnterAlt(1);
-                    // GBX.g:142:13: INST_HALT ^
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(142, 22);
-                        INST_HALT110 = (IToken)Match(input, INST_HALT, Follow._INST_HALT_in_op_halt911);
-                        INST_HALT110_tree = (CommonTree)adaptor.Create(INST_HALT110);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_HALT110_tree, root_0);
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_halt", 21);
-                    LeaveRule("op_halt", 21);
-                    LeaveRule_op_halt();
-                }
-                DebugLocation(142, 22);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_halt"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_halt"
-
-        partial void EnterRule_op_inc();
-        partial void LeaveRule_op_inc();
-
-        // $ANTLR start "op_inc"
-        // GBX.g:143:1: op_inc : INST_INC ^ ( RR_BC | RR_DE | RR_HL | RR_SP | r8 | rr_ref_hl ) ;
-        [GrammarRule("op_inc")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_inc()
-        {
-            EnterRule_op_inc();
-            EnterRule("op_inc", 22);
-            TraceIn("op_inc", 22);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_INC111 = default(IToken);
-            IToken RR_BC112 = default(IToken);
-            IToken RR_DE113 = default(IToken);
-            IToken RR_HL114 = default(IToken);
-            IToken RR_SP115 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> r8116 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl117 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-
-            CommonTree INST_INC111_tree = default(CommonTree);
-            CommonTree RR_BC112_tree = default(CommonTree);
-            CommonTree RR_DE113_tree = default(CommonTree);
-            CommonTree RR_HL114_tree = default(CommonTree);
-            CommonTree RR_SP115_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_inc");
-                DebugLocation(143, 59);
-                try
-                {
-                    // GBX.g:143:10: ( INST_INC ^ ( RR_BC | RR_DE | RR_HL | RR_SP | r8 | rr_ref_hl ) )
-                    DebugEnterAlt(1);
-                    // GBX.g:143:12: INST_INC ^ ( RR_BC | RR_DE | RR_HL | RR_SP | r8 | rr_ref_hl )
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(143, 20);
-                        INST_INC111 = (IToken)Match(input, INST_INC, Follow._INST_INC_in_op_inc921);
-                        INST_INC111_tree = (CommonTree)adaptor.Create(INST_INC111);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_INC111_tree, root_0);
-                        DebugLocation(143, 22);
-                        // GBX.g:143:22: ( RR_BC | RR_DE | RR_HL | RR_SP | r8 | rr_ref_hl )
-                        int alt17 = 6;
+                        adaptor.AddChild(root_0, expression97.Tree);
+                        DebugLocation(140, 38);
+                        COMMA98 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_bit877);
+                        DebugLocation(140, 40);
+                        // GBX.g:140:40: ( r8 | rr_ref_hl )
+                        int alt17 = 2;
                         try
                         {
                             DebugEnterSubRule(17);
                             try
                             {
                                 DebugEnterDecision(17, false);
-                                switch (input.LA(1))
-                                {
-                                    case RR_BC:
-                                        {
-                                            alt17 = 1;
-                                        }
-                                        break;
-                                    case RR_DE:
-                                        {
-                                            alt17 = 2;
-                                        }
-                                        break;
-                                    case RR_HL:
-                                        {
-                                            alt17 = 3;
-                                        }
-                                        break;
-                                    case RR_SP:
-                                        {
-                                            alt17 = 4;
-                                        }
-                                        break;
-                                    case REG_A:
-                                    case REG_B:
-                                    case REG_C:
-                                    case REG_D:
-                                    case REG_E:
-                                    case REG_H:
-                                    case REG_L:
-                                        {
-                                            alt17 = 5;
-                                        }
-                                        break;
-                                    case LEFT_BRACKET:
-                                        {
-                                            alt17 = 6;
-                                        }
-                                        break;
-                                    default:
-                                        {
-                                            NoViableAltException nvae = new NoViableAltException("", 17, 0, input);
-                                            DebugRecognitionException(nvae);
-                                            throw nvae;
-                                        }
-                                }
+                                int LA17_0 = input.LA(1);
 
+                                if (((LA17_0 >= REG_A && LA17_0 <= REG_L)))
+                                {
+                                    alt17 = 1;
+                                }
+                                else if ((LA17_0 == LEFT_BRACKET))
+                                {
+                                    alt17 = 2;
+                                }
+                                else
+                                {
+                                    NoViableAltException nvae = new NoViableAltException("", 17, 0, input);
+                                    DebugRecognitionException(nvae);
+                                    throw nvae;
+                                }
                             }
                             finally { DebugExitDecision(17); }
                             switch (alt17)
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:143:23: RR_BC
+                                    // GBX.g:140:41: r8
                                     {
-                                        DebugLocation(143, 23);
-                                        RR_BC112 = (IToken)Match(input, RR_BC, Follow._RR_BC_in_op_inc925);
-                                        RR_BC112_tree = (CommonTree)adaptor.Create(RR_BC112);
-                                        adaptor.AddChild(root_0, RR_BC112_tree);
+                                        DebugLocation(140, 41);
+                                        PushFollow(Follow._r8_in_op_bit881);
+                                        r899 = r8();
+                                        PopFollow();
+
+                                        adaptor.AddChild(root_0, r899.Tree);
 
                                     }
                                     break;
                                 case 2:
                                     DebugEnterAlt(2);
-                                    // GBX.g:143:29: RR_DE
+                                    // GBX.g:140:44: rr_ref_hl
                                     {
-                                        DebugLocation(143, 29);
-                                        RR_DE113 = (IToken)Match(input, RR_DE, Follow._RR_DE_in_op_inc927);
-                                        RR_DE113_tree = (CommonTree)adaptor.Create(RR_DE113);
-                                        adaptor.AddChild(root_0, RR_DE113_tree);
-
-                                    }
-                                    break;
-                                case 3:
-                                    DebugEnterAlt(3);
-                                    // GBX.g:143:35: RR_HL
-                                    {
-                                        DebugLocation(143, 35);
-                                        RR_HL114 = (IToken)Match(input, RR_HL, Follow._RR_HL_in_op_inc929);
-                                        RR_HL114_tree = (CommonTree)adaptor.Create(RR_HL114);
-                                        adaptor.AddChild(root_0, RR_HL114_tree);
-
-                                    }
-                                    break;
-                                case 4:
-                                    DebugEnterAlt(4);
-                                    // GBX.g:143:41: RR_SP
-                                    {
-                                        DebugLocation(143, 41);
-                                        RR_SP115 = (IToken)Match(input, RR_SP, Follow._RR_SP_in_op_inc931);
-                                        RR_SP115_tree = (CommonTree)adaptor.Create(RR_SP115);
-                                        adaptor.AddChild(root_0, RR_SP115_tree);
-
-                                    }
-                                    break;
-                                case 5:
-                                    DebugEnterAlt(5);
-                                    // GBX.g:143:47: r8
-                                    {
-                                        DebugLocation(143, 47);
-                                        PushFollow(Follow._r8_in_op_inc933);
-                                        r8116 = r8();
+                                        DebugLocation(140, 44);
+                                        PushFollow(Follow._rr_ref_hl_in_op_bit883);
+                                        rr_ref_hl100 = rr_ref_hl();
                                         PopFollow();
 
-                                        adaptor.AddChild(root_0, r8116.Tree);
-
-                                    }
-                                    break;
-                                case 6:
-                                    DebugEnterAlt(6);
-                                    // GBX.g:143:50: rr_ref_hl
-                                    {
-                                        DebugLocation(143, 50);
-                                        PushFollow(Follow._rr_ref_hl_in_op_inc935);
-                                        rr_ref_hl117 = rr_ref_hl();
-                                        PopFollow();
-
-                                        adaptor.AddChild(root_0, rr_ref_hl117.Tree);
+                                        adaptor.AddChild(root_0, rr_ref_hl100.Tree);
 
                                     }
                                     break;
@@ -4027,210 +3795,615 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_inc", 22);
-                    LeaveRule("op_inc", 22);
-                    LeaveRule_op_inc();
+                    TraceOut("op_bit", 14);
+                    LeaveRule("op_bit", 14);
+                    LeaveRule_op_bit();
                 }
-                DebugLocation(143, 59);
+                DebugLocation(140, 53);
             }
-            finally { DebugExitRule(GrammarFileName, "op_inc"); }
+            finally { DebugExitRule(GrammarFileName, "op_bit"); }
             return retval;
 
         }
-        // $ANTLR end "op_inc"
+        // $ANTLR end "op_bit"
 
-        partial void EnterRule_op_jp();
-        partial void LeaveRule_op_jp();
+        partial void EnterRule_op_call();
+        partial void LeaveRule_op_call();
 
-        // $ANTLR start "op_jp"
-        // GBX.g:144:1: op_jp : INST_JP ^ ( ( ( cond_opt COMMA !)? ( ID | local_label ) ) | RR_HL ) ;
-        [GrammarRule("op_jp")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_jp()
+        // $ANTLR start "op_call"
+        // GBX.g:141:1: op_call : INST_CALL ^ ( cond_opt COMMA !)? ID ;
+        [GrammarRule("op_call")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_call()
         {
-            EnterRule_op_jp();
-            EnterRule("op_jp", 23);
-            TraceIn("op_jp", 23);
+            EnterRule_op_call();
+            EnterRule("op_call", 15);
+            TraceIn("op_call", 15);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_JP118 = default(IToken);
-            IToken COMMA120 = default(IToken);
-            IToken ID121 = default(IToken);
-            IToken RR_HL123 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> cond_opt119 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> local_label122 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken INST_CALL101 = default(IToken);
+            IToken COMMA103 = default(IToken);
+            IToken ID104 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> cond_opt102 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree INST_JP118_tree = default(CommonTree);
-            CommonTree COMMA120_tree = default(CommonTree);
-            CommonTree ID121_tree = default(CommonTree);
-            CommonTree RR_HL123_tree = default(CommonTree);
+            CommonTree INST_CALL101_tree = default(CommonTree);
+            CommonTree COMMA103_tree = default(CommonTree);
+            CommonTree ID104_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "op_jp");
-                DebugLocation(144, 64);
+                DebugEnterRule(GrammarFileName, "op_call");
+                DebugLocation(141, 44);
                 try
                 {
-                    // GBX.g:144:9: ( INST_JP ^ ( ( ( cond_opt COMMA !)? ( ID | local_label ) ) | RR_HL ) )
+                    // GBX.g:141:11: ( INST_CALL ^ ( cond_opt COMMA !)? ID )
                     DebugEnterAlt(1);
-                    // GBX.g:144:11: INST_JP ^ ( ( ( cond_opt COMMA !)? ( ID | local_label ) ) | RR_HL )
+                    // GBX.g:141:13: INST_CALL ^ ( cond_opt COMMA !)? ID
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(144, 18);
-                        INST_JP118 = (IToken)Match(input, INST_JP, Follow._INST_JP_in_op_jp945);
-                        INST_JP118_tree = (CommonTree)adaptor.Create(INST_JP118);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_JP118_tree, root_0);
+                        DebugLocation(141, 22);
+                        INST_CALL101 = (IToken)Match(input, INST_CALL, Follow._INST_CALL_in_op_call893);
+                        INST_CALL101_tree = (CommonTree)adaptor.Create(INST_CALL101);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_CALL101_tree, root_0);
+                        DebugLocation(141, 24);
+                        // GBX.g:141:24: ( cond_opt COMMA !)?
+                        int alt18 = 2;
+                        try
+                        {
+                            DebugEnterSubRule(18);
+                            try
+                            {
+                                DebugEnterDecision(18, false);
+                                int LA18_0 = input.LA(1);
+
+                                if (((LA18_0 >= CC_NC && LA18_0 <= CC_Z) || LA18_0 == REG_C))
+                                {
+                                    alt18 = 1;
+                                }
+                            }
+                            finally { DebugExitDecision(18); }
+                            switch (alt18)
+                            {
+                                case 1:
+                                    DebugEnterAlt(1);
+                                    // GBX.g:141:25: cond_opt COMMA !
+                                    {
+                                        DebugLocation(141, 25);
+                                        PushFollow(Follow._cond_opt_in_op_call897);
+                                        cond_opt102 = cond_opt();
+                                        PopFollow();
+
+                                        adaptor.AddChild(root_0, cond_opt102.Tree);
+                                        DebugLocation(141, 39);
+                                        COMMA103 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_call899);
+
+                                    }
+                                    break;
+
+                            }
+                        }
+                        finally { DebugExitSubRule(18); }
+
+                        DebugLocation(141, 43);
+                        ID104 = (IToken)Match(input, ID, Follow._ID_in_op_call904);
+                        ID104_tree = (CommonTree)adaptor.Create(ID104);
+                        adaptor.AddChild(root_0, ID104_tree);
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_call", 15);
+                    LeaveRule("op_call", 15);
+                    LeaveRule_op_call();
+                }
+                DebugLocation(141, 44);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_call"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_call"
+
+        partial void EnterRule_op_ccf();
+        partial void LeaveRule_op_ccf();
+
+        // $ANTLR start "op_ccf"
+        // GBX.g:142:1: op_ccf : INST_CCF ^;
+        [GrammarRule("op_ccf")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_ccf()
+        {
+            EnterRule_op_ccf();
+            EnterRule("op_ccf", 16);
+            TraceIn("op_ccf", 16);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_CCF105 = default(IToken);
+
+            CommonTree INST_CCF105_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_ccf");
+                DebugLocation(142, 20);
+                try
+                {
+                    // GBX.g:142:10: ( INST_CCF ^)
+                    DebugEnterAlt(1);
+                    // GBX.g:142:12: INST_CCF ^
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(142, 20);
+                        INST_CCF105 = (IToken)Match(input, INST_CCF, Follow._INST_CCF_in_op_ccf913);
+                        INST_CCF105_tree = (CommonTree)adaptor.Create(INST_CCF105);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_CCF105_tree, root_0);
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_ccf", 16);
+                    LeaveRule("op_ccf", 16);
+                    LeaveRule_op_ccf();
+                }
+                DebugLocation(142, 20);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_ccf"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_ccf"
+
+        partial void EnterRule_op_cp();
+        partial void LeaveRule_op_cp();
+
+        // $ANTLR start "op_cp"
+        // GBX.g:143:1: op_cp : INST_CP ^ ( REG_A COMMA !)? arith_opt ;
+        [GrammarRule("op_cp")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_cp()
+        {
+            EnterRule_op_cp();
+            EnterRule("op_cp", 17);
+            TraceIn("op_cp", 17);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_CP106 = default(IToken);
+            IToken REG_A107 = default(IToken);
+            IToken COMMA108 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> arith_opt109 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+
+            CommonTree INST_CP106_tree = default(CommonTree);
+            CommonTree REG_A107_tree = default(CommonTree);
+            CommonTree COMMA108_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_cp");
+                DebugLocation(143, 44);
+                try
+                {
+                    // GBX.g:143:9: ( INST_CP ^ ( REG_A COMMA !)? arith_opt )
+                    DebugEnterAlt(1);
+                    // GBX.g:143:11: INST_CP ^ ( REG_A COMMA !)? arith_opt
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(143, 18);
+                        INST_CP106 = (IToken)Match(input, INST_CP, Follow._INST_CP_in_op_cp923);
+                        INST_CP106_tree = (CommonTree)adaptor.Create(INST_CP106);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_CP106_tree, root_0);
+                        DebugLocation(143, 20);
+                        // GBX.g:143:20: ( REG_A COMMA !)?
+                        int alt19 = 2;
+                        try
+                        {
+                            DebugEnterSubRule(19);
+                            try
+                            {
+                                DebugEnterDecision(19, false);
+                                int LA19_0 = input.LA(1);
+
+                                if ((LA19_0 == REG_A))
+                                {
+                                    int LA19_1 = input.LA(2);
+
+                                    if ((LA19_1 == COMMA))
+                                    {
+                                        alt19 = 1;
+                                    }
+                                }
+                            }
+                            finally { DebugExitDecision(19); }
+                            switch (alt19)
+                            {
+                                case 1:
+                                    DebugEnterAlt(1);
+                                    // GBX.g:143:21: REG_A COMMA !
+                                    {
+                                        DebugLocation(143, 21);
+                                        REG_A107 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_cp927);
+                                        REG_A107_tree = (CommonTree)adaptor.Create(REG_A107);
+                                        adaptor.AddChild(root_0, REG_A107_tree);
+                                        DebugLocation(143, 32);
+                                        COMMA108 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_cp929);
+
+                                    }
+                                    break;
+
+                            }
+                        }
+                        finally { DebugExitSubRule(19); }
+
+                        DebugLocation(143, 36);
+                        PushFollow(Follow._arith_opt_in_op_cp934);
+                        arith_opt109 = arith_opt();
+                        PopFollow();
+
+                        adaptor.AddChild(root_0, arith_opt109.Tree);
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_cp", 17);
+                    LeaveRule("op_cp", 17);
+                    LeaveRule_op_cp();
+                }
+                DebugLocation(143, 44);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_cp"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_cp"
+
+        partial void EnterRule_op_cpl();
+        partial void LeaveRule_op_cpl();
+
+        // $ANTLR start "op_cpl"
+        // GBX.g:144:1: op_cpl : INST_CPL ^;
+        [GrammarRule("op_cpl")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_cpl()
+        {
+            EnterRule_op_cpl();
+            EnterRule("op_cpl", 18);
+            TraceIn("op_cpl", 18);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_CPL110 = default(IToken);
+
+            CommonTree INST_CPL110_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_cpl");
+                DebugLocation(144, 20);
+                try
+                {
+                    // GBX.g:144:10: ( INST_CPL ^)
+                    DebugEnterAlt(1);
+                    // GBX.g:144:12: INST_CPL ^
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
                         DebugLocation(144, 20);
-                        // GBX.g:144:20: ( ( ( cond_opt COMMA !)? ( ID | local_label ) ) | RR_HL )
-                        int alt20 = 2;
+                        INST_CPL110 = (IToken)Match(input, INST_CPL, Follow._INST_CPL_in_op_cpl943);
+                        INST_CPL110_tree = (CommonTree)adaptor.Create(INST_CPL110);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_CPL110_tree, root_0);
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_cpl", 18);
+                    LeaveRule("op_cpl", 18);
+                    LeaveRule_op_cpl();
+                }
+                DebugLocation(144, 20);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_cpl"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_cpl"
+
+        partial void EnterRule_op_daa();
+        partial void LeaveRule_op_daa();
+
+        // $ANTLR start "op_daa"
+        // GBX.g:145:1: op_daa : INST_DAA ^;
+        [GrammarRule("op_daa")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_daa()
+        {
+            EnterRule_op_daa();
+            EnterRule("op_daa", 19);
+            TraceIn("op_daa", 19);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_DAA111 = default(IToken);
+
+            CommonTree INST_DAA111_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_daa");
+                DebugLocation(145, 20);
+                try
+                {
+                    // GBX.g:145:10: ( INST_DAA ^)
+                    DebugEnterAlt(1);
+                    // GBX.g:145:12: INST_DAA ^
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(145, 20);
+                        INST_DAA111 = (IToken)Match(input, INST_DAA, Follow._INST_DAA_in_op_daa953);
+                        INST_DAA111_tree = (CommonTree)adaptor.Create(INST_DAA111);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_DAA111_tree, root_0);
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_daa", 19);
+                    LeaveRule("op_daa", 19);
+                    LeaveRule_op_daa();
+                }
+                DebugLocation(145, 20);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_daa"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_daa"
+
+        partial void EnterRule_op_dec();
+        partial void LeaveRule_op_dec();
+
+        // $ANTLR start "op_dec"
+        // GBX.g:146:1: op_dec : INST_DEC ^ ( RR_BC | RR_DE | RR_HL | RR_SP | r8 | rr_ref_hl ) ;
+        [GrammarRule("op_dec")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_dec()
+        {
+            EnterRule_op_dec();
+            EnterRule("op_dec", 20);
+            TraceIn("op_dec", 20);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_DEC112 = default(IToken);
+            IToken RR_BC113 = default(IToken);
+            IToken RR_DE114 = default(IToken);
+            IToken RR_HL115 = default(IToken);
+            IToken RR_SP116 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> r8117 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl118 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+
+            CommonTree INST_DEC112_tree = default(CommonTree);
+            CommonTree RR_BC113_tree = default(CommonTree);
+            CommonTree RR_DE114_tree = default(CommonTree);
+            CommonTree RR_HL115_tree = default(CommonTree);
+            CommonTree RR_SP116_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_dec");
+                DebugLocation(146, 59);
+                try
+                {
+                    // GBX.g:146:10: ( INST_DEC ^ ( RR_BC | RR_DE | RR_HL | RR_SP | r8 | rr_ref_hl ) )
+                    DebugEnterAlt(1);
+                    // GBX.g:146:12: INST_DEC ^ ( RR_BC | RR_DE | RR_HL | RR_SP | r8 | rr_ref_hl )
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(146, 20);
+                        INST_DEC112 = (IToken)Match(input, INST_DEC, Follow._INST_DEC_in_op_dec963);
+                        INST_DEC112_tree = (CommonTree)adaptor.Create(INST_DEC112);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_DEC112_tree, root_0);
+                        DebugLocation(146, 22);
+                        // GBX.g:146:22: ( RR_BC | RR_DE | RR_HL | RR_SP | r8 | rr_ref_hl )
+                        int alt20 = 6;
                         try
                         {
                             DebugEnterSubRule(20);
                             try
                             {
                                 DebugEnterDecision(20, false);
-                                int LA20_0 = input.LA(1);
+                                switch (input.LA(1))
+                                {
+                                    case RR_BC:
+                                        {
+                                            alt20 = 1;
+                                        }
+                                        break;
+                                    case RR_DE:
+                                        {
+                                            alt20 = 2;
+                                        }
+                                        break;
+                                    case RR_HL:
+                                        {
+                                            alt20 = 3;
+                                        }
+                                        break;
+                                    case RR_SP:
+                                        {
+                                            alt20 = 4;
+                                        }
+                                        break;
+                                    case REG_A:
+                                    case REG_B:
+                                    case REG_C:
+                                    case REG_D:
+                                    case REG_E:
+                                    case REG_H:
+                                    case REG_L:
+                                        {
+                                            alt20 = 5;
+                                        }
+                                        break;
+                                    case LEFT_BRACKET:
+                                        {
+                                            alt20 = 6;
+                                        }
+                                        break;
+                                    default:
+                                        {
+                                            NoViableAltException nvae = new NoViableAltException("", 20, 0, input);
+                                            DebugRecognitionException(nvae);
+                                            throw nvae;
+                                        }
+                                }
 
-                                if (((LA20_0 >= CC_NC && LA20_0 <= CC_Z) || LA20_0 == ID || LA20_0 == REG_C || LA20_0 == 147))
-                                {
-                                    alt20 = 1;
-                                }
-                                else if ((LA20_0 == RR_HL))
-                                {
-                                    alt20 = 2;
-                                }
-                                else
-                                {
-                                    NoViableAltException nvae = new NoViableAltException("", 20, 0, input);
-                                    DebugRecognitionException(nvae);
-                                    throw nvae;
-                                }
                             }
                             finally { DebugExitDecision(20); }
                             switch (alt20)
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:144:21: ( ( cond_opt COMMA !)? ( ID | local_label ) )
+                                    // GBX.g:146:23: RR_BC
                                     {
-                                        DebugLocation(144, 21);
-                                        // GBX.g:144:21: ( ( cond_opt COMMA !)? ( ID | local_label ) )
-                                        DebugEnterAlt(1);
-                                        // GBX.g:144:22: ( cond_opt COMMA !)? ( ID | local_label )
-                                        {
-                                            DebugLocation(144, 22);
-                                            // GBX.g:144:22: ( cond_opt COMMA !)?
-                                            int alt18 = 2;
-                                            try
-                                            {
-                                                DebugEnterSubRule(18);
-                                                try
-                                                {
-                                                    DebugEnterDecision(18, false);
-                                                    int LA18_0 = input.LA(1);
-
-                                                    if (((LA18_0 >= CC_NC && LA18_0 <= CC_Z) || LA18_0 == REG_C))
-                                                    {
-                                                        alt18 = 1;
-                                                    }
-                                                }
-                                                finally { DebugExitDecision(18); }
-                                                switch (alt18)
-                                                {
-                                                    case 1:
-                                                        DebugEnterAlt(1);
-                                                        // GBX.g:144:23: cond_opt COMMA !
-                                                        {
-                                                            DebugLocation(144, 23);
-                                                            PushFollow(Follow._cond_opt_in_op_jp951);
-                                                            cond_opt119 = cond_opt();
-                                                            PopFollow();
-
-                                                            adaptor.AddChild(root_0, cond_opt119.Tree);
-                                                            DebugLocation(144, 37);
-                                                            COMMA120 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_jp953);
-
-                                                        }
-                                                        break;
-
-                                                }
-                                            }
-                                            finally { DebugExitSubRule(18); }
-
-                                            DebugLocation(144, 41);
-                                            // GBX.g:144:41: ( ID | local_label )
-                                            int alt19 = 2;
-                                            try
-                                            {
-                                                DebugEnterSubRule(19);
-                                                try
-                                                {
-                                                    DebugEnterDecision(19, false);
-                                                    int LA19_0 = input.LA(1);
-
-                                                    if ((LA19_0 == ID))
-                                                    {
-                                                        alt19 = 1;
-                                                    }
-                                                    else if ((LA19_0 == 147))
-                                                    {
-                                                        alt19 = 2;
-                                                    }
-                                                    else
-                                                    {
-                                                        NoViableAltException nvae = new NoViableAltException("", 19, 0, input);
-                                                        DebugRecognitionException(nvae);
-                                                        throw nvae;
-                                                    }
-                                                }
-                                                finally { DebugExitDecision(19); }
-                                                switch (alt19)
-                                                {
-                                                    case 1:
-                                                        DebugEnterAlt(1);
-                                                        // GBX.g:144:42: ID
-                                                        {
-                                                            DebugLocation(144, 42);
-                                                            ID121 = (IToken)Match(input, ID, Follow._ID_in_op_jp959);
-                                                            ID121_tree = (CommonTree)adaptor.Create(ID121);
-                                                            adaptor.AddChild(root_0, ID121_tree);
-
-                                                        }
-                                                        break;
-                                                    case 2:
-                                                        DebugEnterAlt(2);
-                                                        // GBX.g:144:45: local_label
-                                                        {
-                                                            DebugLocation(144, 45);
-                                                            PushFollow(Follow._local_label_in_op_jp961);
-                                                            local_label122 = local_label();
-                                                            PopFollow();
-
-                                                            adaptor.AddChild(root_0, local_label122.Tree);
-
-                                                        }
-                                                        break;
-
-                                                }
-                                            }
-                                            finally { DebugExitSubRule(19); }
-
-
-                                        }
-
+                                        DebugLocation(146, 23);
+                                        RR_BC113 = (IToken)Match(input, RR_BC, Follow._RR_BC_in_op_dec967);
+                                        RR_BC113_tree = (CommonTree)adaptor.Create(RR_BC113);
+                                        adaptor.AddChild(root_0, RR_BC113_tree);
 
                                     }
                                     break;
                                 case 2:
                                     DebugEnterAlt(2);
-                                    // GBX.g:144:59: RR_HL
+                                    // GBX.g:146:29: RR_DE
                                     {
-                                        DebugLocation(144, 59);
-                                        RR_HL123 = (IToken)Match(input, RR_HL, Follow._RR_HL_in_op_jp965);
-                                        RR_HL123_tree = (CommonTree)adaptor.Create(RR_HL123);
-                                        adaptor.AddChild(root_0, RR_HL123_tree);
+                                        DebugLocation(146, 29);
+                                        RR_DE114 = (IToken)Match(input, RR_DE, Follow._RR_DE_in_op_dec969);
+                                        RR_DE114_tree = (CommonTree)adaptor.Create(RR_DE114);
+                                        adaptor.AddChild(root_0, RR_DE114_tree);
+
+                                    }
+                                    break;
+                                case 3:
+                                    DebugEnterAlt(3);
+                                    // GBX.g:146:35: RR_HL
+                                    {
+                                        DebugLocation(146, 35);
+                                        RR_HL115 = (IToken)Match(input, RR_HL, Follow._RR_HL_in_op_dec971);
+                                        RR_HL115_tree = (CommonTree)adaptor.Create(RR_HL115);
+                                        adaptor.AddChild(root_0, RR_HL115_tree);
+
+                                    }
+                                    break;
+                                case 4:
+                                    DebugEnterAlt(4);
+                                    // GBX.g:146:41: RR_SP
+                                    {
+                                        DebugLocation(146, 41);
+                                        RR_SP116 = (IToken)Match(input, RR_SP, Follow._RR_SP_in_op_dec973);
+                                        RR_SP116_tree = (CommonTree)adaptor.Create(RR_SP116);
+                                        adaptor.AddChild(root_0, RR_SP116_tree);
+
+                                    }
+                                    break;
+                                case 5:
+                                    DebugEnterAlt(5);
+                                    // GBX.g:146:47: r8
+                                    {
+                                        DebugLocation(146, 47);
+                                        PushFollow(Follow._r8_in_op_dec975);
+                                        r8117 = r8();
+                                        PopFollow();
+
+                                        adaptor.AddChild(root_0, r8117.Tree);
+
+                                    }
+                                    break;
+                                case 6:
+                                    DebugEnterAlt(6);
+                                    // GBX.g:146:50: rr_ref_hl
+                                    {
+                                        DebugLocation(146, 50);
+                                        PushFollow(Follow._rr_ref_hl_in_op_dec977);
+                                        rr_ref_hl118 = rr_ref_hl();
+                                        PopFollow();
+
+                                        adaptor.AddChild(root_0, rr_ref_hl118.Tree);
 
                                     }
                                     break;
@@ -4257,90 +4430,384 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_jp", 23);
-                    LeaveRule("op_jp", 23);
-                    LeaveRule_op_jp();
+                    TraceOut("op_dec", 20);
+                    LeaveRule("op_dec", 20);
+                    LeaveRule_op_dec();
                 }
-                DebugLocation(144, 64);
+                DebugLocation(146, 59);
             }
-            finally { DebugExitRule(GrammarFileName, "op_jp"); }
+            finally { DebugExitRule(GrammarFileName, "op_dec"); }
             return retval;
 
         }
-        // $ANTLR end "op_jp"
+        // $ANTLR end "op_dec"
 
-        partial void EnterRule_op_jr();
-        partial void LeaveRule_op_jr();
+        partial void EnterRule_op_di();
+        partial void LeaveRule_op_di();
 
-        // $ANTLR start "op_jr"
-        // GBX.g:145:1: op_jr : INST_JR ^ ( cond_opt COMMA !)? ( ID | local_label ) ;
-        [GrammarRule("op_jr")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_jr()
+        // $ANTLR start "op_di"
+        // GBX.g:147:1: op_di : INST_DI ^;
+        [GrammarRule("op_di")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_di()
         {
-            EnterRule_op_jr();
-            EnterRule("op_jr", 24);
-            TraceIn("op_jr", 24);
+            EnterRule_op_di();
+            EnterRule("op_di", 21);
+            TraceIn("op_di", 21);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_JR124 = default(IToken);
-            IToken COMMA126 = default(IToken);
-            IToken ID127 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> cond_opt125 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> local_label128 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken INST_DI119 = default(IToken);
 
-            CommonTree INST_JR124_tree = default(CommonTree);
-            CommonTree COMMA126_tree = default(CommonTree);
-            CommonTree ID127_tree = default(CommonTree);
+            CommonTree INST_DI119_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "op_jr");
-                DebugLocation(145, 54);
+                DebugEnterRule(GrammarFileName, "op_di");
+                DebugLocation(147, 18);
                 try
                 {
-                    // GBX.g:145:9: ( INST_JR ^ ( cond_opt COMMA !)? ( ID | local_label ) )
+                    // GBX.g:147:9: ( INST_DI ^)
                     DebugEnterAlt(1);
-                    // GBX.g:145:11: INST_JR ^ ( cond_opt COMMA !)? ( ID | local_label )
+                    // GBX.g:147:11: INST_DI ^
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(145, 18);
-                        INST_JR124 = (IToken)Match(input, INST_JR, Follow._INST_JR_in_op_jr975);
-                        INST_JR124_tree = (CommonTree)adaptor.Create(INST_JR124);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_JR124_tree, root_0);
-                        DebugLocation(145, 20);
-                        // GBX.g:145:20: ( cond_opt COMMA !)?
-                        int alt21 = 2;
+                        DebugLocation(147, 18);
+                        INST_DI119 = (IToken)Match(input, INST_DI, Follow._INST_DI_in_op_di987);
+                        INST_DI119_tree = (CommonTree)adaptor.Create(INST_DI119);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_DI119_tree, root_0);
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_di", 21);
+                    LeaveRule("op_di", 21);
+                    LeaveRule_op_di();
+                }
+                DebugLocation(147, 18);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_di"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_di"
+
+        partial void EnterRule_op_ei();
+        partial void LeaveRule_op_ei();
+
+        // $ANTLR start "op_ei"
+        // GBX.g:148:1: op_ei : INST_EI ^;
+        [GrammarRule("op_ei")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_ei()
+        {
+            EnterRule_op_ei();
+            EnterRule("op_ei", 22);
+            TraceIn("op_ei", 22);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_EI120 = default(IToken);
+
+            CommonTree INST_EI120_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_ei");
+                DebugLocation(148, 18);
+                try
+                {
+                    // GBX.g:148:9: ( INST_EI ^)
+                    DebugEnterAlt(1);
+                    // GBX.g:148:11: INST_EI ^
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(148, 18);
+                        INST_EI120 = (IToken)Match(input, INST_EI, Follow._INST_EI_in_op_ei997);
+                        INST_EI120_tree = (CommonTree)adaptor.Create(INST_EI120);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_EI120_tree, root_0);
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_ei", 22);
+                    LeaveRule("op_ei", 22);
+                    LeaveRule_op_ei();
+                }
+                DebugLocation(148, 18);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_ei"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_ei"
+
+        partial void EnterRule_op_halt();
+        partial void LeaveRule_op_halt();
+
+        // $ANTLR start "op_halt"
+        // GBX.g:149:1: op_halt : INST_HALT ^;
+        [GrammarRule("op_halt")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_halt()
+        {
+            EnterRule_op_halt();
+            EnterRule("op_halt", 23);
+            TraceIn("op_halt", 23);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_HALT121 = default(IToken);
+
+            CommonTree INST_HALT121_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_halt");
+                DebugLocation(149, 22);
+                try
+                {
+                    // GBX.g:149:11: ( INST_HALT ^)
+                    DebugEnterAlt(1);
+                    // GBX.g:149:13: INST_HALT ^
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(149, 22);
+                        INST_HALT121 = (IToken)Match(input, INST_HALT, Follow._INST_HALT_in_op_halt1007);
+                        INST_HALT121_tree = (CommonTree)adaptor.Create(INST_HALT121);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_HALT121_tree, root_0);
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_halt", 23);
+                    LeaveRule("op_halt", 23);
+                    LeaveRule_op_halt();
+                }
+                DebugLocation(149, 22);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_halt"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_halt"
+
+        partial void EnterRule_op_inc();
+        partial void LeaveRule_op_inc();
+
+        // $ANTLR start "op_inc"
+        // GBX.g:150:1: op_inc : INST_INC ^ ( RR_BC | RR_DE | RR_HL | RR_SP | r8 | rr_ref_hl ) ;
+        [GrammarRule("op_inc")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_inc()
+        {
+            EnterRule_op_inc();
+            EnterRule("op_inc", 24);
+            TraceIn("op_inc", 24);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_INC122 = default(IToken);
+            IToken RR_BC123 = default(IToken);
+            IToken RR_DE124 = default(IToken);
+            IToken RR_HL125 = default(IToken);
+            IToken RR_SP126 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> r8127 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl128 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+
+            CommonTree INST_INC122_tree = default(CommonTree);
+            CommonTree RR_BC123_tree = default(CommonTree);
+            CommonTree RR_DE124_tree = default(CommonTree);
+            CommonTree RR_HL125_tree = default(CommonTree);
+            CommonTree RR_SP126_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_inc");
+                DebugLocation(150, 59);
+                try
+                {
+                    // GBX.g:150:10: ( INST_INC ^ ( RR_BC | RR_DE | RR_HL | RR_SP | r8 | rr_ref_hl ) )
+                    DebugEnterAlt(1);
+                    // GBX.g:150:12: INST_INC ^ ( RR_BC | RR_DE | RR_HL | RR_SP | r8 | rr_ref_hl )
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(150, 20);
+                        INST_INC122 = (IToken)Match(input, INST_INC, Follow._INST_INC_in_op_inc1017);
+                        INST_INC122_tree = (CommonTree)adaptor.Create(INST_INC122);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_INC122_tree, root_0);
+                        DebugLocation(150, 22);
+                        // GBX.g:150:22: ( RR_BC | RR_DE | RR_HL | RR_SP | r8 | rr_ref_hl )
+                        int alt21 = 6;
                         try
                         {
                             DebugEnterSubRule(21);
                             try
                             {
                                 DebugEnterDecision(21, false);
-                                int LA21_0 = input.LA(1);
-
-                                if (((LA21_0 >= CC_NC && LA21_0 <= CC_Z) || LA21_0 == REG_C))
+                                switch (input.LA(1))
                                 {
-                                    alt21 = 1;
+                                    case RR_BC:
+                                        {
+                                            alt21 = 1;
+                                        }
+                                        break;
+                                    case RR_DE:
+                                        {
+                                            alt21 = 2;
+                                        }
+                                        break;
+                                    case RR_HL:
+                                        {
+                                            alt21 = 3;
+                                        }
+                                        break;
+                                    case RR_SP:
+                                        {
+                                            alt21 = 4;
+                                        }
+                                        break;
+                                    case REG_A:
+                                    case REG_B:
+                                    case REG_C:
+                                    case REG_D:
+                                    case REG_E:
+                                    case REG_H:
+                                    case REG_L:
+                                        {
+                                            alt21 = 5;
+                                        }
+                                        break;
+                                    case LEFT_BRACKET:
+                                        {
+                                            alt21 = 6;
+                                        }
+                                        break;
+                                    default:
+                                        {
+                                            NoViableAltException nvae = new NoViableAltException("", 21, 0, input);
+                                            DebugRecognitionException(nvae);
+                                            throw nvae;
+                                        }
                                 }
+
                             }
                             finally { DebugExitDecision(21); }
                             switch (alt21)
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:145:21: cond_opt COMMA !
+                                    // GBX.g:150:23: RR_BC
                                     {
-                                        DebugLocation(145, 21);
-                                        PushFollow(Follow._cond_opt_in_op_jr979);
-                                        cond_opt125 = cond_opt();
+                                        DebugLocation(150, 23);
+                                        RR_BC123 = (IToken)Match(input, RR_BC, Follow._RR_BC_in_op_inc1021);
+                                        RR_BC123_tree = (CommonTree)adaptor.Create(RR_BC123);
+                                        adaptor.AddChild(root_0, RR_BC123_tree);
+
+                                    }
+                                    break;
+                                case 2:
+                                    DebugEnterAlt(2);
+                                    // GBX.g:150:29: RR_DE
+                                    {
+                                        DebugLocation(150, 29);
+                                        RR_DE124 = (IToken)Match(input, RR_DE, Follow._RR_DE_in_op_inc1023);
+                                        RR_DE124_tree = (CommonTree)adaptor.Create(RR_DE124);
+                                        adaptor.AddChild(root_0, RR_DE124_tree);
+
+                                    }
+                                    break;
+                                case 3:
+                                    DebugEnterAlt(3);
+                                    // GBX.g:150:35: RR_HL
+                                    {
+                                        DebugLocation(150, 35);
+                                        RR_HL125 = (IToken)Match(input, RR_HL, Follow._RR_HL_in_op_inc1025);
+                                        RR_HL125_tree = (CommonTree)adaptor.Create(RR_HL125);
+                                        adaptor.AddChild(root_0, RR_HL125_tree);
+
+                                    }
+                                    break;
+                                case 4:
+                                    DebugEnterAlt(4);
+                                    // GBX.g:150:41: RR_SP
+                                    {
+                                        DebugLocation(150, 41);
+                                        RR_SP126 = (IToken)Match(input, RR_SP, Follow._RR_SP_in_op_inc1027);
+                                        RR_SP126_tree = (CommonTree)adaptor.Create(RR_SP126);
+                                        adaptor.AddChild(root_0, RR_SP126_tree);
+
+                                    }
+                                    break;
+                                case 5:
+                                    DebugEnterAlt(5);
+                                    // GBX.g:150:47: r8
+                                    {
+                                        DebugLocation(150, 47);
+                                        PushFollow(Follow._r8_in_op_inc1029);
+                                        r8127 = r8();
                                         PopFollow();
 
-                                        adaptor.AddChild(root_0, cond_opt125.Tree);
-                                        DebugLocation(145, 35);
-                                        COMMA126 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_jr981);
+                                        adaptor.AddChild(root_0, r8127.Tree);
+
+                                    }
+                                    break;
+                                case 6:
+                                    DebugEnterAlt(6);
+                                    // GBX.g:150:50: rr_ref_hl
+                                    {
+                                        DebugLocation(150, 50);
+                                        PushFollow(Follow._rr_ref_hl_in_op_inc1031);
+                                        rr_ref_hl128 = rr_ref_hl();
+                                        PopFollow();
+
+                                        adaptor.AddChild(root_0, rr_ref_hl128.Tree);
 
                                     }
                                     break;
@@ -4349,64 +4816,6 @@ namespace GBRead.Base
                         }
                         finally { DebugExitSubRule(21); }
 
-                        DebugLocation(145, 39);
-                        // GBX.g:145:39: ( ID | local_label )
-                        int alt22 = 2;
-                        try
-                        {
-                            DebugEnterSubRule(22);
-                            try
-                            {
-                                DebugEnterDecision(22, false);
-                                int LA22_0 = input.LA(1);
-
-                                if ((LA22_0 == ID))
-                                {
-                                    alt22 = 1;
-                                }
-                                else if ((LA22_0 == 147))
-                                {
-                                    alt22 = 2;
-                                }
-                                else
-                                {
-                                    NoViableAltException nvae = new NoViableAltException("", 22, 0, input);
-                                    DebugRecognitionException(nvae);
-                                    throw nvae;
-                                }
-                            }
-                            finally { DebugExitDecision(22); }
-                            switch (alt22)
-                            {
-                                case 1:
-                                    DebugEnterAlt(1);
-                                    // GBX.g:145:40: ID
-                                    {
-                                        DebugLocation(145, 40);
-                                        ID127 = (IToken)Match(input, ID, Follow._ID_in_op_jr987);
-                                        ID127_tree = (CommonTree)adaptor.Create(ID127);
-                                        adaptor.AddChild(root_0, ID127_tree);
-
-                                    }
-                                    break;
-                                case 2:
-                                    DebugEnterAlt(2);
-                                    // GBX.g:145:43: local_label
-                                    {
-                                        DebugLocation(145, 43);
-                                        PushFollow(Follow._local_label_in_op_jr989);
-                                        local_label128 = local_label();
-                                        PopFollow();
-
-                                        adaptor.AddChild(root_0, local_label128.Tree);
-
-                                    }
-                                    break;
-
-                            }
-                        }
-                        finally { DebugExitSubRule(22); }
-
 
                     }
 
@@ -4425,310 +4834,63 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_jr", 24);
-                    LeaveRule("op_jr", 24);
-                    LeaveRule_op_jr();
+                    TraceOut("op_inc", 24);
+                    LeaveRule("op_inc", 24);
+                    LeaveRule_op_inc();
                 }
-                DebugLocation(145, 54);
+                DebugLocation(150, 59);
             }
-            finally { DebugExitRule(GrammarFileName, "op_jr"); }
+            finally { DebugExitRule(GrammarFileName, "op_inc"); }
             return retval;
 
         }
-        // $ANTLR end "op_jr"
+        // $ANTLR end "op_inc"
 
-        partial void EnterRule_op_ldhl();
-        partial void LeaveRule_op_ldhl();
+        partial void EnterRule_op_jp();
+        partial void LeaveRule_op_jp();
 
-        // $ANTLR start "op_ldhl"
-        // GBX.g:146:1: op_ldhl : INST_LDHL ^ RR_SP COMMA ! expression ;
-        [GrammarRule("op_ldhl")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_ldhl()
+        // $ANTLR start "op_jp"
+        // GBX.g:151:1: op_jp : INST_JP ^ ( ( ( cond_opt COMMA !)? ( ID | local_label ) ) | RR_HL ) ;
+        [GrammarRule("op_jp")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_jp()
         {
-            EnterRule_op_ldhl();
-            EnterRule("op_ldhl", 25);
-            TraceIn("op_ldhl", 25);
+            EnterRule_op_jp();
+            EnterRule("op_jp", 25);
+            TraceIn("op_jp", 25);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_LDHL129 = default(IToken);
-            IToken RR_SP130 = default(IToken);
+            IToken INST_JP129 = default(IToken);
             IToken COMMA131 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> expression132 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken ID132 = default(IToken);
+            IToken RR_HL134 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> cond_opt130 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> local_label133 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree INST_LDHL129_tree = default(CommonTree);
-            CommonTree RR_SP130_tree = default(CommonTree);
+            CommonTree INST_JP129_tree = default(CommonTree);
             CommonTree COMMA131_tree = default(CommonTree);
+            CommonTree ID132_tree = default(CommonTree);
+            CommonTree RR_HL134_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "op_ldhl");
-                DebugLocation(146, 46);
+                DebugEnterRule(GrammarFileName, "op_jp");
+                DebugLocation(151, 64);
                 try
                 {
-                    // GBX.g:146:11: ( INST_LDHL ^ RR_SP COMMA ! expression )
+                    // GBX.g:151:9: ( INST_JP ^ ( ( ( cond_opt COMMA !)? ( ID | local_label ) ) | RR_HL ) )
                     DebugEnterAlt(1);
-                    // GBX.g:146:13: INST_LDHL ^ RR_SP COMMA ! expression
+                    // GBX.g:151:11: INST_JP ^ ( ( ( cond_opt COMMA !)? ( ID | local_label ) ) | RR_HL )
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(146, 22);
-                        INST_LDHL129 = (IToken)Match(input, INST_LDHL, Follow._INST_LDHL_in_op_ldhl999);
-                        INST_LDHL129_tree = (CommonTree)adaptor.Create(INST_LDHL129);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_LDHL129_tree, root_0);
-                        DebugLocation(146, 24);
-                        RR_SP130 = (IToken)Match(input, RR_SP, Follow._RR_SP_in_op_ldhl1002);
-                        RR_SP130_tree = (CommonTree)adaptor.Create(RR_SP130);
-                        adaptor.AddChild(root_0, RR_SP130_tree);
-                        DebugLocation(146, 35);
-                        COMMA131 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ldhl1004);
-                        DebugLocation(146, 37);
-                        PushFollow(Follow._expression_in_op_ldhl1007);
-                        expression132 = expression();
-                        PopFollow();
-
-                        adaptor.AddChild(root_0, expression132.Tree);
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_ldhl", 25);
-                    LeaveRule("op_ldhl", 25);
-                    LeaveRule_op_ldhl();
-                }
-                DebugLocation(146, 46);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_ldhl"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_ldhl"
-
-        partial void EnterRule_op_ldio();
-        partial void LeaveRule_op_ldio();
-
-        // $ANTLR start "op_ldio"
-        // GBX.g:147:1: op_ldio : INST_LDIO ^ ( ( mem_ref_xp COMMA ! REG_A ) | ( REG_A COMMA ! mem_ref_xp ) ) ;
-        [GrammarRule("op_ldio")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_ldio()
-        {
-            EnterRule_op_ldio();
-            EnterRule("op_ldio", 26);
-            TraceIn("op_ldio", 26);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_LDIO133 = default(IToken);
-            IToken COMMA135 = default(IToken);
-            IToken REG_A136 = default(IToken);
-            IToken REG_A137 = default(IToken);
-            IToken COMMA138 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> mem_ref_xp134 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> mem_ref_xp139 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-
-            CommonTree INST_LDIO133_tree = default(CommonTree);
-            CommonTree COMMA135_tree = default(CommonTree);
-            CommonTree REG_A136_tree = default(CommonTree);
-            CommonTree REG_A137_tree = default(CommonTree);
-            CommonTree COMMA138_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_ldio");
-                DebugLocation(147, 76);
-                try
-                {
-                    // GBX.g:147:11: ( INST_LDIO ^ ( ( mem_ref_xp COMMA ! REG_A ) | ( REG_A COMMA ! mem_ref_xp ) ) )
-                    DebugEnterAlt(1);
-                    // GBX.g:147:13: INST_LDIO ^ ( ( mem_ref_xp COMMA ! REG_A ) | ( REG_A COMMA ! mem_ref_xp ) )
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(147, 22);
-                        INST_LDIO133 = (IToken)Match(input, INST_LDIO, Follow._INST_LDIO_in_op_ldio1016);
-                        INST_LDIO133_tree = (CommonTree)adaptor.Create(INST_LDIO133);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_LDIO133_tree, root_0);
-                        DebugLocation(147, 24);
-                        // GBX.g:147:24: ( ( mem_ref_xp COMMA ! REG_A ) | ( REG_A COMMA ! mem_ref_xp ) )
-                        int alt23 = 2;
-                        try
-                        {
-                            DebugEnterSubRule(23);
-                            try
-                            {
-                                DebugEnterDecision(23, false);
-                                int LA23_0 = input.LA(1);
-
-                                if ((LA23_0 == LEFT_BRACKET))
-                                {
-                                    alt23 = 1;
-                                }
-                                else if ((LA23_0 == REG_A))
-                                {
-                                    alt23 = 2;
-                                }
-                                else
-                                {
-                                    NoViableAltException nvae = new NoViableAltException("", 23, 0, input);
-                                    DebugRecognitionException(nvae);
-                                    throw nvae;
-                                }
-                            }
-                            finally { DebugExitDecision(23); }
-                            switch (alt23)
-                            {
-                                case 1:
-                                    DebugEnterAlt(1);
-                                    // GBX.g:147:25: ( mem_ref_xp COMMA ! REG_A )
-                                    {
-                                        DebugLocation(147, 25);
-                                        // GBX.g:147:25: ( mem_ref_xp COMMA ! REG_A )
-                                        DebugEnterAlt(1);
-                                        // GBX.g:147:26: mem_ref_xp COMMA ! REG_A
-                                        {
-                                            DebugLocation(147, 26);
-                                            PushFollow(Follow._mem_ref_xp_in_op_ldio1021);
-                                            mem_ref_xp134 = mem_ref_xp();
-                                            PopFollow();
-
-                                            adaptor.AddChild(root_0, mem_ref_xp134.Tree);
-                                            DebugLocation(147, 42);
-                                            COMMA135 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ldio1023);
-                                            DebugLocation(147, 44);
-                                            REG_A136 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_ldio1026);
-                                            REG_A136_tree = (CommonTree)adaptor.Create(REG_A136);
-                                            adaptor.AddChild(root_0, REG_A136_tree);
-
-                                        }
-
-
-                                    }
-                                    break;
-                                case 2:
-                                    DebugEnterAlt(2);
-                                    // GBX.g:147:51: ( REG_A COMMA ! mem_ref_xp )
-                                    {
-                                        DebugLocation(147, 51);
-                                        // GBX.g:147:51: ( REG_A COMMA ! mem_ref_xp )
-                                        DebugEnterAlt(1);
-                                        // GBX.g:147:52: REG_A COMMA ! mem_ref_xp
-                                        {
-                                            DebugLocation(147, 52);
-                                            REG_A137 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_ldio1030);
-                                            REG_A137_tree = (CommonTree)adaptor.Create(REG_A137);
-                                            adaptor.AddChild(root_0, REG_A137_tree);
-                                            DebugLocation(147, 63);
-                                            COMMA138 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ldio1032);
-                                            DebugLocation(147, 65);
-                                            PushFollow(Follow._mem_ref_xp_in_op_ldio1035);
-                                            mem_ref_xp139 = mem_ref_xp();
-                                            PopFollow();
-
-                                            adaptor.AddChild(root_0, mem_ref_xp139.Tree);
-
-                                        }
-
-
-                                    }
-                                    break;
-
-                            }
-                        }
-                        finally { DebugExitSubRule(23); }
-
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_ldio", 26);
-                    LeaveRule("op_ldio", 26);
-                    LeaveRule_op_ldio();
-                }
-                DebugLocation(147, 76);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_ldio"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_ldio"
-
-        partial void EnterRule_op_ldd();
-        partial void LeaveRule_op_ldd();
-
-        // $ANTLR start "op_ldd"
-        // GBX.g:148:1: op_ldd : INST_LDD ^ ( ( rr_ref_hl COMMA ! REG_A ) | ( REG_A COMMA ! rr_ref_hl ) ) ;
-        [GrammarRule("op_ldd")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_ldd()
-        {
-            EnterRule_op_ldd();
-            EnterRule("op_ldd", 27);
-            TraceIn("op_ldd", 27);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_LDD140 = default(IToken);
-            IToken COMMA142 = default(IToken);
-            IToken REG_A143 = default(IToken);
-            IToken REG_A144 = default(IToken);
-            IToken COMMA145 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl141 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl146 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-
-            CommonTree INST_LDD140_tree = default(CommonTree);
-            CommonTree COMMA142_tree = default(CommonTree);
-            CommonTree REG_A143_tree = default(CommonTree);
-            CommonTree REG_A144_tree = default(CommonTree);
-            CommonTree COMMA145_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_ldd");
-                DebugLocation(148, 72);
-                try
-                {
-                    // GBX.g:148:10: ( INST_LDD ^ ( ( rr_ref_hl COMMA ! REG_A ) | ( REG_A COMMA ! rr_ref_hl ) ) )
-                    DebugEnterAlt(1);
-                    // GBX.g:148:12: INST_LDD ^ ( ( rr_ref_hl COMMA ! REG_A ) | ( REG_A COMMA ! rr_ref_hl ) )
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(148, 20);
-                        INST_LDD140 = (IToken)Match(input, INST_LDD, Follow._INST_LDD_in_op_ldd1046);
-                        INST_LDD140_tree = (CommonTree)adaptor.Create(INST_LDD140);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_LDD140_tree, root_0);
-                        DebugLocation(148, 22);
-                        // GBX.g:148:22: ( ( rr_ref_hl COMMA ! REG_A ) | ( REG_A COMMA ! rr_ref_hl ) )
+                        DebugLocation(151, 18);
+                        INST_JP129 = (IToken)Match(input, INST_JP, Follow._INST_JP_in_op_jp1041);
+                        INST_JP129_tree = (CommonTree)adaptor.Create(INST_JP129);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_JP129_tree, root_0);
+                        DebugLocation(151, 20);
+                        // GBX.g:151:20: ( ( ( cond_opt COMMA !)? ( ID | local_label ) ) | RR_HL )
                         int alt24 = 2;
                         try
                         {
@@ -4738,11 +4900,11 @@ namespace GBRead.Base
                                 DebugEnterDecision(24, false);
                                 int LA24_0 = input.LA(1);
 
-                                if ((LA24_0 == LEFT_BRACKET))
+                                if (((LA24_0 >= CC_NC && LA24_0 <= CC_Z) || LA24_0 == ID || LA24_0 == REG_C || LA24_0 == 164))
                                 {
                                     alt24 = 1;
                                 }
-                                else if ((LA24_0 == REG_A))
+                                else if ((LA24_0 == RR_HL))
                                 {
                                     alt24 = 2;
                                 }
@@ -4758,25 +4920,110 @@ namespace GBRead.Base
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:148:23: ( rr_ref_hl COMMA ! REG_A )
+                                    // GBX.g:151:21: ( ( cond_opt COMMA !)? ( ID | local_label ) )
                                     {
-                                        DebugLocation(148, 23);
-                                        // GBX.g:148:23: ( rr_ref_hl COMMA ! REG_A )
+                                        DebugLocation(151, 21);
+                                        // GBX.g:151:21: ( ( cond_opt COMMA !)? ( ID | local_label ) )
                                         DebugEnterAlt(1);
-                                        // GBX.g:148:24: rr_ref_hl COMMA ! REG_A
+                                        // GBX.g:151:22: ( cond_opt COMMA !)? ( ID | local_label )
                                         {
-                                            DebugLocation(148, 24);
-                                            PushFollow(Follow._rr_ref_hl_in_op_ldd1051);
-                                            rr_ref_hl141 = rr_ref_hl();
-                                            PopFollow();
+                                            DebugLocation(151, 22);
+                                            // GBX.g:151:22: ( cond_opt COMMA !)?
+                                            int alt22 = 2;
+                                            try
+                                            {
+                                                DebugEnterSubRule(22);
+                                                try
+                                                {
+                                                    DebugEnterDecision(22, false);
+                                                    int LA22_0 = input.LA(1);
 
-                                            adaptor.AddChild(root_0, rr_ref_hl141.Tree);
-                                            DebugLocation(148, 39);
-                                            COMMA142 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ldd1053);
-                                            DebugLocation(148, 41);
-                                            REG_A143 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_ldd1056);
-                                            REG_A143_tree = (CommonTree)adaptor.Create(REG_A143);
-                                            adaptor.AddChild(root_0, REG_A143_tree);
+                                                    if (((LA22_0 >= CC_NC && LA22_0 <= CC_Z) || LA22_0 == REG_C))
+                                                    {
+                                                        alt22 = 1;
+                                                    }
+                                                }
+                                                finally { DebugExitDecision(22); }
+                                                switch (alt22)
+                                                {
+                                                    case 1:
+                                                        DebugEnterAlt(1);
+                                                        // GBX.g:151:23: cond_opt COMMA !
+                                                        {
+                                                            DebugLocation(151, 23);
+                                                            PushFollow(Follow._cond_opt_in_op_jp1047);
+                                                            cond_opt130 = cond_opt();
+                                                            PopFollow();
+
+                                                            adaptor.AddChild(root_0, cond_opt130.Tree);
+                                                            DebugLocation(151, 37);
+                                                            COMMA131 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_jp1049);
+
+                                                        }
+                                                        break;
+
+                                                }
+                                            }
+                                            finally { DebugExitSubRule(22); }
+
+                                            DebugLocation(151, 41);
+                                            // GBX.g:151:41: ( ID | local_label )
+                                            int alt23 = 2;
+                                            try
+                                            {
+                                                DebugEnterSubRule(23);
+                                                try
+                                                {
+                                                    DebugEnterDecision(23, false);
+                                                    int LA23_0 = input.LA(1);
+
+                                                    if ((LA23_0 == ID))
+                                                    {
+                                                        alt23 = 1;
+                                                    }
+                                                    else if ((LA23_0 == 164))
+                                                    {
+                                                        alt23 = 2;
+                                                    }
+                                                    else
+                                                    {
+                                                        NoViableAltException nvae = new NoViableAltException("", 23, 0, input);
+                                                        DebugRecognitionException(nvae);
+                                                        throw nvae;
+                                                    }
+                                                }
+                                                finally { DebugExitDecision(23); }
+                                                switch (alt23)
+                                                {
+                                                    case 1:
+                                                        DebugEnterAlt(1);
+                                                        // GBX.g:151:42: ID
+                                                        {
+                                                            DebugLocation(151, 42);
+                                                            ID132 = (IToken)Match(input, ID, Follow._ID_in_op_jp1055);
+                                                            ID132_tree = (CommonTree)adaptor.Create(ID132);
+                                                            adaptor.AddChild(root_0, ID132_tree);
+
+                                                        }
+                                                        break;
+                                                    case 2:
+                                                        DebugEnterAlt(2);
+                                                        // GBX.g:151:45: local_label
+                                                        {
+                                                            DebugLocation(151, 45);
+                                                            PushFollow(Follow._local_label_in_op_jp1057);
+                                                            local_label133 = local_label();
+                                                            PopFollow();
+
+                                                            adaptor.AddChild(root_0, local_label133.Tree);
+
+                                                        }
+                                                        break;
+
+                                                }
+                                            }
+                                            finally { DebugExitSubRule(23); }
+
 
                                         }
 
@@ -4785,28 +5032,12 @@ namespace GBRead.Base
                                     break;
                                 case 2:
                                     DebugEnterAlt(2);
-                                    // GBX.g:148:48: ( REG_A COMMA ! rr_ref_hl )
+                                    // GBX.g:151:59: RR_HL
                                     {
-                                        DebugLocation(148, 48);
-                                        // GBX.g:148:48: ( REG_A COMMA ! rr_ref_hl )
-                                        DebugEnterAlt(1);
-                                        // GBX.g:148:49: REG_A COMMA ! rr_ref_hl
-                                        {
-                                            DebugLocation(148, 49);
-                                            REG_A144 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_ldd1060);
-                                            REG_A144_tree = (CommonTree)adaptor.Create(REG_A144);
-                                            adaptor.AddChild(root_0, REG_A144_tree);
-                                            DebugLocation(148, 60);
-                                            COMMA145 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ldd1062);
-                                            DebugLocation(148, 62);
-                                            PushFollow(Follow._rr_ref_hl_in_op_ldd1065);
-                                            rr_ref_hl146 = rr_ref_hl();
-                                            PopFollow();
-
-                                            adaptor.AddChild(root_0, rr_ref_hl146.Tree);
-
-                                        }
-
+                                        DebugLocation(151, 59);
+                                        RR_HL134 = (IToken)Match(input, RR_HL, Follow._RR_HL_in_op_jp1061);
+                                        RR_HL134_tree = (CommonTree)adaptor.Create(RR_HL134);
+                                        adaptor.AddChild(root_0, RR_HL134_tree);
 
                                     }
                                     break;
@@ -4833,11 +5064,587 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_ldd", 27);
-                    LeaveRule("op_ldd", 27);
+                    TraceOut("op_jp", 25);
+                    LeaveRule("op_jp", 25);
+                    LeaveRule_op_jp();
+                }
+                DebugLocation(151, 64);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_jp"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_jp"
+
+        partial void EnterRule_op_jr();
+        partial void LeaveRule_op_jr();
+
+        // $ANTLR start "op_jr"
+        // GBX.g:152:1: op_jr : INST_JR ^ ( cond_opt COMMA !)? ( ID | local_label ) ;
+        [GrammarRule("op_jr")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_jr()
+        {
+            EnterRule_op_jr();
+            EnterRule("op_jr", 26);
+            TraceIn("op_jr", 26);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_JR135 = default(IToken);
+            IToken COMMA137 = default(IToken);
+            IToken ID138 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> cond_opt136 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> local_label139 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+
+            CommonTree INST_JR135_tree = default(CommonTree);
+            CommonTree COMMA137_tree = default(CommonTree);
+            CommonTree ID138_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_jr");
+                DebugLocation(152, 54);
+                try
+                {
+                    // GBX.g:152:9: ( INST_JR ^ ( cond_opt COMMA !)? ( ID | local_label ) )
+                    DebugEnterAlt(1);
+                    // GBX.g:152:11: INST_JR ^ ( cond_opt COMMA !)? ( ID | local_label )
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(152, 18);
+                        INST_JR135 = (IToken)Match(input, INST_JR, Follow._INST_JR_in_op_jr1071);
+                        INST_JR135_tree = (CommonTree)adaptor.Create(INST_JR135);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_JR135_tree, root_0);
+                        DebugLocation(152, 20);
+                        // GBX.g:152:20: ( cond_opt COMMA !)?
+                        int alt25 = 2;
+                        try
+                        {
+                            DebugEnterSubRule(25);
+                            try
+                            {
+                                DebugEnterDecision(25, false);
+                                int LA25_0 = input.LA(1);
+
+                                if (((LA25_0 >= CC_NC && LA25_0 <= CC_Z) || LA25_0 == REG_C))
+                                {
+                                    alt25 = 1;
+                                }
+                            }
+                            finally { DebugExitDecision(25); }
+                            switch (alt25)
+                            {
+                                case 1:
+                                    DebugEnterAlt(1);
+                                    // GBX.g:152:21: cond_opt COMMA !
+                                    {
+                                        DebugLocation(152, 21);
+                                        PushFollow(Follow._cond_opt_in_op_jr1075);
+                                        cond_opt136 = cond_opt();
+                                        PopFollow();
+
+                                        adaptor.AddChild(root_0, cond_opt136.Tree);
+                                        DebugLocation(152, 35);
+                                        COMMA137 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_jr1077);
+
+                                    }
+                                    break;
+
+                            }
+                        }
+                        finally { DebugExitSubRule(25); }
+
+                        DebugLocation(152, 39);
+                        // GBX.g:152:39: ( ID | local_label )
+                        int alt26 = 2;
+                        try
+                        {
+                            DebugEnterSubRule(26);
+                            try
+                            {
+                                DebugEnterDecision(26, false);
+                                int LA26_0 = input.LA(1);
+
+                                if ((LA26_0 == ID))
+                                {
+                                    alt26 = 1;
+                                }
+                                else if ((LA26_0 == 164))
+                                {
+                                    alt26 = 2;
+                                }
+                                else
+                                {
+                                    NoViableAltException nvae = new NoViableAltException("", 26, 0, input);
+                                    DebugRecognitionException(nvae);
+                                    throw nvae;
+                                }
+                            }
+                            finally { DebugExitDecision(26); }
+                            switch (alt26)
+                            {
+                                case 1:
+                                    DebugEnterAlt(1);
+                                    // GBX.g:152:40: ID
+                                    {
+                                        DebugLocation(152, 40);
+                                        ID138 = (IToken)Match(input, ID, Follow._ID_in_op_jr1083);
+                                        ID138_tree = (CommonTree)adaptor.Create(ID138);
+                                        adaptor.AddChild(root_0, ID138_tree);
+
+                                    }
+                                    break;
+                                case 2:
+                                    DebugEnterAlt(2);
+                                    // GBX.g:152:43: local_label
+                                    {
+                                        DebugLocation(152, 43);
+                                        PushFollow(Follow._local_label_in_op_jr1085);
+                                        local_label139 = local_label();
+                                        PopFollow();
+
+                                        adaptor.AddChild(root_0, local_label139.Tree);
+
+                                    }
+                                    break;
+
+                            }
+                        }
+                        finally { DebugExitSubRule(26); }
+
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_jr", 26);
+                    LeaveRule("op_jr", 26);
+                    LeaveRule_op_jr();
+                }
+                DebugLocation(152, 54);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_jr"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_jr"
+
+        partial void EnterRule_op_ldhl();
+        partial void LeaveRule_op_ldhl();
+
+        // $ANTLR start "op_ldhl"
+        // GBX.g:153:1: op_ldhl : INST_LDHL ^ RR_SP COMMA ! expression ;
+        [GrammarRule("op_ldhl")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_ldhl()
+        {
+            EnterRule_op_ldhl();
+            EnterRule("op_ldhl", 27);
+            TraceIn("op_ldhl", 27);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_LDHL140 = default(IToken);
+            IToken RR_SP141 = default(IToken);
+            IToken COMMA142 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> expression143 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+
+            CommonTree INST_LDHL140_tree = default(CommonTree);
+            CommonTree RR_SP141_tree = default(CommonTree);
+            CommonTree COMMA142_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_ldhl");
+                DebugLocation(153, 46);
+                try
+                {
+                    // GBX.g:153:11: ( INST_LDHL ^ RR_SP COMMA ! expression )
+                    DebugEnterAlt(1);
+                    // GBX.g:153:13: INST_LDHL ^ RR_SP COMMA ! expression
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(153, 22);
+                        INST_LDHL140 = (IToken)Match(input, INST_LDHL, Follow._INST_LDHL_in_op_ldhl1095);
+                        INST_LDHL140_tree = (CommonTree)adaptor.Create(INST_LDHL140);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_LDHL140_tree, root_0);
+                        DebugLocation(153, 24);
+                        RR_SP141 = (IToken)Match(input, RR_SP, Follow._RR_SP_in_op_ldhl1098);
+                        RR_SP141_tree = (CommonTree)adaptor.Create(RR_SP141);
+                        adaptor.AddChild(root_0, RR_SP141_tree);
+                        DebugLocation(153, 35);
+                        COMMA142 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ldhl1100);
+                        DebugLocation(153, 37);
+                        PushFollow(Follow._expression_in_op_ldhl1103);
+                        expression143 = expression();
+                        PopFollow();
+
+                        adaptor.AddChild(root_0, expression143.Tree);
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_ldhl", 27);
+                    LeaveRule("op_ldhl", 27);
+                    LeaveRule_op_ldhl();
+                }
+                DebugLocation(153, 46);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_ldhl"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_ldhl"
+
+        partial void EnterRule_op_ldio();
+        partial void LeaveRule_op_ldio();
+
+        // $ANTLR start "op_ldio"
+        // GBX.g:154:1: op_ldio : INST_LDIO ^ ( ( mem_ref_xp COMMA ! REG_A ) | ( REG_A COMMA ! mem_ref_xp ) ) ;
+        [GrammarRule("op_ldio")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_ldio()
+        {
+            EnterRule_op_ldio();
+            EnterRule("op_ldio", 28);
+            TraceIn("op_ldio", 28);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_LDIO144 = default(IToken);
+            IToken COMMA146 = default(IToken);
+            IToken REG_A147 = default(IToken);
+            IToken REG_A148 = default(IToken);
+            IToken COMMA149 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> mem_ref_xp145 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> mem_ref_xp150 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+
+            CommonTree INST_LDIO144_tree = default(CommonTree);
+            CommonTree COMMA146_tree = default(CommonTree);
+            CommonTree REG_A147_tree = default(CommonTree);
+            CommonTree REG_A148_tree = default(CommonTree);
+            CommonTree COMMA149_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_ldio");
+                DebugLocation(154, 76);
+                try
+                {
+                    // GBX.g:154:11: ( INST_LDIO ^ ( ( mem_ref_xp COMMA ! REG_A ) | ( REG_A COMMA ! mem_ref_xp ) ) )
+                    DebugEnterAlt(1);
+                    // GBX.g:154:13: INST_LDIO ^ ( ( mem_ref_xp COMMA ! REG_A ) | ( REG_A COMMA ! mem_ref_xp ) )
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(154, 22);
+                        INST_LDIO144 = (IToken)Match(input, INST_LDIO, Follow._INST_LDIO_in_op_ldio1112);
+                        INST_LDIO144_tree = (CommonTree)adaptor.Create(INST_LDIO144);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_LDIO144_tree, root_0);
+                        DebugLocation(154, 24);
+                        // GBX.g:154:24: ( ( mem_ref_xp COMMA ! REG_A ) | ( REG_A COMMA ! mem_ref_xp ) )
+                        int alt27 = 2;
+                        try
+                        {
+                            DebugEnterSubRule(27);
+                            try
+                            {
+                                DebugEnterDecision(27, false);
+                                int LA27_0 = input.LA(1);
+
+                                if ((LA27_0 == LEFT_BRACKET))
+                                {
+                                    alt27 = 1;
+                                }
+                                else if ((LA27_0 == REG_A))
+                                {
+                                    alt27 = 2;
+                                }
+                                else
+                                {
+                                    NoViableAltException nvae = new NoViableAltException("", 27, 0, input);
+                                    DebugRecognitionException(nvae);
+                                    throw nvae;
+                                }
+                            }
+                            finally { DebugExitDecision(27); }
+                            switch (alt27)
+                            {
+                                case 1:
+                                    DebugEnterAlt(1);
+                                    // GBX.g:154:25: ( mem_ref_xp COMMA ! REG_A )
+                                    {
+                                        DebugLocation(154, 25);
+                                        // GBX.g:154:25: ( mem_ref_xp COMMA ! REG_A )
+                                        DebugEnterAlt(1);
+                                        // GBX.g:154:26: mem_ref_xp COMMA ! REG_A
+                                        {
+                                            DebugLocation(154, 26);
+                                            PushFollow(Follow._mem_ref_xp_in_op_ldio1117);
+                                            mem_ref_xp145 = mem_ref_xp();
+                                            PopFollow();
+
+                                            adaptor.AddChild(root_0, mem_ref_xp145.Tree);
+                                            DebugLocation(154, 42);
+                                            COMMA146 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ldio1119);
+                                            DebugLocation(154, 44);
+                                            REG_A147 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_ldio1122);
+                                            REG_A147_tree = (CommonTree)adaptor.Create(REG_A147);
+                                            adaptor.AddChild(root_0, REG_A147_tree);
+
+                                        }
+
+
+                                    }
+                                    break;
+                                case 2:
+                                    DebugEnterAlt(2);
+                                    // GBX.g:154:51: ( REG_A COMMA ! mem_ref_xp )
+                                    {
+                                        DebugLocation(154, 51);
+                                        // GBX.g:154:51: ( REG_A COMMA ! mem_ref_xp )
+                                        DebugEnterAlt(1);
+                                        // GBX.g:154:52: REG_A COMMA ! mem_ref_xp
+                                        {
+                                            DebugLocation(154, 52);
+                                            REG_A148 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_ldio1126);
+                                            REG_A148_tree = (CommonTree)adaptor.Create(REG_A148);
+                                            adaptor.AddChild(root_0, REG_A148_tree);
+                                            DebugLocation(154, 63);
+                                            COMMA149 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ldio1128);
+                                            DebugLocation(154, 65);
+                                            PushFollow(Follow._mem_ref_xp_in_op_ldio1131);
+                                            mem_ref_xp150 = mem_ref_xp();
+                                            PopFollow();
+
+                                            adaptor.AddChild(root_0, mem_ref_xp150.Tree);
+
+                                        }
+
+
+                                    }
+                                    break;
+
+                            }
+                        }
+                        finally { DebugExitSubRule(27); }
+
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_ldio", 28);
+                    LeaveRule("op_ldio", 28);
+                    LeaveRule_op_ldio();
+                }
+                DebugLocation(154, 76);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_ldio"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_ldio"
+
+        partial void EnterRule_op_ldd();
+        partial void LeaveRule_op_ldd();
+
+        // $ANTLR start "op_ldd"
+        // GBX.g:155:1: op_ldd : INST_LDD ^ ( ( rr_ref_hl COMMA ! REG_A ) | ( REG_A COMMA ! rr_ref_hl ) ) ;
+        [GrammarRule("op_ldd")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_ldd()
+        {
+            EnterRule_op_ldd();
+            EnterRule("op_ldd", 29);
+            TraceIn("op_ldd", 29);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_LDD151 = default(IToken);
+            IToken COMMA153 = default(IToken);
+            IToken REG_A154 = default(IToken);
+            IToken REG_A155 = default(IToken);
+            IToken COMMA156 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl152 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl157 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+
+            CommonTree INST_LDD151_tree = default(CommonTree);
+            CommonTree COMMA153_tree = default(CommonTree);
+            CommonTree REG_A154_tree = default(CommonTree);
+            CommonTree REG_A155_tree = default(CommonTree);
+            CommonTree COMMA156_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_ldd");
+                DebugLocation(155, 72);
+                try
+                {
+                    // GBX.g:155:10: ( INST_LDD ^ ( ( rr_ref_hl COMMA ! REG_A ) | ( REG_A COMMA ! rr_ref_hl ) ) )
+                    DebugEnterAlt(1);
+                    // GBX.g:155:12: INST_LDD ^ ( ( rr_ref_hl COMMA ! REG_A ) | ( REG_A COMMA ! rr_ref_hl ) )
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(155, 20);
+                        INST_LDD151 = (IToken)Match(input, INST_LDD, Follow._INST_LDD_in_op_ldd1142);
+                        INST_LDD151_tree = (CommonTree)adaptor.Create(INST_LDD151);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_LDD151_tree, root_0);
+                        DebugLocation(155, 22);
+                        // GBX.g:155:22: ( ( rr_ref_hl COMMA ! REG_A ) | ( REG_A COMMA ! rr_ref_hl ) )
+                        int alt28 = 2;
+                        try
+                        {
+                            DebugEnterSubRule(28);
+                            try
+                            {
+                                DebugEnterDecision(28, false);
+                                int LA28_0 = input.LA(1);
+
+                                if ((LA28_0 == LEFT_BRACKET))
+                                {
+                                    alt28 = 1;
+                                }
+                                else if ((LA28_0 == REG_A))
+                                {
+                                    alt28 = 2;
+                                }
+                                else
+                                {
+                                    NoViableAltException nvae = new NoViableAltException("", 28, 0, input);
+                                    DebugRecognitionException(nvae);
+                                    throw nvae;
+                                }
+                            }
+                            finally { DebugExitDecision(28); }
+                            switch (alt28)
+                            {
+                                case 1:
+                                    DebugEnterAlt(1);
+                                    // GBX.g:155:23: ( rr_ref_hl COMMA ! REG_A )
+                                    {
+                                        DebugLocation(155, 23);
+                                        // GBX.g:155:23: ( rr_ref_hl COMMA ! REG_A )
+                                        DebugEnterAlt(1);
+                                        // GBX.g:155:24: rr_ref_hl COMMA ! REG_A
+                                        {
+                                            DebugLocation(155, 24);
+                                            PushFollow(Follow._rr_ref_hl_in_op_ldd1147);
+                                            rr_ref_hl152 = rr_ref_hl();
+                                            PopFollow();
+
+                                            adaptor.AddChild(root_0, rr_ref_hl152.Tree);
+                                            DebugLocation(155, 39);
+                                            COMMA153 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ldd1149);
+                                            DebugLocation(155, 41);
+                                            REG_A154 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_ldd1152);
+                                            REG_A154_tree = (CommonTree)adaptor.Create(REG_A154);
+                                            adaptor.AddChild(root_0, REG_A154_tree);
+
+                                        }
+
+
+                                    }
+                                    break;
+                                case 2:
+                                    DebugEnterAlt(2);
+                                    // GBX.g:155:48: ( REG_A COMMA ! rr_ref_hl )
+                                    {
+                                        DebugLocation(155, 48);
+                                        // GBX.g:155:48: ( REG_A COMMA ! rr_ref_hl )
+                                        DebugEnterAlt(1);
+                                        // GBX.g:155:49: REG_A COMMA ! rr_ref_hl
+                                        {
+                                            DebugLocation(155, 49);
+                                            REG_A155 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_ldd1156);
+                                            REG_A155_tree = (CommonTree)adaptor.Create(REG_A155);
+                                            adaptor.AddChild(root_0, REG_A155_tree);
+                                            DebugLocation(155, 60);
+                                            COMMA156 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ldd1158);
+                                            DebugLocation(155, 62);
+                                            PushFollow(Follow._rr_ref_hl_in_op_ldd1161);
+                                            rr_ref_hl157 = rr_ref_hl();
+                                            PopFollow();
+
+                                            adaptor.AddChild(root_0, rr_ref_hl157.Tree);
+
+                                        }
+
+
+                                    }
+                                    break;
+
+                            }
+                        }
+                        finally { DebugExitSubRule(28); }
+
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_ldd", 29);
+                    LeaveRule("op_ldd", 29);
                     LeaveRule_op_ldd();
                 }
-                DebugLocation(148, 72);
+                DebugLocation(155, 72);
             }
             finally { DebugExitRule(GrammarFileName, "op_ldd"); }
             return retval;
@@ -4849,97 +5656,97 @@ namespace GBRead.Base
         partial void LeaveRule_op_ldi();
 
         // $ANTLR start "op_ldi"
-        // GBX.g:149:1: op_ldi : INST_LDI ^ ( ( rr_ref_hl COMMA ! REG_A ) | ( REG_A COMMA ! rr_ref_hl ) ) ;
+        // GBX.g:156:1: op_ldi : INST_LDI ^ ( ( rr_ref_hl COMMA ! REG_A ) | ( REG_A COMMA ! rr_ref_hl ) ) ;
         [GrammarRule("op_ldi")]
         private AstParserRuleReturnScope<CommonTree, IToken> op_ldi()
         {
             EnterRule_op_ldi();
-            EnterRule("op_ldi", 28);
-            TraceIn("op_ldi", 28);
+            EnterRule("op_ldi", 30);
+            TraceIn("op_ldi", 30);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_LDI147 = default(IToken);
-            IToken COMMA149 = default(IToken);
-            IToken REG_A150 = default(IToken);
-            IToken REG_A151 = default(IToken);
-            IToken COMMA152 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl148 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl153 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken INST_LDI158 = default(IToken);
+            IToken COMMA160 = default(IToken);
+            IToken REG_A161 = default(IToken);
+            IToken REG_A162 = default(IToken);
+            IToken COMMA163 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl159 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl164 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree INST_LDI147_tree = default(CommonTree);
-            CommonTree COMMA149_tree = default(CommonTree);
-            CommonTree REG_A150_tree = default(CommonTree);
-            CommonTree REG_A151_tree = default(CommonTree);
-            CommonTree COMMA152_tree = default(CommonTree);
+            CommonTree INST_LDI158_tree = default(CommonTree);
+            CommonTree COMMA160_tree = default(CommonTree);
+            CommonTree REG_A161_tree = default(CommonTree);
+            CommonTree REG_A162_tree = default(CommonTree);
+            CommonTree COMMA163_tree = default(CommonTree);
             try
             {
                 DebugEnterRule(GrammarFileName, "op_ldi");
-                DebugLocation(149, 72);
+                DebugLocation(156, 72);
                 try
                 {
-                    // GBX.g:149:10: ( INST_LDI ^ ( ( rr_ref_hl COMMA ! REG_A ) | ( REG_A COMMA ! rr_ref_hl ) ) )
+                    // GBX.g:156:10: ( INST_LDI ^ ( ( rr_ref_hl COMMA ! REG_A ) | ( REG_A COMMA ! rr_ref_hl ) ) )
                     DebugEnterAlt(1);
-                    // GBX.g:149:12: INST_LDI ^ ( ( rr_ref_hl COMMA ! REG_A ) | ( REG_A COMMA ! rr_ref_hl ) )
+                    // GBX.g:156:12: INST_LDI ^ ( ( rr_ref_hl COMMA ! REG_A ) | ( REG_A COMMA ! rr_ref_hl ) )
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(149, 20);
-                        INST_LDI147 = (IToken)Match(input, INST_LDI, Follow._INST_LDI_in_op_ldi1076);
-                        INST_LDI147_tree = (CommonTree)adaptor.Create(INST_LDI147);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_LDI147_tree, root_0);
-                        DebugLocation(149, 22);
-                        // GBX.g:149:22: ( ( rr_ref_hl COMMA ! REG_A ) | ( REG_A COMMA ! rr_ref_hl ) )
-                        int alt25 = 2;
+                        DebugLocation(156, 20);
+                        INST_LDI158 = (IToken)Match(input, INST_LDI, Follow._INST_LDI_in_op_ldi1172);
+                        INST_LDI158_tree = (CommonTree)adaptor.Create(INST_LDI158);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_LDI158_tree, root_0);
+                        DebugLocation(156, 22);
+                        // GBX.g:156:22: ( ( rr_ref_hl COMMA ! REG_A ) | ( REG_A COMMA ! rr_ref_hl ) )
+                        int alt29 = 2;
                         try
                         {
-                            DebugEnterSubRule(25);
+                            DebugEnterSubRule(29);
                             try
                             {
-                                DebugEnterDecision(25, false);
-                                int LA25_0 = input.LA(1);
+                                DebugEnterDecision(29, false);
+                                int LA29_0 = input.LA(1);
 
-                                if ((LA25_0 == LEFT_BRACKET))
+                                if ((LA29_0 == LEFT_BRACKET))
                                 {
-                                    alt25 = 1;
+                                    alt29 = 1;
                                 }
-                                else if ((LA25_0 == REG_A))
+                                else if ((LA29_0 == REG_A))
                                 {
-                                    alt25 = 2;
+                                    alt29 = 2;
                                 }
                                 else
                                 {
-                                    NoViableAltException nvae = new NoViableAltException("", 25, 0, input);
+                                    NoViableAltException nvae = new NoViableAltException("", 29, 0, input);
                                     DebugRecognitionException(nvae);
                                     throw nvae;
                                 }
                             }
-                            finally { DebugExitDecision(25); }
-                            switch (alt25)
+                            finally { DebugExitDecision(29); }
+                            switch (alt29)
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:149:23: ( rr_ref_hl COMMA ! REG_A )
+                                    // GBX.g:156:23: ( rr_ref_hl COMMA ! REG_A )
                                     {
-                                        DebugLocation(149, 23);
-                                        // GBX.g:149:23: ( rr_ref_hl COMMA ! REG_A )
+                                        DebugLocation(156, 23);
+                                        // GBX.g:156:23: ( rr_ref_hl COMMA ! REG_A )
                                         DebugEnterAlt(1);
-                                        // GBX.g:149:24: rr_ref_hl COMMA ! REG_A
+                                        // GBX.g:156:24: rr_ref_hl COMMA ! REG_A
                                         {
-                                            DebugLocation(149, 24);
-                                            PushFollow(Follow._rr_ref_hl_in_op_ldi1081);
-                                            rr_ref_hl148 = rr_ref_hl();
+                                            DebugLocation(156, 24);
+                                            PushFollow(Follow._rr_ref_hl_in_op_ldi1177);
+                                            rr_ref_hl159 = rr_ref_hl();
                                             PopFollow();
 
-                                            adaptor.AddChild(root_0, rr_ref_hl148.Tree);
-                                            DebugLocation(149, 39);
-                                            COMMA149 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ldi1083);
-                                            DebugLocation(149, 41);
-                                            REG_A150 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_ldi1086);
-                                            REG_A150_tree = (CommonTree)adaptor.Create(REG_A150);
-                                            adaptor.AddChild(root_0, REG_A150_tree);
+                                            adaptor.AddChild(root_0, rr_ref_hl159.Tree);
+                                            DebugLocation(156, 39);
+                                            COMMA160 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ldi1179);
+                                            DebugLocation(156, 41);
+                                            REG_A161 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_ldi1182);
+                                            REG_A161_tree = (CommonTree)adaptor.Create(REG_A161);
+                                            adaptor.AddChild(root_0, REG_A161_tree);
 
                                         }
 
@@ -4948,25 +5755,25 @@ namespace GBRead.Base
                                     break;
                                 case 2:
                                     DebugEnterAlt(2);
-                                    // GBX.g:149:48: ( REG_A COMMA ! rr_ref_hl )
+                                    // GBX.g:156:48: ( REG_A COMMA ! rr_ref_hl )
                                     {
-                                        DebugLocation(149, 48);
-                                        // GBX.g:149:48: ( REG_A COMMA ! rr_ref_hl )
+                                        DebugLocation(156, 48);
+                                        // GBX.g:156:48: ( REG_A COMMA ! rr_ref_hl )
                                         DebugEnterAlt(1);
-                                        // GBX.g:149:49: REG_A COMMA ! rr_ref_hl
+                                        // GBX.g:156:49: REG_A COMMA ! rr_ref_hl
                                         {
-                                            DebugLocation(149, 49);
-                                            REG_A151 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_ldi1090);
-                                            REG_A151_tree = (CommonTree)adaptor.Create(REG_A151);
-                                            adaptor.AddChild(root_0, REG_A151_tree);
-                                            DebugLocation(149, 60);
-                                            COMMA152 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ldi1092);
-                                            DebugLocation(149, 62);
-                                            PushFollow(Follow._rr_ref_hl_in_op_ldi1095);
-                                            rr_ref_hl153 = rr_ref_hl();
+                                            DebugLocation(156, 49);
+                                            REG_A162 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_ldi1186);
+                                            REG_A162_tree = (CommonTree)adaptor.Create(REG_A162);
+                                            adaptor.AddChild(root_0, REG_A162_tree);
+                                            DebugLocation(156, 60);
+                                            COMMA163 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ldi1188);
+                                            DebugLocation(156, 62);
+                                            PushFollow(Follow._rr_ref_hl_in_op_ldi1191);
+                                            rr_ref_hl164 = rr_ref_hl();
                                             PopFollow();
 
-                                            adaptor.AddChild(root_0, rr_ref_hl153.Tree);
+                                            adaptor.AddChild(root_0, rr_ref_hl164.Tree);
 
                                         }
 
@@ -4976,7 +5783,7 @@ namespace GBRead.Base
 
                             }
                         }
-                        finally { DebugExitSubRule(25); }
+                        finally { DebugExitSubRule(29); }
 
 
                     }
@@ -4996,11 +5803,11 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_ldi", 28);
-                    LeaveRule("op_ldi", 28);
+                    TraceOut("op_ldi", 30);
+                    LeaveRule("op_ldi", 30);
                     LeaveRule_op_ldi();
                 }
-                DebugLocation(149, 72);
+                DebugLocation(156, 72);
             }
             finally { DebugExitRule(GrammarFileName, "op_ldi"); }
             return retval;
@@ -5012,92 +5819,92 @@ namespace GBRead.Base
         partial void LeaveRule_op_ld();
 
         // $ANTLR start "op_ld"
-        // GBX.g:150:1: op_ld : INST_LD ^ ( ( REG_A COMMA ! ( r8 | expression | mem_ref ) ) | ( ( REG_B | REG_C | REG_D | REG_E | REG_H | REG_L ) COMMA ! arith_opt ) | ( ( RR_BC | RR_DE | RR_HL ) COMMA ! expression ) | ( RR_SP COMMA ! ( RR_HL | expression ) ) | ( ( rr_ref_c | rr_ref_bc | rr_ref_de ) COMMA ! REG_A ) | ( rr_ref_hl COMMA ! ( r8 | expression ) ) | ( mem_ref_xp COMMA ! ( REG_A | RR_SP ) ) ) ;
+        // GBX.g:157:1: op_ld : INST_LD ^ ( ( REG_A COMMA ! ( r8 | expression | mem_ref ) ) | ( ( REG_B | REG_C | REG_D | REG_E | REG_H | REG_L ) COMMA ! arith_opt ) | ( ( RR_BC | RR_DE | RR_HL ) COMMA ! expression ) | ( RR_SP COMMA ! ( RR_HL | expression ) ) | ( ( rr_ref_c | rr_ref_bc | rr_ref_de ) COMMA ! REG_A ) | ( rr_ref_hl COMMA ! ( r8 | expression ) ) | ( mem_ref_xp COMMA ! ( REG_A | RR_SP ) ) ) ;
         [GrammarRule("op_ld")]
         private AstParserRuleReturnScope<CommonTree, IToken> op_ld()
         {
             EnterRule_op_ld();
-            EnterRule("op_ld", 29);
-            TraceIn("op_ld", 29);
+            EnterRule("op_ld", 31);
+            TraceIn("op_ld", 31);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_LD154 = default(IToken);
-            IToken REG_A155 = default(IToken);
-            IToken COMMA156 = default(IToken);
-            IToken set160 = default(IToken);
-            IToken COMMA161 = default(IToken);
-            IToken set163 = default(IToken);
-            IToken COMMA164 = default(IToken);
-            IToken RR_SP166 = default(IToken);
+            IToken INST_LD165 = default(IToken);
+            IToken REG_A166 = default(IToken);
             IToken COMMA167 = default(IToken);
-            IToken RR_HL168 = default(IToken);
-            IToken COMMA173 = default(IToken);
-            IToken REG_A174 = default(IToken);
-            IToken COMMA176 = default(IToken);
-            IToken COMMA180 = default(IToken);
-            IToken set181 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> r8157 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> expression158 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> mem_ref159 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> arith_opt162 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> expression165 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken set171 = default(IToken);
+            IToken COMMA172 = default(IToken);
+            IToken set174 = default(IToken);
+            IToken COMMA175 = default(IToken);
+            IToken RR_SP177 = default(IToken);
+            IToken COMMA178 = default(IToken);
+            IToken RR_HL179 = default(IToken);
+            IToken COMMA184 = default(IToken);
+            IToken REG_A185 = default(IToken);
+            IToken COMMA187 = default(IToken);
+            IToken COMMA191 = default(IToken);
+            IToken set192 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> r8168 = default(AstParserRuleReturnScope<CommonTree, IToken>);
             AstParserRuleReturnScope<CommonTree, IToken> expression169 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_c170 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_bc171 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_de172 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl175 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> r8177 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> expression178 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> mem_ref_xp179 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> mem_ref170 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> arith_opt173 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> expression176 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> expression180 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_c181 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_bc182 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_de183 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl186 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> r8188 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> expression189 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> mem_ref_xp190 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree INST_LD154_tree = default(CommonTree);
-            CommonTree REG_A155_tree = default(CommonTree);
-            CommonTree COMMA156_tree = default(CommonTree);
-            CommonTree set160_tree = default(CommonTree);
-            CommonTree COMMA161_tree = default(CommonTree);
-            CommonTree set163_tree = default(CommonTree);
-            CommonTree COMMA164_tree = default(CommonTree);
-            CommonTree RR_SP166_tree = default(CommonTree);
+            CommonTree INST_LD165_tree = default(CommonTree);
+            CommonTree REG_A166_tree = default(CommonTree);
             CommonTree COMMA167_tree = default(CommonTree);
-            CommonTree RR_HL168_tree = default(CommonTree);
-            CommonTree COMMA173_tree = default(CommonTree);
-            CommonTree REG_A174_tree = default(CommonTree);
-            CommonTree COMMA176_tree = default(CommonTree);
-            CommonTree COMMA180_tree = default(CommonTree);
-            CommonTree set181_tree = default(CommonTree);
+            CommonTree set171_tree = default(CommonTree);
+            CommonTree COMMA172_tree = default(CommonTree);
+            CommonTree set174_tree = default(CommonTree);
+            CommonTree COMMA175_tree = default(CommonTree);
+            CommonTree RR_SP177_tree = default(CommonTree);
+            CommonTree COMMA178_tree = default(CommonTree);
+            CommonTree RR_HL179_tree = default(CommonTree);
+            CommonTree COMMA184_tree = default(CommonTree);
+            CommonTree REG_A185_tree = default(CommonTree);
+            CommonTree COMMA187_tree = default(CommonTree);
+            CommonTree COMMA191_tree = default(CommonTree);
+            CommonTree set192_tree = default(CommonTree);
             try
             {
                 DebugEnterRule(GrammarFileName, "op_ld");
-                DebugLocation(150, 40);
+                DebugLocation(157, 40);
                 try
                 {
-                    // GBX.g:150:9: ( INST_LD ^ ( ( REG_A COMMA ! ( r8 | expression | mem_ref ) ) | ( ( REG_B | REG_C | REG_D | REG_E | REG_H | REG_L ) COMMA ! arith_opt ) | ( ( RR_BC | RR_DE | RR_HL ) COMMA ! expression ) | ( RR_SP COMMA ! ( RR_HL | expression ) ) | ( ( rr_ref_c | rr_ref_bc | rr_ref_de ) COMMA ! REG_A ) | ( rr_ref_hl COMMA ! ( r8 | expression ) ) | ( mem_ref_xp COMMA ! ( REG_A | RR_SP ) ) ) )
+                    // GBX.g:157:9: ( INST_LD ^ ( ( REG_A COMMA ! ( r8 | expression | mem_ref ) ) | ( ( REG_B | REG_C | REG_D | REG_E | REG_H | REG_L ) COMMA ! arith_opt ) | ( ( RR_BC | RR_DE | RR_HL ) COMMA ! expression ) | ( RR_SP COMMA ! ( RR_HL | expression ) ) | ( ( rr_ref_c | rr_ref_bc | rr_ref_de ) COMMA ! REG_A ) | ( rr_ref_hl COMMA ! ( r8 | expression ) ) | ( mem_ref_xp COMMA ! ( REG_A | RR_SP ) ) ) )
                     DebugEnterAlt(1);
-                    // GBX.g:150:11: INST_LD ^ ( ( REG_A COMMA ! ( r8 | expression | mem_ref ) ) | ( ( REG_B | REG_C | REG_D | REG_E | REG_H | REG_L ) COMMA ! arith_opt ) | ( ( RR_BC | RR_DE | RR_HL ) COMMA ! expression ) | ( RR_SP COMMA ! ( RR_HL | expression ) ) | ( ( rr_ref_c | rr_ref_bc | rr_ref_de ) COMMA ! REG_A ) | ( rr_ref_hl COMMA ! ( r8 | expression ) ) | ( mem_ref_xp COMMA ! ( REG_A | RR_SP ) ) )
+                    // GBX.g:157:11: INST_LD ^ ( ( REG_A COMMA ! ( r8 | expression | mem_ref ) ) | ( ( REG_B | REG_C | REG_D | REG_E | REG_H | REG_L ) COMMA ! arith_opt ) | ( ( RR_BC | RR_DE | RR_HL ) COMMA ! expression ) | ( RR_SP COMMA ! ( RR_HL | expression ) ) | ( ( rr_ref_c | rr_ref_bc | rr_ref_de ) COMMA ! REG_A ) | ( rr_ref_hl COMMA ! ( r8 | expression ) ) | ( mem_ref_xp COMMA ! ( REG_A | RR_SP ) ) )
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(150, 18);
-                        INST_LD154 = (IToken)Match(input, INST_LD, Follow._INST_LD_in_op_ld1106);
-                        INST_LD154_tree = (CommonTree)adaptor.Create(INST_LD154);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_LD154_tree, root_0);
-                        DebugLocation(150, 20);
-                        // GBX.g:150:20: ( ( REG_A COMMA ! ( r8 | expression | mem_ref ) ) | ( ( REG_B | REG_C | REG_D | REG_E | REG_H | REG_L ) COMMA ! arith_opt ) | ( ( RR_BC | RR_DE | RR_HL ) COMMA ! expression ) | ( RR_SP COMMA ! ( RR_HL | expression ) ) | ( ( rr_ref_c | rr_ref_bc | rr_ref_de ) COMMA ! REG_A ) | ( rr_ref_hl COMMA ! ( r8 | expression ) ) | ( mem_ref_xp COMMA ! ( REG_A | RR_SP ) ) )
-                        int alt30 = 7;
+                        DebugLocation(157, 18);
+                        INST_LD165 = (IToken)Match(input, INST_LD, Follow._INST_LD_in_op_ld1202);
+                        INST_LD165_tree = (CommonTree)adaptor.Create(INST_LD165);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_LD165_tree, root_0);
+                        DebugLocation(157, 20);
+                        // GBX.g:157:20: ( ( REG_A COMMA ! ( r8 | expression | mem_ref ) ) | ( ( REG_B | REG_C | REG_D | REG_E | REG_H | REG_L ) COMMA ! arith_opt ) | ( ( RR_BC | RR_DE | RR_HL ) COMMA ! expression ) | ( RR_SP COMMA ! ( RR_HL | expression ) ) | ( ( rr_ref_c | rr_ref_bc | rr_ref_de ) COMMA ! REG_A ) | ( rr_ref_hl COMMA ! ( r8 | expression ) ) | ( mem_ref_xp COMMA ! ( REG_A | RR_SP ) ) )
+                        int alt34 = 7;
                         try
                         {
-                            DebugEnterSubRule(30);
+                            DebugEnterSubRule(34);
                             try
                             {
-                                DebugEnterDecision(30, false);
+                                DebugEnterDecision(34, false);
                                 switch (input.LA(1))
                                 {
                                     case REG_A:
                                         {
-                                            alt30 = 1;
+                                            alt34 = 1;
                                         }
                                         break;
                                     case REG_B:
@@ -5107,19 +5914,19 @@ namespace GBRead.Base
                                     case REG_H:
                                     case REG_L:
                                         {
-                                            alt30 = 2;
+                                            alt34 = 2;
                                         }
                                         break;
                                     case RR_BC:
                                     case RR_DE:
                                     case RR_HL:
                                         {
-                                            alt30 = 3;
+                                            alt34 = 3;
                                         }
                                         break;
                                     case RR_SP:
                                         {
-                                            alt30 = 4;
+                                            alt34 = 4;
                                         }
                                         break;
                                     case LEFT_BRACKET:
@@ -5130,27 +5937,36 @@ namespace GBRead.Base
                                                 case RR_BC:
                                                 case RR_DE:
                                                     {
-                                                        alt30 = 5;
+                                                        alt34 = 5;
                                                     }
                                                     break;
                                                 case RR_HL:
                                                     {
-                                                        alt30 = 6;
+                                                        alt34 = 6;
                                                     }
                                                     break;
                                                 case BANG_MARK:
                                                 case ID:
                                                 case LEFT_PARENS:
                                                 case MINUS_MARK:
+                                                case M_ARG1:
+                                                case M_ARG2:
+                                                case M_ARG3:
+                                                case M_ARG4:
+                                                case M_ARG5:
+                                                case M_ARG6:
+                                                case M_ARG7:
+                                                case M_ARG8:
+                                                case M_ARG9:
                                                 case NUMBER:
                                                 case TILDE_MARK:
                                                     {
-                                                        alt30 = 7;
+                                                        alt34 = 7;
                                                     }
                                                     break;
                                                 default:
                                                     {
-                                                        NoViableAltException nvae = new NoViableAltException("", 30, 5, input);
+                                                        NoViableAltException nvae = new NoViableAltException("", 34, 5, input);
                                                         DebugRecognitionException(nvae);
                                                         throw nvae;
                                                     }
@@ -5160,40 +5976,40 @@ namespace GBRead.Base
                                         break;
                                     default:
                                         {
-                                            NoViableAltException nvae = new NoViableAltException("", 30, 0, input);
+                                            NoViableAltException nvae = new NoViableAltException("", 34, 0, input);
                                             DebugRecognitionException(nvae);
                                             throw nvae;
                                         }
                                 }
 
                             }
-                            finally { DebugExitDecision(30); }
-                            switch (alt30)
+                            finally { DebugExitDecision(34); }
+                            switch (alt34)
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:150:21: ( REG_A COMMA ! ( r8 | expression | mem_ref ) )
+                                    // GBX.g:157:21: ( REG_A COMMA ! ( r8 | expression | mem_ref ) )
                                     {
-                                        DebugLocation(150, 21);
-                                        // GBX.g:150:21: ( REG_A COMMA ! ( r8 | expression | mem_ref ) )
+                                        DebugLocation(157, 21);
+                                        // GBX.g:157:21: ( REG_A COMMA ! ( r8 | expression | mem_ref ) )
                                         DebugEnterAlt(1);
-                                        // GBX.g:150:22: REG_A COMMA ! ( r8 | expression | mem_ref )
+                                        // GBX.g:157:22: REG_A COMMA ! ( r8 | expression | mem_ref )
                                         {
-                                            DebugLocation(150, 22);
-                                            REG_A155 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_ld1111);
-                                            REG_A155_tree = (CommonTree)adaptor.Create(REG_A155);
-                                            adaptor.AddChild(root_0, REG_A155_tree);
-                                            DebugLocation(150, 33);
-                                            COMMA156 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ld1113);
-                                            DebugLocation(150, 35);
-                                            // GBX.g:150:35: ( r8 | expression | mem_ref )
-                                            int alt26 = 3;
+                                            DebugLocation(157, 22);
+                                            REG_A166 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_ld1207);
+                                            REG_A166_tree = (CommonTree)adaptor.Create(REG_A166);
+                                            adaptor.AddChild(root_0, REG_A166_tree);
+                                            DebugLocation(157, 33);
+                                            COMMA167 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ld1209);
+                                            DebugLocation(157, 35);
+                                            // GBX.g:157:35: ( r8 | expression | mem_ref )
+                                            int alt30 = 3;
                                             try
                                             {
-                                                DebugEnterSubRule(26);
+                                                DebugEnterSubRule(30);
                                                 try
                                                 {
-                                                    DebugEnterDecision(26, false);
+                                                    DebugEnterDecision(30, false);
                                                     switch (input.LA(1))
                                                     {
                                                         case REG_A:
@@ -5204,79 +6020,88 @@ namespace GBRead.Base
                                                         case REG_H:
                                                         case REG_L:
                                                             {
-                                                                alt26 = 1;
+                                                                alt30 = 1;
                                                             }
                                                             break;
                                                         case BANG_MARK:
                                                         case ID:
                                                         case LEFT_PARENS:
                                                         case MINUS_MARK:
+                                                        case M_ARG1:
+                                                        case M_ARG2:
+                                                        case M_ARG3:
+                                                        case M_ARG4:
+                                                        case M_ARG5:
+                                                        case M_ARG6:
+                                                        case M_ARG7:
+                                                        case M_ARG8:
+                                                        case M_ARG9:
                                                         case NUMBER:
                                                         case TILDE_MARK:
                                                             {
-                                                                alt26 = 2;
+                                                                alt30 = 2;
                                                             }
                                                             break;
                                                         case LEFT_BRACKET:
                                                             {
-                                                                alt26 = 3;
+                                                                alt30 = 3;
                                                             }
                                                             break;
                                                         default:
                                                             {
-                                                                NoViableAltException nvae = new NoViableAltException("", 26, 0, input);
+                                                                NoViableAltException nvae = new NoViableAltException("", 30, 0, input);
                                                                 DebugRecognitionException(nvae);
                                                                 throw nvae;
                                                             }
                                                     }
 
                                                 }
-                                                finally { DebugExitDecision(26); }
-                                                switch (alt26)
+                                                finally { DebugExitDecision(30); }
+                                                switch (alt30)
                                                 {
                                                     case 1:
                                                         DebugEnterAlt(1);
-                                                        // GBX.g:150:36: r8
+                                                        // GBX.g:157:36: r8
                                                         {
-                                                            DebugLocation(150, 36);
-                                                            PushFollow(Follow._r8_in_op_ld1117);
-                                                            r8157 = r8();
+                                                            DebugLocation(157, 36);
+                                                            PushFollow(Follow._r8_in_op_ld1213);
+                                                            r8168 = r8();
                                                             PopFollow();
 
-                                                            adaptor.AddChild(root_0, r8157.Tree);
+                                                            adaptor.AddChild(root_0, r8168.Tree);
 
                                                         }
                                                         break;
                                                     case 2:
                                                         DebugEnterAlt(2);
-                                                        // GBX.g:150:39: expression
+                                                        // GBX.g:157:39: expression
                                                         {
-                                                            DebugLocation(150, 39);
-                                                            PushFollow(Follow._expression_in_op_ld1119);
-                                                            expression158 = expression();
+                                                            DebugLocation(157, 39);
+                                                            PushFollow(Follow._expression_in_op_ld1215);
+                                                            expression169 = expression();
                                                             PopFollow();
 
-                                                            adaptor.AddChild(root_0, expression158.Tree);
+                                                            adaptor.AddChild(root_0, expression169.Tree);
 
                                                         }
                                                         break;
                                                     case 3:
                                                         DebugEnterAlt(3);
-                                                        // GBX.g:150:50: mem_ref
+                                                        // GBX.g:157:50: mem_ref
                                                         {
-                                                            DebugLocation(150, 50);
-                                                            PushFollow(Follow._mem_ref_in_op_ld1121);
-                                                            mem_ref159 = mem_ref();
+                                                            DebugLocation(157, 50);
+                                                            PushFollow(Follow._mem_ref_in_op_ld1217);
+                                                            mem_ref170 = mem_ref();
                                                             PopFollow();
 
-                                                            adaptor.AddChild(root_0, mem_ref159.Tree);
+                                                            adaptor.AddChild(root_0, mem_ref170.Tree);
 
                                                         }
                                                         break;
 
                                                 }
                                             }
-                                            finally { DebugExitSubRule(26); }
+                                            finally { DebugExitSubRule(30); }
 
 
                                         }
@@ -5286,20 +6111,20 @@ namespace GBRead.Base
                                     break;
                                 case 2:
                                     DebugEnterAlt(2);
-                                    // GBX.g:151:7: ( ( REG_B | REG_C | REG_D | REG_E | REG_H | REG_L ) COMMA ! arith_opt )
+                                    // GBX.g:158:7: ( ( REG_B | REG_C | REG_D | REG_E | REG_H | REG_L ) COMMA ! arith_opt )
                                     {
-                                        DebugLocation(151, 7);
-                                        // GBX.g:151:7: ( ( REG_B | REG_C | REG_D | REG_E | REG_H | REG_L ) COMMA ! arith_opt )
+                                        DebugLocation(158, 7);
+                                        // GBX.g:158:7: ( ( REG_B | REG_C | REG_D | REG_E | REG_H | REG_L ) COMMA ! arith_opt )
                                         DebugEnterAlt(1);
-                                        // GBX.g:151:8: ( REG_B | REG_C | REG_D | REG_E | REG_H | REG_L ) COMMA ! arith_opt
+                                        // GBX.g:158:8: ( REG_B | REG_C | REG_D | REG_E | REG_H | REG_L ) COMMA ! arith_opt
                                         {
-                                            DebugLocation(151, 8);
+                                            DebugLocation(158, 8);
 
-                                            set160 = (IToken)input.LT(1);
+                                            set171 = (IToken)input.LT(1);
                                             if ((input.LA(1) >= REG_B && input.LA(1) <= REG_L))
                                             {
                                                 input.Consume();
-                                                adaptor.AddChild(root_0, (CommonTree)adaptor.Create(set160));
+                                                adaptor.AddChild(root_0, (CommonTree)adaptor.Create(set171));
                                                 state.errorRecovery = false;
                                             }
                                             else
@@ -5309,14 +6134,14 @@ namespace GBRead.Base
                                                 throw mse;
                                             }
 
-                                            DebugLocation(151, 51);
-                                            COMMA161 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ld1146);
-                                            DebugLocation(151, 53);
-                                            PushFollow(Follow._arith_opt_in_op_ld1149);
-                                            arith_opt162 = arith_opt();
+                                            DebugLocation(158, 51);
+                                            COMMA172 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ld1242);
+                                            DebugLocation(158, 53);
+                                            PushFollow(Follow._arith_opt_in_op_ld1245);
+                                            arith_opt173 = arith_opt();
                                             PopFollow();
 
-                                            adaptor.AddChild(root_0, arith_opt162.Tree);
+                                            adaptor.AddChild(root_0, arith_opt173.Tree);
 
                                         }
 
@@ -5325,20 +6150,20 @@ namespace GBRead.Base
                                     break;
                                 case 3:
                                     DebugEnterAlt(3);
-                                    // GBX.g:152:7: ( ( RR_BC | RR_DE | RR_HL ) COMMA ! expression )
+                                    // GBX.g:159:7: ( ( RR_BC | RR_DE | RR_HL ) COMMA ! expression )
                                     {
-                                        DebugLocation(152, 7);
-                                        // GBX.g:152:7: ( ( RR_BC | RR_DE | RR_HL ) COMMA ! expression )
+                                        DebugLocation(159, 7);
+                                        // GBX.g:159:7: ( ( RR_BC | RR_DE | RR_HL ) COMMA ! expression )
                                         DebugEnterAlt(1);
-                                        // GBX.g:152:8: ( RR_BC | RR_DE | RR_HL ) COMMA ! expression
+                                        // GBX.g:159:8: ( RR_BC | RR_DE | RR_HL ) COMMA ! expression
                                         {
-                                            DebugLocation(152, 8);
+                                            DebugLocation(159, 8);
 
-                                            set163 = (IToken)input.LT(1);
+                                            set174 = (IToken)input.LT(1);
                                             if ((input.LA(1) >= RR_BC && input.LA(1) <= RR_HL))
                                             {
                                                 input.Consume();
-                                                adaptor.AddChild(root_0, (CommonTree)adaptor.Create(set163));
+                                                adaptor.AddChild(root_0, (CommonTree)adaptor.Create(set174));
                                                 state.errorRecovery = false;
                                             }
                                             else
@@ -5348,14 +6173,14 @@ namespace GBRead.Base
                                                 throw mse;
                                             }
 
-                                            DebugLocation(152, 33);
-                                            COMMA164 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ld1167);
-                                            DebugLocation(152, 35);
-                                            PushFollow(Follow._expression_in_op_ld1170);
-                                            expression165 = expression();
+                                            DebugLocation(159, 33);
+                                            COMMA175 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ld1263);
+                                            DebugLocation(159, 35);
+                                            PushFollow(Follow._expression_in_op_ld1266);
+                                            expression176 = expression();
                                             PopFollow();
 
-                                            adaptor.AddChild(root_0, expression165.Tree);
+                                            adaptor.AddChild(root_0, expression176.Tree);
 
                                         }
 
@@ -5364,76 +6189,76 @@ namespace GBRead.Base
                                     break;
                                 case 4:
                                     DebugEnterAlt(4);
-                                    // GBX.g:153:7: ( RR_SP COMMA ! ( RR_HL | expression ) )
+                                    // GBX.g:160:7: ( RR_SP COMMA ! ( RR_HL | expression ) )
                                     {
-                                        DebugLocation(153, 7);
-                                        // GBX.g:153:7: ( RR_SP COMMA ! ( RR_HL | expression ) )
+                                        DebugLocation(160, 7);
+                                        // GBX.g:160:7: ( RR_SP COMMA ! ( RR_HL | expression ) )
                                         DebugEnterAlt(1);
-                                        // GBX.g:153:8: RR_SP COMMA ! ( RR_HL | expression )
+                                        // GBX.g:160:8: RR_SP COMMA ! ( RR_HL | expression )
                                         {
-                                            DebugLocation(153, 8);
-                                            RR_SP166 = (IToken)Match(input, RR_SP, Follow._RR_SP_in_op_ld1180);
-                                            RR_SP166_tree = (CommonTree)adaptor.Create(RR_SP166);
-                                            adaptor.AddChild(root_0, RR_SP166_tree);
-                                            DebugLocation(153, 19);
-                                            COMMA167 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ld1182);
-                                            DebugLocation(153, 21);
-                                            // GBX.g:153:21: ( RR_HL | expression )
-                                            int alt27 = 2;
+                                            DebugLocation(160, 8);
+                                            RR_SP177 = (IToken)Match(input, RR_SP, Follow._RR_SP_in_op_ld1276);
+                                            RR_SP177_tree = (CommonTree)adaptor.Create(RR_SP177);
+                                            adaptor.AddChild(root_0, RR_SP177_tree);
+                                            DebugLocation(160, 19);
+                                            COMMA178 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ld1278);
+                                            DebugLocation(160, 21);
+                                            // GBX.g:160:21: ( RR_HL | expression )
+                                            int alt31 = 2;
                                             try
                                             {
-                                                DebugEnterSubRule(27);
+                                                DebugEnterSubRule(31);
                                                 try
                                                 {
-                                                    DebugEnterDecision(27, false);
-                                                    int LA27_0 = input.LA(1);
+                                                    DebugEnterDecision(31, false);
+                                                    int LA31_0 = input.LA(1);
 
-                                                    if ((LA27_0 == RR_HL))
+                                                    if ((LA31_0 == RR_HL))
                                                     {
-                                                        alt27 = 1;
+                                                        alt31 = 1;
                                                     }
-                                                    else if ((LA27_0 == BANG_MARK || LA27_0 == ID || LA27_0 == LEFT_PARENS || LA27_0 == MINUS_MARK || LA27_0 == NUMBER || LA27_0 == TILDE_MARK))
+                                                    else if ((LA31_0 == BANG_MARK || LA31_0 == ID || LA31_0 == LEFT_PARENS || (LA31_0 >= MINUS_MARK && LA31_0 <= M_ARG9) || LA31_0 == NUMBER || LA31_0 == TILDE_MARK))
                                                     {
-                                                        alt27 = 2;
+                                                        alt31 = 2;
                                                     }
                                                     else
                                                     {
-                                                        NoViableAltException nvae = new NoViableAltException("", 27, 0, input);
+                                                        NoViableAltException nvae = new NoViableAltException("", 31, 0, input);
                                                         DebugRecognitionException(nvae);
                                                         throw nvae;
                                                     }
                                                 }
-                                                finally { DebugExitDecision(27); }
-                                                switch (alt27)
+                                                finally { DebugExitDecision(31); }
+                                                switch (alt31)
                                                 {
                                                     case 1:
                                                         DebugEnterAlt(1);
-                                                        // GBX.g:153:22: RR_HL
+                                                        // GBX.g:160:22: RR_HL
                                                         {
-                                                            DebugLocation(153, 22);
-                                                            RR_HL168 = (IToken)Match(input, RR_HL, Follow._RR_HL_in_op_ld1186);
-                                                            RR_HL168_tree = (CommonTree)adaptor.Create(RR_HL168);
-                                                            adaptor.AddChild(root_0, RR_HL168_tree);
+                                                            DebugLocation(160, 22);
+                                                            RR_HL179 = (IToken)Match(input, RR_HL, Follow._RR_HL_in_op_ld1282);
+                                                            RR_HL179_tree = (CommonTree)adaptor.Create(RR_HL179);
+                                                            adaptor.AddChild(root_0, RR_HL179_tree);
 
                                                         }
                                                         break;
                                                     case 2:
                                                         DebugEnterAlt(2);
-                                                        // GBX.g:153:28: expression
+                                                        // GBX.g:160:28: expression
                                                         {
-                                                            DebugLocation(153, 28);
-                                                            PushFollow(Follow._expression_in_op_ld1188);
-                                                            expression169 = expression();
+                                                            DebugLocation(160, 28);
+                                                            PushFollow(Follow._expression_in_op_ld1284);
+                                                            expression180 = expression();
                                                             PopFollow();
 
-                                                            adaptor.AddChild(root_0, expression169.Tree);
+                                                            adaptor.AddChild(root_0, expression180.Tree);
 
                                                         }
                                                         break;
 
                                                 }
                                             }
-                                            finally { DebugExitSubRule(27); }
+                                            finally { DebugExitSubRule(31); }
 
 
                                         }
@@ -5443,46 +6268,46 @@ namespace GBRead.Base
                                     break;
                                 case 5:
                                     DebugEnterAlt(5);
-                                    // GBX.g:154:7: ( ( rr_ref_c | rr_ref_bc | rr_ref_de ) COMMA ! REG_A )
+                                    // GBX.g:161:7: ( ( rr_ref_c | rr_ref_bc | rr_ref_de ) COMMA ! REG_A )
                                     {
-                                        DebugLocation(154, 7);
-                                        // GBX.g:154:7: ( ( rr_ref_c | rr_ref_bc | rr_ref_de ) COMMA ! REG_A )
+                                        DebugLocation(161, 7);
+                                        // GBX.g:161:7: ( ( rr_ref_c | rr_ref_bc | rr_ref_de ) COMMA ! REG_A )
                                         DebugEnterAlt(1);
-                                        // GBX.g:154:8: ( rr_ref_c | rr_ref_bc | rr_ref_de ) COMMA ! REG_A
+                                        // GBX.g:161:8: ( rr_ref_c | rr_ref_bc | rr_ref_de ) COMMA ! REG_A
                                         {
-                                            DebugLocation(154, 8);
-                                            // GBX.g:154:8: ( rr_ref_c | rr_ref_bc | rr_ref_de )
-                                            int alt28 = 3;
+                                            DebugLocation(161, 8);
+                                            // GBX.g:161:8: ( rr_ref_c | rr_ref_bc | rr_ref_de )
+                                            int alt32 = 3;
                                             try
                                             {
-                                                DebugEnterSubRule(28);
+                                                DebugEnterSubRule(32);
                                                 try
                                                 {
-                                                    DebugEnterDecision(28, false);
-                                                    int LA28_0 = input.LA(1);
+                                                    DebugEnterDecision(32, false);
+                                                    int LA32_0 = input.LA(1);
 
-                                                    if ((LA28_0 == LEFT_BRACKET))
+                                                    if ((LA32_0 == LEFT_BRACKET))
                                                     {
                                                         switch (input.LA(2))
                                                         {
                                                             case REG_C:
                                                                 {
-                                                                    alt28 = 1;
+                                                                    alt32 = 1;
                                                                 }
                                                                 break;
                                                             case RR_BC:
                                                                 {
-                                                                    alt28 = 2;
+                                                                    alt32 = 2;
                                                                 }
                                                                 break;
                                                             case RR_DE:
                                                                 {
-                                                                    alt28 = 3;
+                                                                    alt32 = 3;
                                                                 }
                                                                 break;
                                                             default:
                                                                 {
-                                                                    NoViableAltException nvae = new NoViableAltException("", 28, 1, input);
+                                                                    NoViableAltException nvae = new NoViableAltException("", 32, 1, input);
                                                                     DebugRecognitionException(nvae);
                                                                     throw nvae;
                                                                 }
@@ -5491,64 +6316,64 @@ namespace GBRead.Base
                                                     }
                                                     else
                                                     {
-                                                        NoViableAltException nvae = new NoViableAltException("", 28, 0, input);
+                                                        NoViableAltException nvae = new NoViableAltException("", 32, 0, input);
                                                         DebugRecognitionException(nvae);
                                                         throw nvae;
                                                     }
                                                 }
-                                                finally { DebugExitDecision(28); }
-                                                switch (alt28)
+                                                finally { DebugExitDecision(32); }
+                                                switch (alt32)
                                                 {
                                                     case 1:
                                                         DebugEnterAlt(1);
-                                                        // GBX.g:154:9: rr_ref_c
+                                                        // GBX.g:161:9: rr_ref_c
                                                         {
-                                                            DebugLocation(154, 9);
-                                                            PushFollow(Follow._rr_ref_c_in_op_ld1200);
-                                                            rr_ref_c170 = rr_ref_c();
+                                                            DebugLocation(161, 9);
+                                                            PushFollow(Follow._rr_ref_c_in_op_ld1296);
+                                                            rr_ref_c181 = rr_ref_c();
                                                             PopFollow();
 
-                                                            adaptor.AddChild(root_0, rr_ref_c170.Tree);
+                                                            adaptor.AddChild(root_0, rr_ref_c181.Tree);
 
                                                         }
                                                         break;
                                                     case 2:
                                                         DebugEnterAlt(2);
-                                                        // GBX.g:154:18: rr_ref_bc
+                                                        // GBX.g:161:18: rr_ref_bc
                                                         {
-                                                            DebugLocation(154, 18);
-                                                            PushFollow(Follow._rr_ref_bc_in_op_ld1202);
-                                                            rr_ref_bc171 = rr_ref_bc();
+                                                            DebugLocation(161, 18);
+                                                            PushFollow(Follow._rr_ref_bc_in_op_ld1298);
+                                                            rr_ref_bc182 = rr_ref_bc();
                                                             PopFollow();
 
-                                                            adaptor.AddChild(root_0, rr_ref_bc171.Tree);
+                                                            adaptor.AddChild(root_0, rr_ref_bc182.Tree);
 
                                                         }
                                                         break;
                                                     case 3:
                                                         DebugEnterAlt(3);
-                                                        // GBX.g:154:28: rr_ref_de
+                                                        // GBX.g:161:28: rr_ref_de
                                                         {
-                                                            DebugLocation(154, 28);
-                                                            PushFollow(Follow._rr_ref_de_in_op_ld1204);
-                                                            rr_ref_de172 = rr_ref_de();
+                                                            DebugLocation(161, 28);
+                                                            PushFollow(Follow._rr_ref_de_in_op_ld1300);
+                                                            rr_ref_de183 = rr_ref_de();
                                                             PopFollow();
 
-                                                            adaptor.AddChild(root_0, rr_ref_de172.Tree);
+                                                            adaptor.AddChild(root_0, rr_ref_de183.Tree);
 
                                                         }
                                                         break;
 
                                                 }
                                             }
-                                            finally { DebugExitSubRule(28); }
+                                            finally { DebugExitSubRule(32); }
 
-                                            DebugLocation(154, 44);
-                                            COMMA173 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ld1207);
-                                            DebugLocation(154, 46);
-                                            REG_A174 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_ld1210);
-                                            REG_A174_tree = (CommonTree)adaptor.Create(REG_A174);
-                                            adaptor.AddChild(root_0, REG_A174_tree);
+                                            DebugLocation(161, 44);
+                                            COMMA184 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ld1303);
+                                            DebugLocation(161, 46);
+                                            REG_A185 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_ld1306);
+                                            REG_A185_tree = (CommonTree)adaptor.Create(REG_A185);
+                                            adaptor.AddChild(root_0, REG_A185_tree);
 
                                         }
 
@@ -5557,80 +6382,80 @@ namespace GBRead.Base
                                     break;
                                 case 6:
                                     DebugEnterAlt(6);
-                                    // GBX.g:155:7: ( rr_ref_hl COMMA ! ( r8 | expression ) )
+                                    // GBX.g:162:7: ( rr_ref_hl COMMA ! ( r8 | expression ) )
                                     {
-                                        DebugLocation(155, 7);
-                                        // GBX.g:155:7: ( rr_ref_hl COMMA ! ( r8 | expression ) )
+                                        DebugLocation(162, 7);
+                                        // GBX.g:162:7: ( rr_ref_hl COMMA ! ( r8 | expression ) )
                                         DebugEnterAlt(1);
-                                        // GBX.g:155:8: rr_ref_hl COMMA ! ( r8 | expression )
+                                        // GBX.g:162:8: rr_ref_hl COMMA ! ( r8 | expression )
                                         {
-                                            DebugLocation(155, 8);
-                                            PushFollow(Follow._rr_ref_hl_in_op_ld1220);
-                                            rr_ref_hl175 = rr_ref_hl();
+                                            DebugLocation(162, 8);
+                                            PushFollow(Follow._rr_ref_hl_in_op_ld1316);
+                                            rr_ref_hl186 = rr_ref_hl();
                                             PopFollow();
 
-                                            adaptor.AddChild(root_0, rr_ref_hl175.Tree);
-                                            DebugLocation(155, 23);
-                                            COMMA176 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ld1222);
-                                            DebugLocation(155, 25);
-                                            // GBX.g:155:25: ( r8 | expression )
-                                            int alt29 = 2;
+                                            adaptor.AddChild(root_0, rr_ref_hl186.Tree);
+                                            DebugLocation(162, 23);
+                                            COMMA187 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ld1318);
+                                            DebugLocation(162, 25);
+                                            // GBX.g:162:25: ( r8 | expression )
+                                            int alt33 = 2;
                                             try
                                             {
-                                                DebugEnterSubRule(29);
+                                                DebugEnterSubRule(33);
                                                 try
                                                 {
-                                                    DebugEnterDecision(29, false);
-                                                    int LA29_0 = input.LA(1);
+                                                    DebugEnterDecision(33, false);
+                                                    int LA33_0 = input.LA(1);
 
-                                                    if (((LA29_0 >= REG_A && LA29_0 <= REG_L)))
+                                                    if (((LA33_0 >= REG_A && LA33_0 <= REG_L)))
                                                     {
-                                                        alt29 = 1;
+                                                        alt33 = 1;
                                                     }
-                                                    else if ((LA29_0 == BANG_MARK || LA29_0 == ID || LA29_0 == LEFT_PARENS || LA29_0 == MINUS_MARK || LA29_0 == NUMBER || LA29_0 == TILDE_MARK))
+                                                    else if ((LA33_0 == BANG_MARK || LA33_0 == ID || LA33_0 == LEFT_PARENS || (LA33_0 >= MINUS_MARK && LA33_0 <= M_ARG9) || LA33_0 == NUMBER || LA33_0 == TILDE_MARK))
                                                     {
-                                                        alt29 = 2;
+                                                        alt33 = 2;
                                                     }
                                                     else
                                                     {
-                                                        NoViableAltException nvae = new NoViableAltException("", 29, 0, input);
+                                                        NoViableAltException nvae = new NoViableAltException("", 33, 0, input);
                                                         DebugRecognitionException(nvae);
                                                         throw nvae;
                                                     }
                                                 }
-                                                finally { DebugExitDecision(29); }
-                                                switch (alt29)
+                                                finally { DebugExitDecision(33); }
+                                                switch (alt33)
                                                 {
                                                     case 1:
                                                         DebugEnterAlt(1);
-                                                        // GBX.g:155:26: r8
+                                                        // GBX.g:162:26: r8
                                                         {
-                                                            DebugLocation(155, 26);
-                                                            PushFollow(Follow._r8_in_op_ld1226);
-                                                            r8177 = r8();
+                                                            DebugLocation(162, 26);
+                                                            PushFollow(Follow._r8_in_op_ld1322);
+                                                            r8188 = r8();
                                                             PopFollow();
 
-                                                            adaptor.AddChild(root_0, r8177.Tree);
+                                                            adaptor.AddChild(root_0, r8188.Tree);
 
                                                         }
                                                         break;
                                                     case 2:
                                                         DebugEnterAlt(2);
-                                                        // GBX.g:155:29: expression
+                                                        // GBX.g:162:29: expression
                                                         {
-                                                            DebugLocation(155, 29);
-                                                            PushFollow(Follow._expression_in_op_ld1228);
-                                                            expression178 = expression();
+                                                            DebugLocation(162, 29);
+                                                            PushFollow(Follow._expression_in_op_ld1324);
+                                                            expression189 = expression();
                                                             PopFollow();
 
-                                                            adaptor.AddChild(root_0, expression178.Tree);
+                                                            adaptor.AddChild(root_0, expression189.Tree);
 
                                                         }
                                                         break;
 
                                                 }
                                             }
-                                            finally { DebugExitSubRule(29); }
+                                            finally { DebugExitSubRule(33); }
 
 
                                         }
@@ -5640,28 +6465,28 @@ namespace GBRead.Base
                                     break;
                                 case 7:
                                     DebugEnterAlt(7);
-                                    // GBX.g:156:7: ( mem_ref_xp COMMA ! ( REG_A | RR_SP ) )
+                                    // GBX.g:163:7: ( mem_ref_xp COMMA ! ( REG_A | RR_SP ) )
                                     {
-                                        DebugLocation(156, 7);
-                                        // GBX.g:156:7: ( mem_ref_xp COMMA ! ( REG_A | RR_SP ) )
+                                        DebugLocation(163, 7);
+                                        // GBX.g:163:7: ( mem_ref_xp COMMA ! ( REG_A | RR_SP ) )
                                         DebugEnterAlt(1);
-                                        // GBX.g:156:8: mem_ref_xp COMMA ! ( REG_A | RR_SP )
+                                        // GBX.g:163:8: mem_ref_xp COMMA ! ( REG_A | RR_SP )
                                         {
-                                            DebugLocation(156, 8);
-                                            PushFollow(Follow._mem_ref_xp_in_op_ld1239);
-                                            mem_ref_xp179 = mem_ref_xp();
+                                            DebugLocation(163, 8);
+                                            PushFollow(Follow._mem_ref_xp_in_op_ld1335);
+                                            mem_ref_xp190 = mem_ref_xp();
                                             PopFollow();
 
-                                            adaptor.AddChild(root_0, mem_ref_xp179.Tree);
-                                            DebugLocation(156, 24);
-                                            COMMA180 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ld1241);
-                                            DebugLocation(156, 26);
+                                            adaptor.AddChild(root_0, mem_ref_xp190.Tree);
+                                            DebugLocation(163, 24);
+                                            COMMA191 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_ld1337);
+                                            DebugLocation(163, 26);
 
-                                            set181 = (IToken)input.LT(1);
+                                            set192 = (IToken)input.LT(1);
                                             if (input.LA(1) == REG_A || input.LA(1) == RR_SP)
                                             {
                                                 input.Consume();
-                                                adaptor.AddChild(root_0, (CommonTree)adaptor.Create(set181));
+                                                adaptor.AddChild(root_0, (CommonTree)adaptor.Create(set192));
                                                 state.errorRecovery = false;
                                             }
                                             else
@@ -5674,788 +6499,6 @@ namespace GBRead.Base
 
                                         }
 
-
-                                    }
-                                    break;
-
-                            }
-                        }
-                        finally { DebugExitSubRule(30); }
-
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_ld", 29);
-                    LeaveRule("op_ld", 29);
-                    LeaveRule_op_ld();
-                }
-                DebugLocation(156, 40);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_ld"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_ld"
-
-        partial void EnterRule_op_nop();
-        partial void LeaveRule_op_nop();
-
-        // $ANTLR start "op_nop"
-        // GBX.g:157:1: op_nop : INST_NOP ^;
-        [GrammarRule("op_nop")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_nop()
-        {
-            EnterRule_op_nop();
-            EnterRule("op_nop", 30);
-            TraceIn("op_nop", 30);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_NOP182 = default(IToken);
-
-            CommonTree INST_NOP182_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_nop");
-                DebugLocation(157, 20);
-                try
-                {
-                    // GBX.g:157:10: ( INST_NOP ^)
-                    DebugEnterAlt(1);
-                    // GBX.g:157:12: INST_NOP ^
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(157, 20);
-                        INST_NOP182 = (IToken)Match(input, INST_NOP, Follow._INST_NOP_in_op_nop1259);
-                        INST_NOP182_tree = (CommonTree)adaptor.Create(INST_NOP182);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_NOP182_tree, root_0);
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_nop", 30);
-                    LeaveRule("op_nop", 30);
-                    LeaveRule_op_nop();
-                }
-                DebugLocation(157, 20);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_nop"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_nop"
-
-        partial void EnterRule_op_or();
-        partial void LeaveRule_op_or();
-
-        // $ANTLR start "op_or"
-        // GBX.g:158:1: op_or : INST_OR ^ ( REG_A COMMA !)? arith_opt ;
-        [GrammarRule("op_or")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_or()
-        {
-            EnterRule_op_or();
-            EnterRule("op_or", 31);
-            TraceIn("op_or", 31);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_OR183 = default(IToken);
-            IToken REG_A184 = default(IToken);
-            IToken COMMA185 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> arith_opt186 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-
-            CommonTree INST_OR183_tree = default(CommonTree);
-            CommonTree REG_A184_tree = default(CommonTree);
-            CommonTree COMMA185_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_or");
-                DebugLocation(158, 44);
-                try
-                {
-                    // GBX.g:158:9: ( INST_OR ^ ( REG_A COMMA !)? arith_opt )
-                    DebugEnterAlt(1);
-                    // GBX.g:158:11: INST_OR ^ ( REG_A COMMA !)? arith_opt
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(158, 18);
-                        INST_OR183 = (IToken)Match(input, INST_OR, Follow._INST_OR_in_op_or1269);
-                        INST_OR183_tree = (CommonTree)adaptor.Create(INST_OR183);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_OR183_tree, root_0);
-                        DebugLocation(158, 20);
-                        // GBX.g:158:20: ( REG_A COMMA !)?
-                        int alt31 = 2;
-                        try
-                        {
-                            DebugEnterSubRule(31);
-                            try
-                            {
-                                DebugEnterDecision(31, false);
-                                int LA31_0 = input.LA(1);
-
-                                if ((LA31_0 == REG_A))
-                                {
-                                    int LA31_1 = input.LA(2);
-
-                                    if ((LA31_1 == COMMA))
-                                    {
-                                        alt31 = 1;
-                                    }
-                                }
-                            }
-                            finally { DebugExitDecision(31); }
-                            switch (alt31)
-                            {
-                                case 1:
-                                    DebugEnterAlt(1);
-                                    // GBX.g:158:21: REG_A COMMA !
-                                    {
-                                        DebugLocation(158, 21);
-                                        REG_A184 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_or1273);
-                                        REG_A184_tree = (CommonTree)adaptor.Create(REG_A184);
-                                        adaptor.AddChild(root_0, REG_A184_tree);
-                                        DebugLocation(158, 32);
-                                        COMMA185 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_or1275);
-
-                                    }
-                                    break;
-
-                            }
-                        }
-                        finally { DebugExitSubRule(31); }
-
-                        DebugLocation(158, 36);
-                        PushFollow(Follow._arith_opt_in_op_or1280);
-                        arith_opt186 = arith_opt();
-                        PopFollow();
-
-                        adaptor.AddChild(root_0, arith_opt186.Tree);
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_or", 31);
-                    LeaveRule("op_or", 31);
-                    LeaveRule_op_or();
-                }
-                DebugLocation(158, 44);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_or"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_or"
-
-        partial void EnterRule_op_pop();
-        partial void LeaveRule_op_pop();
-
-        // $ANTLR start "op_pop"
-        // GBX.g:159:1: op_pop : INST_POP ^ ( RR_AF | RR_BC | RR_DE | RR_HL ) ;
-        [GrammarRule("op_pop")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_pop()
-        {
-            EnterRule_op_pop();
-            EnterRule("op_pop", 32);
-            TraceIn("op_pop", 32);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_POP187 = default(IToken);
-            IToken set188 = default(IToken);
-
-            CommonTree INST_POP187_tree = default(CommonTree);
-            CommonTree set188_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_pop");
-                DebugLocation(159, 46);
-                try
-                {
-                    // GBX.g:159:10: ( INST_POP ^ ( RR_AF | RR_BC | RR_DE | RR_HL ) )
-                    DebugEnterAlt(1);
-                    // GBX.g:159:12: INST_POP ^ ( RR_AF | RR_BC | RR_DE | RR_HL )
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(159, 20);
-                        INST_POP187 = (IToken)Match(input, INST_POP, Follow._INST_POP_in_op_pop1289);
-                        INST_POP187_tree = (CommonTree)adaptor.Create(INST_POP187);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_POP187_tree, root_0);
-                        DebugLocation(159, 22);
-
-                        set188 = (IToken)input.LT(1);
-                        if ((input.LA(1) >= RR_AF && input.LA(1) <= RR_HL))
-                        {
-                            input.Consume();
-                            adaptor.AddChild(root_0, (CommonTree)adaptor.Create(set188));
-                            state.errorRecovery = false;
-                        }
-                        else
-                        {
-                            MismatchedSetException mse = new MismatchedSetException(null, input);
-                            DebugRecognitionException(mse);
-                            throw mse;
-                        }
-
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_pop", 32);
-                    LeaveRule("op_pop", 32);
-                    LeaveRule_op_pop();
-                }
-                DebugLocation(159, 46);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_pop"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_pop"
-
-        partial void EnterRule_op_push();
-        partial void LeaveRule_op_push();
-
-        // $ANTLR start "op_push"
-        // GBX.g:160:1: op_push : INST_PUSH ^ ( RR_AF | RR_BC | RR_DE | RR_HL ) ;
-        [GrammarRule("op_push")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_push()
-        {
-            EnterRule_op_push();
-            EnterRule("op_push", 33);
-            TraceIn("op_push", 33);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_PUSH189 = default(IToken);
-            IToken set190 = default(IToken);
-
-            CommonTree INST_PUSH189_tree = default(CommonTree);
-            CommonTree set190_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_push");
-                DebugLocation(160, 48);
-                try
-                {
-                    // GBX.g:160:11: ( INST_PUSH ^ ( RR_AF | RR_BC | RR_DE | RR_HL ) )
-                    DebugEnterAlt(1);
-                    // GBX.g:160:13: INST_PUSH ^ ( RR_AF | RR_BC | RR_DE | RR_HL )
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(160, 22);
-                        INST_PUSH189 = (IToken)Match(input, INST_PUSH, Follow._INST_PUSH_in_op_push1309);
-                        INST_PUSH189_tree = (CommonTree)adaptor.Create(INST_PUSH189);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_PUSH189_tree, root_0);
-                        DebugLocation(160, 24);
-
-                        set190 = (IToken)input.LT(1);
-                        if ((input.LA(1) >= RR_AF && input.LA(1) <= RR_HL))
-                        {
-                            input.Consume();
-                            adaptor.AddChild(root_0, (CommonTree)adaptor.Create(set190));
-                            state.errorRecovery = false;
-                        }
-                        else
-                        {
-                            MismatchedSetException mse = new MismatchedSetException(null, input);
-                            DebugRecognitionException(mse);
-                            throw mse;
-                        }
-
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_push", 33);
-                    LeaveRule("op_push", 33);
-                    LeaveRule_op_push();
-                }
-                DebugLocation(160, 48);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_push"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_push"
-
-        partial void EnterRule_op_res();
-        partial void LeaveRule_op_res();
-
-        // $ANTLR start "op_res"
-        // GBX.g:161:1: op_res : INST_RES ^ expression COMMA ! ( r8 | rr_ref_hl ) ;
-        [GrammarRule("op_res")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_res()
-        {
-            EnterRule_op_res();
-            EnterRule("op_res", 34);
-            TraceIn("op_res", 34);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_RES191 = default(IToken);
-            IToken COMMA193 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> expression192 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> r8194 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl195 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-
-            CommonTree INST_RES191_tree = default(CommonTree);
-            CommonTree COMMA193_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_res");
-                DebugLocation(161, 53);
-                try
-                {
-                    // GBX.g:161:10: ( INST_RES ^ expression COMMA ! ( r8 | rr_ref_hl ) )
-                    DebugEnterAlt(1);
-                    // GBX.g:161:12: INST_RES ^ expression COMMA ! ( r8 | rr_ref_hl )
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(161, 20);
-                        INST_RES191 = (IToken)Match(input, INST_RES, Follow._INST_RES_in_op_res1329);
-                        INST_RES191_tree = (CommonTree)adaptor.Create(INST_RES191);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RES191_tree, root_0);
-                        DebugLocation(161, 22);
-                        PushFollow(Follow._expression_in_op_res1332);
-                        expression192 = expression();
-                        PopFollow();
-
-                        adaptor.AddChild(root_0, expression192.Tree);
-                        DebugLocation(161, 38);
-                        COMMA193 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_res1334);
-                        DebugLocation(161, 40);
-                        // GBX.g:161:40: ( r8 | rr_ref_hl )
-                        int alt32 = 2;
-                        try
-                        {
-                            DebugEnterSubRule(32);
-                            try
-                            {
-                                DebugEnterDecision(32, false);
-                                int LA32_0 = input.LA(1);
-
-                                if (((LA32_0 >= REG_A && LA32_0 <= REG_L)))
-                                {
-                                    alt32 = 1;
-                                }
-                                else if ((LA32_0 == LEFT_BRACKET))
-                                {
-                                    alt32 = 2;
-                                }
-                                else
-                                {
-                                    NoViableAltException nvae = new NoViableAltException("", 32, 0, input);
-                                    DebugRecognitionException(nvae);
-                                    throw nvae;
-                                }
-                            }
-                            finally { DebugExitDecision(32); }
-                            switch (alt32)
-                            {
-                                case 1:
-                                    DebugEnterAlt(1);
-                                    // GBX.g:161:41: r8
-                                    {
-                                        DebugLocation(161, 41);
-                                        PushFollow(Follow._r8_in_op_res1338);
-                                        r8194 = r8();
-                                        PopFollow();
-
-                                        adaptor.AddChild(root_0, r8194.Tree);
-
-                                    }
-                                    break;
-                                case 2:
-                                    DebugEnterAlt(2);
-                                    // GBX.g:161:44: rr_ref_hl
-                                    {
-                                        DebugLocation(161, 44);
-                                        PushFollow(Follow._rr_ref_hl_in_op_res1340);
-                                        rr_ref_hl195 = rr_ref_hl();
-                                        PopFollow();
-
-                                        adaptor.AddChild(root_0, rr_ref_hl195.Tree);
-
-                                    }
-                                    break;
-
-                            }
-                        }
-                        finally { DebugExitSubRule(32); }
-
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_res", 34);
-                    LeaveRule("op_res", 34);
-                    LeaveRule_op_res();
-                }
-                DebugLocation(161, 53);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_res"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_res"
-
-        partial void EnterRule_op_ret();
-        partial void LeaveRule_op_ret();
-
-        // $ANTLR start "op_ret"
-        // GBX.g:162:1: op_ret : INST_RET ^ ( cond_opt )? ;
-        [GrammarRule("op_ret")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_ret()
-        {
-            EnterRule_op_ret();
-            EnterRule("op_ret", 35);
-            TraceIn("op_ret", 35);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_RET196 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> cond_opt197 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-
-            CommonTree INST_RET196_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_ret");
-                DebugLocation(162, 30);
-                try
-                {
-                    // GBX.g:162:10: ( INST_RET ^ ( cond_opt )? )
-                    DebugEnterAlt(1);
-                    // GBX.g:162:12: INST_RET ^ ( cond_opt )?
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(162, 20);
-                        INST_RET196 = (IToken)Match(input, INST_RET, Follow._INST_RET_in_op_ret1350);
-                        INST_RET196_tree = (CommonTree)adaptor.Create(INST_RET196);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RET196_tree, root_0);
-                        DebugLocation(162, 22);
-                        // GBX.g:162:22: ( cond_opt )?
-                        int alt33 = 2;
-                        try
-                        {
-                            DebugEnterSubRule(33);
-                            try
-                            {
-                                DebugEnterDecision(33, false);
-                                int LA33_0 = input.LA(1);
-
-                                if (((LA33_0 >= CC_NC && LA33_0 <= CC_Z) || LA33_0 == REG_C))
-                                {
-                                    alt33 = 1;
-                                }
-                            }
-                            finally { DebugExitDecision(33); }
-                            switch (alt33)
-                            {
-                                case 1:
-                                    DebugEnterAlt(1);
-                                    // GBX.g:162:22: cond_opt
-                                    {
-                                        DebugLocation(162, 22);
-                                        PushFollow(Follow._cond_opt_in_op_ret1353);
-                                        cond_opt197 = cond_opt();
-                                        PopFollow();
-
-                                        adaptor.AddChild(root_0, cond_opt197.Tree);
-
-                                    }
-                                    break;
-
-                            }
-                        }
-                        finally { DebugExitSubRule(33); }
-
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_ret", 35);
-                    LeaveRule("op_ret", 35);
-                    LeaveRule_op_ret();
-                }
-                DebugLocation(162, 30);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_ret"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_ret"
-
-        partial void EnterRule_op_reti();
-        partial void LeaveRule_op_reti();
-
-        // $ANTLR start "op_reti"
-        // GBX.g:163:1: op_reti : INST_RETI ^;
-        [GrammarRule("op_reti")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_reti()
-        {
-            EnterRule_op_reti();
-            EnterRule("op_reti", 36);
-            TraceIn("op_reti", 36);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_RETI198 = default(IToken);
-
-            CommonTree INST_RETI198_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_reti");
-                DebugLocation(163, 22);
-                try
-                {
-                    // GBX.g:163:11: ( INST_RETI ^)
-                    DebugEnterAlt(1);
-                    // GBX.g:163:13: INST_RETI ^
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(163, 22);
-                        INST_RETI198 = (IToken)Match(input, INST_RETI, Follow._INST_RETI_in_op_reti1363);
-                        INST_RETI198_tree = (CommonTree)adaptor.Create(INST_RETI198);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RETI198_tree, root_0);
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_reti", 36);
-                    LeaveRule("op_reti", 36);
-                    LeaveRule_op_reti();
-                }
-                DebugLocation(163, 22);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_reti"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_reti"
-
-        partial void EnterRule_op_rl();
-        partial void LeaveRule_op_rl();
-
-        // $ANTLR start "op_rl"
-        // GBX.g:164:1: op_rl : INST_RL ^ ( r8 | rr_ref_hl ) ;
-        [GrammarRule("op_rl")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_rl()
-        {
-            EnterRule_op_rl();
-            EnterRule("op_rl", 37);
-            TraceIn("op_rl", 37);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_RL199 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> r8200 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl201 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-
-            CommonTree INST_RL199_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_rl");
-                DebugLocation(164, 33);
-                try
-                {
-                    // GBX.g:164:9: ( INST_RL ^ ( r8 | rr_ref_hl ) )
-                    DebugEnterAlt(1);
-                    // GBX.g:164:11: INST_RL ^ ( r8 | rr_ref_hl )
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(164, 18);
-                        INST_RL199 = (IToken)Match(input, INST_RL, Follow._INST_RL_in_op_rl1373);
-                        INST_RL199_tree = (CommonTree)adaptor.Create(INST_RL199);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RL199_tree, root_0);
-                        DebugLocation(164, 20);
-                        // GBX.g:164:20: ( r8 | rr_ref_hl )
-                        int alt34 = 2;
-                        try
-                        {
-                            DebugEnterSubRule(34);
-                            try
-                            {
-                                DebugEnterDecision(34, false);
-                                int LA34_0 = input.LA(1);
-
-                                if (((LA34_0 >= REG_A && LA34_0 <= REG_L)))
-                                {
-                                    alt34 = 1;
-                                }
-                                else if ((LA34_0 == LEFT_BRACKET))
-                                {
-                                    alt34 = 2;
-                                }
-                                else
-                                {
-                                    NoViableAltException nvae = new NoViableAltException("", 34, 0, input);
-                                    DebugRecognitionException(nvae);
-                                    throw nvae;
-                                }
-                            }
-                            finally { DebugExitDecision(34); }
-                            switch (alt34)
-                            {
-                                case 1:
-                                    DebugEnterAlt(1);
-                                    // GBX.g:164:21: r8
-                                    {
-                                        DebugLocation(164, 21);
-                                        PushFollow(Follow._r8_in_op_rl1377);
-                                        r8200 = r8();
-                                        PopFollow();
-
-                                        adaptor.AddChild(root_0, r8200.Tree);
-
-                                    }
-                                    break;
-                                case 2:
-                                    DebugEnterAlt(2);
-                                    // GBX.g:164:24: rr_ref_hl
-                                    {
-                                        DebugLocation(164, 24);
-                                        PushFollow(Follow._rr_ref_hl_in_op_rl1379);
-                                        rr_ref_hl201 = rr_ref_hl();
-                                        PopFollow();
-
-                                        adaptor.AddChild(root_0, rr_ref_hl201.Tree);
 
                                     }
                                     break;
@@ -6482,53 +6525,53 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_rl", 37);
-                    LeaveRule("op_rl", 37);
-                    LeaveRule_op_rl();
+                    TraceOut("op_ld", 31);
+                    LeaveRule("op_ld", 31);
+                    LeaveRule_op_ld();
                 }
-                DebugLocation(164, 33);
+                DebugLocation(163, 40);
             }
-            finally { DebugExitRule(GrammarFileName, "op_rl"); }
+            finally { DebugExitRule(GrammarFileName, "op_ld"); }
             return retval;
 
         }
-        // $ANTLR end "op_rl"
+        // $ANTLR end "op_ld"
 
-        partial void EnterRule_op_rla();
-        partial void LeaveRule_op_rla();
+        partial void EnterRule_op_nop();
+        partial void LeaveRule_op_nop();
 
-        // $ANTLR start "op_rla"
-        // GBX.g:165:1: op_rla : INST_RLA ^;
-        [GrammarRule("op_rla")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_rla()
+        // $ANTLR start "op_nop"
+        // GBX.g:164:1: op_nop : INST_NOP ^;
+        [GrammarRule("op_nop")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_nop()
         {
-            EnterRule_op_rla();
-            EnterRule("op_rla", 38);
-            TraceIn("op_rla", 38);
+            EnterRule_op_nop();
+            EnterRule("op_nop", 32);
+            TraceIn("op_nop", 32);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_RLA202 = default(IToken);
+            IToken INST_NOP193 = default(IToken);
 
-            CommonTree INST_RLA202_tree = default(CommonTree);
+            CommonTree INST_NOP193_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "op_rla");
-                DebugLocation(165, 20);
+                DebugEnterRule(GrammarFileName, "op_nop");
+                DebugLocation(164, 20);
                 try
                 {
-                    // GBX.g:165:10: ( INST_RLA ^)
+                    // GBX.g:164:10: ( INST_NOP ^)
                     DebugEnterAlt(1);
-                    // GBX.g:165:12: INST_RLA ^
+                    // GBX.g:164:12: INST_NOP ^
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(165, 20);
-                        INST_RLA202 = (IToken)Match(input, INST_RLA, Follow._INST_RLA_in_op_rla1389);
-                        INST_RLA202_tree = (CommonTree)adaptor.Create(INST_RLA202);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RLA202_tree, root_0);
+                        DebugLocation(164, 20);
+                        INST_NOP193 = (IToken)Match(input, INST_NOP, Follow._INST_NOP_in_op_nop1355);
+                        INST_NOP193_tree = (CommonTree)adaptor.Create(INST_NOP193);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_NOP193_tree, root_0);
 
                     }
 
@@ -6547,57 +6590,60 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_rla", 38);
-                    LeaveRule("op_rla", 38);
-                    LeaveRule_op_rla();
+                    TraceOut("op_nop", 32);
+                    LeaveRule("op_nop", 32);
+                    LeaveRule_op_nop();
                 }
-                DebugLocation(165, 20);
+                DebugLocation(164, 20);
             }
-            finally { DebugExitRule(GrammarFileName, "op_rla"); }
+            finally { DebugExitRule(GrammarFileName, "op_nop"); }
             return retval;
 
         }
-        // $ANTLR end "op_rla"
+        // $ANTLR end "op_nop"
 
-        partial void EnterRule_op_rlc();
-        partial void LeaveRule_op_rlc();
+        partial void EnterRule_op_or();
+        partial void LeaveRule_op_or();
 
-        // $ANTLR start "op_rlc"
-        // GBX.g:166:1: op_rlc : INST_RLC ^ ( r8 | rr_ref_hl ) ;
-        [GrammarRule("op_rlc")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_rlc()
+        // $ANTLR start "op_or"
+        // GBX.g:165:1: op_or : INST_OR ^ ( REG_A COMMA !)? arith_opt ;
+        [GrammarRule("op_or")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_or()
         {
-            EnterRule_op_rlc();
-            EnterRule("op_rlc", 39);
-            TraceIn("op_rlc", 39);
+            EnterRule_op_or();
+            EnterRule("op_or", 33);
+            TraceIn("op_or", 33);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_RLC203 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> r8204 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl205 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken INST_OR194 = default(IToken);
+            IToken REG_A195 = default(IToken);
+            IToken COMMA196 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> arith_opt197 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree INST_RLC203_tree = default(CommonTree);
+            CommonTree INST_OR194_tree = default(CommonTree);
+            CommonTree REG_A195_tree = default(CommonTree);
+            CommonTree COMMA196_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "op_rlc");
-                DebugLocation(166, 35);
+                DebugEnterRule(GrammarFileName, "op_or");
+                DebugLocation(165, 44);
                 try
                 {
-                    // GBX.g:166:10: ( INST_RLC ^ ( r8 | rr_ref_hl ) )
+                    // GBX.g:165:9: ( INST_OR ^ ( REG_A COMMA !)? arith_opt )
                     DebugEnterAlt(1);
-                    // GBX.g:166:12: INST_RLC ^ ( r8 | rr_ref_hl )
+                    // GBX.g:165:11: INST_OR ^ ( REG_A COMMA !)? arith_opt
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(166, 20);
-                        INST_RLC203 = (IToken)Match(input, INST_RLC, Follow._INST_RLC_in_op_rlc1399);
-                        INST_RLC203_tree = (CommonTree)adaptor.Create(INST_RLC203);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RLC203_tree, root_0);
-                        DebugLocation(166, 22);
-                        // GBX.g:166:22: ( r8 | rr_ref_hl )
+                        DebugLocation(165, 18);
+                        INST_OR194 = (IToken)Match(input, INST_OR, Follow._INST_OR_in_op_or1365);
+                        INST_OR194_tree = (CommonTree)adaptor.Create(INST_OR194);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_OR194_tree, root_0);
+                        DebugLocation(165, 20);
+                        // GBX.g:165:20: ( REG_A COMMA !)?
                         int alt35 = 2;
                         try
                         {
@@ -6607,19 +6653,14 @@ namespace GBRead.Base
                                 DebugEnterDecision(35, false);
                                 int LA35_0 = input.LA(1);
 
-                                if (((LA35_0 >= REG_A && LA35_0 <= REG_L)))
+                                if ((LA35_0 == REG_A))
                                 {
-                                    alt35 = 1;
-                                }
-                                else if ((LA35_0 == LEFT_BRACKET))
-                                {
-                                    alt35 = 2;
-                                }
-                                else
-                                {
-                                    NoViableAltException nvae = new NoViableAltException("", 35, 0, input);
-                                    DebugRecognitionException(nvae);
-                                    throw nvae;
+                                    int LA35_1 = input.LA(2);
+
+                                    if ((LA35_1 == COMMA))
+                                    {
+                                        alt35 = 1;
+                                    }
                                 }
                             }
                             finally { DebugExitDecision(35); }
@@ -6627,27 +6668,14 @@ namespace GBRead.Base
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:166:23: r8
+                                    // GBX.g:165:21: REG_A COMMA !
                                     {
-                                        DebugLocation(166, 23);
-                                        PushFollow(Follow._r8_in_op_rlc1403);
-                                        r8204 = r8();
-                                        PopFollow();
-
-                                        adaptor.AddChild(root_0, r8204.Tree);
-
-                                    }
-                                    break;
-                                case 2:
-                                    DebugEnterAlt(2);
-                                    // GBX.g:166:26: rr_ref_hl
-                                    {
-                                        DebugLocation(166, 26);
-                                        PushFollow(Follow._rr_ref_hl_in_op_rlc1405);
-                                        rr_ref_hl205 = rr_ref_hl();
-                                        PopFollow();
-
-                                        adaptor.AddChild(root_0, rr_ref_hl205.Tree);
+                                        DebugLocation(165, 21);
+                                        REG_A195 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_or1369);
+                                        REG_A195_tree = (CommonTree)adaptor.Create(REG_A195);
+                                        adaptor.AddChild(root_0, REG_A195_tree);
+                                        DebugLocation(165, 32);
+                                        COMMA196 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_or1371);
 
                                     }
                                     break;
@@ -6656,6 +6684,12 @@ namespace GBRead.Base
                         }
                         finally { DebugExitSubRule(35); }
 
+                        DebugLocation(165, 36);
+                        PushFollow(Follow._arith_opt_in_op_or1376);
+                        arith_opt197 = arith_opt();
+                        PopFollow();
+
+                        adaptor.AddChild(root_0, arith_opt197.Tree);
 
                     }
 
@@ -6674,53 +6708,154 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_rlc", 39);
-                    LeaveRule("op_rlc", 39);
-                    LeaveRule_op_rlc();
+                    TraceOut("op_or", 33);
+                    LeaveRule("op_or", 33);
+                    LeaveRule_op_or();
                 }
-                DebugLocation(166, 35);
+                DebugLocation(165, 44);
             }
-            finally { DebugExitRule(GrammarFileName, "op_rlc"); }
+            finally { DebugExitRule(GrammarFileName, "op_or"); }
             return retval;
 
         }
-        // $ANTLR end "op_rlc"
+        // $ANTLR end "op_or"
 
-        partial void EnterRule_op_rlca();
-        partial void LeaveRule_op_rlca();
+        partial void EnterRule_op_pop();
+        partial void LeaveRule_op_pop();
 
-        // $ANTLR start "op_rlca"
-        // GBX.g:167:1: op_rlca : INST_RLCA ^;
-        [GrammarRule("op_rlca")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_rlca()
+        // $ANTLR start "op_pop"
+        // GBX.g:166:1: op_pop : INST_POP ^ ( RR_AF | RR_BC | RR_DE | RR_HL ) ;
+        [GrammarRule("op_pop")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_pop()
         {
-            EnterRule_op_rlca();
-            EnterRule("op_rlca", 40);
-            TraceIn("op_rlca", 40);
+            EnterRule_op_pop();
+            EnterRule("op_pop", 34);
+            TraceIn("op_pop", 34);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_RLCA206 = default(IToken);
+            IToken INST_POP198 = default(IToken);
+            IToken set199 = default(IToken);
 
-            CommonTree INST_RLCA206_tree = default(CommonTree);
+            CommonTree INST_POP198_tree = default(CommonTree);
+            CommonTree set199_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "op_rlca");
-                DebugLocation(167, 22);
+                DebugEnterRule(GrammarFileName, "op_pop");
+                DebugLocation(166, 46);
                 try
                 {
-                    // GBX.g:167:11: ( INST_RLCA ^)
+                    // GBX.g:166:10: ( INST_POP ^ ( RR_AF | RR_BC | RR_DE | RR_HL ) )
                     DebugEnterAlt(1);
-                    // GBX.g:167:13: INST_RLCA ^
+                    // GBX.g:166:12: INST_POP ^ ( RR_AF | RR_BC | RR_DE | RR_HL )
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(166, 20);
+                        INST_POP198 = (IToken)Match(input, INST_POP, Follow._INST_POP_in_op_pop1385);
+                        INST_POP198_tree = (CommonTree)adaptor.Create(INST_POP198);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_POP198_tree, root_0);
+                        DebugLocation(166, 22);
+
+                        set199 = (IToken)input.LT(1);
+                        if ((input.LA(1) >= RR_AF && input.LA(1) <= RR_HL))
+                        {
+                            input.Consume();
+                            adaptor.AddChild(root_0, (CommonTree)adaptor.Create(set199));
+                            state.errorRecovery = false;
+                        }
+                        else
+                        {
+                            MismatchedSetException mse = new MismatchedSetException(null, input);
+                            DebugRecognitionException(mse);
+                            throw mse;
+                        }
+
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_pop", 34);
+                    LeaveRule("op_pop", 34);
+                    LeaveRule_op_pop();
+                }
+                DebugLocation(166, 46);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_pop"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_pop"
+
+        partial void EnterRule_op_push();
+        partial void LeaveRule_op_push();
+
+        // $ANTLR start "op_push"
+        // GBX.g:167:1: op_push : INST_PUSH ^ ( RR_AF | RR_BC | RR_DE | RR_HL ) ;
+        [GrammarRule("op_push")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_push()
+        {
+            EnterRule_op_push();
+            EnterRule("op_push", 35);
+            TraceIn("op_push", 35);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_PUSH200 = default(IToken);
+            IToken set201 = default(IToken);
+
+            CommonTree INST_PUSH200_tree = default(CommonTree);
+            CommonTree set201_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_push");
+                DebugLocation(167, 48);
+                try
+                {
+                    // GBX.g:167:11: ( INST_PUSH ^ ( RR_AF | RR_BC | RR_DE | RR_HL ) )
+                    DebugEnterAlt(1);
+                    // GBX.g:167:13: INST_PUSH ^ ( RR_AF | RR_BC | RR_DE | RR_HL )
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
                         DebugLocation(167, 22);
-                        INST_RLCA206 = (IToken)Match(input, INST_RLCA, Follow._INST_RLCA_in_op_rlca1415);
-                        INST_RLCA206_tree = (CommonTree)adaptor.Create(INST_RLCA206);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RLCA206_tree, root_0);
+                        INST_PUSH200 = (IToken)Match(input, INST_PUSH, Follow._INST_PUSH_in_op_push1405);
+                        INST_PUSH200_tree = (CommonTree)adaptor.Create(INST_PUSH200);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_PUSH200_tree, root_0);
+                        DebugLocation(167, 24);
+
+                        set201 = (IToken)input.LT(1);
+                        if ((input.LA(1) >= RR_AF && input.LA(1) <= RR_HL))
+                        {
+                            input.Consume();
+                            adaptor.AddChild(root_0, (CommonTree)adaptor.Create(set201));
+                            state.errorRecovery = false;
+                        }
+                        else
+                        {
+                            MismatchedSetException mse = new MismatchedSetException(null, input);
+                            DebugRecognitionException(mse);
+                            throw mse;
+                        }
+
 
                     }
 
@@ -6739,57 +6874,68 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_rlca", 40);
-                    LeaveRule("op_rlca", 40);
-                    LeaveRule_op_rlca();
+                    TraceOut("op_push", 35);
+                    LeaveRule("op_push", 35);
+                    LeaveRule_op_push();
                 }
-                DebugLocation(167, 22);
+                DebugLocation(167, 48);
             }
-            finally { DebugExitRule(GrammarFileName, "op_rlca"); }
+            finally { DebugExitRule(GrammarFileName, "op_push"); }
             return retval;
 
         }
-        // $ANTLR end "op_rlca"
+        // $ANTLR end "op_push"
 
-        partial void EnterRule_op_rr();
-        partial void LeaveRule_op_rr();
+        partial void EnterRule_op_res();
+        partial void LeaveRule_op_res();
 
-        // $ANTLR start "op_rr"
-        // GBX.g:168:1: op_rr : INST_RR ^ ( r8 | rr_ref_hl ) ;
-        [GrammarRule("op_rr")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_rr()
+        // $ANTLR start "op_res"
+        // GBX.g:168:1: op_res : INST_RES ^ expression COMMA ! ( r8 | rr_ref_hl ) ;
+        [GrammarRule("op_res")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_res()
         {
-            EnterRule_op_rr();
-            EnterRule("op_rr", 41);
-            TraceIn("op_rr", 41);
+            EnterRule_op_res();
+            EnterRule("op_res", 36);
+            TraceIn("op_res", 36);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_RR207 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> r8208 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl209 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken INST_RES202 = default(IToken);
+            IToken COMMA204 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> expression203 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> r8205 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl206 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree INST_RR207_tree = default(CommonTree);
+            CommonTree INST_RES202_tree = default(CommonTree);
+            CommonTree COMMA204_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "op_rr");
-                DebugLocation(168, 33);
+                DebugEnterRule(GrammarFileName, "op_res");
+                DebugLocation(168, 53);
                 try
                 {
-                    // GBX.g:168:9: ( INST_RR ^ ( r8 | rr_ref_hl ) )
+                    // GBX.g:168:10: ( INST_RES ^ expression COMMA ! ( r8 | rr_ref_hl ) )
                     DebugEnterAlt(1);
-                    // GBX.g:168:11: INST_RR ^ ( r8 | rr_ref_hl )
+                    // GBX.g:168:12: INST_RES ^ expression COMMA ! ( r8 | rr_ref_hl )
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(168, 18);
-                        INST_RR207 = (IToken)Match(input, INST_RR, Follow._INST_RR_in_op_rr1425);
-                        INST_RR207_tree = (CommonTree)adaptor.Create(INST_RR207);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RR207_tree, root_0);
                         DebugLocation(168, 20);
-                        // GBX.g:168:20: ( r8 | rr_ref_hl )
+                        INST_RES202 = (IToken)Match(input, INST_RES, Follow._INST_RES_in_op_res1425);
+                        INST_RES202_tree = (CommonTree)adaptor.Create(INST_RES202);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RES202_tree, root_0);
+                        DebugLocation(168, 22);
+                        PushFollow(Follow._expression_in_op_res1428);
+                        expression203 = expression();
+                        PopFollow();
+
+                        adaptor.AddChild(root_0, expression203.Tree);
+                        DebugLocation(168, 38);
+                        COMMA204 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_res1430);
+                        DebugLocation(168, 40);
+                        // GBX.g:168:40: ( r8 | rr_ref_hl )
                         int alt36 = 2;
                         try
                         {
@@ -6819,27 +6965,27 @@ namespace GBRead.Base
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:168:21: r8
+                                    // GBX.g:168:41: r8
                                     {
-                                        DebugLocation(168, 21);
-                                        PushFollow(Follow._r8_in_op_rr1429);
-                                        r8208 = r8();
+                                        DebugLocation(168, 41);
+                                        PushFollow(Follow._r8_in_op_res1434);
+                                        r8205 = r8();
                                         PopFollow();
 
-                                        adaptor.AddChild(root_0, r8208.Tree);
+                                        adaptor.AddChild(root_0, r8205.Tree);
 
                                     }
                                     break;
                                 case 2:
                                     DebugEnterAlt(2);
-                                    // GBX.g:168:24: rr_ref_hl
+                                    // GBX.g:168:44: rr_ref_hl
                                     {
-                                        DebugLocation(168, 24);
-                                        PushFollow(Follow._rr_ref_hl_in_op_rr1431);
-                                        rr_ref_hl209 = rr_ref_hl();
+                                        DebugLocation(168, 44);
+                                        PushFollow(Follow._rr_ref_hl_in_op_res1436);
+                                        rr_ref_hl206 = rr_ref_hl();
                                         PopFollow();
 
-                                        adaptor.AddChild(root_0, rr_ref_hl209.Tree);
+                                        adaptor.AddChild(root_0, rr_ref_hl206.Tree);
 
                                     }
                                     break;
@@ -6866,122 +7012,56 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_rr", 41);
-                    LeaveRule("op_rr", 41);
-                    LeaveRule_op_rr();
+                    TraceOut("op_res", 36);
+                    LeaveRule("op_res", 36);
+                    LeaveRule_op_res();
                 }
-                DebugLocation(168, 33);
+                DebugLocation(168, 53);
             }
-            finally { DebugExitRule(GrammarFileName, "op_rr"); }
+            finally { DebugExitRule(GrammarFileName, "op_res"); }
             return retval;
 
         }
-        // $ANTLR end "op_rr"
+        // $ANTLR end "op_res"
 
-        partial void EnterRule_op_rra();
-        partial void LeaveRule_op_rra();
+        partial void EnterRule_op_ret();
+        partial void LeaveRule_op_ret();
 
-        // $ANTLR start "op_rra"
-        // GBX.g:169:1: op_rra : INST_RRA ^;
-        [GrammarRule("op_rra")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_rra()
+        // $ANTLR start "op_ret"
+        // GBX.g:169:1: op_ret : INST_RET ^ ( cond_opt )? ;
+        [GrammarRule("op_ret")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_ret()
         {
-            EnterRule_op_rra();
-            EnterRule("op_rra", 42);
-            TraceIn("op_rra", 42);
+            EnterRule_op_ret();
+            EnterRule("op_ret", 37);
+            TraceIn("op_ret", 37);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_RRA210 = default(IToken);
+            IToken INST_RET207 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> cond_opt208 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree INST_RRA210_tree = default(CommonTree);
+            CommonTree INST_RET207_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "op_rra");
-                DebugLocation(169, 20);
+                DebugEnterRule(GrammarFileName, "op_ret");
+                DebugLocation(169, 30);
                 try
                 {
-                    // GBX.g:169:10: ( INST_RRA ^)
+                    // GBX.g:169:10: ( INST_RET ^ ( cond_opt )? )
                     DebugEnterAlt(1);
-                    // GBX.g:169:12: INST_RRA ^
+                    // GBX.g:169:12: INST_RET ^ ( cond_opt )?
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
                         DebugLocation(169, 20);
-                        INST_RRA210 = (IToken)Match(input, INST_RRA, Follow._INST_RRA_in_op_rra1441);
-                        INST_RRA210_tree = (CommonTree)adaptor.Create(INST_RRA210);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RRA210_tree, root_0);
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_rra", 42);
-                    LeaveRule("op_rra", 42);
-                    LeaveRule_op_rra();
-                }
-                DebugLocation(169, 20);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_rra"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_rra"
-
-        partial void EnterRule_op_rrc();
-        partial void LeaveRule_op_rrc();
-
-        // $ANTLR start "op_rrc"
-        // GBX.g:170:1: op_rrc : INST_RRC ^ ( r8 | rr_ref_hl ) ;
-        [GrammarRule("op_rrc")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_rrc()
-        {
-            EnterRule_op_rrc();
-            EnterRule("op_rrc", 43);
-            TraceIn("op_rrc", 43);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_RRC211 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> r8212 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl213 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-
-            CommonTree INST_RRC211_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_rrc");
-                DebugLocation(170, 35);
-                try
-                {
-                    // GBX.g:170:10: ( INST_RRC ^ ( r8 | rr_ref_hl ) )
-                    DebugEnterAlt(1);
-                    // GBX.g:170:12: INST_RRC ^ ( r8 | rr_ref_hl )
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(170, 20);
-                        INST_RRC211 = (IToken)Match(input, INST_RRC, Follow._INST_RRC_in_op_rrc1451);
-                        INST_RRC211_tree = (CommonTree)adaptor.Create(INST_RRC211);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RRC211_tree, root_0);
-                        DebugLocation(170, 22);
-                        // GBX.g:170:22: ( r8 | rr_ref_hl )
+                        INST_RET207 = (IToken)Match(input, INST_RET, Follow._INST_RET_in_op_ret1446);
+                        INST_RET207_tree = (CommonTree)adaptor.Create(INST_RET207);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RET207_tree, root_0);
+                        DebugLocation(169, 22);
+                        // GBX.g:169:22: ( cond_opt )?
                         int alt37 = 2;
                         try
                         {
@@ -6991,19 +7071,9 @@ namespace GBRead.Base
                                 DebugEnterDecision(37, false);
                                 int LA37_0 = input.LA(1);
 
-                                if (((LA37_0 >= REG_A && LA37_0 <= REG_L)))
+                                if (((LA37_0 >= CC_NC && LA37_0 <= CC_Z) || LA37_0 == REG_C))
                                 {
                                     alt37 = 1;
-                                }
-                                else if ((LA37_0 == LEFT_BRACKET))
-                                {
-                                    alt37 = 2;
-                                }
-                                else
-                                {
-                                    NoViableAltException nvae = new NoViableAltException("", 37, 0, input);
-                                    DebugRecognitionException(nvae);
-                                    throw nvae;
                                 }
                             }
                             finally { DebugExitDecision(37); }
@@ -7011,27 +7081,14 @@ namespace GBRead.Base
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:170:23: r8
+                                    // GBX.g:169:22: cond_opt
                                     {
-                                        DebugLocation(170, 23);
-                                        PushFollow(Follow._r8_in_op_rrc1455);
-                                        r8212 = r8();
+                                        DebugLocation(169, 22);
+                                        PushFollow(Follow._cond_opt_in_op_ret1449);
+                                        cond_opt208 = cond_opt();
                                         PopFollow();
 
-                                        adaptor.AddChild(root_0, r8212.Tree);
-
-                                    }
-                                    break;
-                                case 2:
-                                    DebugEnterAlt(2);
-                                    // GBX.g:170:26: rr_ref_hl
-                                    {
-                                        DebugLocation(170, 26);
-                                        PushFollow(Follow._rr_ref_hl_in_op_rrc1457);
-                                        rr_ref_hl213 = rr_ref_hl();
-                                        PopFollow();
-
-                                        adaptor.AddChild(root_0, rr_ref_hl213.Tree);
+                                        adaptor.AddChild(root_0, cond_opt208.Tree);
 
                                     }
                                     break;
@@ -7058,53 +7115,53 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_rrc", 43);
-                    LeaveRule("op_rrc", 43);
-                    LeaveRule_op_rrc();
+                    TraceOut("op_ret", 37);
+                    LeaveRule("op_ret", 37);
+                    LeaveRule_op_ret();
                 }
-                DebugLocation(170, 35);
+                DebugLocation(169, 30);
             }
-            finally { DebugExitRule(GrammarFileName, "op_rrc"); }
+            finally { DebugExitRule(GrammarFileName, "op_ret"); }
             return retval;
 
         }
-        // $ANTLR end "op_rrc"
+        // $ANTLR end "op_ret"
 
-        partial void EnterRule_op_rrca();
-        partial void LeaveRule_op_rrca();
+        partial void EnterRule_op_reti();
+        partial void LeaveRule_op_reti();
 
-        // $ANTLR start "op_rrca"
-        // GBX.g:171:1: op_rrca : INST_RRCA ^;
-        [GrammarRule("op_rrca")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_rrca()
+        // $ANTLR start "op_reti"
+        // GBX.g:170:1: op_reti : INST_RETI ^;
+        [GrammarRule("op_reti")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_reti()
         {
-            EnterRule_op_rrca();
-            EnterRule("op_rrca", 44);
-            TraceIn("op_rrca", 44);
+            EnterRule_op_reti();
+            EnterRule("op_reti", 38);
+            TraceIn("op_reti", 38);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_RRCA214 = default(IToken);
+            IToken INST_RETI209 = default(IToken);
 
-            CommonTree INST_RRCA214_tree = default(CommonTree);
+            CommonTree INST_RETI209_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "op_rrca");
-                DebugLocation(171, 22);
+                DebugEnterRule(GrammarFileName, "op_reti");
+                DebugLocation(170, 22);
                 try
                 {
-                    // GBX.g:171:11: ( INST_RRCA ^)
+                    // GBX.g:170:11: ( INST_RETI ^)
                     DebugEnterAlt(1);
-                    // GBX.g:171:13: INST_RRCA ^
+                    // GBX.g:170:13: INST_RETI ^
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(171, 22);
-                        INST_RRCA214 = (IToken)Match(input, INST_RRCA, Follow._INST_RRCA_in_op_rrca1467);
-                        INST_RRCA214_tree = (CommonTree)adaptor.Create(INST_RRCA214);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RRCA214_tree, root_0);
+                        DebugLocation(170, 22);
+                        INST_RETI209 = (IToken)Match(input, INST_RETI, Follow._INST_RETI_in_op_reti1459);
+                        INST_RETI209_tree = (CommonTree)adaptor.Create(INST_RETI209);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RETI209_tree, root_0);
 
                     }
 
@@ -7123,132 +7180,57 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_rrca", 44);
-                    LeaveRule("op_rrca", 44);
-                    LeaveRule_op_rrca();
+                    TraceOut("op_reti", 38);
+                    LeaveRule("op_reti", 38);
+                    LeaveRule_op_reti();
                 }
-                DebugLocation(171, 22);
+                DebugLocation(170, 22);
             }
-            finally { DebugExitRule(GrammarFileName, "op_rrca"); }
+            finally { DebugExitRule(GrammarFileName, "op_reti"); }
             return retval;
 
         }
-        // $ANTLR end "op_rrca"
+        // $ANTLR end "op_reti"
 
-        partial void EnterRule_op_rst();
-        partial void LeaveRule_op_rst();
+        partial void EnterRule_op_rl();
+        partial void LeaveRule_op_rl();
 
-        // $ANTLR start "op_rst"
-        // GBX.g:172:1: op_rst : INST_RST ^ expression ;
-        [GrammarRule("op_rst")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_rst()
+        // $ANTLR start "op_rl"
+        // GBX.g:171:1: op_rl : INST_RL ^ ( r8 | rr_ref_hl ) ;
+        [GrammarRule("op_rl")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_rl()
         {
-            EnterRule_op_rst();
-            EnterRule("op_rst", 45);
-            TraceIn("op_rst", 45);
+            EnterRule_op_rl();
+            EnterRule("op_rl", 39);
+            TraceIn("op_rl", 39);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_RST215 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> expression216 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken INST_RL210 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> r8211 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl212 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree INST_RST215_tree = default(CommonTree);
+            CommonTree INST_RL210_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "op_rst");
-                DebugLocation(172, 31);
+                DebugEnterRule(GrammarFileName, "op_rl");
+                DebugLocation(171, 33);
                 try
                 {
-                    // GBX.g:172:10: ( INST_RST ^ expression )
+                    // GBX.g:171:9: ( INST_RL ^ ( r8 | rr_ref_hl ) )
                     DebugEnterAlt(1);
-                    // GBX.g:172:12: INST_RST ^ expression
+                    // GBX.g:171:11: INST_RL ^ ( r8 | rr_ref_hl )
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(172, 20);
-                        INST_RST215 = (IToken)Match(input, INST_RST, Follow._INST_RST_in_op_rst1477);
-                        INST_RST215_tree = (CommonTree)adaptor.Create(INST_RST215);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RST215_tree, root_0);
-                        DebugLocation(172, 22);
-                        PushFollow(Follow._expression_in_op_rst1480);
-                        expression216 = expression();
-                        PopFollow();
-
-                        adaptor.AddChild(root_0, expression216.Tree);
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_rst", 45);
-                    LeaveRule("op_rst", 45);
-                    LeaveRule_op_rst();
-                }
-                DebugLocation(172, 31);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_rst"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_rst"
-
-        partial void EnterRule_op_sbc();
-        partial void LeaveRule_op_sbc();
-
-        // $ANTLR start "op_sbc"
-        // GBX.g:173:1: op_sbc : INST_SBC ^ ( REG_A COMMA !)? arith_opt ;
-        [GrammarRule("op_sbc")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_sbc()
-        {
-            EnterRule_op_sbc();
-            EnterRule("op_sbc", 46);
-            TraceIn("op_sbc", 46);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_SBC217 = default(IToken);
-            IToken REG_A218 = default(IToken);
-            IToken COMMA219 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> arith_opt220 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-
-            CommonTree INST_SBC217_tree = default(CommonTree);
-            CommonTree REG_A218_tree = default(CommonTree);
-            CommonTree COMMA219_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_sbc");
-                DebugLocation(173, 46);
-                try
-                {
-                    // GBX.g:173:10: ( INST_SBC ^ ( REG_A COMMA !)? arith_opt )
-                    DebugEnterAlt(1);
-                    // GBX.g:173:12: INST_SBC ^ ( REG_A COMMA !)? arith_opt
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(173, 20);
-                        INST_SBC217 = (IToken)Match(input, INST_SBC, Follow._INST_SBC_in_op_sbc1489);
-                        INST_SBC217_tree = (CommonTree)adaptor.Create(INST_SBC217);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_SBC217_tree, root_0);
-                        DebugLocation(173, 22);
-                        // GBX.g:173:22: ( REG_A COMMA !)?
+                        DebugLocation(171, 18);
+                        INST_RL210 = (IToken)Match(input, INST_RL, Follow._INST_RL_in_op_rl1469);
+                        INST_RL210_tree = (CommonTree)adaptor.Create(INST_RL210);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RL210_tree, root_0);
+                        DebugLocation(171, 20);
+                        // GBX.g:171:20: ( r8 | rr_ref_hl )
                         int alt38 = 2;
                         try
                         {
@@ -7258,14 +7240,19 @@ namespace GBRead.Base
                                 DebugEnterDecision(38, false);
                                 int LA38_0 = input.LA(1);
 
-                                if ((LA38_0 == REG_A))
+                                if (((LA38_0 >= REG_A && LA38_0 <= REG_L)))
                                 {
-                                    int LA38_1 = input.LA(2);
-
-                                    if ((LA38_1 == COMMA))
-                                    {
-                                        alt38 = 1;
-                                    }
+                                    alt38 = 1;
+                                }
+                                else if ((LA38_0 == LEFT_BRACKET))
+                                {
+                                    alt38 = 2;
+                                }
+                                else
+                                {
+                                    NoViableAltException nvae = new NoViableAltException("", 38, 0, input);
+                                    DebugRecognitionException(nvae);
+                                    throw nvae;
                                 }
                             }
                             finally { DebugExitDecision(38); }
@@ -7273,14 +7260,27 @@ namespace GBRead.Base
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:173:23: REG_A COMMA !
+                                    // GBX.g:171:21: r8
                                     {
-                                        DebugLocation(173, 23);
-                                        REG_A218 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_sbc1493);
-                                        REG_A218_tree = (CommonTree)adaptor.Create(REG_A218);
-                                        adaptor.AddChild(root_0, REG_A218_tree);
-                                        DebugLocation(173, 34);
-                                        COMMA219 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_sbc1495);
+                                        DebugLocation(171, 21);
+                                        PushFollow(Follow._r8_in_op_rl1473);
+                                        r8211 = r8();
+                                        PopFollow();
+
+                                        adaptor.AddChild(root_0, r8211.Tree);
+
+                                    }
+                                    break;
+                                case 2:
+                                    DebugEnterAlt(2);
+                                    // GBX.g:171:24: rr_ref_hl
+                                    {
+                                        DebugLocation(171, 24);
+                                        PushFollow(Follow._rr_ref_hl_in_op_rl1475);
+                                        rr_ref_hl212 = rr_ref_hl();
+                                        PopFollow();
+
+                                        adaptor.AddChild(root_0, rr_ref_hl212.Tree);
 
                                     }
                                     break;
@@ -7289,12 +7289,6 @@ namespace GBRead.Base
                         }
                         finally { DebugExitSubRule(38); }
 
-                        DebugLocation(173, 38);
-                        PushFollow(Follow._arith_opt_in_op_sbc1500);
-                        arith_opt220 = arith_opt();
-                        PopFollow();
-
-                        adaptor.AddChild(root_0, arith_opt220.Tree);
 
                     }
 
@@ -7313,53 +7307,53 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_sbc", 46);
-                    LeaveRule("op_sbc", 46);
-                    LeaveRule_op_sbc();
+                    TraceOut("op_rl", 39);
+                    LeaveRule("op_rl", 39);
+                    LeaveRule_op_rl();
                 }
-                DebugLocation(173, 46);
+                DebugLocation(171, 33);
             }
-            finally { DebugExitRule(GrammarFileName, "op_sbc"); }
+            finally { DebugExitRule(GrammarFileName, "op_rl"); }
             return retval;
 
         }
-        // $ANTLR end "op_sbc"
+        // $ANTLR end "op_rl"
 
-        partial void EnterRule_op_scf();
-        partial void LeaveRule_op_scf();
+        partial void EnterRule_op_rla();
+        partial void LeaveRule_op_rla();
 
-        // $ANTLR start "op_scf"
-        // GBX.g:174:1: op_scf : INST_SCF ^;
-        [GrammarRule("op_scf")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_scf()
+        // $ANTLR start "op_rla"
+        // GBX.g:172:1: op_rla : INST_RLA ^;
+        [GrammarRule("op_rla")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_rla()
         {
-            EnterRule_op_scf();
-            EnterRule("op_scf", 47);
-            TraceIn("op_scf", 47);
+            EnterRule_op_rla();
+            EnterRule("op_rla", 40);
+            TraceIn("op_rla", 40);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_SCF221 = default(IToken);
+            IToken INST_RLA213 = default(IToken);
 
-            CommonTree INST_SCF221_tree = default(CommonTree);
+            CommonTree INST_RLA213_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "op_scf");
-                DebugLocation(174, 20);
+                DebugEnterRule(GrammarFileName, "op_rla");
+                DebugLocation(172, 20);
                 try
                 {
-                    // GBX.g:174:10: ( INST_SCF ^)
+                    // GBX.g:172:10: ( INST_RLA ^)
                     DebugEnterAlt(1);
-                    // GBX.g:174:12: INST_SCF ^
+                    // GBX.g:172:12: INST_RLA ^
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(174, 20);
-                        INST_SCF221 = (IToken)Match(input, INST_SCF, Follow._INST_SCF_in_op_scf1509);
-                        INST_SCF221_tree = (CommonTree)adaptor.Create(INST_SCF221);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_SCF221_tree, root_0);
+                        DebugLocation(172, 20);
+                        INST_RLA213 = (IToken)Match(input, INST_RLA, Follow._INST_RLA_in_op_rla1485);
+                        INST_RLA213_tree = (CommonTree)adaptor.Create(INST_RLA213);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RLA213_tree, root_0);
 
                     }
 
@@ -7378,68 +7372,57 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_scf", 47);
-                    LeaveRule("op_scf", 47);
-                    LeaveRule_op_scf();
+                    TraceOut("op_rla", 40);
+                    LeaveRule("op_rla", 40);
+                    LeaveRule_op_rla();
                 }
-                DebugLocation(174, 20);
+                DebugLocation(172, 20);
             }
-            finally { DebugExitRule(GrammarFileName, "op_scf"); }
+            finally { DebugExitRule(GrammarFileName, "op_rla"); }
             return retval;
 
         }
-        // $ANTLR end "op_scf"
+        // $ANTLR end "op_rla"
 
-        partial void EnterRule_op_set();
-        partial void LeaveRule_op_set();
+        partial void EnterRule_op_rlc();
+        partial void LeaveRule_op_rlc();
 
-        // $ANTLR start "op_set"
-        // GBX.g:175:1: op_set : INST_SET ^ expression COMMA ! ( r8 | rr_ref_hl ) ;
-        [GrammarRule("op_set")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_set()
+        // $ANTLR start "op_rlc"
+        // GBX.g:173:1: op_rlc : INST_RLC ^ ( r8 | rr_ref_hl ) ;
+        [GrammarRule("op_rlc")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_rlc()
         {
-            EnterRule_op_set();
-            EnterRule("op_set", 48);
-            TraceIn("op_set", 48);
+            EnterRule_op_rlc();
+            EnterRule("op_rlc", 41);
+            TraceIn("op_rlc", 41);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_SET222 = default(IToken);
-            IToken COMMA224 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> expression223 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> r8225 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl226 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken INST_RLC214 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> r8215 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl216 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree INST_SET222_tree = default(CommonTree);
-            CommonTree COMMA224_tree = default(CommonTree);
+            CommonTree INST_RLC214_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "op_set");
-                DebugLocation(175, 53);
+                DebugEnterRule(GrammarFileName, "op_rlc");
+                DebugLocation(173, 35);
                 try
                 {
-                    // GBX.g:175:10: ( INST_SET ^ expression COMMA ! ( r8 | rr_ref_hl ) )
+                    // GBX.g:173:10: ( INST_RLC ^ ( r8 | rr_ref_hl ) )
                     DebugEnterAlt(1);
-                    // GBX.g:175:12: INST_SET ^ expression COMMA ! ( r8 | rr_ref_hl )
+                    // GBX.g:173:12: INST_RLC ^ ( r8 | rr_ref_hl )
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(175, 20);
-                        INST_SET222 = (IToken)Match(input, INST_SET, Follow._INST_SET_in_op_set1519);
-                        INST_SET222_tree = (CommonTree)adaptor.Create(INST_SET222);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_SET222_tree, root_0);
-                        DebugLocation(175, 22);
-                        PushFollow(Follow._expression_in_op_set1522);
-                        expression223 = expression();
-                        PopFollow();
-
-                        adaptor.AddChild(root_0, expression223.Tree);
-                        DebugLocation(175, 38);
-                        COMMA224 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_set1524);
-                        DebugLocation(175, 40);
-                        // GBX.g:175:40: ( r8 | rr_ref_hl )
+                        DebugLocation(173, 20);
+                        INST_RLC214 = (IToken)Match(input, INST_RLC, Follow._INST_RLC_in_op_rlc1495);
+                        INST_RLC214_tree = (CommonTree)adaptor.Create(INST_RLC214);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RLC214_tree, root_0);
+                        DebugLocation(173, 22);
+                        // GBX.g:173:22: ( r8 | rr_ref_hl )
                         int alt39 = 2;
                         try
                         {
@@ -7469,27 +7452,27 @@ namespace GBRead.Base
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:175:41: r8
+                                    // GBX.g:173:23: r8
                                     {
-                                        DebugLocation(175, 41);
-                                        PushFollow(Follow._r8_in_op_set1528);
-                                        r8225 = r8();
+                                        DebugLocation(173, 23);
+                                        PushFollow(Follow._r8_in_op_rlc1499);
+                                        r8215 = r8();
                                         PopFollow();
 
-                                        adaptor.AddChild(root_0, r8225.Tree);
+                                        adaptor.AddChild(root_0, r8215.Tree);
 
                                     }
                                     break;
                                 case 2:
                                     DebugEnterAlt(2);
-                                    // GBX.g:175:44: rr_ref_hl
+                                    // GBX.g:173:26: rr_ref_hl
                                     {
-                                        DebugLocation(175, 44);
-                                        PushFollow(Follow._rr_ref_hl_in_op_set1530);
-                                        rr_ref_hl226 = rr_ref_hl();
+                                        DebugLocation(173, 26);
+                                        PushFollow(Follow._rr_ref_hl_in_op_rlc1501);
+                                        rr_ref_hl216 = rr_ref_hl();
                                         PopFollow();
 
-                                        adaptor.AddChild(root_0, rr_ref_hl226.Tree);
+                                        adaptor.AddChild(root_0, rr_ref_hl216.Tree);
 
                                     }
                                     break;
@@ -7516,57 +7499,122 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_set", 48);
-                    LeaveRule("op_set", 48);
-                    LeaveRule_op_set();
+                    TraceOut("op_rlc", 41);
+                    LeaveRule("op_rlc", 41);
+                    LeaveRule_op_rlc();
                 }
-                DebugLocation(175, 53);
+                DebugLocation(173, 35);
             }
-            finally { DebugExitRule(GrammarFileName, "op_set"); }
+            finally { DebugExitRule(GrammarFileName, "op_rlc"); }
             return retval;
 
         }
-        // $ANTLR end "op_set"
+        // $ANTLR end "op_rlc"
 
-        partial void EnterRule_op_sla();
-        partial void LeaveRule_op_sla();
+        partial void EnterRule_op_rlca();
+        partial void LeaveRule_op_rlca();
 
-        // $ANTLR start "op_sla"
-        // GBX.g:176:1: op_sla : INST_SLA ^ ( r8 | rr_ref_hl ) ;
-        [GrammarRule("op_sla")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_sla()
+        // $ANTLR start "op_rlca"
+        // GBX.g:174:1: op_rlca : INST_RLCA ^;
+        [GrammarRule("op_rlca")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_rlca()
         {
-            EnterRule_op_sla();
-            EnterRule("op_sla", 49);
-            TraceIn("op_sla", 49);
+            EnterRule_op_rlca();
+            EnterRule("op_rlca", 42);
+            TraceIn("op_rlca", 42);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_SLA227 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> r8228 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl229 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken INST_RLCA217 = default(IToken);
 
-            CommonTree INST_SLA227_tree = default(CommonTree);
+            CommonTree INST_RLCA217_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "op_sla");
-                DebugLocation(176, 35);
+                DebugEnterRule(GrammarFileName, "op_rlca");
+                DebugLocation(174, 22);
                 try
                 {
-                    // GBX.g:176:10: ( INST_SLA ^ ( r8 | rr_ref_hl ) )
+                    // GBX.g:174:11: ( INST_RLCA ^)
                     DebugEnterAlt(1);
-                    // GBX.g:176:12: INST_SLA ^ ( r8 | rr_ref_hl )
+                    // GBX.g:174:13: INST_RLCA ^
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(176, 20);
-                        INST_SLA227 = (IToken)Match(input, INST_SLA, Follow._INST_SLA_in_op_sla1540);
-                        INST_SLA227_tree = (CommonTree)adaptor.Create(INST_SLA227);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_SLA227_tree, root_0);
-                        DebugLocation(176, 22);
-                        // GBX.g:176:22: ( r8 | rr_ref_hl )
+                        DebugLocation(174, 22);
+                        INST_RLCA217 = (IToken)Match(input, INST_RLCA, Follow._INST_RLCA_in_op_rlca1511);
+                        INST_RLCA217_tree = (CommonTree)adaptor.Create(INST_RLCA217);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RLCA217_tree, root_0);
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_rlca", 42);
+                    LeaveRule("op_rlca", 42);
+                    LeaveRule_op_rlca();
+                }
+                DebugLocation(174, 22);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_rlca"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_rlca"
+
+        partial void EnterRule_op_rr();
+        partial void LeaveRule_op_rr();
+
+        // $ANTLR start "op_rr"
+        // GBX.g:175:1: op_rr : INST_RR ^ ( r8 | rr_ref_hl ) ;
+        [GrammarRule("op_rr")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_rr()
+        {
+            EnterRule_op_rr();
+            EnterRule("op_rr", 43);
+            TraceIn("op_rr", 43);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_RR218 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> r8219 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl220 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+
+            CommonTree INST_RR218_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_rr");
+                DebugLocation(175, 33);
+                try
+                {
+                    // GBX.g:175:9: ( INST_RR ^ ( r8 | rr_ref_hl ) )
+                    DebugEnterAlt(1);
+                    // GBX.g:175:11: INST_RR ^ ( r8 | rr_ref_hl )
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(175, 18);
+                        INST_RR218 = (IToken)Match(input, INST_RR, Follow._INST_RR_in_op_rr1521);
+                        INST_RR218_tree = (CommonTree)adaptor.Create(INST_RR218);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RR218_tree, root_0);
+                        DebugLocation(175, 20);
+                        // GBX.g:175:20: ( r8 | rr_ref_hl )
                         int alt40 = 2;
                         try
                         {
@@ -7596,27 +7644,27 @@ namespace GBRead.Base
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:176:23: r8
+                                    // GBX.g:175:21: r8
                                     {
-                                        DebugLocation(176, 23);
-                                        PushFollow(Follow._r8_in_op_sla1544);
-                                        r8228 = r8();
+                                        DebugLocation(175, 21);
+                                        PushFollow(Follow._r8_in_op_rr1525);
+                                        r8219 = r8();
                                         PopFollow();
 
-                                        adaptor.AddChild(root_0, r8228.Tree);
+                                        adaptor.AddChild(root_0, r8219.Tree);
 
                                     }
                                     break;
                                 case 2:
                                     DebugEnterAlt(2);
-                                    // GBX.g:176:26: rr_ref_hl
+                                    // GBX.g:175:24: rr_ref_hl
                                     {
-                                        DebugLocation(176, 26);
-                                        PushFollow(Follow._rr_ref_hl_in_op_sla1546);
-                                        rr_ref_hl229 = rr_ref_hl();
+                                        DebugLocation(175, 24);
+                                        PushFollow(Follow._rr_ref_hl_in_op_rr1527);
+                                        rr_ref_hl220 = rr_ref_hl();
                                         PopFollow();
 
-                                        adaptor.AddChild(root_0, rr_ref_hl229.Tree);
+                                        adaptor.AddChild(root_0, rr_ref_hl220.Tree);
 
                                     }
                                     break;
@@ -7643,55 +7691,120 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_sla", 49);
-                    LeaveRule("op_sla", 49);
-                    LeaveRule_op_sla();
+                    TraceOut("op_rr", 43);
+                    LeaveRule("op_rr", 43);
+                    LeaveRule_op_rr();
                 }
-                DebugLocation(176, 35);
+                DebugLocation(175, 33);
             }
-            finally { DebugExitRule(GrammarFileName, "op_sla"); }
+            finally { DebugExitRule(GrammarFileName, "op_rr"); }
             return retval;
 
         }
-        // $ANTLR end "op_sla"
+        // $ANTLR end "op_rr"
 
-        partial void EnterRule_op_sra();
-        partial void LeaveRule_op_sra();
+        partial void EnterRule_op_rra();
+        partial void LeaveRule_op_rra();
 
-        // $ANTLR start "op_sra"
-        // GBX.g:177:1: op_sra : INST_SRA ^ ( r8 | rr_ref_hl ) ;
-        [GrammarRule("op_sra")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_sra()
+        // $ANTLR start "op_rra"
+        // GBX.g:176:1: op_rra : INST_RRA ^;
+        [GrammarRule("op_rra")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_rra()
         {
-            EnterRule_op_sra();
-            EnterRule("op_sra", 50);
-            TraceIn("op_sra", 50);
+            EnterRule_op_rra();
+            EnterRule("op_rra", 44);
+            TraceIn("op_rra", 44);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_SRA230 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> r8231 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl232 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken INST_RRA221 = default(IToken);
 
-            CommonTree INST_SRA230_tree = default(CommonTree);
+            CommonTree INST_RRA221_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "op_sra");
+                DebugEnterRule(GrammarFileName, "op_rra");
+                DebugLocation(176, 20);
+                try
+                {
+                    // GBX.g:176:10: ( INST_RRA ^)
+                    DebugEnterAlt(1);
+                    // GBX.g:176:12: INST_RRA ^
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(176, 20);
+                        INST_RRA221 = (IToken)Match(input, INST_RRA, Follow._INST_RRA_in_op_rra1537);
+                        INST_RRA221_tree = (CommonTree)adaptor.Create(INST_RRA221);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RRA221_tree, root_0);
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_rra", 44);
+                    LeaveRule("op_rra", 44);
+                    LeaveRule_op_rra();
+                }
+                DebugLocation(176, 20);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_rra"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_rra"
+
+        partial void EnterRule_op_rrc();
+        partial void LeaveRule_op_rrc();
+
+        // $ANTLR start "op_rrc"
+        // GBX.g:177:1: op_rrc : INST_RRC ^ ( r8 | rr_ref_hl ) ;
+        [GrammarRule("op_rrc")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_rrc()
+        {
+            EnterRule_op_rrc();
+            EnterRule("op_rrc", 45);
+            TraceIn("op_rrc", 45);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_RRC222 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> r8223 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl224 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+
+            CommonTree INST_RRC222_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_rrc");
                 DebugLocation(177, 35);
                 try
                 {
-                    // GBX.g:177:10: ( INST_SRA ^ ( r8 | rr_ref_hl ) )
+                    // GBX.g:177:10: ( INST_RRC ^ ( r8 | rr_ref_hl ) )
                     DebugEnterAlt(1);
-                    // GBX.g:177:12: INST_SRA ^ ( r8 | rr_ref_hl )
+                    // GBX.g:177:12: INST_RRC ^ ( r8 | rr_ref_hl )
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
                         DebugLocation(177, 20);
-                        INST_SRA230 = (IToken)Match(input, INST_SRA, Follow._INST_SRA_in_op_sra1556);
-                        INST_SRA230_tree = (CommonTree)adaptor.Create(INST_SRA230);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_SRA230_tree, root_0);
+                        INST_RRC222 = (IToken)Match(input, INST_RRC, Follow._INST_RRC_in_op_rrc1547);
+                        INST_RRC222_tree = (CommonTree)adaptor.Create(INST_RRC222);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RRC222_tree, root_0);
                         DebugLocation(177, 22);
                         // GBX.g:177:22: ( r8 | rr_ref_hl )
                         int alt41 = 2;
@@ -7726,11 +7839,11 @@ namespace GBRead.Base
                                     // GBX.g:177:23: r8
                                     {
                                         DebugLocation(177, 23);
-                                        PushFollow(Follow._r8_in_op_sra1560);
-                                        r8231 = r8();
+                                        PushFollow(Follow._r8_in_op_rrc1551);
+                                        r8223 = r8();
                                         PopFollow();
 
-                                        adaptor.AddChild(root_0, r8231.Tree);
+                                        adaptor.AddChild(root_0, r8223.Tree);
 
                                     }
                                     break;
@@ -7739,11 +7852,11 @@ namespace GBRead.Base
                                     // GBX.g:177:26: rr_ref_hl
                                     {
                                         DebugLocation(177, 26);
-                                        PushFollow(Follow._rr_ref_hl_in_op_sra1562);
-                                        rr_ref_hl232 = rr_ref_hl();
+                                        PushFollow(Follow._rr_ref_hl_in_op_rrc1553);
+                                        rr_ref_hl224 = rr_ref_hl();
                                         PopFollow();
 
-                                        adaptor.AddChild(root_0, rr_ref_hl232.Tree);
+                                        adaptor.AddChild(root_0, rr_ref_hl224.Tree);
 
                                     }
                                     break;
@@ -7770,57 +7883,197 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_sra", 50);
-                    LeaveRule("op_sra", 50);
-                    LeaveRule_op_sra();
+                    TraceOut("op_rrc", 45);
+                    LeaveRule("op_rrc", 45);
+                    LeaveRule_op_rrc();
                 }
                 DebugLocation(177, 35);
             }
-            finally { DebugExitRule(GrammarFileName, "op_sra"); }
+            finally { DebugExitRule(GrammarFileName, "op_rrc"); }
             return retval;
 
         }
-        // $ANTLR end "op_sra"
+        // $ANTLR end "op_rrc"
 
-        partial void EnterRule_op_srl();
-        partial void LeaveRule_op_srl();
+        partial void EnterRule_op_rrca();
+        partial void LeaveRule_op_rrca();
 
-        // $ANTLR start "op_srl"
-        // GBX.g:178:1: op_srl : INST_SRL ^ ( r8 | rr_ref_hl ) ;
-        [GrammarRule("op_srl")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_srl()
+        // $ANTLR start "op_rrca"
+        // GBX.g:178:1: op_rrca : INST_RRCA ^;
+        [GrammarRule("op_rrca")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_rrca()
         {
-            EnterRule_op_srl();
-            EnterRule("op_srl", 51);
-            TraceIn("op_srl", 51);
+            EnterRule_op_rrca();
+            EnterRule("op_rrca", 46);
+            TraceIn("op_rrca", 46);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_SRL233 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> r8234 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl235 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken INST_RRCA225 = default(IToken);
 
-            CommonTree INST_SRL233_tree = default(CommonTree);
+            CommonTree INST_RRCA225_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "op_srl");
-                DebugLocation(178, 35);
+                DebugEnterRule(GrammarFileName, "op_rrca");
+                DebugLocation(178, 22);
                 try
                 {
-                    // GBX.g:178:10: ( INST_SRL ^ ( r8 | rr_ref_hl ) )
+                    // GBX.g:178:11: ( INST_RRCA ^)
                     DebugEnterAlt(1);
-                    // GBX.g:178:12: INST_SRL ^ ( r8 | rr_ref_hl )
+                    // GBX.g:178:13: INST_RRCA ^
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(178, 20);
-                        INST_SRL233 = (IToken)Match(input, INST_SRL, Follow._INST_SRL_in_op_srl1572);
-                        INST_SRL233_tree = (CommonTree)adaptor.Create(INST_SRL233);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_SRL233_tree, root_0);
                         DebugLocation(178, 22);
-                        // GBX.g:178:22: ( r8 | rr_ref_hl )
+                        INST_RRCA225 = (IToken)Match(input, INST_RRCA, Follow._INST_RRCA_in_op_rrca1563);
+                        INST_RRCA225_tree = (CommonTree)adaptor.Create(INST_RRCA225);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RRCA225_tree, root_0);
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_rrca", 46);
+                    LeaveRule("op_rrca", 46);
+                    LeaveRule_op_rrca();
+                }
+                DebugLocation(178, 22);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_rrca"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_rrca"
+
+        partial void EnterRule_op_rst();
+        partial void LeaveRule_op_rst();
+
+        // $ANTLR start "op_rst"
+        // GBX.g:179:1: op_rst : INST_RST ^ expression ;
+        [GrammarRule("op_rst")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_rst()
+        {
+            EnterRule_op_rst();
+            EnterRule("op_rst", 47);
+            TraceIn("op_rst", 47);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_RST226 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> expression227 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+
+            CommonTree INST_RST226_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_rst");
+                DebugLocation(179, 31);
+                try
+                {
+                    // GBX.g:179:10: ( INST_RST ^ expression )
+                    DebugEnterAlt(1);
+                    // GBX.g:179:12: INST_RST ^ expression
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(179, 20);
+                        INST_RST226 = (IToken)Match(input, INST_RST, Follow._INST_RST_in_op_rst1573);
+                        INST_RST226_tree = (CommonTree)adaptor.Create(INST_RST226);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_RST226_tree, root_0);
+                        DebugLocation(179, 22);
+                        PushFollow(Follow._expression_in_op_rst1576);
+                        expression227 = expression();
+                        PopFollow();
+
+                        adaptor.AddChild(root_0, expression227.Tree);
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_rst", 47);
+                    LeaveRule("op_rst", 47);
+                    LeaveRule_op_rst();
+                }
+                DebugLocation(179, 31);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_rst"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_rst"
+
+        partial void EnterRule_op_sbc();
+        partial void LeaveRule_op_sbc();
+
+        // $ANTLR start "op_sbc"
+        // GBX.g:180:1: op_sbc : INST_SBC ^ ( REG_A COMMA !)? arith_opt ;
+        [GrammarRule("op_sbc")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_sbc()
+        {
+            EnterRule_op_sbc();
+            EnterRule("op_sbc", 48);
+            TraceIn("op_sbc", 48);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_SBC228 = default(IToken);
+            IToken REG_A229 = default(IToken);
+            IToken COMMA230 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> arith_opt231 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+
+            CommonTree INST_SBC228_tree = default(CommonTree);
+            CommonTree REG_A229_tree = default(CommonTree);
+            CommonTree COMMA230_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_sbc");
+                DebugLocation(180, 46);
+                try
+                {
+                    // GBX.g:180:10: ( INST_SBC ^ ( REG_A COMMA !)? arith_opt )
+                    DebugEnterAlt(1);
+                    // GBX.g:180:12: INST_SBC ^ ( REG_A COMMA !)? arith_opt
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(180, 20);
+                        INST_SBC228 = (IToken)Match(input, INST_SBC, Follow._INST_SBC_in_op_sbc1585);
+                        INST_SBC228_tree = (CommonTree)adaptor.Create(INST_SBC228);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_SBC228_tree, root_0);
+                        DebugLocation(180, 22);
+                        // GBX.g:180:22: ( REG_A COMMA !)?
                         int alt42 = 2;
                         try
                         {
@@ -7830,19 +8083,14 @@ namespace GBRead.Base
                                 DebugEnterDecision(42, false);
                                 int LA42_0 = input.LA(1);
 
-                                if (((LA42_0 >= REG_A && LA42_0 <= REG_L)))
+                                if ((LA42_0 == REG_A))
                                 {
-                                    alt42 = 1;
-                                }
-                                else if ((LA42_0 == LEFT_BRACKET))
-                                {
-                                    alt42 = 2;
-                                }
-                                else
-                                {
-                                    NoViableAltException nvae = new NoViableAltException("", 42, 0, input);
-                                    DebugRecognitionException(nvae);
-                                    throw nvae;
+                                    int LA42_1 = input.LA(2);
+
+                                    if ((LA42_1 == COMMA))
+                                    {
+                                        alt42 = 1;
+                                    }
                                 }
                             }
                             finally { DebugExitDecision(42); }
@@ -7850,27 +8098,14 @@ namespace GBRead.Base
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:178:23: r8
+                                    // GBX.g:180:23: REG_A COMMA !
                                     {
-                                        DebugLocation(178, 23);
-                                        PushFollow(Follow._r8_in_op_srl1576);
-                                        r8234 = r8();
-                                        PopFollow();
-
-                                        adaptor.AddChild(root_0, r8234.Tree);
-
-                                    }
-                                    break;
-                                case 2:
-                                    DebugEnterAlt(2);
-                                    // GBX.g:178:26: rr_ref_hl
-                                    {
-                                        DebugLocation(178, 26);
-                                        PushFollow(Follow._rr_ref_hl_in_op_srl1578);
-                                        rr_ref_hl235 = rr_ref_hl();
-                                        PopFollow();
-
-                                        adaptor.AddChild(root_0, rr_ref_hl235.Tree);
+                                        DebugLocation(180, 23);
+                                        REG_A229 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_sbc1589);
+                                        REG_A229_tree = (CommonTree)adaptor.Create(REG_A229);
+                                        adaptor.AddChild(root_0, REG_A229_tree);
+                                        DebugLocation(180, 34);
+                                        COMMA230 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_sbc1591);
 
                                     }
                                     break;
@@ -7879,6 +8114,12 @@ namespace GBRead.Base
                         }
                         finally { DebugExitSubRule(42); }
 
+                        DebugLocation(180, 38);
+                        PushFollow(Follow._arith_opt_in_op_sbc1596);
+                        arith_opt231 = arith_opt();
+                        PopFollow();
+
+                        adaptor.AddChild(root_0, arith_opt231.Tree);
 
                     }
 
@@ -7897,125 +8138,133 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_srl", 51);
-                    LeaveRule("op_srl", 51);
-                    LeaveRule_op_srl();
+                    TraceOut("op_sbc", 48);
+                    LeaveRule("op_sbc", 48);
+                    LeaveRule_op_sbc();
                 }
-                DebugLocation(178, 35);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_srl"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_srl"
-
-        partial void EnterRule_op_stop();
-        partial void LeaveRule_op_stop();
-
-        // $ANTLR start "op_stop"
-        // GBX.g:179:1: op_stop : INST_STOP ^;
-        [GrammarRule("op_stop")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_stop()
-        {
-            EnterRule_op_stop();
-            EnterRule("op_stop", 52);
-            TraceIn("op_stop", 52);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_STOP236 = default(IToken);
-
-            CommonTree INST_STOP236_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_stop");
-                DebugLocation(179, 22);
-                try
-                {
-                    // GBX.g:179:11: ( INST_STOP ^)
-                    DebugEnterAlt(1);
-                    // GBX.g:179:13: INST_STOP ^
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(179, 22);
-                        INST_STOP236 = (IToken)Match(input, INST_STOP, Follow._INST_STOP_in_op_stop1588);
-                        INST_STOP236_tree = (CommonTree)adaptor.Create(INST_STOP236);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_STOP236_tree, root_0);
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("op_stop", 52);
-                    LeaveRule("op_stop", 52);
-                    LeaveRule_op_stop();
-                }
-                DebugLocation(179, 22);
-            }
-            finally { DebugExitRule(GrammarFileName, "op_stop"); }
-            return retval;
-
-        }
-        // $ANTLR end "op_stop"
-
-        partial void EnterRule_op_sub();
-        partial void LeaveRule_op_sub();
-
-        // $ANTLR start "op_sub"
-        // GBX.g:180:1: op_sub : INST_SUB ^ ( REG_A COMMA !)? arith_opt ;
-        [GrammarRule("op_sub")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_sub()
-        {
-            EnterRule_op_sub();
-            EnterRule("op_sub", 53);
-            TraceIn("op_sub", 53);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken INST_SUB237 = default(IToken);
-            IToken REG_A238 = default(IToken);
-            IToken COMMA239 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> arith_opt240 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-
-            CommonTree INST_SUB237_tree = default(CommonTree);
-            CommonTree REG_A238_tree = default(CommonTree);
-            CommonTree COMMA239_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "op_sub");
                 DebugLocation(180, 46);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_sbc"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_sbc"
+
+        partial void EnterRule_op_scf();
+        partial void LeaveRule_op_scf();
+
+        // $ANTLR start "op_scf"
+        // GBX.g:181:1: op_scf : INST_SCF ^;
+        [GrammarRule("op_scf")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_scf()
+        {
+            EnterRule_op_scf();
+            EnterRule("op_scf", 49);
+            TraceIn("op_scf", 49);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_SCF232 = default(IToken);
+
+            CommonTree INST_SCF232_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_scf");
+                DebugLocation(181, 20);
                 try
                 {
-                    // GBX.g:180:10: ( INST_SUB ^ ( REG_A COMMA !)? arith_opt )
+                    // GBX.g:181:10: ( INST_SCF ^)
                     DebugEnterAlt(1);
-                    // GBX.g:180:12: INST_SUB ^ ( REG_A COMMA !)? arith_opt
+                    // GBX.g:181:12: INST_SCF ^
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(180, 20);
-                        INST_SUB237 = (IToken)Match(input, INST_SUB, Follow._INST_SUB_in_op_sub1598);
-                        INST_SUB237_tree = (CommonTree)adaptor.Create(INST_SUB237);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_SUB237_tree, root_0);
-                        DebugLocation(180, 22);
-                        // GBX.g:180:22: ( REG_A COMMA !)?
+                        DebugLocation(181, 20);
+                        INST_SCF232 = (IToken)Match(input, INST_SCF, Follow._INST_SCF_in_op_scf1605);
+                        INST_SCF232_tree = (CommonTree)adaptor.Create(INST_SCF232);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_SCF232_tree, root_0);
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_scf", 49);
+                    LeaveRule("op_scf", 49);
+                    LeaveRule_op_scf();
+                }
+                DebugLocation(181, 20);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_scf"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_scf"
+
+        partial void EnterRule_op_set();
+        partial void LeaveRule_op_set();
+
+        // $ANTLR start "op_set"
+        // GBX.g:182:1: op_set : INST_SET ^ expression COMMA ! ( r8 | rr_ref_hl ) ;
+        [GrammarRule("op_set")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_set()
+        {
+            EnterRule_op_set();
+            EnterRule("op_set", 50);
+            TraceIn("op_set", 50);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_SET233 = default(IToken);
+            IToken COMMA235 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> expression234 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> r8236 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl237 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+
+            CommonTree INST_SET233_tree = default(CommonTree);
+            CommonTree COMMA235_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_set");
+                DebugLocation(182, 53);
+                try
+                {
+                    // GBX.g:182:10: ( INST_SET ^ expression COMMA ! ( r8 | rr_ref_hl ) )
+                    DebugEnterAlt(1);
+                    // GBX.g:182:12: INST_SET ^ expression COMMA ! ( r8 | rr_ref_hl )
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(182, 20);
+                        INST_SET233 = (IToken)Match(input, INST_SET, Follow._INST_SET_in_op_set1615);
+                        INST_SET233_tree = (CommonTree)adaptor.Create(INST_SET233);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_SET233_tree, root_0);
+                        DebugLocation(182, 22);
+                        PushFollow(Follow._expression_in_op_set1618);
+                        expression234 = expression();
+                        PopFollow();
+
+                        adaptor.AddChild(root_0, expression234.Tree);
+                        DebugLocation(182, 38);
+                        COMMA235 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_set1620);
+                        DebugLocation(182, 40);
+                        // GBX.g:182:40: ( r8 | rr_ref_hl )
                         int alt43 = 2;
                         try
                         {
@@ -8025,14 +8274,19 @@ namespace GBRead.Base
                                 DebugEnterDecision(43, false);
                                 int LA43_0 = input.LA(1);
 
-                                if ((LA43_0 == REG_A))
+                                if (((LA43_0 >= REG_A && LA43_0 <= REG_L)))
                                 {
-                                    int LA43_1 = input.LA(2);
-
-                                    if ((LA43_1 == COMMA))
-                                    {
-                                        alt43 = 1;
-                                    }
+                                    alt43 = 1;
+                                }
+                                else if ((LA43_0 == LEFT_BRACKET))
+                                {
+                                    alt43 = 2;
+                                }
+                                else
+                                {
+                                    NoViableAltException nvae = new NoViableAltException("", 43, 0, input);
+                                    DebugRecognitionException(nvae);
+                                    throw nvae;
                                 }
                             }
                             finally { DebugExitDecision(43); }
@@ -8040,14 +8294,27 @@ namespace GBRead.Base
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:180:23: REG_A COMMA !
+                                    // GBX.g:182:41: r8
                                     {
-                                        DebugLocation(180, 23);
-                                        REG_A238 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_sub1602);
-                                        REG_A238_tree = (CommonTree)adaptor.Create(REG_A238);
-                                        adaptor.AddChild(root_0, REG_A238_tree);
-                                        DebugLocation(180, 34);
-                                        COMMA239 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_sub1604);
+                                        DebugLocation(182, 41);
+                                        PushFollow(Follow._r8_in_op_set1624);
+                                        r8236 = r8();
+                                        PopFollow();
+
+                                        adaptor.AddChild(root_0, r8236.Tree);
+
+                                    }
+                                    break;
+                                case 2:
+                                    DebugEnterAlt(2);
+                                    // GBX.g:182:44: rr_ref_hl
+                                    {
+                                        DebugLocation(182, 44);
+                                        PushFollow(Follow._rr_ref_hl_in_op_set1626);
+                                        rr_ref_hl237 = rr_ref_hl();
+                                        PopFollow();
+
+                                        adaptor.AddChild(root_0, rr_ref_hl237.Tree);
 
                                     }
                                     break;
@@ -8056,12 +8323,6 @@ namespace GBRead.Base
                         }
                         finally { DebugExitSubRule(43); }
 
-                        DebugLocation(180, 38);
-                        PushFollow(Follow._arith_opt_in_op_sub1609);
-                        arith_opt240 = arith_opt();
-                        PopFollow();
-
-                        adaptor.AddChild(root_0, arith_opt240.Tree);
 
                     }
 
@@ -8080,57 +8341,57 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_sub", 53);
-                    LeaveRule("op_sub", 53);
-                    LeaveRule_op_sub();
+                    TraceOut("op_set", 50);
+                    LeaveRule("op_set", 50);
+                    LeaveRule_op_set();
                 }
-                DebugLocation(180, 46);
+                DebugLocation(182, 53);
             }
-            finally { DebugExitRule(GrammarFileName, "op_sub"); }
+            finally { DebugExitRule(GrammarFileName, "op_set"); }
             return retval;
 
         }
-        // $ANTLR end "op_sub"
+        // $ANTLR end "op_set"
 
-        partial void EnterRule_op_swap();
-        partial void LeaveRule_op_swap();
+        partial void EnterRule_op_sla();
+        partial void LeaveRule_op_sla();
 
-        // $ANTLR start "op_swap"
-        // GBX.g:181:1: op_swap : INST_SWAP ^ ( r8 | rr_ref_hl ) ;
-        [GrammarRule("op_swap")]
-        private AstParserRuleReturnScope<CommonTree, IToken> op_swap()
+        // $ANTLR start "op_sla"
+        // GBX.g:183:1: op_sla : INST_SLA ^ ( r8 | rr_ref_hl ) ;
+        [GrammarRule("op_sla")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_sla()
         {
-            EnterRule_op_swap();
-            EnterRule("op_swap", 54);
-            TraceIn("op_swap", 54);
+            EnterRule_op_sla();
+            EnterRule("op_sla", 51);
+            TraceIn("op_sla", 51);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_SWAP241 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> r8242 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl243 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken INST_SLA238 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> r8239 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl240 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree INST_SWAP241_tree = default(CommonTree);
+            CommonTree INST_SLA238_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "op_swap");
-                DebugLocation(181, 37);
+                DebugEnterRule(GrammarFileName, "op_sla");
+                DebugLocation(183, 35);
                 try
                 {
-                    // GBX.g:181:11: ( INST_SWAP ^ ( r8 | rr_ref_hl ) )
+                    // GBX.g:183:10: ( INST_SLA ^ ( r8 | rr_ref_hl ) )
                     DebugEnterAlt(1);
-                    // GBX.g:181:13: INST_SWAP ^ ( r8 | rr_ref_hl )
+                    // GBX.g:183:12: INST_SLA ^ ( r8 | rr_ref_hl )
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(181, 22);
-                        INST_SWAP241 = (IToken)Match(input, INST_SWAP, Follow._INST_SWAP_in_op_swap1618);
-                        INST_SWAP241_tree = (CommonTree)adaptor.Create(INST_SWAP241);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_SWAP241_tree, root_0);
-                        DebugLocation(181, 24);
-                        // GBX.g:181:24: ( r8 | rr_ref_hl )
+                        DebugLocation(183, 20);
+                        INST_SLA238 = (IToken)Match(input, INST_SLA, Follow._INST_SLA_in_op_sla1636);
+                        INST_SLA238_tree = (CommonTree)adaptor.Create(INST_SLA238);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_SLA238_tree, root_0);
+                        DebugLocation(183, 22);
+                        // GBX.g:183:22: ( r8 | rr_ref_hl )
                         int alt44 = 2;
                         try
                         {
@@ -8160,27 +8421,27 @@ namespace GBRead.Base
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:181:25: r8
+                                    // GBX.g:183:23: r8
                                     {
-                                        DebugLocation(181, 25);
-                                        PushFollow(Follow._r8_in_op_swap1622);
-                                        r8242 = r8();
+                                        DebugLocation(183, 23);
+                                        PushFollow(Follow._r8_in_op_sla1640);
+                                        r8239 = r8();
                                         PopFollow();
 
-                                        adaptor.AddChild(root_0, r8242.Tree);
+                                        adaptor.AddChild(root_0, r8239.Tree);
 
                                     }
                                     break;
                                 case 2:
                                     DebugEnterAlt(2);
-                                    // GBX.g:181:28: rr_ref_hl
+                                    // GBX.g:183:26: rr_ref_hl
                                     {
-                                        DebugLocation(181, 28);
-                                        PushFollow(Follow._rr_ref_hl_in_op_swap1624);
-                                        rr_ref_hl243 = rr_ref_hl();
+                                        DebugLocation(183, 26);
+                                        PushFollow(Follow._rr_ref_hl_in_op_sla1642);
+                                        rr_ref_hl240 = rr_ref_hl();
                                         PopFollow();
 
-                                        adaptor.AddChild(root_0, rr_ref_hl243.Tree);
+                                        adaptor.AddChild(root_0, rr_ref_hl240.Tree);
 
                                     }
                                     break;
@@ -8207,11 +8468,575 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_swap", 54);
-                    LeaveRule("op_swap", 54);
+                    TraceOut("op_sla", 51);
+                    LeaveRule("op_sla", 51);
+                    LeaveRule_op_sla();
+                }
+                DebugLocation(183, 35);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_sla"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_sla"
+
+        partial void EnterRule_op_sra();
+        partial void LeaveRule_op_sra();
+
+        // $ANTLR start "op_sra"
+        // GBX.g:184:1: op_sra : INST_SRA ^ ( r8 | rr_ref_hl ) ;
+        [GrammarRule("op_sra")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_sra()
+        {
+            EnterRule_op_sra();
+            EnterRule("op_sra", 52);
+            TraceIn("op_sra", 52);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_SRA241 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> r8242 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl243 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+
+            CommonTree INST_SRA241_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_sra");
+                DebugLocation(184, 35);
+                try
+                {
+                    // GBX.g:184:10: ( INST_SRA ^ ( r8 | rr_ref_hl ) )
+                    DebugEnterAlt(1);
+                    // GBX.g:184:12: INST_SRA ^ ( r8 | rr_ref_hl )
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(184, 20);
+                        INST_SRA241 = (IToken)Match(input, INST_SRA, Follow._INST_SRA_in_op_sra1652);
+                        INST_SRA241_tree = (CommonTree)adaptor.Create(INST_SRA241);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_SRA241_tree, root_0);
+                        DebugLocation(184, 22);
+                        // GBX.g:184:22: ( r8 | rr_ref_hl )
+                        int alt45 = 2;
+                        try
+                        {
+                            DebugEnterSubRule(45);
+                            try
+                            {
+                                DebugEnterDecision(45, false);
+                                int LA45_0 = input.LA(1);
+
+                                if (((LA45_0 >= REG_A && LA45_0 <= REG_L)))
+                                {
+                                    alt45 = 1;
+                                }
+                                else if ((LA45_0 == LEFT_BRACKET))
+                                {
+                                    alt45 = 2;
+                                }
+                                else
+                                {
+                                    NoViableAltException nvae = new NoViableAltException("", 45, 0, input);
+                                    DebugRecognitionException(nvae);
+                                    throw nvae;
+                                }
+                            }
+                            finally { DebugExitDecision(45); }
+                            switch (alt45)
+                            {
+                                case 1:
+                                    DebugEnterAlt(1);
+                                    // GBX.g:184:23: r8
+                                    {
+                                        DebugLocation(184, 23);
+                                        PushFollow(Follow._r8_in_op_sra1656);
+                                        r8242 = r8();
+                                        PopFollow();
+
+                                        adaptor.AddChild(root_0, r8242.Tree);
+
+                                    }
+                                    break;
+                                case 2:
+                                    DebugEnterAlt(2);
+                                    // GBX.g:184:26: rr_ref_hl
+                                    {
+                                        DebugLocation(184, 26);
+                                        PushFollow(Follow._rr_ref_hl_in_op_sra1658);
+                                        rr_ref_hl243 = rr_ref_hl();
+                                        PopFollow();
+
+                                        adaptor.AddChild(root_0, rr_ref_hl243.Tree);
+
+                                    }
+                                    break;
+
+                            }
+                        }
+                        finally { DebugExitSubRule(45); }
+
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_sra", 52);
+                    LeaveRule("op_sra", 52);
+                    LeaveRule_op_sra();
+                }
+                DebugLocation(184, 35);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_sra"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_sra"
+
+        partial void EnterRule_op_srl();
+        partial void LeaveRule_op_srl();
+
+        // $ANTLR start "op_srl"
+        // GBX.g:185:1: op_srl : INST_SRL ^ ( r8 | rr_ref_hl ) ;
+        [GrammarRule("op_srl")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_srl()
+        {
+            EnterRule_op_srl();
+            EnterRule("op_srl", 53);
+            TraceIn("op_srl", 53);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_SRL244 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> r8245 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl246 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+
+            CommonTree INST_SRL244_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_srl");
+                DebugLocation(185, 35);
+                try
+                {
+                    // GBX.g:185:10: ( INST_SRL ^ ( r8 | rr_ref_hl ) )
+                    DebugEnterAlt(1);
+                    // GBX.g:185:12: INST_SRL ^ ( r8 | rr_ref_hl )
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(185, 20);
+                        INST_SRL244 = (IToken)Match(input, INST_SRL, Follow._INST_SRL_in_op_srl1668);
+                        INST_SRL244_tree = (CommonTree)adaptor.Create(INST_SRL244);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_SRL244_tree, root_0);
+                        DebugLocation(185, 22);
+                        // GBX.g:185:22: ( r8 | rr_ref_hl )
+                        int alt46 = 2;
+                        try
+                        {
+                            DebugEnterSubRule(46);
+                            try
+                            {
+                                DebugEnterDecision(46, false);
+                                int LA46_0 = input.LA(1);
+
+                                if (((LA46_0 >= REG_A && LA46_0 <= REG_L)))
+                                {
+                                    alt46 = 1;
+                                }
+                                else if ((LA46_0 == LEFT_BRACKET))
+                                {
+                                    alt46 = 2;
+                                }
+                                else
+                                {
+                                    NoViableAltException nvae = new NoViableAltException("", 46, 0, input);
+                                    DebugRecognitionException(nvae);
+                                    throw nvae;
+                                }
+                            }
+                            finally { DebugExitDecision(46); }
+                            switch (alt46)
+                            {
+                                case 1:
+                                    DebugEnterAlt(1);
+                                    // GBX.g:185:23: r8
+                                    {
+                                        DebugLocation(185, 23);
+                                        PushFollow(Follow._r8_in_op_srl1672);
+                                        r8245 = r8();
+                                        PopFollow();
+
+                                        adaptor.AddChild(root_0, r8245.Tree);
+
+                                    }
+                                    break;
+                                case 2:
+                                    DebugEnterAlt(2);
+                                    // GBX.g:185:26: rr_ref_hl
+                                    {
+                                        DebugLocation(185, 26);
+                                        PushFollow(Follow._rr_ref_hl_in_op_srl1674);
+                                        rr_ref_hl246 = rr_ref_hl();
+                                        PopFollow();
+
+                                        adaptor.AddChild(root_0, rr_ref_hl246.Tree);
+
+                                    }
+                                    break;
+
+                            }
+                        }
+                        finally { DebugExitSubRule(46); }
+
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_srl", 53);
+                    LeaveRule("op_srl", 53);
+                    LeaveRule_op_srl();
+                }
+                DebugLocation(185, 35);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_srl"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_srl"
+
+        partial void EnterRule_op_stop();
+        partial void LeaveRule_op_stop();
+
+        // $ANTLR start "op_stop"
+        // GBX.g:186:1: op_stop : INST_STOP ^;
+        [GrammarRule("op_stop")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_stop()
+        {
+            EnterRule_op_stop();
+            EnterRule("op_stop", 54);
+            TraceIn("op_stop", 54);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_STOP247 = default(IToken);
+
+            CommonTree INST_STOP247_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_stop");
+                DebugLocation(186, 22);
+                try
+                {
+                    // GBX.g:186:11: ( INST_STOP ^)
+                    DebugEnterAlt(1);
+                    // GBX.g:186:13: INST_STOP ^
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(186, 22);
+                        INST_STOP247 = (IToken)Match(input, INST_STOP, Follow._INST_STOP_in_op_stop1684);
+                        INST_STOP247_tree = (CommonTree)adaptor.Create(INST_STOP247);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_STOP247_tree, root_0);
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_stop", 54);
+                    LeaveRule("op_stop", 54);
+                    LeaveRule_op_stop();
+                }
+                DebugLocation(186, 22);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_stop"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_stop"
+
+        partial void EnterRule_op_sub();
+        partial void LeaveRule_op_sub();
+
+        // $ANTLR start "op_sub"
+        // GBX.g:187:1: op_sub : INST_SUB ^ ( REG_A COMMA !)? arith_opt ;
+        [GrammarRule("op_sub")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_sub()
+        {
+            EnterRule_op_sub();
+            EnterRule("op_sub", 55);
+            TraceIn("op_sub", 55);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_SUB248 = default(IToken);
+            IToken REG_A249 = default(IToken);
+            IToken COMMA250 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> arith_opt251 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+
+            CommonTree INST_SUB248_tree = default(CommonTree);
+            CommonTree REG_A249_tree = default(CommonTree);
+            CommonTree COMMA250_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_sub");
+                DebugLocation(187, 46);
+                try
+                {
+                    // GBX.g:187:10: ( INST_SUB ^ ( REG_A COMMA !)? arith_opt )
+                    DebugEnterAlt(1);
+                    // GBX.g:187:12: INST_SUB ^ ( REG_A COMMA !)? arith_opt
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(187, 20);
+                        INST_SUB248 = (IToken)Match(input, INST_SUB, Follow._INST_SUB_in_op_sub1694);
+                        INST_SUB248_tree = (CommonTree)adaptor.Create(INST_SUB248);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_SUB248_tree, root_0);
+                        DebugLocation(187, 22);
+                        // GBX.g:187:22: ( REG_A COMMA !)?
+                        int alt47 = 2;
+                        try
+                        {
+                            DebugEnterSubRule(47);
+                            try
+                            {
+                                DebugEnterDecision(47, false);
+                                int LA47_0 = input.LA(1);
+
+                                if ((LA47_0 == REG_A))
+                                {
+                                    int LA47_1 = input.LA(2);
+
+                                    if ((LA47_1 == COMMA))
+                                    {
+                                        alt47 = 1;
+                                    }
+                                }
+                            }
+                            finally { DebugExitDecision(47); }
+                            switch (alt47)
+                            {
+                                case 1:
+                                    DebugEnterAlt(1);
+                                    // GBX.g:187:23: REG_A COMMA !
+                                    {
+                                        DebugLocation(187, 23);
+                                        REG_A249 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_sub1698);
+                                        REG_A249_tree = (CommonTree)adaptor.Create(REG_A249);
+                                        adaptor.AddChild(root_0, REG_A249_tree);
+                                        DebugLocation(187, 34);
+                                        COMMA250 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_sub1700);
+
+                                    }
+                                    break;
+
+                            }
+                        }
+                        finally { DebugExitSubRule(47); }
+
+                        DebugLocation(187, 38);
+                        PushFollow(Follow._arith_opt_in_op_sub1705);
+                        arith_opt251 = arith_opt();
+                        PopFollow();
+
+                        adaptor.AddChild(root_0, arith_opt251.Tree);
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_sub", 55);
+                    LeaveRule("op_sub", 55);
+                    LeaveRule_op_sub();
+                }
+                DebugLocation(187, 46);
+            }
+            finally { DebugExitRule(GrammarFileName, "op_sub"); }
+            return retval;
+
+        }
+        // $ANTLR end "op_sub"
+
+        partial void EnterRule_op_swap();
+        partial void LeaveRule_op_swap();
+
+        // $ANTLR start "op_swap"
+        // GBX.g:188:1: op_swap : INST_SWAP ^ ( r8 | rr_ref_hl ) ;
+        [GrammarRule("op_swap")]
+        private AstParserRuleReturnScope<CommonTree, IToken> op_swap()
+        {
+            EnterRule_op_swap();
+            EnterRule("op_swap", 56);
+            TraceIn("op_swap", 56);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken INST_SWAP252 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> r8253 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl254 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+
+            CommonTree INST_SWAP252_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "op_swap");
+                DebugLocation(188, 37);
+                try
+                {
+                    // GBX.g:188:11: ( INST_SWAP ^ ( r8 | rr_ref_hl ) )
+                    DebugEnterAlt(1);
+                    // GBX.g:188:13: INST_SWAP ^ ( r8 | rr_ref_hl )
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(188, 22);
+                        INST_SWAP252 = (IToken)Match(input, INST_SWAP, Follow._INST_SWAP_in_op_swap1714);
+                        INST_SWAP252_tree = (CommonTree)adaptor.Create(INST_SWAP252);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_SWAP252_tree, root_0);
+                        DebugLocation(188, 24);
+                        // GBX.g:188:24: ( r8 | rr_ref_hl )
+                        int alt48 = 2;
+                        try
+                        {
+                            DebugEnterSubRule(48);
+                            try
+                            {
+                                DebugEnterDecision(48, false);
+                                int LA48_0 = input.LA(1);
+
+                                if (((LA48_0 >= REG_A && LA48_0 <= REG_L)))
+                                {
+                                    alt48 = 1;
+                                }
+                                else if ((LA48_0 == LEFT_BRACKET))
+                                {
+                                    alt48 = 2;
+                                }
+                                else
+                                {
+                                    NoViableAltException nvae = new NoViableAltException("", 48, 0, input);
+                                    DebugRecognitionException(nvae);
+                                    throw nvae;
+                                }
+                            }
+                            finally { DebugExitDecision(48); }
+                            switch (alt48)
+                            {
+                                case 1:
+                                    DebugEnterAlt(1);
+                                    // GBX.g:188:25: r8
+                                    {
+                                        DebugLocation(188, 25);
+                                        PushFollow(Follow._r8_in_op_swap1718);
+                                        r8253 = r8();
+                                        PopFollow();
+
+                                        adaptor.AddChild(root_0, r8253.Tree);
+
+                                    }
+                                    break;
+                                case 2:
+                                    DebugEnterAlt(2);
+                                    // GBX.g:188:28: rr_ref_hl
+                                    {
+                                        DebugLocation(188, 28);
+                                        PushFollow(Follow._rr_ref_hl_in_op_swap1720);
+                                        rr_ref_hl254 = rr_ref_hl();
+                                        PopFollow();
+
+                                        adaptor.AddChild(root_0, rr_ref_hl254.Tree);
+
+                                    }
+                                    break;
+
+                            }
+                        }
+                        finally { DebugExitSubRule(48); }
+
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("op_swap", 56);
+                    LeaveRule("op_swap", 56);
                     LeaveRule_op_swap();
                 }
-                DebugLocation(181, 37);
+                DebugLocation(188, 37);
             }
             finally { DebugExitRule(GrammarFileName, "op_swap"); }
             return retval;
@@ -8223,92 +9048,92 @@ namespace GBRead.Base
         partial void LeaveRule_op_xor();
 
         // $ANTLR start "op_xor"
-        // GBX.g:182:1: op_xor : INST_XOR ^ ( REG_A COMMA )? arith_opt ;
+        // GBX.g:189:1: op_xor : INST_XOR ^ ( REG_A COMMA )? arith_opt ;
         [GrammarRule("op_xor")]
         private AstParserRuleReturnScope<CommonTree, IToken> op_xor()
         {
             EnterRule_op_xor();
-            EnterRule("op_xor", 55);
-            TraceIn("op_xor", 55);
+            EnterRule("op_xor", 57);
+            TraceIn("op_xor", 57);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken INST_XOR244 = default(IToken);
-            IToken REG_A245 = default(IToken);
-            IToken COMMA246 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> arith_opt247 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken INST_XOR255 = default(IToken);
+            IToken REG_A256 = default(IToken);
+            IToken COMMA257 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> arith_opt258 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree INST_XOR244_tree = default(CommonTree);
-            CommonTree REG_A245_tree = default(CommonTree);
-            CommonTree COMMA246_tree = default(CommonTree);
+            CommonTree INST_XOR255_tree = default(CommonTree);
+            CommonTree REG_A256_tree = default(CommonTree);
+            CommonTree COMMA257_tree = default(CommonTree);
             try
             {
                 DebugEnterRule(GrammarFileName, "op_xor");
-                DebugLocation(182, 45);
+                DebugLocation(189, 45);
                 try
                 {
-                    // GBX.g:182:10: ( INST_XOR ^ ( REG_A COMMA )? arith_opt )
+                    // GBX.g:189:10: ( INST_XOR ^ ( REG_A COMMA )? arith_opt )
                     DebugEnterAlt(1);
-                    // GBX.g:182:12: INST_XOR ^ ( REG_A COMMA )? arith_opt
+                    // GBX.g:189:12: INST_XOR ^ ( REG_A COMMA )? arith_opt
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(182, 20);
-                        INST_XOR244 = (IToken)Match(input, INST_XOR, Follow._INST_XOR_in_op_xor1634);
-                        INST_XOR244_tree = (CommonTree)adaptor.Create(INST_XOR244);
-                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_XOR244_tree, root_0);
-                        DebugLocation(182, 22);
-                        // GBX.g:182:22: ( REG_A COMMA )?
-                        int alt45 = 2;
+                        DebugLocation(189, 20);
+                        INST_XOR255 = (IToken)Match(input, INST_XOR, Follow._INST_XOR_in_op_xor1730);
+                        INST_XOR255_tree = (CommonTree)adaptor.Create(INST_XOR255);
+                        root_0 = (CommonTree)adaptor.BecomeRoot(INST_XOR255_tree, root_0);
+                        DebugLocation(189, 22);
+                        // GBX.g:189:22: ( REG_A COMMA )?
+                        int alt49 = 2;
                         try
                         {
-                            DebugEnterSubRule(45);
+                            DebugEnterSubRule(49);
                             try
                             {
-                                DebugEnterDecision(45, false);
-                                int LA45_0 = input.LA(1);
+                                DebugEnterDecision(49, false);
+                                int LA49_0 = input.LA(1);
 
-                                if ((LA45_0 == REG_A))
+                                if ((LA49_0 == REG_A))
                                 {
-                                    int LA45_1 = input.LA(2);
+                                    int LA49_1 = input.LA(2);
 
-                                    if ((LA45_1 == COMMA))
+                                    if ((LA49_1 == COMMA))
                                     {
-                                        alt45 = 1;
+                                        alt49 = 1;
                                     }
                                 }
                             }
-                            finally { DebugExitDecision(45); }
-                            switch (alt45)
+                            finally { DebugExitDecision(49); }
+                            switch (alt49)
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:182:23: REG_A COMMA
+                                    // GBX.g:189:23: REG_A COMMA
                                     {
-                                        DebugLocation(182, 23);
-                                        REG_A245 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_xor1638);
-                                        REG_A245_tree = (CommonTree)adaptor.Create(REG_A245);
-                                        adaptor.AddChild(root_0, REG_A245_tree);
-                                        DebugLocation(182, 29);
-                                        COMMA246 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_xor1640);
-                                        COMMA246_tree = (CommonTree)adaptor.Create(COMMA246);
-                                        adaptor.AddChild(root_0, COMMA246_tree);
+                                        DebugLocation(189, 23);
+                                        REG_A256 = (IToken)Match(input, REG_A, Follow._REG_A_in_op_xor1734);
+                                        REG_A256_tree = (CommonTree)adaptor.Create(REG_A256);
+                                        adaptor.AddChild(root_0, REG_A256_tree);
+                                        DebugLocation(189, 29);
+                                        COMMA257 = (IToken)Match(input, COMMA, Follow._COMMA_in_op_xor1736);
+                                        COMMA257_tree = (CommonTree)adaptor.Create(COMMA257);
+                                        adaptor.AddChild(root_0, COMMA257_tree);
 
                                     }
                                     break;
 
                             }
                         }
-                        finally { DebugExitSubRule(45); }
+                        finally { DebugExitSubRule(49); }
 
-                        DebugLocation(182, 37);
-                        PushFollow(Follow._arith_opt_in_op_xor1644);
-                        arith_opt247 = arith_opt();
+                        DebugLocation(189, 37);
+                        PushFollow(Follow._arith_opt_in_op_xor1740);
+                        arith_opt258 = arith_opt();
                         PopFollow();
 
-                        adaptor.AddChild(root_0, arith_opt247.Tree);
+                        adaptor.AddChild(root_0, arith_opt258.Tree);
 
                     }
 
@@ -8327,11 +9152,11 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("op_xor", 55);
-                    LeaveRule("op_xor", 55);
+                    TraceOut("op_xor", 57);
+                    LeaveRule("op_xor", 57);
                     LeaveRule_op_xor();
                 }
-                DebugLocation(182, 45);
+                DebugLocation(189, 45);
             }
             finally { DebugExitRule(GrammarFileName, "op_xor"); }
             return retval;
@@ -8343,33 +9168,33 @@ namespace GBRead.Base
         partial void LeaveRule_arith_opt();
 
         // $ANTLR start "arith_opt"
-        // GBX.g:184:1: arith_opt : ( r8 | expression | rr_ref_hl );
+        // GBX.g:191:1: arith_opt : ( r8 | expression | rr_ref_hl );
         [GrammarRule("arith_opt")]
         private AstParserRuleReturnScope<CommonTree, IToken> arith_opt()
         {
             EnterRule_arith_opt();
-            EnterRule("arith_opt", 56);
-            TraceIn("arith_opt", 56);
+            EnterRule("arith_opt", 58);
+            TraceIn("arith_opt", 58);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            AstParserRuleReturnScope<CommonTree, IToken> r8248 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> expression249 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl250 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> r8259 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> expression260 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl261 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
             try
             {
                 DebugEnterRule(GrammarFileName, "arith_opt");
-                DebugLocation(184, 36);
+                DebugLocation(191, 36);
                 try
                 {
-                    // GBX.g:184:12: ( r8 | expression | rr_ref_hl )
-                    int alt46 = 3;
+                    // GBX.g:191:12: ( r8 | expression | rr_ref_hl )
+                    int alt50 = 3;
                     try
                     {
-                        DebugEnterDecision(46, false);
+                        DebugEnterDecision(50, false);
                         switch (input.LA(1))
                         {
                             case REG_A:
@@ -8380,78 +9205,87 @@ namespace GBRead.Base
                             case REG_H:
                             case REG_L:
                                 {
-                                    alt46 = 1;
+                                    alt50 = 1;
                                 }
                                 break;
                             case BANG_MARK:
                             case ID:
                             case LEFT_PARENS:
                             case MINUS_MARK:
+                            case M_ARG1:
+                            case M_ARG2:
+                            case M_ARG3:
+                            case M_ARG4:
+                            case M_ARG5:
+                            case M_ARG6:
+                            case M_ARG7:
+                            case M_ARG8:
+                            case M_ARG9:
                             case NUMBER:
                             case TILDE_MARK:
                                 {
-                                    alt46 = 2;
+                                    alt50 = 2;
                                 }
                                 break;
                             case LEFT_BRACKET:
                                 {
-                                    alt46 = 3;
+                                    alt50 = 3;
                                 }
                                 break;
                             default:
                                 {
-                                    NoViableAltException nvae = new NoViableAltException("", 46, 0, input);
+                                    NoViableAltException nvae = new NoViableAltException("", 50, 0, input);
                                     DebugRecognitionException(nvae);
                                     throw nvae;
                                 }
                         }
 
                     }
-                    finally { DebugExitDecision(46); }
-                    switch (alt46)
+                    finally { DebugExitDecision(50); }
+                    switch (alt50)
                     {
                         case 1:
                             DebugEnterAlt(1);
-                            // GBX.g:184:14: r8
+                            // GBX.g:191:14: r8
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(184, 14);
-                                PushFollow(Follow._r8_in_arith_opt1653);
-                                r8248 = r8();
+                                DebugLocation(191, 14);
+                                PushFollow(Follow._r8_in_arith_opt1749);
+                                r8259 = r8();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, r8248.Tree);
+                                adaptor.AddChild(root_0, r8259.Tree);
 
                             }
                             break;
                         case 2:
                             DebugEnterAlt(2);
-                            // GBX.g:184:17: expression
+                            // GBX.g:191:17: expression
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(184, 17);
-                                PushFollow(Follow._expression_in_arith_opt1655);
-                                expression249 = expression();
+                                DebugLocation(191, 17);
+                                PushFollow(Follow._expression_in_arith_opt1751);
+                                expression260 = expression();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, expression249.Tree);
+                                adaptor.AddChild(root_0, expression260.Tree);
 
                             }
                             break;
                         case 3:
                             DebugEnterAlt(3);
-                            // GBX.g:184:28: rr_ref_hl
+                            // GBX.g:191:28: rr_ref_hl
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(184, 28);
-                                PushFollow(Follow._rr_ref_hl_in_arith_opt1657);
-                                rr_ref_hl250 = rr_ref_hl();
+                                DebugLocation(191, 28);
+                                PushFollow(Follow._rr_ref_hl_in_arith_opt1753);
+                                rr_ref_hl261 = rr_ref_hl();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, rr_ref_hl250.Tree);
+                                adaptor.AddChild(root_0, rr_ref_hl261.Tree);
 
                             }
                             break;
@@ -8472,11 +9306,11 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("arith_opt", 56);
-                    LeaveRule("arith_opt", 56);
+                    TraceOut("arith_opt", 58);
+                    LeaveRule("arith_opt", 58);
                     LeaveRule_arith_opt();
                 }
-                DebugLocation(184, 36);
+                DebugLocation(191, 36);
             }
             finally { DebugExitRule(GrammarFileName, "arith_opt"); }
             return retval;
@@ -8488,40 +9322,40 @@ namespace GBRead.Base
         partial void LeaveRule_cond_opt();
 
         // $ANTLR start "cond_opt"
-        // GBX.g:186:1: cond_opt : ( REG_C | CC_NC | CC_Z | CC_NZ );
+        // GBX.g:193:1: cond_opt : ( REG_C | CC_NC | CC_Z | CC_NZ );
         [GrammarRule("cond_opt")]
         private AstParserRuleReturnScope<CommonTree, IToken> cond_opt()
         {
             EnterRule_cond_opt();
-            EnterRule("cond_opt", 57);
-            TraceIn("cond_opt", 57);
+            EnterRule("cond_opt", 59);
+            TraceIn("cond_opt", 59);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken set251 = default(IToken);
+            IToken set262 = default(IToken);
 
-            CommonTree set251_tree = default(CommonTree);
+            CommonTree set262_tree = default(CommonTree);
             try
             {
                 DebugEnterRule(GrammarFileName, "cond_opt");
-                DebugLocation(186, 34);
+                DebugLocation(193, 34);
                 try
                 {
-                    // GBX.g:186:11: ( REG_C | CC_NC | CC_Z | CC_NZ )
+                    // GBX.g:193:11: ( REG_C | CC_NC | CC_Z | CC_NZ )
                     DebugEnterAlt(1);
                     // GBX.g:
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(186, 11);
+                        DebugLocation(193, 11);
 
-                        set251 = (IToken)input.LT(1);
+                        set262 = (IToken)input.LT(1);
                         if ((input.LA(1) >= CC_NC && input.LA(1) <= CC_Z) || input.LA(1) == REG_C)
                         {
                             input.Consume();
-                            adaptor.AddChild(root_0, (CommonTree)adaptor.Create(set251));
+                            adaptor.AddChild(root_0, (CommonTree)adaptor.Create(set262));
                             state.errorRecovery = false;
                         }
                         else
@@ -8549,11 +9383,11 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("cond_opt", 57);
-                    LeaveRule("cond_opt", 57);
+                    TraceOut("cond_opt", 59);
+                    LeaveRule("cond_opt", 59);
                     LeaveRule_cond_opt();
                 }
-                DebugLocation(186, 34);
+                DebugLocation(193, 34);
             }
             finally { DebugExitRule(GrammarFileName, "cond_opt"); }
             return retval;
@@ -8565,74 +9399,83 @@ namespace GBRead.Base
         partial void LeaveRule_mem_ref();
 
         // $ANTLR start "mem_ref"
-        // GBX.g:188:1: mem_ref : ( rr_ref_c | rr_ref_bc | rr_ref_de | rr_ref_hl | mem_ref_xp );
+        // GBX.g:195:1: mem_ref : ( rr_ref_c | rr_ref_bc | rr_ref_de | rr_ref_hl | mem_ref_xp );
         [GrammarRule("mem_ref")]
         private AstParserRuleReturnScope<CommonTree, IToken> mem_ref()
         {
             EnterRule_mem_ref();
-            EnterRule("mem_ref", 58);
-            TraceIn("mem_ref", 58);
+            EnterRule("mem_ref", 60);
+            TraceIn("mem_ref", 60);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_c252 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_bc253 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_de254 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl255 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> mem_ref_xp256 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_c263 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_bc264 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_de265 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl266 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> mem_ref_xp267 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
             try
             {
                 DebugEnterRule(GrammarFileName, "mem_ref");
-                DebugLocation(188, 16);
+                DebugLocation(195, 16);
                 try
                 {
-                    // GBX.g:188:11: ( rr_ref_c | rr_ref_bc | rr_ref_de | rr_ref_hl | mem_ref_xp )
-                    int alt47 = 5;
+                    // GBX.g:195:11: ( rr_ref_c | rr_ref_bc | rr_ref_de | rr_ref_hl | mem_ref_xp )
+                    int alt51 = 5;
                     try
                     {
-                        DebugEnterDecision(47, false);
-                        int LA47_0 = input.LA(1);
+                        DebugEnterDecision(51, false);
+                        int LA51_0 = input.LA(1);
 
-                        if ((LA47_0 == LEFT_BRACKET))
+                        if ((LA51_0 == LEFT_BRACKET))
                         {
                             switch (input.LA(2))
                             {
                                 case REG_C:
                                     {
-                                        alt47 = 1;
+                                        alt51 = 1;
                                     }
                                     break;
                                 case RR_BC:
                                     {
-                                        alt47 = 2;
+                                        alt51 = 2;
                                     }
                                     break;
                                 case RR_DE:
                                     {
-                                        alt47 = 3;
+                                        alt51 = 3;
                                     }
                                     break;
                                 case RR_HL:
                                     {
-                                        alt47 = 4;
+                                        alt51 = 4;
                                     }
                                     break;
                                 case BANG_MARK:
                                 case ID:
                                 case LEFT_PARENS:
                                 case MINUS_MARK:
+                                case M_ARG1:
+                                case M_ARG2:
+                                case M_ARG3:
+                                case M_ARG4:
+                                case M_ARG5:
+                                case M_ARG6:
+                                case M_ARG7:
+                                case M_ARG8:
+                                case M_ARG9:
                                 case NUMBER:
                                 case TILDE_MARK:
                                     {
-                                        alt47 = 5;
+                                        alt51 = 5;
                                     }
                                     break;
                                 default:
                                     {
-                                        NoViableAltException nvae = new NoViableAltException("", 47, 1, input);
+                                        NoViableAltException nvae = new NoViableAltException("", 51, 1, input);
                                         DebugRecognitionException(nvae);
                                         throw nvae;
                                     }
@@ -8641,86 +9484,86 @@ namespace GBRead.Base
                         }
                         else
                         {
-                            NoViableAltException nvae = new NoViableAltException("", 47, 0, input);
+                            NoViableAltException nvae = new NoViableAltException("", 51, 0, input);
                             DebugRecognitionException(nvae);
                             throw nvae;
                         }
                     }
-                    finally { DebugExitDecision(47); }
-                    switch (alt47)
+                    finally { DebugExitDecision(51); }
+                    switch (alt51)
                     {
                         case 1:
                             DebugEnterAlt(1);
-                            // GBX.g:188:13: rr_ref_c
+                            // GBX.g:195:13: rr_ref_c
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(188, 13);
-                                PushFollow(Follow._rr_ref_c_in_mem_ref1682);
-                                rr_ref_c252 = rr_ref_c();
+                                DebugLocation(195, 13);
+                                PushFollow(Follow._rr_ref_c_in_mem_ref1778);
+                                rr_ref_c263 = rr_ref_c();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, rr_ref_c252.Tree);
+                                adaptor.AddChild(root_0, rr_ref_c263.Tree);
 
                             }
                             break;
                         case 2:
                             DebugEnterAlt(2);
-                            // GBX.g:189:7: rr_ref_bc
+                            // GBX.g:196:7: rr_ref_bc
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(189, 7);
-                                PushFollow(Follow._rr_ref_bc_in_mem_ref1690);
-                                rr_ref_bc253 = rr_ref_bc();
+                                DebugLocation(196, 7);
+                                PushFollow(Follow._rr_ref_bc_in_mem_ref1786);
+                                rr_ref_bc264 = rr_ref_bc();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, rr_ref_bc253.Tree);
+                                adaptor.AddChild(root_0, rr_ref_bc264.Tree);
 
                             }
                             break;
                         case 3:
                             DebugEnterAlt(3);
-                            // GBX.g:190:7: rr_ref_de
+                            // GBX.g:197:7: rr_ref_de
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(190, 7);
-                                PushFollow(Follow._rr_ref_de_in_mem_ref1698);
-                                rr_ref_de254 = rr_ref_de();
+                                DebugLocation(197, 7);
+                                PushFollow(Follow._rr_ref_de_in_mem_ref1794);
+                                rr_ref_de265 = rr_ref_de();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, rr_ref_de254.Tree);
+                                adaptor.AddChild(root_0, rr_ref_de265.Tree);
 
                             }
                             break;
                         case 4:
                             DebugEnterAlt(4);
-                            // GBX.g:191:7: rr_ref_hl
+                            // GBX.g:198:7: rr_ref_hl
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(191, 7);
-                                PushFollow(Follow._rr_ref_hl_in_mem_ref1706);
-                                rr_ref_hl255 = rr_ref_hl();
+                                DebugLocation(198, 7);
+                                PushFollow(Follow._rr_ref_hl_in_mem_ref1802);
+                                rr_ref_hl266 = rr_ref_hl();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, rr_ref_hl255.Tree);
+                                adaptor.AddChild(root_0, rr_ref_hl266.Tree);
 
                             }
                             break;
                         case 5:
                             DebugEnterAlt(5);
-                            // GBX.g:192:7: mem_ref_xp
+                            // GBX.g:199:7: mem_ref_xp
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(192, 7);
-                                PushFollow(Follow._mem_ref_xp_in_mem_ref1714);
-                                mem_ref_xp256 = mem_ref_xp();
+                                DebugLocation(199, 7);
+                                PushFollow(Follow._mem_ref_xp_in_mem_ref1810);
+                                mem_ref_xp267 = mem_ref_xp();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, mem_ref_xp256.Tree);
+                                adaptor.AddChild(root_0, mem_ref_xp267.Tree);
 
                             }
                             break;
@@ -8741,11 +9584,11 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("mem_ref", 58);
-                    LeaveRule("mem_ref", 58);
+                    TraceOut("mem_ref", 60);
+                    LeaveRule("mem_ref", 60);
                     LeaveRule_mem_ref();
                 }
-                DebugLocation(192, 16);
+                DebugLocation(199, 16);
             }
             finally { DebugExitRule(GrammarFileName, "mem_ref"); }
             return retval;
@@ -8757,50 +9600,50 @@ namespace GBRead.Base
         partial void LeaveRule_mem_ref_xp();
 
         // $ANTLR start "mem_ref_xp"
-        // GBX.g:194:1: mem_ref_xp : LEFT_BRACKET expression RIGHT_BRACKET -> ^( MEM_REF expression ) ;
+        // GBX.g:201:1: mem_ref_xp : LEFT_BRACKET expression RIGHT_BRACKET -> ^( MEM_REF expression ) ;
         [GrammarRule("mem_ref_xp")]
         private AstParserRuleReturnScope<CommonTree, IToken> mem_ref_xp()
         {
             EnterRule_mem_ref_xp();
-            EnterRule("mem_ref_xp", 59);
-            TraceIn("mem_ref_xp", 59);
+            EnterRule("mem_ref_xp", 61);
+            TraceIn("mem_ref_xp", 61);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken LEFT_BRACKET257 = default(IToken);
-            IToken RIGHT_BRACKET259 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> expression258 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken LEFT_BRACKET268 = default(IToken);
+            IToken RIGHT_BRACKET270 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> expression269 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree LEFT_BRACKET257_tree = default(CommonTree);
-            CommonTree RIGHT_BRACKET259_tree = default(CommonTree);
+            CommonTree LEFT_BRACKET268_tree = default(CommonTree);
+            CommonTree RIGHT_BRACKET270_tree = default(CommonTree);
             RewriteRuleITokenStream stream_LEFT_BRACKET = new RewriteRuleITokenStream(adaptor, "token LEFT_BRACKET");
             RewriteRuleITokenStream stream_RIGHT_BRACKET = new RewriteRuleITokenStream(adaptor, "token RIGHT_BRACKET");
             RewriteRuleSubtreeStream stream_expression = new RewriteRuleSubtreeStream(adaptor, "rule expression");
             try
             {
                 DebugEnterRule(GrammarFileName, "mem_ref_xp");
-                DebugLocation(194, 76);
+                DebugLocation(201, 76);
                 try
                 {
-                    // GBX.g:194:13: ( LEFT_BRACKET expression RIGHT_BRACKET -> ^( MEM_REF expression ) )
+                    // GBX.g:201:13: ( LEFT_BRACKET expression RIGHT_BRACKET -> ^( MEM_REF expression ) )
                     DebugEnterAlt(1);
-                    // GBX.g:194:15: LEFT_BRACKET expression RIGHT_BRACKET
+                    // GBX.g:201:15: LEFT_BRACKET expression RIGHT_BRACKET
                     {
-                        DebugLocation(194, 15);
-                        LEFT_BRACKET257 = (IToken)Match(input, LEFT_BRACKET, Follow._LEFT_BRACKET_in_mem_ref_xp1723);
-                        stream_LEFT_BRACKET.Add(LEFT_BRACKET257);
+                        DebugLocation(201, 15);
+                        LEFT_BRACKET268 = (IToken)Match(input, LEFT_BRACKET, Follow._LEFT_BRACKET_in_mem_ref_xp1819);
+                        stream_LEFT_BRACKET.Add(LEFT_BRACKET268);
 
-                        DebugLocation(194, 28);
-                        PushFollow(Follow._expression_in_mem_ref_xp1725);
-                        expression258 = expression();
+                        DebugLocation(201, 28);
+                        PushFollow(Follow._expression_in_mem_ref_xp1821);
+                        expression269 = expression();
                         PopFollow();
 
-                        stream_expression.Add(expression258.Tree);
-                        DebugLocation(194, 39);
-                        RIGHT_BRACKET259 = (IToken)Match(input, RIGHT_BRACKET, Follow._RIGHT_BRACKET_in_mem_ref_xp1727);
-                        stream_RIGHT_BRACKET.Add(RIGHT_BRACKET259);
+                        stream_expression.Add(expression269.Tree);
+                        DebugLocation(201, 39);
+                        RIGHT_BRACKET270 = (IToken)Match(input, RIGHT_BRACKET, Follow._RIGHT_BRACKET_in_mem_ref_xp1823);
+                        stream_RIGHT_BRACKET.Add(RIGHT_BRACKET270);
 
 
 
@@ -8816,16 +9659,16 @@ namespace GBRead.Base
                             RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
 
                             root_0 = (CommonTree)adaptor.Nil();
-                            // 194:53: -> ^( MEM_REF expression )
+                            // 201:53: -> ^( MEM_REF expression )
                             {
-                                DebugLocation(194, 56);
-                                // GBX.g:194:56: ^( MEM_REF expression )
+                                DebugLocation(201, 56);
+                                // GBX.g:201:56: ^( MEM_REF expression )
                                 {
                                     CommonTree root_1 = (CommonTree)adaptor.Nil();
-                                    DebugLocation(194, 58);
+                                    DebugLocation(201, 58);
                                     root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(MEM_REF, "MEM_REF"), root_1);
 
-                                    DebugLocation(194, 66);
+                                    DebugLocation(201, 66);
                                     adaptor.AddChild(root_1, stream_expression.NextTree());
 
                                     adaptor.AddChild(root_0, root_1);
@@ -8853,11 +9696,11 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("mem_ref_xp", 59);
-                    LeaveRule("mem_ref_xp", 59);
+                    TraceOut("mem_ref_xp", 61);
+                    LeaveRule("mem_ref_xp", 61);
                     LeaveRule_mem_ref_xp();
                 }
-                DebugLocation(194, 76);
+                DebugLocation(201, 76);
             }
             finally { DebugExitRule(GrammarFileName, "mem_ref_xp"); }
             return retval;
@@ -8869,40 +9712,40 @@ namespace GBRead.Base
         partial void LeaveRule_r8();
 
         // $ANTLR start "r8"
-        // GBX.g:196:1: r8 : ( REG_A | REG_B | REG_C | REG_D | REG_E | REG_H | REG_L );
+        // GBX.g:203:1: r8 : ( REG_A | REG_B | REG_C | REG_D | REG_E | REG_H | REG_L );
         [GrammarRule("r8")]
         private AstParserRuleReturnScope<CommonTree, IToken> r8()
         {
             EnterRule_r8();
-            EnterRule("r8", 60);
-            TraceIn("r8", 60);
+            EnterRule("r8", 62);
+            TraceIn("r8", 62);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken set260 = default(IToken);
+            IToken set271 = default(IToken);
 
-            CommonTree set260_tree = default(CommonTree);
+            CommonTree set271_tree = default(CommonTree);
             try
             {
                 DebugEnterRule(GrammarFileName, "r8");
-                DebugLocation(196, 49);
+                DebugLocation(203, 49);
                 try
                 {
-                    // GBX.g:196:7: ( REG_A | REG_B | REG_C | REG_D | REG_E | REG_H | REG_L )
+                    // GBX.g:203:7: ( REG_A | REG_B | REG_C | REG_D | REG_E | REG_H | REG_L )
                     DebugEnterAlt(1);
                     // GBX.g:
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(196, 7);
+                        DebugLocation(203, 7);
 
-                        set260 = (IToken)input.LT(1);
+                        set271 = (IToken)input.LT(1);
                         if ((input.LA(1) >= REG_A && input.LA(1) <= REG_L))
                         {
                             input.Consume();
-                            adaptor.AddChild(root_0, (CommonTree)adaptor.Create(set260));
+                            adaptor.AddChild(root_0, (CommonTree)adaptor.Create(set271));
                             state.errorRecovery = false;
                         }
                         else
@@ -8930,11 +9773,11 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("r8", 60);
-                    LeaveRule("r8", 60);
+                    TraceOut("r8", 62);
+                    LeaveRule("r8", 62);
                     LeaveRule_r8();
                 }
-                DebugLocation(196, 49);
+                DebugLocation(203, 49);
             }
             finally { DebugExitRule(GrammarFileName, "r8"); }
             return retval;
@@ -8946,37 +9789,37 @@ namespace GBRead.Base
         partial void LeaveRule_expression();
 
         // $ANTLR start "expression"
-        // GBX.g:198:1: expression : cond_exp -> ^( EXPRESSION cond_exp ) ;
+        // GBX.g:205:1: expression : cond_exp -> ^( EXPRESSION cond_exp ) ;
         [GrammarRule("expression")]
         private AstParserRuleReturnScope<CommonTree, IToken> expression()
         {
             EnterRule_expression();
-            EnterRule("expression", 61);
-            TraceIn("expression", 61);
+            EnterRule("expression", 63);
+            TraceIn("expression", 63);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            AstParserRuleReturnScope<CommonTree, IToken> cond_exp261 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> cond_exp272 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
             RewriteRuleSubtreeStream stream_cond_exp = new RewriteRuleSubtreeStream(adaptor, "rule cond_exp");
             try
             {
                 DebugEnterRule(GrammarFileName, "expression");
-                DebugLocation(198, 48);
+                DebugLocation(205, 48);
                 try
                 {
-                    // GBX.g:198:13: ( cond_exp -> ^( EXPRESSION cond_exp ) )
+                    // GBX.g:205:13: ( cond_exp -> ^( EXPRESSION cond_exp ) )
                     DebugEnterAlt(1);
-                    // GBX.g:198:15: cond_exp
+                    // GBX.g:205:15: cond_exp
                     {
-                        DebugLocation(198, 15);
-                        PushFollow(Follow._cond_exp_in_expression1768);
-                        cond_exp261 = cond_exp();
+                        DebugLocation(205, 15);
+                        PushFollow(Follow._cond_exp_in_expression1863);
+                        cond_exp272 = cond_exp();
                         PopFollow();
 
-                        stream_cond_exp.Add(cond_exp261.Tree);
+                        stream_cond_exp.Add(cond_exp272.Tree);
 
 
                         {
@@ -8991,16 +9834,16 @@ namespace GBRead.Base
                             RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
 
                             root_0 = (CommonTree)adaptor.Nil();
-                            // 198:24: -> ^( EXPRESSION cond_exp )
+                            // 205:24: -> ^( EXPRESSION cond_exp )
                             {
-                                DebugLocation(198, 27);
-                                // GBX.g:198:27: ^( EXPRESSION cond_exp )
+                                DebugLocation(205, 27);
+                                // GBX.g:205:27: ^( EXPRESSION cond_exp )
                                 {
                                     CommonTree root_1 = (CommonTree)adaptor.Nil();
-                                    DebugLocation(198, 29);
+                                    DebugLocation(205, 29);
                                     root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(EXPRESSION, "EXPRESSION"), root_1);
 
-                                    DebugLocation(198, 40);
+                                    DebugLocation(205, 40);
                                     adaptor.AddChild(root_1, stream_cond_exp.NextTree());
 
                                     adaptor.AddChild(root_0, root_1);
@@ -9028,11 +9871,11 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("expression", 61);
-                    LeaveRule("expression", 61);
+                    TraceOut("expression", 63);
+                    LeaveRule("expression", 63);
                     LeaveRule_expression();
                 }
-                DebugLocation(198, 48);
+                DebugLocation(205, 48);
             }
             finally { DebugExitRule(GrammarFileName, "expression"); }
             return retval;
@@ -9044,494 +9887,46 @@ namespace GBRead.Base
         partial void LeaveRule_cond_exp();
 
         // $ANTLR start "cond_exp"
-        // GBX.g:199:1: cond_exp : bool_or_exp ( '?' ^ bool_or_exp ':' ! bool_or_exp )? ;
+        // GBX.g:206:1: cond_exp : bool_or_exp ( '?' ^ bool_or_exp ':' ! bool_or_exp )? ;
         [GrammarRule("cond_exp")]
         private AstParserRuleReturnScope<CommonTree, IToken> cond_exp()
         {
             EnterRule_cond_exp();
-            EnterRule("cond_exp", 62);
-            TraceIn("cond_exp", 62);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken char_literal263 = default(IToken);
-            IToken char_literal265 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> bool_or_exp262 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> bool_or_exp264 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> bool_or_exp266 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-
-            CommonTree char_literal263_tree = default(CommonTree);
-            CommonTree char_literal265_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "cond_exp");
-                DebugLocation(199, 64);
-                try
-                {
-                    // GBX.g:199:11: ( bool_or_exp ( '?' ^ bool_or_exp ':' ! bool_or_exp )? )
-                    DebugEnterAlt(1);
-                    // GBX.g:199:13: bool_or_exp ( '?' ^ bool_or_exp ':' ! bool_or_exp )?
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(199, 13);
-                        PushFollow(Follow._bool_or_exp_in_cond_exp1784);
-                        bool_or_exp262 = bool_or_exp();
-                        PopFollow();
-
-                        adaptor.AddChild(root_0, bool_or_exp262.Tree);
-                        DebugLocation(199, 25);
-                        // GBX.g:199:25: ( '?' ^ bool_or_exp ':' ! bool_or_exp )?
-                        int alt48 = 2;
-                        try
-                        {
-                            DebugEnterSubRule(48);
-                            try
-                            {
-                                DebugEnterDecision(48, false);
-                                int LA48_0 = input.LA(1);
-
-                                if ((LA48_0 == QUEST_MARK))
-                                {
-                                    alt48 = 1;
-                                }
-                            }
-                            finally { DebugExitDecision(48); }
-                            switch (alt48)
-                            {
-                                case 1:
-                                    DebugEnterAlt(1);
-                                    // GBX.g:199:26: '?' ^ bool_or_exp ':' ! bool_or_exp
-                                    {
-                                        DebugLocation(199, 29);
-                                        char_literal263 = (IToken)Match(input, QUEST_MARK, Follow._QUEST_MARK_in_cond_exp1787);
-                                        char_literal263_tree = (CommonTree)adaptor.Create(char_literal263);
-                                        root_0 = (CommonTree)adaptor.BecomeRoot(char_literal263_tree, root_0);
-                                        DebugLocation(199, 35);
-                                        PushFollow(Follow._bool_or_exp_in_cond_exp1794);
-                                        bool_or_exp264 = bool_or_exp();
-                                        PopFollow();
-
-                                        adaptor.AddChild(root_0, bool_or_exp264.Tree);
-                                        DebugLocation(199, 50);
-                                        char_literal265 = (IToken)Match(input, COLON_MARK, Follow._COLON_MARK_in_cond_exp1796);
-                                        DebugLocation(199, 52);
-                                        PushFollow(Follow._bool_or_exp_in_cond_exp1799);
-                                        bool_or_exp266 = bool_or_exp();
-                                        PopFollow();
-
-                                        adaptor.AddChild(root_0, bool_or_exp266.Tree);
-
-                                    }
-                                    break;
-
-                            }
-                        }
-                        finally { DebugExitSubRule(48); }
-
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("cond_exp", 62);
-                    LeaveRule("cond_exp", 62);
-                    LeaveRule_cond_exp();
-                }
-                DebugLocation(199, 64);
-            }
-            finally { DebugExitRule(GrammarFileName, "cond_exp"); }
-            return retval;
-
-        }
-        // $ANTLR end "cond_exp"
-
-        partial void EnterRule_bool_or_exp();
-        partial void LeaveRule_bool_or_exp();
-
-        // $ANTLR start "bool_or_exp"
-        // GBX.g:200:1: bool_or_exp : bool_and_exp ( '||' ^ bool_and_exp )? ;
-        [GrammarRule("bool_or_exp")]
-        private AstParserRuleReturnScope<CommonTree, IToken> bool_or_exp()
-        {
-            EnterRule_bool_or_exp();
-            EnterRule("bool_or_exp", 63);
-            TraceIn("bool_or_exp", 63);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken string_literal268 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> bool_and_exp267 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> bool_and_exp269 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-
-            CommonTree string_literal268_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "bool_or_exp");
-                DebugLocation(200, 52);
-                try
-                {
-                    // GBX.g:200:14: ( bool_and_exp ( '||' ^ bool_and_exp )? )
-                    DebugEnterAlt(1);
-                    // GBX.g:200:16: bool_and_exp ( '||' ^ bool_and_exp )?
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(200, 16);
-                        PushFollow(Follow._bool_and_exp_in_bool_or_exp1809);
-                        bool_and_exp267 = bool_and_exp();
-                        PopFollow();
-
-                        adaptor.AddChild(root_0, bool_and_exp267.Tree);
-                        DebugLocation(200, 28);
-                        // GBX.g:200:28: ( '||' ^ bool_and_exp )?
-                        int alt49 = 2;
-                        try
-                        {
-                            DebugEnterSubRule(49);
-                            try
-                            {
-                                DebugEnterDecision(49, false);
-                                int LA49_0 = input.LA(1);
-
-                                if ((LA49_0 == BOOL_OR_MARK))
-                                {
-                                    alt49 = 1;
-                                }
-                            }
-                            finally { DebugExitDecision(49); }
-                            switch (alt49)
-                            {
-                                case 1:
-                                    DebugEnterAlt(1);
-                                    // GBX.g:200:29: '||' ^ bool_and_exp
-                                    {
-                                        DebugLocation(200, 33);
-                                        string_literal268 = (IToken)Match(input, BOOL_OR_MARK, Follow._BOOL_OR_MARK_in_bool_or_exp1811);
-                                        string_literal268_tree = (CommonTree)adaptor.Create(string_literal268);
-                                        root_0 = (CommonTree)adaptor.BecomeRoot(string_literal268_tree, root_0);
-                                        DebugLocation(200, 39);
-                                        PushFollow(Follow._bool_and_exp_in_bool_or_exp1818);
-                                        bool_and_exp269 = bool_and_exp();
-                                        PopFollow();
-
-                                        adaptor.AddChild(root_0, bool_and_exp269.Tree);
-
-                                    }
-                                    break;
-
-                            }
-                        }
-                        finally { DebugExitSubRule(49); }
-
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("bool_or_exp", 63);
-                    LeaveRule("bool_or_exp", 63);
-                    LeaveRule_bool_or_exp();
-                }
-                DebugLocation(200, 52);
-            }
-            finally { DebugExitRule(GrammarFileName, "bool_or_exp"); }
-            return retval;
-
-        }
-        // $ANTLR end "bool_or_exp"
-
-        partial void EnterRule_bool_and_exp();
-        partial void LeaveRule_bool_and_exp();
-
-        // $ANTLR start "bool_and_exp"
-        // GBX.g:201:1: bool_and_exp : or_exp ( '&&' ^ or_exp )? ;
-        [GrammarRule("bool_and_exp")]
-        private AstParserRuleReturnScope<CommonTree, IToken> bool_and_exp()
-        {
-            EnterRule_bool_and_exp();
-            EnterRule("bool_and_exp", 64);
-            TraceIn("bool_and_exp", 64);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken string_literal271 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> or_exp270 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> or_exp272 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-
-            CommonTree string_literal271_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "bool_and_exp");
-                DebugLocation(201, 42);
-                try
-                {
-                    // GBX.g:201:14: ( or_exp ( '&&' ^ or_exp )? )
-                    DebugEnterAlt(1);
-                    // GBX.g:201:16: or_exp ( '&&' ^ or_exp )?
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(201, 16);
-                        PushFollow(Follow._or_exp_in_bool_and_exp1827);
-                        or_exp270 = or_exp();
-                        PopFollow();
-
-                        adaptor.AddChild(root_0, or_exp270.Tree);
-                        DebugLocation(201, 24);
-                        // GBX.g:201:24: ( '&&' ^ or_exp )?
-                        int alt50 = 2;
-                        try
-                        {
-                            DebugEnterSubRule(50);
-                            try
-                            {
-                                DebugEnterDecision(50, false);
-                                int LA50_0 = input.LA(1);
-
-                                if ((LA50_0 == BOOL_AND_MARK))
-                                {
-                                    alt50 = 1;
-                                }
-                            }
-                            finally { DebugExitDecision(50); }
-                            switch (alt50)
-                            {
-                                case 1:
-                                    DebugEnterAlt(1);
-                                    // GBX.g:201:25: '&&' ^ or_exp
-                                    {
-                                        DebugLocation(201, 29);
-                                        string_literal271 = (IToken)Match(input, BOOL_AND_MARK, Follow._BOOL_AND_MARK_in_bool_and_exp1831);
-                                        string_literal271_tree = (CommonTree)adaptor.Create(string_literal271);
-                                        root_0 = (CommonTree)adaptor.BecomeRoot(string_literal271_tree, root_0);
-                                        DebugLocation(201, 35);
-                                        PushFollow(Follow._or_exp_in_bool_and_exp1838);
-                                        or_exp272 = or_exp();
-                                        PopFollow();
-
-                                        adaptor.AddChild(root_0, or_exp272.Tree);
-
-                                    }
-                                    break;
-
-                            }
-                        }
-                        finally { DebugExitSubRule(50); }
-
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("bool_and_exp", 64);
-                    LeaveRule("bool_and_exp", 64);
-                    LeaveRule_bool_and_exp();
-                }
-                DebugLocation(201, 42);
-            }
-            finally { DebugExitRule(GrammarFileName, "bool_and_exp"); }
-            return retval;
-
-        }
-        // $ANTLR end "bool_and_exp"
-
-        partial void EnterRule_or_exp();
-        partial void LeaveRule_or_exp();
-
-        // $ANTLR start "or_exp"
-        // GBX.g:202:1: or_exp : xor_exp ( '|' ^ xor_exp )? ;
-        [GrammarRule("or_exp")]
-        private AstParserRuleReturnScope<CommonTree, IToken> or_exp()
-        {
-            EnterRule_or_exp();
-            EnterRule("or_exp", 65);
-            TraceIn("or_exp", 65);
+            EnterRule("cond_exp", 64);
+            TraceIn("cond_exp", 64);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
             IToken char_literal274 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> xor_exp273 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> xor_exp275 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken char_literal276 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> bool_or_exp273 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> bool_or_exp275 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> bool_or_exp277 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
             CommonTree char_literal274_tree = default(CommonTree);
+            CommonTree char_literal276_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "or_exp");
-                DebugLocation(202, 39);
+                DebugEnterRule(GrammarFileName, "cond_exp");
+                DebugLocation(206, 64);
                 try
                 {
-                    // GBX.g:202:10: ( xor_exp ( '|' ^ xor_exp )? )
+                    // GBX.g:206:11: ( bool_or_exp ( '?' ^ bool_or_exp ':' ! bool_or_exp )? )
                     DebugEnterAlt(1);
-                    // GBX.g:202:12: xor_exp ( '|' ^ xor_exp )?
+                    // GBX.g:206:13: bool_or_exp ( '?' ^ bool_or_exp ':' ! bool_or_exp )?
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(202, 12);
-                        PushFollow(Follow._xor_exp_in_or_exp1849);
-                        xor_exp273 = xor_exp();
+                        DebugLocation(206, 13);
+                        PushFollow(Follow._bool_or_exp_in_cond_exp1879);
+                        bool_or_exp273 = bool_or_exp();
                         PopFollow();
 
-                        adaptor.AddChild(root_0, xor_exp273.Tree);
-                        DebugLocation(202, 21);
-                        // GBX.g:202:21: ( '|' ^ xor_exp )?
-                        int alt51 = 2;
-                        try
-                        {
-                            DebugEnterSubRule(51);
-                            try
-                            {
-                                DebugEnterDecision(51, false);
-                                int LA51_0 = input.LA(1);
-
-                                if ((LA51_0 == BAR_MARK))
-                                {
-                                    alt51 = 1;
-                                }
-                            }
-                            finally { DebugExitDecision(51); }
-                            switch (alt51)
-                            {
-                                case 1:
-                                    DebugEnterAlt(1);
-                                    // GBX.g:202:22: '|' ^ xor_exp
-                                    {
-                                        DebugLocation(202, 25);
-                                        char_literal274 = (IToken)Match(input, BAR_MARK, Follow._BAR_MARK_in_or_exp1853);
-                                        char_literal274_tree = (CommonTree)adaptor.Create(char_literal274);
-                                        root_0 = (CommonTree)adaptor.BecomeRoot(char_literal274_tree, root_0);
-                                        DebugLocation(202, 31);
-                                        PushFollow(Follow._xor_exp_in_or_exp1860);
-                                        xor_exp275 = xor_exp();
-                                        PopFollow();
-
-                                        adaptor.AddChild(root_0, xor_exp275.Tree);
-
-                                    }
-                                    break;
-
-                            }
-                        }
-                        finally { DebugExitSubRule(51); }
-
-
-                    }
-
-                    retval.Stop = (IToken)input.LT(-1);
-
-                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
-                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-                }
-                catch (RecognitionException re)
-                {
-                    ReportError(re);
-                    Recover(input, re);
-                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-                }
-                finally
-                {
-                    TraceOut("or_exp", 65);
-                    LeaveRule("or_exp", 65);
-                    LeaveRule_or_exp();
-                }
-                DebugLocation(202, 39);
-            }
-            finally { DebugExitRule(GrammarFileName, "or_exp"); }
-            return retval;
-
-        }
-        // $ANTLR end "or_exp"
-
-        partial void EnterRule_xor_exp();
-        partial void LeaveRule_xor_exp();
-
-        // $ANTLR start "xor_exp"
-        // GBX.g:203:1: xor_exp : and_exp ( '^' ^ and_exp )? ;
-        [GrammarRule("xor_exp")]
-        private AstParserRuleReturnScope<CommonTree, IToken> xor_exp()
-        {
-            EnterRule_xor_exp();
-            EnterRule("xor_exp", 66);
-            TraceIn("xor_exp", 66);
-            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
-            retval.Start = (IToken)input.LT(1);
-
-            CommonTree root_0 = default(CommonTree);
-
-            IToken char_literal277 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> and_exp276 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> and_exp278 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-
-            CommonTree char_literal277_tree = default(CommonTree);
-            try
-            {
-                DebugEnterRule(GrammarFileName, "xor_exp");
-                DebugLocation(203, 40);
-                try
-                {
-                    // GBX.g:203:11: ( and_exp ( '^' ^ and_exp )? )
-                    DebugEnterAlt(1);
-                    // GBX.g:203:13: and_exp ( '^' ^ and_exp )?
-                    {
-                        root_0 = (CommonTree)adaptor.Nil();
-
-                        DebugLocation(203, 13);
-                        PushFollow(Follow._and_exp_in_xor_exp1871);
-                        and_exp276 = and_exp();
-                        PopFollow();
-
-                        adaptor.AddChild(root_0, and_exp276.Tree);
-                        DebugLocation(203, 22);
-                        // GBX.g:203:22: ( '^' ^ and_exp )?
+                        adaptor.AddChild(root_0, bool_or_exp273.Tree);
+                        DebugLocation(206, 25);
+                        // GBX.g:206:25: ( '?' ^ bool_or_exp ':' ! bool_or_exp )?
                         int alt52 = 2;
                         try
                         {
@@ -9541,7 +9936,7 @@ namespace GBRead.Base
                                 DebugEnterDecision(52, false);
                                 int LA52_0 = input.LA(1);
 
-                                if ((LA52_0 == CARET_MARK))
+                                if ((LA52_0 == QUEST_MARK))
                                 {
                                     alt52 = 1;
                                 }
@@ -9551,18 +9946,26 @@ namespace GBRead.Base
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:203:23: '^' ^ and_exp
+                                    // GBX.g:206:26: '?' ^ bool_or_exp ':' ! bool_or_exp
                                     {
-                                        DebugLocation(203, 26);
-                                        char_literal277 = (IToken)Match(input, CARET_MARK, Follow._CARET_MARK_in_xor_exp1875);
-                                        char_literal277_tree = (CommonTree)adaptor.Create(char_literal277);
-                                        root_0 = (CommonTree)adaptor.BecomeRoot(char_literal277_tree, root_0);
-                                        DebugLocation(203, 32);
-                                        PushFollow(Follow._and_exp_in_xor_exp1882);
-                                        and_exp278 = and_exp();
+                                        DebugLocation(206, 29);
+                                        char_literal274 = (IToken)Match(input, QUEST_MARK, Follow._QUEST_MARK_in_cond_exp1882);
+                                        char_literal274_tree = (CommonTree)adaptor.Create(char_literal274);
+                                        root_0 = (CommonTree)adaptor.BecomeRoot(char_literal274_tree, root_0);
+                                        DebugLocation(206, 35);
+                                        PushFollow(Follow._bool_or_exp_in_cond_exp1889);
+                                        bool_or_exp275 = bool_or_exp();
                                         PopFollow();
 
-                                        adaptor.AddChild(root_0, and_exp278.Tree);
+                                        adaptor.AddChild(root_0, bool_or_exp275.Tree);
+                                        DebugLocation(206, 50);
+                                        char_literal276 = (IToken)Match(input, COLON_MARK, Follow._COLON_MARK_in_cond_exp1891);
+                                        DebugLocation(206, 52);
+                                        PushFollow(Follow._bool_or_exp_in_cond_exp1894);
+                                        bool_or_exp277 = bool_or_exp();
+                                        PopFollow();
+
+                                        adaptor.AddChild(root_0, bool_or_exp277.Tree);
 
                                     }
                                     break;
@@ -9589,59 +9992,59 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("xor_exp", 66);
-                    LeaveRule("xor_exp", 66);
-                    LeaveRule_xor_exp();
+                    TraceOut("cond_exp", 64);
+                    LeaveRule("cond_exp", 64);
+                    LeaveRule_cond_exp();
                 }
-                DebugLocation(203, 40);
+                DebugLocation(206, 64);
             }
-            finally { DebugExitRule(GrammarFileName, "xor_exp"); }
+            finally { DebugExitRule(GrammarFileName, "cond_exp"); }
             return retval;
 
         }
-        // $ANTLR end "xor_exp"
+        // $ANTLR end "cond_exp"
 
-        partial void EnterRule_and_exp();
-        partial void LeaveRule_and_exp();
+        partial void EnterRule_bool_or_exp();
+        partial void LeaveRule_bool_or_exp();
 
-        // $ANTLR start "and_exp"
-        // GBX.g:204:1: and_exp : equals_exp ( '&' ^ equals_exp )? ;
-        [GrammarRule("and_exp")]
-        private AstParserRuleReturnScope<CommonTree, IToken> and_exp()
+        // $ANTLR start "bool_or_exp"
+        // GBX.g:207:1: bool_or_exp : bool_and_exp ( '||' ^ bool_and_exp )? ;
+        [GrammarRule("bool_or_exp")]
+        private AstParserRuleReturnScope<CommonTree, IToken> bool_or_exp()
         {
-            EnterRule_and_exp();
-            EnterRule("and_exp", 67);
-            TraceIn("and_exp", 67);
+            EnterRule_bool_or_exp();
+            EnterRule("bool_or_exp", 65);
+            TraceIn("bool_or_exp", 65);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken char_literal280 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> equals_exp279 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> equals_exp281 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken string_literal279 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> bool_and_exp278 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> bool_and_exp280 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree char_literal280_tree = default(CommonTree);
+            CommonTree string_literal279_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "and_exp");
-                DebugLocation(204, 45);
+                DebugEnterRule(GrammarFileName, "bool_or_exp");
+                DebugLocation(207, 52);
                 try
                 {
-                    // GBX.g:204:11: ( equals_exp ( '&' ^ equals_exp )? )
+                    // GBX.g:207:14: ( bool_and_exp ( '||' ^ bool_and_exp )? )
                     DebugEnterAlt(1);
-                    // GBX.g:204:13: equals_exp ( '&' ^ equals_exp )?
+                    // GBX.g:207:16: bool_and_exp ( '||' ^ bool_and_exp )?
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(204, 13);
-                        PushFollow(Follow._equals_exp_in_and_exp1893);
-                        equals_exp279 = equals_exp();
+                        DebugLocation(207, 16);
+                        PushFollow(Follow._bool_and_exp_in_bool_or_exp1904);
+                        bool_and_exp278 = bool_and_exp();
                         PopFollow();
 
-                        adaptor.AddChild(root_0, equals_exp279.Tree);
-                        DebugLocation(204, 24);
-                        // GBX.g:204:24: ( '&' ^ equals_exp )?
+                        adaptor.AddChild(root_0, bool_and_exp278.Tree);
+                        DebugLocation(207, 28);
+                        // GBX.g:207:28: ( '||' ^ bool_and_exp )?
                         int alt53 = 2;
                         try
                         {
@@ -9651,7 +10054,7 @@ namespace GBRead.Base
                                 DebugEnterDecision(53, false);
                                 int LA53_0 = input.LA(1);
 
-                                if ((LA53_0 == AMP_MARK))
+                                if ((LA53_0 == BOOL_OR_MARK))
                                 {
                                     alt53 = 1;
                                 }
@@ -9661,18 +10064,18 @@ namespace GBRead.Base
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:204:25: '&' ^ equals_exp
+                                    // GBX.g:207:29: '||' ^ bool_and_exp
                                     {
-                                        DebugLocation(204, 28);
-                                        char_literal280 = (IToken)Match(input, AMP_MARK, Follow._AMP_MARK_in_and_exp1896);
-                                        char_literal280_tree = (CommonTree)adaptor.Create(char_literal280);
-                                        root_0 = (CommonTree)adaptor.BecomeRoot(char_literal280_tree, root_0);
-                                        DebugLocation(204, 34);
-                                        PushFollow(Follow._equals_exp_in_and_exp1903);
-                                        equals_exp281 = equals_exp();
+                                        DebugLocation(207, 33);
+                                        string_literal279 = (IToken)Match(input, BOOL_OR_MARK, Follow._BOOL_OR_MARK_in_bool_or_exp1906);
+                                        string_literal279_tree = (CommonTree)adaptor.Create(string_literal279);
+                                        root_0 = (CommonTree)adaptor.BecomeRoot(string_literal279_tree, root_0);
+                                        DebugLocation(207, 39);
+                                        PushFollow(Follow._bool_and_exp_in_bool_or_exp1913);
+                                        bool_and_exp280 = bool_and_exp();
                                         PopFollow();
 
-                                        adaptor.AddChild(root_0, equals_exp281.Tree);
+                                        adaptor.AddChild(root_0, bool_and_exp280.Tree);
 
                                     }
                                     break;
@@ -9699,59 +10102,59 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("and_exp", 67);
-                    LeaveRule("and_exp", 67);
-                    LeaveRule_and_exp();
+                    TraceOut("bool_or_exp", 65);
+                    LeaveRule("bool_or_exp", 65);
+                    LeaveRule_bool_or_exp();
                 }
-                DebugLocation(204, 45);
+                DebugLocation(207, 52);
             }
-            finally { DebugExitRule(GrammarFileName, "and_exp"); }
+            finally { DebugExitRule(GrammarFileName, "bool_or_exp"); }
             return retval;
 
         }
-        // $ANTLR end "and_exp"
+        // $ANTLR end "bool_or_exp"
 
-        partial void EnterRule_equals_exp();
-        partial void LeaveRule_equals_exp();
+        partial void EnterRule_bool_and_exp();
+        partial void LeaveRule_bool_and_exp();
 
-        // $ANTLR start "equals_exp"
-        // GBX.g:205:1: equals_exp : compare_exp ( ( '==' | '!=' ) ^ compare_exp )? ;
-        [GrammarRule("equals_exp")]
-        private AstParserRuleReturnScope<CommonTree, IToken> equals_exp()
+        // $ANTLR start "bool_and_exp"
+        // GBX.g:208:1: bool_and_exp : or_exp ( '&&' ^ or_exp )? ;
+        [GrammarRule("bool_and_exp")]
+        private AstParserRuleReturnScope<CommonTree, IToken> bool_and_exp()
         {
-            EnterRule_equals_exp();
-            EnterRule("equals_exp", 68);
-            TraceIn("equals_exp", 68);
+            EnterRule_bool_and_exp();
+            EnterRule("bool_and_exp", 66);
+            TraceIn("bool_and_exp", 66);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken set283 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> compare_exp282 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> compare_exp284 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken string_literal282 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> or_exp281 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> or_exp283 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree set283_tree = default(CommonTree);
+            CommonTree string_literal282_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "equals_exp");
-                DebugLocation(205, 55);
+                DebugEnterRule(GrammarFileName, "bool_and_exp");
+                DebugLocation(208, 42);
                 try
                 {
-                    // GBX.g:205:13: ( compare_exp ( ( '==' | '!=' ) ^ compare_exp )? )
+                    // GBX.g:208:14: ( or_exp ( '&&' ^ or_exp )? )
                     DebugEnterAlt(1);
-                    // GBX.g:205:15: compare_exp ( ( '==' | '!=' ) ^ compare_exp )?
+                    // GBX.g:208:16: or_exp ( '&&' ^ or_exp )?
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(205, 15);
-                        PushFollow(Follow._compare_exp_in_equals_exp1913);
-                        compare_exp282 = compare_exp();
+                        DebugLocation(208, 16);
+                        PushFollow(Follow._or_exp_in_bool_and_exp1922);
+                        or_exp281 = or_exp();
                         PopFollow();
 
-                        adaptor.AddChild(root_0, compare_exp282.Tree);
-                        DebugLocation(205, 27);
-                        // GBX.g:205:27: ( ( '==' | '!=' ) ^ compare_exp )?
+                        adaptor.AddChild(root_0, or_exp281.Tree);
+                        DebugLocation(208, 24);
+                        // GBX.g:208:24: ( '&&' ^ or_exp )?
                         int alt54 = 2;
                         try
                         {
@@ -9761,7 +10164,7 @@ namespace GBRead.Base
                                 DebugEnterDecision(54, false);
                                 int LA54_0 = input.LA(1);
 
-                                if ((LA54_0 == EQUIV_MARK || LA54_0 == NOT_EQUIV_MARK))
+                                if ((LA54_0 == BOOL_AND_MARK))
                                 {
                                     alt54 = 1;
                                 }
@@ -9771,31 +10174,18 @@ namespace GBRead.Base
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:205:28: ( '==' | '!=' ) ^ compare_exp
+                                    // GBX.g:208:25: '&&' ^ or_exp
                                     {
-                                        DebugLocation(205, 39);
-
-                                        set283 = (IToken)input.LT(1);
-                                        set283 = (IToken)input.LT(1);
-                                        if (input.LA(1) == EQUIV_MARK || input.LA(1) == NOT_EQUIV_MARK)
-                                        {
-                                            input.Consume();
-                                            root_0 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(set283), root_0);
-                                            state.errorRecovery = false;
-                                        }
-                                        else
-                                        {
-                                            MismatchedSetException mse = new MismatchedSetException(null, input);
-                                            DebugRecognitionException(mse);
-                                            throw mse;
-                                        }
-
-                                        DebugLocation(205, 43);
-                                        PushFollow(Follow._compare_exp_in_equals_exp1925);
-                                        compare_exp284 = compare_exp();
+                                        DebugLocation(208, 29);
+                                        string_literal282 = (IToken)Match(input, BOOL_AND_MARK, Follow._BOOL_AND_MARK_in_bool_and_exp1926);
+                                        string_literal282_tree = (CommonTree)adaptor.Create(string_literal282);
+                                        root_0 = (CommonTree)adaptor.BecomeRoot(string_literal282_tree, root_0);
+                                        DebugLocation(208, 35);
+                                        PushFollow(Follow._or_exp_in_bool_and_exp1933);
+                                        or_exp283 = or_exp();
                                         PopFollow();
 
-                                        adaptor.AddChild(root_0, compare_exp284.Tree);
+                                        adaptor.AddChild(root_0, or_exp283.Tree);
 
                                     }
                                     break;
@@ -9822,59 +10212,59 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("equals_exp", 68);
-                    LeaveRule("equals_exp", 68);
-                    LeaveRule_equals_exp();
+                    TraceOut("bool_and_exp", 66);
+                    LeaveRule("bool_and_exp", 66);
+                    LeaveRule_bool_and_exp();
                 }
-                DebugLocation(205, 55);
+                DebugLocation(208, 42);
             }
-            finally { DebugExitRule(GrammarFileName, "equals_exp"); }
+            finally { DebugExitRule(GrammarFileName, "bool_and_exp"); }
             return retval;
 
         }
-        // $ANTLR end "equals_exp"
+        // $ANTLR end "bool_and_exp"
 
-        partial void EnterRule_compare_exp();
-        partial void LeaveRule_compare_exp();
+        partial void EnterRule_or_exp();
+        partial void LeaveRule_or_exp();
 
-        // $ANTLR start "compare_exp"
-        // GBX.g:206:1: compare_exp : shift_exp ( ( '<' | '>' | '<=' | '>=' ) ^ shift_exp )? ;
-        [GrammarRule("compare_exp")]
-        private AstParserRuleReturnScope<CommonTree, IToken> compare_exp()
+        // $ANTLR start "or_exp"
+        // GBX.g:209:1: or_exp : xor_exp ( '|' ^ xor_exp )? ;
+        [GrammarRule("or_exp")]
+        private AstParserRuleReturnScope<CommonTree, IToken> or_exp()
         {
-            EnterRule_compare_exp();
-            EnterRule("compare_exp", 69);
-            TraceIn("compare_exp", 69);
+            EnterRule_or_exp();
+            EnterRule("or_exp", 67);
+            TraceIn("or_exp", 67);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken set286 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> shift_exp285 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> shift_exp287 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken char_literal285 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> xor_exp284 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> xor_exp286 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree set286_tree = default(CommonTree);
+            CommonTree char_literal285_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "compare_exp");
-                DebugLocation(206, 58);
+                DebugEnterRule(GrammarFileName, "or_exp");
+                DebugLocation(209, 39);
                 try
                 {
-                    // GBX.g:206:14: ( shift_exp ( ( '<' | '>' | '<=' | '>=' ) ^ shift_exp )? )
+                    // GBX.g:209:10: ( xor_exp ( '|' ^ xor_exp )? )
                     DebugEnterAlt(1);
-                    // GBX.g:206:16: shift_exp ( ( '<' | '>' | '<=' | '>=' ) ^ shift_exp )?
+                    // GBX.g:209:12: xor_exp ( '|' ^ xor_exp )?
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(206, 16);
-                        PushFollow(Follow._shift_exp_in_compare_exp1935);
-                        shift_exp285 = shift_exp();
+                        DebugLocation(209, 12);
+                        PushFollow(Follow._xor_exp_in_or_exp1944);
+                        xor_exp284 = xor_exp();
                         PopFollow();
 
-                        adaptor.AddChild(root_0, shift_exp285.Tree);
-                        DebugLocation(206, 26);
-                        // GBX.g:206:26: ( ( '<' | '>' | '<=' | '>=' ) ^ shift_exp )?
+                        adaptor.AddChild(root_0, xor_exp284.Tree);
+                        DebugLocation(209, 21);
+                        // GBX.g:209:21: ( '|' ^ xor_exp )?
                         int alt55 = 2;
                         try
                         {
@@ -9884,7 +10274,7 @@ namespace GBRead.Base
                                 DebugEnterDecision(55, false);
                                 int LA55_0 = input.LA(1);
 
-                                if (((LA55_0 >= GTE_MARK && LA55_0 <= GT_MARK) || (LA55_0 >= LTE_MARK && LA55_0 <= LT_MARK)))
+                                if ((LA55_0 == BAR_MARK))
                                 {
                                     alt55 = 1;
                                 }
@@ -9894,31 +10284,18 @@ namespace GBRead.Base
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:206:27: ( '<' | '>' | '<=' | '>=' ) ^ shift_exp
+                                    // GBX.g:209:22: '|' ^ xor_exp
                                     {
-                                        DebugLocation(206, 46);
-
-                                        set286 = (IToken)input.LT(1);
-                                        set286 = (IToken)input.LT(1);
-                                        if ((input.LA(1) >= GTE_MARK && input.LA(1) <= GT_MARK) || (input.LA(1) >= LTE_MARK && input.LA(1) <= LT_MARK))
-                                        {
-                                            input.Consume();
-                                            root_0 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(set286), root_0);
-                                            state.errorRecovery = false;
-                                        }
-                                        else
-                                        {
-                                            MismatchedSetException mse = new MismatchedSetException(null, input);
-                                            DebugRecognitionException(mse);
-                                            throw mse;
-                                        }
-
-                                        DebugLocation(206, 48);
-                                        PushFollow(Follow._shift_exp_in_compare_exp1949);
-                                        shift_exp287 = shift_exp();
+                                        DebugLocation(209, 25);
+                                        char_literal285 = (IToken)Match(input, BAR_MARK, Follow._BAR_MARK_in_or_exp1948);
+                                        char_literal285_tree = (CommonTree)adaptor.Create(char_literal285);
+                                        root_0 = (CommonTree)adaptor.BecomeRoot(char_literal285_tree, root_0);
+                                        DebugLocation(209, 31);
+                                        PushFollow(Follow._xor_exp_in_or_exp1955);
+                                        xor_exp286 = xor_exp();
                                         PopFollow();
 
-                                        adaptor.AddChild(root_0, shift_exp287.Tree);
+                                        adaptor.AddChild(root_0, xor_exp286.Tree);
 
                                     }
                                     break;
@@ -9945,59 +10322,59 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("compare_exp", 69);
-                    LeaveRule("compare_exp", 69);
-                    LeaveRule_compare_exp();
+                    TraceOut("or_exp", 67);
+                    LeaveRule("or_exp", 67);
+                    LeaveRule_or_exp();
                 }
-                DebugLocation(206, 58);
+                DebugLocation(209, 39);
             }
-            finally { DebugExitRule(GrammarFileName, "compare_exp"); }
+            finally { DebugExitRule(GrammarFileName, "or_exp"); }
             return retval;
 
         }
-        // $ANTLR end "compare_exp"
+        // $ANTLR end "or_exp"
 
-        partial void EnterRule_shift_exp();
-        partial void LeaveRule_shift_exp();
+        partial void EnterRule_xor_exp();
+        partial void LeaveRule_xor_exp();
 
-        // $ANTLR start "shift_exp"
-        // GBX.g:207:1: shift_exp : add_exp ( ( '<<' | '>>' ) ^ shift_exp )? ;
-        [GrammarRule("shift_exp")]
-        private AstParserRuleReturnScope<CommonTree, IToken> shift_exp()
+        // $ANTLR start "xor_exp"
+        // GBX.g:210:1: xor_exp : and_exp ( '^' ^ and_exp )? ;
+        [GrammarRule("xor_exp")]
+        private AstParserRuleReturnScope<CommonTree, IToken> xor_exp()
         {
-            EnterRule_shift_exp();
-            EnterRule("shift_exp", 70);
-            TraceIn("shift_exp", 70);
+            EnterRule_xor_exp();
+            EnterRule("xor_exp", 68);
+            TraceIn("xor_exp", 68);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken set289 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> add_exp288 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> shift_exp290 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken char_literal288 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> and_exp287 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> and_exp289 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree set289_tree = default(CommonTree);
+            CommonTree char_literal288_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "shift_exp");
-                DebugLocation(207, 49);
+                DebugEnterRule(GrammarFileName, "xor_exp");
+                DebugLocation(210, 40);
                 try
                 {
-                    // GBX.g:207:12: ( add_exp ( ( '<<' | '>>' ) ^ shift_exp )? )
+                    // GBX.g:210:11: ( and_exp ( '^' ^ and_exp )? )
                     DebugEnterAlt(1);
-                    // GBX.g:207:14: add_exp ( ( '<<' | '>>' ) ^ shift_exp )?
+                    // GBX.g:210:13: and_exp ( '^' ^ and_exp )?
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(207, 14);
-                        PushFollow(Follow._add_exp_in_shift_exp1959);
-                        add_exp288 = add_exp();
+                        DebugLocation(210, 13);
+                        PushFollow(Follow._and_exp_in_xor_exp1966);
+                        and_exp287 = and_exp();
                         PopFollow();
 
-                        adaptor.AddChild(root_0, add_exp288.Tree);
-                        DebugLocation(207, 23);
-                        // GBX.g:207:23: ( ( '<<' | '>>' ) ^ shift_exp )?
+                        adaptor.AddChild(root_0, and_exp287.Tree);
+                        DebugLocation(210, 22);
+                        // GBX.g:210:22: ( '^' ^ and_exp )?
                         int alt56 = 2;
                         try
                         {
@@ -10007,7 +10384,7 @@ namespace GBRead.Base
                                 DebugEnterDecision(56, false);
                                 int LA56_0 = input.LA(1);
 
-                                if ((LA56_0 == LSHIFT_MARK || LA56_0 == RSHIFT_MARK))
+                                if ((LA56_0 == CARET_MARK))
                                 {
                                     alt56 = 1;
                                 }
@@ -10017,31 +10394,18 @@ namespace GBRead.Base
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:207:24: ( '<<' | '>>' ) ^ shift_exp
+                                    // GBX.g:210:23: '^' ^ and_exp
                                     {
-                                        DebugLocation(207, 35);
-
-                                        set289 = (IToken)input.LT(1);
-                                        set289 = (IToken)input.LT(1);
-                                        if (input.LA(1) == LSHIFT_MARK || input.LA(1) == RSHIFT_MARK)
-                                        {
-                                            input.Consume();
-                                            root_0 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(set289), root_0);
-                                            state.errorRecovery = false;
-                                        }
-                                        else
-                                        {
-                                            MismatchedSetException mse = new MismatchedSetException(null, input);
-                                            DebugRecognitionException(mse);
-                                            throw mse;
-                                        }
-
-                                        DebugLocation(207, 39);
-                                        PushFollow(Follow._shift_exp_in_shift_exp1972);
-                                        shift_exp290 = shift_exp();
+                                        DebugLocation(210, 26);
+                                        char_literal288 = (IToken)Match(input, CARET_MARK, Follow._CARET_MARK_in_xor_exp1970);
+                                        char_literal288_tree = (CommonTree)adaptor.Create(char_literal288);
+                                        root_0 = (CommonTree)adaptor.BecomeRoot(char_literal288_tree, root_0);
+                                        DebugLocation(210, 32);
+                                        PushFollow(Follow._and_exp_in_xor_exp1977);
+                                        and_exp289 = and_exp();
                                         PopFollow();
 
-                                        adaptor.AddChild(root_0, shift_exp290.Tree);
+                                        adaptor.AddChild(root_0, and_exp289.Tree);
 
                                     }
                                     break;
@@ -10068,59 +10432,59 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("shift_exp", 70);
-                    LeaveRule("shift_exp", 70);
-                    LeaveRule_shift_exp();
+                    TraceOut("xor_exp", 68);
+                    LeaveRule("xor_exp", 68);
+                    LeaveRule_xor_exp();
                 }
-                DebugLocation(207, 49);
+                DebugLocation(210, 40);
             }
-            finally { DebugExitRule(GrammarFileName, "shift_exp"); }
+            finally { DebugExitRule(GrammarFileName, "xor_exp"); }
             return retval;
 
         }
-        // $ANTLR end "shift_exp"
+        // $ANTLR end "xor_exp"
 
-        partial void EnterRule_add_exp();
-        partial void LeaveRule_add_exp();
+        partial void EnterRule_and_exp();
+        partial void LeaveRule_and_exp();
 
-        // $ANTLR start "add_exp"
-        // GBX.g:208:1: add_exp : multiply_exp ( ( '+' | '-' ) ^ multiply_exp )? ;
-        [GrammarRule("add_exp")]
-        private AstParserRuleReturnScope<CommonTree, IToken> add_exp()
+        // $ANTLR start "and_exp"
+        // GBX.g:211:1: and_exp : equals_exp ( '&' ^ equals_exp )? ;
+        [GrammarRule("and_exp")]
+        private AstParserRuleReturnScope<CommonTree, IToken> and_exp()
         {
-            EnterRule_add_exp();
-            EnterRule("add_exp", 71);
-            TraceIn("add_exp", 71);
+            EnterRule_and_exp();
+            EnterRule("and_exp", 69);
+            TraceIn("and_exp", 69);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken set292 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> multiply_exp291 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> multiply_exp293 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken char_literal291 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> equals_exp290 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> equals_exp292 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree set292_tree = default(CommonTree);
+            CommonTree char_literal291_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "add_exp");
-                DebugLocation(208, 53);
+                DebugEnterRule(GrammarFileName, "and_exp");
+                DebugLocation(211, 45);
                 try
                 {
-                    // GBX.g:208:11: ( multiply_exp ( ( '+' | '-' ) ^ multiply_exp )? )
+                    // GBX.g:211:11: ( equals_exp ( '&' ^ equals_exp )? )
                     DebugEnterAlt(1);
-                    // GBX.g:208:13: multiply_exp ( ( '+' | '-' ) ^ multiply_exp )?
+                    // GBX.g:211:13: equals_exp ( '&' ^ equals_exp )?
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(208, 13);
-                        PushFollow(Follow._multiply_exp_in_add_exp1983);
-                        multiply_exp291 = multiply_exp();
+                        DebugLocation(211, 13);
+                        PushFollow(Follow._equals_exp_in_and_exp1988);
+                        equals_exp290 = equals_exp();
                         PopFollow();
 
-                        adaptor.AddChild(root_0, multiply_exp291.Tree);
-                        DebugLocation(208, 25);
-                        // GBX.g:208:25: ( ( '+' | '-' ) ^ multiply_exp )?
+                        adaptor.AddChild(root_0, equals_exp290.Tree);
+                        DebugLocation(211, 24);
+                        // GBX.g:211:24: ( '&' ^ equals_exp )?
                         int alt57 = 2;
                         try
                         {
@@ -10130,7 +10494,7 @@ namespace GBRead.Base
                                 DebugEnterDecision(57, false);
                                 int LA57_0 = input.LA(1);
 
-                                if ((LA57_0 == MINUS_MARK || LA57_0 == PLUS_MARK))
+                                if ((LA57_0 == AMP_MARK))
                                 {
                                     alt57 = 1;
                                 }
@@ -10140,31 +10504,18 @@ namespace GBRead.Base
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:208:26: ( '+' | '-' ) ^ multiply_exp
+                                    // GBX.g:211:25: '&' ^ equals_exp
                                     {
-                                        DebugLocation(208, 35);
-
-                                        set292 = (IToken)input.LT(1);
-                                        set292 = (IToken)input.LT(1);
-                                        if (input.LA(1) == MINUS_MARK || input.LA(1) == PLUS_MARK)
-                                        {
-                                            input.Consume();
-                                            root_0 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(set292), root_0);
-                                            state.errorRecovery = false;
-                                        }
-                                        else
-                                        {
-                                            MismatchedSetException mse = new MismatchedSetException(null, input);
-                                            DebugRecognitionException(mse);
-                                            throw mse;
-                                        }
-
-                                        DebugLocation(208, 40);
-                                        PushFollow(Follow._multiply_exp_in_add_exp1995);
-                                        multiply_exp293 = multiply_exp();
+                                        DebugLocation(211, 28);
+                                        char_literal291 = (IToken)Match(input, AMP_MARK, Follow._AMP_MARK_in_and_exp1991);
+                                        char_literal291_tree = (CommonTree)adaptor.Create(char_literal291);
+                                        root_0 = (CommonTree)adaptor.BecomeRoot(char_literal291_tree, root_0);
+                                        DebugLocation(211, 34);
+                                        PushFollow(Follow._equals_exp_in_and_exp1998);
+                                        equals_exp292 = equals_exp();
                                         PopFollow();
 
-                                        adaptor.AddChild(root_0, multiply_exp293.Tree);
+                                        adaptor.AddChild(root_0, equals_exp292.Tree);
 
                                     }
                                     break;
@@ -10191,59 +10542,59 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("add_exp", 71);
-                    LeaveRule("add_exp", 71);
-                    LeaveRule_add_exp();
+                    TraceOut("and_exp", 69);
+                    LeaveRule("and_exp", 69);
+                    LeaveRule_and_exp();
                 }
-                DebugLocation(208, 53);
+                DebugLocation(211, 45);
             }
-            finally { DebugExitRule(GrammarFileName, "add_exp"); }
+            finally { DebugExitRule(GrammarFileName, "and_exp"); }
             return retval;
 
         }
-        // $ANTLR end "add_exp"
+        // $ANTLR end "and_exp"
 
-        partial void EnterRule_multiply_exp();
-        partial void LeaveRule_multiply_exp();
+        partial void EnterRule_equals_exp();
+        partial void LeaveRule_equals_exp();
 
-        // $ANTLR start "multiply_exp"
-        // GBX.g:209:1: multiply_exp : unary_exp ( ( '*' | '/' | '%' ) ^ unary_exp )? ;
-        [GrammarRule("multiply_exp")]
-        private AstParserRuleReturnScope<CommonTree, IToken> multiply_exp()
+        // $ANTLR start "equals_exp"
+        // GBX.g:212:1: equals_exp : compare_exp ( ( '==' | '!=' ) ^ compare_exp )? ;
+        [GrammarRule("equals_exp")]
+        private AstParserRuleReturnScope<CommonTree, IToken> equals_exp()
         {
-            EnterRule_multiply_exp();
-            EnterRule("multiply_exp", 72);
-            TraceIn("multiply_exp", 72);
+            EnterRule_equals_exp();
+            EnterRule("equals_exp", 70);
+            TraceIn("equals_exp", 70);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken set295 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> unary_exp294 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> unary_exp296 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken set294 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> compare_exp293 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> compare_exp295 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree set295_tree = default(CommonTree);
+            CommonTree set294_tree = default(CommonTree);
             try
             {
-                DebugEnterRule(GrammarFileName, "multiply_exp");
-                DebugLocation(209, 54);
+                DebugEnterRule(GrammarFileName, "equals_exp");
+                DebugLocation(212, 55);
                 try
                 {
-                    // GBX.g:209:14: ( unary_exp ( ( '*' | '/' | '%' ) ^ unary_exp )? )
+                    // GBX.g:212:13: ( compare_exp ( ( '==' | '!=' ) ^ compare_exp )? )
                     DebugEnterAlt(1);
-                    // GBX.g:209:16: unary_exp ( ( '*' | '/' | '%' ) ^ unary_exp )?
+                    // GBX.g:212:15: compare_exp ( ( '==' | '!=' ) ^ compare_exp )?
                     {
                         root_0 = (CommonTree)adaptor.Nil();
 
-                        DebugLocation(209, 16);
-                        PushFollow(Follow._unary_exp_in_multiply_exp2004);
-                        unary_exp294 = unary_exp();
+                        DebugLocation(212, 15);
+                        PushFollow(Follow._compare_exp_in_equals_exp2008);
+                        compare_exp293 = compare_exp();
                         PopFollow();
 
-                        adaptor.AddChild(root_0, unary_exp294.Tree);
-                        DebugLocation(209, 26);
-                        // GBX.g:209:26: ( ( '*' | '/' | '%' ) ^ unary_exp )?
+                        adaptor.AddChild(root_0, compare_exp293.Tree);
+                        DebugLocation(212, 27);
+                        // GBX.g:212:27: ( ( '==' | '!=' ) ^ compare_exp )?
                         int alt58 = 2;
                         try
                         {
@@ -10253,7 +10604,7 @@ namespace GBRead.Base
                                 DebugEnterDecision(58, false);
                                 int LA58_0 = input.LA(1);
 
-                                if ((LA58_0 == FSLASH_MARK || LA58_0 == PERCENT_MARK || LA58_0 == STAR_MARK))
+                                if ((LA58_0 == EQUIV_MARK || LA58_0 == NOT_EQUIV_MARK))
                                 {
                                     alt58 = 1;
                                 }
@@ -10263,16 +10614,16 @@ namespace GBRead.Base
                             {
                                 case 1:
                                     DebugEnterAlt(1);
-                                    // GBX.g:209:27: ( '*' | '/' | '%' ) ^ unary_exp
+                                    // GBX.g:212:28: ( '==' | '!=' ) ^ compare_exp
                                     {
-                                        DebugLocation(209, 40);
+                                        DebugLocation(212, 39);
 
-                                        set295 = (IToken)input.LT(1);
-                                        set295 = (IToken)input.LT(1);
-                                        if (input.LA(1) == FSLASH_MARK || input.LA(1) == PERCENT_MARK || input.LA(1) == STAR_MARK)
+                                        set294 = (IToken)input.LT(1);
+                                        set294 = (IToken)input.LT(1);
+                                        if (input.LA(1) == EQUIV_MARK || input.LA(1) == NOT_EQUIV_MARK)
                                         {
                                             input.Consume();
-                                            root_0 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(set295), root_0);
+                                            root_0 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(set294), root_0);
                                             state.errorRecovery = false;
                                         }
                                         else
@@ -10282,12 +10633,12 @@ namespace GBRead.Base
                                             throw mse;
                                         }
 
-                                        DebugLocation(209, 44);
-                                        PushFollow(Follow._unary_exp_in_multiply_exp2018);
-                                        unary_exp296 = unary_exp();
+                                        DebugLocation(212, 43);
+                                        PushFollow(Follow._compare_exp_in_equals_exp2020);
+                                        compare_exp295 = compare_exp();
                                         PopFollow();
 
-                                        adaptor.AddChild(root_0, unary_exp296.Tree);
+                                        adaptor.AddChild(root_0, compare_exp295.Tree);
 
                                     }
                                     break;
@@ -10314,11 +10665,503 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("multiply_exp", 72);
-                    LeaveRule("multiply_exp", 72);
+                    TraceOut("equals_exp", 70);
+                    LeaveRule("equals_exp", 70);
+                    LeaveRule_equals_exp();
+                }
+                DebugLocation(212, 55);
+            }
+            finally { DebugExitRule(GrammarFileName, "equals_exp"); }
+            return retval;
+
+        }
+        // $ANTLR end "equals_exp"
+
+        partial void EnterRule_compare_exp();
+        partial void LeaveRule_compare_exp();
+
+        // $ANTLR start "compare_exp"
+        // GBX.g:213:1: compare_exp : shift_exp ( ( '<' | '>' | '<=' | '>=' ) ^ shift_exp )? ;
+        [GrammarRule("compare_exp")]
+        private AstParserRuleReturnScope<CommonTree, IToken> compare_exp()
+        {
+            EnterRule_compare_exp();
+            EnterRule("compare_exp", 71);
+            TraceIn("compare_exp", 71);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken set297 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> shift_exp296 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> shift_exp298 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+
+            CommonTree set297_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "compare_exp");
+                DebugLocation(213, 58);
+                try
+                {
+                    // GBX.g:213:14: ( shift_exp ( ( '<' | '>' | '<=' | '>=' ) ^ shift_exp )? )
+                    DebugEnterAlt(1);
+                    // GBX.g:213:16: shift_exp ( ( '<' | '>' | '<=' | '>=' ) ^ shift_exp )?
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(213, 16);
+                        PushFollow(Follow._shift_exp_in_compare_exp2030);
+                        shift_exp296 = shift_exp();
+                        PopFollow();
+
+                        adaptor.AddChild(root_0, shift_exp296.Tree);
+                        DebugLocation(213, 26);
+                        // GBX.g:213:26: ( ( '<' | '>' | '<=' | '>=' ) ^ shift_exp )?
+                        int alt59 = 2;
+                        try
+                        {
+                            DebugEnterSubRule(59);
+                            try
+                            {
+                                DebugEnterDecision(59, false);
+                                int LA59_0 = input.LA(1);
+
+                                if (((LA59_0 >= GTE_MARK && LA59_0 <= GT_MARK) || (LA59_0 >= LTE_MARK && LA59_0 <= LT_MARK)))
+                                {
+                                    alt59 = 1;
+                                }
+                            }
+                            finally { DebugExitDecision(59); }
+                            switch (alt59)
+                            {
+                                case 1:
+                                    DebugEnterAlt(1);
+                                    // GBX.g:213:27: ( '<' | '>' | '<=' | '>=' ) ^ shift_exp
+                                    {
+                                        DebugLocation(213, 46);
+
+                                        set297 = (IToken)input.LT(1);
+                                        set297 = (IToken)input.LT(1);
+                                        if ((input.LA(1) >= GTE_MARK && input.LA(1) <= GT_MARK) || (input.LA(1) >= LTE_MARK && input.LA(1) <= LT_MARK))
+                                        {
+                                            input.Consume();
+                                            root_0 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(set297), root_0);
+                                            state.errorRecovery = false;
+                                        }
+                                        else
+                                        {
+                                            MismatchedSetException mse = new MismatchedSetException(null, input);
+                                            DebugRecognitionException(mse);
+                                            throw mse;
+                                        }
+
+                                        DebugLocation(213, 48);
+                                        PushFollow(Follow._shift_exp_in_compare_exp2044);
+                                        shift_exp298 = shift_exp();
+                                        PopFollow();
+
+                                        adaptor.AddChild(root_0, shift_exp298.Tree);
+
+                                    }
+                                    break;
+
+                            }
+                        }
+                        finally { DebugExitSubRule(59); }
+
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("compare_exp", 71);
+                    LeaveRule("compare_exp", 71);
+                    LeaveRule_compare_exp();
+                }
+                DebugLocation(213, 58);
+            }
+            finally { DebugExitRule(GrammarFileName, "compare_exp"); }
+            return retval;
+
+        }
+        // $ANTLR end "compare_exp"
+
+        partial void EnterRule_shift_exp();
+        partial void LeaveRule_shift_exp();
+
+        // $ANTLR start "shift_exp"
+        // GBX.g:214:1: shift_exp : add_exp ( ( '<<' | '>>' ) ^ shift_exp )? ;
+        [GrammarRule("shift_exp")]
+        private AstParserRuleReturnScope<CommonTree, IToken> shift_exp()
+        {
+            EnterRule_shift_exp();
+            EnterRule("shift_exp", 72);
+            TraceIn("shift_exp", 72);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken set300 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> add_exp299 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> shift_exp301 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+
+            CommonTree set300_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "shift_exp");
+                DebugLocation(214, 49);
+                try
+                {
+                    // GBX.g:214:12: ( add_exp ( ( '<<' | '>>' ) ^ shift_exp )? )
+                    DebugEnterAlt(1);
+                    // GBX.g:214:14: add_exp ( ( '<<' | '>>' ) ^ shift_exp )?
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(214, 14);
+                        PushFollow(Follow._add_exp_in_shift_exp2054);
+                        add_exp299 = add_exp();
+                        PopFollow();
+
+                        adaptor.AddChild(root_0, add_exp299.Tree);
+                        DebugLocation(214, 23);
+                        // GBX.g:214:23: ( ( '<<' | '>>' ) ^ shift_exp )?
+                        int alt60 = 2;
+                        try
+                        {
+                            DebugEnterSubRule(60);
+                            try
+                            {
+                                DebugEnterDecision(60, false);
+                                int LA60_0 = input.LA(1);
+
+                                if ((LA60_0 == LSHIFT_MARK || LA60_0 == RSHIFT_MARK))
+                                {
+                                    alt60 = 1;
+                                }
+                            }
+                            finally { DebugExitDecision(60); }
+                            switch (alt60)
+                            {
+                                case 1:
+                                    DebugEnterAlt(1);
+                                    // GBX.g:214:24: ( '<<' | '>>' ) ^ shift_exp
+                                    {
+                                        DebugLocation(214, 35);
+
+                                        set300 = (IToken)input.LT(1);
+                                        set300 = (IToken)input.LT(1);
+                                        if (input.LA(1) == LSHIFT_MARK || input.LA(1) == RSHIFT_MARK)
+                                        {
+                                            input.Consume();
+                                            root_0 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(set300), root_0);
+                                            state.errorRecovery = false;
+                                        }
+                                        else
+                                        {
+                                            MismatchedSetException mse = new MismatchedSetException(null, input);
+                                            DebugRecognitionException(mse);
+                                            throw mse;
+                                        }
+
+                                        DebugLocation(214, 39);
+                                        PushFollow(Follow._shift_exp_in_shift_exp2067);
+                                        shift_exp301 = shift_exp();
+                                        PopFollow();
+
+                                        adaptor.AddChild(root_0, shift_exp301.Tree);
+
+                                    }
+                                    break;
+
+                            }
+                        }
+                        finally { DebugExitSubRule(60); }
+
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("shift_exp", 72);
+                    LeaveRule("shift_exp", 72);
+                    LeaveRule_shift_exp();
+                }
+                DebugLocation(214, 49);
+            }
+            finally { DebugExitRule(GrammarFileName, "shift_exp"); }
+            return retval;
+
+        }
+        // $ANTLR end "shift_exp"
+
+        partial void EnterRule_add_exp();
+        partial void LeaveRule_add_exp();
+
+        // $ANTLR start "add_exp"
+        // GBX.g:215:1: add_exp : multiply_exp ( ( '+' | '-' ) ^ multiply_exp )? ;
+        [GrammarRule("add_exp")]
+        private AstParserRuleReturnScope<CommonTree, IToken> add_exp()
+        {
+            EnterRule_add_exp();
+            EnterRule("add_exp", 73);
+            TraceIn("add_exp", 73);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken set303 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> multiply_exp302 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> multiply_exp304 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+
+            CommonTree set303_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "add_exp");
+                DebugLocation(215, 53);
+                try
+                {
+                    // GBX.g:215:11: ( multiply_exp ( ( '+' | '-' ) ^ multiply_exp )? )
+                    DebugEnterAlt(1);
+                    // GBX.g:215:13: multiply_exp ( ( '+' | '-' ) ^ multiply_exp )?
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(215, 13);
+                        PushFollow(Follow._multiply_exp_in_add_exp2078);
+                        multiply_exp302 = multiply_exp();
+                        PopFollow();
+
+                        adaptor.AddChild(root_0, multiply_exp302.Tree);
+                        DebugLocation(215, 25);
+                        // GBX.g:215:25: ( ( '+' | '-' ) ^ multiply_exp )?
+                        int alt61 = 2;
+                        try
+                        {
+                            DebugEnterSubRule(61);
+                            try
+                            {
+                                DebugEnterDecision(61, false);
+                                int LA61_0 = input.LA(1);
+
+                                if ((LA61_0 == MINUS_MARK || LA61_0 == PLUS_MARK))
+                                {
+                                    alt61 = 1;
+                                }
+                            }
+                            finally { DebugExitDecision(61); }
+                            switch (alt61)
+                            {
+                                case 1:
+                                    DebugEnterAlt(1);
+                                    // GBX.g:215:26: ( '+' | '-' ) ^ multiply_exp
+                                    {
+                                        DebugLocation(215, 35);
+
+                                        set303 = (IToken)input.LT(1);
+                                        set303 = (IToken)input.LT(1);
+                                        if (input.LA(1) == MINUS_MARK || input.LA(1) == PLUS_MARK)
+                                        {
+                                            input.Consume();
+                                            root_0 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(set303), root_0);
+                                            state.errorRecovery = false;
+                                        }
+                                        else
+                                        {
+                                            MismatchedSetException mse = new MismatchedSetException(null, input);
+                                            DebugRecognitionException(mse);
+                                            throw mse;
+                                        }
+
+                                        DebugLocation(215, 40);
+                                        PushFollow(Follow._multiply_exp_in_add_exp2090);
+                                        multiply_exp304 = multiply_exp();
+                                        PopFollow();
+
+                                        adaptor.AddChild(root_0, multiply_exp304.Tree);
+
+                                    }
+                                    break;
+
+                            }
+                        }
+                        finally { DebugExitSubRule(61); }
+
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("add_exp", 73);
+                    LeaveRule("add_exp", 73);
+                    LeaveRule_add_exp();
+                }
+                DebugLocation(215, 53);
+            }
+            finally { DebugExitRule(GrammarFileName, "add_exp"); }
+            return retval;
+
+        }
+        // $ANTLR end "add_exp"
+
+        partial void EnterRule_multiply_exp();
+        partial void LeaveRule_multiply_exp();
+
+        // $ANTLR start "multiply_exp"
+        // GBX.g:216:1: multiply_exp : unary_exp ( ( '*' | '/' | '%' ) ^ unary_exp )? ;
+        [GrammarRule("multiply_exp")]
+        private AstParserRuleReturnScope<CommonTree, IToken> multiply_exp()
+        {
+            EnterRule_multiply_exp();
+            EnterRule("multiply_exp", 74);
+            TraceIn("multiply_exp", 74);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken set306 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> unary_exp305 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> unary_exp307 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+
+            CommonTree set306_tree = default(CommonTree);
+            try
+            {
+                DebugEnterRule(GrammarFileName, "multiply_exp");
+                DebugLocation(216, 54);
+                try
+                {
+                    // GBX.g:216:14: ( unary_exp ( ( '*' | '/' | '%' ) ^ unary_exp )? )
+                    DebugEnterAlt(1);
+                    // GBX.g:216:16: unary_exp ( ( '*' | '/' | '%' ) ^ unary_exp )?
+                    {
+                        root_0 = (CommonTree)adaptor.Nil();
+
+                        DebugLocation(216, 16);
+                        PushFollow(Follow._unary_exp_in_multiply_exp2099);
+                        unary_exp305 = unary_exp();
+                        PopFollow();
+
+                        adaptor.AddChild(root_0, unary_exp305.Tree);
+                        DebugLocation(216, 26);
+                        // GBX.g:216:26: ( ( '*' | '/' | '%' ) ^ unary_exp )?
+                        int alt62 = 2;
+                        try
+                        {
+                            DebugEnterSubRule(62);
+                            try
+                            {
+                                DebugEnterDecision(62, false);
+                                int LA62_0 = input.LA(1);
+
+                                if ((LA62_0 == FSLASH_MARK || LA62_0 == PERCENT_MARK || LA62_0 == STAR_MARK))
+                                {
+                                    alt62 = 1;
+                                }
+                            }
+                            finally { DebugExitDecision(62); }
+                            switch (alt62)
+                            {
+                                case 1:
+                                    DebugEnterAlt(1);
+                                    // GBX.g:216:27: ( '*' | '/' | '%' ) ^ unary_exp
+                                    {
+                                        DebugLocation(216, 40);
+
+                                        set306 = (IToken)input.LT(1);
+                                        set306 = (IToken)input.LT(1);
+                                        if (input.LA(1) == FSLASH_MARK || input.LA(1) == PERCENT_MARK || input.LA(1) == STAR_MARK)
+                                        {
+                                            input.Consume();
+                                            root_0 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(set306), root_0);
+                                            state.errorRecovery = false;
+                                        }
+                                        else
+                                        {
+                                            MismatchedSetException mse = new MismatchedSetException(null, input);
+                                            DebugRecognitionException(mse);
+                                            throw mse;
+                                        }
+
+                                        DebugLocation(216, 44);
+                                        PushFollow(Follow._unary_exp_in_multiply_exp2113);
+                                        unary_exp307 = unary_exp();
+                                        PopFollow();
+
+                                        adaptor.AddChild(root_0, unary_exp307.Tree);
+
+                                    }
+                                    break;
+
+                            }
+                        }
+                        finally { DebugExitSubRule(62); }
+
+
+                    }
+
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("multiply_exp", 74);
+                    LeaveRule("multiply_exp", 74);
                     LeaveRule_multiply_exp();
                 }
-                DebugLocation(209, 54);
+                DebugLocation(216, 54);
             }
             finally { DebugExitRule(GrammarFileName, "multiply_exp"); }
             return retval;
@@ -10330,83 +11173,83 @@ namespace GBRead.Base
         partial void LeaveRule_unary_exp();
 
         // $ANTLR start "unary_exp"
-        // GBX.g:210:1: unary_exp : ( literal | ( '~' | '-' | '!' ) ^ unary_exp );
+        // GBX.g:217:1: unary_exp : ( literal | ( '~' | '-' | '!' ) ^ unary_exp );
         [GrammarRule("unary_exp")]
         private AstParserRuleReturnScope<CommonTree, IToken> unary_exp()
         {
             EnterRule_unary_exp();
-            EnterRule("unary_exp", 73);
-            TraceIn("unary_exp", 73);
+            EnterRule("unary_exp", 75);
+            TraceIn("unary_exp", 75);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken set298 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> literal297 = default(AstParserRuleReturnScope<CommonTree, IToken>);
-            AstParserRuleReturnScope<CommonTree, IToken> unary_exp299 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken set309 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> literal308 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> unary_exp310 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree set298_tree = default(CommonTree);
+            CommonTree set309_tree = default(CommonTree);
             try
             {
                 DebugEnterRule(GrammarFileName, "unary_exp");
-                DebugLocation(210, 30);
+                DebugLocation(217, 30);
                 try
                 {
-                    // GBX.g:210:12: ( literal | ( '~' | '-' | '!' ) ^ unary_exp )
-                    int alt59 = 2;
+                    // GBX.g:217:12: ( literal | ( '~' | '-' | '!' ) ^ unary_exp )
+                    int alt63 = 2;
                     try
                     {
-                        DebugEnterDecision(59, false);
-                        int LA59_0 = input.LA(1);
+                        DebugEnterDecision(63, false);
+                        int LA63_0 = input.LA(1);
 
-                        if ((LA59_0 == ID || LA59_0 == LEFT_PARENS || LA59_0 == NUMBER))
+                        if ((LA63_0 == ID || LA63_0 == LEFT_PARENS || (LA63_0 >= M_ARG1 && LA63_0 <= M_ARG9) || LA63_0 == NUMBER))
                         {
-                            alt59 = 1;
+                            alt63 = 1;
                         }
-                        else if ((LA59_0 == BANG_MARK || LA59_0 == MINUS_MARK || LA59_0 == TILDE_MARK))
+                        else if ((LA63_0 == BANG_MARK || LA63_0 == MINUS_MARK || LA63_0 == TILDE_MARK))
                         {
-                            alt59 = 2;
+                            alt63 = 2;
                         }
                         else
                         {
-                            NoViableAltException nvae = new NoViableAltException("", 59, 0, input);
+                            NoViableAltException nvae = new NoViableAltException("", 63, 0, input);
                             DebugRecognitionException(nvae);
                             throw nvae;
                         }
                     }
-                    finally { DebugExitDecision(59); }
-                    switch (alt59)
+                    finally { DebugExitDecision(63); }
+                    switch (alt63)
                     {
                         case 1:
                             DebugEnterAlt(1);
-                            // GBX.g:210:14: literal
+                            // GBX.g:217:14: literal
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(210, 14);
-                                PushFollow(Follow._literal_in_unary_exp2028);
-                                literal297 = literal();
+                                DebugLocation(217, 14);
+                                PushFollow(Follow._literal_in_unary_exp2123);
+                                literal308 = literal();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, literal297.Tree);
+                                adaptor.AddChild(root_0, literal308.Tree);
 
                             }
                             break;
                         case 2:
                             DebugEnterAlt(2);
-                            // GBX.g:211:7: ( '~' | '-' | '!' ) ^ unary_exp
+                            // GBX.g:218:7: ( '~' | '-' | '!' ) ^ unary_exp
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(211, 20);
+                                DebugLocation(218, 20);
 
-                                set298 = (IToken)input.LT(1);
-                                set298 = (IToken)input.LT(1);
+                                set309 = (IToken)input.LT(1);
+                                set309 = (IToken)input.LT(1);
                                 if (input.LA(1) == BANG_MARK || input.LA(1) == MINUS_MARK || input.LA(1) == TILDE_MARK)
                                 {
                                     input.Consume();
-                                    root_0 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(set298), root_0);
+                                    root_0 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(set309), root_0);
                                     state.errorRecovery = false;
                                 }
                                 else
@@ -10416,12 +11259,12 @@ namespace GBRead.Base
                                     throw mse;
                                 }
 
-                                DebugLocation(211, 22);
-                                PushFollow(Follow._unary_exp_in_unary_exp2045);
-                                unary_exp299 = unary_exp();
+                                DebugLocation(218, 22);
+                                PushFollow(Follow._unary_exp_in_unary_exp2140);
+                                unary_exp310 = unary_exp();
                                 PopFollow();
 
-                                adaptor.AddChild(root_0, unary_exp299.Tree);
+                                adaptor.AddChild(root_0, unary_exp310.Tree);
 
                             }
                             break;
@@ -10442,11 +11285,11 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("unary_exp", 73);
-                    LeaveRule("unary_exp", 73);
+                    TraceOut("unary_exp", 75);
+                    LeaveRule("unary_exp", 75);
                     LeaveRule_unary_exp();
                 }
-                DebugLocation(211, 30);
+                DebugLocation(218, 30);
             }
             finally { DebugExitRule(GrammarFileName, "unary_exp"); }
             return retval;
@@ -10458,28 +11301,29 @@ namespace GBRead.Base
         partial void LeaveRule_literal();
 
         // $ANTLR start "literal"
-        // GBX.g:212:1: literal : ( ID -> ^( VAR ID ) | NUMBER | LEFT_PARENS expression RIGHT_PARENS -> expression );
+        // GBX.g:219:1: literal : ( macro_argument | ID -> ^( VAR ID ) | NUMBER | LEFT_PARENS expression RIGHT_PARENS -> expression );
         [GrammarRule("literal")]
         private AstParserRuleReturnScope<CommonTree, IToken> literal()
         {
             EnterRule_literal();
-            EnterRule("literal", 74);
-            TraceIn("literal", 74);
+            EnterRule("literal", 76);
+            TraceIn("literal", 76);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken ID300 = default(IToken);
-            IToken NUMBER301 = default(IToken);
-            IToken LEFT_PARENS302 = default(IToken);
-            IToken RIGHT_PARENS304 = default(IToken);
-            AstParserRuleReturnScope<CommonTree, IToken> expression303 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            IToken ID312 = default(IToken);
+            IToken NUMBER313 = default(IToken);
+            IToken LEFT_PARENS314 = default(IToken);
+            IToken RIGHT_PARENS316 = default(IToken);
+            AstParserRuleReturnScope<CommonTree, IToken> macro_argument311 = default(AstParserRuleReturnScope<CommonTree, IToken>);
+            AstParserRuleReturnScope<CommonTree, IToken> expression315 = default(AstParserRuleReturnScope<CommonTree, IToken>);
 
-            CommonTree ID300_tree = default(CommonTree);
-            CommonTree NUMBER301_tree = default(CommonTree);
-            CommonTree LEFT_PARENS302_tree = default(CommonTree);
-            CommonTree RIGHT_PARENS304_tree = default(CommonTree);
+            CommonTree ID312_tree = default(CommonTree);
+            CommonTree NUMBER313_tree = default(CommonTree);
+            CommonTree LEFT_PARENS314_tree = default(CommonTree);
+            CommonTree RIGHT_PARENS316_tree = default(CommonTree);
             RewriteRuleITokenStream stream_LEFT_PARENS = new RewriteRuleITokenStream(adaptor, "token LEFT_PARENS");
             RewriteRuleITokenStream stream_RIGHT_PARENS = new RewriteRuleITokenStream(adaptor, "token RIGHT_PARENS");
             RewriteRuleITokenStream stream_ID = new RewriteRuleITokenStream(adaptor, "token ID");
@@ -10487,50 +11331,78 @@ namespace GBRead.Base
             try
             {
                 DebugEnterRule(GrammarFileName, "literal");
-                DebugLocation(212, 55);
+                DebugLocation(219, 55);
                 try
                 {
-                    // GBX.g:212:11: ( ID -> ^( VAR ID ) | NUMBER | LEFT_PARENS expression RIGHT_PARENS -> expression )
-                    int alt60 = 3;
+                    // GBX.g:219:11: ( macro_argument | ID -> ^( VAR ID ) | NUMBER | LEFT_PARENS expression RIGHT_PARENS -> expression )
+                    int alt64 = 4;
                     try
                     {
-                        DebugEnterDecision(60, false);
+                        DebugEnterDecision(64, false);
                         switch (input.LA(1))
                         {
+                            case M_ARG1:
+                            case M_ARG2:
+                            case M_ARG3:
+                            case M_ARG4:
+                            case M_ARG5:
+                            case M_ARG6:
+                            case M_ARG7:
+                            case M_ARG8:
+                            case M_ARG9:
+                                {
+                                    alt64 = 1;
+                                }
+                                break;
                             case ID:
                                 {
-                                    alt60 = 1;
+                                    alt64 = 2;
                                 }
                                 break;
                             case NUMBER:
                                 {
-                                    alt60 = 2;
+                                    alt64 = 3;
                                 }
                                 break;
                             case LEFT_PARENS:
                                 {
-                                    alt60 = 3;
+                                    alt64 = 4;
                                 }
                                 break;
                             default:
                                 {
-                                    NoViableAltException nvae = new NoViableAltException("", 60, 0, input);
+                                    NoViableAltException nvae = new NoViableAltException("", 64, 0, input);
                                     DebugRecognitionException(nvae);
                                     throw nvae;
                                 }
                         }
 
                     }
-                    finally { DebugExitDecision(60); }
-                    switch (alt60)
+                    finally { DebugExitDecision(64); }
+                    switch (alt64)
                     {
                         case 1:
                             DebugEnterAlt(1);
-                            // GBX.g:212:13: ID
+                            // GBX.g:219:13: macro_argument
                             {
-                                DebugLocation(212, 13);
-                                ID300 = (IToken)Match(input, ID, Follow._ID_in_literal2054);
-                                stream_ID.Add(ID300);
+                                root_0 = (CommonTree)adaptor.Nil();
+
+                                DebugLocation(219, 13);
+                                PushFollow(Follow._macro_argument_in_literal2149);
+                                macro_argument311 = macro_argument();
+                                PopFollow();
+
+                                adaptor.AddChild(root_0, macro_argument311.Tree);
+
+                            }
+                            break;
+                        case 2:
+                            DebugEnterAlt(2);
+                            // GBX.g:220:7: ID
+                            {
+                                DebugLocation(220, 7);
+                                ID312 = (IToken)Match(input, ID, Follow._ID_in_literal2157);
+                                stream_ID.Add(ID312);
 
 
 
@@ -10546,16 +11418,16 @@ namespace GBRead.Base
                                     RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
 
                                     root_0 = (CommonTree)adaptor.Nil();
-                                    // 212:16: -> ^( VAR ID )
+                                    // 220:10: -> ^( VAR ID )
                                     {
-                                        DebugLocation(212, 19);
-                                        // GBX.g:212:19: ^( VAR ID )
+                                        DebugLocation(220, 13);
+                                        // GBX.g:220:13: ^( VAR ID )
                                         {
                                             CommonTree root_1 = (CommonTree)adaptor.Nil();
-                                            DebugLocation(212, 21);
+                                            DebugLocation(220, 15);
                                             root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(VAR, "VAR"), root_1);
 
-                                            DebugLocation(212, 25);
+                                            DebugLocation(220, 19);
                                             adaptor.AddChild(root_1, stream_ID.NextNode());
 
                                             adaptor.AddChild(root_0, root_1);
@@ -10568,36 +11440,36 @@ namespace GBRead.Base
 
                             }
                             break;
-                        case 2:
-                            DebugEnterAlt(2);
-                            // GBX.g:213:7: NUMBER
+                        case 3:
+                            DebugEnterAlt(3);
+                            // GBX.g:221:7: NUMBER
                             {
                                 root_0 = (CommonTree)adaptor.Nil();
 
-                                DebugLocation(213, 7);
-                                NUMBER301 = (IToken)Match(input, NUMBER, Follow._NUMBER_in_literal2070);
-                                NUMBER301_tree = (CommonTree)adaptor.Create(NUMBER301);
-                                adaptor.AddChild(root_0, NUMBER301_tree);
+                                DebugLocation(221, 7);
+                                NUMBER313 = (IToken)Match(input, NUMBER, Follow._NUMBER_in_literal2173);
+                                NUMBER313_tree = (CommonTree)adaptor.Create(NUMBER313);
+                                adaptor.AddChild(root_0, NUMBER313_tree);
 
                             }
                             break;
-                        case 3:
-                            DebugEnterAlt(3);
-                            // GBX.g:214:7: LEFT_PARENS expression RIGHT_PARENS
+                        case 4:
+                            DebugEnterAlt(4);
+                            // GBX.g:222:7: LEFT_PARENS expression RIGHT_PARENS
                             {
-                                DebugLocation(214, 7);
-                                LEFT_PARENS302 = (IToken)Match(input, LEFT_PARENS, Follow._LEFT_PARENS_in_literal2078);
-                                stream_LEFT_PARENS.Add(LEFT_PARENS302);
+                                DebugLocation(222, 7);
+                                LEFT_PARENS314 = (IToken)Match(input, LEFT_PARENS, Follow._LEFT_PARENS_in_literal2181);
+                                stream_LEFT_PARENS.Add(LEFT_PARENS314);
 
-                                DebugLocation(214, 19);
-                                PushFollow(Follow._expression_in_literal2080);
-                                expression303 = expression();
+                                DebugLocation(222, 19);
+                                PushFollow(Follow._expression_in_literal2183);
+                                expression315 = expression();
                                 PopFollow();
 
-                                stream_expression.Add(expression303.Tree);
-                                DebugLocation(214, 30);
-                                RIGHT_PARENS304 = (IToken)Match(input, RIGHT_PARENS, Follow._RIGHT_PARENS_in_literal2082);
-                                stream_RIGHT_PARENS.Add(RIGHT_PARENS304);
+                                stream_expression.Add(expression315.Tree);
+                                DebugLocation(222, 30);
+                                RIGHT_PARENS316 = (IToken)Match(input, RIGHT_PARENS, Follow._RIGHT_PARENS_in_literal2185);
+                                stream_RIGHT_PARENS.Add(RIGHT_PARENS316);
 
 
 
@@ -10613,9 +11485,9 @@ namespace GBRead.Base
                                     RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
 
                                     root_0 = (CommonTree)adaptor.Nil();
-                                    // 214:43: -> expression
+                                    // 222:43: -> expression
                                     {
-                                        DebugLocation(214, 46);
+                                        DebugLocation(222, 46);
                                         adaptor.AddChild(root_0, stream_expression.NextTree());
 
                                     }
@@ -10642,11 +11514,11 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("literal", 74);
-                    LeaveRule("literal", 74);
+                    TraceOut("literal", 76);
+                    LeaveRule("literal", 76);
                     LeaveRule_literal();
                 }
-                DebugLocation(214, 55);
+                DebugLocation(222, 55);
             }
             finally { DebugExitRule(GrammarFileName, "literal"); }
             return retval;
@@ -10654,53 +11526,592 @@ namespace GBRead.Base
         }
         // $ANTLR end "literal"
 
-        partial void EnterRule_rr_ref_hl();
-        partial void LeaveRule_rr_ref_hl();
+        partial void EnterRule_macro_argument();
+        partial void LeaveRule_macro_argument();
 
-        // $ANTLR start "rr_ref_hl"
-        // GBX.g:216:1: rr_ref_hl : LEFT_BRACKET RR_HL RIGHT_BRACKET -> RR_REF_HL ;
-        [GrammarRule("rr_ref_hl")]
-        private AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl()
+        // $ANTLR start "macro_argument"
+        // GBX.g:224:1: macro_argument : ( M_ARG1 -> ^( MACRO_ARG M_ARG1 ) | M_ARG2 -> ^( MACRO_ARG M_ARG2 ) | M_ARG3 -> ^( MACRO_ARG M_ARG3 ) | M_ARG4 -> ^( MACRO_ARG M_ARG4 ) | M_ARG5 -> ^( MACRO_ARG M_ARG5 ) | M_ARG6 -> ^( MACRO_ARG M_ARG6 ) | M_ARG7 -> ^( MACRO_ARG M_ARG7 ) | M_ARG8 -> ^( MACRO_ARG M_ARG8 ) | M_ARG9 -> ^( MACRO_ARG M_ARG9 ) );
+        [GrammarRule("macro_argument")]
+        private AstParserRuleReturnScope<CommonTree, IToken> macro_argument()
         {
-            EnterRule_rr_ref_hl();
-            EnterRule("rr_ref_hl", 75);
-            TraceIn("rr_ref_hl", 75);
+            EnterRule_macro_argument();
+            EnterRule("macro_argument", 77);
+            TraceIn("macro_argument", 77);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken LEFT_BRACKET305 = default(IToken);
-            IToken RR_HL306 = default(IToken);
-            IToken RIGHT_BRACKET307 = default(IToken);
+            IToken M_ARG1317 = default(IToken);
+            IToken M_ARG2318 = default(IToken);
+            IToken M_ARG3319 = default(IToken);
+            IToken M_ARG4320 = default(IToken);
+            IToken M_ARG5321 = default(IToken);
+            IToken M_ARG6322 = default(IToken);
+            IToken M_ARG7323 = default(IToken);
+            IToken M_ARG8324 = default(IToken);
+            IToken M_ARG9325 = default(IToken);
 
-            CommonTree LEFT_BRACKET305_tree = default(CommonTree);
-            CommonTree RR_HL306_tree = default(CommonTree);
-            CommonTree RIGHT_BRACKET307_tree = default(CommonTree);
+            CommonTree M_ARG1317_tree = default(CommonTree);
+            CommonTree M_ARG2318_tree = default(CommonTree);
+            CommonTree M_ARG3319_tree = default(CommonTree);
+            CommonTree M_ARG4320_tree = default(CommonTree);
+            CommonTree M_ARG5321_tree = default(CommonTree);
+            CommonTree M_ARG6322_tree = default(CommonTree);
+            CommonTree M_ARG7323_tree = default(CommonTree);
+            CommonTree M_ARG8324_tree = default(CommonTree);
+            CommonTree M_ARG9325_tree = default(CommonTree);
+            RewriteRuleITokenStream stream_M_ARG8 = new RewriteRuleITokenStream(adaptor, "token M_ARG8");
+            RewriteRuleITokenStream stream_M_ARG9 = new RewriteRuleITokenStream(adaptor, "token M_ARG9");
+            RewriteRuleITokenStream stream_M_ARG4 = new RewriteRuleITokenStream(adaptor, "token M_ARG4");
+            RewriteRuleITokenStream stream_M_ARG5 = new RewriteRuleITokenStream(adaptor, "token M_ARG5");
+            RewriteRuleITokenStream stream_M_ARG6 = new RewriteRuleITokenStream(adaptor, "token M_ARG6");
+            RewriteRuleITokenStream stream_M_ARG7 = new RewriteRuleITokenStream(adaptor, "token M_ARG7");
+            RewriteRuleITokenStream stream_M_ARG1 = new RewriteRuleITokenStream(adaptor, "token M_ARG1");
+            RewriteRuleITokenStream stream_M_ARG3 = new RewriteRuleITokenStream(adaptor, "token M_ARG3");
+            RewriteRuleITokenStream stream_M_ARG2 = new RewriteRuleITokenStream(adaptor, "token M_ARG2");
+            try
+            {
+                DebugEnterRule(GrammarFileName, "macro_argument");
+                DebugLocation(224, 35);
+                try
+                {
+                    // GBX.g:224:16: ( M_ARG1 -> ^( MACRO_ARG M_ARG1 ) | M_ARG2 -> ^( MACRO_ARG M_ARG2 ) | M_ARG3 -> ^( MACRO_ARG M_ARG3 ) | M_ARG4 -> ^( MACRO_ARG M_ARG4 ) | M_ARG5 -> ^( MACRO_ARG M_ARG5 ) | M_ARG6 -> ^( MACRO_ARG M_ARG6 ) | M_ARG7 -> ^( MACRO_ARG M_ARG7 ) | M_ARG8 -> ^( MACRO_ARG M_ARG8 ) | M_ARG9 -> ^( MACRO_ARG M_ARG9 ) )
+                    int alt65 = 9;
+                    try
+                    {
+                        DebugEnterDecision(65, false);
+                        switch (input.LA(1))
+                        {
+                            case M_ARG1:
+                                {
+                                    alt65 = 1;
+                                }
+                                break;
+                            case M_ARG2:
+                                {
+                                    alt65 = 2;
+                                }
+                                break;
+                            case M_ARG3:
+                                {
+                                    alt65 = 3;
+                                }
+                                break;
+                            case M_ARG4:
+                                {
+                                    alt65 = 4;
+                                }
+                                break;
+                            case M_ARG5:
+                                {
+                                    alt65 = 5;
+                                }
+                                break;
+                            case M_ARG6:
+                                {
+                                    alt65 = 6;
+                                }
+                                break;
+                            case M_ARG7:
+                                {
+                                    alt65 = 7;
+                                }
+                                break;
+                            case M_ARG8:
+                                {
+                                    alt65 = 8;
+                                }
+                                break;
+                            case M_ARG9:
+                                {
+                                    alt65 = 9;
+                                }
+                                break;
+                            default:
+                                {
+                                    NoViableAltException nvae = new NoViableAltException("", 65, 0, input);
+                                    DebugRecognitionException(nvae);
+                                    throw nvae;
+                                }
+                        }
+
+                    }
+                    finally { DebugExitDecision(65); }
+                    switch (alt65)
+                    {
+                        case 1:
+                            DebugEnterAlt(1);
+                            // GBX.g:224:18: M_ARG1
+                            {
+                                DebugLocation(224, 18);
+                                M_ARG1317 = (IToken)Match(input, M_ARG1, Follow._M_ARG1_in_macro_argument2197);
+                                stream_M_ARG1.Add(M_ARG1317);
+
+
+
+                                {
+                                    // AST REWRITE
+                                    // elements: M_ARG1
+                                    // token labels: 
+                                    // rule labels: retval
+                                    // token list labels: 
+                                    // rule list labels: 
+                                    // wildcard labels: 
+                                    retval.Tree = root_0;
+                                    RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
+
+                                    root_0 = (CommonTree)adaptor.Nil();
+                                    // 224:25: -> ^( MACRO_ARG M_ARG1 )
+                                    {
+                                        DebugLocation(224, 28);
+                                        // GBX.g:224:28: ^( MACRO_ARG M_ARG1 )
+                                        {
+                                            CommonTree root_1 = (CommonTree)adaptor.Nil();
+                                            DebugLocation(224, 30);
+                                            root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(MACRO_ARG, "MACRO_ARG"), root_1);
+
+                                            DebugLocation(224, 40);
+                                            adaptor.AddChild(root_1, stream_M_ARG1.NextNode());
+
+                                            adaptor.AddChild(root_0, root_1);
+                                        }
+
+                                    }
+
+                                    retval.Tree = root_0;
+                                }
+
+                            }
+                            break;
+                        case 2:
+                            DebugEnterAlt(2);
+                            // GBX.g:225:7: M_ARG2
+                            {
+                                DebugLocation(225, 7);
+                                M_ARG2318 = (IToken)Match(input, M_ARG2, Follow._M_ARG2_in_macro_argument2213);
+                                stream_M_ARG2.Add(M_ARG2318);
+
+
+
+                                {
+                                    // AST REWRITE
+                                    // elements: M_ARG2
+                                    // token labels: 
+                                    // rule labels: retval
+                                    // token list labels: 
+                                    // rule list labels: 
+                                    // wildcard labels: 
+                                    retval.Tree = root_0;
+                                    RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
+
+                                    root_0 = (CommonTree)adaptor.Nil();
+                                    // 225:14: -> ^( MACRO_ARG M_ARG2 )
+                                    {
+                                        DebugLocation(225, 17);
+                                        // GBX.g:225:17: ^( MACRO_ARG M_ARG2 )
+                                        {
+                                            CommonTree root_1 = (CommonTree)adaptor.Nil();
+                                            DebugLocation(225, 19);
+                                            root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(MACRO_ARG, "MACRO_ARG"), root_1);
+
+                                            DebugLocation(225, 29);
+                                            adaptor.AddChild(root_1, stream_M_ARG2.NextNode());
+
+                                            adaptor.AddChild(root_0, root_1);
+                                        }
+
+                                    }
+
+                                    retval.Tree = root_0;
+                                }
+
+                            }
+                            break;
+                        case 3:
+                            DebugEnterAlt(3);
+                            // GBX.g:226:7: M_ARG3
+                            {
+                                DebugLocation(226, 7);
+                                M_ARG3319 = (IToken)Match(input, M_ARG3, Follow._M_ARG3_in_macro_argument2229);
+                                stream_M_ARG3.Add(M_ARG3319);
+
+
+
+                                {
+                                    // AST REWRITE
+                                    // elements: M_ARG3
+                                    // token labels: 
+                                    // rule labels: retval
+                                    // token list labels: 
+                                    // rule list labels: 
+                                    // wildcard labels: 
+                                    retval.Tree = root_0;
+                                    RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
+
+                                    root_0 = (CommonTree)adaptor.Nil();
+                                    // 226:14: -> ^( MACRO_ARG M_ARG3 )
+                                    {
+                                        DebugLocation(226, 17);
+                                        // GBX.g:226:17: ^( MACRO_ARG M_ARG3 )
+                                        {
+                                            CommonTree root_1 = (CommonTree)adaptor.Nil();
+                                            DebugLocation(226, 19);
+                                            root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(MACRO_ARG, "MACRO_ARG"), root_1);
+
+                                            DebugLocation(226, 29);
+                                            adaptor.AddChild(root_1, stream_M_ARG3.NextNode());
+
+                                            adaptor.AddChild(root_0, root_1);
+                                        }
+
+                                    }
+
+                                    retval.Tree = root_0;
+                                }
+
+                            }
+                            break;
+                        case 4:
+                            DebugEnterAlt(4);
+                            // GBX.g:227:7: M_ARG4
+                            {
+                                DebugLocation(227, 7);
+                                M_ARG4320 = (IToken)Match(input, M_ARG4, Follow._M_ARG4_in_macro_argument2245);
+                                stream_M_ARG4.Add(M_ARG4320);
+
+
+
+                                {
+                                    // AST REWRITE
+                                    // elements: M_ARG4
+                                    // token labels: 
+                                    // rule labels: retval
+                                    // token list labels: 
+                                    // rule list labels: 
+                                    // wildcard labels: 
+                                    retval.Tree = root_0;
+                                    RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
+
+                                    root_0 = (CommonTree)adaptor.Nil();
+                                    // 227:14: -> ^( MACRO_ARG M_ARG4 )
+                                    {
+                                        DebugLocation(227, 17);
+                                        // GBX.g:227:17: ^( MACRO_ARG M_ARG4 )
+                                        {
+                                            CommonTree root_1 = (CommonTree)adaptor.Nil();
+                                            DebugLocation(227, 19);
+                                            root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(MACRO_ARG, "MACRO_ARG"), root_1);
+
+                                            DebugLocation(227, 29);
+                                            adaptor.AddChild(root_1, stream_M_ARG4.NextNode());
+
+                                            adaptor.AddChild(root_0, root_1);
+                                        }
+
+                                    }
+
+                                    retval.Tree = root_0;
+                                }
+
+                            }
+                            break;
+                        case 5:
+                            DebugEnterAlt(5);
+                            // GBX.g:228:7: M_ARG5
+                            {
+                                DebugLocation(228, 7);
+                                M_ARG5321 = (IToken)Match(input, M_ARG5, Follow._M_ARG5_in_macro_argument2261);
+                                stream_M_ARG5.Add(M_ARG5321);
+
+
+
+                                {
+                                    // AST REWRITE
+                                    // elements: M_ARG5
+                                    // token labels: 
+                                    // rule labels: retval
+                                    // token list labels: 
+                                    // rule list labels: 
+                                    // wildcard labels: 
+                                    retval.Tree = root_0;
+                                    RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
+
+                                    root_0 = (CommonTree)adaptor.Nil();
+                                    // 228:14: -> ^( MACRO_ARG M_ARG5 )
+                                    {
+                                        DebugLocation(228, 17);
+                                        // GBX.g:228:17: ^( MACRO_ARG M_ARG5 )
+                                        {
+                                            CommonTree root_1 = (CommonTree)adaptor.Nil();
+                                            DebugLocation(228, 19);
+                                            root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(MACRO_ARG, "MACRO_ARG"), root_1);
+
+                                            DebugLocation(228, 29);
+                                            adaptor.AddChild(root_1, stream_M_ARG5.NextNode());
+
+                                            adaptor.AddChild(root_0, root_1);
+                                        }
+
+                                    }
+
+                                    retval.Tree = root_0;
+                                }
+
+                            }
+                            break;
+                        case 6:
+                            DebugEnterAlt(6);
+                            // GBX.g:229:7: M_ARG6
+                            {
+                                DebugLocation(229, 7);
+                                M_ARG6322 = (IToken)Match(input, M_ARG6, Follow._M_ARG6_in_macro_argument2277);
+                                stream_M_ARG6.Add(M_ARG6322);
+
+
+
+                                {
+                                    // AST REWRITE
+                                    // elements: M_ARG6
+                                    // token labels: 
+                                    // rule labels: retval
+                                    // token list labels: 
+                                    // rule list labels: 
+                                    // wildcard labels: 
+                                    retval.Tree = root_0;
+                                    RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
+
+                                    root_0 = (CommonTree)adaptor.Nil();
+                                    // 229:14: -> ^( MACRO_ARG M_ARG6 )
+                                    {
+                                        DebugLocation(229, 17);
+                                        // GBX.g:229:17: ^( MACRO_ARG M_ARG6 )
+                                        {
+                                            CommonTree root_1 = (CommonTree)adaptor.Nil();
+                                            DebugLocation(229, 19);
+                                            root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(MACRO_ARG, "MACRO_ARG"), root_1);
+
+                                            DebugLocation(229, 29);
+                                            adaptor.AddChild(root_1, stream_M_ARG6.NextNode());
+
+                                            adaptor.AddChild(root_0, root_1);
+                                        }
+
+                                    }
+
+                                    retval.Tree = root_0;
+                                }
+
+                            }
+                            break;
+                        case 7:
+                            DebugEnterAlt(7);
+                            // GBX.g:230:7: M_ARG7
+                            {
+                                DebugLocation(230, 7);
+                                M_ARG7323 = (IToken)Match(input, M_ARG7, Follow._M_ARG7_in_macro_argument2293);
+                                stream_M_ARG7.Add(M_ARG7323);
+
+
+
+                                {
+                                    // AST REWRITE
+                                    // elements: M_ARG7
+                                    // token labels: 
+                                    // rule labels: retval
+                                    // token list labels: 
+                                    // rule list labels: 
+                                    // wildcard labels: 
+                                    retval.Tree = root_0;
+                                    RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
+
+                                    root_0 = (CommonTree)adaptor.Nil();
+                                    // 230:14: -> ^( MACRO_ARG M_ARG7 )
+                                    {
+                                        DebugLocation(230, 17);
+                                        // GBX.g:230:17: ^( MACRO_ARG M_ARG7 )
+                                        {
+                                            CommonTree root_1 = (CommonTree)adaptor.Nil();
+                                            DebugLocation(230, 19);
+                                            root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(MACRO_ARG, "MACRO_ARG"), root_1);
+
+                                            DebugLocation(230, 29);
+                                            adaptor.AddChild(root_1, stream_M_ARG7.NextNode());
+
+                                            adaptor.AddChild(root_0, root_1);
+                                        }
+
+                                    }
+
+                                    retval.Tree = root_0;
+                                }
+
+                            }
+                            break;
+                        case 8:
+                            DebugEnterAlt(8);
+                            // GBX.g:231:7: M_ARG8
+                            {
+                                DebugLocation(231, 7);
+                                M_ARG8324 = (IToken)Match(input, M_ARG8, Follow._M_ARG8_in_macro_argument2309);
+                                stream_M_ARG8.Add(M_ARG8324);
+
+
+
+                                {
+                                    // AST REWRITE
+                                    // elements: M_ARG8
+                                    // token labels: 
+                                    // rule labels: retval
+                                    // token list labels: 
+                                    // rule list labels: 
+                                    // wildcard labels: 
+                                    retval.Tree = root_0;
+                                    RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
+
+                                    root_0 = (CommonTree)adaptor.Nil();
+                                    // 231:14: -> ^( MACRO_ARG M_ARG8 )
+                                    {
+                                        DebugLocation(231, 17);
+                                        // GBX.g:231:17: ^( MACRO_ARG M_ARG8 )
+                                        {
+                                            CommonTree root_1 = (CommonTree)adaptor.Nil();
+                                            DebugLocation(231, 19);
+                                            root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(MACRO_ARG, "MACRO_ARG"), root_1);
+
+                                            DebugLocation(231, 29);
+                                            adaptor.AddChild(root_1, stream_M_ARG8.NextNode());
+
+                                            adaptor.AddChild(root_0, root_1);
+                                        }
+
+                                    }
+
+                                    retval.Tree = root_0;
+                                }
+
+                            }
+                            break;
+                        case 9:
+                            DebugEnterAlt(9);
+                            // GBX.g:232:7: M_ARG9
+                            {
+                                DebugLocation(232, 7);
+                                M_ARG9325 = (IToken)Match(input, M_ARG9, Follow._M_ARG9_in_macro_argument2325);
+                                stream_M_ARG9.Add(M_ARG9325);
+
+
+
+                                {
+                                    // AST REWRITE
+                                    // elements: M_ARG9
+                                    // token labels: 
+                                    // rule labels: retval
+                                    // token list labels: 
+                                    // rule list labels: 
+                                    // wildcard labels: 
+                                    retval.Tree = root_0;
+                                    RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
+
+                                    root_0 = (CommonTree)adaptor.Nil();
+                                    // 232:14: -> ^( MACRO_ARG M_ARG9 )
+                                    {
+                                        DebugLocation(232, 17);
+                                        // GBX.g:232:17: ^( MACRO_ARG M_ARG9 )
+                                        {
+                                            CommonTree root_1 = (CommonTree)adaptor.Nil();
+                                            DebugLocation(232, 19);
+                                            root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(MACRO_ARG, "MACRO_ARG"), root_1);
+
+                                            DebugLocation(232, 29);
+                                            adaptor.AddChild(root_1, stream_M_ARG9.NextNode());
+
+                                            adaptor.AddChild(root_0, root_1);
+                                        }
+
+                                    }
+
+                                    retval.Tree = root_0;
+                                }
+
+                            }
+                            break;
+
+                    }
+                    retval.Stop = (IToken)input.LT(-1);
+
+                    retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+                    adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+                }
+                catch (RecognitionException re)
+                {
+                    ReportError(re);
+                    Recover(input, re);
+                    retval.Tree = (CommonTree)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+                }
+                finally
+                {
+                    TraceOut("macro_argument", 77);
+                    LeaveRule("macro_argument", 77);
+                    LeaveRule_macro_argument();
+                }
+                DebugLocation(232, 35);
+            }
+            finally { DebugExitRule(GrammarFileName, "macro_argument"); }
+            return retval;
+
+        }
+        // $ANTLR end "macro_argument"
+
+        partial void EnterRule_rr_ref_hl();
+        partial void LeaveRule_rr_ref_hl();
+
+        // $ANTLR start "rr_ref_hl"
+        // GBX.g:233:1: rr_ref_hl : LEFT_BRACKET RR_HL RIGHT_BRACKET -> RR_REF_HL ;
+        [GrammarRule("rr_ref_hl")]
+        private AstParserRuleReturnScope<CommonTree, IToken> rr_ref_hl()
+        {
+            EnterRule_rr_ref_hl();
+            EnterRule("rr_ref_hl", 78);
+            TraceIn("rr_ref_hl", 78);
+            AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
+            retval.Start = (IToken)input.LT(1);
+
+            CommonTree root_0 = default(CommonTree);
+
+            IToken LEFT_BRACKET326 = default(IToken);
+            IToken RR_HL327 = default(IToken);
+            IToken RIGHT_BRACKET328 = default(IToken);
+
+            CommonTree LEFT_BRACKET326_tree = default(CommonTree);
+            CommonTree RR_HL327_tree = default(CommonTree);
+            CommonTree RIGHT_BRACKET328_tree = default(CommonTree);
             RewriteRuleITokenStream stream_RR_HL = new RewriteRuleITokenStream(adaptor, "token RR_HL");
             RewriteRuleITokenStream stream_LEFT_BRACKET = new RewriteRuleITokenStream(adaptor, "token LEFT_BRACKET");
             RewriteRuleITokenStream stream_RIGHT_BRACKET = new RewriteRuleITokenStream(adaptor, "token RIGHT_BRACKET");
             try
             {
                 DebugEnterRule(GrammarFileName, "rr_ref_hl");
-                DebugLocation(216, 58);
+                DebugLocation(233, 58);
                 try
                 {
-                    // GBX.g:216:12: ( LEFT_BRACKET RR_HL RIGHT_BRACKET -> RR_REF_HL )
+                    // GBX.g:233:12: ( LEFT_BRACKET RR_HL RIGHT_BRACKET -> RR_REF_HL )
                     DebugEnterAlt(1);
-                    // GBX.g:216:14: LEFT_BRACKET RR_HL RIGHT_BRACKET
+                    // GBX.g:233:14: LEFT_BRACKET RR_HL RIGHT_BRACKET
                     {
-                        DebugLocation(216, 14);
-                        LEFT_BRACKET305 = (IToken)Match(input, LEFT_BRACKET, Follow._LEFT_BRACKET_in_rr_ref_hl2095);
-                        stream_LEFT_BRACKET.Add(LEFT_BRACKET305);
+                        DebugLocation(233, 14);
+                        LEFT_BRACKET326 = (IToken)Match(input, LEFT_BRACKET, Follow._LEFT_BRACKET_in_rr_ref_hl2341);
+                        stream_LEFT_BRACKET.Add(LEFT_BRACKET326);
 
-                        DebugLocation(216, 27);
-                        RR_HL306 = (IToken)Match(input, RR_HL, Follow._RR_HL_in_rr_ref_hl2097);
-                        stream_RR_HL.Add(RR_HL306);
+                        DebugLocation(233, 27);
+                        RR_HL327 = (IToken)Match(input, RR_HL, Follow._RR_HL_in_rr_ref_hl2343);
+                        stream_RR_HL.Add(RR_HL327);
 
-                        DebugLocation(216, 33);
-                        RIGHT_BRACKET307 = (IToken)Match(input, RIGHT_BRACKET, Follow._RIGHT_BRACKET_in_rr_ref_hl2099);
-                        stream_RIGHT_BRACKET.Add(RIGHT_BRACKET307);
+                        DebugLocation(233, 33);
+                        RIGHT_BRACKET328 = (IToken)Match(input, RIGHT_BRACKET, Follow._RIGHT_BRACKET_in_rr_ref_hl2345);
+                        stream_RIGHT_BRACKET.Add(RIGHT_BRACKET328);
 
 
 
@@ -10716,9 +12127,9 @@ namespace GBRead.Base
                             RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
 
                             root_0 = (CommonTree)adaptor.Nil();
-                            // 216:47: -> RR_REF_HL
+                            // 233:47: -> RR_REF_HL
                             {
-                                DebugLocation(216, 50);
+                                DebugLocation(233, 50);
                                 adaptor.AddChild(root_0, (CommonTree)adaptor.Create(RR_REF_HL, "RR_REF_HL"));
 
                             }
@@ -10743,11 +12154,11 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("rr_ref_hl", 75);
-                    LeaveRule("rr_ref_hl", 75);
+                    TraceOut("rr_ref_hl", 78);
+                    LeaveRule("rr_ref_hl", 78);
                     LeaveRule_rr_ref_hl();
                 }
-                DebugLocation(216, 58);
+                DebugLocation(233, 58);
             }
             finally { DebugExitRule(GrammarFileName, "rr_ref_hl"); }
             return retval;
@@ -10759,49 +12170,49 @@ namespace GBRead.Base
         partial void LeaveRule_rr_ref_bc();
 
         // $ANTLR start "rr_ref_bc"
-        // GBX.g:217:1: rr_ref_bc : LEFT_BRACKET RR_BC RIGHT_BRACKET -> RR_REF_BC ;
+        // GBX.g:234:1: rr_ref_bc : LEFT_BRACKET RR_BC RIGHT_BRACKET -> RR_REF_BC ;
         [GrammarRule("rr_ref_bc")]
         private AstParserRuleReturnScope<CommonTree, IToken> rr_ref_bc()
         {
             EnterRule_rr_ref_bc();
-            EnterRule("rr_ref_bc", 76);
-            TraceIn("rr_ref_bc", 76);
+            EnterRule("rr_ref_bc", 79);
+            TraceIn("rr_ref_bc", 79);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken LEFT_BRACKET308 = default(IToken);
-            IToken RR_BC309 = default(IToken);
-            IToken RIGHT_BRACKET310 = default(IToken);
+            IToken LEFT_BRACKET329 = default(IToken);
+            IToken RR_BC330 = default(IToken);
+            IToken RIGHT_BRACKET331 = default(IToken);
 
-            CommonTree LEFT_BRACKET308_tree = default(CommonTree);
-            CommonTree RR_BC309_tree = default(CommonTree);
-            CommonTree RIGHT_BRACKET310_tree = default(CommonTree);
+            CommonTree LEFT_BRACKET329_tree = default(CommonTree);
+            CommonTree RR_BC330_tree = default(CommonTree);
+            CommonTree RIGHT_BRACKET331_tree = default(CommonTree);
             RewriteRuleITokenStream stream_LEFT_BRACKET = new RewriteRuleITokenStream(adaptor, "token LEFT_BRACKET");
             RewriteRuleITokenStream stream_RR_BC = new RewriteRuleITokenStream(adaptor, "token RR_BC");
             RewriteRuleITokenStream stream_RIGHT_BRACKET = new RewriteRuleITokenStream(adaptor, "token RIGHT_BRACKET");
             try
             {
                 DebugEnterRule(GrammarFileName, "rr_ref_bc");
-                DebugLocation(217, 58);
+                DebugLocation(234, 58);
                 try
                 {
-                    // GBX.g:217:12: ( LEFT_BRACKET RR_BC RIGHT_BRACKET -> RR_REF_BC )
+                    // GBX.g:234:12: ( LEFT_BRACKET RR_BC RIGHT_BRACKET -> RR_REF_BC )
                     DebugEnterAlt(1);
-                    // GBX.g:217:14: LEFT_BRACKET RR_BC RIGHT_BRACKET
+                    // GBX.g:234:14: LEFT_BRACKET RR_BC RIGHT_BRACKET
                     {
-                        DebugLocation(217, 14);
-                        LEFT_BRACKET308 = (IToken)Match(input, LEFT_BRACKET, Follow._LEFT_BRACKET_in_rr_ref_bc2111);
-                        stream_LEFT_BRACKET.Add(LEFT_BRACKET308);
+                        DebugLocation(234, 14);
+                        LEFT_BRACKET329 = (IToken)Match(input, LEFT_BRACKET, Follow._LEFT_BRACKET_in_rr_ref_bc2357);
+                        stream_LEFT_BRACKET.Add(LEFT_BRACKET329);
 
-                        DebugLocation(217, 27);
-                        RR_BC309 = (IToken)Match(input, RR_BC, Follow._RR_BC_in_rr_ref_bc2113);
-                        stream_RR_BC.Add(RR_BC309);
+                        DebugLocation(234, 27);
+                        RR_BC330 = (IToken)Match(input, RR_BC, Follow._RR_BC_in_rr_ref_bc2359);
+                        stream_RR_BC.Add(RR_BC330);
 
-                        DebugLocation(217, 33);
-                        RIGHT_BRACKET310 = (IToken)Match(input, RIGHT_BRACKET, Follow._RIGHT_BRACKET_in_rr_ref_bc2115);
-                        stream_RIGHT_BRACKET.Add(RIGHT_BRACKET310);
+                        DebugLocation(234, 33);
+                        RIGHT_BRACKET331 = (IToken)Match(input, RIGHT_BRACKET, Follow._RIGHT_BRACKET_in_rr_ref_bc2361);
+                        stream_RIGHT_BRACKET.Add(RIGHT_BRACKET331);
 
 
 
@@ -10817,9 +12228,9 @@ namespace GBRead.Base
                             RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
 
                             root_0 = (CommonTree)adaptor.Nil();
-                            // 217:47: -> RR_REF_BC
+                            // 234:47: -> RR_REF_BC
                             {
-                                DebugLocation(217, 50);
+                                DebugLocation(234, 50);
                                 adaptor.AddChild(root_0, (CommonTree)adaptor.Create(RR_REF_BC, "RR_REF_BC"));
 
                             }
@@ -10844,11 +12255,11 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("rr_ref_bc", 76);
-                    LeaveRule("rr_ref_bc", 76);
+                    TraceOut("rr_ref_bc", 79);
+                    LeaveRule("rr_ref_bc", 79);
                     LeaveRule_rr_ref_bc();
                 }
-                DebugLocation(217, 58);
+                DebugLocation(234, 58);
             }
             finally { DebugExitRule(GrammarFileName, "rr_ref_bc"); }
             return retval;
@@ -10860,49 +12271,49 @@ namespace GBRead.Base
         partial void LeaveRule_rr_ref_de();
 
         // $ANTLR start "rr_ref_de"
-        // GBX.g:218:1: rr_ref_de : LEFT_BRACKET RR_DE RIGHT_BRACKET -> RR_REF_DE ;
+        // GBX.g:235:1: rr_ref_de : LEFT_BRACKET RR_DE RIGHT_BRACKET -> RR_REF_DE ;
         [GrammarRule("rr_ref_de")]
         private AstParserRuleReturnScope<CommonTree, IToken> rr_ref_de()
         {
             EnterRule_rr_ref_de();
-            EnterRule("rr_ref_de", 77);
-            TraceIn("rr_ref_de", 77);
+            EnterRule("rr_ref_de", 80);
+            TraceIn("rr_ref_de", 80);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken LEFT_BRACKET311 = default(IToken);
-            IToken RR_DE312 = default(IToken);
-            IToken RIGHT_BRACKET313 = default(IToken);
+            IToken LEFT_BRACKET332 = default(IToken);
+            IToken RR_DE333 = default(IToken);
+            IToken RIGHT_BRACKET334 = default(IToken);
 
-            CommonTree LEFT_BRACKET311_tree = default(CommonTree);
-            CommonTree RR_DE312_tree = default(CommonTree);
-            CommonTree RIGHT_BRACKET313_tree = default(CommonTree);
+            CommonTree LEFT_BRACKET332_tree = default(CommonTree);
+            CommonTree RR_DE333_tree = default(CommonTree);
+            CommonTree RIGHT_BRACKET334_tree = default(CommonTree);
             RewriteRuleITokenStream stream_RR_DE = new RewriteRuleITokenStream(adaptor, "token RR_DE");
             RewriteRuleITokenStream stream_LEFT_BRACKET = new RewriteRuleITokenStream(adaptor, "token LEFT_BRACKET");
             RewriteRuleITokenStream stream_RIGHT_BRACKET = new RewriteRuleITokenStream(adaptor, "token RIGHT_BRACKET");
             try
             {
                 DebugEnterRule(GrammarFileName, "rr_ref_de");
-                DebugLocation(218, 58);
+                DebugLocation(235, 58);
                 try
                 {
-                    // GBX.g:218:12: ( LEFT_BRACKET RR_DE RIGHT_BRACKET -> RR_REF_DE )
+                    // GBX.g:235:12: ( LEFT_BRACKET RR_DE RIGHT_BRACKET -> RR_REF_DE )
                     DebugEnterAlt(1);
-                    // GBX.g:218:14: LEFT_BRACKET RR_DE RIGHT_BRACKET
+                    // GBX.g:235:14: LEFT_BRACKET RR_DE RIGHT_BRACKET
                     {
-                        DebugLocation(218, 14);
-                        LEFT_BRACKET311 = (IToken)Match(input, LEFT_BRACKET, Follow._LEFT_BRACKET_in_rr_ref_de2127);
-                        stream_LEFT_BRACKET.Add(LEFT_BRACKET311);
+                        DebugLocation(235, 14);
+                        LEFT_BRACKET332 = (IToken)Match(input, LEFT_BRACKET, Follow._LEFT_BRACKET_in_rr_ref_de2373);
+                        stream_LEFT_BRACKET.Add(LEFT_BRACKET332);
 
-                        DebugLocation(218, 27);
-                        RR_DE312 = (IToken)Match(input, RR_DE, Follow._RR_DE_in_rr_ref_de2129);
-                        stream_RR_DE.Add(RR_DE312);
+                        DebugLocation(235, 27);
+                        RR_DE333 = (IToken)Match(input, RR_DE, Follow._RR_DE_in_rr_ref_de2375);
+                        stream_RR_DE.Add(RR_DE333);
 
-                        DebugLocation(218, 33);
-                        RIGHT_BRACKET313 = (IToken)Match(input, RIGHT_BRACKET, Follow._RIGHT_BRACKET_in_rr_ref_de2131);
-                        stream_RIGHT_BRACKET.Add(RIGHT_BRACKET313);
+                        DebugLocation(235, 33);
+                        RIGHT_BRACKET334 = (IToken)Match(input, RIGHT_BRACKET, Follow._RIGHT_BRACKET_in_rr_ref_de2377);
+                        stream_RIGHT_BRACKET.Add(RIGHT_BRACKET334);
 
 
 
@@ -10918,9 +12329,9 @@ namespace GBRead.Base
                             RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
 
                             root_0 = (CommonTree)adaptor.Nil();
-                            // 218:47: -> RR_REF_DE
+                            // 235:47: -> RR_REF_DE
                             {
-                                DebugLocation(218, 50);
+                                DebugLocation(235, 50);
                                 adaptor.AddChild(root_0, (CommonTree)adaptor.Create(RR_REF_DE, "RR_REF_DE"));
 
                             }
@@ -10945,11 +12356,11 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("rr_ref_de", 77);
-                    LeaveRule("rr_ref_de", 77);
+                    TraceOut("rr_ref_de", 80);
+                    LeaveRule("rr_ref_de", 80);
                     LeaveRule_rr_ref_de();
                 }
-                DebugLocation(218, 58);
+                DebugLocation(235, 58);
             }
             finally { DebugExitRule(GrammarFileName, "rr_ref_de"); }
             return retval;
@@ -10961,49 +12372,49 @@ namespace GBRead.Base
         partial void LeaveRule_rr_ref_c();
 
         // $ANTLR start "rr_ref_c"
-        // GBX.g:219:1: rr_ref_c : LEFT_BRACKET REG_C RIGHT_BRACKET -> RR_REF_C ;
+        // GBX.g:236:1: rr_ref_c : LEFT_BRACKET REG_C RIGHT_BRACKET -> RR_REF_C ;
         [GrammarRule("rr_ref_c")]
         private AstParserRuleReturnScope<CommonTree, IToken> rr_ref_c()
         {
             EnterRule_rr_ref_c();
-            EnterRule("rr_ref_c", 78);
-            TraceIn("rr_ref_c", 78);
+            EnterRule("rr_ref_c", 81);
+            TraceIn("rr_ref_c", 81);
             AstParserRuleReturnScope<CommonTree, IToken> retval = new AstParserRuleReturnScope<CommonTree, IToken>();
             retval.Start = (IToken)input.LT(1);
 
             CommonTree root_0 = default(CommonTree);
 
-            IToken LEFT_BRACKET314 = default(IToken);
-            IToken REG_C315 = default(IToken);
-            IToken RIGHT_BRACKET316 = default(IToken);
+            IToken LEFT_BRACKET335 = default(IToken);
+            IToken REG_C336 = default(IToken);
+            IToken RIGHT_BRACKET337 = default(IToken);
 
-            CommonTree LEFT_BRACKET314_tree = default(CommonTree);
-            CommonTree REG_C315_tree = default(CommonTree);
-            CommonTree RIGHT_BRACKET316_tree = default(CommonTree);
+            CommonTree LEFT_BRACKET335_tree = default(CommonTree);
+            CommonTree REG_C336_tree = default(CommonTree);
+            CommonTree RIGHT_BRACKET337_tree = default(CommonTree);
             RewriteRuleITokenStream stream_REG_C = new RewriteRuleITokenStream(adaptor, "token REG_C");
             RewriteRuleITokenStream stream_LEFT_BRACKET = new RewriteRuleITokenStream(adaptor, "token LEFT_BRACKET");
             RewriteRuleITokenStream stream_RIGHT_BRACKET = new RewriteRuleITokenStream(adaptor, "token RIGHT_BRACKET");
             try
             {
                 DebugEnterRule(GrammarFileName, "rr_ref_c");
-                DebugLocation(219, 56);
+                DebugLocation(236, 56);
                 try
                 {
-                    // GBX.g:219:11: ( LEFT_BRACKET REG_C RIGHT_BRACKET -> RR_REF_C )
+                    // GBX.g:236:11: ( LEFT_BRACKET REG_C RIGHT_BRACKET -> RR_REF_C )
                     DebugEnterAlt(1);
-                    // GBX.g:219:13: LEFT_BRACKET REG_C RIGHT_BRACKET
+                    // GBX.g:236:13: LEFT_BRACKET REG_C RIGHT_BRACKET
                     {
-                        DebugLocation(219, 13);
-                        LEFT_BRACKET314 = (IToken)Match(input, LEFT_BRACKET, Follow._LEFT_BRACKET_in_rr_ref_c2143);
-                        stream_LEFT_BRACKET.Add(LEFT_BRACKET314);
+                        DebugLocation(236, 13);
+                        LEFT_BRACKET335 = (IToken)Match(input, LEFT_BRACKET, Follow._LEFT_BRACKET_in_rr_ref_c2389);
+                        stream_LEFT_BRACKET.Add(LEFT_BRACKET335);
 
-                        DebugLocation(219, 26);
-                        REG_C315 = (IToken)Match(input, REG_C, Follow._REG_C_in_rr_ref_c2145);
-                        stream_REG_C.Add(REG_C315);
+                        DebugLocation(236, 26);
+                        REG_C336 = (IToken)Match(input, REG_C, Follow._REG_C_in_rr_ref_c2391);
+                        stream_REG_C.Add(REG_C336);
 
-                        DebugLocation(219, 32);
-                        RIGHT_BRACKET316 = (IToken)Match(input, RIGHT_BRACKET, Follow._RIGHT_BRACKET_in_rr_ref_c2147);
-                        stream_RIGHT_BRACKET.Add(RIGHT_BRACKET316);
+                        DebugLocation(236, 32);
+                        RIGHT_BRACKET337 = (IToken)Match(input, RIGHT_BRACKET, Follow._RIGHT_BRACKET_in_rr_ref_c2393);
+                        stream_RIGHT_BRACKET.Add(RIGHT_BRACKET337);
 
 
 
@@ -11019,9 +12430,9 @@ namespace GBRead.Base
                             RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval != null ? retval.Tree : null);
 
                             root_0 = (CommonTree)adaptor.Nil();
-                            // 219:46: -> RR_REF_C
+                            // 236:46: -> RR_REF_C
                             {
-                                DebugLocation(219, 49);
+                                DebugLocation(236, 49);
                                 adaptor.AddChild(root_0, (CommonTree)adaptor.Create(RR_REF_C, "RR_REF_C"));
 
                             }
@@ -11046,11 +12457,11 @@ namespace GBRead.Base
                 }
                 finally
                 {
-                    TraceOut("rr_ref_c", 78);
-                    LeaveRule("rr_ref_c", 78);
+                    TraceOut("rr_ref_c", 81);
+                    LeaveRule("rr_ref_c", 81);
                     LeaveRule_rr_ref_c();
                 }
-                DebugLocation(219, 56);
+                DebugLocation(236, 56);
             }
             finally { DebugExitRule(GrammarFileName, "rr_ref_c"); }
             return retval;
@@ -11063,320 +12474,341 @@ namespace GBRead.Base
 
         private static class Follow
         {
-            public static readonly BitSet _assignment_in_program143 = new BitSet(new ulong[] { 0xFFFFC4000F000002UL, 0x1FFFFFFFUL, 0x80000UL });
-            public static readonly BitSet _statement_in_program146 = new BitSet(new ulong[] { 0xFFFFC4000F000002UL, 0x1FFFFFFFUL, 0x80000UL });
-            public static readonly BitSet _ID_in_assignment168 = new BitSet(new ulong[] { 0x30000000UL });
-            public static readonly BitSet _EQUAL_MARK_in_assignment171 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _EQU_in_assignment173 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _expression_in_assignment176 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _label_in_statement195 = new BitSet(new ulong[] { 0xFFFFC4000F000000UL, 0x1FFFFFFFUL, 0x80000UL });
-            public static readonly BitSet _instruction_in_statement199 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _data_def_in_statement201 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _global_label_in_label227 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _local_label_in_label235 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _ID_in_global_label243 = new BitSet(new ulong[] { 0x100000UL });
-            public static readonly BitSet _COLON_MARK_in_global_label245 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _147_in_local_label261 = new BitSet(new ulong[] { 0x40000000000UL });
-            public static readonly BitSet _ID_in_local_label263 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _set_in_data_def280 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _expression_in_data_def291 = new BitSet(new ulong[] { 0x200002UL });
-            public static readonly BitSet _COMMA_in_data_def293 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _expression_in_data_def296 = new BitSet(new ulong[] { 0x200002UL });
-            public static readonly BitSet _op_adc_in_instruction307 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_add_in_instruction315 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_and_in_instruction323 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_bit_in_instruction331 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_call_in_instruction339 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_ccf_in_instruction347 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_cp_in_instruction355 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_cpl_in_instruction363 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_daa_in_instruction371 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_dec_in_instruction379 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_di_in_instruction387 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_ei_in_instruction395 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_halt_in_instruction403 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_inc_in_instruction411 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_jp_in_instruction419 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_jr_in_instruction427 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_ldhl_in_instruction435 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_ldio_in_instruction443 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_ldd_in_instruction451 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_ldi_in_instruction459 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_ld_in_instruction467 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_nop_in_instruction475 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_or_in_instruction483 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_pop_in_instruction491 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_push_in_instruction499 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_res_in_instruction507 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_ret_in_instruction515 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_reti_in_instruction523 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_rl_in_instruction531 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_rla_in_instruction539 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_rlc_in_instruction547 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_rlca_in_instruction555 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_rr_in_instruction563 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_rra_in_instruction571 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_rrc_in_instruction579 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_rrca_in_instruction587 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_rst_in_instruction595 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_sbc_in_instruction603 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_scf_in_instruction611 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_set_in_instruction619 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_sla_in_instruction627 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_sra_in_instruction635 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_srl_in_instruction643 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_stop_in_instruction651 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_sub_in_instruction659 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_swap_in_instruction667 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _op_xor_in_instruction675 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_ADC_in_op_adc686 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
-            public static readonly BitSet _REG_A_in_op_adc690 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_adc692 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
-            public static readonly BitSet _arith_opt_in_op_adc697 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_ADD_in_op_add706 = new BitSet(new ulong[] { 0x40000000040UL, 0x40FE014180000000UL, 0x408UL });
-            public static readonly BitSet _REG_A_in_op_add712 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_add714 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
-            public static readonly BitSet _arith_opt_in_op_add719 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _RR_HL_in_op_add723 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_add725 = new BitSet(new ulong[] { 0x0UL, 0x7000000000000000UL, 0x8UL });
-            public static readonly BitSet _set_in_op_add728 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _RR_SP_in_op_add740 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_add742 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _expression_in_op_add745 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_AND_in_op_and756 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
-            public static readonly BitSet _REG_A_in_op_and760 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_and762 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
-            public static readonly BitSet _arith_opt_in_op_and767 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_BIT_in_op_bit776 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _expression_in_op_bit779 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_bit781 = new BitSet(new ulong[] { 0x0UL, 0xFE000080000000UL });
-            public static readonly BitSet _r8_in_op_bit785 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _rr_ref_hl_in_op_bit787 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_CALL_in_op_call797 = new BitSet(new ulong[] { 0x40000038000UL, 0x8000000000000UL });
-            public static readonly BitSet _cond_opt_in_op_call801 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_call803 = new BitSet(new ulong[] { 0x40000000000UL });
-            public static readonly BitSet _ID_in_op_call808 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_CCF_in_op_ccf817 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_CP_in_op_cp827 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
-            public static readonly BitSet _REG_A_in_op_cp831 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_cp833 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
-            public static readonly BitSet _arith_opt_in_op_cp838 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_CPL_in_op_cpl847 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_DAA_in_op_daa857 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_DEC_in_op_dec867 = new BitSet(new ulong[] { 0x0UL, 0x70FE000080000000UL, 0x8UL });
-            public static readonly BitSet _RR_BC_in_op_dec871 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _RR_DE_in_op_dec873 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _RR_HL_in_op_dec875 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _RR_SP_in_op_dec877 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _r8_in_op_dec879 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _rr_ref_hl_in_op_dec881 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_DI_in_op_di891 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_EI_in_op_ei901 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_HALT_in_op_halt911 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_INC_in_op_inc921 = new BitSet(new ulong[] { 0x0UL, 0x70FE000080000000UL, 0x8UL });
-            public static readonly BitSet _RR_BC_in_op_inc925 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _RR_DE_in_op_inc927 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _RR_HL_in_op_inc929 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _RR_SP_in_op_inc931 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _r8_in_op_inc933 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _rr_ref_hl_in_op_inc935 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_JP_in_op_jp945 = new BitSet(new ulong[] { 0x40000038000UL, 0x4008000000000000UL, 0x80000UL });
-            public static readonly BitSet _cond_opt_in_op_jp951 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_jp953 = new BitSet(new ulong[] { 0x40000000000UL, 0x0UL, 0x80000UL });
-            public static readonly BitSet _ID_in_op_jp959 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _local_label_in_op_jp961 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _RR_HL_in_op_jp965 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_JR_in_op_jr975 = new BitSet(new ulong[] { 0x40000038000UL, 0x8000000000000UL, 0x80000UL });
-            public static readonly BitSet _cond_opt_in_op_jr979 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_jr981 = new BitSet(new ulong[] { 0x40000000000UL, 0x0UL, 0x80000UL });
-            public static readonly BitSet _ID_in_op_jr987 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _local_label_in_op_jr989 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_LDHL_in_op_ldhl999 = new BitSet(new ulong[] { 0x0UL, 0x0UL, 0x8UL });
-            public static readonly BitSet _RR_SP_in_op_ldhl1002 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ldhl1004 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _expression_in_op_ldhl1007 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_LDIO_in_op_ldio1016 = new BitSet(new ulong[] { 0x0UL, 0x2000080000000UL });
-            public static readonly BitSet _mem_ref_xp_in_op_ldio1021 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ldio1023 = new BitSet(new ulong[] { 0x0UL, 0x2000000000000UL });
-            public static readonly BitSet _REG_A_in_op_ldio1026 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _REG_A_in_op_ldio1030 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ldio1032 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL });
-            public static readonly BitSet _mem_ref_xp_in_op_ldio1035 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_LDD_in_op_ldd1046 = new BitSet(new ulong[] { 0x0UL, 0x2000080000000UL });
-            public static readonly BitSet _rr_ref_hl_in_op_ldd1051 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ldd1053 = new BitSet(new ulong[] { 0x0UL, 0x2000000000000UL });
-            public static readonly BitSet _REG_A_in_op_ldd1056 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _REG_A_in_op_ldd1060 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ldd1062 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL });
-            public static readonly BitSet _rr_ref_hl_in_op_ldd1065 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_LDI_in_op_ldi1076 = new BitSet(new ulong[] { 0x0UL, 0x2000080000000UL });
-            public static readonly BitSet _rr_ref_hl_in_op_ldi1081 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ldi1083 = new BitSet(new ulong[] { 0x0UL, 0x2000000000000UL });
-            public static readonly BitSet _REG_A_in_op_ldi1086 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _REG_A_in_op_ldi1090 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ldi1092 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL });
-            public static readonly BitSet _rr_ref_hl_in_op_ldi1095 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_LD_in_op_ld1106 = new BitSet(new ulong[] { 0x0UL, 0x70FE000080000000UL, 0x8UL });
-            public static readonly BitSet _REG_A_in_op_ld1111 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ld1113 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
-            public static readonly BitSet _r8_in_op_ld1117 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _expression_in_op_ld1119 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _mem_ref_in_op_ld1121 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _set_in_op_ld1132 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ld1146 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
-            public static readonly BitSet _arith_opt_in_op_ld1149 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _set_in_op_ld1159 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ld1167 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _expression_in_op_ld1170 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _RR_SP_in_op_ld1180 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ld1182 = new BitSet(new ulong[] { 0x40000000040UL, 0x4000014100000000UL, 0x400UL });
-            public static readonly BitSet _RR_HL_in_op_ld1186 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _expression_in_op_ld1188 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _rr_ref_c_in_op_ld1200 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _rr_ref_bc_in_op_ld1202 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _rr_ref_de_in_op_ld1204 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ld1207 = new BitSet(new ulong[] { 0x0UL, 0x2000000000000UL });
-            public static readonly BitSet _REG_A_in_op_ld1210 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _rr_ref_hl_in_op_ld1220 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ld1222 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014100000000UL, 0x400UL });
-            public static readonly BitSet _r8_in_op_ld1226 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _expression_in_op_ld1228 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _mem_ref_xp_in_op_ld1239 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_ld1241 = new BitSet(new ulong[] { 0x0UL, 0x2000000000000UL, 0x8UL });
-            public static readonly BitSet _set_in_op_ld1244 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_NOP_in_op_nop1259 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_OR_in_op_or1269 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
-            public static readonly BitSet _REG_A_in_op_or1273 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_or1275 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
-            public static readonly BitSet _arith_opt_in_op_or1280 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_POP_in_op_pop1289 = new BitSet(new ulong[] { 0x0UL, 0x7800000000000000UL });
-            public static readonly BitSet _set_in_op_pop1292 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_PUSH_in_op_push1309 = new BitSet(new ulong[] { 0x0UL, 0x7800000000000000UL });
-            public static readonly BitSet _set_in_op_push1312 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_RES_in_op_res1329 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _expression_in_op_res1332 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_res1334 = new BitSet(new ulong[] { 0x0UL, 0xFE000080000000UL });
-            public static readonly BitSet _r8_in_op_res1338 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _rr_ref_hl_in_op_res1340 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_RET_in_op_ret1350 = new BitSet(new ulong[] { 0x38002UL, 0x8000000000000UL });
-            public static readonly BitSet _cond_opt_in_op_ret1353 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_RETI_in_op_reti1363 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_RL_in_op_rl1373 = new BitSet(new ulong[] { 0x0UL, 0xFE000080000000UL });
-            public static readonly BitSet _r8_in_op_rl1377 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _rr_ref_hl_in_op_rl1379 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_RLA_in_op_rla1389 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_RLC_in_op_rlc1399 = new BitSet(new ulong[] { 0x0UL, 0xFE000080000000UL });
-            public static readonly BitSet _r8_in_op_rlc1403 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _rr_ref_hl_in_op_rlc1405 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_RLCA_in_op_rlca1415 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_RR_in_op_rr1425 = new BitSet(new ulong[] { 0x0UL, 0xFE000080000000UL });
-            public static readonly BitSet _r8_in_op_rr1429 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _rr_ref_hl_in_op_rr1431 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_RRA_in_op_rra1441 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_RRC_in_op_rrc1451 = new BitSet(new ulong[] { 0x0UL, 0xFE000080000000UL });
-            public static readonly BitSet _r8_in_op_rrc1455 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _rr_ref_hl_in_op_rrc1457 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_RRCA_in_op_rrca1467 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_RST_in_op_rst1477 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _expression_in_op_rst1480 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_SBC_in_op_sbc1489 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
-            public static readonly BitSet _REG_A_in_op_sbc1493 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_sbc1495 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
-            public static readonly BitSet _arith_opt_in_op_sbc1500 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_SCF_in_op_scf1509 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_SET_in_op_set1519 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _expression_in_op_set1522 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_set1524 = new BitSet(new ulong[] { 0x0UL, 0xFE000080000000UL });
-            public static readonly BitSet _r8_in_op_set1528 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _rr_ref_hl_in_op_set1530 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_SLA_in_op_sla1540 = new BitSet(new ulong[] { 0x0UL, 0xFE000080000000UL });
-            public static readonly BitSet _r8_in_op_sla1544 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _rr_ref_hl_in_op_sla1546 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_SRA_in_op_sra1556 = new BitSet(new ulong[] { 0x0UL, 0xFE000080000000UL });
-            public static readonly BitSet _r8_in_op_sra1560 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _rr_ref_hl_in_op_sra1562 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_SRL_in_op_srl1572 = new BitSet(new ulong[] { 0x0UL, 0xFE000080000000UL });
-            public static readonly BitSet _r8_in_op_srl1576 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _rr_ref_hl_in_op_srl1578 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_STOP_in_op_stop1588 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_SUB_in_op_sub1598 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
-            public static readonly BitSet _REG_A_in_op_sub1602 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_sub1604 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
-            public static readonly BitSet _arith_opt_in_op_sub1609 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_SWAP_in_op_swap1618 = new BitSet(new ulong[] { 0x0UL, 0xFE000080000000UL });
-            public static readonly BitSet _r8_in_op_swap1622 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _rr_ref_hl_in_op_swap1624 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _INST_XOR_in_op_xor1634 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
-            public static readonly BitSet _REG_A_in_op_xor1638 = new BitSet(new ulong[] { 0x200000UL });
-            public static readonly BitSet _COMMA_in_op_xor1640 = new BitSet(new ulong[] { 0x40000000040UL, 0xFE014180000000UL, 0x400UL });
-            public static readonly BitSet _arith_opt_in_op_xor1644 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _r8_in_arith_opt1653 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _expression_in_arith_opt1655 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _rr_ref_hl_in_arith_opt1657 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _rr_ref_c_in_mem_ref1682 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _rr_ref_bc_in_mem_ref1690 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _rr_ref_de_in_mem_ref1698 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _rr_ref_hl_in_mem_ref1706 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _mem_ref_xp_in_mem_ref1714 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _LEFT_BRACKET_in_mem_ref_xp1723 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _expression_in_mem_ref_xp1725 = new BitSet(new ulong[] { 0x0UL, 0x100000000000000UL });
-            public static readonly BitSet _RIGHT_BRACKET_in_mem_ref_xp1727 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _cond_exp_in_expression1768 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _bool_or_exp_in_cond_exp1784 = new BitSet(new ulong[] { 0x2UL, 0x1000000000000UL });
-            public static readonly BitSet _QUEST_MARK_in_cond_exp1787 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _bool_or_exp_in_cond_exp1794 = new BitSet(new ulong[] { 0x100000UL });
-            public static readonly BitSet _COLON_MARK_in_cond_exp1796 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _bool_or_exp_in_cond_exp1799 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _bool_and_exp_in_bool_or_exp1809 = new BitSet(new ulong[] { 0x1002UL });
-            public static readonly BitSet _BOOL_OR_MARK_in_bool_or_exp1811 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _bool_and_exp_in_bool_or_exp1818 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _or_exp_in_bool_and_exp1827 = new BitSet(new ulong[] { 0x802UL });
-            public static readonly BitSet _BOOL_AND_MARK_in_bool_and_exp1831 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _or_exp_in_bool_and_exp1838 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _xor_exp_in_or_exp1849 = new BitSet(new ulong[] { 0x102UL });
-            public static readonly BitSet _BAR_MARK_in_or_exp1853 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _xor_exp_in_or_exp1860 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _and_exp_in_xor_exp1871 = new BitSet(new ulong[] { 0x4002UL });
-            public static readonly BitSet _CARET_MARK_in_xor_exp1875 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _and_exp_in_xor_exp1882 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _equals_exp_in_and_exp1893 = new BitSet(new ulong[] { 0x12UL });
-            public static readonly BitSet _AMP_MARK_in_and_exp1896 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _equals_exp_in_and_exp1903 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _compare_exp_in_equals_exp1913 = new BitSet(new ulong[] { 0x40000002UL, 0x8000000000UL });
-            public static readonly BitSet _set_in_equals_exp1916 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _compare_exp_in_equals_exp1925 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _shift_exp_in_compare_exp1935 = new BitSet(new ulong[] { 0x6000000002UL, 0x1800000000UL });
-            public static readonly BitSet _set_in_compare_exp1938 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _shift_exp_in_compare_exp1949 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _add_exp_in_shift_exp1959 = new BitSet(new ulong[] { 0x2UL, 0x400000000UL, 0x10UL });
-            public static readonly BitSet _set_in_shift_exp1963 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _shift_exp_in_shift_exp1972 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _multiply_exp_in_add_exp1983 = new BitSet(new ulong[] { 0x2UL, 0x404000000000UL });
-            public static readonly BitSet _set_in_add_exp1985 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _multiply_exp_in_add_exp1995 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _unary_exp_in_multiply_exp2004 = new BitSet(new ulong[] { 0x400000002UL, 0x200000000000UL, 0x80UL });
-            public static readonly BitSet _set_in_multiply_exp2007 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _unary_exp_in_multiply_exp2018 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _literal_in_unary_exp2028 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _set_in_unary_exp2036 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _unary_exp_in_unary_exp2045 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _ID_in_literal2054 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _NUMBER_in_literal2070 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _LEFT_PARENS_in_literal2078 = new BitSet(new ulong[] { 0x40000000040UL, 0x14100000000UL, 0x400UL });
-            public static readonly BitSet _expression_in_literal2080 = new BitSet(new ulong[] { 0x0UL, 0x200000000000000UL });
-            public static readonly BitSet _RIGHT_PARENS_in_literal2082 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _LEFT_BRACKET_in_rr_ref_hl2095 = new BitSet(new ulong[] { 0x0UL, 0x4000000000000000UL });
-            public static readonly BitSet _RR_HL_in_rr_ref_hl2097 = new BitSet(new ulong[] { 0x0UL, 0x100000000000000UL });
-            public static readonly BitSet _RIGHT_BRACKET_in_rr_ref_hl2099 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _LEFT_BRACKET_in_rr_ref_bc2111 = new BitSet(new ulong[] { 0x0UL, 0x1000000000000000UL });
-            public static readonly BitSet _RR_BC_in_rr_ref_bc2113 = new BitSet(new ulong[] { 0x0UL, 0x100000000000000UL });
-            public static readonly BitSet _RIGHT_BRACKET_in_rr_ref_bc2115 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _LEFT_BRACKET_in_rr_ref_de2127 = new BitSet(new ulong[] { 0x0UL, 0x2000000000000000UL });
-            public static readonly BitSet _RR_DE_in_rr_ref_de2129 = new BitSet(new ulong[] { 0x0UL, 0x100000000000000UL });
-            public static readonly BitSet _RIGHT_BRACKET_in_rr_ref_de2131 = new BitSet(new ulong[] { 0x2UL });
-            public static readonly BitSet _LEFT_BRACKET_in_rr_ref_c2143 = new BitSet(new ulong[] { 0x0UL, 0x8000000000000UL });
-            public static readonly BitSet _REG_C_in_rr_ref_c2145 = new BitSet(new ulong[] { 0x0UL, 0x100000000000000UL });
-            public static readonly BitSet _RIGHT_BRACKET_in_rr_ref_c2147 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _assignment_in_program156 = new BitSet(new ulong[] { 0xFFFFC4000F000002UL, 0x1FFFFFFFUL, 0x1000000000UL });
+            public static readonly BitSet _statement_in_program158 = new BitSet(new ulong[] { 0xFFFFC4000F000002UL, 0x1FFFFFFFUL, 0x1000000000UL });
+            public static readonly BitSet _macro_in_program160 = new BitSet(new ulong[] { 0xFFFFC4000F000002UL, 0x1FFFFFFFUL, 0x1000000000UL });
+            public static readonly BitSet _global_label_in_label187 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _local_label_in_label195 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _ID_in_assignment204 = new BitSet(new ulong[] { 0x30000000UL });
+            public static readonly BitSet _EQUAL_MARK_in_assignment207 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _EQU_in_assignment209 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _expression_in_assignment212 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _label_in_macro232 = new BitSet(new ulong[] { 0x0UL, 0x20000000000UL });
+            public static readonly BitSet _MACROSTART_in_macro234 = new BitSet(new ulong[] { 0xFFFFC4000F000000UL, 0x1001FFFFFFFUL, 0x1000000000UL });
+            public static readonly BitSet _statement_in_macro236 = new BitSet(new ulong[] { 0xFFFFC4000F000000UL, 0x1001FFFFFFFUL, 0x1000000000UL });
+            public static readonly BitSet _MACROEND_in_macro239 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _label_in_statement259 = new BitSet(new ulong[] { 0xFFFFC4000F000000UL, 0x1FFFFFFFUL, 0x1000000000UL });
+            public static readonly BitSet _instruction_in_statement263 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _data_def_in_statement265 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _macro_call_in_statement267 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _ID_in_global_label294 = new BitSet(new ulong[] { 0x100000UL });
+            public static readonly BitSet _COLON_MARK_in_global_label296 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _164_in_local_label316 = new BitSet(new ulong[] { 0x40000000000UL });
+            public static readonly BitSet _ID_in_local_label318 = new BitSet(new ulong[] { 0x2UL, 0x800000000UL });
+            public static readonly BitSet _LOC_LABEL_RAND_in_local_label320 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _set_in_data_def341 = new BitSet(new ulong[] { 0x40000000042UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _expression_in_data_def353 = new BitSet(new ulong[] { 0x200002UL });
+            public static readonly BitSet _COMMA_in_data_def355 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _expression_in_data_def358 = new BitSet(new ulong[] { 0x200002UL });
+            public static readonly BitSet _ID_in_macro_call371 = new BitSet(new ulong[] { 0x40000000042UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _expression_in_macro_call374 = new BitSet(new ulong[] { 0x200002UL });
+            public static readonly BitSet _COMMA_in_macro_call377 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _expression_in_macro_call379 = new BitSet(new ulong[] { 0x200002UL });
+            public static readonly BitSet _op_adc_in_instruction403 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_add_in_instruction411 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_and_in_instruction419 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_bit_in_instruction427 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_call_in_instruction435 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_ccf_in_instruction443 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_cp_in_instruction451 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_cpl_in_instruction459 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_daa_in_instruction467 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_dec_in_instruction475 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_di_in_instruction483 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_ei_in_instruction491 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_halt_in_instruction499 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_inc_in_instruction507 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_jp_in_instruction515 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_jr_in_instruction523 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_ldhl_in_instruction531 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_ldio_in_instruction539 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_ldd_in_instruction547 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_ldi_in_instruction555 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_ld_in_instruction563 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_nop_in_instruction571 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_or_in_instruction579 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_pop_in_instruction587 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_push_in_instruction595 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_res_in_instruction603 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_ret_in_instruction611 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_reti_in_instruction619 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_rl_in_instruction627 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_rla_in_instruction635 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_rlc_in_instruction643 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_rlca_in_instruction651 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_rr_in_instruction659 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_rra_in_instruction667 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_rrc_in_instruction675 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_rrca_in_instruction683 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_rst_in_instruction691 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_sbc_in_instruction699 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_scf_in_instruction707 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_set_in_instruction715 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_sla_in_instruction723 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_sra_in_instruction731 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_srl_in_instruction739 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_stop_in_instruction747 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_sub_in_instruction755 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_swap_in_instruction763 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _op_xor_in_instruction771 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_ADC_in_op_adc782 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00280000000UL, 0x80000FEUL });
+            public static readonly BitSet _REG_A_in_op_adc786 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_adc788 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00280000000UL, 0x80000FEUL });
+            public static readonly BitSet _arith_opt_in_op_adc793 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_ADD_in_op_add802 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00280000000UL, 0x81080FEUL });
+            public static readonly BitSet _REG_A_in_op_add808 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_add810 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00280000000UL, 0x80000FEUL });
+            public static readonly BitSet _arith_opt_in_op_add815 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _RR_HL_in_op_add819 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_add821 = new BitSet(new ulong[] { 0x0UL, 0x0UL, 0x10E000UL });
+            public static readonly BitSet _set_in_op_add824 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _RR_SP_in_op_add836 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_add838 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _expression_in_op_add841 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_AND_in_op_and852 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00280000000UL, 0x80000FEUL });
+            public static readonly BitSet _REG_A_in_op_and856 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_and858 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00280000000UL, 0x80000FEUL });
+            public static readonly BitSet _arith_opt_in_op_and863 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_BIT_in_op_bit872 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _expression_in_op_bit875 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_bit877 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL, 0xFEUL });
+            public static readonly BitSet _r8_in_op_bit881 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _rr_ref_hl_in_op_bit883 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_CALL_in_op_call893 = new BitSet(new ulong[] { 0x40000038000UL, 0x0UL, 0x8UL });
+            public static readonly BitSet _cond_opt_in_op_call897 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_call899 = new BitSet(new ulong[] { 0x40000000000UL });
+            public static readonly BitSet _ID_in_op_call904 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_CCF_in_op_ccf913 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_CP_in_op_cp923 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00280000000UL, 0x80000FEUL });
+            public static readonly BitSet _REG_A_in_op_cp927 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_cp929 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00280000000UL, 0x80000FEUL });
+            public static readonly BitSet _arith_opt_in_op_cp934 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_CPL_in_op_cpl943 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_DAA_in_op_daa953 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_DEC_in_op_dec963 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL, 0x10E0FEUL });
+            public static readonly BitSet _RR_BC_in_op_dec967 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _RR_DE_in_op_dec969 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _RR_HL_in_op_dec971 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _RR_SP_in_op_dec973 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _r8_in_op_dec975 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _rr_ref_hl_in_op_dec977 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_DI_in_op_di987 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_EI_in_op_ei997 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_HALT_in_op_halt1007 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_INC_in_op_inc1017 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL, 0x10E0FEUL });
+            public static readonly BitSet _RR_BC_in_op_inc1021 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _RR_DE_in_op_inc1023 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _RR_HL_in_op_inc1025 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _RR_SP_in_op_inc1027 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _r8_in_op_inc1029 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _rr_ref_hl_in_op_inc1031 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_JP_in_op_jp1041 = new BitSet(new ulong[] { 0x40000038000UL, 0x0UL, 0x1000008008UL });
+            public static readonly BitSet _cond_opt_in_op_jp1047 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_jp1049 = new BitSet(new ulong[] { 0x40000000000UL, 0x0UL, 0x1000000000UL });
+            public static readonly BitSet _ID_in_op_jp1055 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _local_label_in_op_jp1057 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _RR_HL_in_op_jp1061 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_JR_in_op_jr1071 = new BitSet(new ulong[] { 0x40000038000UL, 0x0UL, 0x1000000008UL });
+            public static readonly BitSet _cond_opt_in_op_jr1075 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_jr1077 = new BitSet(new ulong[] { 0x40000000000UL, 0x0UL, 0x1000000000UL });
+            public static readonly BitSet _ID_in_op_jr1083 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _local_label_in_op_jr1085 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_LDHL_in_op_ldhl1095 = new BitSet(new ulong[] { 0x0UL, 0x0UL, 0x100000UL });
+            public static readonly BitSet _RR_SP_in_op_ldhl1098 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_ldhl1100 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _expression_in_op_ldhl1103 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_LDIO_in_op_ldio1112 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL, 0x2UL });
+            public static readonly BitSet _mem_ref_xp_in_op_ldio1117 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_ldio1119 = new BitSet(new ulong[] { 0x0UL, 0x0UL, 0x2UL });
+            public static readonly BitSet _REG_A_in_op_ldio1122 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _REG_A_in_op_ldio1126 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_ldio1128 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL });
+            public static readonly BitSet _mem_ref_xp_in_op_ldio1131 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_LDD_in_op_ldd1142 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL, 0x2UL });
+            public static readonly BitSet _rr_ref_hl_in_op_ldd1147 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_ldd1149 = new BitSet(new ulong[] { 0x0UL, 0x0UL, 0x2UL });
+            public static readonly BitSet _REG_A_in_op_ldd1152 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _REG_A_in_op_ldd1156 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_ldd1158 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL });
+            public static readonly BitSet _rr_ref_hl_in_op_ldd1161 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_LDI_in_op_ldi1172 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL, 0x2UL });
+            public static readonly BitSet _rr_ref_hl_in_op_ldi1177 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_ldi1179 = new BitSet(new ulong[] { 0x0UL, 0x0UL, 0x2UL });
+            public static readonly BitSet _REG_A_in_op_ldi1182 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _REG_A_in_op_ldi1186 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_ldi1188 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL });
+            public static readonly BitSet _rr_ref_hl_in_op_ldi1191 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_LD_in_op_ld1202 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL, 0x10E0FEUL });
+            public static readonly BitSet _REG_A_in_op_ld1207 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_ld1209 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00280000000UL, 0x80000FEUL });
+            public static readonly BitSet _r8_in_op_ld1213 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _expression_in_op_ld1215 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _mem_ref_in_op_ld1217 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _set_in_op_ld1228 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_ld1242 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00280000000UL, 0x80000FEUL });
+            public static readonly BitSet _arith_opt_in_op_ld1245 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _set_in_op_ld1255 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_ld1263 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _expression_in_op_ld1266 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _RR_SP_in_op_ld1276 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_ld1278 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8008000UL });
+            public static readonly BitSet _RR_HL_in_op_ld1282 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _expression_in_op_ld1284 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _rr_ref_c_in_op_ld1296 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _rr_ref_bc_in_op_ld1298 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _rr_ref_de_in_op_ld1300 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_ld1303 = new BitSet(new ulong[] { 0x0UL, 0x0UL, 0x2UL });
+            public static readonly BitSet _REG_A_in_op_ld1306 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _rr_ref_hl_in_op_ld1316 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_ld1318 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x80000FEUL });
+            public static readonly BitSet _r8_in_op_ld1322 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _expression_in_op_ld1324 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _mem_ref_xp_in_op_ld1335 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_ld1337 = new BitSet(new ulong[] { 0x0UL, 0x0UL, 0x100002UL });
+            public static readonly BitSet _set_in_op_ld1340 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_NOP_in_op_nop1355 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_OR_in_op_or1365 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00280000000UL, 0x80000FEUL });
+            public static readonly BitSet _REG_A_in_op_or1369 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_or1371 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00280000000UL, 0x80000FEUL });
+            public static readonly BitSet _arith_opt_in_op_or1376 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_POP_in_op_pop1385 = new BitSet(new ulong[] { 0x0UL, 0x0UL, 0xF000UL });
+            public static readonly BitSet _set_in_op_pop1388 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_PUSH_in_op_push1405 = new BitSet(new ulong[] { 0x0UL, 0x0UL, 0xF000UL });
+            public static readonly BitSet _set_in_op_push1408 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_RES_in_op_res1425 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _expression_in_op_res1428 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_res1430 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL, 0xFEUL });
+            public static readonly BitSet _r8_in_op_res1434 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _rr_ref_hl_in_op_res1436 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_RET_in_op_ret1446 = new BitSet(new ulong[] { 0x38002UL, 0x0UL, 0x8UL });
+            public static readonly BitSet _cond_opt_in_op_ret1449 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_RETI_in_op_reti1459 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_RL_in_op_rl1469 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL, 0xFEUL });
+            public static readonly BitSet _r8_in_op_rl1473 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _rr_ref_hl_in_op_rl1475 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_RLA_in_op_rla1485 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_RLC_in_op_rlc1495 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL, 0xFEUL });
+            public static readonly BitSet _r8_in_op_rlc1499 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _rr_ref_hl_in_op_rlc1501 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_RLCA_in_op_rlca1511 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_RR_in_op_rr1521 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL, 0xFEUL });
+            public static readonly BitSet _r8_in_op_rr1525 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _rr_ref_hl_in_op_rr1527 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_RRA_in_op_rra1537 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_RRC_in_op_rrc1547 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL, 0xFEUL });
+            public static readonly BitSet _r8_in_op_rrc1551 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _rr_ref_hl_in_op_rrc1553 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_RRCA_in_op_rrca1563 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_RST_in_op_rst1573 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _expression_in_op_rst1576 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_SBC_in_op_sbc1585 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00280000000UL, 0x80000FEUL });
+            public static readonly BitSet _REG_A_in_op_sbc1589 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_sbc1591 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00280000000UL, 0x80000FEUL });
+            public static readonly BitSet _arith_opt_in_op_sbc1596 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_SCF_in_op_scf1605 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_SET_in_op_set1615 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _expression_in_op_set1618 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_set1620 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL, 0xFEUL });
+            public static readonly BitSet _r8_in_op_set1624 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _rr_ref_hl_in_op_set1626 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_SLA_in_op_sla1636 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL, 0xFEUL });
+            public static readonly BitSet _r8_in_op_sla1640 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _rr_ref_hl_in_op_sla1642 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_SRA_in_op_sra1652 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL, 0xFEUL });
+            public static readonly BitSet _r8_in_op_sra1656 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _rr_ref_hl_in_op_sra1658 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_SRL_in_op_srl1668 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL, 0xFEUL });
+            public static readonly BitSet _r8_in_op_srl1672 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _rr_ref_hl_in_op_srl1674 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_STOP_in_op_stop1684 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_SUB_in_op_sub1694 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00280000000UL, 0x80000FEUL });
+            public static readonly BitSet _REG_A_in_op_sub1698 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_sub1700 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00280000000UL, 0x80000FEUL });
+            public static readonly BitSet _arith_opt_in_op_sub1705 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_SWAP_in_op_swap1714 = new BitSet(new ulong[] { 0x0UL, 0x80000000UL, 0xFEUL });
+            public static readonly BitSet _r8_in_op_swap1718 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _rr_ref_hl_in_op_swap1720 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _INST_XOR_in_op_xor1730 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00280000000UL, 0x80000FEUL });
+            public static readonly BitSet _REG_A_in_op_xor1734 = new BitSet(new ulong[] { 0x200000UL });
+            public static readonly BitSet _COMMA_in_op_xor1736 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00280000000UL, 0x80000FEUL });
+            public static readonly BitSet _arith_opt_in_op_xor1740 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _r8_in_arith_opt1749 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _expression_in_arith_opt1751 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _rr_ref_hl_in_arith_opt1753 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _rr_ref_c_in_mem_ref1778 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _rr_ref_bc_in_mem_ref1786 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _rr_ref_de_in_mem_ref1794 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _rr_ref_hl_in_mem_ref1802 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _mem_ref_xp_in_mem_ref1810 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _LEFT_BRACKET_in_mem_ref_xp1819 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _expression_in_mem_ref_xp1821 = new BitSet(new ulong[] { 0x0UL, 0x0UL, 0x100UL });
+            public static readonly BitSet _RIGHT_BRACKET_in_mem_ref_xp1823 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _cond_exp_in_expression1863 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _bool_or_exp_in_cond_exp1879 = new BitSet(new ulong[] { 0x2UL, 0x0UL, 0x1UL });
+            public static readonly BitSet _QUEST_MARK_in_cond_exp1882 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _bool_or_exp_in_cond_exp1889 = new BitSet(new ulong[] { 0x100000UL });
+            public static readonly BitSet _COLON_MARK_in_cond_exp1891 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _bool_or_exp_in_cond_exp1894 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _bool_and_exp_in_bool_or_exp1904 = new BitSet(new ulong[] { 0x1002UL });
+            public static readonly BitSet _BOOL_OR_MARK_in_bool_or_exp1906 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _bool_and_exp_in_bool_or_exp1913 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _or_exp_in_bool_and_exp1922 = new BitSet(new ulong[] { 0x802UL });
+            public static readonly BitSet _BOOL_AND_MARK_in_bool_and_exp1926 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _or_exp_in_bool_and_exp1933 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _xor_exp_in_or_exp1944 = new BitSet(new ulong[] { 0x102UL });
+            public static readonly BitSet _BAR_MARK_in_or_exp1948 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _xor_exp_in_or_exp1955 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _and_exp_in_xor_exp1966 = new BitSet(new ulong[] { 0x4002UL });
+            public static readonly BitSet _CARET_MARK_in_xor_exp1970 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _and_exp_in_xor_exp1977 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _equals_exp_in_and_exp1988 = new BitSet(new ulong[] { 0x12UL });
+            public static readonly BitSet _AMP_MARK_in_and_exp1991 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _equals_exp_in_and_exp1998 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _compare_exp_in_equals_exp2008 = new BitSet(new ulong[] { 0x40000002UL, 0x80000000000000UL });
+            public static readonly BitSet _set_in_equals_exp2011 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _compare_exp_in_equals_exp2020 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _shift_exp_in_compare_exp2030 = new BitSet(new ulong[] { 0x6000000002UL, 0x6000000000UL });
+            public static readonly BitSet _set_in_compare_exp2033 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _shift_exp_in_compare_exp2044 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _add_exp_in_shift_exp2054 = new BitSet(new ulong[] { 0x2UL, 0x1000000000UL, 0x200000UL });
+            public static readonly BitSet _set_in_shift_exp2058 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _shift_exp_in_shift_exp2067 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _multiply_exp_in_add_exp2078 = new BitSet(new ulong[] { 0x2UL, 0x4000200000000000UL });
+            public static readonly BitSet _set_in_add_exp2080 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _multiply_exp_in_add_exp2090 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _unary_exp_in_multiply_exp2099 = new BitSet(new ulong[] { 0x400000002UL, 0x2000000000000000UL, 0x1000000UL });
+            public static readonly BitSet _set_in_multiply_exp2102 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _unary_exp_in_multiply_exp2113 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _literal_in_unary_exp2123 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _set_in_unary_exp2131 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _unary_exp_in_unary_exp2140 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _macro_argument_in_literal2149 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _ID_in_literal2157 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _NUMBER_in_literal2173 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _LEFT_PARENS_in_literal2181 = new BitSet(new ulong[] { 0x40000000040UL, 0x17FE00200000000UL, 0x8000000UL });
+            public static readonly BitSet _expression_in_literal2183 = new BitSet(new ulong[] { 0x0UL, 0x0UL, 0x400UL });
+            public static readonly BitSet _RIGHT_PARENS_in_literal2185 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _M_ARG1_in_macro_argument2197 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _M_ARG2_in_macro_argument2213 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _M_ARG3_in_macro_argument2229 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _M_ARG4_in_macro_argument2245 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _M_ARG5_in_macro_argument2261 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _M_ARG6_in_macro_argument2277 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _M_ARG7_in_macro_argument2293 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _M_ARG8_in_macro_argument2309 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _M_ARG9_in_macro_argument2325 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _LEFT_BRACKET_in_rr_ref_hl2341 = new BitSet(new ulong[] { 0x0UL, 0x0UL, 0x8000UL });
+            public static readonly BitSet _RR_HL_in_rr_ref_hl2343 = new BitSet(new ulong[] { 0x0UL, 0x0UL, 0x100UL });
+            public static readonly BitSet _RIGHT_BRACKET_in_rr_ref_hl2345 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _LEFT_BRACKET_in_rr_ref_bc2357 = new BitSet(new ulong[] { 0x0UL, 0x0UL, 0x2000UL });
+            public static readonly BitSet _RR_BC_in_rr_ref_bc2359 = new BitSet(new ulong[] { 0x0UL, 0x0UL, 0x100UL });
+            public static readonly BitSet _RIGHT_BRACKET_in_rr_ref_bc2361 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _LEFT_BRACKET_in_rr_ref_de2373 = new BitSet(new ulong[] { 0x0UL, 0x0UL, 0x4000UL });
+            public static readonly BitSet _RR_DE_in_rr_ref_de2375 = new BitSet(new ulong[] { 0x0UL, 0x0UL, 0x100UL });
+            public static readonly BitSet _RIGHT_BRACKET_in_rr_ref_de2377 = new BitSet(new ulong[] { 0x2UL });
+            public static readonly BitSet _LEFT_BRACKET_in_rr_ref_c2389 = new BitSet(new ulong[] { 0x0UL, 0x0UL, 0x8UL });
+            public static readonly BitSet _REG_C_in_rr_ref_c2391 = new BitSet(new ulong[] { 0x0UL, 0x0UL, 0x100UL });
+            public static readonly BitSet _RIGHT_BRACKET_in_rr_ref_c2393 = new BitSet(new ulong[] { 0x2UL });
         }
 
         #endregion Follow sets

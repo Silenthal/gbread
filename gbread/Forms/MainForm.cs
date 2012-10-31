@@ -6,6 +6,7 @@
     using System.Threading;
     using System.Windows.Forms;
     using GBRead.Base;
+    using GBRead.Patch;
     using ICSharpCode.AvalonEdit;
 
     public partial class MainForm : Form
@@ -663,6 +664,47 @@
             {
                 var af = new AddCommentForm(labelContainer, LabelEditMode.Add);
                 af.ShowDialog();
+            }
+            else
+            {
+                Error.ShowErrorMessage(ErrorMessage.NO_FILE);
+            }
+        }
+
+        private void iPSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (romFile.FileLoaded)
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Title = "Open original file";
+                ofd.Filter = "GB/GBC Files|*.gb;*.gbc|All Files|*";
+                ofd.FileName = "";
+                if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    byte[] orig = File.ReadAllBytes(ofd.FileName);
+                    if (orig.Length != romFile.Length)
+                    {
+                        Error.ShowErrorMessage(ErrorMessage.IPS_FileSizeMismatch);
+                    }
+                    SaveFileDialog afd = new SaveFileDialog();
+                    afd.Title = "Save IPS File...";
+                    afd.Filter = "GB/GBC Files|*.gb;*.gbc|All Files|*";
+                    afd.FileName = "";
+                    if (afd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        IPS ips = new IPS();
+                        ErrorMessage emt = ips.GenerateIPS(orig, romFile.MainFile);
+                        if (emt != ErrorMessage.NO_ERROR)
+                        {
+                            File.WriteAllBytes(afd.FileName, ips.GetIPS());
+                            MessageBox.Show("Patch successfuly written to " + Environment.NewLine + afd.FileName);
+                        }
+                        else
+                        {
+                            Error.ShowErrorMessage(emt);
+                        }
+                    }
+                }
             }
             else
             {

@@ -84,6 +84,8 @@
             this.addCommentButton = new System.Windows.Forms.Button();
             this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
             this.textBoxHost1 = new GBRead.TextBoxHost();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.funcLabelBoxContextMenu.SuspendLayout();
             this.funcLabelBoxContextMenu2.SuspendLayout();
@@ -115,6 +117,7 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
             this.saveChangedFileToolStripMenuItem,
+            this.saveAsToolStripMenuItem,
             this.toolStripSeparator2,
             this.loadFunctionListToolStripMenuItem,
             this.saveCalledFunctionsListToolStripMenuItem,
@@ -587,6 +590,21 @@
             this.elementHost2.Text = "elementHost2";
             this.elementHost2.Child = this.textBoxHost1;
             // 
+            // saveAsToolStripMenuItem
+            // 
+            this.saveAsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.iPSToolStripMenuItem});
+            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.saveAsToolStripMenuItem.Text = "Save As...";
+            // 
+            // iPSToolStripMenuItem
+            // 
+            this.iPSToolStripMenuItem.Name = "iPSToolStripMenuItem";
+            this.iPSToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.iPSToolStripMenuItem.Text = "IPS";
+            this.iPSToolStripMenuItem.Click += new System.EventHandler(this.iPSToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -681,6 +699,8 @@
         private System.Windows.Forms.Button addCommentButton;
         private System.Windows.Forms.Integration.ElementHost elementHost2;
         private TextBoxHost textBoxHost1;
+        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iPSToolStripMenuItem;
     }
 }
 

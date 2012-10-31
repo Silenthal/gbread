@@ -9,8 +9,8 @@
         private Dictionary<string, long> variableDict = new Dictionary<string, long>();
         private Dictionary<string, long> callDict = new Dictionary<string, long>();
         private List<SymEntry> symFillTable = new List<SymEntry>();
-
         private CodeGenerator codeGen = new CodeGenerator();
+        private Dictionary<string, ITree> macroDict = new Dictionary<string, ITree>();
 
         private LabelContainer lc;
 
@@ -29,6 +29,12 @@
             lc = newlc;
         }
 
+        public byte[] EvaluateMacro(int baseOffset, string input, ref CompError error, out bool success)
+        {
+            success = false;
+            return new byte[1];
+        }
+
         public byte[] AssembleASM(int baseOffset, string input, ref CompError error, out bool success)
         {
             // TODO: stress test assembling.
@@ -43,6 +49,7 @@
             variableDict.Clear();
             callDict.Clear();
             symFillTable.Clear();
+            macroDict.Clear();
 
             foreach (FunctionLabel kvp in lc.FuncList)
             {
@@ -83,15 +90,26 @@
 
             #endregion Build AST
 
+            if (!EvaluateAST(syntaxTree, baseOffset, input, ref error))
+            {
+                return new byte[1];
+            }
+            success = true;
+            return codeGen.StreamToArray();
+        }
+
+        private bool EvaluateAST(ITree syntaxTree, int baseOffset, string input, ref CompError error, bool isMacro = false, List<ITree> macroArgs = null)
+        {
             string ExpressionToken = "EXPRESSION";
             string HLRefToken = "RR_REF_HL";
             string MemRefToken = "MEM_REF";
             string AssignmentToken = "ASSIGNMENT";
+            string MacroToken = "MACRO";
 
             // ROOT -> STATEMENT*
             if (syntaxTree.ChildCount != 0)
             {
-                foreach (ITree statementTree in syntaxTree.Children)
+                foreach (ITree statementTree in ((CommonTree)syntaxTree).Children)
                 {
                     if (statementTree.Text == AssignmentToken)
                     {
@@ -104,10 +122,10 @@
                             error.lineNumber = statementTree.GetChild(0).Line;
                             error.characterNumber = statementTree.GetChild(0).CharPositionInLine;
                             error.extraInfo1 = idName;
-                            return new byte[1];
+                            return false;
                         }
                         var result = 0L;
-                        ErrorMessage emt = Evaluate(idValue, out result);
+                        ErrorMessage emt = EvaluateExpression(idValue, out result, isMacro, macroArgs);
                         if (emt == ErrorMessage.NO_ERROR)
                         {
                             variableDict.Add(idName, result);
@@ -118,8 +136,19 @@
                             error.lineNumber = idValue.Line;
                             error.characterNumber = idValue.CharPositionInLine;
                             error.errorMessage = emt;
-                            return new byte[1];
+                            return false;
                         }
+                    }
+                    else if (statementTree.Text == MacroToken)
+                    {
+                        var macroName = statementTree.GetChild(0).GetChild(0).Text;
+
+                        if (macroDict.ContainsKey(macroName))
+                        {
+                            MakeErrorMessage(statementTree.GetChild(0), ErrorMessage.Build_MacroAlreadyDefined, ref error);
+                            return false;
+                        }
+                        macroDict.Add(macroName, statementTree);
                     }
                     else
                     {
@@ -136,7 +165,7 @@
                                 if (callDict.ContainsKey(labelName))
                                 {
                                     error = new CompError("", labelTree.Line, ErrorMessage.LABEL_ALREADY_DEFINED, labelName);
-                                    return new byte[1];
+                                    return false;
                                 }
                                 else
                                 {
@@ -148,14 +177,40 @@
 
                         switch (instField.Text)
                         {
+                            case "MACRO_CALL":
+                                {
+                                    if (!macroDict.ContainsKey(instField.GetChild(0).Text))
+                                    {
+                                        MakeErrorMessage(instField.GetChild(0), ErrorMessage.Build_MacroDoesNotExist, ref error);
+                                        return false;
+                                    }
+                                    else
+                                    {
+                                        List<ITree> macArgList = null;
+                                        if (instField.ChildCount > 1)
+                                        {
+                                            macArgList = new List<ITree>();
+                                            for (int i = 1; i < instField.ChildCount; i++)
+                                            {
+                                                macArgList.Add(instField.GetChild(i));
+                                            }
+                                        }
+                                        if (!EvaluateAST(macroDict[instField.GetChild(0).Text], baseOffset, input, ref error, true, macArgList))
+                                        {
+                                            return false;
+                                        }
+                                    }
+                                }
+                                break;
+
                             case "adc":
                                 {
                                     var arg = instField.ChildCount == 1 ? instField.GetChild(0) : instField.GetChild(1);
                                     if (arg.Text == ExpressionToken)
                                     {
-                                        if (!EvalArithArgFunc(codeGen.EmitAdcN, arg, ref error))
+                                        if (!EvalArithArgFunc(codeGen.EmitAdcN, arg, ref error, isMacro, macroArgs))
                                         {
-                                            return new byte[1];
+                                            return false;
                                         }
                                     }
                                     else
@@ -172,9 +227,9 @@
                                         var arg = instField.GetChild(0);
                                         if (arg.Text == ExpressionToken)
                                         {
-                                            if (!EvalArithArgFunc(codeGen.EmitAddN, arg, ref error))
+                                            if (!EvalArithArgFunc(codeGen.EmitAddN, arg, ref error, isMacro, macroArgs))
                                             {
-                                                return new byte[1];
+                                                return false;
                                             }
                                         }
                                         else
@@ -190,9 +245,9 @@
                                         {
                                             if (arg2.Text == ExpressionToken)
                                             {
-                                                if (!EvalArithArgFunc(codeGen.EmitAddN, arg2, ref error))
+                                                if (!EvalArithArgFunc(codeGen.EmitAddN, arg2, ref error, isMacro, macroArgs))
                                                 {
-                                                    return new byte[1];
+                                                    return false;
                                                 }
                                             }
                                             else
@@ -206,9 +261,9 @@
                                         }
                                         else
                                         {
-                                            if (!EvalArithArgFunc(codeGen.EmitAddSPN, arg2, ref error))
+                                            if (!EvalArithArgFunc(codeGen.EmitAddSPN, arg2, ref error, isMacro, macroArgs))
                                             {
-                                                return new byte[1];
+                                                return false;
                                             }
                                         }
                                     }
@@ -220,9 +275,9 @@
                                     var arg = instField.ChildCount == 1 ? instField.GetChild(0) : instField.GetChild(1);
                                     if (arg.Text == ExpressionToken)
                                     {
-                                        if (!EvalArithArgFunc(codeGen.EmitAndN, arg, ref error))
+                                        if (!EvalArithArgFunc(codeGen.EmitAndN, arg, ref error, isMacro, macroArgs))
                                         {
-                                            return new byte[1];
+                                            return false;
                                         }
                                     }
                                     else
@@ -236,9 +291,9 @@
                                 {
                                     var arg = instField.GetChild(0);
                                     var arg2 = instField.GetChild(1).Text;
-                                    if (!EvalBitFunc(codeGen.EmitBitXR, arg, arg2, ref error))
+                                    if (!EvalBitFunc(codeGen.EmitBitXR, arg, arg2, ref error, isMacro, macroArgs))
                                     {
-                                        return new byte[1];
+                                        return false;
                                     }
                                 }
                                 break;
@@ -282,9 +337,9 @@
                                     var arg = instField.ChildCount == 1 ? instField.GetChild(0) : instField.GetChild(1);
                                     if (arg.Text == ExpressionToken)
                                     {
-                                        if (!EvalArithArgFunc(codeGen.EmitCpN, arg, ref error))
+                                        if (!EvalArithArgFunc(codeGen.EmitCpN, arg, ref error, isMacro, macroArgs))
                                         {
-                                            return new byte[1];
+                                            return false;
                                         }
                                     }
                                     else
@@ -304,36 +359,36 @@
 
                             case "db":
                                 {
-                                    if (!EvalDataFunc(codeGen.EmitByte, instField, ref error))
+                                    if (!EvalDataFunc(codeGen.EmitByte, instField, ref error, isMacro, macroArgs))
                                     {
-                                        return new byte[1];
+                                        return false;
                                     }
                                 }
                                 break;
 
                             case "dw":
                                 {
-                                    if (!EvalDataFunc(codeGen.EmitWord, instField, ref error))
+                                    if (!EvalDataFunc(codeGen.EmitWord, instField, ref error, isMacro, macroArgs))
                                     {
-                                        return new byte[1];
+                                        return false;
                                     }
                                 }
                                 break;
 
                             case "dd":
                                 {
-                                    if (!EvalDataFunc(codeGen.EmitDWord, instField, ref error))
+                                    if (!EvalDataFunc(codeGen.EmitDWord, instField, ref error, isMacro, macroArgs))
                                     {
-                                        return new byte[1];
+                                        return false;
                                     }
                                 }
                                 break;
 
                             case "dq":
                                 {
-                                    if (!EvalDataFunc(codeGen.EmitQWord, instField, ref error))
+                                    if (!EvalDataFunc(codeGen.EmitQWord, instField, ref error, isMacro, macroArgs))
                                     {
-                                        return new byte[1];
+                                        return false;
                                     }
                                 }
                                 break;
@@ -367,7 +422,7 @@
                                         default:
                                             {
                                                 MakeErrorMessage(instField.GetChild(0), ErrorMessage.UNKNOWN_ARGUMENT, ref error);
-                                                return new byte[1];
+                                                return false;
                                             }
                                     }
                                 }
@@ -414,7 +469,7 @@
                                         default:
                                             {
                                                 MakeErrorMessage(instField.GetChild(0), ErrorMessage.UNKNOWN_ARGUMENT, ref error);
-                                                return new byte[1];
+                                                return false;
                                             }
                                     }
                                 }
@@ -461,7 +516,7 @@
                                         if (diff < -128 || diff > 127)
                                         {
                                             MakeErrorMessage(arg, ErrorMessage.JR_OUT_OF_RANGE, ref error);
-                                            return new byte[1];
+                                            return false;
                                         }
                                     }
                                     else
@@ -483,9 +538,9 @@
 
                             case "ldhl":
                                 {
-                                    if (!EvalArithArgFunc(codeGen.EmitLdHLSP, instField.GetChild(1), ref error))
+                                    if (!EvalArithArgFunc(codeGen.EmitLdHLSP, instField.GetChild(1), ref error, isMacro, macroArgs))
                                     {
-                                        return new byte[1];
+                                        return false;
                                     }
                                 }
                                 break;
@@ -494,16 +549,16 @@
                                 {
                                     if (instField.GetChild(0).Text == MemRefToken)
                                     {
-                                        if (!EvalArithArgFunc(codeGen.EmitLdioNA, instField.GetChild(0).GetChild(0), ref error))
+                                        if (!EvalArithArgFunc(codeGen.EmitLdioNA, instField.GetChild(0).GetChild(0), ref error, isMacro, macroArgs))
                                         {
-                                            return new byte[1];
+                                            return false;
                                         }
                                     }
                                     else
                                     {
-                                        if (!EvalArithArgFunc(codeGen.EmitLdioAN, instField.GetChild(1).GetChild(0), ref error))
+                                        if (!EvalArithArgFunc(codeGen.EmitLdioAN, instField.GetChild(1).GetChild(0), ref error, isMacro, macroArgs))
                                         {
-                                            return new byte[1];
+                                            return false;
                                         }
                                     }
                                 }
@@ -546,7 +601,7 @@
                                                 if (arg2.Text == ExpressionToken)
                                                 {
                                                     var result = 0L;
-                                                    ErrorMessage emt = Evaluate(arg2, out result);
+                                                    ErrorMessage emt = EvaluateExpression(arg2, out result, isMacro, macroArgs);
                                                     if (emt == ErrorMessage.NO_ERROR)
                                                     {
                                                         codeGen.EmitLdRN("a", result);
@@ -554,13 +609,13 @@
                                                     else
                                                     {
                                                         MakeErrorMessage(arg2, emt, ref error);
-                                                        return new byte[1];
+                                                        return false;
                                                     }
                                                 }
                                                 else if (arg2.Text == MemRefToken)
                                                 {
                                                     var result = 0L;
-                                                    ErrorMessage emt = Evaluate(arg2.GetChild(0), out result);
+                                                    ErrorMessage emt = EvaluateExpression(arg2.GetChild(0), out result, isMacro, macroArgs);
                                                     if (emt == ErrorMessage.NO_ERROR)
                                                     {
                                                         codeGen.EmitLdANRef(result);
@@ -568,7 +623,7 @@
                                                     else
                                                     {
                                                         MakeErrorMessage(arg2, emt, ref error);
-                                                        return new byte[1];
+                                                        return false;
                                                     }
                                                 }
                                                 else
@@ -588,7 +643,7 @@
                                                 if (arg2.Text == ExpressionToken)
                                                 {
                                                     var result = 0L;
-                                                    ErrorMessage emt = Evaluate(arg2, out result);
+                                                    ErrorMessage emt = EvaluateExpression(arg2, out result, isMacro, macroArgs);
                                                     if (emt == ErrorMessage.NO_ERROR)
                                                     {
                                                         codeGen.EmitLdRN(arg1.Text, result);
@@ -596,7 +651,7 @@
                                                     else
                                                     {
                                                         MakeErrorMessage(arg2, emt, ref error);
-                                                        return new byte[1];
+                                                        return false;
                                                     }
                                                 }
                                                 else
@@ -611,7 +666,7 @@
                                         case "hl":
                                             {
                                                 var result = 0L;
-                                                ErrorMessage emt = Evaluate(arg2, out result);
+                                                ErrorMessage emt = EvaluateExpression(arg2, out result, isMacro, macroArgs);
                                                 if (emt == ErrorMessage.NO_ERROR)
                                                 {
                                                     codeGen.EmitLdRRN(arg1.Text, result);
@@ -619,7 +674,7 @@
                                                 else
                                                 {
                                                     MakeErrorMessage(arg2, emt, ref error);
-                                                    return new byte[1];
+                                                    return false;
                                                 }
                                             }
                                             break;
@@ -647,7 +702,7 @@
                                                 if (arg2.Text == ExpressionToken)
                                                 {
                                                     var result = 0L;
-                                                    ErrorMessage emt = Evaluate(arg2, out result);
+                                                    ErrorMessage emt = EvaluateExpression(arg2, out result, isMacro, macroArgs);
                                                     if (emt == ErrorMessage.NO_ERROR)
                                                     {
                                                         codeGen.EmitLdRN(HLRefToken, result);
@@ -655,7 +710,7 @@
                                                     else
                                                     {
                                                         MakeErrorMessage(arg2, emt, ref error);
-                                                        return new byte[1];
+                                                        return false;
                                                     }
                                                 }
                                                 else
@@ -668,7 +723,7 @@
                                         case "MEM_REF":
                                             {
                                                 var result = 0L;
-                                                ErrorMessage emt = Evaluate(arg1.GetChild(0), out result);
+                                                ErrorMessage emt = EvaluateExpression(arg1.GetChild(0), out result, isMacro, macroArgs);
                                                 if (emt == ErrorMessage.NO_ERROR)
                                                 {
                                                     if (arg2.Text == "a")
@@ -683,7 +738,7 @@
                                                 else
                                                 {
                                                     MakeErrorMessage(arg2, emt, ref error);
-                                                    return new byte[1];
+                                                    return false;
                                                 }
                                             }
                                             break;
@@ -693,7 +748,7 @@
                                                 if (arg2.Text == ExpressionToken)
                                                 {
                                                     var result = 0L;
-                                                    ErrorMessage emt = Evaluate(arg2, out result);
+                                                    ErrorMessage emt = EvaluateExpression(arg2, out result, isMacro, macroArgs);
                                                     if (emt == ErrorMessage.NO_ERROR)
                                                     {
                                                         codeGen.EmitLdRRN(arg1.Text, result);
@@ -701,7 +756,7 @@
                                                     else
                                                     {
                                                         MakeErrorMessage(arg2, emt, ref error);
-                                                        return new byte[1];
+                                                        return false;
                                                     }
                                                 }
                                                 else
@@ -726,9 +781,9 @@
                                     var arg = instField.ChildCount == 1 ? instField.GetChild(0) : instField.GetChild(1);
                                     if (arg.Text == ExpressionToken)
                                     {
-                                        if (!EvalArithArgFunc(codeGen.EmitOrN, arg, ref error))
+                                        if (!EvalArithArgFunc(codeGen.EmitOrN, arg, ref error, isMacro, macroArgs))
                                         {
-                                            return new byte[1];
+                                            return false;
                                         }
                                     }
                                     else
@@ -754,9 +809,9 @@
                                 {
                                     var arg = instField.GetChild(0);
                                     var arg2 = instField.GetChild(1).Text;
-                                    if (!EvalBitFunc(codeGen.EmitResXR, arg, arg2, ref error))
+                                    if (!EvalBitFunc(codeGen.EmitResXR, arg, arg2, ref error, isMacro, macroArgs))
                                     {
-                                        return new byte[1];
+                                        return false;
                                     }
                                 }
                                 break;
@@ -812,9 +867,9 @@
 
                             case "rst":
                                 {
-                                    if (!EvalArithArgFunc(codeGen.EmitRst, instField.GetChild(0), ref error))
+                                    if (!EvalArithArgFunc(codeGen.EmitRst, instField.GetChild(0), ref error, isMacro, macroArgs))
                                     {
-                                        return new byte[1];
+                                        return false;
                                     }
                                 }
                                 break;
@@ -824,9 +879,9 @@
                                     var arg = instField.ChildCount == 1 ? instField.GetChild(0) : instField.GetChild(1);
                                     if (arg.Text == ExpressionToken)
                                     {
-                                        if (!EvalArithArgFunc(codeGen.EmitSbcN, arg, ref error))
+                                        if (!EvalArithArgFunc(codeGen.EmitSbcN, arg, ref error, isMacro, macroArgs))
                                         {
-                                            return new byte[1];
+                                            return false;
                                         }
                                     }
                                     else
@@ -844,9 +899,9 @@
                                 {
                                     var arg = instField.GetChild(0);
                                     var arg2 = instField.GetChild(1).Text;
-                                    if (!EvalBitFunc(codeGen.EmitSetXR, arg, arg2, ref error))
+                                    if (!EvalBitFunc(codeGen.EmitSetXR, arg, arg2, ref error, isMacro, macroArgs))
                                     {
-                                        return new byte[1];
+                                        return false;
                                     }
                                 }
                                 break;
@@ -872,9 +927,9 @@
                                     var arg = instField.ChildCount == 1 ? instField.GetChild(0) : instField.GetChild(1);
                                     if (arg.Text == ExpressionToken)
                                     {
-                                        if (!EvalArithArgFunc(codeGen.EmitSubN, arg, ref error))
+                                        if (!EvalArithArgFunc(codeGen.EmitSubN, arg, ref error, isMacro, macroArgs))
                                         {
-                                            return new byte[1];
+                                            return false;
                                         }
                                     }
                                     else
@@ -893,9 +948,9 @@
                                     var arg = instField.ChildCount == 1 ? instField.GetChild(0) : instField.GetChild(1);
                                     if (arg.Text == ExpressionToken)
                                     {
-                                        if (!EvalArithArgFunc(codeGen.EmitXorN, arg, ref error))
+                                        if (!EvalArithArgFunc(codeGen.EmitXorN, arg, ref error, isMacro, macroArgs))
                                         {
-                                            return new byte[1];
+                                            return false;
                                         }
                                     }
                                     else
@@ -922,7 +977,7 @@
                             if (diff < -128 || diff > 127)
                             {
                                 MakeErrorMessage(se, ErrorMessage.JR_OUT_OF_RANGE, ref error);
-                                return new byte[1];
+                                return false;
                             }
                             codeGen.EmitByte(diff);
                         }
@@ -934,12 +989,11 @@
                     else
                     {
                         MakeErrorMessage(se, ErrorMessage.UNKNOWN_ARGUMENT, ref error);
-                        return new byte[0];
+                        return false;
                     }
                 }
             }
-            success = true;
-            return codeGen.StreamToArray();
+            return true;
         }
 
         private void AddSymEntry(ITree arg, bool isJR, long position, long offsetToFill)
@@ -970,7 +1024,9 @@
             error.extraInfo1 = arg.Text;
         }
 
-        private bool EvalDataFunc(CodeGenerator.DataFuncDelegate dataFunc, ITree instField, ref CompError error)
+        #region Evaluation
+
+        private bool EvalDataFunc(CodeGenerator.DataFuncDelegate dataFunc, ITree instField, ref CompError error, bool isMacro, List<ITree> macroArgs)
         {
             if (instField.ChildCount == 0)
             {
@@ -983,7 +1039,7 @@
                 {
                     var arg = instField.GetChild(i);
                     var result = 0L;
-                    ErrorMessage emt = Evaluate(arg, out result);
+                    ErrorMessage emt = EvaluateExpression(arg, out result, isMacro, macroArgs);
                     if (emt == ErrorMessage.NO_ERROR)
                     {
                         dataFunc(result);
@@ -1003,10 +1059,10 @@
             return true;
         }
 
-        private bool EvalArithArgFunc(CodeGenerator.ArithmeticFuncDelegate arithFunc, ITree arg, ref CompError error)
+        private bool EvalArithArgFunc(CodeGenerator.ArithmeticFuncDelegate arithFunc, ITree arg, ref CompError error, bool isMacro, List<ITree> macroArgs)
         {
             var result = 0L;
-            ErrorMessage emt = Evaluate(arg, out result);
+            ErrorMessage emt = EvaluateExpression(arg, out result, isMacro, macroArgs);
             if (emt == ErrorMessage.NO_ERROR)
             {
                 arithFunc(result);
@@ -1019,10 +1075,10 @@
             }
         }
 
-        private bool EvalBitFunc(CodeGenerator.BitFunctionDelegate arithFunc, ITree arg, string reg, ref CompError error)
+        private bool EvalBitFunc(CodeGenerator.BitFunctionDelegate arithFunc, ITree arg, string reg, ref CompError error, bool isMacro, List<ITree> macroArgs)
         {
             var result = 0L;
-            ErrorMessage emt = Evaluate(arg, out result);
+            ErrorMessage emt = EvaluateExpression(arg, out result, isMacro, macroArgs);
             if (emt == ErrorMessage.NO_ERROR)
             {
                 arithFunc(result, reg);
@@ -1035,13 +1091,121 @@
             }
         }
 
-        private ErrorMessage Evaluate(ITree eval, out long result)
+        private ErrorMessage EvaluateExpression(ITree eval, out long result, bool isMacro, List<ITree> macroArgs)
         {
             result = 0;
             if (eval.Text == "EXPRESSION")
             {
                 // If it's on an expression node, then return the evaluation of the result.
-                return Evaluate(eval.GetChild(0), out result);
+                return EvaluateExpression(eval.GetChild(0), out result, isMacro, macroArgs);
+            }
+            else if (eval.Text == "MACRO_ARG")
+            {
+                if (!isMacro)
+                {
+                    return ErrorMessage.Build_MacroArgUsedOutsideOfDef;
+                }
+                else if (macroArgs == null)
+                {
+                    return ErrorMessage.Build_NoMacroArgsPresent;
+                }
+                else
+                {
+                    switch (eval.GetChild(0).Text)
+                    {
+                        case "\\1":
+                            if (macroArgs.Count < 1)
+                            {
+                                return ErrorMessage.Build_NotEnoughMacroArgs;
+                            }
+                            else
+                            {
+                                return EvaluateExpression(macroArgs[0], out result, isMacro, macroArgs);
+                            }
+
+                        case "\\2":
+                            if (macroArgs.Count < 2)
+                            {
+                                return ErrorMessage.Build_NotEnoughMacroArgs;
+                            }
+                            else
+                            {
+                                return EvaluateExpression(macroArgs[1], out result, isMacro, macroArgs);
+                            }
+
+                        case "\\3":
+                            if (macroArgs.Count < 3)
+                            {
+                                return ErrorMessage.Build_NotEnoughMacroArgs;
+                            }
+                            else
+                            {
+                                return EvaluateExpression(macroArgs[2], out result, isMacro, macroArgs);
+                            }
+
+                        case "\\4":
+                            if (macroArgs.Count < 4)
+                            {
+                                return ErrorMessage.Build_NotEnoughMacroArgs;
+                            }
+                            else
+                            {
+                                return EvaluateExpression(macroArgs[3], out result, isMacro, macroArgs);
+                            }
+
+                        case "\\5":
+                            if (macroArgs.Count < 5)
+                            {
+                                return ErrorMessage.Build_NotEnoughMacroArgs;
+                            }
+                            else
+                            {
+                                return EvaluateExpression(macroArgs[4], out result, isMacro, macroArgs);
+                            }
+
+                        case "\\6":
+                            if (macroArgs.Count < 6)
+                            {
+                                return ErrorMessage.Build_NotEnoughMacroArgs;
+                            }
+                            else
+                            {
+                                return EvaluateExpression(macroArgs[5], out result, isMacro, macroArgs);
+                            }
+
+                        case "\\7":
+                            if (macroArgs.Count < 7)
+                            {
+                                return ErrorMessage.Build_NotEnoughMacroArgs;
+                            }
+                            else
+                            {
+                                return EvaluateExpression(macroArgs[6], out result, isMacro, macroArgs);
+                            }
+
+                        case "\\8":
+                            if (macroArgs.Count < 8)
+                            {
+                                return ErrorMessage.Build_NotEnoughMacroArgs;
+                            }
+                            else
+                            {
+                                return EvaluateExpression(macroArgs[7], out result, isMacro, macroArgs);
+                            }
+
+                        case "\\9":
+                            if (macroArgs.Count < 9)
+                            {
+                                return ErrorMessage.Build_NotEnoughMacroArgs;
+                            }
+                            else
+                            {
+                                return EvaluateExpression(macroArgs[8], out result, isMacro, macroArgs);
+                            }
+                        default:
+                            return ErrorMessage.UNKNOWN_ARGUMENT;
+                    }
+                }
             }
             else if (eval.Text == "VAR")
             {
@@ -1074,7 +1238,7 @@
                         }
                     case 1:
                         {
-                            ErrorMessage res = Evaluate(eval.GetChild(0), out res1);
+                            ErrorMessage res = EvaluateExpression(eval.GetChild(0), out res1, isMacro, macroArgs);
                             if (res != ErrorMessage.NO_ERROR)
                             {
                                 return res;
@@ -1096,12 +1260,12 @@
                         }
                     case 2:
                         {
-                            ErrorMessage res = Evaluate(eval.GetChild(0), out res1);
+                            ErrorMessage res = EvaluateExpression(eval.GetChild(0), out res1, isMacro, macroArgs);
                             if (res != ErrorMessage.NO_ERROR)
                             {
                                 return res;
                             }
-                            res = Evaluate(eval.GetChild(1), out res2);
+                            res = EvaluateExpression(eval.GetChild(1), out res2, isMacro, macroArgs);
                             if (res != ErrorMessage.NO_ERROR)
                             {
                                 return res;
@@ -1165,17 +1329,17 @@
                         }
                     case 3:
                         {
-                            ErrorMessage res = Evaluate(eval.GetChild(0), out res1);
+                            ErrorMessage res = EvaluateExpression(eval.GetChild(0), out res1, isMacro, macroArgs);
                             if (res != ErrorMessage.NO_ERROR)
                             {
                                 return res;
                             }
-                            res = Evaluate(eval.GetChild(1), out res2);
+                            res = EvaluateExpression(eval.GetChild(1), out res2, isMacro, macroArgs);
                             if (res != ErrorMessage.NO_ERROR)
                             {
                                 return res;
                             }
-                            res = Evaluate(eval.GetChild(2), out res3);
+                            res = EvaluateExpression(eval.GetChild(2), out res3, isMacro, macroArgs);
                             if (res != ErrorMessage.NO_ERROR)
                             {
                                 return res;
@@ -1194,5 +1358,7 @@
                 }
             }
         }
+
+        #endregion Evaluation
     }
 }

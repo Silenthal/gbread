@@ -85,6 +85,7 @@
   <ItemGroup>
     <Compile Include="Base\GBXLexer.cs" />
     <Compile Include="Base\GBXParser.cs" />
+    <Compile Include="Patch\IPS.cs" />
     <Compile Include="TextBoxHost.xaml.cs">
       <DependentUpon>TextBoxHost.xaml</DependentUpon>
     </Compile>

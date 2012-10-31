@@ -37,6 +37,14 @@ namespace GBRead
         ROW_LENGTH_IS_INVALID,
         VARIABLE_IS_INVALID,
         NumberOverflow,
+        IPS_FileSizeMismatch,
+        IPS_FileSizeTooLarge,
+        IPS_UnknownError,
+        Build_MacroAlreadyDefined,
+        Build_NoMacroArgsPresent,
+        Build_NotEnoughMacroArgs,
+        Build_MacroArgUsedOutsideOfDef,
+        Build_MacroDoesNotExist,
         CUSTOM,
     }
 
@@ -92,6 +100,14 @@ namespace GBRead
             {ErrorMessage.LENGTH_IS_INVALID,            "The length is invalid."}, 
             {ErrorMessage.VARIABLE_IS_INVALID,          "The value is invalid."},
             {ErrorMessage.NumberOverflow,               "The number on this line is too long."},
+            {ErrorMessage.IPS_FileSizeMismatch,         "The two files being patched have different sizes, and are incompatible with IPS."},
+            {ErrorMessage.IPS_FileSizeTooLarge,         "The file being patched is too large, and is incompatible with IPS."},
+            {ErrorMessage.IPS_UnknownError,             "An unknown error occured while making the patch."},
+            {ErrorMessage.Build_MacroAlreadyDefined,    "A macro with this name has already been defined."},
+            {ErrorMessage.Build_NoMacroArgsPresent,     "The macro call wasn't provided with any arguments."},
+            {ErrorMessage.Build_NotEnoughMacroArgs,     "There aren't enough macro arguments to evaluate this expression."},
+            {ErrorMessage.Build_MacroArgUsedOutsideOfDef,"Macro arguments can only be used inside of macro definitions."},
+            {ErrorMessage.Build_MacroDoesNotExist,      "There is no macro with the name \"{0}\"."},
             {ErrorMessage.CUSTOM,                       "{0}"},
         };
         public static void ShowErrorMessage(ErrorMessage errorOptions)

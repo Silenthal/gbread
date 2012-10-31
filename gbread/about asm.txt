@@ -156,3 +156,32 @@ Jump Relative
 Sometimes a jump will be possible, and sometimes it won't, like when the
 offset being jumped to lies outside of the range of jr. For this
 instruction, you can use a label, or an offset, to specify where to jump to.
+
+Macros:
+When you need to encapsulate some code to be inserted anywhere, instead of
+copying/pasting all over the place, you can make a macro to use. To do so:
+MacroName: MACRO
+...instructions...
+ENDM
+
+THe macroname follows the same rules as labels. Macros start and end with
+MACRO and ENDM, respectively. To use a macro, just type its name.
+
+MacroName
+
+You can also include arguments along with the macros. These arguments are
+expressions, and will be evaluated as such. Up to 9 arguments, separated by
+commas, are allowed.
+
+MacroName $10, $20 >> 3, (34 + (%1101 << 4)) * $40
+
+To access an argument inside a macro, use \1, \2, ... \9, for the 1st arg, the
+2nd arg, and so on. Each argument is evaluated as if it has parentheses around
+it, so do not worry about including parentheses around an argument in a macro
+call.
+
+MacroName: MACRO
+ld a,\1
+ld b,\2 << 3
+db \3, \4 * 1000
+ENDM

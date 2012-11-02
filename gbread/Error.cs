@@ -14,7 +14,7 @@ namespace GBRead
         END_INVALID,
         FILE_TOO_LARGE,
         INCORRECT_ARGUMENT, 
-        JR_OUT_OF_RANGE, 
+        Build_JROutOfRange, 
         LABEL_ALREADY_DEFINED, 
         LDD_LDI_HL_A_ONLY, 
         LDHL_SP_OUT_OF_RANGE, 
@@ -47,7 +47,7 @@ namespace GBRead
         Build_MacroDoesNotExist,
         Build_UnknownArgument,
         Build_UnknownError,
-        CUSTOM,
+        General_CustomError,
     }
 
     public struct CompError
@@ -84,7 +84,7 @@ namespace GBRead
             {ErrorMessage.DATA_SINGLE_ARG_UNRECOGNIZED, "This data argument ({0}) is unrecognized."}, 
             {ErrorMessage.DOUBLE_ARG_UNRECOGNIZED,      "This instruction's arguments({0}, {1}) are not recognized."}, 
             {ErrorMessage.INCORRECT_ARGUMENT,           "This instruction has an incorrect argument."}, 
-            {ErrorMessage.JR_OUT_OF_RANGE,              "The jump location cannot be reached from this instruction, because it is either more than 127 bytes ahead, or 128 bytes behind, this instruction."}, 
+            {ErrorMessage.Build_JROutOfRange,              "The jump location cannot be reached from this instruction, because it is either more than 127 bytes ahead, or 128 bytes behind, this instruction."}, 
             {ErrorMessage.LABEL_ALREADY_DEFINED,        "The label {0} is already defined."}, 
             {ErrorMessage.LDD_LDI_HL_A_ONLY,            "The instruction ldi/ldd can only be used with 'a' and '[hl]'"}, 
             {ErrorMessage.LDHL_SP_OUT_OF_RANGE,         "The LDHL SP instruction takes an argument between -128 and 127, or between 0x00 and 0xFF."}, 
@@ -111,7 +111,7 @@ namespace GBRead
             {ErrorMessage.Build_MacroArgUsedOutsideOfDef,"Macro arguments can only be used inside of macro definitions."},
             {ErrorMessage.Build_MacroDoesNotExist,      "There is no macro with the name \"{0}\"."},
             {ErrorMessage.Build_UnknownArgument,        "Unable to evaluate the expression due to an unknown variable."},
-            {ErrorMessage.CUSTOM,                       "{0}"},
+            {ErrorMessage.General_CustomError,                       "{0}"},
         };
         public static void ShowErrorMessage(ErrorMessage errorOptions)
         {

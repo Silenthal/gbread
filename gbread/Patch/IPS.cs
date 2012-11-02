@@ -75,7 +75,7 @@
             WriteChar('E');
             WriteChar('O');
             WriteChar('F');
-            return ErrorMessage.NO_ERROR;
+            return ErrorMessage.General_NoError;
         }
 
         private bool WritePatchRecord(PatchRecord p, byte[] modified)

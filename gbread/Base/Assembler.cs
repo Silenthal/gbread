@@ -12,6 +12,14 @@
         private CodeGenerator codeGen = new CodeGenerator();
         private Dictionary<string, ITree> macroDict = new Dictionary<string, ITree>();
 
+        private static string ExpressionToken = "EXPRESSION";
+        private static string HLRefToken = "RR_REF_HL";
+        private static string MemRefToken = "MEM_REF";
+        private static string AssignmentToken = "ASSIGNMENT";
+        private static string MacroToken = "MACRO";
+        private static string MacroArgToken = "MACRO_ARG";
+        private static string VarToken = "VAR";
+
         private LabelContainer lc;
 
         private struct SymEntry
@@ -27,12 +35,6 @@
         public Assembler(LabelContainer newlc)
         {
             lc = newlc;
-        }
-
-        public byte[] EvaluateMacro(int baseOffset, string input, ref CompError error, out bool success)
-        {
-            success = false;
-            return new byte[1];
         }
 
         public byte[] AssembleASM(int baseOffset, string input, ref CompError error, out bool success)
@@ -90,7 +92,7 @@
 
             #endregion Build AST
 
-            if (!EvaluateAST(syntaxTree, baseOffset, input, ref error))
+            if (!EvaluateAST(syntaxTree, baseOffset, ref error))
             {
                 return new byte[1];
             }
@@ -98,14 +100,10 @@
             return codeGen.StreamToArray();
         }
 
-        private bool EvaluateAST(ITree syntaxTree, int baseOffset, string input, ref CompError error, bool isMacro = false, List<ITree> macroArgs = null)
-        {
-            string ExpressionToken = "EXPRESSION";
-            string HLRefToken = "RR_REF_HL";
-            string MemRefToken = "MEM_REF";
-            string AssignmentToken = "ASSIGNMENT";
-            string MacroToken = "MACRO";
 
+        // TODO: Split up symbol filling and tree evaluation.
+        private bool EvaluateAST(ITree syntaxTree, int baseOffset, ref CompError error, bool isMacro = false, List<ITree> macroArgs = null)
+        {
             // ROOT -> STATEMENT*
             if (syntaxTree.ChildCount != 0)
             {
@@ -125,8 +123,8 @@
                             return false;
                         }
                         var result = 0L;
-                        ErrorMessage emt = EvaluateExpression(idValue, out result, isMacro, macroArgs);
-                        if (emt == ErrorMessage.NO_ERROR)
+                        ErrorMessage emt = EvaluateArgument(idValue, out result, isMacro, macroArgs);
+                        if (emt == ErrorMessage.General_NoError)
                         {
                             variableDict.Add(idName, result);
                         }
@@ -195,7 +193,7 @@
                                                 macArgList.Add(instField.GetChild(i));
                                             }
                                         }
-                                        if (!EvaluateAST(macroDict[instField.GetChild(0).Text], baseOffset, input, ref error, true, macArgList))
+                                        if (!EvaluateAST(macroDict[instField.GetChild(0).Text], baseOffset, ref error, true, macArgList))
                                         {
                                             return false;
                                         }
@@ -601,8 +599,8 @@
                                                 if (arg2.Text == ExpressionToken)
                                                 {
                                                     var result = 0L;
-                                                    ErrorMessage emt = EvaluateExpression(arg2, out result, isMacro, macroArgs);
-                                                    if (emt == ErrorMessage.NO_ERROR)
+                                                    ErrorMessage emt = EvaluateArgument(arg2, out result, isMacro, macroArgs);
+                                                    if (emt == ErrorMessage.General_NoError)
                                                     {
                                                         codeGen.EmitLdRN("a", result);
                                                     }
@@ -615,8 +613,8 @@
                                                 else if (arg2.Text == MemRefToken)
                                                 {
                                                     var result = 0L;
-                                                    ErrorMessage emt = EvaluateExpression(arg2.GetChild(0), out result, isMacro, macroArgs);
-                                                    if (emt == ErrorMessage.NO_ERROR)
+                                                    ErrorMessage emt = EvaluateArgument(arg2.GetChild(0), out result, isMacro, macroArgs);
+                                                    if (emt == ErrorMessage.General_NoError)
                                                     {
                                                         codeGen.EmitLdANRef(result);
                                                     }
@@ -643,8 +641,8 @@
                                                 if (arg2.Text == ExpressionToken)
                                                 {
                                                     var result = 0L;
-                                                    ErrorMessage emt = EvaluateExpression(arg2, out result, isMacro, macroArgs);
-                                                    if (emt == ErrorMessage.NO_ERROR)
+                                                    ErrorMessage emt = EvaluateArgument(arg2, out result, isMacro, macroArgs);
+                                                    if (emt == ErrorMessage.General_NoError)
                                                     {
                                                         codeGen.EmitLdRN(arg1.Text, result);
                                                     }
@@ -666,8 +664,8 @@
                                         case "hl":
                                             {
                                                 var result = 0L;
-                                                ErrorMessage emt = EvaluateExpression(arg2, out result, isMacro, macroArgs);
-                                                if (emt == ErrorMessage.NO_ERROR)
+                                                ErrorMessage emt = EvaluateArgument(arg2, out result, isMacro, macroArgs);
+                                                if (emt == ErrorMessage.General_NoError)
                                                 {
                                                     codeGen.EmitLdRRN(arg1.Text, result);
                                                 }
@@ -702,8 +700,8 @@
                                                 if (arg2.Text == ExpressionToken)
                                                 {
                                                     var result = 0L;
-                                                    ErrorMessage emt = EvaluateExpression(arg2, out result, isMacro, macroArgs);
-                                                    if (emt == ErrorMessage.NO_ERROR)
+                                                    ErrorMessage emt = EvaluateArgument(arg2, out result, isMacro, macroArgs);
+                                                    if (emt == ErrorMessage.General_NoError)
                                                     {
                                                         codeGen.EmitLdRN(HLRefToken, result);
                                                     }
@@ -723,8 +721,8 @@
                                         case "MEM_REF":
                                             {
                                                 var result = 0L;
-                                                ErrorMessage emt = EvaluateExpression(arg1.GetChild(0), out result, isMacro, macroArgs);
-                                                if (emt == ErrorMessage.NO_ERROR)
+                                                ErrorMessage emt = EvaluateArgument(arg1.GetChild(0), out result, isMacro, macroArgs);
+                                                if (emt == ErrorMessage.General_NoError)
                                                 {
                                                     if (arg2.Text == "a")
                                                     {
@@ -748,8 +746,8 @@
                                                 if (arg2.Text == ExpressionToken)
                                                 {
                                                     var result = 0L;
-                                                    ErrorMessage emt = EvaluateExpression(arg2, out result, isMacro, macroArgs);
-                                                    if (emt == ErrorMessage.NO_ERROR)
+                                                    ErrorMessage emt = EvaluateArgument(arg2, out result, isMacro, macroArgs);
+                                                    if (emt == ErrorMessage.General_NoError)
                                                     {
                                                         codeGen.EmitLdRRN(arg1.Text, result);
                                                     }
@@ -1030,31 +1028,20 @@
         {
             if (instField.ChildCount == 0)
             {
-                codeGen.EmitByte(0);
+                dataFunc(0);
             }
             else
             {
-                bool good = true;
                 for (int i = 0; i < instField.ChildCount; i++)
                 {
                     var arg = instField.GetChild(i);
                     var result = 0L;
-                    ErrorMessage emt = EvaluateExpression(arg, out result, isMacro, macroArgs);
-                    if (emt == ErrorMessage.NO_ERROR)
+                    if (!EvaluateArgument(arg, out result, ref error, isMacro, macroArgs))
                     {
-                        dataFunc(result);
+                        return false;
                     }
-                    else
-                    {
-                        MakeErrorMessage(arg, emt, ref error);
-                        good = false;
-                    }
-                    if (!good)
-                    {
-                        break;
-                    }
+                    dataFunc(result);
                 }
-                return good;
             }
             return true;
         }
@@ -1062,163 +1049,35 @@
         private bool EvalArithArgFunc(CodeGenerator.ArithmeticFuncDelegate arithFunc, ITree arg, ref CompError error, bool isMacro, List<ITree> macroArgs)
         {
             var result = 0L;
-            ErrorMessage emt = EvaluateExpression(arg, out result, isMacro, macroArgs);
-            if (emt == ErrorMessage.NO_ERROR)
+            if (!EvaluateArgument(arg, out result, ref error, isMacro, macroArgs))
             {
-                arithFunc(result);
-                return true;
-            }
-            else
-            {
-                MakeErrorMessage(arg, emt, ref error);
                 return false;
             }
+            arithFunc(result);
+            return true;
         }
 
-        private bool EvalBitFunc(CodeGenerator.BitFunctionDelegate arithFunc, ITree arg, string reg, ref CompError error, bool isMacro, List<ITree> macroArgs)
+        private bool EvalBitFunc(CodeGenerator.BitFunctionDelegate bitFunc, ITree arg, string reg, ref CompError error, bool isMacro, List<ITree> macroArgs)
         {
             var result = 0L;
-            ErrorMessage emt = EvaluateExpression(arg, out result, isMacro, macroArgs);
-            if (emt == ErrorMessage.NO_ERROR)
+            if (!EvaluateArgument(arg, out result, ref error, isMacro, macroArgs))
             {
-                arithFunc(result, reg);
-                return true;
-            }
-            else
-            {
-                MakeErrorMessage(arg, emt, ref error);
                 return false;
             }
+            bitFunc(result, reg);
+            return true;
         }
 
-        private ErrorMessage EvaluateExpression(ITree eval, out long result, bool isMacro, List<ITree> macroArgs)
+        private bool EvaluateExpression(ITree eval, out long result, ref CompError error, bool isMacro, List<ITree> macroArgs)
         {
             result = 0;
-            if (eval.Text == "EXPRESSION")
+            if (eval.Text == MacroArgToken)
             {
-                // If it's on an expression node, then return the evaluation of the result.
-                return EvaluateExpression(eval.GetChild(0), out result, isMacro, macroArgs);
+                return EvaluateMacroArg(eval, out result, ref error, isMacro, macroArgs);
             }
-            else if (eval.Text == "MACRO_ARG")
+            else if (eval.Text == VarToken)
             {
-                if (!isMacro)
-                {
-                    return ErrorMessage.Build_MacroArgUsedOutsideOfDef;
-                }
-                else if (macroArgs == null)
-                {
-                    return ErrorMessage.Build_NoMacroArgsPresent;
-                }
-                else
-                {
-                    switch (eval.GetChild(0).Text)
-                    {
-                        case "\\1":
-                            if (macroArgs.Count < 1)
-                            {
-                                return ErrorMessage.Build_NotEnoughMacroArgs;
-                            }
-                            else
-                            {
-                                return EvaluateExpression(macroArgs[0], out result, isMacro, macroArgs);
-                            }
-
-                        case "\\2":
-                            if (macroArgs.Count < 2)
-                            {
-                                return ErrorMessage.Build_NotEnoughMacroArgs;
-                            }
-                            else
-                            {
-                                return EvaluateExpression(macroArgs[1], out result, isMacro, macroArgs);
-                            }
-
-                        case "\\3":
-                            if (macroArgs.Count < 3)
-                            {
-                                return ErrorMessage.Build_NotEnoughMacroArgs;
-                            }
-                            else
-                            {
-                                return EvaluateExpression(macroArgs[2], out result, isMacro, macroArgs);
-                            }
-
-                        case "\\4":
-                            if (macroArgs.Count < 4)
-                            {
-                                return ErrorMessage.Build_NotEnoughMacroArgs;
-                            }
-                            else
-                            {
-                                return EvaluateExpression(macroArgs[3], out result, isMacro, macroArgs);
-                            }
-
-                        case "\\5":
-                            if (macroArgs.Count < 5)
-                            {
-                                return ErrorMessage.Build_NotEnoughMacroArgs;
-                            }
-                            else
-                            {
-                                return EvaluateExpression(macroArgs[4], out result, isMacro, macroArgs);
-                            }
-
-                        case "\\6":
-                            if (macroArgs.Count < 6)
-                            {
-                                return ErrorMessage.Build_NotEnoughMacroArgs;
-                            }
-                            else
-                            {
-                                return EvaluateExpression(macroArgs[5], out result, isMacro, macroArgs);
-                            }
-
-                        case "\\7":
-                            if (macroArgs.Count < 7)
-                            {
-                                return ErrorMessage.Build_NotEnoughMacroArgs;
-                            }
-                            else
-                            {
-                                return EvaluateExpression(macroArgs[6], out result, isMacro, macroArgs);
-                            }
-
-                        case "\\8":
-                            if (macroArgs.Count < 8)
-                            {
-                                return ErrorMessage.Build_NotEnoughMacroArgs;
-                            }
-                            else
-                            {
-                                return EvaluateExpression(macroArgs[7], out result, isMacro, macroArgs);
-                            }
-
-                        case "\\9":
-                            if (macroArgs.Count < 9)
-                            {
-                                return ErrorMessage.Build_NotEnoughMacroArgs;
-                            }
-                            else
-                            {
-                                return EvaluateExpression(macroArgs[8], out result, isMacro, macroArgs);
-                            }
-                        default:
-                            return ErrorMessage.UNKNOWN_ARGUMENT;
-                    }
-                }
-            }
-            else if (eval.Text == "VAR")
-            {
-                // If it's on an ID node, return the ID's value.
-                if (!variableDict.ContainsKey(eval.GetChild(0).Text))
-                {
-                    return ErrorMessage.UNKNOWN_ARGUMENT;
-                }
-                else
-                {
-                    result = variableDict[eval.GetChild(0).Text];
-                    return ErrorMessage.NO_ERROR;
-                }
+                return EvaluateVar(eval, out result, ref error, isMacro, macroArgs);
             }
             else
             {
@@ -1230,133 +1089,300 @@
                 {
                     case 0:
                         {
-                            if (!Utility.NumStringToInt(eval.Text, out result))
-                            {
-                                return ErrorMessage.NumberOverflow;
-                            }
-                            return ErrorMessage.NO_ERROR;
+                            return EvaluateArgument(eval, out result, ref error, isMacro, macroArgs);
                         }
+
                     case 1:
                         {
-                            ErrorMessage res = EvaluateExpression(eval.GetChild(0), out res1, isMacro, macroArgs);
-                            if (res != ErrorMessage.NO_ERROR)
+                            if (!EvaluateArgument(eval.GetChild(0), out res1, ref error, isMacro, macroArgs))
                             {
-                                return res;
+                                return false;
                             }
                             switch (eval.Text)
                             {
                                 case "~":
                                     result = ~res1;
-                                    return ErrorMessage.NO_ERROR;
+                                    return true;
                                 case "-":
                                     result = -res1;
-                                    return ErrorMessage.NO_ERROR;
+                                    return true;
                                 case "!":
                                     result = (res1 == 0) ? 1 : 0;
-                                    return ErrorMessage.NO_ERROR;
+                                    return true;
                                 default:
-                                    return ErrorMessage.UNKNOWN_ARGUMENT;
+                                    {
+                                        MakeErrorMessage(eval, ErrorMessage.Build_UnknownArgument, ref error);
+                                        return false;
+                                    }
                             }
                         }
                     case 2:
                         {
-                            ErrorMessage res = EvaluateExpression(eval.GetChild(0), out res1, isMacro, macroArgs);
-                            if (res != ErrorMessage.NO_ERROR)
+                            if (! (EvaluateArgument(eval.GetChild(0), out res1, ref error, isMacro, macroArgs)
+                                && EvaluateArgument(eval.GetChild(1), out res2, ref error, isMacro, macroArgs)))
                             {
-                                return res;
-                            }
-                            res = EvaluateExpression(eval.GetChild(1), out res2, isMacro, macroArgs);
-                            if (res != ErrorMessage.NO_ERROR)
-                            {
-                                return res;
+                                return false;
                             }
                             switch (eval.Text)
                             {
                                 case "+":
                                     result = res1 + res2;
-                                    return ErrorMessage.NO_ERROR;
+                                    return true;
                                 case "-":
                                     result = res1 - res2;
-                                    return ErrorMessage.NO_ERROR;
+                                    return true;
                                 case "*":
                                     result = res1 * res2;
-                                    return ErrorMessage.NO_ERROR;
+                                    return true;
                                 case "/":
                                     result = res1 / res2;
-                                    return ErrorMessage.NO_ERROR;
+                                    return true;
                                 case "%":
                                     result = res1 % res2;
-                                    return ErrorMessage.NO_ERROR;
+                                    return true;
                                 case "<<":
                                     result = res1 << (int)res2; // Right side has to be an int.
-                                    return ErrorMessage.NO_ERROR;
+                                    return true;
                                 case ">>":
                                     result = res1 >> (int)res2; // Right side has to be an int.
-                                    return ErrorMessage.NO_ERROR;
+                                    return true;
                                 case "<":
                                     result = res1 < res2 ? 1 : 0;
-                                    return ErrorMessage.NO_ERROR;
+                                    return true;
                                 case ">":
                                     result = res1 > res2 ? 1 : 0;
-                                    return ErrorMessage.NO_ERROR;
+                                    return true;
                                 case "<=":
                                     result = res1 <= res2 ? 1 : 0;
-                                    return ErrorMessage.NO_ERROR;
+                                    return true;
                                 case ">=":
                                     result = res1 >= res2 ? 1 : 0;
-                                    return ErrorMessage.NO_ERROR;
+                                    return true;
                                 case "==":
                                     result = res1 == res2 ? 1 : 0;
-                                    return ErrorMessage.NO_ERROR;
+                                    return true;
                                 case "&":
                                     result = res1 & res2;
-                                    return ErrorMessage.NO_ERROR;
+                                    return true;
                                 case "^":
                                     result = res1 ^ res2;
-                                    return ErrorMessage.NO_ERROR;
+                                    return true;
                                 case "|":
                                     result = res1 | res2;
-                                    return ErrorMessage.NO_ERROR;
+                                    return true;
                                 case "&&":
                                     result = (res1 != 0) && (res2 != 0) ? 1 : 0;
-                                    return ErrorMessage.NO_ERROR;
+                                    return true;
                                 case "||":
                                     result = (res1 != 0) || (res2 != 0) ? 1 : 0;
-                                    return ErrorMessage.NO_ERROR;
+                                    return true;
                                 default:
-                                    return ErrorMessage.UNKNOWN_ARGUMENT;
+                                    {
+                                        MakeErrorMessage(eval, ErrorMessage.Build_UnknownArgument, ref error);
+                                        return false;
+                                    }
                             }
                         }
                     case 3:
                         {
-                            ErrorMessage res = EvaluateExpression(eval.GetChild(0), out res1, isMacro, macroArgs);
-                            if (res != ErrorMessage.NO_ERROR)
+                            if (! (EvaluateArgument(eval.GetChild(0), out res1, ref error, isMacro, macroArgs)
+                                && EvaluateArgument(eval.GetChild(1), out res2, ref error, isMacro, macroArgs)
+                                && EvaluateArgument(eval.GetChild(2), out res3, ref error, isMacro, macroArgs)))
                             {
-                                return res;
-                            }
-                            res = EvaluateExpression(eval.GetChild(1), out res2, isMacro, macroArgs);
-                            if (res != ErrorMessage.NO_ERROR)
-                            {
-                                return res;
-                            }
-                            res = EvaluateExpression(eval.GetChild(2), out res3, isMacro, macroArgs);
-                            if (res != ErrorMessage.NO_ERROR)
-                            {
-                                return res;
+                                return false;
                             }
                             switch (eval.Text)
                             {
                                 case "?":
                                     result = (res1 != 0) ? res2 : res3;
-                                    return ErrorMessage.NO_ERROR;
+                                    return true;
                                 default:
-                                    return ErrorMessage.UNKNOWN_ARGUMENT;
+                                    {
+                                        MakeErrorMessage(eval, ErrorMessage.Build_UnknownArgument, ref error);
+                                        return false;
+                                    }
                             }
                         }
                     default:
-                        return ErrorMessage.UNKNOWN_ARGUMENT;
+                        {
+                            MakeErrorMessage(eval, ErrorMessage.Build_UnknownArgument, ref error);
+                            return false;
+                        }
                 }
             }
+        }
+
+        private bool EvaluateMacroArg(ITree eval, out long result, ref CompError error, bool isMacro, List<ITree> macroArgs)
+        {
+            result = 0;
+            if (eval == null)
+            {
+                MakeErrorMessage(eval, ErrorMessage.Build_UnknownError, ref error);
+                return false;
+            }
+            else if (!isMacro)
+            {
+                MakeErrorMessage(eval, ErrorMessage.Build_MacroArgUsedOutsideOfDef, ref error);
+                return false;
+            }
+            else if (macroArgs == null)
+            {
+                MakeErrorMessage(eval, ErrorMessage.Build_NoMacroArgsPresent, ref error);
+                return false;
+            }
+            else
+            {
+                switch (eval.Text)
+                {
+                    case "\\1":
+                        if (macroArgs.Count < 1)
+                        {
+                            MakeErrorMessage(eval, ErrorMessage.Build_NotEnoughMacroArgs, ref error);
+                            return false;
+                        }
+                        else
+                        {
+                            return EvaluateArgument(macroArgs[0], out result, isMacro, macroArgs);
+                        }
+
+                    case "\\2":
+                        if (macroArgs.Count < 2)
+                        {
+                            MakeErrorMessage(eval, ErrorMessage.Build_NotEnoughMacroArgs, ref error);
+                            return false;
+                        }
+                        else
+                        {
+                            return EvaluateArgument(macroArgs[1], out result, isMacro, macroArgs);
+                        }
+
+                    case "\\3":
+                        if (macroArgs.Count < 3)
+                        {
+                            MakeErrorMessage(eval, ErrorMessage.Build_NotEnoughMacroArgs, ref error);
+                            return false;
+                        }
+                        else
+                        {
+                            return EvaluateArgument(macroArgs[2], out result, isMacro, macroArgs);
+                        }
+
+                    case "\\4":
+                        if (macroArgs.Count < 4)
+                        {
+                            MakeErrorMessage(eval, ErrorMessage.Build_NotEnoughMacroArgs, ref error);
+                            return false;
+                        }
+                        else
+                        {
+                            return EvaluateArgument(macroArgs[3], out result, isMacro, macroArgs);
+                        }
+
+                    case "\\5":
+                        if (macroArgs.Count < 5)
+                        {
+                            MakeErrorMessage(eval, ErrorMessage.Build_NotEnoughMacroArgs, ref error);
+                            return false;
+                        }
+                        else
+                        {
+                            return EvaluateArgument(macroArgs[4], out result, isMacro, macroArgs);
+                        }
+
+                    case "\\6":
+                        if (macroArgs.Count < 6)
+                        {
+                            MakeErrorMessage(eval, ErrorMessage.Build_NotEnoughMacroArgs, ref error);
+                            return false;
+                        }
+                        else
+                        {
+                            return EvaluateArgument(macroArgs[5], out result, isMacro, macroArgs);
+                        }
+
+                    case "\\7":
+                        if (macroArgs.Count < 7)
+                        {
+                            MakeErrorMessage(eval, ErrorMessage.Build_NotEnoughMacroArgs, ref error);
+                            return false;
+                        }
+                        else
+                        {
+                            return EvaluateArgument(macroArgs[6], out result, isMacro, macroArgs);
+                        }
+
+                    case "\\8":
+                        if (macroArgs.Count < 8)
+                        {
+                            MakeErrorMessage(eval, ErrorMessage.Build_NotEnoughMacroArgs, ref error);
+                            return false;
+                        }
+                        else
+                        {
+                            return EvaluateArgument(macroArgs[7], out result, isMacro, macroArgs);
+                        }
+
+                    case "\\9":
+                        if (macroArgs.Count < 9)
+                        {
+                            MakeErrorMessage(eval, ErrorMessage.Build_NotEnoughMacroArgs, ref error);
+                            return false;
+                        }
+                        else
+                        {
+                            return EvaluateArgument(macroArgs[8], out result, isMacro, macroArgs);
+                        }
+                    default:
+                        {
+                            MakeErrorMessage(eval, ErrorMessage.Build_UnknownArgument, ref error);
+                            return false;
+                        }
+                }
+            }
+        }
+
+        private bool EvaluateVar(ITree eval, out long result, ref CompError error, bool isMacro, List<ITree> macroArgs)
+        {
+            result = 0;
+            if (eval == null)
+            {
+                MakeErrorMessage(eval, ErrorMessage.Build_UnknownError, ref error);
+                return false;
+            }
+            else if (!variableDict.ContainsKey(eval.Text))
+            {
+                MakeErrorMessage(eval, ErrorMessage.Build_UnknownArgument, ref error);
+                return false;
+            }
+            else
+            {
+                result = variableDict[eval.Text];
+                return true;
+            }
+        }
+
+        private bool EvaluateArgument(ITree eval, out long result, ref CompError error, bool isMacro, List<ITree> macroArgs)
+        {
+            result = 0;
+            if (eval == null)
+            {
+                MakeErrorMessage(eval, ErrorMessage.Build_UnknownError, ref error);
+                return false;
+            }
+            else if (eval.Text == ExpressionToken)
+            {
+                return EvaluateExpression(eval.GetChild(0), out result, isMacro, macroArgs);
+            }
+            else if (eval.Text == MacroArgToken)
+            {
+                return EvaluateMacroArg(eval.GetChild(0), out result, isMacro, macroArgs);
+            }
+            else if (!Utility.NumStringToInt(eval.Text, out result))
+            {
+                MakeErrorMessage(eval, ErrorMessage.NumberOverflow, ref error);
+                return false;
+            }
+            return true;
         }
 
         #endregion Evaluation

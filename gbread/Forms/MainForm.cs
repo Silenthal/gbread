@@ -694,7 +694,7 @@
                     {
                         IPS ips = new IPS();
                         ErrorMessage emt = ips.GenerateIPS(orig, romFile.MainFile);
-                        if (emt != ErrorMessage.NO_ERROR)
+                        if (emt != ErrorMessage.General_NoError)
                         {
                             File.WriteAllBytes(afd.FileName, ips.GetIPS());
                             MessageBox.Show("Patch successfuly written to " + Environment.NewLine + afd.FileName);

@@ -7,7 +7,7 @@ namespace GBRead
     //Note: work on a proper error class.
     public enum ErrorMessage
     {
-        NO_ERROR,
+        General_NoError,
         DATA_ARGUMENTS_UNRECOGNIZED, 
         DATA_SINGLE_ARG_UNRECOGNIZED, 
         DOUBLE_ARG_UNRECOGNIZED, 
@@ -45,6 +45,8 @@ namespace GBRead
         Build_NotEnoughMacroArgs,
         Build_MacroArgUsedOutsideOfDef,
         Build_MacroDoesNotExist,
+        Build_UnknownArgument,
+        Build_UnknownError,
         CUSTOM,
     }
 
@@ -71,7 +73,7 @@ namespace GBRead
     {
         public static Dictionary<ErrorMessage, string> ErrorMessages = new Dictionary<ErrorMessage, string>()
         {
-            {ErrorMessage.NO_ERROR,                     "No error."},
+            {ErrorMessage.General_NoError,                     "No error."},
             {ErrorMessage.END_INVALID,                  "Please make sure that your end position is a place in the file."}, 
             {ErrorMessage.FILE_TOO_LARGE,               "The file is too large for a GameBoy file."}, 
             {ErrorMessage.NO_FILE,                      "Please load a file."}, 
@@ -108,6 +110,7 @@ namespace GBRead
             {ErrorMessage.Build_NotEnoughMacroArgs,     "There aren't enough macro arguments to evaluate this expression."},
             {ErrorMessage.Build_MacroArgUsedOutsideOfDef,"Macro arguments can only be used inside of macro definitions."},
             {ErrorMessage.Build_MacroDoesNotExist,      "There is no macro with the name \"{0}\"."},
+            {ErrorMessage.Build_UnknownArgument,        "Unable to evaluate the expression due to an unknown variable."},
             {ErrorMessage.CUSTOM,                       "{0}"},
         };
         public static void ShowErrorMessage(ErrorMessage errorOptions)

@@ -138,6 +138,7 @@
         }
 
         // TODO: Allow for building from multiple sources(i.e. "include").
+        // TODO: Add "section"
         private bool EvaluateAST(ITree eval, int baseOffset, ref CompError error)
         {
             for (int i = 0; i < eval.ChildCount; i++)

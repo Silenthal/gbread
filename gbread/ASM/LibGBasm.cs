@@ -56,7 +56,7 @@ namespace LibGBasm
             // If the instruction gotten is too big, then return a DB/DW instruction, as default.
             if (offset + outputInstruction.InstSize > baseFile.Length)
             {
-                int retSize = 3 - ((offset + outputInstruction.InstSize) - baseFile.Length);
+                int retSize = baseFile.Length - offset;
                 switch (retSize)
                 {
                     case 1:

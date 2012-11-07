@@ -131,7 +131,7 @@
     public class DataLabel : GenericLabel
     {
         private int _length;
-        private int _dataLineLength;
+        private string _printTemplate;
         private DataSectionType dataSectType;
         private GBPalette palette = new GBPalette();
 
@@ -139,13 +139,13 @@
 
         public int Length { get { return _length; } set { _length = value; } }
 
-        public int DataLineLength { get { return _dataLineLength; } set { _dataLineLength = value; if (_dataLineLength < 0) _dataLineLength = 8; } }
-
         public DataSectionType DSectionType { get { return dataSectType; } set { dataSectType = value; } }
 
         public GBPalette Palette { get { return palette; } set { palette = value; } }
 
-        public DataLabel(int newOffset, int newLength = 1, string labelName = "", int dataLen = 8, string cmt = "", DataSectionType dst = DataSectionType.Data, GBPalette pal = null)
+        public string PrintTemplate { get { return _printTemplate; } set { _printTemplate = value; } }
+
+        public DataLabel(int newOffset, int newLength = 1, string labelName = "", string printTemplate = "", string cmt = "", DataSectionType dst = DataSectionType.Data, GBPalette pal = null)
         {
             _id = System.Threading.Interlocked.Increment(ref counter);
             _value = newOffset;
@@ -156,19 +156,21 @@
             {
                 _comment = cmt;
             }
-            if (dataLen <= 0)
-            {
-                dataLen = 8;
-            }
-            _dataLineLength = dataLen;
             dataSectType = dst;
             if (pal != null)
             {
                 palette = pal;
             }
+            _printTemplate = printTemplate;
+            if (_printTemplate == "")
+            {
+                _printTemplate = "b";
+            }
         }
 
-        public DataLabel(DataLabel prev) : this(prev._value, prev._length, prev._name, prev._dataLineLength, prev._comment, prev.dataSectType) { }
+        public DataLabel(DataLabel prev) : this(prev._value, prev._length, prev._name, prev._comment, prev._printTemplate, prev.dataSectType)
+        {
+        }
 
         public override string ToASMCommentString()
         {

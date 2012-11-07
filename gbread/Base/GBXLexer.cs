@@ -8,8383 +8,7352 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.4 GBX.g 2012-11-04 20:27:56
+// $ANTLR 3.4 GBX.g 2012-11-05 21:34:07
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
-
 // Unreachable code detected.
 #pragma warning disable 162
-
 // Missing XML comment for publicly visible type or member 'Type_or_Member'
 #pragma warning disable 1591
-
 // CLS compliance checking will not be performed on 'type' because it is not visible from outside this assembly.
 #pragma warning disable 3019
 
 #pragma warning disable 3021
 
+using System.Collections.Generic;
+using Antlr.Runtime;
+using Antlr.Runtime.Misc;
+
 namespace GBRead.Base
 {
-    using System.Collections.Generic;
-    using Antlr.Runtime;
-    using Antlr.Runtime.Misc;
-
-    [System.CodeDom.Compiler.GeneratedCode("ANTLR", "3.4")]
-    [System.CLSCompliant(false)]
-    public partial class GBXLexer : Antlr.Runtime.Lexer
-    {
-        public const int EOF = -1;
-        public const int T__173 = 173;
-        public const int T__174 = 174;
-        public const int AMP_MARK = 4;
-        public const int ASSIGNMENT = 5;
-        public const int BANG_MARK = 6;
-        public const int BANK = 7;
-        public const int BAR_MARK = 8;
-        public const int BIN_DIGIT = 9;
-        public const int BIN_NUMBER = 10;
-        public const int BOOL_AND_MARK = 11;
-        public const int BOOL_OR_MARK = 12;
-        public const int BSLASH_MARK = 13;
-        public const int CARET_MARK = 14;
-        public const int CC_NC = 15;
-        public const int CC_NZ = 16;
-        public const int CC_Z = 17;
-        public const int CHAR = 18;
-        public const int CODE = 19;
-        public const int COLON_MARK = 20;
-        public const int COMMA = 21;
-        public const int COMMENT = 22;
-        public const int DATA = 23;
-        public const int DATA_DEF = 24;
-        public const int DB = 25;
-        public const int DD = 26;
-        public const int DQ = 27;
-        public const int DW = 28;
-        public const int EQU = 29;
-        public const int EQUAL_MARK = 30;
-        public const int EQUIV_MARK = 31;
-        public const int ESC_SEQ = 32;
-        public const int EXPORT = 33;
-        public const int EXPORT_LABEL = 34;
-        public const int EXPRESSION = 35;
-        public const int FSLASH_MARK = 36;
-        public const int GLOBAL = 37;
-        public const int GLOBAL_LABEL = 38;
-        public const int GTE_MARK = 39;
-        public const int GT_MARK = 40;
-        public const int HEX_DIGIT = 41;
-        public const int HEX_NUMBER = 42;
-        public const int HOME = 43;
-        public const int ID = 44;
-        public const int IMPORT = 45;
-        public const int INCBIN = 46;
-        public const int INCLUDE = 47;
-        public const int INCLUDE_TOKEN = 48;
-        public const int INSTRUCTION = 49;
-        public const int INST_ADC = 50;
-        public const int INST_ADD = 51;
-        public const int INST_AND = 52;
-        public const int INST_BIT = 53;
-        public const int INST_CALL = 54;
-        public const int INST_CCF = 55;
-        public const int INST_CP = 56;
-        public const int INST_CPL = 57;
-        public const int INST_DAA = 58;
-        public const int INST_DEC = 59;
-        public const int INST_DI = 60;
-        public const int INST_EI = 61;
-        public const int INST_HALT = 62;
-        public const int INST_INC = 63;
-        public const int INST_JP = 64;
-        public const int INST_JR = 65;
-        public const int INST_LD = 66;
-        public const int INST_LDD = 67;
-        public const int INST_LDHL = 68;
-        public const int INST_LDI = 69;
-        public const int INST_LDIO = 70;
-        public const int INST_NOP = 71;
-        public const int INST_OR = 72;
-        public const int INST_POP = 73;
-        public const int INST_PUSH = 74;
-        public const int INST_RES = 75;
-        public const int INST_RET = 76;
-        public const int INST_RETI = 77;
-        public const int INST_RL = 78;
-        public const int INST_RLA = 79;
-        public const int INST_RLC = 80;
-        public const int INST_RLCA = 81;
-        public const int INST_RR = 82;
-        public const int INST_RRA = 83;
-        public const int INST_RRC = 84;
-        public const int INST_RRCA = 85;
-        public const int INST_RST = 86;
-        public const int INST_SBC = 87;
-        public const int INST_SCF = 88;
-        public const int INST_SET = 89;
-        public const int INST_SLA = 90;
-        public const int INST_SRA = 91;
-        public const int INST_SRL = 92;
-        public const int INST_STOP = 93;
-        public const int INST_SUB = 94;
-        public const int INST_SWAP = 95;
-        public const int INST_XOR = 96;
-        public const int INT = 97;
-        public const int LABEL = 98;
-        public const int LABEL_DECL = 99;
-        public const int LEFT_BRACKET = 100;
-        public const int LEFT_CURLY = 101;
-        public const int LEFT_PARENS = 102;
-        public const int LITERAL = 103;
-        public const int LOCAL_LABEL = 104;
-        public const int LOC_LABEL_RAND = 105;
-        public const int LSHIFT_MARK = 106;
-        public const int LTE_MARK = 107;
-        public const int LT_MARK = 108;
-        public const int MACRO = 109;
-        public const int MACROEND = 110;
-        public const int MACROSTART = 111;
-        public const int MACRO_ARG = 112;
-        public const int MACRO_CALL = 113;
-        public const int MEM_REF = 114;
-        public const int MINUS_MARK = 115;
-        public const int M_ARG1 = 116;
-        public const int M_ARG2 = 117;
-        public const int M_ARG3 = 118;
-        public const int M_ARG4 = 119;
-        public const int M_ARG5 = 120;
-        public const int M_ARG6 = 121;
-        public const int M_ARG7 = 122;
-        public const int M_ARG8 = 123;
-        public const int M_ARG9 = 124;
-        public const int NOT_EQUIV_MARK = 125;
-        public const int NUMBER = 126;
-        public const int OCTAL_ESC = 127;
-        public const int OCT_DIGIT = 128;
-        public const int OCT_NUMBER = 129;
-        public const int OPERATOR = 130;
-        public const int ORG = 131;
-        public const int PERCENT_MARK = 132;
-        public const int PLUS_MARK = 133;
-        public const int POUND_MARK = 134;
-        public const int PSEUDO_INST = 135;
-        public const int QUEST_MARK = 136;
-        public const int REG_A = 137;
-        public const int REG_B = 138;
-        public const int REG_C = 139;
-        public const int REG_D = 140;
-        public const int REG_E = 141;
-        public const int REG_H = 142;
-        public const int REG_L = 143;
-        public const int RIGHT_BRACKET = 144;
-        public const int RIGHT_CURLY = 145;
-        public const int RIGHT_PARENS = 146;
-        public const int ROOT = 147;
-        public const int RR_AF = 148;
-        public const int RR_BC = 149;
-        public const int RR_DE = 150;
-        public const int RR_HL = 151;
-        public const int RR_REF_BC = 152;
-        public const int RR_REF_C = 153;
-        public const int RR_REF_DE = 154;
-        public const int RR_REF_HL = 155;
-        public const int RR_SP = 156;
-        public const int RSHIFT_MARK = 157;
-        public const int SECTION = 158;
-        public const int SEMI_MARK = 159;
-        public const int STAR_MARK = 160;
-        public const int STATEMENT = 161;
-        public const int STATEMENT_TREE = 162;
-        public const int STRING = 163;
-        public const int TILDE_MARK = 164;
-        public const int TIMES = 165;
-        public const int UNARY_OP = 166;
-        public const int UNDERSCORE_MARK = 167;
-        public const int UNICODE_ESC = 168;
-        public const int VAR = 169;
-        public const int WS = 170;
-        public const int XDEF = 171;
-        public const int XREF = 172;
-
-        private List<ErrInfo> Errors = new List<ErrInfo>();
-
-        public override void DisplayRecognitionError(string[] tokenNames, RecognitionException e)
-        {
-            string errHeader = GetErrorHeader(e);
-            string errMSG = GetErrorMessage(e, tokenNames);
-            Errors.Add(new ErrInfo() {
-                errText = errMSG, error = e
-            });
-        }
-
-        public List<ErrInfo> GetErrors()
-        {
-            return Errors;
-        }
-
-        // delegates
-        // delegators
-
-        public GBXLexer()
-        {
-            OnCreated();
-        }
-
-        public GBXLexer(ICharStream input)
-            : this(input, new RecognizerSharedState())
-        {
-        }
-
-        public GBXLexer(ICharStream input, RecognizerSharedState state)
-            : base(input, state)
-        {
-
-            OnCreated();
-        }
-        public override string GrammarFileName
-        {
-            get
-            {
-                return "GBX.g";
-            }
-        }
-
-
-        partial void OnCreated();
-        partial void EnterRule(string ruleName, int ruleIndex);
-        partial void LeaveRule(string ruleName, int ruleIndex);
-
-        partial void EnterRule_T__173();
-        partial void LeaveRule_T__173();
-
-        // $ANTLR start "T__173"
-        [GrammarRule("T__173")]
-        private void mT__173()
-        {
-            EnterRule_T__173();
-            EnterRule("T__173", 1);
-            TraceIn("T__173", 1);
-            try
-            {
-                int _type = T__173;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:25:8: ( '.' )
-                DebugEnterAlt(1);
-                // GBX.g:25:10: '.'
-                {
-                    DebugLocation(25, 10);
-                    Match('.');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("T__173", 1);
-                LeaveRule("T__173", 1);
-                LeaveRule_T__173();
-            }
-        }
-        // $ANTLR end "T__173"
-
-        partial void EnterRule_T__174();
-        partial void LeaveRule_T__174();
-
-        // $ANTLR start "T__174"
-        [GrammarRule("T__174")]
-        private void mT__174()
-        {
-            EnterRule_T__174();
-            EnterRule("T__174", 2);
-            TraceIn("T__174", 2);
-            try
-            {
-                int _type = T__174;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:26:8: ( '::' )
-                DebugEnterAlt(1);
-                // GBX.g:26:10: '::'
-                {
-                    DebugLocation(26, 10);
-                    Match("::");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("T__174", 2);
-                LeaveRule("T__174", 2);
-                LeaveRule_T__174();
-            }
-        }
-        // $ANTLR end "T__174"
-
-        partial void EnterRule_SECTION();
-        partial void LeaveRule_SECTION();
-
-        // $ANTLR start "SECTION"
-        [GrammarRule("SECTION")]
-        private void mSECTION()
-        {
-            EnterRule_SECTION();
-            EnterRule("SECTION", 3);
-            TraceIn("SECTION", 3);
-            try
-            {
-                int _type = SECTION;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:256:11: ( 'section' )
-                DebugEnterAlt(1);
-                // GBX.g:256:13: 'section'
-                {
-                    DebugLocation(256, 13);
-                    Match("section");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("SECTION", 3);
-                LeaveRule("SECTION", 3);
-                LeaveRule_SECTION();
-            }
-        }
-        // $ANTLR end "SECTION"
-
-        partial void EnterRule_CODE();
-        partial void LeaveRule_CODE();
-
-        // $ANTLR start "CODE"
-        [GrammarRule("CODE")]
-        private void mCODE()
-        {
-            EnterRule_CODE();
-            EnterRule("CODE", 4);
-            TraceIn("CODE", 4);
-            try
-            {
-                int _type = CODE;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:257:8: ( 'code' )
-                DebugEnterAlt(1);
-                // GBX.g:257:10: 'code'
-                {
-                    DebugLocation(257, 10);
-                    Match("code");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("CODE", 4);
-                LeaveRule("CODE", 4);
-                LeaveRule_CODE();
-            }
-        }
-        // $ANTLR end "CODE"
-
-        partial void EnterRule_DATA();
-        partial void LeaveRule_DATA();
-
-        // $ANTLR start "DATA"
-        [GrammarRule("DATA")]
-        private void mDATA()
-        {
-            EnterRule_DATA();
-            EnterRule("DATA", 5);
-            TraceIn("DATA", 5);
-            try
-            {
-                int _type = DATA;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:258:8: ( 'data' )
-                DebugEnterAlt(1);
-                // GBX.g:258:10: 'data'
-                {
-                    DebugLocation(258, 10);
-                    Match("data");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("DATA", 5);
-                LeaveRule("DATA", 5);
-                LeaveRule_DATA();
-            }
-        }
-        // $ANTLR end "DATA"
-
-        partial void EnterRule_HOME();
-        partial void LeaveRule_HOME();
-
-        // $ANTLR start "HOME"
-        [GrammarRule("HOME")]
-        private void mHOME()
-        {
-            EnterRule_HOME();
-            EnterRule("HOME", 6);
-            TraceIn("HOME", 6);
-            try
-            {
-                int _type = HOME;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:259:8: ( 'home' )
-                DebugEnterAlt(1);
-                // GBX.g:259:10: 'home'
-                {
-                    DebugLocation(259, 10);
-                    Match("home");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("HOME", 6);
-                LeaveRule("HOME", 6);
-                LeaveRule_HOME();
-            }
-        }
-        // $ANTLR end "HOME"
-
-        partial void EnterRule_BANK();
-        partial void LeaveRule_BANK();
-
-        // $ANTLR start "BANK"
-        [GrammarRule("BANK")]
-        private void mBANK()
-        {
-            EnterRule_BANK();
-            EnterRule("BANK", 7);
-            TraceIn("BANK", 7);
-            try
-            {
-                int _type = BANK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:260:8: ( 'bank' )
-                DebugEnterAlt(1);
-                // GBX.g:260:10: 'bank'
-                {
-                    DebugLocation(260, 10);
-                    Match("bank");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("BANK", 7);
-                LeaveRule("BANK", 7);
-                LeaveRule_BANK();
-            }
-        }
-        // $ANTLR end "BANK"
-
-        partial void EnterRule_ORG();
-        partial void LeaveRule_ORG();
-
-        // $ANTLR start "ORG"
-        [GrammarRule("ORG")]
-        private void mORG()
-        {
-            EnterRule_ORG();
-            EnterRule("ORG", 8);
-            TraceIn("ORG", 8);
-            try
-            {
-                int _type = ORG;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:261:8: ( 'org' )
-                DebugEnterAlt(1);
-                // GBX.g:261:10: 'org'
-                {
-                    DebugLocation(261, 10);
-                    Match("org");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("ORG", 8);
-                LeaveRule("ORG", 8);
-                LeaveRule_ORG();
-            }
-        }
-        // $ANTLR end "ORG"
-
-        partial void EnterRule_MACROSTART();
-        partial void LeaveRule_MACROSTART();
-
-        // $ANTLR start "MACROSTART"
-        [GrammarRule("MACROSTART")]
-        private void mMACROSTART()
-        {
-            EnterRule_MACROSTART();
-            EnterRule("MACROSTART", 9);
-            TraceIn("MACROSTART", 9);
-            try
-            {
-                int _type = MACROSTART;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:262:13: ( 'macro' )
-                DebugEnterAlt(1);
-                // GBX.g:262:15: 'macro'
-                {
-                    DebugLocation(262, 15);
-                    Match("macro");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("MACROSTART", 9);
-                LeaveRule("MACROSTART", 9);
-                LeaveRule_MACROSTART();
-            }
-        }
-        // $ANTLR end "MACROSTART"
-
-        partial void EnterRule_MACROEND();
-        partial void LeaveRule_MACROEND();
-
-        // $ANTLR start "MACROEND"
-        [GrammarRule("MACROEND")]
-        private void mMACROEND()
-        {
-            EnterRule_MACROEND();
-            EnterRule("MACROEND", 10);
-            TraceIn("MACROEND", 10);
-            try
-            {
-                int _type = MACROEND;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:263:11: ( 'endm' )
-                DebugEnterAlt(1);
-                // GBX.g:263:13: 'endm'
-                {
-                    DebugLocation(263, 13);
-                    Match("endm");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("MACROEND", 10);
-                LeaveRule("MACROEND", 10);
-                LeaveRule_MACROEND();
-            }
-        }
-        // $ANTLR end "MACROEND"
-
-        partial void EnterRule_IMPORT();
-        partial void LeaveRule_IMPORT();
-
-        // $ANTLR start "IMPORT"
-        [GrammarRule("IMPORT")]
-        private void mIMPORT()
-        {
-            EnterRule_IMPORT();
-            EnterRule("IMPORT", 11);
-            TraceIn("IMPORT", 11);
-            try
-            {
-                int _type = IMPORT;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:264:10: ( 'import' )
-                DebugEnterAlt(1);
-                // GBX.g:264:12: 'import'
-                {
-                    DebugLocation(264, 12);
-                    Match("import");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("IMPORT", 11);
-                LeaveRule("IMPORT", 11);
-                LeaveRule_IMPORT();
-            }
-        }
-        // $ANTLR end "IMPORT"
-
-        partial void EnterRule_EXPORT();
-        partial void LeaveRule_EXPORT();
-
-        // $ANTLR start "EXPORT"
-        [GrammarRule("EXPORT")]
-        private void mEXPORT()
-        {
-            EnterRule_EXPORT();
-            EnterRule("EXPORT", 12);
-            TraceIn("EXPORT", 12);
-            try
-            {
-                int _type = EXPORT;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:265:10: ( 'export' )
-                DebugEnterAlt(1);
-                // GBX.g:265:12: 'export'
-                {
-                    DebugLocation(265, 12);
-                    Match("export");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("EXPORT", 12);
-                LeaveRule("EXPORT", 12);
-                LeaveRule_EXPORT();
-            }
-        }
-        // $ANTLR end "EXPORT"
-
-        partial void EnterRule_GLOBAL();
-        partial void LeaveRule_GLOBAL();
-
-        // $ANTLR start "GLOBAL"
-        [GrammarRule("GLOBAL")]
-        private void mGLOBAL()
-        {
-            EnterRule_GLOBAL();
-            EnterRule("GLOBAL", 13);
-            TraceIn("GLOBAL", 13);
-            try
-            {
-                int _type = GLOBAL;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:266:10: ( 'global' )
-                DebugEnterAlt(1);
-                // GBX.g:266:12: 'global'
-                {
-                    DebugLocation(266, 12);
-                    Match("global");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("GLOBAL", 13);
-                LeaveRule("GLOBAL", 13);
-                LeaveRule_GLOBAL();
-            }
-        }
-        // $ANTLR end "GLOBAL"
-
-        partial void EnterRule_XREF();
-        partial void LeaveRule_XREF();
-
-        // $ANTLR start "XREF"
-        [GrammarRule("XREF")]
-        private void mXREF()
-        {
-            EnterRule_XREF();
-            EnterRule("XREF", 14);
-            TraceIn("XREF", 14);
-            try
-            {
-                int _type = XREF;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:267:8: ( 'xref' )
-                DebugEnterAlt(1);
-                // GBX.g:267:10: 'xref'
-                {
-                    DebugLocation(267, 10);
-                    Match("xref");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("XREF", 14);
-                LeaveRule("XREF", 14);
-                LeaveRule_XREF();
-            }
-        }
-        // $ANTLR end "XREF"
-
-        partial void EnterRule_XDEF();
-        partial void LeaveRule_XDEF();
-
-        // $ANTLR start "XDEF"
-        [GrammarRule("XDEF")]
-        private void mXDEF()
-        {
-            EnterRule_XDEF();
-            EnterRule("XDEF", 15);
-            TraceIn("XDEF", 15);
-            try
-            {
-                int _type = XDEF;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:268:8: ( 'xdef' )
-                DebugEnterAlt(1);
-                // GBX.g:268:10: 'xdef'
-                {
-                    DebugLocation(268, 10);
-                    Match("xdef");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("XDEF", 15);
-                LeaveRule("XDEF", 15);
-                LeaveRule_XDEF();
-            }
-        }
-        // $ANTLR end "XDEF"
-
-        partial void EnterRule_DB();
-        partial void LeaveRule_DB();
-
-        // $ANTLR start "DB"
-        [GrammarRule("DB")]
-        private void mDB()
-        {
-            EnterRule_DB();
-            EnterRule("DB", 16);
-            TraceIn("DB", 16);
-            try
-            {
-                int _type = DB;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:269:7: ( 'db' )
-                DebugEnterAlt(1);
-                // GBX.g:269:9: 'db'
-                {
-                    DebugLocation(269, 9);
-                    Match("db");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("DB", 16);
-                LeaveRule("DB", 16);
-                LeaveRule_DB();
-            }
-        }
-        // $ANTLR end "DB"
-
-        partial void EnterRule_DW();
-        partial void LeaveRule_DW();
-
-        // $ANTLR start "DW"
-        [GrammarRule("DW")]
-        private void mDW()
-        {
-            EnterRule_DW();
-            EnterRule("DW", 17);
-            TraceIn("DW", 17);
-            try
-            {
-                int _type = DW;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:270:7: ( 'dw' )
-                DebugEnterAlt(1);
-                // GBX.g:270:9: 'dw'
-                {
-                    DebugLocation(270, 9);
-                    Match("dw");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("DW", 17);
-                LeaveRule("DW", 17);
-                LeaveRule_DW();
-            }
-        }
-        // $ANTLR end "DW"
-
-        partial void EnterRule_DD();
-        partial void LeaveRule_DD();
-
-        // $ANTLR start "DD"
-        [GrammarRule("DD")]
-        private void mDD()
-        {
-            EnterRule_DD();
-            EnterRule("DD", 18);
-            TraceIn("DD", 18);
-            try
-            {
-                int _type = DD;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:271:7: ( 'dd' )
-                DebugEnterAlt(1);
-                // GBX.g:271:9: 'dd'
-                {
-                    DebugLocation(271, 9);
-                    Match("dd");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("DD", 18);
-                LeaveRule("DD", 18);
-                LeaveRule_DD();
-            }
-        }
-        // $ANTLR end "DD"
-
-        partial void EnterRule_DQ();
-        partial void LeaveRule_DQ();
-
-        // $ANTLR start "DQ"
-        [GrammarRule("DQ")]
-        private void mDQ()
-        {
-            EnterRule_DQ();
-            EnterRule("DQ", 19);
-            TraceIn("DQ", 19);
-            try
-            {
-                int _type = DQ;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:272:7: ( 'dq' )
-                DebugEnterAlt(1);
-                // GBX.g:272:9: 'dq'
-                {
-                    DebugLocation(272, 9);
-                    Match("dq");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("DQ", 19);
-                LeaveRule("DQ", 19);
-                LeaveRule_DQ();
-            }
-        }
-        // $ANTLR end "DQ"
-
-        partial void EnterRule_INCLUDE_TOKEN();
-        partial void LeaveRule_INCLUDE_TOKEN();
-
-        // $ANTLR start "INCLUDE_TOKEN"
-        [GrammarRule("INCLUDE_TOKEN")]
-        private void mINCLUDE_TOKEN()
-        {
-            EnterRule_INCLUDE_TOKEN();
-            EnterRule("INCLUDE_TOKEN", 20);
-            TraceIn("INCLUDE_TOKEN", 20);
-            try
-            {
-                int _type = INCLUDE_TOKEN;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:273:17: ( 'include' )
-                DebugEnterAlt(1);
-                // GBX.g:273:19: 'include'
-                {
-                    DebugLocation(273, 19);
-                    Match("include");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INCLUDE_TOKEN", 20);
-                LeaveRule("INCLUDE_TOKEN", 20);
-                LeaveRule_INCLUDE_TOKEN();
-            }
-        }
-        // $ANTLR end "INCLUDE_TOKEN"
-
-        partial void EnterRule_INCBIN();
-        partial void LeaveRule_INCBIN();
-
-        // $ANTLR start "INCBIN"
-        [GrammarRule("INCBIN")]
-        private void mINCBIN()
-        {
-            EnterRule_INCBIN();
-            EnterRule("INCBIN", 21);
-            TraceIn("INCBIN", 21);
-            try
-            {
-                int _type = INCBIN;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:274:10: ( 'incbin' )
-                DebugEnterAlt(1);
-                // GBX.g:274:12: 'incbin'
-                {
-                    DebugLocation(274, 12);
-                    Match("incbin");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INCBIN", 21);
-                LeaveRule("INCBIN", 21);
-                LeaveRule_INCBIN();
-            }
-        }
-        // $ANTLR end "INCBIN"
-
-        partial void EnterRule_TIMES();
-        partial void LeaveRule_TIMES();
-
-        // $ANTLR start "TIMES"
-        [GrammarRule("TIMES")]
-        private void mTIMES()
-        {
-            EnterRule_TIMES();
-            EnterRule("TIMES", 22);
-            TraceIn("TIMES", 22);
-            try
-            {
-                int _type = TIMES;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:275:9: ( 'times' )
-                DebugEnterAlt(1);
-                // GBX.g:275:11: 'times'
-                {
-                    DebugLocation(275, 11);
-                    Match("times");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("TIMES", 22);
-                LeaveRule("TIMES", 22);
-                LeaveRule_TIMES();
-            }
-        }
-        // $ANTLR end "TIMES"
-
-        partial void EnterRule_EQU();
-        partial void LeaveRule_EQU();
-
-        // $ANTLR start "EQU"
-        [GrammarRule("EQU")]
-        private void mEQU()
-        {
-            EnterRule_EQU();
-            EnterRule("EQU", 23);
-            TraceIn("EQU", 23);
-            try
-            {
-                int _type = EQU;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:276:8: ( 'equ' )
-                DebugEnterAlt(1);
-                // GBX.g:276:10: 'equ'
-                {
-                    DebugLocation(276, 10);
-                    Match("equ");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("EQU", 23);
-                LeaveRule("EQU", 23);
-                LeaveRule_EQU();
-            }
-        }
-        // $ANTLR end "EQU"
-
-        partial void EnterRule_INST_ADC();
-        partial void LeaveRule_INST_ADC();
-
-        // $ANTLR start "INST_ADC"
-        [GrammarRule("INST_ADC")]
-        private void mINST_ADC()
-        {
-            EnterRule_INST_ADC();
-            EnterRule("INST_ADC", 24);
-            TraceIn("INST_ADC", 24);
-            try
-            {
-                int _type = INST_ADC;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:278:11: ( 'adc' )
-                DebugEnterAlt(1);
-                // GBX.g:278:13: 'adc'
-                {
-                    DebugLocation(278, 13);
-                    Match("adc");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_ADC", 24);
-                LeaveRule("INST_ADC", 24);
-                LeaveRule_INST_ADC();
-            }
-        }
-        // $ANTLR end "INST_ADC"
-
-        partial void EnterRule_INST_ADD();
-        partial void LeaveRule_INST_ADD();
-
-        // $ANTLR start "INST_ADD"
-        [GrammarRule("INST_ADD")]
-        private void mINST_ADD()
-        {
-            EnterRule_INST_ADD();
-            EnterRule("INST_ADD", 25);
-            TraceIn("INST_ADD", 25);
-            try
-            {
-                int _type = INST_ADD;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:279:11: ( 'add' )
-                DebugEnterAlt(1);
-                // GBX.g:279:13: 'add'
-                {
-                    DebugLocation(279, 13);
-                    Match("add");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_ADD", 25);
-                LeaveRule("INST_ADD", 25);
-                LeaveRule_INST_ADD();
-            }
-        }
-        // $ANTLR end "INST_ADD"
-
-        partial void EnterRule_INST_AND();
-        partial void LeaveRule_INST_AND();
-
-        // $ANTLR start "INST_AND"
-        [GrammarRule("INST_AND")]
-        private void mINST_AND()
-        {
-            EnterRule_INST_AND();
-            EnterRule("INST_AND", 26);
-            TraceIn("INST_AND", 26);
-            try
-            {
-                int _type = INST_AND;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:280:11: ( 'and' )
-                DebugEnterAlt(1);
-                // GBX.g:280:13: 'and'
-                {
-                    DebugLocation(280, 13);
-                    Match("and");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_AND", 26);
-                LeaveRule("INST_AND", 26);
-                LeaveRule_INST_AND();
-            }
-        }
-        // $ANTLR end "INST_AND"
-
-        partial void EnterRule_INST_BIT();
-        partial void LeaveRule_INST_BIT();
-
-        // $ANTLR start "INST_BIT"
-        [GrammarRule("INST_BIT")]
-        private void mINST_BIT()
-        {
-            EnterRule_INST_BIT();
-            EnterRule("INST_BIT", 27);
-            TraceIn("INST_BIT", 27);
-            try
-            {
-                int _type = INST_BIT;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:281:11: ( 'bit' )
-                DebugEnterAlt(1);
-                // GBX.g:281:13: 'bit'
-                {
-                    DebugLocation(281, 13);
-                    Match("bit");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_BIT", 27);
-                LeaveRule("INST_BIT", 27);
-                LeaveRule_INST_BIT();
-            }
-        }
-        // $ANTLR end "INST_BIT"
-
-        partial void EnterRule_INST_CALL();
-        partial void LeaveRule_INST_CALL();
-
-        // $ANTLR start "INST_CALL"
-        [GrammarRule("INST_CALL")]
-        private void mINST_CALL()
-        {
-            EnterRule_INST_CALL();
-            EnterRule("INST_CALL", 28);
-            TraceIn("INST_CALL", 28);
-            try
-            {
-                int _type = INST_CALL;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:282:12: ( 'call' )
-                DebugEnterAlt(1);
-                // GBX.g:282:14: 'call'
-                {
-                    DebugLocation(282, 14);
-                    Match("call");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_CALL", 28);
-                LeaveRule("INST_CALL", 28);
-                LeaveRule_INST_CALL();
-            }
-        }
-        // $ANTLR end "INST_CALL"
-
-        partial void EnterRule_INST_CCF();
-        partial void LeaveRule_INST_CCF();
-
-        // $ANTLR start "INST_CCF"
-        [GrammarRule("INST_CCF")]
-        private void mINST_CCF()
-        {
-            EnterRule_INST_CCF();
-            EnterRule("INST_CCF", 29);
-            TraceIn("INST_CCF", 29);
-            try
-            {
-                int _type = INST_CCF;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:283:11: ( 'ccf' )
-                DebugEnterAlt(1);
-                // GBX.g:283:13: 'ccf'
-                {
-                    DebugLocation(283, 13);
-                    Match("ccf");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_CCF", 29);
-                LeaveRule("INST_CCF", 29);
-                LeaveRule_INST_CCF();
-            }
-        }
-        // $ANTLR end "INST_CCF"
-
-        partial void EnterRule_INST_CP();
-        partial void LeaveRule_INST_CP();
-
-        // $ANTLR start "INST_CP"
-        [GrammarRule("INST_CP")]
-        private void mINST_CP()
-        {
-            EnterRule_INST_CP();
-            EnterRule("INST_CP", 30);
-            TraceIn("INST_CP", 30);
-            try
-            {
-                int _type = INST_CP;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:284:11: ( 'cp' )
-                DebugEnterAlt(1);
-                // GBX.g:284:13: 'cp'
-                {
-                    DebugLocation(284, 13);
-                    Match("cp");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_CP", 30);
-                LeaveRule("INST_CP", 30);
-                LeaveRule_INST_CP();
-            }
-        }
-        // $ANTLR end "INST_CP"
-
-        partial void EnterRule_INST_CPL();
-        partial void LeaveRule_INST_CPL();
-
-        // $ANTLR start "INST_CPL"
-        [GrammarRule("INST_CPL")]
-        private void mINST_CPL()
-        {
-            EnterRule_INST_CPL();
-            EnterRule("INST_CPL", 31);
-            TraceIn("INST_CPL", 31);
-            try
-            {
-                int _type = INST_CPL;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:285:11: ( 'cpl' )
-                DebugEnterAlt(1);
-                // GBX.g:285:13: 'cpl'
-                {
-                    DebugLocation(285, 13);
-                    Match("cpl");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_CPL", 31);
-                LeaveRule("INST_CPL", 31);
-                LeaveRule_INST_CPL();
-            }
-        }
-        // $ANTLR end "INST_CPL"
-
-        partial void EnterRule_INST_DAA();
-        partial void LeaveRule_INST_DAA();
-
-        // $ANTLR start "INST_DAA"
-        [GrammarRule("INST_DAA")]
-        private void mINST_DAA()
-        {
-            EnterRule_INST_DAA();
-            EnterRule("INST_DAA", 32);
-            TraceIn("INST_DAA", 32);
-            try
-            {
-                int _type = INST_DAA;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:286:11: ( 'daa' )
-                DebugEnterAlt(1);
-                // GBX.g:286:13: 'daa'
-                {
-                    DebugLocation(286, 13);
-                    Match("daa");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_DAA", 32);
-                LeaveRule("INST_DAA", 32);
-                LeaveRule_INST_DAA();
-            }
-        }
-        // $ANTLR end "INST_DAA"
-
-        partial void EnterRule_INST_DEC();
-        partial void LeaveRule_INST_DEC();
-
-        // $ANTLR start "INST_DEC"
-        [GrammarRule("INST_DEC")]
-        private void mINST_DEC()
-        {
-            EnterRule_INST_DEC();
-            EnterRule("INST_DEC", 33);
-            TraceIn("INST_DEC", 33);
-            try
-            {
-                int _type = INST_DEC;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:287:11: ( 'dec' )
-                DebugEnterAlt(1);
-                // GBX.g:287:13: 'dec'
-                {
-                    DebugLocation(287, 13);
-                    Match("dec");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_DEC", 33);
-                LeaveRule("INST_DEC", 33);
-                LeaveRule_INST_DEC();
-            }
-        }
-        // $ANTLR end "INST_DEC"
-
-        partial void EnterRule_INST_DI();
-        partial void LeaveRule_INST_DI();
-
-        // $ANTLR start "INST_DI"
-        [GrammarRule("INST_DI")]
-        private void mINST_DI()
-        {
-            EnterRule_INST_DI();
-            EnterRule("INST_DI", 34);
-            TraceIn("INST_DI", 34);
-            try
-            {
-                int _type = INST_DI;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:288:11: ( 'di' )
-                DebugEnterAlt(1);
-                // GBX.g:288:13: 'di'
-                {
-                    DebugLocation(288, 13);
-                    Match("di");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_DI", 34);
-                LeaveRule("INST_DI", 34);
-                LeaveRule_INST_DI();
-            }
-        }
-        // $ANTLR end "INST_DI"
-
-        partial void EnterRule_INST_EI();
-        partial void LeaveRule_INST_EI();
-
-        // $ANTLR start "INST_EI"
-        [GrammarRule("INST_EI")]
-        private void mINST_EI()
-        {
-            EnterRule_INST_EI();
-            EnterRule("INST_EI", 35);
-            TraceIn("INST_EI", 35);
-            try
-            {
-                int _type = INST_EI;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:289:11: ( 'ei' )
-                DebugEnterAlt(1);
-                // GBX.g:289:13: 'ei'
-                {
-                    DebugLocation(289, 13);
-                    Match("ei");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_EI", 35);
-                LeaveRule("INST_EI", 35);
-                LeaveRule_INST_EI();
-            }
-        }
-        // $ANTLR end "INST_EI"
-
-        partial void EnterRule_INST_HALT();
-        partial void LeaveRule_INST_HALT();
-
-        // $ANTLR start "INST_HALT"
-        [GrammarRule("INST_HALT")]
-        private void mINST_HALT()
-        {
-            EnterRule_INST_HALT();
-            EnterRule("INST_HALT", 36);
-            TraceIn("INST_HALT", 36);
-            try
-            {
-                int _type = INST_HALT;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:290:12: ( 'halt' )
-                DebugEnterAlt(1);
-                // GBX.g:290:14: 'halt'
-                {
-                    DebugLocation(290, 14);
-                    Match("halt");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_HALT", 36);
-                LeaveRule("INST_HALT", 36);
-                LeaveRule_INST_HALT();
-            }
-        }
-        // $ANTLR end "INST_HALT"
-
-        partial void EnterRule_INST_INC();
-        partial void LeaveRule_INST_INC();
-
-        // $ANTLR start "INST_INC"
-        [GrammarRule("INST_INC")]
-        private void mINST_INC()
-        {
-            EnterRule_INST_INC();
-            EnterRule("INST_INC", 37);
-            TraceIn("INST_INC", 37);
-            try
-            {
-                int _type = INST_INC;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:291:11: ( 'inc' )
-                DebugEnterAlt(1);
-                // GBX.g:291:13: 'inc'
-                {
-                    DebugLocation(291, 13);
-                    Match("inc");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_INC", 37);
-                LeaveRule("INST_INC", 37);
-                LeaveRule_INST_INC();
-            }
-        }
-        // $ANTLR end "INST_INC"
-
-        partial void EnterRule_INST_JP();
-        partial void LeaveRule_INST_JP();
-
-        // $ANTLR start "INST_JP"
-        [GrammarRule("INST_JP")]
-        private void mINST_JP()
-        {
-            EnterRule_INST_JP();
-            EnterRule("INST_JP", 38);
-            TraceIn("INST_JP", 38);
-            try
-            {
-                int _type = INST_JP;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:292:11: ( 'jp' )
-                DebugEnterAlt(1);
-                // GBX.g:292:13: 'jp'
-                {
-                    DebugLocation(292, 13);
-                    Match("jp");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_JP", 38);
-                LeaveRule("INST_JP", 38);
-                LeaveRule_INST_JP();
-            }
-        }
-        // $ANTLR end "INST_JP"
-
-        partial void EnterRule_INST_JR();
-        partial void LeaveRule_INST_JR();
-
-        // $ANTLR start "INST_JR"
-        [GrammarRule("INST_JR")]
-        private void mINST_JR()
-        {
-            EnterRule_INST_JR();
-            EnterRule("INST_JR", 39);
-            TraceIn("INST_JR", 39);
-            try
-            {
-                int _type = INST_JR;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:293:11: ( 'jr' )
-                DebugEnterAlt(1);
-                // GBX.g:293:13: 'jr'
-                {
-                    DebugLocation(293, 13);
-                    Match("jr");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_JR", 39);
-                LeaveRule("INST_JR", 39);
-                LeaveRule_INST_JR();
-            }
-        }
-        // $ANTLR end "INST_JR"
-
-        partial void EnterRule_INST_LDHL();
-        partial void LeaveRule_INST_LDHL();
-
-        // $ANTLR start "INST_LDHL"
-        [GrammarRule("INST_LDHL")]
-        private void mINST_LDHL()
-        {
-            EnterRule_INST_LDHL();
-            EnterRule("INST_LDHL", 40);
-            TraceIn("INST_LDHL", 40);
-            try
-            {
-                int _type = INST_LDHL;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:294:12: ( 'ldhl' )
-                DebugEnterAlt(1);
-                // GBX.g:294:14: 'ldhl'
-                {
-                    DebugLocation(294, 14);
-                    Match("ldhl");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_LDHL", 40);
-                LeaveRule("INST_LDHL", 40);
-                LeaveRule_INST_LDHL();
-            }
-        }
-        // $ANTLR end "INST_LDHL"
-
-        partial void EnterRule_INST_LDIO();
-        partial void LeaveRule_INST_LDIO();
-
-        // $ANTLR start "INST_LDIO"
-        [GrammarRule("INST_LDIO")]
-        private void mINST_LDIO()
-        {
-            EnterRule_INST_LDIO();
-            EnterRule("INST_LDIO", 41);
-            TraceIn("INST_LDIO", 41);
-            try
-            {
-                int _type = INST_LDIO;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:295:12: ( 'ldio' )
-                DebugEnterAlt(1);
-                // GBX.g:295:14: 'ldio'
-                {
-                    DebugLocation(295, 14);
-                    Match("ldio");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_LDIO", 41);
-                LeaveRule("INST_LDIO", 41);
-                LeaveRule_INST_LDIO();
-            }
-        }
-        // $ANTLR end "INST_LDIO"
-
-        partial void EnterRule_INST_LDI();
-        partial void LeaveRule_INST_LDI();
-
-        // $ANTLR start "INST_LDI"
-        [GrammarRule("INST_LDI")]
-        private void mINST_LDI()
-        {
-            EnterRule_INST_LDI();
-            EnterRule("INST_LDI", 42);
-            TraceIn("INST_LDI", 42);
-            try
-            {
-                int _type = INST_LDI;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:296:11: ( 'ldi' )
-                DebugEnterAlt(1);
-                // GBX.g:296:13: 'ldi'
-                {
-                    DebugLocation(296, 13);
-                    Match("ldi");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_LDI", 42);
-                LeaveRule("INST_LDI", 42);
-                LeaveRule_INST_LDI();
-            }
-        }
-        // $ANTLR end "INST_LDI"
-
-        partial void EnterRule_INST_LDD();
-        partial void LeaveRule_INST_LDD();
-
-        // $ANTLR start "INST_LDD"
-        [GrammarRule("INST_LDD")]
-        private void mINST_LDD()
-        {
-            EnterRule_INST_LDD();
-            EnterRule("INST_LDD", 43);
-            TraceIn("INST_LDD", 43);
-            try
-            {
-                int _type = INST_LDD;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:297:11: ( 'ldd' )
-                DebugEnterAlt(1);
-                // GBX.g:297:13: 'ldd'
-                {
-                    DebugLocation(297, 13);
-                    Match("ldd");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_LDD", 43);
-                LeaveRule("INST_LDD", 43);
-                LeaveRule_INST_LDD();
-            }
-        }
-        // $ANTLR end "INST_LDD"
-
-        partial void EnterRule_INST_LD();
-        partial void LeaveRule_INST_LD();
-
-        // $ANTLR start "INST_LD"
-        [GrammarRule("INST_LD")]
-        private void mINST_LD()
-        {
-            EnterRule_INST_LD();
-            EnterRule("INST_LD", 44);
-            TraceIn("INST_LD", 44);
-            try
-            {
-                int _type = INST_LD;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:298:11: ( 'ld' )
-                DebugEnterAlt(1);
-                // GBX.g:298:13: 'ld'
-                {
-                    DebugLocation(298, 13);
-                    Match("ld");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_LD", 44);
-                LeaveRule("INST_LD", 44);
-                LeaveRule_INST_LD();
-            }
-        }
-        // $ANTLR end "INST_LD"
-
-        partial void EnterRule_INST_NOP();
-        partial void LeaveRule_INST_NOP();
-
-        // $ANTLR start "INST_NOP"
-        [GrammarRule("INST_NOP")]
-        private void mINST_NOP()
-        {
-            EnterRule_INST_NOP();
-            EnterRule("INST_NOP", 45);
-            TraceIn("INST_NOP", 45);
-            try
-            {
-                int _type = INST_NOP;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:299:11: ( 'nop' )
-                DebugEnterAlt(1);
-                // GBX.g:299:13: 'nop'
-                {
-                    DebugLocation(299, 13);
-                    Match("nop");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_NOP", 45);
-                LeaveRule("INST_NOP", 45);
-                LeaveRule_INST_NOP();
-            }
-        }
-        // $ANTLR end "INST_NOP"
-
-        partial void EnterRule_INST_OR();
-        partial void LeaveRule_INST_OR();
-
-        // $ANTLR start "INST_OR"
-        [GrammarRule("INST_OR")]
-        private void mINST_OR()
-        {
-            EnterRule_INST_OR();
-            EnterRule("INST_OR", 46);
-            TraceIn("INST_OR", 46);
-            try
-            {
-                int _type = INST_OR;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:300:11: ( 'or' )
-                DebugEnterAlt(1);
-                // GBX.g:300:13: 'or'
-                {
-                    DebugLocation(300, 13);
-                    Match("or");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_OR", 46);
-                LeaveRule("INST_OR", 46);
-                LeaveRule_INST_OR();
-            }
-        }
-        // $ANTLR end "INST_OR"
-
-        partial void EnterRule_INST_POP();
-        partial void LeaveRule_INST_POP();
-
-        // $ANTLR start "INST_POP"
-        [GrammarRule("INST_POP")]
-        private void mINST_POP()
-        {
-            EnterRule_INST_POP();
-            EnterRule("INST_POP", 47);
-            TraceIn("INST_POP", 47);
-            try
-            {
-                int _type = INST_POP;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:301:11: ( 'pop' )
-                DebugEnterAlt(1);
-                // GBX.g:301:13: 'pop'
-                {
-                    DebugLocation(301, 13);
-                    Match("pop");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_POP", 47);
-                LeaveRule("INST_POP", 47);
-                LeaveRule_INST_POP();
-            }
-        }
-        // $ANTLR end "INST_POP"
-
-        partial void EnterRule_INST_PUSH();
-        partial void LeaveRule_INST_PUSH();
-
-        // $ANTLR start "INST_PUSH"
-        [GrammarRule("INST_PUSH")]
-        private void mINST_PUSH()
-        {
-            EnterRule_INST_PUSH();
-            EnterRule("INST_PUSH", 48);
-            TraceIn("INST_PUSH", 48);
-            try
-            {
-                int _type = INST_PUSH;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:302:12: ( 'push' )
-                DebugEnterAlt(1);
-                // GBX.g:302:14: 'push'
-                {
-                    DebugLocation(302, 14);
-                    Match("push");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_PUSH", 48);
-                LeaveRule("INST_PUSH", 48);
-                LeaveRule_INST_PUSH();
-            }
-        }
-        // $ANTLR end "INST_PUSH"
-
-        partial void EnterRule_INST_RES();
-        partial void LeaveRule_INST_RES();
-
-        // $ANTLR start "INST_RES"
-        [GrammarRule("INST_RES")]
-        private void mINST_RES()
-        {
-            EnterRule_INST_RES();
-            EnterRule("INST_RES", 49);
-            TraceIn("INST_RES", 49);
-            try
-            {
-                int _type = INST_RES;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:303:11: ( 'res' )
-                DebugEnterAlt(1);
-                // GBX.g:303:13: 'res'
-                {
-                    DebugLocation(303, 13);
-                    Match("res");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_RES", 49);
-                LeaveRule("INST_RES", 49);
-                LeaveRule_INST_RES();
-            }
-        }
-        // $ANTLR end "INST_RES"
-
-        partial void EnterRule_INST_RET();
-        partial void LeaveRule_INST_RET();
-
-        // $ANTLR start "INST_RET"
-        [GrammarRule("INST_RET")]
-        private void mINST_RET()
-        {
-            EnterRule_INST_RET();
-            EnterRule("INST_RET", 50);
-            TraceIn("INST_RET", 50);
-            try
-            {
-                int _type = INST_RET;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:304:11: ( 'ret' )
-                DebugEnterAlt(1);
-                // GBX.g:304:13: 'ret'
-                {
-                    DebugLocation(304, 13);
-                    Match("ret");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_RET", 50);
-                LeaveRule("INST_RET", 50);
-                LeaveRule_INST_RET();
-            }
-        }
-        // $ANTLR end "INST_RET"
-
-        partial void EnterRule_INST_RETI();
-        partial void LeaveRule_INST_RETI();
-
-        // $ANTLR start "INST_RETI"
-        [GrammarRule("INST_RETI")]
-        private void mINST_RETI()
-        {
-            EnterRule_INST_RETI();
-            EnterRule("INST_RETI", 51);
-            TraceIn("INST_RETI", 51);
-            try
-            {
-                int _type = INST_RETI;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:305:12: ( 'reti' )
-                DebugEnterAlt(1);
-                // GBX.g:305:14: 'reti'
-                {
-                    DebugLocation(305, 14);
-                    Match("reti");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_RETI", 51);
-                LeaveRule("INST_RETI", 51);
-                LeaveRule_INST_RETI();
-            }
-        }
-        // $ANTLR end "INST_RETI"
-
-        partial void EnterRule_INST_RLA();
-        partial void LeaveRule_INST_RLA();
-
-        // $ANTLR start "INST_RLA"
-        [GrammarRule("INST_RLA")]
-        private void mINST_RLA()
-        {
-            EnterRule_INST_RLA();
-            EnterRule("INST_RLA", 52);
-            TraceIn("INST_RLA", 52);
-            try
-            {
-                int _type = INST_RLA;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:306:11: ( 'rla' )
-                DebugEnterAlt(1);
-                // GBX.g:306:13: 'rla'
-                {
-                    DebugLocation(306, 13);
-                    Match("rla");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_RLA", 52);
-                LeaveRule("INST_RLA", 52);
-                LeaveRule_INST_RLA();
-            }
-        }
-        // $ANTLR end "INST_RLA"
-
-        partial void EnterRule_INST_RL();
-        partial void LeaveRule_INST_RL();
-
-        // $ANTLR start "INST_RL"
-        [GrammarRule("INST_RL")]
-        private void mINST_RL()
-        {
-            EnterRule_INST_RL();
-            EnterRule("INST_RL", 53);
-            TraceIn("INST_RL", 53);
-            try
-            {
-                int _type = INST_RL;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:307:11: ( 'rl' )
-                DebugEnterAlt(1);
-                // GBX.g:307:13: 'rl'
-                {
-                    DebugLocation(307, 13);
-                    Match("rl");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_RL", 53);
-                LeaveRule("INST_RL", 53);
-                LeaveRule_INST_RL();
-            }
-        }
-        // $ANTLR end "INST_RL"
-
-        partial void EnterRule_INST_RLCA();
-        partial void LeaveRule_INST_RLCA();
-
-        // $ANTLR start "INST_RLCA"
-        [GrammarRule("INST_RLCA")]
-        private void mINST_RLCA()
-        {
-            EnterRule_INST_RLCA();
-            EnterRule("INST_RLCA", 54);
-            TraceIn("INST_RLCA", 54);
-            try
-            {
-                int _type = INST_RLCA;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:308:12: ( 'rlca' )
-                DebugEnterAlt(1);
-                // GBX.g:308:14: 'rlca'
-                {
-                    DebugLocation(308, 14);
-                    Match("rlca");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_RLCA", 54);
-                LeaveRule("INST_RLCA", 54);
-                LeaveRule_INST_RLCA();
-            }
-        }
-        // $ANTLR end "INST_RLCA"
-
-        partial void EnterRule_INST_RLC();
-        partial void LeaveRule_INST_RLC();
-
-        // $ANTLR start "INST_RLC"
-        [GrammarRule("INST_RLC")]
-        private void mINST_RLC()
-        {
-            EnterRule_INST_RLC();
-            EnterRule("INST_RLC", 55);
-            TraceIn("INST_RLC", 55);
-            try
-            {
-                int _type = INST_RLC;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:309:11: ( 'rlc' )
-                DebugEnterAlt(1);
-                // GBX.g:309:13: 'rlc'
-                {
-                    DebugLocation(309, 13);
-                    Match("rlc");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_RLC", 55);
-                LeaveRule("INST_RLC", 55);
-                LeaveRule_INST_RLC();
-            }
-        }
-        // $ANTLR end "INST_RLC"
-
-        partial void EnterRule_INST_RRA();
-        partial void LeaveRule_INST_RRA();
-
-        // $ANTLR start "INST_RRA"
-        [GrammarRule("INST_RRA")]
-        private void mINST_RRA()
-        {
-            EnterRule_INST_RRA();
-            EnterRule("INST_RRA", 56);
-            TraceIn("INST_RRA", 56);
-            try
-            {
-                int _type = INST_RRA;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:310:11: ( 'rra' )
-                DebugEnterAlt(1);
-                // GBX.g:310:13: 'rra'
-                {
-                    DebugLocation(310, 13);
-                    Match("rra");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_RRA", 56);
-                LeaveRule("INST_RRA", 56);
-                LeaveRule_INST_RRA();
-            }
-        }
-        // $ANTLR end "INST_RRA"
-
-        partial void EnterRule_INST_RR();
-        partial void LeaveRule_INST_RR();
-
-        // $ANTLR start "INST_RR"
-        [GrammarRule("INST_RR")]
-        private void mINST_RR()
-        {
-            EnterRule_INST_RR();
-            EnterRule("INST_RR", 57);
-            TraceIn("INST_RR", 57);
-            try
-            {
-                int _type = INST_RR;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:311:11: ( 'rr' )
-                DebugEnterAlt(1);
-                // GBX.g:311:13: 'rr'
-                {
-                    DebugLocation(311, 13);
-                    Match("rr");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_RR", 57);
-                LeaveRule("INST_RR", 57);
-                LeaveRule_INST_RR();
-            }
-        }
-        // $ANTLR end "INST_RR"
-
-        partial void EnterRule_INST_RRCA();
-        partial void LeaveRule_INST_RRCA();
-
-        // $ANTLR start "INST_RRCA"
-        [GrammarRule("INST_RRCA")]
-        private void mINST_RRCA()
-        {
-            EnterRule_INST_RRCA();
-            EnterRule("INST_RRCA", 58);
-            TraceIn("INST_RRCA", 58);
-            try
-            {
-                int _type = INST_RRCA;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:312:12: ( 'rrca' )
-                DebugEnterAlt(1);
-                // GBX.g:312:14: 'rrca'
-                {
-                    DebugLocation(312, 14);
-                    Match("rrca");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_RRCA", 58);
-                LeaveRule("INST_RRCA", 58);
-                LeaveRule_INST_RRCA();
-            }
-        }
-        // $ANTLR end "INST_RRCA"
-
-        partial void EnterRule_INST_RRC();
-        partial void LeaveRule_INST_RRC();
-
-        // $ANTLR start "INST_RRC"
-        [GrammarRule("INST_RRC")]
-        private void mINST_RRC()
-        {
-            EnterRule_INST_RRC();
-            EnterRule("INST_RRC", 59);
-            TraceIn("INST_RRC", 59);
-            try
-            {
-                int _type = INST_RRC;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:313:11: ( 'rrc' )
-                DebugEnterAlt(1);
-                // GBX.g:313:13: 'rrc'
-                {
-                    DebugLocation(313, 13);
-                    Match("rrc");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_RRC", 59);
-                LeaveRule("INST_RRC", 59);
-                LeaveRule_INST_RRC();
-            }
-        }
-        // $ANTLR end "INST_RRC"
-
-        partial void EnterRule_INST_RST();
-        partial void LeaveRule_INST_RST();
-
-        // $ANTLR start "INST_RST"
-        [GrammarRule("INST_RST")]
-        private void mINST_RST()
-        {
-            EnterRule_INST_RST();
-            EnterRule("INST_RST", 60);
-            TraceIn("INST_RST", 60);
-            try
-            {
-                int _type = INST_RST;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:314:11: ( 'rst' )
-                DebugEnterAlt(1);
-                // GBX.g:314:13: 'rst'
-                {
-                    DebugLocation(314, 13);
-                    Match("rst");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_RST", 60);
-                LeaveRule("INST_RST", 60);
-                LeaveRule_INST_RST();
-            }
-        }
-        // $ANTLR end "INST_RST"
-
-        partial void EnterRule_INST_SBC();
-        partial void LeaveRule_INST_SBC();
-
-        // $ANTLR start "INST_SBC"
-        [GrammarRule("INST_SBC")]
-        private void mINST_SBC()
-        {
-            EnterRule_INST_SBC();
-            EnterRule("INST_SBC", 61);
-            TraceIn("INST_SBC", 61);
-            try
-            {
-                int _type = INST_SBC;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:315:11: ( 'sbc' )
-                DebugEnterAlt(1);
-                // GBX.g:315:13: 'sbc'
-                {
-                    DebugLocation(315, 13);
-                    Match("sbc");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_SBC", 61);
-                LeaveRule("INST_SBC", 61);
-                LeaveRule_INST_SBC();
-            }
-        }
-        // $ANTLR end "INST_SBC"
-
-        partial void EnterRule_INST_SCF();
-        partial void LeaveRule_INST_SCF();
-
-        // $ANTLR start "INST_SCF"
-        [GrammarRule("INST_SCF")]
-        private void mINST_SCF()
-        {
-            EnterRule_INST_SCF();
-            EnterRule("INST_SCF", 62);
-            TraceIn("INST_SCF", 62);
-            try
-            {
-                int _type = INST_SCF;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:316:11: ( 'scf' )
-                DebugEnterAlt(1);
-                // GBX.g:316:13: 'scf'
-                {
-                    DebugLocation(316, 13);
-                    Match("scf");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_SCF", 62);
-                LeaveRule("INST_SCF", 62);
-                LeaveRule_INST_SCF();
-            }
-        }
-        // $ANTLR end "INST_SCF"
-
-        partial void EnterRule_INST_SET();
-        partial void LeaveRule_INST_SET();
-
-        // $ANTLR start "INST_SET"
-        [GrammarRule("INST_SET")]
-        private void mINST_SET()
-        {
-            EnterRule_INST_SET();
-            EnterRule("INST_SET", 63);
-            TraceIn("INST_SET", 63);
-            try
-            {
-                int _type = INST_SET;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:317:11: ( 'set' )
-                DebugEnterAlt(1);
-                // GBX.g:317:13: 'set'
-                {
-                    DebugLocation(317, 13);
-                    Match("set");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_SET", 63);
-                LeaveRule("INST_SET", 63);
-                LeaveRule_INST_SET();
-            }
-        }
-        // $ANTLR end "INST_SET"
-
-        partial void EnterRule_INST_SLA();
-        partial void LeaveRule_INST_SLA();
-
-        // $ANTLR start "INST_SLA"
-        [GrammarRule("INST_SLA")]
-        private void mINST_SLA()
-        {
-            EnterRule_INST_SLA();
-            EnterRule("INST_SLA", 64);
-            TraceIn("INST_SLA", 64);
-            try
-            {
-                int _type = INST_SLA;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:318:11: ( 'sla' )
-                DebugEnterAlt(1);
-                // GBX.g:318:13: 'sla'
-                {
-                    DebugLocation(318, 13);
-                    Match("sla");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_SLA", 64);
-                LeaveRule("INST_SLA", 64);
-                LeaveRule_INST_SLA();
-            }
-        }
-        // $ANTLR end "INST_SLA"
-
-        partial void EnterRule_INST_SRA();
-        partial void LeaveRule_INST_SRA();
-
-        // $ANTLR start "INST_SRA"
-        [GrammarRule("INST_SRA")]
-        private void mINST_SRA()
-        {
-            EnterRule_INST_SRA();
-            EnterRule("INST_SRA", 65);
-            TraceIn("INST_SRA", 65);
-            try
-            {
-                int _type = INST_SRA;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:319:11: ( 'sra' )
-                DebugEnterAlt(1);
-                // GBX.g:319:13: 'sra'
-                {
-                    DebugLocation(319, 13);
-                    Match("sra");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_SRA", 65);
-                LeaveRule("INST_SRA", 65);
-                LeaveRule_INST_SRA();
-            }
-        }
-        // $ANTLR end "INST_SRA"
-
-        partial void EnterRule_INST_SRL();
-        partial void LeaveRule_INST_SRL();
-
-        // $ANTLR start "INST_SRL"
-        [GrammarRule("INST_SRL")]
-        private void mINST_SRL()
-        {
-            EnterRule_INST_SRL();
-            EnterRule("INST_SRL", 66);
-            TraceIn("INST_SRL", 66);
-            try
-            {
-                int _type = INST_SRL;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:320:11: ( 'srl' )
-                DebugEnterAlt(1);
-                // GBX.g:320:13: 'srl'
-                {
-                    DebugLocation(320, 13);
-                    Match("srl");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_SRL", 66);
-                LeaveRule("INST_SRL", 66);
-                LeaveRule_INST_SRL();
-            }
-        }
-        // $ANTLR end "INST_SRL"
-
-        partial void EnterRule_INST_STOP();
-        partial void LeaveRule_INST_STOP();
-
-        // $ANTLR start "INST_STOP"
-        [GrammarRule("INST_STOP")]
-        private void mINST_STOP()
-        {
-            EnterRule_INST_STOP();
-            EnterRule("INST_STOP", 67);
-            TraceIn("INST_STOP", 67);
-            try
-            {
-                int _type = INST_STOP;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:321:12: ( 'stop' )
-                DebugEnterAlt(1);
-                // GBX.g:321:14: 'stop'
-                {
-                    DebugLocation(321, 14);
-                    Match("stop");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_STOP", 67);
-                LeaveRule("INST_STOP", 67);
-                LeaveRule_INST_STOP();
-            }
-        }
-        // $ANTLR end "INST_STOP"
-
-        partial void EnterRule_INST_SUB();
-        partial void LeaveRule_INST_SUB();
-
-        // $ANTLR start "INST_SUB"
-        [GrammarRule("INST_SUB")]
-        private void mINST_SUB()
-        {
-            EnterRule_INST_SUB();
-            EnterRule("INST_SUB", 68);
-            TraceIn("INST_SUB", 68);
-            try
-            {
-                int _type = INST_SUB;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:322:11: ( 'sub' )
-                DebugEnterAlt(1);
-                // GBX.g:322:13: 'sub'
-                {
-                    DebugLocation(322, 13);
-                    Match("sub");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_SUB", 68);
-                LeaveRule("INST_SUB", 68);
-                LeaveRule_INST_SUB();
-            }
-        }
-        // $ANTLR end "INST_SUB"
-
-        partial void EnterRule_INST_SWAP();
-        partial void LeaveRule_INST_SWAP();
-
-        // $ANTLR start "INST_SWAP"
-        [GrammarRule("INST_SWAP")]
-        private void mINST_SWAP()
-        {
-            EnterRule_INST_SWAP();
-            EnterRule("INST_SWAP", 69);
-            TraceIn("INST_SWAP", 69);
-            try
-            {
-                int _type = INST_SWAP;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:323:12: ( 'swap' )
-                DebugEnterAlt(1);
-                // GBX.g:323:14: 'swap'
-                {
-                    DebugLocation(323, 14);
-                    Match("swap");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_SWAP", 69);
-                LeaveRule("INST_SWAP", 69);
-                LeaveRule_INST_SWAP();
-            }
-        }
-        // $ANTLR end "INST_SWAP"
-
-        partial void EnterRule_INST_XOR();
-        partial void LeaveRule_INST_XOR();
-
-        // $ANTLR start "INST_XOR"
-        [GrammarRule("INST_XOR")]
-        private void mINST_XOR()
-        {
-            EnterRule_INST_XOR();
-            EnterRule("INST_XOR", 70);
-            TraceIn("INST_XOR", 70);
-            try
-            {
-                int _type = INST_XOR;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:324:11: ( 'xor' )
-                DebugEnterAlt(1);
-                // GBX.g:324:13: 'xor'
-                {
-                    DebugLocation(324, 13);
-                    Match("xor");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("INST_XOR", 70);
-                LeaveRule("INST_XOR", 70);
-                LeaveRule_INST_XOR();
-            }
-        }
-        // $ANTLR end "INST_XOR"
-
-        partial void EnterRule_RR_AF();
-        partial void LeaveRule_RR_AF();
-
-        // $ANTLR start "RR_AF"
-        [GrammarRule("RR_AF")]
-        private void mRR_AF()
-        {
-            EnterRule_RR_AF();
-            EnterRule("RR_AF", 71);
-            TraceIn("RR_AF", 71);
-            try
-            {
-                int _type = RR_AF;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:325:9: ( 'af' )
-                DebugEnterAlt(1);
-                // GBX.g:325:11: 'af'
-                {
-                    DebugLocation(325, 11);
-                    Match("af");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("RR_AF", 71);
-                LeaveRule("RR_AF", 71);
-                LeaveRule_RR_AF();
-            }
-        }
-        // $ANTLR end "RR_AF"
-
-        partial void EnterRule_RR_BC();
-        partial void LeaveRule_RR_BC();
-
-        // $ANTLR start "RR_BC"
-        [GrammarRule("RR_BC")]
-        private void mRR_BC()
-        {
-            EnterRule_RR_BC();
-            EnterRule("RR_BC", 72);
-            TraceIn("RR_BC", 72);
-            try
-            {
-                int _type = RR_BC;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:326:9: ( 'bc' )
-                DebugEnterAlt(1);
-                // GBX.g:326:11: 'bc'
-                {
-                    DebugLocation(326, 11);
-                    Match("bc");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("RR_BC", 72);
-                LeaveRule("RR_BC", 72);
-                LeaveRule_RR_BC();
-            }
-        }
-        // $ANTLR end "RR_BC"
-
-        partial void EnterRule_RR_DE();
-        partial void LeaveRule_RR_DE();
-
-        // $ANTLR start "RR_DE"
-        [GrammarRule("RR_DE")]
-        private void mRR_DE()
-        {
-            EnterRule_RR_DE();
-            EnterRule("RR_DE", 73);
-            TraceIn("RR_DE", 73);
-            try
-            {
-                int _type = RR_DE;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:327:9: ( 'de' )
-                DebugEnterAlt(1);
-                // GBX.g:327:11: 'de'
-                {
-                    DebugLocation(327, 11);
-                    Match("de");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("RR_DE", 73);
-                LeaveRule("RR_DE", 73);
-                LeaveRule_RR_DE();
-            }
-        }
-        // $ANTLR end "RR_DE"
-
-        partial void EnterRule_RR_HL();
-        partial void LeaveRule_RR_HL();
-
-        // $ANTLR start "RR_HL"
-        [GrammarRule("RR_HL")]
-        private void mRR_HL()
-        {
-            EnterRule_RR_HL();
-            EnterRule("RR_HL", 74);
-            TraceIn("RR_HL", 74);
-            try
-            {
-                int _type = RR_HL;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:328:9: ( 'hl' )
-                DebugEnterAlt(1);
-                // GBX.g:328:11: 'hl'
-                {
-                    DebugLocation(328, 11);
-                    Match("hl");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("RR_HL", 74);
-                LeaveRule("RR_HL", 74);
-                LeaveRule_RR_HL();
-            }
-        }
-        // $ANTLR end "RR_HL"
-
-        partial void EnterRule_RR_SP();
-        partial void LeaveRule_RR_SP();
-
-        // $ANTLR start "RR_SP"
-        [GrammarRule("RR_SP")]
-        private void mRR_SP()
-        {
-            EnterRule_RR_SP();
-            EnterRule("RR_SP", 75);
-            TraceIn("RR_SP", 75);
-            try
-            {
-                int _type = RR_SP;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:329:9: ( 'sp' )
-                DebugEnterAlt(1);
-                // GBX.g:329:11: 'sp'
-                {
-                    DebugLocation(329, 11);
-                    Match("sp");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("RR_SP", 75);
-                LeaveRule("RR_SP", 75);
-                LeaveRule_RR_SP();
-            }
-        }
-        // $ANTLR end "RR_SP"
-
-        partial void EnterRule_CC_NC();
-        partial void LeaveRule_CC_NC();
-
-        // $ANTLR start "CC_NC"
-        [GrammarRule("CC_NC")]
-        private void mCC_NC()
-        {
-            EnterRule_CC_NC();
-            EnterRule("CC_NC", 76);
-            TraceIn("CC_NC", 76);
-            try
-            {
-                int _type = CC_NC;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:330:9: ( 'nc' )
-                DebugEnterAlt(1);
-                // GBX.g:330:11: 'nc'
-                {
-                    DebugLocation(330, 11);
-                    Match("nc");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("CC_NC", 76);
-                LeaveRule("CC_NC", 76);
-                LeaveRule_CC_NC();
-            }
-        }
-        // $ANTLR end "CC_NC"
-
-        partial void EnterRule_CC_NZ();
-        partial void LeaveRule_CC_NZ();
-
-        // $ANTLR start "CC_NZ"
-        [GrammarRule("CC_NZ")]
-        private void mCC_NZ()
-        {
-            EnterRule_CC_NZ();
-            EnterRule("CC_NZ", 77);
-            TraceIn("CC_NZ", 77);
-            try
-            {
-                int _type = CC_NZ;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:331:9: ( 'nz' )
-                DebugEnterAlt(1);
-                // GBX.g:331:11: 'nz'
-                {
-                    DebugLocation(331, 11);
-                    Match("nz");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("CC_NZ", 77);
-                LeaveRule("CC_NZ", 77);
-                LeaveRule_CC_NZ();
-            }
-        }
-        // $ANTLR end "CC_NZ"
-
-        partial void EnterRule_CC_Z();
-        partial void LeaveRule_CC_Z();
-
-        // $ANTLR start "CC_Z"
-        [GrammarRule("CC_Z")]
-        private void mCC_Z()
-        {
-            EnterRule_CC_Z();
-            EnterRule("CC_Z", 78);
-            TraceIn("CC_Z", 78);
-            try
-            {
-                int _type = CC_Z;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:332:8: ( 'z' )
-                DebugEnterAlt(1);
-                // GBX.g:332:10: 'z'
-                {
-                    DebugLocation(332, 10);
-                    Match('z');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("CC_Z", 78);
-                LeaveRule("CC_Z", 78);
-                LeaveRule_CC_Z();
-            }
-        }
-        // $ANTLR end "CC_Z"
-
-        partial void EnterRule_REG_A();
-        partial void LeaveRule_REG_A();
-
-        // $ANTLR start "REG_A"
-        [GrammarRule("REG_A")]
-        private void mREG_A()
-        {
-            EnterRule_REG_A();
-            EnterRule("REG_A", 79);
-            TraceIn("REG_A", 79);
-            try
-            {
-                int _type = REG_A;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:333:9: ( 'a' )
-                DebugEnterAlt(1);
-                // GBX.g:333:11: 'a'
-                {
-                    DebugLocation(333, 11);
-                    Match('a');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("REG_A", 79);
-                LeaveRule("REG_A", 79);
-                LeaveRule_REG_A();
-            }
-        }
-        // $ANTLR end "REG_A"
-
-        partial void EnterRule_REG_B();
-        partial void LeaveRule_REG_B();
-
-        // $ANTLR start "REG_B"
-        [GrammarRule("REG_B")]
-        private void mREG_B()
-        {
-            EnterRule_REG_B();
-            EnterRule("REG_B", 80);
-            TraceIn("REG_B", 80);
-            try
-            {
-                int _type = REG_B;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:334:9: ( 'b' )
-                DebugEnterAlt(1);
-                // GBX.g:334:11: 'b'
-                {
-                    DebugLocation(334, 11);
-                    Match('b');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("REG_B", 80);
-                LeaveRule("REG_B", 80);
-                LeaveRule_REG_B();
-            }
-        }
-        // $ANTLR end "REG_B"
-
-        partial void EnterRule_REG_C();
-        partial void LeaveRule_REG_C();
-
-        // $ANTLR start "REG_C"
-        [GrammarRule("REG_C")]
-        private void mREG_C()
-        {
-            EnterRule_REG_C();
-            EnterRule("REG_C", 81);
-            TraceIn("REG_C", 81);
-            try
-            {
-                int _type = REG_C;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:335:9: ( 'c' )
-                DebugEnterAlt(1);
-                // GBX.g:335:11: 'c'
-                {
-                    DebugLocation(335, 11);
-                    Match('c');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("REG_C", 81);
-                LeaveRule("REG_C", 81);
-                LeaveRule_REG_C();
-            }
-        }
-        // $ANTLR end "REG_C"
-
-        partial void EnterRule_REG_D();
-        partial void LeaveRule_REG_D();
-
-        // $ANTLR start "REG_D"
-        [GrammarRule("REG_D")]
-        private void mREG_D()
-        {
-            EnterRule_REG_D();
-            EnterRule("REG_D", 82);
-            TraceIn("REG_D", 82);
-            try
-            {
-                int _type = REG_D;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:336:9: ( 'd' )
-                DebugEnterAlt(1);
-                // GBX.g:336:11: 'd'
-                {
-                    DebugLocation(336, 11);
-                    Match('d');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("REG_D", 82);
-                LeaveRule("REG_D", 82);
-                LeaveRule_REG_D();
-            }
-        }
-        // $ANTLR end "REG_D"
-
-        partial void EnterRule_REG_E();
-        partial void LeaveRule_REG_E();
-
-        // $ANTLR start "REG_E"
-        [GrammarRule("REG_E")]
-        private void mREG_E()
-        {
-            EnterRule_REG_E();
-            EnterRule("REG_E", 83);
-            TraceIn("REG_E", 83);
-            try
-            {
-                int _type = REG_E;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:337:9: ( 'e' )
-                DebugEnterAlt(1);
-                // GBX.g:337:11: 'e'
-                {
-                    DebugLocation(337, 11);
-                    Match('e');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("REG_E", 83);
-                LeaveRule("REG_E", 83);
-                LeaveRule_REG_E();
-            }
-        }
-        // $ANTLR end "REG_E"
-
-        partial void EnterRule_REG_H();
-        partial void LeaveRule_REG_H();
-
-        // $ANTLR start "REG_H"
-        [GrammarRule("REG_H")]
-        private void mREG_H()
-        {
-            EnterRule_REG_H();
-            EnterRule("REG_H", 84);
-            TraceIn("REG_H", 84);
-            try
-            {
-                int _type = REG_H;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:338:9: ( 'h' )
-                DebugEnterAlt(1);
-                // GBX.g:338:11: 'h'
-                {
-                    DebugLocation(338, 11);
-                    Match('h');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("REG_H", 84);
-                LeaveRule("REG_H", 84);
-                LeaveRule_REG_H();
-            }
-        }
-        // $ANTLR end "REG_H"
-
-        partial void EnterRule_REG_L();
-        partial void LeaveRule_REG_L();
-
-        // $ANTLR start "REG_L"
-        [GrammarRule("REG_L")]
-        private void mREG_L()
-        {
-            EnterRule_REG_L();
-            EnterRule("REG_L", 85);
-            TraceIn("REG_L", 85);
-            try
-            {
-                int _type = REG_L;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:339:9: ( 'l' )
-                DebugEnterAlt(1);
-                // GBX.g:339:11: 'l'
-                {
-                    DebugLocation(339, 11);
-                    Match('l');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("REG_L", 85);
-                LeaveRule("REG_L", 85);
-                LeaveRule_REG_L();
-            }
-        }
-        // $ANTLR end "REG_L"
-
-        partial void EnterRule_LOC_LABEL_RAND();
-        partial void LeaveRule_LOC_LABEL_RAND();
-
-        // $ANTLR start "LOC_LABEL_RAND"
-        [GrammarRule("LOC_LABEL_RAND")]
-        private void mLOC_LABEL_RAND()
-        {
-            EnterRule_LOC_LABEL_RAND();
-            EnterRule("LOC_LABEL_RAND", 86);
-            TraceIn("LOC_LABEL_RAND", 86);
-            try
-            {
-                int _type = LOC_LABEL_RAND;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:341:16: ( '\\\\@' )
-                DebugEnterAlt(1);
-                // GBX.g:341:18: '\\\\@'
-                {
-                    DebugLocation(341, 18);
-                    Match("\\@");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("LOC_LABEL_RAND", 86);
-                LeaveRule("LOC_LABEL_RAND", 86);
-                LeaveRule_LOC_LABEL_RAND();
-            }
-        }
-        // $ANTLR end "LOC_LABEL_RAND"
-
-        partial void EnterRule_M_ARG1();
-        partial void LeaveRule_M_ARG1();
-
-        // $ANTLR start "M_ARG1"
-        [GrammarRule("M_ARG1")]
-        private void mM_ARG1()
-        {
-            EnterRule_M_ARG1();
-            EnterRule("M_ARG1", 87);
-            TraceIn("M_ARG1", 87);
-            try
-            {
-                int _type = M_ARG1;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:342:10: ( '\\\\1' )
-                DebugEnterAlt(1);
-                // GBX.g:342:12: '\\\\1'
-                {
-                    DebugLocation(342, 12);
-                    Match("\\1");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("M_ARG1", 87);
-                LeaveRule("M_ARG1", 87);
-                LeaveRule_M_ARG1();
-            }
-        }
-        // $ANTLR end "M_ARG1"
-
-        partial void EnterRule_M_ARG2();
-        partial void LeaveRule_M_ARG2();
-
-        // $ANTLR start "M_ARG2"
-        [GrammarRule("M_ARG2")]
-        private void mM_ARG2()
-        {
-            EnterRule_M_ARG2();
-            EnterRule("M_ARG2", 88);
-            TraceIn("M_ARG2", 88);
-            try
-            {
-                int _type = M_ARG2;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:343:10: ( '\\\\2' )
-                DebugEnterAlt(1);
-                // GBX.g:343:12: '\\\\2'
-                {
-                    DebugLocation(343, 12);
-                    Match("\\2");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("M_ARG2", 88);
-                LeaveRule("M_ARG2", 88);
-                LeaveRule_M_ARG2();
-            }
-        }
-        // $ANTLR end "M_ARG2"
-
-        partial void EnterRule_M_ARG3();
-        partial void LeaveRule_M_ARG3();
-
-        // $ANTLR start "M_ARG3"
-        [GrammarRule("M_ARG3")]
-        private void mM_ARG3()
-        {
-            EnterRule_M_ARG3();
-            EnterRule("M_ARG3", 89);
-            TraceIn("M_ARG3", 89);
-            try
-            {
-                int _type = M_ARG3;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:344:10: ( '\\\\3' )
-                DebugEnterAlt(1);
-                // GBX.g:344:12: '\\\\3'
-                {
-                    DebugLocation(344, 12);
-                    Match("\\3");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("M_ARG3", 89);
-                LeaveRule("M_ARG3", 89);
-                LeaveRule_M_ARG3();
-            }
-        }
-        // $ANTLR end "M_ARG3"
-
-        partial void EnterRule_M_ARG4();
-        partial void LeaveRule_M_ARG4();
-
-        // $ANTLR start "M_ARG4"
-        [GrammarRule("M_ARG4")]
-        private void mM_ARG4()
-        {
-            EnterRule_M_ARG4();
-            EnterRule("M_ARG4", 90);
-            TraceIn("M_ARG4", 90);
-            try
-            {
-                int _type = M_ARG4;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:345:10: ( '\\\\4' )
-                DebugEnterAlt(1);
-                // GBX.g:345:12: '\\\\4'
-                {
-                    DebugLocation(345, 12);
-                    Match("\\4");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("M_ARG4", 90);
-                LeaveRule("M_ARG4", 90);
-                LeaveRule_M_ARG4();
-            }
-        }
-        // $ANTLR end "M_ARG4"
-
-        partial void EnterRule_M_ARG5();
-        partial void LeaveRule_M_ARG5();
-
-        // $ANTLR start "M_ARG5"
-        [GrammarRule("M_ARG5")]
-        private void mM_ARG5()
-        {
-            EnterRule_M_ARG5();
-            EnterRule("M_ARG5", 91);
-            TraceIn("M_ARG5", 91);
-            try
-            {
-                int _type = M_ARG5;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:346:10: ( '\\\\5' )
-                DebugEnterAlt(1);
-                // GBX.g:346:12: '\\\\5'
-                {
-                    DebugLocation(346, 12);
-                    Match("\\5");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("M_ARG5", 91);
-                LeaveRule("M_ARG5", 91);
-                LeaveRule_M_ARG5();
-            }
-        }
-        // $ANTLR end "M_ARG5"
-
-        partial void EnterRule_M_ARG6();
-        partial void LeaveRule_M_ARG6();
-
-        // $ANTLR start "M_ARG6"
-        [GrammarRule("M_ARG6")]
-        private void mM_ARG6()
-        {
-            EnterRule_M_ARG6();
-            EnterRule("M_ARG6", 92);
-            TraceIn("M_ARG6", 92);
-            try
-            {
-                int _type = M_ARG6;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:347:10: ( '\\\\6' )
-                DebugEnterAlt(1);
-                // GBX.g:347:12: '\\\\6'
-                {
-                    DebugLocation(347, 12);
-                    Match("\\6");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("M_ARG6", 92);
-                LeaveRule("M_ARG6", 92);
-                LeaveRule_M_ARG6();
-            }
-        }
-        // $ANTLR end "M_ARG6"
-
-        partial void EnterRule_M_ARG7();
-        partial void LeaveRule_M_ARG7();
-
-        // $ANTLR start "M_ARG7"
-        [GrammarRule("M_ARG7")]
-        private void mM_ARG7()
-        {
-            EnterRule_M_ARG7();
-            EnterRule("M_ARG7", 93);
-            TraceIn("M_ARG7", 93);
-            try
-            {
-                int _type = M_ARG7;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:348:10: ( '\\\\7' )
-                DebugEnterAlt(1);
-                // GBX.g:348:12: '\\\\7'
-                {
-                    DebugLocation(348, 12);
-                    Match("\\7");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("M_ARG7", 93);
-                LeaveRule("M_ARG7", 93);
-                LeaveRule_M_ARG7();
-            }
-        }
-        // $ANTLR end "M_ARG7"
-
-        partial void EnterRule_M_ARG8();
-        partial void LeaveRule_M_ARG8();
-
-        // $ANTLR start "M_ARG8"
-        [GrammarRule("M_ARG8")]
-        private void mM_ARG8()
-        {
-            EnterRule_M_ARG8();
-            EnterRule("M_ARG8", 94);
-            TraceIn("M_ARG8", 94);
-            try
-            {
-                int _type = M_ARG8;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:349:10: ( '\\\\8' )
-                DebugEnterAlt(1);
-                // GBX.g:349:12: '\\\\8'
-                {
-                    DebugLocation(349, 12);
-                    Match("\\8");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("M_ARG8", 94);
-                LeaveRule("M_ARG8", 94);
-                LeaveRule_M_ARG8();
-            }
-        }
-        // $ANTLR end "M_ARG8"
-
-        partial void EnterRule_M_ARG9();
-        partial void LeaveRule_M_ARG9();
-
-        // $ANTLR start "M_ARG9"
-        [GrammarRule("M_ARG9")]
-        private void mM_ARG9()
-        {
-            EnterRule_M_ARG9();
-            EnterRule("M_ARG9", 95);
-            TraceIn("M_ARG9", 95);
-            try
-            {
-                int _type = M_ARG9;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:350:10: ( '\\\\9' )
-                DebugEnterAlt(1);
-                // GBX.g:350:12: '\\\\9'
-                {
-                    DebugLocation(350, 12);
-                    Match("\\9");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("M_ARG9", 95);
-                LeaveRule("M_ARG9", 95);
-                LeaveRule_M_ARG9();
-            }
-        }
-        // $ANTLR end "M_ARG9"
-
-        partial void EnterRule_QUEST_MARK();
-        partial void LeaveRule_QUEST_MARK();
-
-        // $ANTLR start "QUEST_MARK"
-        [GrammarRule("QUEST_MARK")]
-        private void mQUEST_MARK()
-        {
-            EnterRule_QUEST_MARK();
-            EnterRule("QUEST_MARK", 96);
-            TraceIn("QUEST_MARK", 96);
-            try
-            {
-                int _type = QUEST_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:352:13: ( '?' )
-                DebugEnterAlt(1);
-                // GBX.g:352:15: '?'
-                {
-                    DebugLocation(352, 15);
-                    Match('?');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("QUEST_MARK", 96);
-                LeaveRule("QUEST_MARK", 96);
-                LeaveRule_QUEST_MARK();
-            }
-        }
-        // $ANTLR end "QUEST_MARK"
-
-        partial void EnterRule_BANG_MARK();
-        partial void LeaveRule_BANG_MARK();
-
-        // $ANTLR start "BANG_MARK"
-        [GrammarRule("BANG_MARK")]
-        private void mBANG_MARK()
-        {
-            EnterRule_BANG_MARK();
-            EnterRule("BANG_MARK", 97);
-            TraceIn("BANG_MARK", 97);
-            try
-            {
-                int _type = BANG_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:353:12: ( '!' )
-                DebugEnterAlt(1);
-                // GBX.g:353:14: '!'
-                {
-                    DebugLocation(353, 14);
-                    Match('!');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("BANG_MARK", 97);
-                LeaveRule("BANG_MARK", 97);
-                LeaveRule_BANG_MARK();
-            }
-        }
-        // $ANTLR end "BANG_MARK"
-
-        partial void EnterRule_STAR_MARK();
-        partial void LeaveRule_STAR_MARK();
-
-        // $ANTLR start "STAR_MARK"
-        [GrammarRule("STAR_MARK")]
-        private void mSTAR_MARK()
-        {
-            EnterRule_STAR_MARK();
-            EnterRule("STAR_MARK", 98);
-            TraceIn("STAR_MARK", 98);
-            try
-            {
-                int _type = STAR_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:354:12: ( '*' )
-                DebugEnterAlt(1);
-                // GBX.g:354:14: '*'
-                {
-                    DebugLocation(354, 14);
-                    Match('*');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("STAR_MARK", 98);
-                LeaveRule("STAR_MARK", 98);
-                LeaveRule_STAR_MARK();
-            }
-        }
-        // $ANTLR end "STAR_MARK"
-
-        partial void EnterRule_PLUS_MARK();
-        partial void LeaveRule_PLUS_MARK();
-
-        // $ANTLR start "PLUS_MARK"
-        [GrammarRule("PLUS_MARK")]
-        private void mPLUS_MARK()
-        {
-            EnterRule_PLUS_MARK();
-            EnterRule("PLUS_MARK", 99);
-            TraceIn("PLUS_MARK", 99);
-            try
-            {
-                int _type = PLUS_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:355:12: ( '+' )
-                DebugEnterAlt(1);
-                // GBX.g:355:14: '+'
-                {
-                    DebugLocation(355, 14);
-                    Match('+');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("PLUS_MARK", 99);
-                LeaveRule("PLUS_MARK", 99);
-                LeaveRule_PLUS_MARK();
-            }
-        }
-        // $ANTLR end "PLUS_MARK"
-
-        partial void EnterRule_MINUS_MARK();
-        partial void LeaveRule_MINUS_MARK();
-
-        // $ANTLR start "MINUS_MARK"
-        [GrammarRule("MINUS_MARK")]
-        private void mMINUS_MARK()
-        {
-            EnterRule_MINUS_MARK();
-            EnterRule("MINUS_MARK", 100);
-            TraceIn("MINUS_MARK", 100);
-            try
-            {
-                int _type = MINUS_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:356:13: ( '-' )
-                DebugEnterAlt(1);
-                // GBX.g:356:15: '-'
-                {
-                    DebugLocation(356, 15);
-                    Match('-');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("MINUS_MARK", 100);
-                LeaveRule("MINUS_MARK", 100);
-                LeaveRule_MINUS_MARK();
-            }
-        }
-        // $ANTLR end "MINUS_MARK"
-
-        partial void EnterRule_TILDE_MARK();
-        partial void LeaveRule_TILDE_MARK();
-
-        // $ANTLR start "TILDE_MARK"
-        [GrammarRule("TILDE_MARK")]
-        private void mTILDE_MARK()
-        {
-            EnterRule_TILDE_MARK();
-            EnterRule("TILDE_MARK", 101);
-            TraceIn("TILDE_MARK", 101);
-            try
-            {
-                int _type = TILDE_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:357:13: ( '~' )
-                DebugEnterAlt(1);
-                // GBX.g:357:15: '~'
-                {
-                    DebugLocation(357, 15);
-                    Match('~');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("TILDE_MARK", 101);
-                LeaveRule("TILDE_MARK", 101);
-                LeaveRule_TILDE_MARK();
-            }
-        }
-        // $ANTLR end "TILDE_MARK"
-
-        partial void EnterRule_BOOL_OR_MARK();
-        partial void LeaveRule_BOOL_OR_MARK();
-
-        // $ANTLR start "BOOL_OR_MARK"
-        [GrammarRule("BOOL_OR_MARK")]
-        private void mBOOL_OR_MARK()
-        {
-            EnterRule_BOOL_OR_MARK();
-            EnterRule("BOOL_OR_MARK", 102);
-            TraceIn("BOOL_OR_MARK", 102);
-            try
-            {
-                int _type = BOOL_OR_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:358:14: ( '||' )
-                DebugEnterAlt(1);
-                // GBX.g:358:16: '||'
-                {
-                    DebugLocation(358, 16);
-                    Match("||");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("BOOL_OR_MARK", 102);
-                LeaveRule("BOOL_OR_MARK", 102);
-                LeaveRule_BOOL_OR_MARK();
-            }
-        }
-        // $ANTLR end "BOOL_OR_MARK"
-
-        partial void EnterRule_BAR_MARK();
-        partial void LeaveRule_BAR_MARK();
-
-        // $ANTLR start "BAR_MARK"
-        [GrammarRule("BAR_MARK")]
-        private void mBAR_MARK()
-        {
-            EnterRule_BAR_MARK();
-            EnterRule("BAR_MARK", 103);
-            TraceIn("BAR_MARK", 103);
-            try
-            {
-                int _type = BAR_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:359:11: ( '|' )
-                DebugEnterAlt(1);
-                // GBX.g:359:13: '|'
-                {
-                    DebugLocation(359, 13);
-                    Match('|');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("BAR_MARK", 103);
-                LeaveRule("BAR_MARK", 103);
-                LeaveRule_BAR_MARK();
-            }
-        }
-        // $ANTLR end "BAR_MARK"
-
-        partial void EnterRule_BOOL_AND_MARK();
-        partial void LeaveRule_BOOL_AND_MARK();
-
-        // $ANTLR start "BOOL_AND_MARK"
-        [GrammarRule("BOOL_AND_MARK")]
-        private void mBOOL_AND_MARK()
-        {
-            EnterRule_BOOL_AND_MARK();
-            EnterRule("BOOL_AND_MARK", 104);
-            TraceIn("BOOL_AND_MARK", 104);
-            try
-            {
-                int _type = BOOL_AND_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:360:15: ( '&&' )
-                DebugEnterAlt(1);
-                // GBX.g:360:17: '&&'
-                {
-                    DebugLocation(360, 17);
-                    Match("&&");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("BOOL_AND_MARK", 104);
-                LeaveRule("BOOL_AND_MARK", 104);
-                LeaveRule_BOOL_AND_MARK();
-            }
-        }
-        // $ANTLR end "BOOL_AND_MARK"
-
-        partial void EnterRule_AMP_MARK();
-        partial void LeaveRule_AMP_MARK();
-
-        // $ANTLR start "AMP_MARK"
-        [GrammarRule("AMP_MARK")]
-        private void mAMP_MARK()
-        {
-            EnterRule_AMP_MARK();
-            EnterRule("AMP_MARK", 105);
-            TraceIn("AMP_MARK", 105);
-            try
-            {
-                int _type = AMP_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:361:11: ( '&' )
-                DebugEnterAlt(1);
-                // GBX.g:361:13: '&'
-                {
-                    DebugLocation(361, 13);
-                    Match('&');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("AMP_MARK", 105);
-                LeaveRule("AMP_MARK", 105);
-                LeaveRule_AMP_MARK();
-            }
-        }
-        // $ANTLR end "AMP_MARK"
-
-        partial void EnterRule_UNDERSCORE_MARK();
-        partial void LeaveRule_UNDERSCORE_MARK();
-
-        // $ANTLR start "UNDERSCORE_MARK"
-        [GrammarRule("UNDERSCORE_MARK")]
-        private void mUNDERSCORE_MARK()
-        {
-            EnterRule_UNDERSCORE_MARK();
-            EnterRule("UNDERSCORE_MARK", 106);
-            TraceIn("UNDERSCORE_MARK", 106);
-            try
-            {
-                int _type = UNDERSCORE_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:362:17: ( '_' )
-                DebugEnterAlt(1);
-                // GBX.g:362:19: '_'
-                {
-                    DebugLocation(362, 19);
-                    Match('_');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("UNDERSCORE_MARK", 106);
-                LeaveRule("UNDERSCORE_MARK", 106);
-                LeaveRule_UNDERSCORE_MARK();
-            }
-        }
-        // $ANTLR end "UNDERSCORE_MARK"
-
-        partial void EnterRule_FSLASH_MARK();
-        partial void LeaveRule_FSLASH_MARK();
-
-        // $ANTLR start "FSLASH_MARK"
-        [GrammarRule("FSLASH_MARK")]
-        private void mFSLASH_MARK()
-        {
-            EnterRule_FSLASH_MARK();
-            EnterRule("FSLASH_MARK", 107);
-            TraceIn("FSLASH_MARK", 107);
-            try
-            {
-                int _type = FSLASH_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:363:14: ( '/' )
-                DebugEnterAlt(1);
-                // GBX.g:363:16: '/'
-                {
-                    DebugLocation(363, 16);
-                    Match('/');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("FSLASH_MARK", 107);
-                LeaveRule("FSLASH_MARK", 107);
-                LeaveRule_FSLASH_MARK();
-            }
-        }
-        // $ANTLR end "FSLASH_MARK"
-
-        partial void EnterRule_BSLASH_MARK();
-        partial void LeaveRule_BSLASH_MARK();
-
-        // $ANTLR start "BSLASH_MARK"
-        [GrammarRule("BSLASH_MARK")]
-        private void mBSLASH_MARK()
-        {
-            EnterRule_BSLASH_MARK();
-            EnterRule("BSLASH_MARK", 108);
-            TraceIn("BSLASH_MARK", 108);
-            try
-            {
-                int _type = BSLASH_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:364:14: ( '\\\\' )
-                DebugEnterAlt(1);
-                // GBX.g:364:16: '\\\\'
-                {
-                    DebugLocation(364, 16);
-                    Match('\\');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("BSLASH_MARK", 108);
-                LeaveRule("BSLASH_MARK", 108);
-                LeaveRule_BSLASH_MARK();
-            }
-        }
-        // $ANTLR end "BSLASH_MARK"
-
-        partial void EnterRule_CARET_MARK();
-        partial void LeaveRule_CARET_MARK();
-
-        // $ANTLR start "CARET_MARK"
-        [GrammarRule("CARET_MARK")]
-        private void mCARET_MARK()
-        {
-            EnterRule_CARET_MARK();
-            EnterRule("CARET_MARK", 109);
-            TraceIn("CARET_MARK", 109);
-            try
-            {
-                int _type = CARET_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:365:13: ( '^' )
-                DebugEnterAlt(1);
-                // GBX.g:365:15: '^'
-                {
-                    DebugLocation(365, 15);
-                    Match('^');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("CARET_MARK", 109);
-                LeaveRule("CARET_MARK", 109);
-                LeaveRule_CARET_MARK();
-            }
-        }
-        // $ANTLR end "CARET_MARK"
-
-        partial void EnterRule_COLON_MARK();
-        partial void LeaveRule_COLON_MARK();
-
-        // $ANTLR start "COLON_MARK"
-        [GrammarRule("COLON_MARK")]
-        private void mCOLON_MARK()
-        {
-            EnterRule_COLON_MARK();
-            EnterRule("COLON_MARK", 110);
-            TraceIn("COLON_MARK", 110);
-            try
-            {
-                int _type = COLON_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:366:13: ( ':' )
-                DebugEnterAlt(1);
-                // GBX.g:366:15: ':'
-                {
-                    DebugLocation(366, 15);
-                    Match(':');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("COLON_MARK", 110);
-                LeaveRule("COLON_MARK", 110);
-                LeaveRule_COLON_MARK();
-            }
-        }
-        // $ANTLR end "COLON_MARK"
-
-        partial void EnterRule_NOT_EQUIV_MARK();
-        partial void LeaveRule_NOT_EQUIV_MARK();
-
-        // $ANTLR start "NOT_EQUIV_MARK"
-        [GrammarRule("NOT_EQUIV_MARK")]
-        private void mNOT_EQUIV_MARK()
-        {
-            EnterRule_NOT_EQUIV_MARK();
-            EnterRule("NOT_EQUIV_MARK", 111);
-            TraceIn("NOT_EQUIV_MARK", 111);
-            try
-            {
-                int _type = NOT_EQUIV_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:367:16: ( '!=' )
-                DebugEnterAlt(1);
-                // GBX.g:367:18: '!='
-                {
-                    DebugLocation(367, 18);
-                    Match("!=");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("NOT_EQUIV_MARK", 111);
-                LeaveRule("NOT_EQUIV_MARK", 111);
-                LeaveRule_NOT_EQUIV_MARK();
-            }
-        }
-        // $ANTLR end "NOT_EQUIV_MARK"
-
-        partial void EnterRule_EQUIV_MARK();
-        partial void LeaveRule_EQUIV_MARK();
-
-        // $ANTLR start "EQUIV_MARK"
-        [GrammarRule("EQUIV_MARK")]
-        private void mEQUIV_MARK()
-        {
-            EnterRule_EQUIV_MARK();
-            EnterRule("EQUIV_MARK", 112);
-            TraceIn("EQUIV_MARK", 112);
-            try
-            {
-                int _type = EQUIV_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:368:13: ( '==' )
-                DebugEnterAlt(1);
-                // GBX.g:368:15: '=='
-                {
-                    DebugLocation(368, 15);
-                    Match("==");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("EQUIV_MARK", 112);
-                LeaveRule("EQUIV_MARK", 112);
-                LeaveRule_EQUIV_MARK();
-            }
-        }
-        // $ANTLR end "EQUIV_MARK"
-
-        partial void EnterRule_LTE_MARK();
-        partial void LeaveRule_LTE_MARK();
-
-        // $ANTLR start "LTE_MARK"
-        [GrammarRule("LTE_MARK")]
-        private void mLTE_MARK()
-        {
-            EnterRule_LTE_MARK();
-            EnterRule("LTE_MARK", 113);
-            TraceIn("LTE_MARK", 113);
-            try
-            {
-                int _type = LTE_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:369:11: ( '<=' )
-                DebugEnterAlt(1);
-                // GBX.g:369:13: '<='
-                {
-                    DebugLocation(369, 13);
-                    Match("<=");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("LTE_MARK", 113);
-                LeaveRule("LTE_MARK", 113);
-                LeaveRule_LTE_MARK();
-            }
-        }
-        // $ANTLR end "LTE_MARK"
-
-        partial void EnterRule_GTE_MARK();
-        partial void LeaveRule_GTE_MARK();
-
-        // $ANTLR start "GTE_MARK"
-        [GrammarRule("GTE_MARK")]
-        private void mGTE_MARK()
-        {
-            EnterRule_GTE_MARK();
-            EnterRule("GTE_MARK", 114);
-            TraceIn("GTE_MARK", 114);
-            try
-            {
-                int _type = GTE_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:370:11: ( '>=' )
-                DebugEnterAlt(1);
-                // GBX.g:370:13: '>='
-                {
-                    DebugLocation(370, 13);
-                    Match(">=");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("GTE_MARK", 114);
-                LeaveRule("GTE_MARK", 114);
-                LeaveRule_GTE_MARK();
-            }
-        }
-        // $ANTLR end "GTE_MARK"
-
-        partial void EnterRule_LSHIFT_MARK();
-        partial void LeaveRule_LSHIFT_MARK();
-
-        // $ANTLR start "LSHIFT_MARK"
-        [GrammarRule("LSHIFT_MARK")]
-        private void mLSHIFT_MARK()
-        {
-            EnterRule_LSHIFT_MARK();
-            EnterRule("LSHIFT_MARK", 115);
-            TraceIn("LSHIFT_MARK", 115);
-            try
-            {
-                int _type = LSHIFT_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:371:14: ( '<<' )
-                DebugEnterAlt(1);
-                // GBX.g:371:16: '<<'
-                {
-                    DebugLocation(371, 16);
-                    Match("<<");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("LSHIFT_MARK", 115);
-                LeaveRule("LSHIFT_MARK", 115);
-                LeaveRule_LSHIFT_MARK();
-            }
-        }
-        // $ANTLR end "LSHIFT_MARK"
-
-        partial void EnterRule_RSHIFT_MARK();
-        partial void LeaveRule_RSHIFT_MARK();
-
-        // $ANTLR start "RSHIFT_MARK"
-        [GrammarRule("RSHIFT_MARK")]
-        private void mRSHIFT_MARK()
-        {
-            EnterRule_RSHIFT_MARK();
-            EnterRule("RSHIFT_MARK", 116);
-            TraceIn("RSHIFT_MARK", 116);
-            try
-            {
-                int _type = RSHIFT_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:372:14: ( '>>' )
-                DebugEnterAlt(1);
-                // GBX.g:372:16: '>>'
-                {
-                    DebugLocation(372, 16);
-                    Match(">>");
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("RSHIFT_MARK", 116);
-                LeaveRule("RSHIFT_MARK", 116);
-                LeaveRule_RSHIFT_MARK();
-            }
-        }
-        // $ANTLR end "RSHIFT_MARK"
-
-        partial void EnterRule_GT_MARK();
-        partial void LeaveRule_GT_MARK();
-
-        // $ANTLR start "GT_MARK"
-        [GrammarRule("GT_MARK")]
-        private void mGT_MARK()
-        {
-            EnterRule_GT_MARK();
-            EnterRule("GT_MARK", 117);
-            TraceIn("GT_MARK", 117);
-            try
-            {
-                int _type = GT_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:373:11: ( '>' )
-                DebugEnterAlt(1);
-                // GBX.g:373:13: '>'
-                {
-                    DebugLocation(373, 13);
-                    Match('>');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("GT_MARK", 117);
-                LeaveRule("GT_MARK", 117);
-                LeaveRule_GT_MARK();
-            }
-        }
-        // $ANTLR end "GT_MARK"
-
-        partial void EnterRule_LT_MARK();
-        partial void LeaveRule_LT_MARK();
-
-        // $ANTLR start "LT_MARK"
-        [GrammarRule("LT_MARK")]
-        private void mLT_MARK()
-        {
-            EnterRule_LT_MARK();
-            EnterRule("LT_MARK", 118);
-            TraceIn("LT_MARK", 118);
-            try
-            {
-                int _type = LT_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:374:11: ( '<' )
-                DebugEnterAlt(1);
-                // GBX.g:374:13: '<'
-                {
-                    DebugLocation(374, 13);
-                    Match('<');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("LT_MARK", 118);
-                LeaveRule("LT_MARK", 118);
-                LeaveRule_LT_MARK();
-            }
-        }
-        // $ANTLR end "LT_MARK"
-
-        partial void EnterRule_EQUAL_MARK();
-        partial void LeaveRule_EQUAL_MARK();
-
-        // $ANTLR start "EQUAL_MARK"
-        [GrammarRule("EQUAL_MARK")]
-        private void mEQUAL_MARK()
-        {
-            EnterRule_EQUAL_MARK();
-            EnterRule("EQUAL_MARK", 119);
-            TraceIn("EQUAL_MARK", 119);
-            try
-            {
-                int _type = EQUAL_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:375:13: ( '=' )
-                DebugEnterAlt(1);
-                // GBX.g:375:15: '='
-                {
-                    DebugLocation(375, 15);
-                    Match('=');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("EQUAL_MARK", 119);
-                LeaveRule("EQUAL_MARK", 119);
-                LeaveRule_EQUAL_MARK();
-            }
-        }
-        // $ANTLR end "EQUAL_MARK"
-
-        partial void EnterRule_SEMI_MARK();
-        partial void LeaveRule_SEMI_MARK();
-
-        // $ANTLR start "SEMI_MARK"
-        [GrammarRule("SEMI_MARK")]
-        private void mSEMI_MARK()
-        {
-            EnterRule_SEMI_MARK();
-            EnterRule("SEMI_MARK", 120);
-            TraceIn("SEMI_MARK", 120);
-            try
-            {
-                int _type = SEMI_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:376:12: ( ';' )
-                DebugEnterAlt(1);
-                // GBX.g:376:14: ';'
-                {
-                    DebugLocation(376, 14);
-                    Match(';');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("SEMI_MARK", 120);
-                LeaveRule("SEMI_MARK", 120);
-                LeaveRule_SEMI_MARK();
-            }
-        }
-        // $ANTLR end "SEMI_MARK"
-
-        partial void EnterRule_POUND_MARK();
-        partial void LeaveRule_POUND_MARK();
-
-        // $ANTLR start "POUND_MARK"
-        [GrammarRule("POUND_MARK")]
-        private void mPOUND_MARK()
-        {
-            EnterRule_POUND_MARK();
-            EnterRule("POUND_MARK", 121);
-            TraceIn("POUND_MARK", 121);
-            try
-            {
-                int _type = POUND_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:377:13: ( '#' )
-                DebugEnterAlt(1);
-                // GBX.g:377:15: '#'
-                {
-                    DebugLocation(377, 15);
-                    Match('#');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("POUND_MARK", 121);
-                LeaveRule("POUND_MARK", 121);
-                LeaveRule_POUND_MARK();
-            }
-        }
-        // $ANTLR end "POUND_MARK"
-
-        partial void EnterRule_PERCENT_MARK();
-        partial void LeaveRule_PERCENT_MARK();
-
-        // $ANTLR start "PERCENT_MARK"
-        [GrammarRule("PERCENT_MARK")]
-        private void mPERCENT_MARK()
-        {
-            EnterRule_PERCENT_MARK();
-            EnterRule("PERCENT_MARK", 122);
-            TraceIn("PERCENT_MARK", 122);
-            try
-            {
-                int _type = PERCENT_MARK;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:378:14: ( '%' )
-                DebugEnterAlt(1);
-                // GBX.g:378:16: '%'
-                {
-                    DebugLocation(378, 16);
-                    Match('%');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("PERCENT_MARK", 122);
-                LeaveRule("PERCENT_MARK", 122);
-                LeaveRule_PERCENT_MARK();
-            }
-        }
-        // $ANTLR end "PERCENT_MARK"
-
-        partial void EnterRule_COMMA();
-        partial void LeaveRule_COMMA();
-
-        // $ANTLR start "COMMA"
-        [GrammarRule("COMMA")]
-        private void mCOMMA()
-        {
-            EnterRule_COMMA();
-            EnterRule("COMMA", 123);
-            TraceIn("COMMA", 123);
-            try
-            {
-                int _type = COMMA;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:379:9: ( ',' )
-                DebugEnterAlt(1);
-                // GBX.g:379:11: ','
-                {
-                    DebugLocation(379, 11);
-                    Match(',');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("COMMA", 123);
-                LeaveRule("COMMA", 123);
-                LeaveRule_COMMA();
-            }
-        }
-        // $ANTLR end "COMMA"
-
-        partial void EnterRule_LEFT_PARENS();
-        partial void LeaveRule_LEFT_PARENS();
-
-        // $ANTLR start "LEFT_PARENS"
-        [GrammarRule("LEFT_PARENS")]
-        private void mLEFT_PARENS()
-        {
-            EnterRule_LEFT_PARENS();
-            EnterRule("LEFT_PARENS", 124);
-            TraceIn("LEFT_PARENS", 124);
-            try
-            {
-                int _type = LEFT_PARENS;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:380:14: ( '(' )
-                DebugEnterAlt(1);
-                // GBX.g:380:16: '('
-                {
-                    DebugLocation(380, 16);
-                    Match('(');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("LEFT_PARENS", 124);
-                LeaveRule("LEFT_PARENS", 124);
-                LeaveRule_LEFT_PARENS();
-            }
-        }
-        // $ANTLR end "LEFT_PARENS"
-
-        partial void EnterRule_RIGHT_PARENS();
-        partial void LeaveRule_RIGHT_PARENS();
-
-        // $ANTLR start "RIGHT_PARENS"
-        [GrammarRule("RIGHT_PARENS")]
-        private void mRIGHT_PARENS()
-        {
-            EnterRule_RIGHT_PARENS();
-            EnterRule("RIGHT_PARENS", 125);
-            TraceIn("RIGHT_PARENS", 125);
-            try
-            {
-                int _type = RIGHT_PARENS;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:381:14: ( ')' )
-                DebugEnterAlt(1);
-                // GBX.g:381:16: ')'
-                {
-                    DebugLocation(381, 16);
-                    Match(')');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("RIGHT_PARENS", 125);
-                LeaveRule("RIGHT_PARENS", 125);
-                LeaveRule_RIGHT_PARENS();
-            }
-        }
-        // $ANTLR end "RIGHT_PARENS"
-
-        partial void EnterRule_LEFT_BRACKET();
-        partial void LeaveRule_LEFT_BRACKET();
-
-        // $ANTLR start "LEFT_BRACKET"
-        [GrammarRule("LEFT_BRACKET")]
-        private void mLEFT_BRACKET()
-        {
-            EnterRule_LEFT_BRACKET();
-            EnterRule("LEFT_BRACKET", 126);
-            TraceIn("LEFT_BRACKET", 126);
-            try
-            {
-                int _type = LEFT_BRACKET;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:382:14: ( '[' )
-                DebugEnterAlt(1);
-                // GBX.g:382:16: '['
-                {
-                    DebugLocation(382, 16);
-                    Match('[');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("LEFT_BRACKET", 126);
-                LeaveRule("LEFT_BRACKET", 126);
-                LeaveRule_LEFT_BRACKET();
-            }
-        }
-        // $ANTLR end "LEFT_BRACKET"
-
-        partial void EnterRule_RIGHT_BRACKET();
-        partial void LeaveRule_RIGHT_BRACKET();
-
-        // $ANTLR start "RIGHT_BRACKET"
-        [GrammarRule("RIGHT_BRACKET")]
-        private void mRIGHT_BRACKET()
-        {
-            EnterRule_RIGHT_BRACKET();
-            EnterRule("RIGHT_BRACKET", 127);
-            TraceIn("RIGHT_BRACKET", 127);
-            try
-            {
-                int _type = RIGHT_BRACKET;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:383:15: ( ']' )
-                DebugEnterAlt(1);
-                // GBX.g:383:17: ']'
-                {
-                    DebugLocation(383, 17);
-                    Match(']');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("RIGHT_BRACKET", 127);
-                LeaveRule("RIGHT_BRACKET", 127);
-                LeaveRule_RIGHT_BRACKET();
-            }
-        }
-        // $ANTLR end "RIGHT_BRACKET"
-
-        partial void EnterRule_LEFT_CURLY();
-        partial void LeaveRule_LEFT_CURLY();
-
-        // $ANTLR start "LEFT_CURLY"
-        [GrammarRule("LEFT_CURLY")]
-        private void mLEFT_CURLY()
-        {
-            EnterRule_LEFT_CURLY();
-            EnterRule("LEFT_CURLY", 128);
-            TraceIn("LEFT_CURLY", 128);
-            try
-            {
-                int _type = LEFT_CURLY;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:384:13: ( '{' )
-                DebugEnterAlt(1);
-                // GBX.g:384:15: '{'
-                {
-                    DebugLocation(384, 15);
-                    Match('{');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("LEFT_CURLY", 128);
-                LeaveRule("LEFT_CURLY", 128);
-                LeaveRule_LEFT_CURLY();
-            }
-        }
-        // $ANTLR end "LEFT_CURLY"
-
-        partial void EnterRule_RIGHT_CURLY();
-        partial void LeaveRule_RIGHT_CURLY();
-
-        // $ANTLR start "RIGHT_CURLY"
-        [GrammarRule("RIGHT_CURLY")]
-        private void mRIGHT_CURLY()
-        {
-            EnterRule_RIGHT_CURLY();
-            EnterRule("RIGHT_CURLY", 129);
-            TraceIn("RIGHT_CURLY", 129);
-            try
-            {
-                int _type = RIGHT_CURLY;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:385:14: ( '}' )
-                DebugEnterAlt(1);
-                // GBX.g:385:16: '}'
-                {
-                    DebugLocation(385, 16);
-                    Match('}');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("RIGHT_CURLY", 129);
-                LeaveRule("RIGHT_CURLY", 129);
-                LeaveRule_RIGHT_CURLY();
-            }
-        }
-        // $ANTLR end "RIGHT_CURLY"
-
-        partial void EnterRule_ID();
-        partial void LeaveRule_ID();
-
-        // $ANTLR start "ID"
-        [GrammarRule("ID")]
-        private void mID()
-        {
-            EnterRule_ID();
-            EnterRule("ID", 130);
-            TraceIn("ID", 130);
-            try
-            {
-                int _type = ID;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:387:7: ( ( 'a' .. 'z' | '_' ) ( 'a' .. 'z' | '0' .. '9' | '_' )+ )
-                DebugEnterAlt(1);
-                // GBX.g:387:9: ( 'a' .. 'z' | '_' ) ( 'a' .. 'z' | '0' .. '9' | '_' )+
-                {
-                    DebugLocation(387, 9);
-                    if (input.LA(1) == '_' || (input.LA(1) >= 'a' && input.LA(1) <= 'z'))
-                    {
-                        input.Consume();
-                    }
-                    else
-                    {
-                        MismatchedSetException mse = new MismatchedSetException(null, input);
-                        DebugRecognitionException(mse);
-                        Recover(mse);
-                        throw mse;
-                    }
-
-                    DebugLocation(387, 24);
-                    // GBX.g:387:24: ( 'a' .. 'z' | '0' .. '9' | '_' )+
-                    int cnt1 = 0;
-                    try
-                    {
-                        DebugEnterSubRule(1);
-                        while (true)
-                        {
-                            int alt1 = 2;
-                            try
-                            {
-                                DebugEnterDecision(1, false);
-                                int LA1_0 = input.LA(1);
-
-                                if (((LA1_0 >= '0' && LA1_0 <= '9') || LA1_0 == '_' || (LA1_0 >= 'a' && LA1_0 <= 'z')))
-                                {
-                                    alt1 = 1;
-                                }
-
-
-                            }
-                            finally
-                            {
-                                DebugExitDecision(1);
-                            }
-                            switch (alt1)
-                            {
-                                case 1:
-                                    DebugEnterAlt(1);
-                                    // GBX.g:
-                                    {
-                                        DebugLocation(387, 24);
-                                        input.Consume();
-
-
-                                    }
-                                    break;
-
-                                default:
-                                    if (cnt1 >= 1)
-                                        goto loop1;
-
-                                    EarlyExitException eee1 = new EarlyExitException(1, input);
-                                    DebugRecognitionException(eee1);
-                                    throw eee1;
-                            }
-                            cnt1++;
-                        }
-                    loop1:
-                        ;
-
-                    }
-                    finally
-                    {
-                        DebugExitSubRule(1);
-                    }
-
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("ID", 130);
-                LeaveRule("ID", 130);
-                LeaveRule_ID();
-            }
-        }
-        // $ANTLR end "ID"
-
-        partial void EnterRule_NUMBER();
-        partial void LeaveRule_NUMBER();
-
-        // $ANTLR start "NUMBER"
-        [GrammarRule("NUMBER")]
-        private void mNUMBER()
-        {
-            EnterRule_NUMBER();
-            EnterRule("NUMBER", 131);
-            TraceIn("NUMBER", 131);
-            try
-            {
-                int _type = NUMBER;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:389:10: ( INT | HEX_NUMBER | BIN_NUMBER | OCT_NUMBER )
-                int alt2 = 4;
-                try
-                {
-                    DebugEnterDecision(2, false);
-                    switch (input.LA(1))
-                    {
-                        case '0':
-                            {
-                                switch (input.LA(2))
-                                {
-                                    case 'x':
-                                        {
-                                            alt2 = 2;
-                                        }
-                                        break;
-                                    case 'b':
-                                        {
-                                            alt2 = 3;
-                                        }
-                                        break;
-                                    case 'o':
-                                        {
-                                            alt2 = 4;
-                                        }
-                                        break;
-                                    default:
-                                        alt2 = 1;
-                                        break;
-
-                                }
-
-                            }
-                            break;
-                        case '$':
-                            {
-                                alt2 = 2;
-                            }
-                            break;
-                        case '1':
-                        case '2':
-                        case '3':
-                        case '4':
-                        case '5':
-                        case '6':
-                        case '7':
-                        case '8':
-                        case '9':
-                            {
-                                alt2 = 1;
-                            }
-                            break;
-                        case '%':
-                            {
-                                alt2 = 3;
-                            }
-                            break;
-                        case '&':
-                            {
-                                alt2 = 4;
-                            }
-                            break;
-                        default:
-                            {
-                                NoViableAltException nvae = new NoViableAltException("", 2, 0, input);
-                                DebugRecognitionException(nvae);
-                                throw nvae;
-                            }
-                    }
-
-                }
-                finally
-                {
-                    DebugExitDecision(2);
-                }
-                switch (alt2)
-                {
-                    case 1:
-                        DebugEnterAlt(1);
-                        // GBX.g:389:12: INT
-                        {
-                            DebugLocation(389, 12);
-                            mINT();
-
-                        }
-                        break;
-                    case 2:
-                        DebugEnterAlt(2);
-                        // GBX.g:390:7: HEX_NUMBER
-                        {
-                            DebugLocation(390, 7);
-                            mHEX_NUMBER();
-
-                        }
-                        break;
-                    case 3:
-                        DebugEnterAlt(3);
-                        // GBX.g:391:7: BIN_NUMBER
-                        {
-                            DebugLocation(391, 7);
-                            mBIN_NUMBER();
-
-                        }
-                        break;
-                    case 4:
-                        DebugEnterAlt(4);
-                        // GBX.g:392:7: OCT_NUMBER
-                        {
-                            DebugLocation(392, 7);
-                            mOCT_NUMBER();
-
-                        }
-                        break;
-
-                }
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("NUMBER", 131);
-                LeaveRule("NUMBER", 131);
-                LeaveRule_NUMBER();
-            }
-        }
-        // $ANTLR end "NUMBER"
-
-        partial void EnterRule_STRING();
-        partial void LeaveRule_STRING();
-
-        // $ANTLR start "STRING"
-        [GrammarRule("STRING")]
-        private void mSTRING()
-        {
-            EnterRule_STRING();
-            EnterRule("STRING", 132);
-            TraceIn("STRING", 132);
-            try
-            {
-                int _type = STRING;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:394:10: ( '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"' )
-                DebugEnterAlt(1);
-                // GBX.g:394:13: '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"'
-                {
-                    DebugLocation(394, 13);
-                    Match('\"');
-                    DebugLocation(394, 17);
-                    // GBX.g:394:17: ( ESC_SEQ |~ ( '\\\\' | '\"' ) )*
-                    try
-                    {
-                        DebugEnterSubRule(3);
-                        while (true)
-                        {
-                            int alt3 = 3;
-                            try
-                            {
-                                DebugEnterDecision(3, false);
-                                int LA3_0 = input.LA(1);
-
-                                if ((LA3_0 == '\\'))
-                                {
-                                    alt3 = 1;
-                                }
-                                else if (((LA3_0 >= '\u0000' && LA3_0 <= '!') || (LA3_0 >= '#' && LA3_0 <= '[') || (LA3_0 >= ']' && LA3_0 <= '\uFFFF')))
-                                {
-                                    alt3 = 2;
-                                }
-
-
-                            }
-                            finally
-                            {
-                                DebugExitDecision(3);
-                            }
-                            switch (alt3)
-                            {
-                                case 1:
-                                    DebugEnterAlt(1);
-                                    // GBX.g:394:19: ESC_SEQ
-                                    {
-                                        DebugLocation(394, 19);
-                                        mESC_SEQ();
-
-                                    }
-                                    break;
-                                case 2:
-                                    DebugEnterAlt(2);
-                                    // GBX.g:394:29: ~ ( '\\\\' | '\"' )
-                                    {
-                                        DebugLocation(394, 29);
-                                        input.Consume();
-
-
-                                    }
-                                    break;
-
-                                default:
-                                    goto loop3;
-                            }
-                        }
-
-                    loop3:
-                        ;
-
-                    }
-                    finally
-                    {
-                        DebugExitSubRule(3);
-                    }
-
-                    DebugLocation(394, 44);
-                    Match('\"');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("STRING", 132);
-                LeaveRule("STRING", 132);
-                LeaveRule_STRING();
-            }
-        }
-        // $ANTLR end "STRING"
-
-        partial void EnterRule_CHAR();
-        partial void LeaveRule_CHAR();
-
-        // $ANTLR start "CHAR"
-        [GrammarRule("CHAR")]
-        private void mCHAR()
-        {
-            EnterRule_CHAR();
-            EnterRule("CHAR", 133);
-            TraceIn("CHAR", 133);
-            try
-            {
-                int _type = CHAR;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:395:8: ( '\\'' ( ESC_SEQ |~ ( '\\'' | '\\\\' ) ) '\\'' )
-                DebugEnterAlt(1);
-                // GBX.g:395:11: '\\'' ( ESC_SEQ |~ ( '\\'' | '\\\\' ) ) '\\''
-                {
-                    DebugLocation(395, 11);
-                    Match('\'');
-                    DebugLocation(395, 16);
-                    // GBX.g:395:16: ( ESC_SEQ |~ ( '\\'' | '\\\\' ) )
-                    int alt4 = 2;
-                    try
-                    {
-                        DebugEnterSubRule(4);
-                        try
-                        {
-                            DebugEnterDecision(4, false);
-                            int LA4_0 = input.LA(1);
-
-                            if ((LA4_0 == '\\'))
-                            {
-                                alt4 = 1;
-                            }
-                            else if (((LA4_0 >= '\u0000' && LA4_0 <= '&') || (LA4_0 >= '(' && LA4_0 <= '[') || (LA4_0 >= ']' && LA4_0 <= '\uFFFF')))
-                            {
-                                alt4 = 2;
-                            }
-                            else
-                            {
-                                NoViableAltException nvae = new NoViableAltException("", 4, 0, input);
-                                DebugRecognitionException(nvae);
-                                throw nvae;
-                            }
-                        }
-                        finally
-                        {
-                            DebugExitDecision(4);
-                        }
-                        switch (alt4)
-                        {
-                            case 1:
-                                DebugEnterAlt(1);
-                                // GBX.g:395:18: ESC_SEQ
-                                {
-                                    DebugLocation(395, 18);
-                                    mESC_SEQ();
-
-                                }
-                                break;
-                            case 2:
-                                DebugEnterAlt(2);
-                                // GBX.g:395:28: ~ ( '\\'' | '\\\\' )
-                                {
-                                    DebugLocation(395, 28);
-                                    input.Consume();
-
-
-                                }
-                                break;
-
-                        }
-                    }
-                    finally
-                    {
-                        DebugExitSubRule(4);
-                    }
-
-                    DebugLocation(395, 43);
-                    Match('\'');
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("CHAR", 133);
-                LeaveRule("CHAR", 133);
-                LeaveRule_CHAR();
-            }
-        }
-        // $ANTLR end "CHAR"
-
-        partial void EnterRule_COMMENT();
-        partial void LeaveRule_COMMENT();
-
-        // $ANTLR start "COMMENT"
-        [GrammarRule("COMMENT")]
-        private void mCOMMENT()
-        {
-            EnterRule_COMMENT();
-            EnterRule("COMMENT", 134);
-            TraceIn("COMMENT", 134);
-            try
-            {
-                int _type = COMMENT;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:397:11: ( ( '//' | '#' | ';' ) (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
-                int alt9 = 2;
-                try
-                {
-                    DebugEnterDecision(9, false);
-                    int LA9_0 = input.LA(1);
-
-                    if ((LA9_0 == '/'))
-                    {
-                        int LA9_1 = input.LA(2);
-
-                        if ((LA9_1 == '/'))
-                        {
-                            alt9 = 1;
-                        }
-                        else if ((LA9_1 == '*'))
-                        {
-                            alt9 = 2;
-                        }
-                        else
-                        {
-                            NoViableAltException nvae = new NoViableAltException("", 9, 1, input);
-                            DebugRecognitionException(nvae);
-                            throw nvae;
-                        }
-                    }
-                    else if ((LA9_0 == '#' || LA9_0 == ';'))
-                    {
-                        alt9 = 1;
-                    }
-                    else
-                    {
-                        NoViableAltException nvae = new NoViableAltException("", 9, 0, input);
-                        DebugRecognitionException(nvae);
-                        throw nvae;
-                    }
-                }
-                finally
-                {
-                    DebugExitDecision(9);
-                }
-                switch (alt9)
-                {
-                    case 1:
-                        DebugEnterAlt(1);
-                        // GBX.g:397:15: ( '//' | '#' | ';' ) (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
-                        {
-                            DebugLocation(397, 15);
-                            // GBX.g:397:15: ( '//' | '#' | ';' )
-                            int alt5 = 3;
-                            try
-                            {
-                                DebugEnterSubRule(5);
-                                try
-                                {
-                                    DebugEnterDecision(5, false);
-                                    switch (input.LA(1))
-                                    {
-                                        case '/':
-                                            {
-                                                alt5 = 1;
-                                            }
-                                            break;
-                                        case '#':
-                                            {
-                                                alt5 = 2;
-                                            }
-                                            break;
-                                        case ';':
-                                            {
-                                                alt5 = 3;
-                                            }
-                                            break;
-                                        default:
-                                            {
-                                                NoViableAltException nvae = new NoViableAltException("", 5, 0, input);
-                                                DebugRecognitionException(nvae);
-                                                throw nvae;
-                                            }
-                                    }
-
-                                }
-                                finally
-                                {
-                                    DebugExitDecision(5);
-                                }
-                                switch (alt5)
-                                {
-                                    case 1:
-                                        DebugEnterAlt(1);
-                                        // GBX.g:397:16: '//'
-                                        {
-                                            DebugLocation(397, 16);
-                                            Match("//");
-
-
-                                        }
-                                        break;
-                                    case 2:
-                                        DebugEnterAlt(2);
-                                        // GBX.g:397:21: '#'
-                                        {
-                                            DebugLocation(397, 21);
-                                            Match('#');
-
-                                        }
-                                        break;
-                                    case 3:
-                                        DebugEnterAlt(3);
-                                        // GBX.g:397:25: ';'
-                                        {
-                                            DebugLocation(397, 25);
-                                            Match(';');
-
-                                        }
-                                        break;
-
-                                }
-                            }
-                            finally
-                            {
-                                DebugExitSubRule(5);
-                            }
-
-                            DebugLocation(397, 30);
-                            // GBX.g:397:30: (~ ( '\\n' | '\\r' ) )*
-                            try
-                            {
-                                DebugEnterSubRule(6);
-                                while (true)
-                                {
-                                    int alt6 = 2;
-                                    try
-                                    {
-                                        DebugEnterDecision(6, false);
-                                        int LA6_0 = input.LA(1);
-
-                                        if (((LA6_0 >= '\u0000' && LA6_0 <= '\t') || (LA6_0 >= '\u000B' && LA6_0 <= '\f') || (LA6_0 >= '\u000E' && LA6_0 <= '\uFFFF')))
-                                        {
-                                            alt6 = 1;
-                                        }
-
-
-                                    }
-                                    finally
-                                    {
-                                        DebugExitDecision(6);
-                                    }
-                                    switch (alt6)
-                                    {
-                                        case 1:
-                                            DebugEnterAlt(1);
-                                            // GBX.g:
-                                            {
-                                                DebugLocation(397, 30);
-                                                input.Consume();
-
-
-                                            }
-                                            break;
-
-                                        default:
-                                            goto loop6;
-                                    }
-                                }
-
-                            loop6:
-                                ;
-
-                            }
-                            finally
-                            {
-                                DebugExitSubRule(6);
-                            }
-
-                            DebugLocation(397, 44);
-                            // GBX.g:397:44: ( '\\r' )?
-                            int alt7 = 2;
-                            try
-                            {
-                                DebugEnterSubRule(7);
-                                try
-                                {
-                                    DebugEnterDecision(7, false);
-                                    int LA7_0 = input.LA(1);
-
-                                    if ((LA7_0 == '\r'))
-                                    {
-                                        alt7 = 1;
-                                    }
-                                }
-                                finally
-                                {
-                                    DebugExitDecision(7);
-                                }
-                                switch (alt7)
-                                {
-                                    case 1:
-                                        DebugEnterAlt(1);
-                                        // GBX.g:397:44: '\\r'
-                                        {
-                                            DebugLocation(397, 44);
-                                            Match('\r');
-
-                                        }
-                                        break;
-
-                                }
-                            }
-                            finally
-                            {
-                                DebugExitSubRule(7);
-                            }
-
-                            DebugLocation(397, 50);
-                            Match('\n');
-                            DebugLocation(397, 55);
-                            _channel = Hidden;
-
-                        }
-                        break;
-                    case 2:
-                        DebugEnterAlt(2);
-                        // GBX.g:398:9: '/*' ( options {greedy=false; } : . )* '*/'
-                        {
-                            DebugLocation(398, 9);
-                            Match("/*");
-
-                            DebugLocation(398, 14);
-                            // GBX.g:398:14: ( options {greedy=false; } : . )*
-                            try
-                            {
-                                DebugEnterSubRule(8);
-                                while (true)
-                                {
-                                    int alt8 = 2;
-                                    try
-                                    {
-                                        DebugEnterDecision(8, false);
-                                        int LA8_0 = input.LA(1);
-
-                                        if ((LA8_0 == '*'))
-                                        {
-                                            int LA8_1 = input.LA(2);
-
-                                            if ((LA8_1 == '/'))
-                                            {
-                                                alt8 = 2;
-                                            }
-                                            else if (((LA8_1 >= '\u0000' && LA8_1 <= '.') || (LA8_1 >= '0' && LA8_1 <= '\uFFFF')))
-                                            {
-                                                alt8 = 1;
-                                            }
-
-
-                                        }
-                                        else if (((LA8_0 >= '\u0000' && LA8_0 <= ')') || (LA8_0 >= '+' && LA8_0 <= '\uFFFF')))
-                                        {
-                                            alt8 = 1;
-                                        }
-
-
-                                    }
-                                    finally
-                                    {
-                                        DebugExitDecision(8);
-                                    }
-                                    switch (alt8)
-                                    {
-                                        case 1:
-                                            DebugEnterAlt(1);
-                                            // GBX.g:398:42: .
-                                            {
-                                                DebugLocation(398, 42);
-                                                MatchAny();
-
-                                            }
-                                            break;
-
-                                        default:
-                                            goto loop8;
-                                    }
-                                }
-
-                            loop8:
-                                ;
-
-                            }
-                            finally
-                            {
-                                DebugExitSubRule(8);
-                            }
-
-                            DebugLocation(398, 47);
-                            Match("*/");
-
-                            DebugLocation(398, 52);
-                            _channel = Hidden;
-
-                        }
-                        break;
-
-                }
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("COMMENT", 134);
-                LeaveRule("COMMENT", 134);
-                LeaveRule_COMMENT();
-            }
-        }
-        // $ANTLR end "COMMENT"
-
-        partial void EnterRule_INT();
-        partial void LeaveRule_INT();
-
-        // $ANTLR start "INT"
-        [GrammarRule("INT")]
-        private void mINT()
-        {
-            EnterRule_INT();
-            EnterRule("INT", 135);
-            TraceIn("INT", 135);
-            try
-            {
-                // GBX.g:402:8: ( ( '0' .. '9' )+ )
-                DebugEnterAlt(1);
-                // GBX.g:402:10: ( '0' .. '9' )+
-                {
-                    DebugLocation(402, 10);
-                    // GBX.g:402:10: ( '0' .. '9' )+
-                    int cnt10 = 0;
-                    try
-                    {
-                        DebugEnterSubRule(10);
-                        while (true)
-                        {
-                            int alt10 = 2;
-                            try
-                            {
-                                DebugEnterDecision(10, false);
-                                int LA10_0 = input.LA(1);
-
-                                if (((LA10_0 >= '0' && LA10_0 <= '9')))
-                                {
-                                    alt10 = 1;
-                                }
-
-
-                            }
-                            finally
-                            {
-                                DebugExitDecision(10);
-                            }
-                            switch (alt10)
-                            {
-                                case 1:
-                                    DebugEnterAlt(1);
-                                    // GBX.g:
-                                    {
-                                        DebugLocation(402, 10);
-                                        input.Consume();
-
-
-                                    }
-                                    break;
-
-                                default:
-                                    if (cnt10 >= 1)
-                                        goto loop10;
-
-                                    EarlyExitException eee10 = new EarlyExitException(10, input);
-                                    DebugRecognitionException(eee10);
-                                    throw eee10;
-                            }
-                            cnt10++;
-                        }
-                    loop10:
-                        ;
-
-                    }
-                    finally
-                    {
-                        DebugExitSubRule(10);
-                    }
-
-
-                }
-
-            }
-            finally
-            {
-                TraceOut("INT", 135);
-                LeaveRule("INT", 135);
-                LeaveRule_INT();
-            }
-        }
-        // $ANTLR end "INT"
-
-        partial void EnterRule_HEX_NUMBER();
-        partial void LeaveRule_HEX_NUMBER();
-
-        // $ANTLR start "HEX_NUMBER"
-        [GrammarRule("HEX_NUMBER")]
-        private void mHEX_NUMBER()
-        {
-            EnterRule_HEX_NUMBER();
-            EnterRule("HEX_NUMBER", 136);
-            TraceIn("HEX_NUMBER", 136);
-            try
-            {
-                // GBX.g:404:13: ( '$' ( HEX_DIGIT )+ | '0' 'x' ( HEX_DIGIT )+ )
-                int alt13 = 2;
-                try
-                {
-                    DebugEnterDecision(13, false);
-                    int LA13_0 = input.LA(1);
-
-                    if ((LA13_0 == '$'))
-                    {
-                        alt13 = 1;
-                    }
-                    else if ((LA13_0 == '0'))
-                    {
-                        alt13 = 2;
-                    }
-                    else
-                    {
-                        NoViableAltException nvae = new NoViableAltException("", 13, 0, input);
-                        DebugRecognitionException(nvae);
-                        throw nvae;
-                    }
-                }
-                finally
-                {
-                    DebugExitDecision(13);
-                }
-                switch (alt13)
-                {
-                    case 1:
-                        DebugEnterAlt(1);
-                        // GBX.g:404:15: '$' ( HEX_DIGIT )+
-                        {
-                            DebugLocation(404, 15);
-                            Match('$');
-                            DebugLocation(404, 18);
-                            // GBX.g:404:18: ( HEX_DIGIT )+
-                            int cnt11 = 0;
-                            try
-                            {
-                                DebugEnterSubRule(11);
-                                while (true)
-                                {
-                                    int alt11 = 2;
-                                    try
-                                    {
-                                        DebugEnterDecision(11, false);
-                                        int LA11_0 = input.LA(1);
-
-                                        if (((LA11_0 >= '0' && LA11_0 <= '9') || (LA11_0 >= 'a' && LA11_0 <= 'f')))
-                                        {
-                                            alt11 = 1;
-                                        }
-
-
-                                    }
-                                    finally
-                                    {
-                                        DebugExitDecision(11);
-                                    }
-                                    switch (alt11)
-                                    {
-                                        case 1:
-                                            DebugEnterAlt(1);
-                                            // GBX.g:
-                                            {
-                                                DebugLocation(404, 18);
-                                                input.Consume();
-
-
-                                            }
-                                            break;
-
-                                        default:
-                                            if (cnt11 >= 1)
-                                                goto loop11;
-
-                                            EarlyExitException eee11 = new EarlyExitException(11, input);
-                                            DebugRecognitionException(eee11);
-                                            throw eee11;
-                                    }
-                                    cnt11++;
-                                }
-                            loop11:
-                                ;
-
-                            }
-                            finally
-                            {
-                                DebugExitSubRule(11);
-                            }
-
-
-                        }
-                        break;
-                    case 2:
-                        DebugEnterAlt(2);
-                        // GBX.g:405:7: '0' 'x' ( HEX_DIGIT )+
-                        {
-                            DebugLocation(405, 7);
-                            Match('0');
-                            DebugLocation(405, 10);
-                            Match('x');
-                            DebugLocation(405, 13);
-                            // GBX.g:405:13: ( HEX_DIGIT )+
-                            int cnt12 = 0;
-                            try
-                            {
-                                DebugEnterSubRule(12);
-                                while (true)
-                                {
-                                    int alt12 = 2;
-                                    try
-                                    {
-                                        DebugEnterDecision(12, false);
-                                        int LA12_0 = input.LA(1);
-
-                                        if (((LA12_0 >= '0' && LA12_0 <= '9') || (LA12_0 >= 'a' && LA12_0 <= 'f')))
-                                        {
-                                            alt12 = 1;
-                                        }
-
-
-                                    }
-                                    finally
-                                    {
-                                        DebugExitDecision(12);
-                                    }
-                                    switch (alt12)
-                                    {
-                                        case 1:
-                                            DebugEnterAlt(1);
-                                            // GBX.g:
-                                            {
-                                                DebugLocation(405, 13);
-                                                input.Consume();
-
-
-                                            }
-                                            break;
-
-                                        default:
-                                            if (cnt12 >= 1)
-                                                goto loop12;
-
-                                            EarlyExitException eee12 = new EarlyExitException(12, input);
-                                            DebugRecognitionException(eee12);
-                                            throw eee12;
-                                    }
-                                    cnt12++;
-                                }
-                            loop12:
-                                ;
-
-                            }
-                            finally
-                            {
-                                DebugExitSubRule(12);
-                            }
-
-
-                        }
-                        break;
-
-                }
-            }
-            finally
-            {
-                TraceOut("HEX_NUMBER", 136);
-                LeaveRule("HEX_NUMBER", 136);
-                LeaveRule_HEX_NUMBER();
-            }
-        }
-        // $ANTLR end "HEX_NUMBER"
-
-        partial void EnterRule_BIN_NUMBER();
-        partial void LeaveRule_BIN_NUMBER();
-
-        // $ANTLR start "BIN_NUMBER"
-        [GrammarRule("BIN_NUMBER")]
-        private void mBIN_NUMBER()
-        {
-            EnterRule_BIN_NUMBER();
-            EnterRule("BIN_NUMBER", 137);
-            TraceIn("BIN_NUMBER", 137);
-            try
-            {
-                // GBX.g:407:13: ( '%' ( BIN_DIGIT )+ | '0' 'b' ( BIN_DIGIT )+ )
-                int alt16 = 2;
-                try
-                {
-                    DebugEnterDecision(16, false);
-                    int LA16_0 = input.LA(1);
-
-                    if ((LA16_0 == '%'))
-                    {
-                        alt16 = 1;
-                    }
-                    else if ((LA16_0 == '0'))
-                    {
-                        alt16 = 2;
-                    }
-                    else
-                    {
-                        NoViableAltException nvae = new NoViableAltException("", 16, 0, input);
-                        DebugRecognitionException(nvae);
-                        throw nvae;
-                    }
-                }
-                finally
-                {
-                    DebugExitDecision(16);
-                }
-                switch (alt16)
-                {
-                    case 1:
-                        DebugEnterAlt(1);
-                        // GBX.g:407:15: '%' ( BIN_DIGIT )+
-                        {
-                            DebugLocation(407, 15);
-                            Match('%');
-                            DebugLocation(407, 18);
-                            // GBX.g:407:18: ( BIN_DIGIT )+
-                            int cnt14 = 0;
-                            try
-                            {
-                                DebugEnterSubRule(14);
-                                while (true)
-                                {
-                                    int alt14 = 2;
-                                    try
-                                    {
-                                        DebugEnterDecision(14, false);
-                                        int LA14_0 = input.LA(1);
-
-                                        if (((LA14_0 >= '0' && LA14_0 <= '1')))
-                                        {
-                                            alt14 = 1;
-                                        }
-
-
-                                    }
-                                    finally
-                                    {
-                                        DebugExitDecision(14);
-                                    }
-                                    switch (alt14)
-                                    {
-                                        case 1:
-                                            DebugEnterAlt(1);
-                                            // GBX.g:
-                                            {
-                                                DebugLocation(407, 18);
-                                                input.Consume();
-
-
-                                            }
-                                            break;
-
-                                        default:
-                                            if (cnt14 >= 1)
-                                                goto loop14;
-
-                                            EarlyExitException eee14 = new EarlyExitException(14, input);
-                                            DebugRecognitionException(eee14);
-                                            throw eee14;
-                                    }
-                                    cnt14++;
-                                }
-                            loop14:
-                                ;
-
-                            }
-                            finally
-                            {
-                                DebugExitSubRule(14);
-                            }
-
-
-                        }
-                        break;
-                    case 2:
-                        DebugEnterAlt(2);
-                        // GBX.g:408:7: '0' 'b' ( BIN_DIGIT )+
-                        {
-                            DebugLocation(408, 7);
-                            Match('0');
-                            DebugLocation(408, 10);
-                            Match('b');
-                            DebugLocation(408, 13);
-                            // GBX.g:408:13: ( BIN_DIGIT )+
-                            int cnt15 = 0;
-                            try
-                            {
-                                DebugEnterSubRule(15);
-                                while (true)
-                                {
-                                    int alt15 = 2;
-                                    try
-                                    {
-                                        DebugEnterDecision(15, false);
-                                        int LA15_0 = input.LA(1);
-
-                                        if (((LA15_0 >= '0' && LA15_0 <= '1')))
-                                        {
-                                            alt15 = 1;
-                                        }
-
-
-                                    }
-                                    finally
-                                    {
-                                        DebugExitDecision(15);
-                                    }
-                                    switch (alt15)
-                                    {
-                                        case 1:
-                                            DebugEnterAlt(1);
-                                            // GBX.g:
-                                            {
-                                                DebugLocation(408, 13);
-                                                input.Consume();
-
-
-                                            }
-                                            break;
-
-                                        default:
-                                            if (cnt15 >= 1)
-                                                goto loop15;
-
-                                            EarlyExitException eee15 = new EarlyExitException(15, input);
-                                            DebugRecognitionException(eee15);
-                                            throw eee15;
-                                    }
-                                    cnt15++;
-                                }
-                            loop15:
-                                ;
-
-                            }
-                            finally
-                            {
-                                DebugExitSubRule(15);
-                            }
-
-
-                        }
-                        break;
-
-                }
-            }
-            finally
-            {
-                TraceOut("BIN_NUMBER", 137);
-                LeaveRule("BIN_NUMBER", 137);
-                LeaveRule_BIN_NUMBER();
-            }
-        }
-        // $ANTLR end "BIN_NUMBER"
-
-        partial void EnterRule_OCT_NUMBER();
-        partial void LeaveRule_OCT_NUMBER();
-
-        // $ANTLR start "OCT_NUMBER"
-        [GrammarRule("OCT_NUMBER")]
-        private void mOCT_NUMBER()
-        {
-            EnterRule_OCT_NUMBER();
-            EnterRule("OCT_NUMBER", 138);
-            TraceIn("OCT_NUMBER", 138);
-            try
-            {
-                // GBX.g:410:13: ( '&' ( OCT_DIGIT )+ | '0' 'o' ( OCT_DIGIT )+ )
-                int alt19 = 2;
-                try
-                {
-                    DebugEnterDecision(19, false);
-                    int LA19_0 = input.LA(1);
-
-                    if ((LA19_0 == '&'))
-                    {
-                        alt19 = 1;
-                    }
-                    else if ((LA19_0 == '0'))
-                    {
-                        alt19 = 2;
-                    }
-                    else
-                    {
-                        NoViableAltException nvae = new NoViableAltException("", 19, 0, input);
-                        DebugRecognitionException(nvae);
-                        throw nvae;
-                    }
-                }
-                finally
-                {
-                    DebugExitDecision(19);
-                }
-                switch (alt19)
-                {
-                    case 1:
-                        DebugEnterAlt(1);
-                        // GBX.g:410:15: '&' ( OCT_DIGIT )+
-                        {
-                            DebugLocation(410, 15);
-                            Match('&');
-                            DebugLocation(410, 18);
-                            // GBX.g:410:18: ( OCT_DIGIT )+
-                            int cnt17 = 0;
-                            try
-                            {
-                                DebugEnterSubRule(17);
-                                while (true)
-                                {
-                                    int alt17 = 2;
-                                    try
-                                    {
-                                        DebugEnterDecision(17, false);
-                                        int LA17_0 = input.LA(1);
-
-                                        if (((LA17_0 >= '0' && LA17_0 <= '7')))
-                                        {
-                                            alt17 = 1;
-                                        }
-
-
-                                    }
-                                    finally
-                                    {
-                                        DebugExitDecision(17);
-                                    }
-                                    switch (alt17)
-                                    {
-                                        case 1:
-                                            DebugEnterAlt(1);
-                                            // GBX.g:
-                                            {
-                                                DebugLocation(410, 18);
-                                                input.Consume();
-
-
-                                            }
-                                            break;
-
-                                        default:
-                                            if (cnt17 >= 1)
-                                                goto loop17;
-
-                                            EarlyExitException eee17 = new EarlyExitException(17, input);
-                                            DebugRecognitionException(eee17);
-                                            throw eee17;
-                                    }
-                                    cnt17++;
-                                }
-                            loop17:
-                                ;
-
-                            }
-                            finally
-                            {
-                                DebugExitSubRule(17);
-                            }
-
-
-                        }
-                        break;
-                    case 2:
-                        DebugEnterAlt(2);
-                        // GBX.g:411:7: '0' 'o' ( OCT_DIGIT )+
-                        {
-                            DebugLocation(411, 7);
-                            Match('0');
-                            DebugLocation(411, 10);
-                            Match('o');
-                            DebugLocation(411, 13);
-                            // GBX.g:411:13: ( OCT_DIGIT )+
-                            int cnt18 = 0;
-                            try
-                            {
-                                DebugEnterSubRule(18);
-                                while (true)
-                                {
-                                    int alt18 = 2;
-                                    try
-                                    {
-                                        DebugEnterDecision(18, false);
-                                        int LA18_0 = input.LA(1);
-
-                                        if (((LA18_0 >= '0' && LA18_0 <= '7')))
-                                        {
-                                            alt18 = 1;
-                                        }
-
-
-                                    }
-                                    finally
-                                    {
-                                        DebugExitDecision(18);
-                                    }
-                                    switch (alt18)
-                                    {
-                                        case 1:
-                                            DebugEnterAlt(1);
-                                            // GBX.g:
-                                            {
-                                                DebugLocation(411, 13);
-                                                input.Consume();
-
-
-                                            }
-                                            break;
-
-                                        default:
-                                            if (cnt18 >= 1)
-                                                goto loop18;
-
-                                            EarlyExitException eee18 = new EarlyExitException(18, input);
-                                            DebugRecognitionException(eee18);
-                                            throw eee18;
-                                    }
-                                    cnt18++;
-                                }
-                            loop18:
-                                ;
-
-                            }
-                            finally
-                            {
-                                DebugExitSubRule(18);
-                            }
-
-
-                        }
-                        break;
-
-                }
-            }
-            finally
-            {
-                TraceOut("OCT_NUMBER", 138);
-                LeaveRule("OCT_NUMBER", 138);
-                LeaveRule_OCT_NUMBER();
-            }
-        }
-        // $ANTLR end "OCT_NUMBER"
-
-        partial void EnterRule_HEX_DIGIT();
-        partial void LeaveRule_HEX_DIGIT();
-
-        // $ANTLR start "HEX_DIGIT"
-        [GrammarRule("HEX_DIGIT")]
-        private void mHEX_DIGIT()
-        {
-            EnterRule_HEX_DIGIT();
-            EnterRule("HEX_DIGIT", 139);
-            TraceIn("HEX_DIGIT", 139);
-            try
-            {
-                // GBX.g:413:13: ( ( '0' .. '9' | 'a' .. 'f' ) )
-                DebugEnterAlt(1);
-                // GBX.g:
-                {
-                    DebugLocation(413, 13);
-                    if ((input.LA(1) >= '0' && input.LA(1) <= '9') || (input.LA(1) >= 'a' && input.LA(1) <= 'f'))
-                    {
-                        input.Consume();
-                    }
-                    else
-                    {
-                        MismatchedSetException mse = new MismatchedSetException(null, input);
-                        DebugRecognitionException(mse);
-                        Recover(mse);
-                        throw mse;
-                    }
-
-
-                }
-
-            }
-            finally
-            {
-                TraceOut("HEX_DIGIT", 139);
-                LeaveRule("HEX_DIGIT", 139);
-                LeaveRule_HEX_DIGIT();
-            }
-        }
-        // $ANTLR end "HEX_DIGIT"
-
-        partial void EnterRule_OCT_DIGIT();
-        partial void LeaveRule_OCT_DIGIT();
-
-        // $ANTLR start "OCT_DIGIT"
-        [GrammarRule("OCT_DIGIT")]
-        private void mOCT_DIGIT()
-        {
-            EnterRule_OCT_DIGIT();
-            EnterRule("OCT_DIGIT", 140);
-            TraceIn("OCT_DIGIT", 140);
-            try
-            {
-                // GBX.g:415:12: ( ( '0' .. '7' ) )
-                DebugEnterAlt(1);
-                // GBX.g:
-                {
-                    DebugLocation(415, 12);
-                    if ((input.LA(1) >= '0' && input.LA(1) <= '7'))
-                    {
-                        input.Consume();
-                    }
-                    else
-                    {
-                        MismatchedSetException mse = new MismatchedSetException(null, input);
-                        DebugRecognitionException(mse);
-                        Recover(mse);
-                        throw mse;
-                    }
-
-
-                }
-
-            }
-            finally
-            {
-                TraceOut("OCT_DIGIT", 140);
-                LeaveRule("OCT_DIGIT", 140);
-                LeaveRule_OCT_DIGIT();
-            }
-        }
-        // $ANTLR end "OCT_DIGIT"
-
-        partial void EnterRule_BIN_DIGIT();
-        partial void LeaveRule_BIN_DIGIT();
-
-        // $ANTLR start "BIN_DIGIT"
-        [GrammarRule("BIN_DIGIT")]
-        private void mBIN_DIGIT()
-        {
-            EnterRule_BIN_DIGIT();
-            EnterRule("BIN_DIGIT", 141);
-            TraceIn("BIN_DIGIT", 141);
-            try
-            {
-                // GBX.g:417:12: ( ( '0' .. '1' ) )
-                DebugEnterAlt(1);
-                // GBX.g:
-                {
-                    DebugLocation(417, 12);
-                    if ((input.LA(1) >= '0' && input.LA(1) <= '1'))
-                    {
-                        input.Consume();
-                    }
-                    else
-                    {
-                        MismatchedSetException mse = new MismatchedSetException(null, input);
-                        DebugRecognitionException(mse);
-                        Recover(mse);
-                        throw mse;
-                    }
-
-
-                }
-
-            }
-            finally
-            {
-                TraceOut("BIN_DIGIT", 141);
-                LeaveRule("BIN_DIGIT", 141);
-                LeaveRule_BIN_DIGIT();
-            }
-        }
-        // $ANTLR end "BIN_DIGIT"
-
-        partial void EnterRule_ESC_SEQ();
-        partial void LeaveRule_ESC_SEQ();
-
-        // $ANTLR start "ESC_SEQ"
-        [GrammarRule("ESC_SEQ")]
-        private void mESC_SEQ()
-        {
-            EnterRule_ESC_SEQ();
-            EnterRule("ESC_SEQ", 142);
-            TraceIn("ESC_SEQ", 142);
-            try
-            {
-                // GBX.g:420:11: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESC | OCTAL_ESC )
-                int alt20 = 3;
-                try
-                {
-                    DebugEnterDecision(20, false);
-                    int LA20_0 = input.LA(1);
-
-                    if ((LA20_0 == '\\'))
-                    {
-                        switch (input.LA(2))
-                        {
-                            case '\"':
-                            case '\'':
-                            case '\\':
-                            case 'b':
-                            case 'f':
-                            case 'n':
-                            case 'r':
-                            case 't':
-                                {
-                                    alt20 = 1;
-                                }
-                                break;
-                            case 'u':
-                                {
-                                    alt20 = 2;
-                                }
-                                break;
-                            case '0':
-                            case '1':
-                            case '2':
-                            case '3':
-                            case '4':
-                            case '5':
-                            case '6':
-                            case '7':
-                                {
-                                    alt20 = 3;
-                                }
-                                break;
-                            default:
-                                {
-                                    NoViableAltException nvae = new NoViableAltException("", 20, 1, input);
-                                    DebugRecognitionException(nvae);
-                                    throw nvae;
-                                }
-                        }
-
-                    }
-                    else
-                    {
-                        NoViableAltException nvae = new NoViableAltException("", 20, 0, input);
-                        DebugRecognitionException(nvae);
-                        throw nvae;
-                    }
-                }
-                finally
-                {
-                    DebugExitDecision(20);
-                }
-                switch (alt20)
-                {
-                    case 1:
-                        DebugEnterAlt(1);
-                        // GBX.g:420:15: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
-                        {
-                            DebugLocation(420, 15);
-                            Match('\\');
-                            DebugLocation(420, 20);
-                            input.Consume();
-
-
-                        }
-                        break;
-                    case 2:
-                        DebugEnterAlt(2);
-                        // GBX.g:421:9: UNICODE_ESC
-                        {
-                            DebugLocation(421, 9);
-                            mUNICODE_ESC();
-
-                        }
-                        break;
-                    case 3:
-                        DebugEnterAlt(3);
-                        // GBX.g:422:9: OCTAL_ESC
-                        {
-                            DebugLocation(422, 9);
-                            mOCTAL_ESC();
-
-                        }
-                        break;
-
-                }
-            }
-            finally
-            {
-                TraceOut("ESC_SEQ", 142);
-                LeaveRule("ESC_SEQ", 142);
-                LeaveRule_ESC_SEQ();
-            }
-        }
-        // $ANTLR end "ESC_SEQ"
-
-        partial void EnterRule_OCTAL_ESC();
-        partial void LeaveRule_OCTAL_ESC();
-
-        // $ANTLR start "OCTAL_ESC"
-        [GrammarRule("OCTAL_ESC")]
-        private void mOCTAL_ESC()
-        {
-            EnterRule_OCTAL_ESC();
-            EnterRule("OCTAL_ESC", 143);
-            TraceIn("OCTAL_ESC", 143);
-            try
-            {
-                // GBX.g:424:12: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
-                int alt21 = 3;
-                try
-                {
-                    DebugEnterDecision(21, false);
-                    int LA21_0 = input.LA(1);
-
-                    if ((LA21_0 == '\\'))
-                    {
-                        int LA21_1 = input.LA(2);
-
-                        if (((LA21_1 >= '0' && LA21_1 <= '3')))
-                        {
-                            int LA21_2 = input.LA(3);
-
-                            if (((LA21_2 >= '0' && LA21_2 <= '7')))
-                            {
-                                int LA21_4 = input.LA(4);
-
-                                if (((LA21_4 >= '0' && LA21_4 <= '7')))
-                                {
-                                    alt21 = 1;
-                                }
-                                else
-                                {
-                                    alt21 = 2;
-                                }
-                            }
-                            else
-                            {
-                                alt21 = 3;
-                            }
-                        }
-                        else if (((LA21_1 >= '4' && LA21_1 <= '7')))
-                        {
-                            int LA21_3 = input.LA(3);
-
-                            if (((LA21_3 >= '0' && LA21_3 <= '7')))
-                            {
-                                alt21 = 2;
-                            }
-                            else
-                            {
-                                alt21 = 3;
-                            }
-                        }
-                        else
-                        {
-                            NoViableAltException nvae = new NoViableAltException("", 21, 1, input);
-                            DebugRecognitionException(nvae);
-                            throw nvae;
-                        }
-                    }
-                    else
-                    {
-                        NoViableAltException nvae = new NoViableAltException("", 21, 0, input);
-                        DebugRecognitionException(nvae);
-                        throw nvae;
-                    }
-                }
-                finally
-                {
-                    DebugExitDecision(21);
-                }
-                switch (alt21)
-                {
-                    case 1:
-                        DebugEnterAlt(1);
-                        // GBX.g:424:16: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
-                        {
-                            DebugLocation(424, 16);
-                            Match('\\');
-                            DebugLocation(424, 21);
-                            input.Consume();
-
-                            DebugLocation(424, 32);
-                            input.Consume();
-
-                            DebugLocation(424, 43);
-                            input.Consume();
-
-
-                        }
-                        break;
-                    case 2:
-                        DebugEnterAlt(2);
-                        // GBX.g:425:9: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
-                        {
-                            DebugLocation(425, 9);
-                            Match('\\');
-                            DebugLocation(425, 14);
-                            input.Consume();
-
-                            DebugLocation(425, 25);
-                            input.Consume();
-
-
-                        }
-                        break;
-                    case 3:
-                        DebugEnterAlt(3);
-                        // GBX.g:426:9: '\\\\' ( '0' .. '7' )
-                        {
-                            DebugLocation(426, 9);
-                            Match('\\');
-                            DebugLocation(426, 14);
-                            input.Consume();
-
-
-                        }
-                        break;
-
-                }
-            }
-            finally
-            {
-                TraceOut("OCTAL_ESC", 143);
-                LeaveRule("OCTAL_ESC", 143);
-                LeaveRule_OCTAL_ESC();
-            }
-        }
-        // $ANTLR end "OCTAL_ESC"
-
-        partial void EnterRule_UNICODE_ESC();
-        partial void LeaveRule_UNICODE_ESC();
-
-        // $ANTLR start "UNICODE_ESC"
-        [GrammarRule("UNICODE_ESC")]
-        private void mUNICODE_ESC()
-        {
-            EnterRule_UNICODE_ESC();
-            EnterRule("UNICODE_ESC", 144);
-            TraceIn("UNICODE_ESC", 144);
-            try
-            {
-                // GBX.g:428:14: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
-                DebugEnterAlt(1);
-                // GBX.g:428:18: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
-                {
-                    DebugLocation(428, 18);
-                    Match('\\');
-                    DebugLocation(428, 23);
-                    Match('u');
-                    DebugLocation(428, 27);
-                    mHEX_DIGIT();
-                    DebugLocation(428, 37);
-                    mHEX_DIGIT();
-                    DebugLocation(428, 47);
-                    mHEX_DIGIT();
-                    DebugLocation(428, 57);
-                    mHEX_DIGIT();
-
-                }
-
-            }
-            finally
-            {
-                TraceOut("UNICODE_ESC", 144);
-                LeaveRule("UNICODE_ESC", 144);
-                LeaveRule_UNICODE_ESC();
-            }
-        }
-        // $ANTLR end "UNICODE_ESC"
-
-        partial void EnterRule_WS();
-        partial void LeaveRule_WS();
-
-        // $ANTLR start "WS"
-        [GrammarRule("WS")]
-        private void mWS()
-        {
-            EnterRule_WS();
-            EnterRule("WS", 145);
-            TraceIn("WS", 145);
-            try
-            {
-                int _type = WS;
-                int _channel = DefaultTokenChannel;
-                // GBX.g:429:7: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
-                DebugEnterAlt(1);
-                // GBX.g:429:11: ( ' ' | '\\t' | '\\r' | '\\n' )
-                {
-                    DebugLocation(429, 11);
-                    if ((input.LA(1) >= '\t' && input.LA(1) <= '\n') || input.LA(1) == '\r' || input.LA(1) == ' ')
-                    {
-                        input.Consume();
-                    }
-                    else
-                    {
-                        MismatchedSetException mse = new MismatchedSetException(null, input);
-                        DebugRecognitionException(mse);
-                        Recover(mse);
-                        throw mse;
-                    }
-
-                    DebugLocation(429, 36);
-                    _channel = Hidden;
-
-                }
-
-                state.type = _type;
-                state.channel = _channel;
-            }
-            finally
-            {
-                TraceOut("WS", 145);
-                LeaveRule("WS", 145);
-                LeaveRule_WS();
-            }
-        }
-        // $ANTLR end "WS"
-
-        public override void mTokens()
-        {
-            // GBX.g:1:8: ( T__173 | T__174 | SECTION | CODE | DATA | HOME | BANK | ORG | MACROSTART | MACROEND | IMPORT | EXPORT | GLOBAL | XREF | XDEF | DB | DW | DD | DQ | INCLUDE_TOKEN | INCBIN | TIMES | EQU | INST_ADC | INST_ADD | INST_AND | INST_BIT | INST_CALL | INST_CCF | INST_CP | INST_CPL | INST_DAA | INST_DEC | INST_DI | INST_EI | INST_HALT | INST_INC | INST_JP | INST_JR | INST_LDHL | INST_LDIO | INST_LDI | INST_LDD | INST_LD | INST_NOP | INST_OR | INST_POP | INST_PUSH | INST_RES | INST_RET | INST_RETI | INST_RLA | INST_RL | INST_RLCA | INST_RLC | INST_RRA | INST_RR | INST_RRCA | INST_RRC | INST_RST | INST_SBC | INST_SCF | INST_SET | INST_SLA | INST_SRA | INST_SRL | INST_STOP | INST_SUB | INST_SWAP | INST_XOR | RR_AF | RR_BC | RR_DE | RR_HL | RR_SP | CC_NC | CC_NZ | CC_Z | REG_A | REG_B | REG_C | REG_D | REG_E | REG_H | REG_L | LOC_LABEL_RAND | M_ARG1 | M_ARG2 | M_ARG3 | M_ARG4 | M_ARG5 | M_ARG6 | M_ARG7 | M_ARG8 | M_ARG9 | QUEST_MARK | BANG_MARK | STAR_MARK | PLUS_MARK | MINUS_MARK | TILDE_MARK | BOOL_OR_MARK | BAR_MARK | BOOL_AND_MARK | AMP_MARK | UNDERSCORE_MARK | FSLASH_MARK | BSLASH_MARK | CARET_MARK | COLON_MARK | NOT_EQUIV_MARK | EQUIV_MARK | LTE_MARK | GTE_MARK | LSHIFT_MARK | RSHIFT_MARK | GT_MARK | LT_MARK | EQUAL_MARK | SEMI_MARK | POUND_MARK | PERCENT_MARK | COMMA | LEFT_PARENS | RIGHT_PARENS | LEFT_BRACKET | RIGHT_BRACKET | LEFT_CURLY | RIGHT_CURLY | ID | NUMBER | STRING | CHAR | COMMENT | WS )
-            int alt22 = 135;
-            try
-            {
-                DebugEnterDecision(22, false);
-                try
-                {
-                    alt22 = dfa22.Predict(input);
-                }
-                catch (NoViableAltException nvae)
-                {
-                    DebugRecognitionException(nvae);
-                    throw;
-                }
-            }
-            finally
-            {
-                DebugExitDecision(22);
-            }
-            switch (alt22)
-            {
-                case 1:
-                    DebugEnterAlt(1);
-                    // GBX.g:1:10: T__173
-                    {
-                        DebugLocation(1, 10);
-                        mT__173();
-
-                    }
-                    break;
-                case 2:
-                    DebugEnterAlt(2);
-                    // GBX.g:1:17: T__174
-                    {
-                        DebugLocation(1, 17);
-                        mT__174();
-
-                    }
-                    break;
-                case 3:
-                    DebugEnterAlt(3);
-                    // GBX.g:1:24: SECTION
-                    {
-                        DebugLocation(1, 24);
-                        mSECTION();
-
-                    }
-                    break;
-                case 4:
-                    DebugEnterAlt(4);
-                    // GBX.g:1:32: CODE
-                    {
-                        DebugLocation(1, 32);
-                        mCODE();
-
-                    }
-                    break;
-                case 5:
-                    DebugEnterAlt(5);
-                    // GBX.g:1:37: DATA
-                    {
-                        DebugLocation(1, 37);
-                        mDATA();
-
-                    }
-                    break;
-                case 6:
-                    DebugEnterAlt(6);
-                    // GBX.g:1:42: HOME
-                    {
-                        DebugLocation(1, 42);
-                        mHOME();
-
-                    }
-                    break;
-                case 7:
-                    DebugEnterAlt(7);
-                    // GBX.g:1:47: BANK
-                    {
-                        DebugLocation(1, 47);
-                        mBANK();
-
-                    }
-                    break;
-                case 8:
-                    DebugEnterAlt(8);
-                    // GBX.g:1:52: ORG
-                    {
-                        DebugLocation(1, 52);
-                        mORG();
-
-                    }
-                    break;
-                case 9:
-                    DebugEnterAlt(9);
-                    // GBX.g:1:56: MACROSTART
-                    {
-                        DebugLocation(1, 56);
-                        mMACROSTART();
-
-                    }
-                    break;
-                case 10:
-                    DebugEnterAlt(10);
-                    // GBX.g:1:67: MACROEND
-                    {
-                        DebugLocation(1, 67);
-                        mMACROEND();
-
-                    }
-                    break;
-                case 11:
-                    DebugEnterAlt(11);
-                    // GBX.g:1:76: IMPORT
-                    {
-                        DebugLocation(1, 76);
-                        mIMPORT();
-
-                    }
-                    break;
-                case 12:
-                    DebugEnterAlt(12);
-                    // GBX.g:1:83: EXPORT
-                    {
-                        DebugLocation(1, 83);
-                        mEXPORT();
-
-                    }
-                    break;
-                case 13:
-                    DebugEnterAlt(13);
-                    // GBX.g:1:90: GLOBAL
-                    {
-                        DebugLocation(1, 90);
-                        mGLOBAL();
-
-                    }
-                    break;
-                case 14:
-                    DebugEnterAlt(14);
-                    // GBX.g:1:97: XREF
-                    {
-                        DebugLocation(1, 97);
-                        mXREF();
-
-                    }
-                    break;
-                case 15:
-                    DebugEnterAlt(15);
-                    // GBX.g:1:102: XDEF
-                    {
-                        DebugLocation(1, 102);
-                        mXDEF();
-
-                    }
-                    break;
-                case 16:
-                    DebugEnterAlt(16);
-                    // GBX.g:1:107: DB
-                    {
-                        DebugLocation(1, 107);
-                        mDB();
-
-                    }
-                    break;
-                case 17:
-                    DebugEnterAlt(17);
-                    // GBX.g:1:110: DW
-                    {
-                        DebugLocation(1, 110);
-                        mDW();
-
-                    }
-                    break;
-                case 18:
-                    DebugEnterAlt(18);
-                    // GBX.g:1:113: DD
-                    {
-                        DebugLocation(1, 113);
-                        mDD();
-
-                    }
-                    break;
-                case 19:
-                    DebugEnterAlt(19);
-                    // GBX.g:1:116: DQ
-                    {
-                        DebugLocation(1, 116);
-                        mDQ();
-
-                    }
-                    break;
-                case 20:
-                    DebugEnterAlt(20);
-                    // GBX.g:1:119: INCLUDE_TOKEN
-                    {
-                        DebugLocation(1, 119);
-                        mINCLUDE_TOKEN();
-
-                    }
-                    break;
-                case 21:
-                    DebugEnterAlt(21);
-                    // GBX.g:1:133: INCBIN
-                    {
-                        DebugLocation(1, 133);
-                        mINCBIN();
-
-                    }
-                    break;
-                case 22:
-                    DebugEnterAlt(22);
-                    // GBX.g:1:140: TIMES
-                    {
-                        DebugLocation(1, 140);
-                        mTIMES();
-
-                    }
-                    break;
-                case 23:
-                    DebugEnterAlt(23);
-                    // GBX.g:1:146: EQU
-                    {
-                        DebugLocation(1, 146);
-                        mEQU();
-
-                    }
-                    break;
-                case 24:
-                    DebugEnterAlt(24);
-                    // GBX.g:1:150: INST_ADC
-                    {
-                        DebugLocation(1, 150);
-                        mINST_ADC();
-
-                    }
-                    break;
-                case 25:
-                    DebugEnterAlt(25);
-                    // GBX.g:1:159: INST_ADD
-                    {
-                        DebugLocation(1, 159);
-                        mINST_ADD();
-
-                    }
-                    break;
-                case 26:
-                    DebugEnterAlt(26);
-                    // GBX.g:1:168: INST_AND
-                    {
-                        DebugLocation(1, 168);
-                        mINST_AND();
-
-                    }
-                    break;
-                case 27:
-                    DebugEnterAlt(27);
-                    // GBX.g:1:177: INST_BIT
-                    {
-                        DebugLocation(1, 177);
-                        mINST_BIT();
-
-                    }
-                    break;
-                case 28:
-                    DebugEnterAlt(28);
-                    // GBX.g:1:186: INST_CALL
-                    {
-                        DebugLocation(1, 186);
-                        mINST_CALL();
-
-                    }
-                    break;
-                case 29:
-                    DebugEnterAlt(29);
-                    // GBX.g:1:196: INST_CCF
-                    {
-                        DebugLocation(1, 196);
-                        mINST_CCF();
-
-                    }
-                    break;
-                case 30:
-                    DebugEnterAlt(30);
-                    // GBX.g:1:205: INST_CP
-                    {
-                        DebugLocation(1, 205);
-                        mINST_CP();
-
-                    }
-                    break;
-                case 31:
-                    DebugEnterAlt(31);
-                    // GBX.g:1:213: INST_CPL
-                    {
-                        DebugLocation(1, 213);
-                        mINST_CPL();
-
-                    }
-                    break;
-                case 32:
-                    DebugEnterAlt(32);
-                    // GBX.g:1:222: INST_DAA
-                    {
-                        DebugLocation(1, 222);
-                        mINST_DAA();
-
-                    }
-                    break;
-                case 33:
-                    DebugEnterAlt(33);
-                    // GBX.g:1:231: INST_DEC
-                    {
-                        DebugLocation(1, 231);
-                        mINST_DEC();
-
-                    }
-                    break;
-                case 34:
-                    DebugEnterAlt(34);
-                    // GBX.g:1:240: INST_DI
-                    {
-                        DebugLocation(1, 240);
-                        mINST_DI();
-
-                    }
-                    break;
-                case 35:
-                    DebugEnterAlt(35);
-                    // GBX.g:1:248: INST_EI
-                    {
-                        DebugLocation(1, 248);
-                        mINST_EI();
-
-                    }
-                    break;
-                case 36:
-                    DebugEnterAlt(36);
-                    // GBX.g:1:256: INST_HALT
-                    {
-                        DebugLocation(1, 256);
-                        mINST_HALT();
-
-                    }
-                    break;
-                case 37:
-                    DebugEnterAlt(37);
-                    // GBX.g:1:266: INST_INC
-                    {
-                        DebugLocation(1, 266);
-                        mINST_INC();
-
-                    }
-                    break;
-                case 38:
-                    DebugEnterAlt(38);
-                    // GBX.g:1:275: INST_JP
-                    {
-                        DebugLocation(1, 275);
-                        mINST_JP();
-
-                    }
-                    break;
-                case 39:
-                    DebugEnterAlt(39);
-                    // GBX.g:1:283: INST_JR
-                    {
-                        DebugLocation(1, 283);
-                        mINST_JR();
-
-                    }
-                    break;
-                case 40:
-                    DebugEnterAlt(40);
-                    // GBX.g:1:291: INST_LDHL
-                    {
-                        DebugLocation(1, 291);
-                        mINST_LDHL();
-
-                    }
-                    break;
-                case 41:
-                    DebugEnterAlt(41);
-                    // GBX.g:1:301: INST_LDIO
-                    {
-                        DebugLocation(1, 301);
-                        mINST_LDIO();
-
-                    }
-                    break;
-                case 42:
-                    DebugEnterAlt(42);
-                    // GBX.g:1:311: INST_LDI
-                    {
-                        DebugLocation(1, 311);
-                        mINST_LDI();
-
-                    }
-                    break;
-                case 43:
-                    DebugEnterAlt(43);
-                    // GBX.g:1:320: INST_LDD
-                    {
-                        DebugLocation(1, 320);
-                        mINST_LDD();
-
-                    }
-                    break;
-                case 44:
-                    DebugEnterAlt(44);
-                    // GBX.g:1:329: INST_LD
-                    {
-                        DebugLocation(1, 329);
-                        mINST_LD();
-
-                    }
-                    break;
-                case 45:
-                    DebugEnterAlt(45);
-                    // GBX.g:1:337: INST_NOP
-                    {
-                        DebugLocation(1, 337);
-                        mINST_NOP();
-
-                    }
-                    break;
-                case 46:
-                    DebugEnterAlt(46);
-                    // GBX.g:1:346: INST_OR
-                    {
-                        DebugLocation(1, 346);
-                        mINST_OR();
-
-                    }
-                    break;
-                case 47:
-                    DebugEnterAlt(47);
-                    // GBX.g:1:354: INST_POP
-                    {
-                        DebugLocation(1, 354);
-                        mINST_POP();
-
-                    }
-                    break;
-                case 48:
-                    DebugEnterAlt(48);
-                    // GBX.g:1:363: INST_PUSH
-                    {
-                        DebugLocation(1, 363);
-                        mINST_PUSH();
-
-                    }
-                    break;
-                case 49:
-                    DebugEnterAlt(49);
-                    // GBX.g:1:373: INST_RES
-                    {
-                        DebugLocation(1, 373);
-                        mINST_RES();
-
-                    }
-                    break;
-                case 50:
-                    DebugEnterAlt(50);
-                    // GBX.g:1:382: INST_RET
-                    {
-                        DebugLocation(1, 382);
-                        mINST_RET();
-
-                    }
-                    break;
-                case 51:
-                    DebugEnterAlt(51);
-                    // GBX.g:1:391: INST_RETI
-                    {
-                        DebugLocation(1, 391);
-                        mINST_RETI();
-
-                    }
-                    break;
-                case 52:
-                    DebugEnterAlt(52);
-                    // GBX.g:1:401: INST_RLA
-                    {
-                        DebugLocation(1, 401);
-                        mINST_RLA();
-
-                    }
-                    break;
-                case 53:
-                    DebugEnterAlt(53);
-                    // GBX.g:1:410: INST_RL
-                    {
-                        DebugLocation(1, 410);
-                        mINST_RL();
-
-                    }
-                    break;
-                case 54:
-                    DebugEnterAlt(54);
-                    // GBX.g:1:418: INST_RLCA
-                    {
-                        DebugLocation(1, 418);
-                        mINST_RLCA();
-
-                    }
-                    break;
-                case 55:
-                    DebugEnterAlt(55);
-                    // GBX.g:1:428: INST_RLC
-                    {
-                        DebugLocation(1, 428);
-                        mINST_RLC();
-
-                    }
-                    break;
-                case 56:
-                    DebugEnterAlt(56);
-                    // GBX.g:1:437: INST_RRA
-                    {
-                        DebugLocation(1, 437);
-                        mINST_RRA();
-
-                    }
-                    break;
-                case 57:
-                    DebugEnterAlt(57);
-                    // GBX.g:1:446: INST_RR
-                    {
-                        DebugLocation(1, 446);
-                        mINST_RR();
-
-                    }
-                    break;
-                case 58:
-                    DebugEnterAlt(58);
-                    // GBX.g:1:454: INST_RRCA
-                    {
-                        DebugLocation(1, 454);
-                        mINST_RRCA();
-
-                    }
-                    break;
-                case 59:
-                    DebugEnterAlt(59);
-                    // GBX.g:1:464: INST_RRC
-                    {
-                        DebugLocation(1, 464);
-                        mINST_RRC();
-
-                    }
-                    break;
-                case 60:
-                    DebugEnterAlt(60);
-                    // GBX.g:1:473: INST_RST
-                    {
-                        DebugLocation(1, 473);
-                        mINST_RST();
-
-                    }
-                    break;
-                case 61:
-                    DebugEnterAlt(61);
-                    // GBX.g:1:482: INST_SBC
-                    {
-                        DebugLocation(1, 482);
-                        mINST_SBC();
-
-                    }
-                    break;
-                case 62:
-                    DebugEnterAlt(62);
-                    // GBX.g:1:491: INST_SCF
-                    {
-                        DebugLocation(1, 491);
-                        mINST_SCF();
-
-                    }
-                    break;
-                case 63:
-                    DebugEnterAlt(63);
-                    // GBX.g:1:500: INST_SET
-                    {
-                        DebugLocation(1, 500);
-                        mINST_SET();
-
-                    }
-                    break;
-                case 64:
-                    DebugEnterAlt(64);
-                    // GBX.g:1:509: INST_SLA
-                    {
-                        DebugLocation(1, 509);
-                        mINST_SLA();
-
-                    }
-                    break;
-                case 65:
-                    DebugEnterAlt(65);
-                    // GBX.g:1:518: INST_SRA
-                    {
-                        DebugLocation(1, 518);
-                        mINST_SRA();
-
-                    }
-                    break;
-                case 66:
-                    DebugEnterAlt(66);
-                    // GBX.g:1:527: INST_SRL
-                    {
-                        DebugLocation(1, 527);
-                        mINST_SRL();
-
-                    }
-                    break;
-                case 67:
-                    DebugEnterAlt(67);
-                    // GBX.g:1:536: INST_STOP
-                    {
-                        DebugLocation(1, 536);
-                        mINST_STOP();
-
-                    }
-                    break;
-                case 68:
-                    DebugEnterAlt(68);
-                    // GBX.g:1:546: INST_SUB
-                    {
-                        DebugLocation(1, 546);
-                        mINST_SUB();
-
-                    }
-                    break;
-                case 69:
-                    DebugEnterAlt(69);
-                    // GBX.g:1:555: INST_SWAP
-                    {
-                        DebugLocation(1, 555);
-                        mINST_SWAP();
-
-                    }
-                    break;
-                case 70:
-                    DebugEnterAlt(70);
-                    // GBX.g:1:565: INST_XOR
-                    {
-                        DebugLocation(1, 565);
-                        mINST_XOR();
-
-                    }
-                    break;
-                case 71:
-                    DebugEnterAlt(71);
-                    // GBX.g:1:574: RR_AF
-                    {
-                        DebugLocation(1, 574);
-                        mRR_AF();
-
-                    }
-                    break;
-                case 72:
-                    DebugEnterAlt(72);
-                    // GBX.g:1:580: RR_BC
-                    {
-                        DebugLocation(1, 580);
-                        mRR_BC();
-
-                    }
-                    break;
-                case 73:
-                    DebugEnterAlt(73);
-                    // GBX.g:1:586: RR_DE
-                    {
-                        DebugLocation(1, 586);
-                        mRR_DE();
-
-                    }
-                    break;
-                case 74:
-                    DebugEnterAlt(74);
-                    // GBX.g:1:592: RR_HL
-                    {
-                        DebugLocation(1, 592);
-                        mRR_HL();
-
-                    }
-                    break;
-                case 75:
-                    DebugEnterAlt(75);
-                    // GBX.g:1:598: RR_SP
-                    {
-                        DebugLocation(1, 598);
-                        mRR_SP();
-
-                    }
-                    break;
-                case 76:
-                    DebugEnterAlt(76);
-                    // GBX.g:1:604: CC_NC
-                    {
-                        DebugLocation(1, 604);
-                        mCC_NC();
-
-                    }
-                    break;
-                case 77:
-                    DebugEnterAlt(77);
-                    // GBX.g:1:610: CC_NZ
-                    {
-                        DebugLocation(1, 610);
-                        mCC_NZ();
-
-                    }
-                    break;
-                case 78:
-                    DebugEnterAlt(78);
-                    // GBX.g:1:616: CC_Z
-                    {
-                        DebugLocation(1, 616);
-                        mCC_Z();
-
-                    }
-                    break;
-                case 79:
-                    DebugEnterAlt(79);
-                    // GBX.g:1:621: REG_A
-                    {
-                        DebugLocation(1, 621);
-                        mREG_A();
-
-                    }
-                    break;
-                case 80:
-                    DebugEnterAlt(80);
-                    // GBX.g:1:627: REG_B
-                    {
-                        DebugLocation(1, 627);
-                        mREG_B();
-
-                    }
-                    break;
-                case 81:
-                    DebugEnterAlt(81);
-                    // GBX.g:1:633: REG_C
-                    {
-                        DebugLocation(1, 633);
-                        mREG_C();
-
-                    }
-                    break;
-                case 82:
-                    DebugEnterAlt(82);
-                    // GBX.g:1:639: REG_D
-                    {
-                        DebugLocation(1, 639);
-                        mREG_D();
-
-                    }
-                    break;
-                case 83:
-                    DebugEnterAlt(83);
-                    // GBX.g:1:645: REG_E
-                    {
-                        DebugLocation(1, 645);
-                        mREG_E();
-
-                    }
-                    break;
-                case 84:
-                    DebugEnterAlt(84);
-                    // GBX.g:1:651: REG_H
-                    {
-                        DebugLocation(1, 651);
-                        mREG_H();
-
-                    }
-                    break;
-                case 85:
-                    DebugEnterAlt(85);
-                    // GBX.g:1:657: REG_L
-                    {
-                        DebugLocation(1, 657);
-                        mREG_L();
-
-                    }
-                    break;
-                case 86:
-                    DebugEnterAlt(86);
-                    // GBX.g:1:663: LOC_LABEL_RAND
-                    {
-                        DebugLocation(1, 663);
-                        mLOC_LABEL_RAND();
-
-                    }
-                    break;
-                case 87:
-                    DebugEnterAlt(87);
-                    // GBX.g:1:678: M_ARG1
-                    {
-                        DebugLocation(1, 678);
-                        mM_ARG1();
-
-                    }
-                    break;
-                case 88:
-                    DebugEnterAlt(88);
-                    // GBX.g:1:685: M_ARG2
-                    {
-                        DebugLocation(1, 685);
-                        mM_ARG2();
-
-                    }
-                    break;
-                case 89:
-                    DebugEnterAlt(89);
-                    // GBX.g:1:692: M_ARG3
-                    {
-                        DebugLocation(1, 692);
-                        mM_ARG3();
-
-                    }
-                    break;
-                case 90:
-                    DebugEnterAlt(90);
-                    // GBX.g:1:699: M_ARG4
-                    {
-                        DebugLocation(1, 699);
-                        mM_ARG4();
-
-                    }
-                    break;
-                case 91:
-                    DebugEnterAlt(91);
-                    // GBX.g:1:706: M_ARG5
-                    {
-                        DebugLocation(1, 706);
-                        mM_ARG5();
-
-                    }
-                    break;
-                case 92:
-                    DebugEnterAlt(92);
-                    // GBX.g:1:713: M_ARG6
-                    {
-                        DebugLocation(1, 713);
-                        mM_ARG6();
-
-                    }
-                    break;
-                case 93:
-                    DebugEnterAlt(93);
-                    // GBX.g:1:720: M_ARG7
-                    {
-                        DebugLocation(1, 720);
-                        mM_ARG7();
-
-                    }
-                    break;
-                case 94:
-                    DebugEnterAlt(94);
-                    // GBX.g:1:727: M_ARG8
-                    {
-                        DebugLocation(1, 727);
-                        mM_ARG8();
-
-                    }
-                    break;
-                case 95:
-                    DebugEnterAlt(95);
-                    // GBX.g:1:734: M_ARG9
-                    {
-                        DebugLocation(1, 734);
-                        mM_ARG9();
-
-                    }
-                    break;
-                case 96:
-                    DebugEnterAlt(96);
-                    // GBX.g:1:741: QUEST_MARK
-                    {
-                        DebugLocation(1, 741);
-                        mQUEST_MARK();
-
-                    }
-                    break;
-                case 97:
-                    DebugEnterAlt(97);
-                    // GBX.g:1:752: BANG_MARK
-                    {
-                        DebugLocation(1, 752);
-                        mBANG_MARK();
-
-                    }
-                    break;
-                case 98:
-                    DebugEnterAlt(98);
-                    // GBX.g:1:762: STAR_MARK
-                    {
-                        DebugLocation(1, 762);
-                        mSTAR_MARK();
-
-                    }
-                    break;
-                case 99:
-                    DebugEnterAlt(99);
-                    // GBX.g:1:772: PLUS_MARK
-                    {
-                        DebugLocation(1, 772);
-                        mPLUS_MARK();
-
-                    }
-                    break;
-                case 100:
-                    DebugEnterAlt(100);
-                    // GBX.g:1:782: MINUS_MARK
-                    {
-                        DebugLocation(1, 782);
-                        mMINUS_MARK();
-
-                    }
-                    break;
-                case 101:
-                    DebugEnterAlt(101);
-                    // GBX.g:1:793: TILDE_MARK
-                    {
-                        DebugLocation(1, 793);
-                        mTILDE_MARK();
-
-                    }
-                    break;
-                case 102:
-                    DebugEnterAlt(102);
-                    // GBX.g:1:804: BOOL_OR_MARK
-                    {
-                        DebugLocation(1, 804);
-                        mBOOL_OR_MARK();
-
-                    }
-                    break;
-                case 103:
-                    DebugEnterAlt(103);
-                    // GBX.g:1:817: BAR_MARK
-                    {
-                        DebugLocation(1, 817);
-                        mBAR_MARK();
-
-                    }
-                    break;
-                case 104:
-                    DebugEnterAlt(104);
-                    // GBX.g:1:826: BOOL_AND_MARK
-                    {
-                        DebugLocation(1, 826);
-                        mBOOL_AND_MARK();
-
-                    }
-                    break;
-                case 105:
-                    DebugEnterAlt(105);
-                    // GBX.g:1:840: AMP_MARK
-                    {
-                        DebugLocation(1, 840);
-                        mAMP_MARK();
-
-                    }
-                    break;
-                case 106:
-                    DebugEnterAlt(106);
-                    // GBX.g:1:849: UNDERSCORE_MARK
-                    {
-                        DebugLocation(1, 849);
-                        mUNDERSCORE_MARK();
-
-                    }
-                    break;
-                case 107:
-                    DebugEnterAlt(107);
-                    // GBX.g:1:865: FSLASH_MARK
-                    {
-                        DebugLocation(1, 865);
-                        mFSLASH_MARK();
-
-                    }
-                    break;
-                case 108:
-                    DebugEnterAlt(108);
-                    // GBX.g:1:877: BSLASH_MARK
-                    {
-                        DebugLocation(1, 877);
-                        mBSLASH_MARK();
-
-                    }
-                    break;
-                case 109:
-                    DebugEnterAlt(109);
-                    // GBX.g:1:889: CARET_MARK
-                    {
-                        DebugLocation(1, 889);
-                        mCARET_MARK();
-
-                    }
-                    break;
-                case 110:
-                    DebugEnterAlt(110);
-                    // GBX.g:1:900: COLON_MARK
-                    {
-                        DebugLocation(1, 900);
-                        mCOLON_MARK();
-
-                    }
-                    break;
-                case 111:
-                    DebugEnterAlt(111);
-                    // GBX.g:1:911: NOT_EQUIV_MARK
-                    {
-                        DebugLocation(1, 911);
-                        mNOT_EQUIV_MARK();
-
-                    }
-                    break;
-                case 112:
-                    DebugEnterAlt(112);
-                    // GBX.g:1:926: EQUIV_MARK
-                    {
-                        DebugLocation(1, 926);
-                        mEQUIV_MARK();
-
-                    }
-                    break;
-                case 113:
-                    DebugEnterAlt(113);
-                    // GBX.g:1:937: LTE_MARK
-                    {
-                        DebugLocation(1, 937);
-                        mLTE_MARK();
-
-                    }
-                    break;
-                case 114:
-                    DebugEnterAlt(114);
-                    // GBX.g:1:946: GTE_MARK
-                    {
-                        DebugLocation(1, 946);
-                        mGTE_MARK();
-
-                    }
-                    break;
-                case 115:
-                    DebugEnterAlt(115);
-                    // GBX.g:1:955: LSHIFT_MARK
-                    {
-                        DebugLocation(1, 955);
-                        mLSHIFT_MARK();
-
-                    }
-                    break;
-                case 116:
-                    DebugEnterAlt(116);
-                    // GBX.g:1:967: RSHIFT_MARK
-                    {
-                        DebugLocation(1, 967);
-                        mRSHIFT_MARK();
-
-                    }
-                    break;
-                case 117:
-                    DebugEnterAlt(117);
-                    // GBX.g:1:979: GT_MARK
-                    {
-                        DebugLocation(1, 979);
-                        mGT_MARK();
-
-                    }
-                    break;
-                case 118:
-                    DebugEnterAlt(118);
-                    // GBX.g:1:987: LT_MARK
-                    {
-                        DebugLocation(1, 987);
-                        mLT_MARK();
-
-                    }
-                    break;
-                case 119:
-                    DebugEnterAlt(119);
-                    // GBX.g:1:995: EQUAL_MARK
-                    {
-                        DebugLocation(1, 995);
-                        mEQUAL_MARK();
-
-                    }
-                    break;
-                case 120:
-                    DebugEnterAlt(120);
-                    // GBX.g:1:1006: SEMI_MARK
-                    {
-                        DebugLocation(1, 1006);
-                        mSEMI_MARK();
-
-                    }
-                    break;
-                case 121:
-                    DebugEnterAlt(121);
-                    // GBX.g:1:1016: POUND_MARK
-                    {
-                        DebugLocation(1, 1016);
-                        mPOUND_MARK();
-
-                    }
-                    break;
-                case 122:
-                    DebugEnterAlt(122);
-                    // GBX.g:1:1027: PERCENT_MARK
-                    {
-                        DebugLocation(1, 1027);
-                        mPERCENT_MARK();
-
-                    }
-                    break;
-                case 123:
-                    DebugEnterAlt(123);
-                    // GBX.g:1:1040: COMMA
-                    {
-                        DebugLocation(1, 1040);
-                        mCOMMA();
-
-                    }
-                    break;
-                case 124:
-                    DebugEnterAlt(124);
-                    // GBX.g:1:1046: LEFT_PARENS
-                    {
-                        DebugLocation(1, 1046);
-                        mLEFT_PARENS();
-
-                    }
-                    break;
-                case 125:
-                    DebugEnterAlt(125);
-                    // GBX.g:1:1058: RIGHT_PARENS
-                    {
-                        DebugLocation(1, 1058);
-                        mRIGHT_PARENS();
-
-                    }
-                    break;
-                case 126:
-                    DebugEnterAlt(126);
-                    // GBX.g:1:1071: LEFT_BRACKET
-                    {
-                        DebugLocation(1, 1071);
-                        mLEFT_BRACKET();
-
-                    }
-                    break;
-                case 127:
-                    DebugEnterAlt(127);
-                    // GBX.g:1:1084: RIGHT_BRACKET
-                    {
-                        DebugLocation(1, 1084);
-                        mRIGHT_BRACKET();
-
-                    }
-                    break;
-                case 128:
-                    DebugEnterAlt(128);
-                    // GBX.g:1:1098: LEFT_CURLY
-                    {
-                        DebugLocation(1, 1098);
-                        mLEFT_CURLY();
-
-                    }
-                    break;
-                case 129:
-                    DebugEnterAlt(129);
-                    // GBX.g:1:1109: RIGHT_CURLY
-                    {
-                        DebugLocation(1, 1109);
-                        mRIGHT_CURLY();
-
-                    }
-                    break;
-                case 130:
-                    DebugEnterAlt(130);
-                    // GBX.g:1:1121: ID
-                    {
-                        DebugLocation(1, 1121);
-                        mID();
-
-                    }
-                    break;
-                case 131:
-                    DebugEnterAlt(131);
-                    // GBX.g:1:1124: NUMBER
-                    {
-                        DebugLocation(1, 1124);
-                        mNUMBER();
-
-                    }
-                    break;
-                case 132:
-                    DebugEnterAlt(132);
-                    // GBX.g:1:1131: STRING
-                    {
-                        DebugLocation(1, 1131);
-                        mSTRING();
-
-                    }
-                    break;
-                case 133:
-                    DebugEnterAlt(133);
-                    // GBX.g:1:1138: CHAR
-                    {
-                        DebugLocation(1, 1138);
-                        mCHAR();
-
-                    }
-                    break;
-                case 134:
-                    DebugEnterAlt(134);
-                    // GBX.g:1:1143: COMMENT
-                    {
-                        DebugLocation(1, 1143);
-                        mCOMMENT();
-
-                    }
-                    break;
-                case 135:
-                    DebugEnterAlt(135);
-                    // GBX.g:1:1151: WS
-                    {
-                        DebugLocation(1, 1151);
-                        mWS();
-
-                    }
-                    break;
-
-            }
-
-        }
-
-        #region DFA
-
-        private DFA22 dfa22;
-
-        protected override void InitDFAs()
-        {
-            base.InitDFAs();
-            dfa22 = new DFA22(this, SpecialStateTransition22);
-        }
-
-        private class DFA22 : DFA
-        {
-            private const string DFA22_eotS =
-                "\x2\xFFFF\x1\x35\x1\xFFFF\x1\x43\x1\x4B\x1\x4F\x1\x53\x2\xFFFF\x1\x5A" +
-                "\x4\xFFFF\x1\x65\x1\xFFFF\x1\x69\x3\xFFFF\x1\x73\x1\x7E\x1\xFFFF\x1\x80" +
-                "\x4\xFFFF\x1\x82\x1\x84\x1\x85\x1\x87\x1\xFFFF\x1\x89\x1\x8C\x1\x8F\x1" +
-                "\x90\x1\x91\x1\x92\xE\xFFFF\x8\x2F\x1\x9D\x3\x2F\x1\xA2\x1\xFFFF\x1\x2F" +
-                "\x1\xA5\x1\xA6\x1\xA7\x1\xA8\x1\xAA\x1\xAB\x1\xFFFF\x2\x2F\x1\xAE\x1" +
-                "\xFFFF\x2\x2F\x1\xB1\x1\xFFFF\x1\xB3\x4\x2F\x1\xB8\x1\xFFFF\x9\x2F\x1" +
-                "\xC3\x1\xFFFF\x1\xC4\x1\xC5\x1\xC9\x1\xFFFF\x1\x2F\x1\xCB\x1\xCC\x3\x2F" +
-                "\x1\xD3\x1\xD6\x1\x2F\x20\xFFFF\x1\x2F\x1\xD9\x1\xDA\x1\xDB\x1\xDC\x1" +
-                "\xDD\x1\xDE\x1\x2F\x1\xE0\x1\x2F\x1\xFFFF\x2\x2F\x1\xE4\x1\xE5\x1\xFFFF" +
-                "\x1\x2F\x1\xE7\x4\xFFFF\x1\xE8\x2\xFFFF\x2\x2F\x1\xFFFF\x1\x2F\x1\xEC" +
-                "\x1\xFFFF\x1\xED\x1\xFFFF\x3\x2F\x1\xF1\x1\xFFFF\x1\x2F\x1\xF5\x3\x2F" +
-                "\x1\xF9\x1\x2F\x1\xFB\x1\xFC\x1\xFD\x3\xFFFF\x1\x2F\x1\x100\x1\x101\x1" +
-                "\xFFFF\x1\x102\x2\xFFFF\x1\x103\x1\x2F\x1\x105\x1\x107\x1\x108\x1\x10A" +
-                "\x1\xFFFF\x1\x10B\x1\x10D\x1\xFFFF\x1\x10E\x1\x2F\x6\xFFFF\x1\x110\x1" +
-                "\xFFFF\x1\x111\x1\x112\x1\x113\x2\xFFFF\x1\x114\x2\xFFFF\x1\x115\x1\x116" +
-                "\x1\x117\x2\xFFFF\x1\x2F\x1\x119\x1\x2F\x1\xFFFF\x3\x2F\x1\xFFFF\x1\x2F" +
-                "\x1\x11F\x1\x120\x1\xFFFF\x1\x2F\x3\xFFFF\x1\x122\x1\x123\x4\xFFFF\x1" +
-                "\x124\x1\xFFFF\x1\x125\x2\xFFFF\x1\x126\x2\xFFFF\x1\x127\x2\xFFFF\x1" +
-                "\x2F\x8\xFFFF\x1\x129\x1\xFFFF\x5\x2F\x2\xFFFF\x1\x12F\x6\xFFFF\x1\x2F" +
-                "\x1\xFFFF\x1\x131\x1\x132\x1\x2F\x1\x134\x1\x135\x1\xFFFF\x1\x136\x2" +
-                "\xFFFF\x1\x137\x4\xFFFF";
-
-            private const string DFA22_eofS =
-                "\x138\xFFFF";
-
-            private const string DFA22_minS =
-                "\x1\x9\x1\xFFFF\x1\x3A\x13\x30\x1\x31\x1\xFFFF\x1\x3D\x4\xFFFF\x1\x7C" +
-                "\x1\x26\x1\x30\x1\x2A\x1\xFFFF\x1\x3D\x1\x3C\x1\x3D\x2\x0\x1\x30\xE\xFFFF" +
-                "\x2\x63\x1\x66\x2\x61\x1\x6F\x1\x62\x1\x61\x1\x30\x1\x64\x1\x6C\x1\x66" +
-                "\x1\x30\x1\xFFFF\x1\x61\x6\x30\x1\xFFFF\x1\x6D\x1\x6C\x1\x30\x1\xFFFF" +
-                "\x1\x6E\x1\x74\x1\x30\x1\xFFFF\x1\x30\x1\x63\x1\x64\x1\x70\x1\x75\x1" +
-                "\x30\x1\xFFFF\x1\x70\x1\x63\x1\x6F\x2\x65\x1\x72\x1\x6D\x1\x63\x1\x64" +
-                "\x1\x30\x1\xFFFF\x3\x30\x1\xFFFF\x1\x70\x2\x30\x1\x70\x2\x73\x2\x30\x1" +
-                "\x74\x20\xFFFF\x1\x74\x6\x30\x1\x70\x1\x30\x1\x70\x1\xFFFF\x1\x65\x1" +
-                "\x6C\x2\x30\x1\xFFFF\x1\x61\x1\x30\x4\xFFFF\x1\x30\x2\xFFFF\x1\x65\x1" +
-                "\x74\x1\xFFFF\x1\x6B\x1\x30\x1\xFFFF\x1\x30\x1\xFFFF\x1\x72\x1\x6D\x1" +
-                "\x6F\x1\x30\x1\xFFFF\x1\x6F\x1\x30\x1\x62\x2\x66\x1\x30\x1\x65\x3\x30" +
-                "\x3\xFFFF\x1\x6C\x2\x30\x1\xFFFF\x1\x30\x2\xFFFF\x1\x30\x1\x68\x4\x30" +
-                "\x1\xFFFF\x2\x30\x1\xFFFF\x1\x30\x1\x69\x6\xFFFF\x1\x30\x1\xFFFF\x3\x30" +
-                "\x2\xFFFF\x1\x30\x2\xFFFF\x3\x30\x2\xFFFF\x1\x6F\x1\x30\x1\x72\x1\xFFFF" +
-                "\x1\x72\x1\x75\x1\x69\x1\xFFFF\x1\x61\x2\x30\x1\xFFFF\x1\x73\x3\xFFFF" +
-                "\x2\x30\x4\xFFFF\x1\x30\x1\xFFFF\x1\x30\x2\xFFFF\x1\x30\x2\xFFFF\x1\x30" +
-                "\x2\xFFFF\x1\x6F\x8\xFFFF\x1\x30\x1\xFFFF\x2\x74\x1\x64\x1\x6E\x1\x6C" +
-                "\x2\xFFFF\x1\x30\x6\xFFFF\x1\x6E\x1\xFFFF\x2\x30\x1\x65\x2\x30\x1\xFFFF" +
-                "\x1\x30\x2\xFFFF\x1\x30\x4\xFFFF";
-
-            private const string DFA22_maxS =
-                "\x1\x7E\x1\xFFFF\x1\x3A\x13\x7A\x1\x40\x1\xFFFF\x1\x3D\x4\xFFFF\x1\x7C" +
-                "\x1\x37\x1\x7A\x1\x2F\x1\xFFFF\x2\x3D\x1\x3E\x2\xFFFF\x1\x31\xE\xFFFF" +
-                "\x1\x74\x1\x63\x1\x66\x1\x61\x1\x6C\x1\x6F\x1\x62\x1\x61\x1\x7A\x1\x64" +
-                "\x1\x6C\x1\x66\x1\x7A\x1\xFFFF\x1\x74\x6\x7A\x1\xFFFF\x1\x6D\x1\x6C\x1" +
-                "\x7A\x1\xFFFF\x1\x6E\x1\x74\x1\x7A\x1\xFFFF\x1\x7A\x1\x63\x1\x64\x1\x70" +
-                "\x1\x75\x1\x7A\x1\xFFFF\x1\x70\x1\x63\x1\x6F\x2\x65\x1\x72\x1\x6D\x2" +
-                "\x64\x1\x7A\x1\xFFFF\x3\x7A\x1\xFFFF\x1\x70\x2\x7A\x1\x70\x1\x73\x1\x74" +
-                "\x2\x7A\x1\x74\x20\xFFFF\x1\x74\x6\x7A\x1\x70\x1\x7A\x1\x70\x1\xFFFF" +
-                "\x1\x65\x1\x6C\x2\x7A\x1\xFFFF\x1\x61\x1\x7A\x4\xFFFF\x1\x7A\x2\xFFFF" +
-                "\x1\x65\x1\x74\x1\xFFFF\x1\x6B\x1\x7A\x1\xFFFF\x1\x7A\x1\xFFFF\x1\x72" +
-                "\x1\x6D\x1\x6F\x1\x7A\x1\xFFFF\x1\x6F\x1\x7A\x1\x62\x2\x66\x1\x7A\x1" +
-                "\x65\x3\x7A\x3\xFFFF\x1\x6C\x2\x7A\x1\xFFFF\x1\x7A\x2\xFFFF\x1\x7A\x1" +
-                "\x68\x4\x7A\x1\xFFFF\x2\x7A\x1\xFFFF\x1\x7A\x1\x69\x6\xFFFF\x1\x7A\x1" +
-                "\xFFFF\x3\x7A\x2\xFFFF\x1\x7A\x2\xFFFF\x3\x7A\x2\xFFFF\x1\x6F\x1\x7A" +
-                "\x1\x72\x1\xFFFF\x1\x72\x1\x75\x1\x69\x1\xFFFF\x1\x61\x2\x7A\x1\xFFFF" +
-                "\x1\x73\x3\xFFFF\x2\x7A\x4\xFFFF\x1\x7A\x1\xFFFF\x1\x7A\x2\xFFFF\x1\x7A" +
-                "\x2\xFFFF\x1\x7A\x2\xFFFF\x1\x6F\x8\xFFFF\x1\x7A\x1\xFFFF\x2\x74\x1\x64" +
-                "\x1\x6E\x1\x6C\x2\xFFFF\x1\x7A\x6\xFFFF\x1\x6E\x1\xFFFF\x2\x7A\x1\x65" +
-                "\x2\x7A\x1\xFFFF\x1\x7A\x2\xFFFF\x1\x7A\x4\xFFFF";
-
-            private const string DFA22_acceptS =
-                "\x1\xFFFF\x1\x1\x15\xFFFF\x1\x60\x1\xFFFF\x1\x62\x1\x63\x1\x64\x1\x65" +
-                "\x4\xFFFF\x1\x6D\x6\xFFFF\x1\x7B\x1\x7C\x1\x7D\x1\x7E\x1\x7F\x1\x80\x1" +
-                "\x81\x1\x82\x1\x83\x1\x84\x1\x85\x1\x87\x1\x2\x1\x6E\xD\xFFFF\x1\x51" +
-                "\x7\xFFFF\x1\x52\x3\xFFFF\x1\x54\x3\xFFFF\x1\x50\x6\xFFFF\x1\x53\xA\xFFFF" +
-                "\x1\x4F\x3\xFFFF\x1\x55\x9\xFFFF\x1\x4E\x1\x56\x1\x57\x1\x58\x1\x59\x1" +
-                "\x5A\x1\x5B\x1\x5C\x1\x5D\x1\x5E\x1\x5F\x1\x6C\x1\x6F\x1\x61\x1\x66\x1" +
-                "\x67\x1\x68\x1\x69\x1\x6A\x1\x86\x1\x6B\x1\x70\x1\x77\x1\x71\x1\x73\x1" +
-                "\x76\x1\x72\x1\x74\x1\x75\x1\x78\x1\x79\x1\x7A\xA\xFFFF\x1\x4B\x4\xFFFF" +
-                "\x1\x1E\x2\xFFFF\x1\x10\x1\x11\x1\x12\x1\x13\x1\xFFFF\x1\x49\x1\x22\x2" +
-                "\xFFFF\x1\x4A\x2\xFFFF\x1\x48\x1\xFFFF\x1\x2E\x4\xFFFF\x1\x23\xA\xFFFF" +
-                "\x1\x47\x1\x26\x1\x27\x3\xFFFF\x1\x2C\x1\xFFFF\x1\x4C\x1\x4D\x6\xFFFF" +
-                "\x1\x35\x2\xFFFF\x1\x39\x2\xFFFF\x1\x3F\x1\x3D\x1\x3E\x1\x40\x1\x41\x1" +
-                "\x42\x1\xFFFF\x1\x44\x3\xFFFF\x1\x1D\x1\x1F\x1\xFFFF\x1\x20\x1\x21\x3" +
-                "\xFFFF\x1\x1B\x1\x8\x3\xFFFF\x1\x17\x3\xFFFF\x1\x25\x3\xFFFF\x1\x46\x1" +
-                "\xFFFF\x1\x18\x1\x19\x1\x1A\x2\xFFFF\x1\x2A\x1\x2B\x1\x2D\x1\x2F\x1\xFFFF" +
-                "\x1\x31\x1\xFFFF\x1\x32\x1\x34\x1\xFFFF\x1\x37\x1\x38\x1\xFFFF\x1\x3B" +
-                "\x1\x3C\x1\xFFFF\x1\x43\x1\x45\x1\x4\x1\x1C\x1\x5\x1\x6\x1\x24\x1\x7" +
-                "\x1\xFFFF\x1\xA\x5\xFFFF\x1\xE\x1\xF\x1\xFFFF\x1\x28\x1\x29\x1\x30\x1" +
-                "\x33\x1\x36\x1\x3A\x1\xFFFF\x1\x9\x5\xFFFF\x1\x16\x1\xFFFF\x1\xC\x1\xB" +
-                "\x1\xFFFF\x1\x15\x1\xD\x1\x3\x1\x14";
-
-            private const string DFA22_specialS =
-                "\x25\xFFFF\x1\x0\x1\x1\x111\xFFFF}>";
-
-            private static readonly string[] DFA22_transitionS =
+[System.CodeDom.Compiler.GeneratedCode("ANTLR", "3.4")]
+[System.CLSCompliant(false)]
+public partial class GBXLexer : Antlr.Runtime.Lexer
+{
+	public const int EOF=-1;
+	public const int T__127=127;
+	public const int T__128=128;
+	public const int T__129=129;
+	public const int T__130=130;
+	public const int T__131=131;
+	public const int T__132=132;
+	public const int T__133=133;
+	public const int T__134=134;
+	public const int T__135=135;
+	public const int T__136=136;
+	public const int T__137=137;
+	public const int T__138=138;
+	public const int T__139=139;
+	public const int T__140=140;
+	public const int T__141=141;
+	public const int T__142=142;
+	public const int T__143=143;
+	public const int T__144=144;
+	public const int T__145=145;
+	public const int T__146=146;
+	public const int T__147=147;
+	public const int T__148=148;
+	public const int T__149=149;
+	public const int T__150=150;
+	public const int T__151=151;
+	public const int T__152=152;
+	public const int T__153=153;
+	public const int T__154=154;
+	public const int T__155=155;
+	public const int T__156=156;
+	public const int ASSIGNMENT=4;
+	public const int BIN_DIGIT=5;
+	public const int BIN_NUMBER=6;
+	public const int CC_NC=7;
+	public const int CC_NZ=8;
+	public const int CC_Z=9;
+	public const int CHAR=10;
+	public const int COMMENT=11;
+	public const int DATA_DEF=12;
+	public const int DB=13;
+	public const int DD=14;
+	public const int DQ=15;
+	public const int DW=16;
+	public const int EQU=17;
+	public const int ESC_SEQ=18;
+	public const int EXPORT_LABEL=19;
+	public const int EXPRESSION=20;
+	public const int GLOBAL_LABEL=21;
+	public const int HEX_DIGIT=22;
+	public const int HEX_NUMBER=23;
+	public const int ID=24;
+	public const int INCBIN=25;
+	public const int INCBIN_TOKEN=26;
+	public const int INCLUDE=27;
+	public const int INCLUDE_TOKEN=28;
+	public const int INSTRUCTION=29;
+	public const int INST_ADC=30;
+	public const int INST_ADD=31;
+	public const int INST_AND=32;
+	public const int INST_BIT=33;
+	public const int INST_CALL=34;
+	public const int INST_CCF=35;
+	public const int INST_CP=36;
+	public const int INST_CPL=37;
+	public const int INST_DAA=38;
+	public const int INST_DEC=39;
+	public const int INST_DI=40;
+	public const int INST_EI=41;
+	public const int INST_HALT=42;
+	public const int INST_INC=43;
+	public const int INST_JP=44;
+	public const int INST_JR=45;
+	public const int INST_LD=46;
+	public const int INST_LDD=47;
+	public const int INST_LDHL=48;
+	public const int INST_LDI=49;
+	public const int INST_LDIO=50;
+	public const int INST_NOP=51;
+	public const int INST_OR=52;
+	public const int INST_POP=53;
+	public const int INST_PUSH=54;
+	public const int INST_RES=55;
+	public const int INST_RET=56;
+	public const int INST_RETI=57;
+	public const int INST_RL=58;
+	public const int INST_RLA=59;
+	public const int INST_RLC=60;
+	public const int INST_RLCA=61;
+	public const int INST_RR=62;
+	public const int INST_RRA=63;
+	public const int INST_RRC=64;
+	public const int INST_RRCA=65;
+	public const int INST_RST=66;
+	public const int INST_SBC=67;
+	public const int INST_SCF=68;
+	public const int INST_SET=69;
+	public const int INST_SLA=70;
+	public const int INST_SRA=71;
+	public const int INST_SRL=72;
+	public const int INST_STOP=73;
+	public const int INST_SUB=74;
+	public const int INST_SWAP=75;
+	public const int INST_XOR=76;
+	public const int INT=77;
+	public const int LABEL=78;
+	public const int LABEL_DECL=79;
+	public const int LITERAL=80;
+	public const int LOCAL_LABEL=81;
+	public const int LOC_LABEL_RAND=82;
+	public const int MACRO=83;
+	public const int MACROEND=84;
+	public const int MACROSTART=85;
+	public const int MACRO_ARG=86;
+	public const int MACRO_CALL=87;
+	public const int MEM_REF=88;
+	public const int M_ARG1=89;
+	public const int M_ARG2=90;
+	public const int M_ARG3=91;
+	public const int M_ARG4=92;
+	public const int M_ARG5=93;
+	public const int M_ARG6=94;
+	public const int M_ARG7=95;
+	public const int M_ARG8=96;
+	public const int M_ARG9=97;
+	public const int NUMBER=98;
+	public const int OCTAL_ESC=99;
+	public const int OCT_DIGIT=100;
+	public const int OCT_NUMBER=101;
+	public const int PSEUDO_INST=102;
+	public const int REG_A=103;
+	public const int REG_B=104;
+	public const int REG_C=105;
+	public const int REG_D=106;
+	public const int REG_E=107;
+	public const int REG_H=108;
+	public const int REG_L=109;
+	public const int ROOT=110;
+	public const int RR_AF=111;
+	public const int RR_BC=112;
+	public const int RR_DE=113;
+	public const int RR_HL=114;
+	public const int RR_REF_BC=115;
+	public const int RR_REF_C=116;
+	public const int RR_REF_DE=117;
+	public const int RR_REF_HL=118;
+	public const int RR_SP=119;
+	public const int STATEMENT=120;
+	public const int STATEMENT_TREE=121;
+	public const int STRING=122;
+	public const int UNICODE_ESC=123;
+	public const int VAR=124;
+	public const int WS=125;
+	public const int X_ESCAPE=126;
+
+		private List<ErrInfo> Errors = new List<ErrInfo>();
+
+		public override void DisplayRecognitionError(string[] tokenNames, RecognitionException e)
+		{
+			string errHeader = GetErrorHeader(e);
+			string errMSG = GetErrorMessage(e, tokenNames);
+			Errors.Add(new ErrInfo() {errText = errMSG, error = e});
+		}
+
+		public List<ErrInfo> GetErrors()
+		{
+			return Errors;
+		}
+
+
+    // delegates
+    // delegators
+
+	public GBXLexer()
+	{
+		OnCreated();
+	}
+
+	public GBXLexer(ICharStream input )
+		: this(input, new RecognizerSharedState())
+	{
+	}
+
+	public GBXLexer(ICharStream input, RecognizerSharedState state)
+		: base(input, state)
+	{
+
+		OnCreated();
+	}
+	public override string GrammarFileName { get { return "GBX.g"; } }
+
+
+	partial void OnCreated();
+	partial void EnterRule(string ruleName, int ruleIndex);
+	partial void LeaveRule(string ruleName, int ruleIndex);
+
+	partial void EnterRule_T__127();
+	partial void LeaveRule_T__127();
+
+	// $ANTLR start "T__127"
+	[GrammarRule("T__127")]
+	private void mT__127()
+	{
+		EnterRule_T__127();
+		EnterRule("T__127", 1);
+		TraceIn("T__127", 1);
+		try
+		{
+			int _type = T__127;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:25:8: ( '!' )
+			DebugEnterAlt(1);
+			// GBX.g:25:10: '!'
 			{
-				"\x2\x33\x2\xFFFF\x1\x33\x12\xFFFF\x1\x33\x1\x18\x1\x31\x1\x26\x1\x30"+
-				"\x1\x27\x1\x1E\x1\x32\x1\x29\x1\x2A\x1\x19\x1\x1A\x1\x28\x1\x1B\x1\x1"+
-				"\x1\x20\xA\x30\x1\x2\x1\x25\x1\x23\x1\x22\x1\x24\x1\x17\x1B\xFFFF\x1"+
-				"\x2B\x1\x16\x1\x2C\x1\x21\x1\x1F\x1\xFFFF\x1\xF\x1\x7\x1\x4\x1\x5\x1"+
-				"\xA\x1\x2F\x1\xC\x1\x6\x1\xB\x1\x10\x1\x2F\x1\x11\x1\x9\x1\x12\x1\x8"+
-				"\x1\x13\x1\x2F\x1\x14\x1\x3\x1\xE\x3\x2F\x1\xD\x1\x2F\x1\x15\x1\x2D"+
-				"\x1\x1D\x1\x2E\x1\x1C",
+			DebugLocation(25, 10);
+			Match('!'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__127", 1);
+			LeaveRule("T__127", 1);
+			LeaveRule_T__127();
+		}
+	}
+	// $ANTLR end "T__127"
+
+	partial void EnterRule_T__128();
+	partial void LeaveRule_T__128();
+
+	// $ANTLR start "T__128"
+	[GrammarRule("T__128")]
+	private void mT__128()
+	{
+		EnterRule_T__128();
+		EnterRule("T__128", 2);
+		TraceIn("T__128", 2);
+		try
+		{
+			int _type = T__128;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:26:8: ( '!=' )
+			DebugEnterAlt(1);
+			// GBX.g:26:10: '!='
+			{
+			DebugLocation(26, 10);
+			Match("!="); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__128", 2);
+			LeaveRule("T__128", 2);
+			LeaveRule_T__128();
+		}
+	}
+	// $ANTLR end "T__128"
+
+	partial void EnterRule_T__129();
+	partial void LeaveRule_T__129();
+
+	// $ANTLR start "T__129"
+	[GrammarRule("T__129")]
+	private void mT__129()
+	{
+		EnterRule_T__129();
+		EnterRule("T__129", 3);
+		TraceIn("T__129", 3);
+		try
+		{
+			int _type = T__129;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:27:8: ( '%' )
+			DebugEnterAlt(1);
+			// GBX.g:27:10: '%'
+			{
+			DebugLocation(27, 10);
+			Match('%'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__129", 3);
+			LeaveRule("T__129", 3);
+			LeaveRule_T__129();
+		}
+	}
+	// $ANTLR end "T__129"
+
+	partial void EnterRule_T__130();
+	partial void LeaveRule_T__130();
+
+	// $ANTLR start "T__130"
+	[GrammarRule("T__130")]
+	private void mT__130()
+	{
+		EnterRule_T__130();
+		EnterRule("T__130", 4);
+		TraceIn("T__130", 4);
+		try
+		{
+			int _type = T__130;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:28:8: ( '&&' )
+			DebugEnterAlt(1);
+			// GBX.g:28:10: '&&'
+			{
+			DebugLocation(28, 10);
+			Match("&&"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__130", 4);
+			LeaveRule("T__130", 4);
+			LeaveRule_T__130();
+		}
+	}
+	// $ANTLR end "T__130"
+
+	partial void EnterRule_T__131();
+	partial void LeaveRule_T__131();
+
+	// $ANTLR start "T__131"
+	[GrammarRule("T__131")]
+	private void mT__131()
+	{
+		EnterRule_T__131();
+		EnterRule("T__131", 5);
+		TraceIn("T__131", 5);
+		try
+		{
+			int _type = T__131;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:29:8: ( '&' )
+			DebugEnterAlt(1);
+			// GBX.g:29:10: '&'
+			{
+			DebugLocation(29, 10);
+			Match('&'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__131", 5);
+			LeaveRule("T__131", 5);
+			LeaveRule_T__131();
+		}
+	}
+	// $ANTLR end "T__131"
+
+	partial void EnterRule_T__132();
+	partial void LeaveRule_T__132();
+
+	// $ANTLR start "T__132"
+	[GrammarRule("T__132")]
+	private void mT__132()
+	{
+		EnterRule_T__132();
+		EnterRule("T__132", 6);
+		TraceIn("T__132", 6);
+		try
+		{
+			int _type = T__132;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:30:8: ( '(' )
+			DebugEnterAlt(1);
+			// GBX.g:30:10: '('
+			{
+			DebugLocation(30, 10);
+			Match('('); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__132", 6);
+			LeaveRule("T__132", 6);
+			LeaveRule_T__132();
+		}
+	}
+	// $ANTLR end "T__132"
+
+	partial void EnterRule_T__133();
+	partial void LeaveRule_T__133();
+
+	// $ANTLR start "T__133"
+	[GrammarRule("T__133")]
+	private void mT__133()
+	{
+		EnterRule_T__133();
+		EnterRule("T__133", 7);
+		TraceIn("T__133", 7);
+		try
+		{
+			int _type = T__133;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:31:8: ( ')' )
+			DebugEnterAlt(1);
+			// GBX.g:31:10: ')'
+			{
+			DebugLocation(31, 10);
+			Match(')'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__133", 7);
+			LeaveRule("T__133", 7);
+			LeaveRule_T__133();
+		}
+	}
+	// $ANTLR end "T__133"
+
+	partial void EnterRule_T__134();
+	partial void LeaveRule_T__134();
+
+	// $ANTLR start "T__134"
+	[GrammarRule("T__134")]
+	private void mT__134()
+	{
+		EnterRule_T__134();
+		EnterRule("T__134", 8);
+		TraceIn("T__134", 8);
+		try
+		{
+			int _type = T__134;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:32:8: ( '*' )
+			DebugEnterAlt(1);
+			// GBX.g:32:10: '*'
+			{
+			DebugLocation(32, 10);
+			Match('*'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__134", 8);
+			LeaveRule("T__134", 8);
+			LeaveRule_T__134();
+		}
+	}
+	// $ANTLR end "T__134"
+
+	partial void EnterRule_T__135();
+	partial void LeaveRule_T__135();
+
+	// $ANTLR start "T__135"
+	[GrammarRule("T__135")]
+	private void mT__135()
+	{
+		EnterRule_T__135();
+		EnterRule("T__135", 9);
+		TraceIn("T__135", 9);
+		try
+		{
+			int _type = T__135;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:33:8: ( '+' )
+			DebugEnterAlt(1);
+			// GBX.g:33:10: '+'
+			{
+			DebugLocation(33, 10);
+			Match('+'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__135", 9);
+			LeaveRule("T__135", 9);
+			LeaveRule_T__135();
+		}
+	}
+	// $ANTLR end "T__135"
+
+	partial void EnterRule_T__136();
+	partial void LeaveRule_T__136();
+
+	// $ANTLR start "T__136"
+	[GrammarRule("T__136")]
+	private void mT__136()
+	{
+		EnterRule_T__136();
+		EnterRule("T__136", 10);
+		TraceIn("T__136", 10);
+		try
+		{
+			int _type = T__136;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:34:8: ( ',' )
+			DebugEnterAlt(1);
+			// GBX.g:34:10: ','
+			{
+			DebugLocation(34, 10);
+			Match(','); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__136", 10);
+			LeaveRule("T__136", 10);
+			LeaveRule_T__136();
+		}
+	}
+	// $ANTLR end "T__136"
+
+	partial void EnterRule_T__137();
+	partial void LeaveRule_T__137();
+
+	// $ANTLR start "T__137"
+	[GrammarRule("T__137")]
+	private void mT__137()
+	{
+		EnterRule_T__137();
+		EnterRule("T__137", 11);
+		TraceIn("T__137", 11);
+		try
+		{
+			int _type = T__137;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:35:8: ( '-' )
+			DebugEnterAlt(1);
+			// GBX.g:35:10: '-'
+			{
+			DebugLocation(35, 10);
+			Match('-'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__137", 11);
+			LeaveRule("T__137", 11);
+			LeaveRule_T__137();
+		}
+	}
+	// $ANTLR end "T__137"
+
+	partial void EnterRule_T__138();
+	partial void LeaveRule_T__138();
+
+	// $ANTLR start "T__138"
+	[GrammarRule("T__138")]
+	private void mT__138()
+	{
+		EnterRule_T__138();
+		EnterRule("T__138", 12);
+		TraceIn("T__138", 12);
+		try
+		{
+			int _type = T__138;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:36:8: ( '.' )
+			DebugEnterAlt(1);
+			// GBX.g:36:10: '.'
+			{
+			DebugLocation(36, 10);
+			Match('.'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__138", 12);
+			LeaveRule("T__138", 12);
+			LeaveRule_T__138();
+		}
+	}
+	// $ANTLR end "T__138"
+
+	partial void EnterRule_T__139();
+	partial void LeaveRule_T__139();
+
+	// $ANTLR start "T__139"
+	[GrammarRule("T__139")]
+	private void mT__139()
+	{
+		EnterRule_T__139();
+		EnterRule("T__139", 13);
+		TraceIn("T__139", 13);
+		try
+		{
+			int _type = T__139;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:37:8: ( '/' )
+			DebugEnterAlt(1);
+			// GBX.g:37:10: '/'
+			{
+			DebugLocation(37, 10);
+			Match('/'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__139", 13);
+			LeaveRule("T__139", 13);
+			LeaveRule_T__139();
+		}
+	}
+	// $ANTLR end "T__139"
+
+	partial void EnterRule_T__140();
+	partial void LeaveRule_T__140();
+
+	// $ANTLR start "T__140"
+	[GrammarRule("T__140")]
+	private void mT__140()
+	{
+		EnterRule_T__140();
+		EnterRule("T__140", 14);
+		TraceIn("T__140", 14);
+		try
+		{
+			int _type = T__140;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:38:8: ( ':' )
+			DebugEnterAlt(1);
+			// GBX.g:38:10: ':'
+			{
+			DebugLocation(38, 10);
+			Match(':'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__140", 14);
+			LeaveRule("T__140", 14);
+			LeaveRule_T__140();
+		}
+	}
+	// $ANTLR end "T__140"
+
+	partial void EnterRule_T__141();
+	partial void LeaveRule_T__141();
+
+	// $ANTLR start "T__141"
+	[GrammarRule("T__141")]
+	private void mT__141()
+	{
+		EnterRule_T__141();
+		EnterRule("T__141", 15);
+		TraceIn("T__141", 15);
+		try
+		{
+			int _type = T__141;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:39:8: ( '::' )
+			DebugEnterAlt(1);
+			// GBX.g:39:10: '::'
+			{
+			DebugLocation(39, 10);
+			Match("::"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__141", 15);
+			LeaveRule("T__141", 15);
+			LeaveRule_T__141();
+		}
+	}
+	// $ANTLR end "T__141"
+
+	partial void EnterRule_T__142();
+	partial void LeaveRule_T__142();
+
+	// $ANTLR start "T__142"
+	[GrammarRule("T__142")]
+	private void mT__142()
+	{
+		EnterRule_T__142();
+		EnterRule("T__142", 16);
+		TraceIn("T__142", 16);
+		try
+		{
+			int _type = T__142;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:40:8: ( '<' )
+			DebugEnterAlt(1);
+			// GBX.g:40:10: '<'
+			{
+			DebugLocation(40, 10);
+			Match('<'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__142", 16);
+			LeaveRule("T__142", 16);
+			LeaveRule_T__142();
+		}
+	}
+	// $ANTLR end "T__142"
+
+	partial void EnterRule_T__143();
+	partial void LeaveRule_T__143();
+
+	// $ANTLR start "T__143"
+	[GrammarRule("T__143")]
+	private void mT__143()
+	{
+		EnterRule_T__143();
+		EnterRule("T__143", 17);
+		TraceIn("T__143", 17);
+		try
+		{
+			int _type = T__143;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:41:8: ( '<<' )
+			DebugEnterAlt(1);
+			// GBX.g:41:10: '<<'
+			{
+			DebugLocation(41, 10);
+			Match("<<"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__143", 17);
+			LeaveRule("T__143", 17);
+			LeaveRule_T__143();
+		}
+	}
+	// $ANTLR end "T__143"
+
+	partial void EnterRule_T__144();
+	partial void LeaveRule_T__144();
+
+	// $ANTLR start "T__144"
+	[GrammarRule("T__144")]
+	private void mT__144()
+	{
+		EnterRule_T__144();
+		EnterRule("T__144", 18);
+		TraceIn("T__144", 18);
+		try
+		{
+			int _type = T__144;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:42:8: ( '<=' )
+			DebugEnterAlt(1);
+			// GBX.g:42:10: '<='
+			{
+			DebugLocation(42, 10);
+			Match("<="); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__144", 18);
+			LeaveRule("T__144", 18);
+			LeaveRule_T__144();
+		}
+	}
+	// $ANTLR end "T__144"
+
+	partial void EnterRule_T__145();
+	partial void LeaveRule_T__145();
+
+	// $ANTLR start "T__145"
+	[GrammarRule("T__145")]
+	private void mT__145()
+	{
+		EnterRule_T__145();
+		EnterRule("T__145", 19);
+		TraceIn("T__145", 19);
+		try
+		{
+			int _type = T__145;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:43:8: ( '=' )
+			DebugEnterAlt(1);
+			// GBX.g:43:10: '='
+			{
+			DebugLocation(43, 10);
+			Match('='); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__145", 19);
+			LeaveRule("T__145", 19);
+			LeaveRule_T__145();
+		}
+	}
+	// $ANTLR end "T__145"
+
+	partial void EnterRule_T__146();
+	partial void LeaveRule_T__146();
+
+	// $ANTLR start "T__146"
+	[GrammarRule("T__146")]
+	private void mT__146()
+	{
+		EnterRule_T__146();
+		EnterRule("T__146", 20);
+		TraceIn("T__146", 20);
+		try
+		{
+			int _type = T__146;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:44:8: ( '==' )
+			DebugEnterAlt(1);
+			// GBX.g:44:10: '=='
+			{
+			DebugLocation(44, 10);
+			Match("=="); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__146", 20);
+			LeaveRule("T__146", 20);
+			LeaveRule_T__146();
+		}
+	}
+	// $ANTLR end "T__146"
+
+	partial void EnterRule_T__147();
+	partial void LeaveRule_T__147();
+
+	// $ANTLR start "T__147"
+	[GrammarRule("T__147")]
+	private void mT__147()
+	{
+		EnterRule_T__147();
+		EnterRule("T__147", 21);
+		TraceIn("T__147", 21);
+		try
+		{
+			int _type = T__147;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:45:8: ( '>' )
+			DebugEnterAlt(1);
+			// GBX.g:45:10: '>'
+			{
+			DebugLocation(45, 10);
+			Match('>'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__147", 21);
+			LeaveRule("T__147", 21);
+			LeaveRule_T__147();
+		}
+	}
+	// $ANTLR end "T__147"
+
+	partial void EnterRule_T__148();
+	partial void LeaveRule_T__148();
+
+	// $ANTLR start "T__148"
+	[GrammarRule("T__148")]
+	private void mT__148()
+	{
+		EnterRule_T__148();
+		EnterRule("T__148", 22);
+		TraceIn("T__148", 22);
+		try
+		{
+			int _type = T__148;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:46:8: ( '>=' )
+			DebugEnterAlt(1);
+			// GBX.g:46:10: '>='
+			{
+			DebugLocation(46, 10);
+			Match(">="); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__148", 22);
+			LeaveRule("T__148", 22);
+			LeaveRule_T__148();
+		}
+	}
+	// $ANTLR end "T__148"
+
+	partial void EnterRule_T__149();
+	partial void LeaveRule_T__149();
+
+	// $ANTLR start "T__149"
+	[GrammarRule("T__149")]
+	private void mT__149()
+	{
+		EnterRule_T__149();
+		EnterRule("T__149", 23);
+		TraceIn("T__149", 23);
+		try
+		{
+			int _type = T__149;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:47:8: ( '>>' )
+			DebugEnterAlt(1);
+			// GBX.g:47:10: '>>'
+			{
+			DebugLocation(47, 10);
+			Match(">>"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__149", 23);
+			LeaveRule("T__149", 23);
+			LeaveRule_T__149();
+		}
+	}
+	// $ANTLR end "T__149"
+
+	partial void EnterRule_T__150();
+	partial void LeaveRule_T__150();
+
+	// $ANTLR start "T__150"
+	[GrammarRule("T__150")]
+	private void mT__150()
+	{
+		EnterRule_T__150();
+		EnterRule("T__150", 24);
+		TraceIn("T__150", 24);
+		try
+		{
+			int _type = T__150;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:48:8: ( '?' )
+			DebugEnterAlt(1);
+			// GBX.g:48:10: '?'
+			{
+			DebugLocation(48, 10);
+			Match('?'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__150", 24);
+			LeaveRule("T__150", 24);
+			LeaveRule_T__150();
+		}
+	}
+	// $ANTLR end "T__150"
+
+	partial void EnterRule_T__151();
+	partial void LeaveRule_T__151();
+
+	// $ANTLR start "T__151"
+	[GrammarRule("T__151")]
+	private void mT__151()
+	{
+		EnterRule_T__151();
+		EnterRule("T__151", 25);
+		TraceIn("T__151", 25);
+		try
+		{
+			int _type = T__151;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:49:8: ( '[' )
+			DebugEnterAlt(1);
+			// GBX.g:49:10: '['
+			{
+			DebugLocation(49, 10);
+			Match('['); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__151", 25);
+			LeaveRule("T__151", 25);
+			LeaveRule_T__151();
+		}
+	}
+	// $ANTLR end "T__151"
+
+	partial void EnterRule_T__152();
+	partial void LeaveRule_T__152();
+
+	// $ANTLR start "T__152"
+	[GrammarRule("T__152")]
+	private void mT__152()
+	{
+		EnterRule_T__152();
+		EnterRule("T__152", 26);
+		TraceIn("T__152", 26);
+		try
+		{
+			int _type = T__152;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:50:8: ( ']' )
+			DebugEnterAlt(1);
+			// GBX.g:50:10: ']'
+			{
+			DebugLocation(50, 10);
+			Match(']'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__152", 26);
+			LeaveRule("T__152", 26);
+			LeaveRule_T__152();
+		}
+	}
+	// $ANTLR end "T__152"
+
+	partial void EnterRule_T__153();
+	partial void LeaveRule_T__153();
+
+	// $ANTLR start "T__153"
+	[GrammarRule("T__153")]
+	private void mT__153()
+	{
+		EnterRule_T__153();
+		EnterRule("T__153", 27);
+		TraceIn("T__153", 27);
+		try
+		{
+			int _type = T__153;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:51:8: ( '^' )
+			DebugEnterAlt(1);
+			// GBX.g:51:10: '^'
+			{
+			DebugLocation(51, 10);
+			Match('^'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__153", 27);
+			LeaveRule("T__153", 27);
+			LeaveRule_T__153();
+		}
+	}
+	// $ANTLR end "T__153"
+
+	partial void EnterRule_T__154();
+	partial void LeaveRule_T__154();
+
+	// $ANTLR start "T__154"
+	[GrammarRule("T__154")]
+	private void mT__154()
+	{
+		EnterRule_T__154();
+		EnterRule("T__154", 28);
+		TraceIn("T__154", 28);
+		try
+		{
+			int _type = T__154;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:52:8: ( '|' )
+			DebugEnterAlt(1);
+			// GBX.g:52:10: '|'
+			{
+			DebugLocation(52, 10);
+			Match('|'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__154", 28);
+			LeaveRule("T__154", 28);
+			LeaveRule_T__154();
+		}
+	}
+	// $ANTLR end "T__154"
+
+	partial void EnterRule_T__155();
+	partial void LeaveRule_T__155();
+
+	// $ANTLR start "T__155"
+	[GrammarRule("T__155")]
+	private void mT__155()
+	{
+		EnterRule_T__155();
+		EnterRule("T__155", 29);
+		TraceIn("T__155", 29);
+		try
+		{
+			int _type = T__155;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:53:8: ( '||' )
+			DebugEnterAlt(1);
+			// GBX.g:53:10: '||'
+			{
+			DebugLocation(53, 10);
+			Match("||"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__155", 29);
+			LeaveRule("T__155", 29);
+			LeaveRule_T__155();
+		}
+	}
+	// $ANTLR end "T__155"
+
+	partial void EnterRule_T__156();
+	partial void LeaveRule_T__156();
+
+	// $ANTLR start "T__156"
+	[GrammarRule("T__156")]
+	private void mT__156()
+	{
+		EnterRule_T__156();
+		EnterRule("T__156", 30);
+		TraceIn("T__156", 30);
+		try
+		{
+			int _type = T__156;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:54:8: ( '~' )
+			DebugEnterAlt(1);
+			// GBX.g:54:10: '~'
+			{
+			DebugLocation(54, 10);
+			Match('~'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("T__156", 30);
+			LeaveRule("T__156", 30);
+			LeaveRule_T__156();
+		}
+	}
+	// $ANTLR end "T__156"
+
+	partial void EnterRule_MACROSTART();
+	partial void LeaveRule_MACROSTART();
+
+	// $ANTLR start "MACROSTART"
+	[GrammarRule("MACROSTART")]
+	private void mMACROSTART()
+	{
+		EnterRule_MACROSTART();
+		EnterRule("MACROSTART", 31);
+		TraceIn("MACROSTART", 31);
+		try
+		{
+			int _type = MACROSTART;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:258:13: ( 'macro' )
+			DebugEnterAlt(1);
+			// GBX.g:258:15: 'macro'
+			{
+			DebugLocation(258, 15);
+			Match("macro"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("MACROSTART", 31);
+			LeaveRule("MACROSTART", 31);
+			LeaveRule_MACROSTART();
+		}
+	}
+	// $ANTLR end "MACROSTART"
+
+	partial void EnterRule_MACROEND();
+	partial void LeaveRule_MACROEND();
+
+	// $ANTLR start "MACROEND"
+	[GrammarRule("MACROEND")]
+	private void mMACROEND()
+	{
+		EnterRule_MACROEND();
+		EnterRule("MACROEND", 32);
+		TraceIn("MACROEND", 32);
+		try
+		{
+			int _type = MACROEND;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:259:11: ( 'endm' )
+			DebugEnterAlt(1);
+			// GBX.g:259:13: 'endm'
+			{
+			DebugLocation(259, 13);
+			Match("endm"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("MACROEND", 32);
+			LeaveRule("MACROEND", 32);
+			LeaveRule_MACROEND();
+		}
+	}
+	// $ANTLR end "MACROEND"
+
+	partial void EnterRule_DB();
+	partial void LeaveRule_DB();
+
+	// $ANTLR start "DB"
+	[GrammarRule("DB")]
+	private void mDB()
+	{
+		EnterRule_DB();
+		EnterRule("DB", 33);
+		TraceIn("DB", 33);
+		try
+		{
+			int _type = DB;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:260:7: ( 'db' )
+			DebugEnterAlt(1);
+			// GBX.g:260:9: 'db'
+			{
+			DebugLocation(260, 9);
+			Match("db"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("DB", 33);
+			LeaveRule("DB", 33);
+			LeaveRule_DB();
+		}
+	}
+	// $ANTLR end "DB"
+
+	partial void EnterRule_DW();
+	partial void LeaveRule_DW();
+
+	// $ANTLR start "DW"
+	[GrammarRule("DW")]
+	private void mDW()
+	{
+		EnterRule_DW();
+		EnterRule("DW", 34);
+		TraceIn("DW", 34);
+		try
+		{
+			int _type = DW;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:261:7: ( 'dw' )
+			DebugEnterAlt(1);
+			// GBX.g:261:9: 'dw'
+			{
+			DebugLocation(261, 9);
+			Match("dw"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("DW", 34);
+			LeaveRule("DW", 34);
+			LeaveRule_DW();
+		}
+	}
+	// $ANTLR end "DW"
+
+	partial void EnterRule_DD();
+	partial void LeaveRule_DD();
+
+	// $ANTLR start "DD"
+	[GrammarRule("DD")]
+	private void mDD()
+	{
+		EnterRule_DD();
+		EnterRule("DD", 35);
+		TraceIn("DD", 35);
+		try
+		{
+			int _type = DD;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:262:7: ( 'dd' )
+			DebugEnterAlt(1);
+			// GBX.g:262:9: 'dd'
+			{
+			DebugLocation(262, 9);
+			Match("dd"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("DD", 35);
+			LeaveRule("DD", 35);
+			LeaveRule_DD();
+		}
+	}
+	// $ANTLR end "DD"
+
+	partial void EnterRule_DQ();
+	partial void LeaveRule_DQ();
+
+	// $ANTLR start "DQ"
+	[GrammarRule("DQ")]
+	private void mDQ()
+	{
+		EnterRule_DQ();
+		EnterRule("DQ", 36);
+		TraceIn("DQ", 36);
+		try
+		{
+			int _type = DQ;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:263:7: ( 'dq' )
+			DebugEnterAlt(1);
+			// GBX.g:263:9: 'dq'
+			{
+			DebugLocation(263, 9);
+			Match("dq"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("DQ", 36);
+			LeaveRule("DQ", 36);
+			LeaveRule_DQ();
+		}
+	}
+	// $ANTLR end "DQ"
+
+	partial void EnterRule_INCLUDE_TOKEN();
+	partial void LeaveRule_INCLUDE_TOKEN();
+
+	// $ANTLR start "INCLUDE_TOKEN"
+	[GrammarRule("INCLUDE_TOKEN")]
+	private void mINCLUDE_TOKEN()
+	{
+		EnterRule_INCLUDE_TOKEN();
+		EnterRule("INCLUDE_TOKEN", 37);
+		TraceIn("INCLUDE_TOKEN", 37);
+		try
+		{
+			int _type = INCLUDE_TOKEN;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:264:15: ( 'include' )
+			DebugEnterAlt(1);
+			// GBX.g:264:17: 'include'
+			{
+			DebugLocation(264, 17);
+			Match("include"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INCLUDE_TOKEN", 37);
+			LeaveRule("INCLUDE_TOKEN", 37);
+			LeaveRule_INCLUDE_TOKEN();
+		}
+	}
+	// $ANTLR end "INCLUDE_TOKEN"
+
+	partial void EnterRule_INCBIN_TOKEN();
+	partial void LeaveRule_INCBIN_TOKEN();
+
+	// $ANTLR start "INCBIN_TOKEN"
+	[GrammarRule("INCBIN_TOKEN")]
+	private void mINCBIN_TOKEN()
+	{
+		EnterRule_INCBIN_TOKEN();
+		EnterRule("INCBIN_TOKEN", 38);
+		TraceIn("INCBIN_TOKEN", 38);
+		try
+		{
+			int _type = INCBIN_TOKEN;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:265:14: ( 'incbin' )
+			DebugEnterAlt(1);
+			// GBX.g:265:16: 'incbin'
+			{
+			DebugLocation(265, 16);
+			Match("incbin"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INCBIN_TOKEN", 38);
+			LeaveRule("INCBIN_TOKEN", 38);
+			LeaveRule_INCBIN_TOKEN();
+		}
+	}
+	// $ANTLR end "INCBIN_TOKEN"
+
+	partial void EnterRule_EQU();
+	partial void LeaveRule_EQU();
+
+	// $ANTLR start "EQU"
+	[GrammarRule("EQU")]
+	private void mEQU()
+	{
+		EnterRule_EQU();
+		EnterRule("EQU", 39);
+		TraceIn("EQU", 39);
+		try
+		{
+			int _type = EQU;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:266:8: ( 'equ' )
+			DebugEnterAlt(1);
+			// GBX.g:266:10: 'equ'
+			{
+			DebugLocation(266, 10);
+			Match("equ"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("EQU", 39);
+			LeaveRule("EQU", 39);
+			LeaveRule_EQU();
+		}
+	}
+	// $ANTLR end "EQU"
+
+	partial void EnterRule_INST_ADC();
+	partial void LeaveRule_INST_ADC();
+
+	// $ANTLR start "INST_ADC"
+	[GrammarRule("INST_ADC")]
+	private void mINST_ADC()
+	{
+		EnterRule_INST_ADC();
+		EnterRule("INST_ADC", 40);
+		TraceIn("INST_ADC", 40);
+		try
+		{
+			int _type = INST_ADC;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:268:11: ( 'adc' )
+			DebugEnterAlt(1);
+			// GBX.g:268:13: 'adc'
+			{
+			DebugLocation(268, 13);
+			Match("adc"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_ADC", 40);
+			LeaveRule("INST_ADC", 40);
+			LeaveRule_INST_ADC();
+		}
+	}
+	// $ANTLR end "INST_ADC"
+
+	partial void EnterRule_INST_ADD();
+	partial void LeaveRule_INST_ADD();
+
+	// $ANTLR start "INST_ADD"
+	[GrammarRule("INST_ADD")]
+	private void mINST_ADD()
+	{
+		EnterRule_INST_ADD();
+		EnterRule("INST_ADD", 41);
+		TraceIn("INST_ADD", 41);
+		try
+		{
+			int _type = INST_ADD;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:269:11: ( 'add' )
+			DebugEnterAlt(1);
+			// GBX.g:269:13: 'add'
+			{
+			DebugLocation(269, 13);
+			Match("add"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_ADD", 41);
+			LeaveRule("INST_ADD", 41);
+			LeaveRule_INST_ADD();
+		}
+	}
+	// $ANTLR end "INST_ADD"
+
+	partial void EnterRule_INST_AND();
+	partial void LeaveRule_INST_AND();
+
+	// $ANTLR start "INST_AND"
+	[GrammarRule("INST_AND")]
+	private void mINST_AND()
+	{
+		EnterRule_INST_AND();
+		EnterRule("INST_AND", 42);
+		TraceIn("INST_AND", 42);
+		try
+		{
+			int _type = INST_AND;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:270:11: ( 'and' )
+			DebugEnterAlt(1);
+			// GBX.g:270:13: 'and'
+			{
+			DebugLocation(270, 13);
+			Match("and"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_AND", 42);
+			LeaveRule("INST_AND", 42);
+			LeaveRule_INST_AND();
+		}
+	}
+	// $ANTLR end "INST_AND"
+
+	partial void EnterRule_INST_BIT();
+	partial void LeaveRule_INST_BIT();
+
+	// $ANTLR start "INST_BIT"
+	[GrammarRule("INST_BIT")]
+	private void mINST_BIT()
+	{
+		EnterRule_INST_BIT();
+		EnterRule("INST_BIT", 43);
+		TraceIn("INST_BIT", 43);
+		try
+		{
+			int _type = INST_BIT;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:271:11: ( 'bit' )
+			DebugEnterAlt(1);
+			// GBX.g:271:13: 'bit'
+			{
+			DebugLocation(271, 13);
+			Match("bit"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_BIT", 43);
+			LeaveRule("INST_BIT", 43);
+			LeaveRule_INST_BIT();
+		}
+	}
+	// $ANTLR end "INST_BIT"
+
+	partial void EnterRule_INST_CALL();
+	partial void LeaveRule_INST_CALL();
+
+	// $ANTLR start "INST_CALL"
+	[GrammarRule("INST_CALL")]
+	private void mINST_CALL()
+	{
+		EnterRule_INST_CALL();
+		EnterRule("INST_CALL", 44);
+		TraceIn("INST_CALL", 44);
+		try
+		{
+			int _type = INST_CALL;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:272:12: ( 'call' )
+			DebugEnterAlt(1);
+			// GBX.g:272:14: 'call'
+			{
+			DebugLocation(272, 14);
+			Match("call"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_CALL", 44);
+			LeaveRule("INST_CALL", 44);
+			LeaveRule_INST_CALL();
+		}
+	}
+	// $ANTLR end "INST_CALL"
+
+	partial void EnterRule_INST_CCF();
+	partial void LeaveRule_INST_CCF();
+
+	// $ANTLR start "INST_CCF"
+	[GrammarRule("INST_CCF")]
+	private void mINST_CCF()
+	{
+		EnterRule_INST_CCF();
+		EnterRule("INST_CCF", 45);
+		TraceIn("INST_CCF", 45);
+		try
+		{
+			int _type = INST_CCF;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:273:11: ( 'ccf' )
+			DebugEnterAlt(1);
+			// GBX.g:273:13: 'ccf'
+			{
+			DebugLocation(273, 13);
+			Match("ccf"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_CCF", 45);
+			LeaveRule("INST_CCF", 45);
+			LeaveRule_INST_CCF();
+		}
+	}
+	// $ANTLR end "INST_CCF"
+
+	partial void EnterRule_INST_CP();
+	partial void LeaveRule_INST_CP();
+
+	// $ANTLR start "INST_CP"
+	[GrammarRule("INST_CP")]
+	private void mINST_CP()
+	{
+		EnterRule_INST_CP();
+		EnterRule("INST_CP", 46);
+		TraceIn("INST_CP", 46);
+		try
+		{
+			int _type = INST_CP;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:274:11: ( 'cp' )
+			DebugEnterAlt(1);
+			// GBX.g:274:13: 'cp'
+			{
+			DebugLocation(274, 13);
+			Match("cp"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_CP", 46);
+			LeaveRule("INST_CP", 46);
+			LeaveRule_INST_CP();
+		}
+	}
+	// $ANTLR end "INST_CP"
+
+	partial void EnterRule_INST_CPL();
+	partial void LeaveRule_INST_CPL();
+
+	// $ANTLR start "INST_CPL"
+	[GrammarRule("INST_CPL")]
+	private void mINST_CPL()
+	{
+		EnterRule_INST_CPL();
+		EnterRule("INST_CPL", 47);
+		TraceIn("INST_CPL", 47);
+		try
+		{
+			int _type = INST_CPL;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:275:11: ( 'cpl' )
+			DebugEnterAlt(1);
+			// GBX.g:275:13: 'cpl'
+			{
+			DebugLocation(275, 13);
+			Match("cpl"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_CPL", 47);
+			LeaveRule("INST_CPL", 47);
+			LeaveRule_INST_CPL();
+		}
+	}
+	// $ANTLR end "INST_CPL"
+
+	partial void EnterRule_INST_DAA();
+	partial void LeaveRule_INST_DAA();
+
+	// $ANTLR start "INST_DAA"
+	[GrammarRule("INST_DAA")]
+	private void mINST_DAA()
+	{
+		EnterRule_INST_DAA();
+		EnterRule("INST_DAA", 48);
+		TraceIn("INST_DAA", 48);
+		try
+		{
+			int _type = INST_DAA;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:276:11: ( 'daa' )
+			DebugEnterAlt(1);
+			// GBX.g:276:13: 'daa'
+			{
+			DebugLocation(276, 13);
+			Match("daa"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_DAA", 48);
+			LeaveRule("INST_DAA", 48);
+			LeaveRule_INST_DAA();
+		}
+	}
+	// $ANTLR end "INST_DAA"
+
+	partial void EnterRule_INST_DEC();
+	partial void LeaveRule_INST_DEC();
+
+	// $ANTLR start "INST_DEC"
+	[GrammarRule("INST_DEC")]
+	private void mINST_DEC()
+	{
+		EnterRule_INST_DEC();
+		EnterRule("INST_DEC", 49);
+		TraceIn("INST_DEC", 49);
+		try
+		{
+			int _type = INST_DEC;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:277:11: ( 'dec' )
+			DebugEnterAlt(1);
+			// GBX.g:277:13: 'dec'
+			{
+			DebugLocation(277, 13);
+			Match("dec"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_DEC", 49);
+			LeaveRule("INST_DEC", 49);
+			LeaveRule_INST_DEC();
+		}
+	}
+	// $ANTLR end "INST_DEC"
+
+	partial void EnterRule_INST_DI();
+	partial void LeaveRule_INST_DI();
+
+	// $ANTLR start "INST_DI"
+	[GrammarRule("INST_DI")]
+	private void mINST_DI()
+	{
+		EnterRule_INST_DI();
+		EnterRule("INST_DI", 50);
+		TraceIn("INST_DI", 50);
+		try
+		{
+			int _type = INST_DI;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:278:11: ( 'di' )
+			DebugEnterAlt(1);
+			// GBX.g:278:13: 'di'
+			{
+			DebugLocation(278, 13);
+			Match("di"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_DI", 50);
+			LeaveRule("INST_DI", 50);
+			LeaveRule_INST_DI();
+		}
+	}
+	// $ANTLR end "INST_DI"
+
+	partial void EnterRule_INST_EI();
+	partial void LeaveRule_INST_EI();
+
+	// $ANTLR start "INST_EI"
+	[GrammarRule("INST_EI")]
+	private void mINST_EI()
+	{
+		EnterRule_INST_EI();
+		EnterRule("INST_EI", 51);
+		TraceIn("INST_EI", 51);
+		try
+		{
+			int _type = INST_EI;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:279:11: ( 'ei' )
+			DebugEnterAlt(1);
+			// GBX.g:279:13: 'ei'
+			{
+			DebugLocation(279, 13);
+			Match("ei"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_EI", 51);
+			LeaveRule("INST_EI", 51);
+			LeaveRule_INST_EI();
+		}
+	}
+	// $ANTLR end "INST_EI"
+
+	partial void EnterRule_INST_HALT();
+	partial void LeaveRule_INST_HALT();
+
+	// $ANTLR start "INST_HALT"
+	[GrammarRule("INST_HALT")]
+	private void mINST_HALT()
+	{
+		EnterRule_INST_HALT();
+		EnterRule("INST_HALT", 52);
+		TraceIn("INST_HALT", 52);
+		try
+		{
+			int _type = INST_HALT;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:280:12: ( 'halt' )
+			DebugEnterAlt(1);
+			// GBX.g:280:14: 'halt'
+			{
+			DebugLocation(280, 14);
+			Match("halt"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_HALT", 52);
+			LeaveRule("INST_HALT", 52);
+			LeaveRule_INST_HALT();
+		}
+	}
+	// $ANTLR end "INST_HALT"
+
+	partial void EnterRule_INST_INC();
+	partial void LeaveRule_INST_INC();
+
+	// $ANTLR start "INST_INC"
+	[GrammarRule("INST_INC")]
+	private void mINST_INC()
+	{
+		EnterRule_INST_INC();
+		EnterRule("INST_INC", 53);
+		TraceIn("INST_INC", 53);
+		try
+		{
+			int _type = INST_INC;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:281:11: ( 'inc' )
+			DebugEnterAlt(1);
+			// GBX.g:281:13: 'inc'
+			{
+			DebugLocation(281, 13);
+			Match("inc"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_INC", 53);
+			LeaveRule("INST_INC", 53);
+			LeaveRule_INST_INC();
+		}
+	}
+	// $ANTLR end "INST_INC"
+
+	partial void EnterRule_INST_JP();
+	partial void LeaveRule_INST_JP();
+
+	// $ANTLR start "INST_JP"
+	[GrammarRule("INST_JP")]
+	private void mINST_JP()
+	{
+		EnterRule_INST_JP();
+		EnterRule("INST_JP", 54);
+		TraceIn("INST_JP", 54);
+		try
+		{
+			int _type = INST_JP;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:282:11: ( 'jp' )
+			DebugEnterAlt(1);
+			// GBX.g:282:13: 'jp'
+			{
+			DebugLocation(282, 13);
+			Match("jp"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_JP", 54);
+			LeaveRule("INST_JP", 54);
+			LeaveRule_INST_JP();
+		}
+	}
+	// $ANTLR end "INST_JP"
+
+	partial void EnterRule_INST_JR();
+	partial void LeaveRule_INST_JR();
+
+	// $ANTLR start "INST_JR"
+	[GrammarRule("INST_JR")]
+	private void mINST_JR()
+	{
+		EnterRule_INST_JR();
+		EnterRule("INST_JR", 55);
+		TraceIn("INST_JR", 55);
+		try
+		{
+			int _type = INST_JR;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:283:11: ( 'jr' )
+			DebugEnterAlt(1);
+			// GBX.g:283:13: 'jr'
+			{
+			DebugLocation(283, 13);
+			Match("jr"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_JR", 55);
+			LeaveRule("INST_JR", 55);
+			LeaveRule_INST_JR();
+		}
+	}
+	// $ANTLR end "INST_JR"
+
+	partial void EnterRule_INST_LDHL();
+	partial void LeaveRule_INST_LDHL();
+
+	// $ANTLR start "INST_LDHL"
+	[GrammarRule("INST_LDHL")]
+	private void mINST_LDHL()
+	{
+		EnterRule_INST_LDHL();
+		EnterRule("INST_LDHL", 56);
+		TraceIn("INST_LDHL", 56);
+		try
+		{
+			int _type = INST_LDHL;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:284:12: ( 'ldhl' )
+			DebugEnterAlt(1);
+			// GBX.g:284:14: 'ldhl'
+			{
+			DebugLocation(284, 14);
+			Match("ldhl"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_LDHL", 56);
+			LeaveRule("INST_LDHL", 56);
+			LeaveRule_INST_LDHL();
+		}
+	}
+	// $ANTLR end "INST_LDHL"
+
+	partial void EnterRule_INST_LDIO();
+	partial void LeaveRule_INST_LDIO();
+
+	// $ANTLR start "INST_LDIO"
+	[GrammarRule("INST_LDIO")]
+	private void mINST_LDIO()
+	{
+		EnterRule_INST_LDIO();
+		EnterRule("INST_LDIO", 57);
+		TraceIn("INST_LDIO", 57);
+		try
+		{
+			int _type = INST_LDIO;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:285:12: ( 'ldio' )
+			DebugEnterAlt(1);
+			// GBX.g:285:14: 'ldio'
+			{
+			DebugLocation(285, 14);
+			Match("ldio"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_LDIO", 57);
+			LeaveRule("INST_LDIO", 57);
+			LeaveRule_INST_LDIO();
+		}
+	}
+	// $ANTLR end "INST_LDIO"
+
+	partial void EnterRule_INST_LDI();
+	partial void LeaveRule_INST_LDI();
+
+	// $ANTLR start "INST_LDI"
+	[GrammarRule("INST_LDI")]
+	private void mINST_LDI()
+	{
+		EnterRule_INST_LDI();
+		EnterRule("INST_LDI", 58);
+		TraceIn("INST_LDI", 58);
+		try
+		{
+			int _type = INST_LDI;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:286:11: ( 'ldi' )
+			DebugEnterAlt(1);
+			// GBX.g:286:13: 'ldi'
+			{
+			DebugLocation(286, 13);
+			Match("ldi"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_LDI", 58);
+			LeaveRule("INST_LDI", 58);
+			LeaveRule_INST_LDI();
+		}
+	}
+	// $ANTLR end "INST_LDI"
+
+	partial void EnterRule_INST_LDD();
+	partial void LeaveRule_INST_LDD();
+
+	// $ANTLR start "INST_LDD"
+	[GrammarRule("INST_LDD")]
+	private void mINST_LDD()
+	{
+		EnterRule_INST_LDD();
+		EnterRule("INST_LDD", 59);
+		TraceIn("INST_LDD", 59);
+		try
+		{
+			int _type = INST_LDD;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:287:11: ( 'ldd' )
+			DebugEnterAlt(1);
+			// GBX.g:287:13: 'ldd'
+			{
+			DebugLocation(287, 13);
+			Match("ldd"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_LDD", 59);
+			LeaveRule("INST_LDD", 59);
+			LeaveRule_INST_LDD();
+		}
+	}
+	// $ANTLR end "INST_LDD"
+
+	partial void EnterRule_INST_LD();
+	partial void LeaveRule_INST_LD();
+
+	// $ANTLR start "INST_LD"
+	[GrammarRule("INST_LD")]
+	private void mINST_LD()
+	{
+		EnterRule_INST_LD();
+		EnterRule("INST_LD", 60);
+		TraceIn("INST_LD", 60);
+		try
+		{
+			int _type = INST_LD;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:288:11: ( 'ld' )
+			DebugEnterAlt(1);
+			// GBX.g:288:13: 'ld'
+			{
+			DebugLocation(288, 13);
+			Match("ld"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_LD", 60);
+			LeaveRule("INST_LD", 60);
+			LeaveRule_INST_LD();
+		}
+	}
+	// $ANTLR end "INST_LD"
+
+	partial void EnterRule_INST_NOP();
+	partial void LeaveRule_INST_NOP();
+
+	// $ANTLR start "INST_NOP"
+	[GrammarRule("INST_NOP")]
+	private void mINST_NOP()
+	{
+		EnterRule_INST_NOP();
+		EnterRule("INST_NOP", 61);
+		TraceIn("INST_NOP", 61);
+		try
+		{
+			int _type = INST_NOP;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:289:11: ( 'nop' )
+			DebugEnterAlt(1);
+			// GBX.g:289:13: 'nop'
+			{
+			DebugLocation(289, 13);
+			Match("nop"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_NOP", 61);
+			LeaveRule("INST_NOP", 61);
+			LeaveRule_INST_NOP();
+		}
+	}
+	// $ANTLR end "INST_NOP"
+
+	partial void EnterRule_INST_OR();
+	partial void LeaveRule_INST_OR();
+
+	// $ANTLR start "INST_OR"
+	[GrammarRule("INST_OR")]
+	private void mINST_OR()
+	{
+		EnterRule_INST_OR();
+		EnterRule("INST_OR", 62);
+		TraceIn("INST_OR", 62);
+		try
+		{
+			int _type = INST_OR;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:290:11: ( 'or' )
+			DebugEnterAlt(1);
+			// GBX.g:290:13: 'or'
+			{
+			DebugLocation(290, 13);
+			Match("or"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_OR", 62);
+			LeaveRule("INST_OR", 62);
+			LeaveRule_INST_OR();
+		}
+	}
+	// $ANTLR end "INST_OR"
+
+	partial void EnterRule_INST_POP();
+	partial void LeaveRule_INST_POP();
+
+	// $ANTLR start "INST_POP"
+	[GrammarRule("INST_POP")]
+	private void mINST_POP()
+	{
+		EnterRule_INST_POP();
+		EnterRule("INST_POP", 63);
+		TraceIn("INST_POP", 63);
+		try
+		{
+			int _type = INST_POP;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:291:11: ( 'pop' )
+			DebugEnterAlt(1);
+			// GBX.g:291:13: 'pop'
+			{
+			DebugLocation(291, 13);
+			Match("pop"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_POP", 63);
+			LeaveRule("INST_POP", 63);
+			LeaveRule_INST_POP();
+		}
+	}
+	// $ANTLR end "INST_POP"
+
+	partial void EnterRule_INST_PUSH();
+	partial void LeaveRule_INST_PUSH();
+
+	// $ANTLR start "INST_PUSH"
+	[GrammarRule("INST_PUSH")]
+	private void mINST_PUSH()
+	{
+		EnterRule_INST_PUSH();
+		EnterRule("INST_PUSH", 64);
+		TraceIn("INST_PUSH", 64);
+		try
+		{
+			int _type = INST_PUSH;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:292:12: ( 'push' )
+			DebugEnterAlt(1);
+			// GBX.g:292:14: 'push'
+			{
+			DebugLocation(292, 14);
+			Match("push"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_PUSH", 64);
+			LeaveRule("INST_PUSH", 64);
+			LeaveRule_INST_PUSH();
+		}
+	}
+	// $ANTLR end "INST_PUSH"
+
+	partial void EnterRule_INST_RES();
+	partial void LeaveRule_INST_RES();
+
+	// $ANTLR start "INST_RES"
+	[GrammarRule("INST_RES")]
+	private void mINST_RES()
+	{
+		EnterRule_INST_RES();
+		EnterRule("INST_RES", 65);
+		TraceIn("INST_RES", 65);
+		try
+		{
+			int _type = INST_RES;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:293:11: ( 'res' )
+			DebugEnterAlt(1);
+			// GBX.g:293:13: 'res'
+			{
+			DebugLocation(293, 13);
+			Match("res"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_RES", 65);
+			LeaveRule("INST_RES", 65);
+			LeaveRule_INST_RES();
+		}
+	}
+	// $ANTLR end "INST_RES"
+
+	partial void EnterRule_INST_RET();
+	partial void LeaveRule_INST_RET();
+
+	// $ANTLR start "INST_RET"
+	[GrammarRule("INST_RET")]
+	private void mINST_RET()
+	{
+		EnterRule_INST_RET();
+		EnterRule("INST_RET", 66);
+		TraceIn("INST_RET", 66);
+		try
+		{
+			int _type = INST_RET;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:294:11: ( 'ret' )
+			DebugEnterAlt(1);
+			// GBX.g:294:13: 'ret'
+			{
+			DebugLocation(294, 13);
+			Match("ret"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_RET", 66);
+			LeaveRule("INST_RET", 66);
+			LeaveRule_INST_RET();
+		}
+	}
+	// $ANTLR end "INST_RET"
+
+	partial void EnterRule_INST_RETI();
+	partial void LeaveRule_INST_RETI();
+
+	// $ANTLR start "INST_RETI"
+	[GrammarRule("INST_RETI")]
+	private void mINST_RETI()
+	{
+		EnterRule_INST_RETI();
+		EnterRule("INST_RETI", 67);
+		TraceIn("INST_RETI", 67);
+		try
+		{
+			int _type = INST_RETI;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:295:12: ( 'reti' )
+			DebugEnterAlt(1);
+			// GBX.g:295:14: 'reti'
+			{
+			DebugLocation(295, 14);
+			Match("reti"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_RETI", 67);
+			LeaveRule("INST_RETI", 67);
+			LeaveRule_INST_RETI();
+		}
+	}
+	// $ANTLR end "INST_RETI"
+
+	partial void EnterRule_INST_RLA();
+	partial void LeaveRule_INST_RLA();
+
+	// $ANTLR start "INST_RLA"
+	[GrammarRule("INST_RLA")]
+	private void mINST_RLA()
+	{
+		EnterRule_INST_RLA();
+		EnterRule("INST_RLA", 68);
+		TraceIn("INST_RLA", 68);
+		try
+		{
+			int _type = INST_RLA;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:296:11: ( 'rla' )
+			DebugEnterAlt(1);
+			// GBX.g:296:13: 'rla'
+			{
+			DebugLocation(296, 13);
+			Match("rla"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_RLA", 68);
+			LeaveRule("INST_RLA", 68);
+			LeaveRule_INST_RLA();
+		}
+	}
+	// $ANTLR end "INST_RLA"
+
+	partial void EnterRule_INST_RL();
+	partial void LeaveRule_INST_RL();
+
+	// $ANTLR start "INST_RL"
+	[GrammarRule("INST_RL")]
+	private void mINST_RL()
+	{
+		EnterRule_INST_RL();
+		EnterRule("INST_RL", 69);
+		TraceIn("INST_RL", 69);
+		try
+		{
+			int _type = INST_RL;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:297:11: ( 'rl' )
+			DebugEnterAlt(1);
+			// GBX.g:297:13: 'rl'
+			{
+			DebugLocation(297, 13);
+			Match("rl"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_RL", 69);
+			LeaveRule("INST_RL", 69);
+			LeaveRule_INST_RL();
+		}
+	}
+	// $ANTLR end "INST_RL"
+
+	partial void EnterRule_INST_RLCA();
+	partial void LeaveRule_INST_RLCA();
+
+	// $ANTLR start "INST_RLCA"
+	[GrammarRule("INST_RLCA")]
+	private void mINST_RLCA()
+	{
+		EnterRule_INST_RLCA();
+		EnterRule("INST_RLCA", 70);
+		TraceIn("INST_RLCA", 70);
+		try
+		{
+			int _type = INST_RLCA;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:298:12: ( 'rlca' )
+			DebugEnterAlt(1);
+			// GBX.g:298:14: 'rlca'
+			{
+			DebugLocation(298, 14);
+			Match("rlca"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_RLCA", 70);
+			LeaveRule("INST_RLCA", 70);
+			LeaveRule_INST_RLCA();
+		}
+	}
+	// $ANTLR end "INST_RLCA"
+
+	partial void EnterRule_INST_RLC();
+	partial void LeaveRule_INST_RLC();
+
+	// $ANTLR start "INST_RLC"
+	[GrammarRule("INST_RLC")]
+	private void mINST_RLC()
+	{
+		EnterRule_INST_RLC();
+		EnterRule("INST_RLC", 71);
+		TraceIn("INST_RLC", 71);
+		try
+		{
+			int _type = INST_RLC;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:299:11: ( 'rlc' )
+			DebugEnterAlt(1);
+			// GBX.g:299:13: 'rlc'
+			{
+			DebugLocation(299, 13);
+			Match("rlc"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_RLC", 71);
+			LeaveRule("INST_RLC", 71);
+			LeaveRule_INST_RLC();
+		}
+	}
+	// $ANTLR end "INST_RLC"
+
+	partial void EnterRule_INST_RRA();
+	partial void LeaveRule_INST_RRA();
+
+	// $ANTLR start "INST_RRA"
+	[GrammarRule("INST_RRA")]
+	private void mINST_RRA()
+	{
+		EnterRule_INST_RRA();
+		EnterRule("INST_RRA", 72);
+		TraceIn("INST_RRA", 72);
+		try
+		{
+			int _type = INST_RRA;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:300:11: ( 'rra' )
+			DebugEnterAlt(1);
+			// GBX.g:300:13: 'rra'
+			{
+			DebugLocation(300, 13);
+			Match("rra"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_RRA", 72);
+			LeaveRule("INST_RRA", 72);
+			LeaveRule_INST_RRA();
+		}
+	}
+	// $ANTLR end "INST_RRA"
+
+	partial void EnterRule_INST_RR();
+	partial void LeaveRule_INST_RR();
+
+	// $ANTLR start "INST_RR"
+	[GrammarRule("INST_RR")]
+	private void mINST_RR()
+	{
+		EnterRule_INST_RR();
+		EnterRule("INST_RR", 73);
+		TraceIn("INST_RR", 73);
+		try
+		{
+			int _type = INST_RR;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:301:11: ( 'rr' )
+			DebugEnterAlt(1);
+			// GBX.g:301:13: 'rr'
+			{
+			DebugLocation(301, 13);
+			Match("rr"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_RR", 73);
+			LeaveRule("INST_RR", 73);
+			LeaveRule_INST_RR();
+		}
+	}
+	// $ANTLR end "INST_RR"
+
+	partial void EnterRule_INST_RRCA();
+	partial void LeaveRule_INST_RRCA();
+
+	// $ANTLR start "INST_RRCA"
+	[GrammarRule("INST_RRCA")]
+	private void mINST_RRCA()
+	{
+		EnterRule_INST_RRCA();
+		EnterRule("INST_RRCA", 74);
+		TraceIn("INST_RRCA", 74);
+		try
+		{
+			int _type = INST_RRCA;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:302:12: ( 'rrca' )
+			DebugEnterAlt(1);
+			// GBX.g:302:14: 'rrca'
+			{
+			DebugLocation(302, 14);
+			Match("rrca"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_RRCA", 74);
+			LeaveRule("INST_RRCA", 74);
+			LeaveRule_INST_RRCA();
+		}
+	}
+	// $ANTLR end "INST_RRCA"
+
+	partial void EnterRule_INST_RRC();
+	partial void LeaveRule_INST_RRC();
+
+	// $ANTLR start "INST_RRC"
+	[GrammarRule("INST_RRC")]
+	private void mINST_RRC()
+	{
+		EnterRule_INST_RRC();
+		EnterRule("INST_RRC", 75);
+		TraceIn("INST_RRC", 75);
+		try
+		{
+			int _type = INST_RRC;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:303:11: ( 'rrc' )
+			DebugEnterAlt(1);
+			// GBX.g:303:13: 'rrc'
+			{
+			DebugLocation(303, 13);
+			Match("rrc"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_RRC", 75);
+			LeaveRule("INST_RRC", 75);
+			LeaveRule_INST_RRC();
+		}
+	}
+	// $ANTLR end "INST_RRC"
+
+	partial void EnterRule_INST_RST();
+	partial void LeaveRule_INST_RST();
+
+	// $ANTLR start "INST_RST"
+	[GrammarRule("INST_RST")]
+	private void mINST_RST()
+	{
+		EnterRule_INST_RST();
+		EnterRule("INST_RST", 76);
+		TraceIn("INST_RST", 76);
+		try
+		{
+			int _type = INST_RST;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:304:11: ( 'rst' )
+			DebugEnterAlt(1);
+			// GBX.g:304:13: 'rst'
+			{
+			DebugLocation(304, 13);
+			Match("rst"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_RST", 76);
+			LeaveRule("INST_RST", 76);
+			LeaveRule_INST_RST();
+		}
+	}
+	// $ANTLR end "INST_RST"
+
+	partial void EnterRule_INST_SBC();
+	partial void LeaveRule_INST_SBC();
+
+	// $ANTLR start "INST_SBC"
+	[GrammarRule("INST_SBC")]
+	private void mINST_SBC()
+	{
+		EnterRule_INST_SBC();
+		EnterRule("INST_SBC", 77);
+		TraceIn("INST_SBC", 77);
+		try
+		{
+			int _type = INST_SBC;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:305:11: ( 'sbc' )
+			DebugEnterAlt(1);
+			// GBX.g:305:13: 'sbc'
+			{
+			DebugLocation(305, 13);
+			Match("sbc"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_SBC", 77);
+			LeaveRule("INST_SBC", 77);
+			LeaveRule_INST_SBC();
+		}
+	}
+	// $ANTLR end "INST_SBC"
+
+	partial void EnterRule_INST_SCF();
+	partial void LeaveRule_INST_SCF();
+
+	// $ANTLR start "INST_SCF"
+	[GrammarRule("INST_SCF")]
+	private void mINST_SCF()
+	{
+		EnterRule_INST_SCF();
+		EnterRule("INST_SCF", 78);
+		TraceIn("INST_SCF", 78);
+		try
+		{
+			int _type = INST_SCF;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:306:11: ( 'scf' )
+			DebugEnterAlt(1);
+			// GBX.g:306:13: 'scf'
+			{
+			DebugLocation(306, 13);
+			Match("scf"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_SCF", 78);
+			LeaveRule("INST_SCF", 78);
+			LeaveRule_INST_SCF();
+		}
+	}
+	// $ANTLR end "INST_SCF"
+
+	partial void EnterRule_INST_SET();
+	partial void LeaveRule_INST_SET();
+
+	// $ANTLR start "INST_SET"
+	[GrammarRule("INST_SET")]
+	private void mINST_SET()
+	{
+		EnterRule_INST_SET();
+		EnterRule("INST_SET", 79);
+		TraceIn("INST_SET", 79);
+		try
+		{
+			int _type = INST_SET;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:307:11: ( 'set' )
+			DebugEnterAlt(1);
+			// GBX.g:307:13: 'set'
+			{
+			DebugLocation(307, 13);
+			Match("set"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_SET", 79);
+			LeaveRule("INST_SET", 79);
+			LeaveRule_INST_SET();
+		}
+	}
+	// $ANTLR end "INST_SET"
+
+	partial void EnterRule_INST_SLA();
+	partial void LeaveRule_INST_SLA();
+
+	// $ANTLR start "INST_SLA"
+	[GrammarRule("INST_SLA")]
+	private void mINST_SLA()
+	{
+		EnterRule_INST_SLA();
+		EnterRule("INST_SLA", 80);
+		TraceIn("INST_SLA", 80);
+		try
+		{
+			int _type = INST_SLA;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:308:11: ( 'sla' )
+			DebugEnterAlt(1);
+			// GBX.g:308:13: 'sla'
+			{
+			DebugLocation(308, 13);
+			Match("sla"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_SLA", 80);
+			LeaveRule("INST_SLA", 80);
+			LeaveRule_INST_SLA();
+		}
+	}
+	// $ANTLR end "INST_SLA"
+
+	partial void EnterRule_INST_SRA();
+	partial void LeaveRule_INST_SRA();
+
+	// $ANTLR start "INST_SRA"
+	[GrammarRule("INST_SRA")]
+	private void mINST_SRA()
+	{
+		EnterRule_INST_SRA();
+		EnterRule("INST_SRA", 81);
+		TraceIn("INST_SRA", 81);
+		try
+		{
+			int _type = INST_SRA;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:309:11: ( 'sra' )
+			DebugEnterAlt(1);
+			// GBX.g:309:13: 'sra'
+			{
+			DebugLocation(309, 13);
+			Match("sra"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_SRA", 81);
+			LeaveRule("INST_SRA", 81);
+			LeaveRule_INST_SRA();
+		}
+	}
+	// $ANTLR end "INST_SRA"
+
+	partial void EnterRule_INST_SRL();
+	partial void LeaveRule_INST_SRL();
+
+	// $ANTLR start "INST_SRL"
+	[GrammarRule("INST_SRL")]
+	private void mINST_SRL()
+	{
+		EnterRule_INST_SRL();
+		EnterRule("INST_SRL", 82);
+		TraceIn("INST_SRL", 82);
+		try
+		{
+			int _type = INST_SRL;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:310:11: ( 'srl' )
+			DebugEnterAlt(1);
+			// GBX.g:310:13: 'srl'
+			{
+			DebugLocation(310, 13);
+			Match("srl"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_SRL", 82);
+			LeaveRule("INST_SRL", 82);
+			LeaveRule_INST_SRL();
+		}
+	}
+	// $ANTLR end "INST_SRL"
+
+	partial void EnterRule_INST_STOP();
+	partial void LeaveRule_INST_STOP();
+
+	// $ANTLR start "INST_STOP"
+	[GrammarRule("INST_STOP")]
+	private void mINST_STOP()
+	{
+		EnterRule_INST_STOP();
+		EnterRule("INST_STOP", 83);
+		TraceIn("INST_STOP", 83);
+		try
+		{
+			int _type = INST_STOP;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:311:12: ( 'stop' )
+			DebugEnterAlt(1);
+			// GBX.g:311:14: 'stop'
+			{
+			DebugLocation(311, 14);
+			Match("stop"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_STOP", 83);
+			LeaveRule("INST_STOP", 83);
+			LeaveRule_INST_STOP();
+		}
+	}
+	// $ANTLR end "INST_STOP"
+
+	partial void EnterRule_INST_SUB();
+	partial void LeaveRule_INST_SUB();
+
+	// $ANTLR start "INST_SUB"
+	[GrammarRule("INST_SUB")]
+	private void mINST_SUB()
+	{
+		EnterRule_INST_SUB();
+		EnterRule("INST_SUB", 84);
+		TraceIn("INST_SUB", 84);
+		try
+		{
+			int _type = INST_SUB;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:312:11: ( 'sub' )
+			DebugEnterAlt(1);
+			// GBX.g:312:13: 'sub'
+			{
+			DebugLocation(312, 13);
+			Match("sub"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_SUB", 84);
+			LeaveRule("INST_SUB", 84);
+			LeaveRule_INST_SUB();
+		}
+	}
+	// $ANTLR end "INST_SUB"
+
+	partial void EnterRule_INST_SWAP();
+	partial void LeaveRule_INST_SWAP();
+
+	// $ANTLR start "INST_SWAP"
+	[GrammarRule("INST_SWAP")]
+	private void mINST_SWAP()
+	{
+		EnterRule_INST_SWAP();
+		EnterRule("INST_SWAP", 85);
+		TraceIn("INST_SWAP", 85);
+		try
+		{
+			int _type = INST_SWAP;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:313:12: ( 'swap' )
+			DebugEnterAlt(1);
+			// GBX.g:313:14: 'swap'
+			{
+			DebugLocation(313, 14);
+			Match("swap"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_SWAP", 85);
+			LeaveRule("INST_SWAP", 85);
+			LeaveRule_INST_SWAP();
+		}
+	}
+	// $ANTLR end "INST_SWAP"
+
+	partial void EnterRule_INST_XOR();
+	partial void LeaveRule_INST_XOR();
+
+	// $ANTLR start "INST_XOR"
+	[GrammarRule("INST_XOR")]
+	private void mINST_XOR()
+	{
+		EnterRule_INST_XOR();
+		EnterRule("INST_XOR", 86);
+		TraceIn("INST_XOR", 86);
+		try
+		{
+			int _type = INST_XOR;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:314:11: ( 'xor' )
+			DebugEnterAlt(1);
+			// GBX.g:314:13: 'xor'
+			{
+			DebugLocation(314, 13);
+			Match("xor"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("INST_XOR", 86);
+			LeaveRule("INST_XOR", 86);
+			LeaveRule_INST_XOR();
+		}
+	}
+	// $ANTLR end "INST_XOR"
+
+	partial void EnterRule_RR_AF();
+	partial void LeaveRule_RR_AF();
+
+	// $ANTLR start "RR_AF"
+	[GrammarRule("RR_AF")]
+	private void mRR_AF()
+	{
+		EnterRule_RR_AF();
+		EnterRule("RR_AF", 87);
+		TraceIn("RR_AF", 87);
+		try
+		{
+			int _type = RR_AF;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:315:9: ( 'af' )
+			DebugEnterAlt(1);
+			// GBX.g:315:11: 'af'
+			{
+			DebugLocation(315, 11);
+			Match("af"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("RR_AF", 87);
+			LeaveRule("RR_AF", 87);
+			LeaveRule_RR_AF();
+		}
+	}
+	// $ANTLR end "RR_AF"
+
+	partial void EnterRule_RR_BC();
+	partial void LeaveRule_RR_BC();
+
+	// $ANTLR start "RR_BC"
+	[GrammarRule("RR_BC")]
+	private void mRR_BC()
+	{
+		EnterRule_RR_BC();
+		EnterRule("RR_BC", 88);
+		TraceIn("RR_BC", 88);
+		try
+		{
+			int _type = RR_BC;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:316:9: ( 'bc' )
+			DebugEnterAlt(1);
+			// GBX.g:316:11: 'bc'
+			{
+			DebugLocation(316, 11);
+			Match("bc"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("RR_BC", 88);
+			LeaveRule("RR_BC", 88);
+			LeaveRule_RR_BC();
+		}
+	}
+	// $ANTLR end "RR_BC"
+
+	partial void EnterRule_RR_DE();
+	partial void LeaveRule_RR_DE();
+
+	// $ANTLR start "RR_DE"
+	[GrammarRule("RR_DE")]
+	private void mRR_DE()
+	{
+		EnterRule_RR_DE();
+		EnterRule("RR_DE", 89);
+		TraceIn("RR_DE", 89);
+		try
+		{
+			int _type = RR_DE;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:317:9: ( 'de' )
+			DebugEnterAlt(1);
+			// GBX.g:317:11: 'de'
+			{
+			DebugLocation(317, 11);
+			Match("de"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("RR_DE", 89);
+			LeaveRule("RR_DE", 89);
+			LeaveRule_RR_DE();
+		}
+	}
+	// $ANTLR end "RR_DE"
+
+	partial void EnterRule_RR_HL();
+	partial void LeaveRule_RR_HL();
+
+	// $ANTLR start "RR_HL"
+	[GrammarRule("RR_HL")]
+	private void mRR_HL()
+	{
+		EnterRule_RR_HL();
+		EnterRule("RR_HL", 90);
+		TraceIn("RR_HL", 90);
+		try
+		{
+			int _type = RR_HL;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:318:9: ( 'hl' )
+			DebugEnterAlt(1);
+			// GBX.g:318:11: 'hl'
+			{
+			DebugLocation(318, 11);
+			Match("hl"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("RR_HL", 90);
+			LeaveRule("RR_HL", 90);
+			LeaveRule_RR_HL();
+		}
+	}
+	// $ANTLR end "RR_HL"
+
+	partial void EnterRule_RR_SP();
+	partial void LeaveRule_RR_SP();
+
+	// $ANTLR start "RR_SP"
+	[GrammarRule("RR_SP")]
+	private void mRR_SP()
+	{
+		EnterRule_RR_SP();
+		EnterRule("RR_SP", 91);
+		TraceIn("RR_SP", 91);
+		try
+		{
+			int _type = RR_SP;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:319:9: ( 'sp' )
+			DebugEnterAlt(1);
+			// GBX.g:319:11: 'sp'
+			{
+			DebugLocation(319, 11);
+			Match("sp"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("RR_SP", 91);
+			LeaveRule("RR_SP", 91);
+			LeaveRule_RR_SP();
+		}
+	}
+	// $ANTLR end "RR_SP"
+
+	partial void EnterRule_CC_NC();
+	partial void LeaveRule_CC_NC();
+
+	// $ANTLR start "CC_NC"
+	[GrammarRule("CC_NC")]
+	private void mCC_NC()
+	{
+		EnterRule_CC_NC();
+		EnterRule("CC_NC", 92);
+		TraceIn("CC_NC", 92);
+		try
+		{
+			int _type = CC_NC;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:320:9: ( 'nc' )
+			DebugEnterAlt(1);
+			// GBX.g:320:11: 'nc'
+			{
+			DebugLocation(320, 11);
+			Match("nc"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("CC_NC", 92);
+			LeaveRule("CC_NC", 92);
+			LeaveRule_CC_NC();
+		}
+	}
+	// $ANTLR end "CC_NC"
+
+	partial void EnterRule_CC_NZ();
+	partial void LeaveRule_CC_NZ();
+
+	// $ANTLR start "CC_NZ"
+	[GrammarRule("CC_NZ")]
+	private void mCC_NZ()
+	{
+		EnterRule_CC_NZ();
+		EnterRule("CC_NZ", 93);
+		TraceIn("CC_NZ", 93);
+		try
+		{
+			int _type = CC_NZ;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:321:9: ( 'nz' )
+			DebugEnterAlt(1);
+			// GBX.g:321:11: 'nz'
+			{
+			DebugLocation(321, 11);
+			Match("nz"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("CC_NZ", 93);
+			LeaveRule("CC_NZ", 93);
+			LeaveRule_CC_NZ();
+		}
+	}
+	// $ANTLR end "CC_NZ"
+
+	partial void EnterRule_CC_Z();
+	partial void LeaveRule_CC_Z();
+
+	// $ANTLR start "CC_Z"
+	[GrammarRule("CC_Z")]
+	private void mCC_Z()
+	{
+		EnterRule_CC_Z();
+		EnterRule("CC_Z", 94);
+		TraceIn("CC_Z", 94);
+		try
+		{
+			int _type = CC_Z;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:322:8: ( 'z' )
+			DebugEnterAlt(1);
+			// GBX.g:322:10: 'z'
+			{
+			DebugLocation(322, 10);
+			Match('z'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("CC_Z", 94);
+			LeaveRule("CC_Z", 94);
+			LeaveRule_CC_Z();
+		}
+	}
+	// $ANTLR end "CC_Z"
+
+	partial void EnterRule_REG_A();
+	partial void LeaveRule_REG_A();
+
+	// $ANTLR start "REG_A"
+	[GrammarRule("REG_A")]
+	private void mREG_A()
+	{
+		EnterRule_REG_A();
+		EnterRule("REG_A", 95);
+		TraceIn("REG_A", 95);
+		try
+		{
+			int _type = REG_A;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:323:9: ( 'a' )
+			DebugEnterAlt(1);
+			// GBX.g:323:11: 'a'
+			{
+			DebugLocation(323, 11);
+			Match('a'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("REG_A", 95);
+			LeaveRule("REG_A", 95);
+			LeaveRule_REG_A();
+		}
+	}
+	// $ANTLR end "REG_A"
+
+	partial void EnterRule_REG_B();
+	partial void LeaveRule_REG_B();
+
+	// $ANTLR start "REG_B"
+	[GrammarRule("REG_B")]
+	private void mREG_B()
+	{
+		EnterRule_REG_B();
+		EnterRule("REG_B", 96);
+		TraceIn("REG_B", 96);
+		try
+		{
+			int _type = REG_B;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:324:9: ( 'b' )
+			DebugEnterAlt(1);
+			// GBX.g:324:11: 'b'
+			{
+			DebugLocation(324, 11);
+			Match('b'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("REG_B", 96);
+			LeaveRule("REG_B", 96);
+			LeaveRule_REG_B();
+		}
+	}
+	// $ANTLR end "REG_B"
+
+	partial void EnterRule_REG_C();
+	partial void LeaveRule_REG_C();
+
+	// $ANTLR start "REG_C"
+	[GrammarRule("REG_C")]
+	private void mREG_C()
+	{
+		EnterRule_REG_C();
+		EnterRule("REG_C", 97);
+		TraceIn("REG_C", 97);
+		try
+		{
+			int _type = REG_C;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:325:9: ( 'c' )
+			DebugEnterAlt(1);
+			// GBX.g:325:11: 'c'
+			{
+			DebugLocation(325, 11);
+			Match('c'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("REG_C", 97);
+			LeaveRule("REG_C", 97);
+			LeaveRule_REG_C();
+		}
+	}
+	// $ANTLR end "REG_C"
+
+	partial void EnterRule_REG_D();
+	partial void LeaveRule_REG_D();
+
+	// $ANTLR start "REG_D"
+	[GrammarRule("REG_D")]
+	private void mREG_D()
+	{
+		EnterRule_REG_D();
+		EnterRule("REG_D", 98);
+		TraceIn("REG_D", 98);
+		try
+		{
+			int _type = REG_D;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:326:9: ( 'd' )
+			DebugEnterAlt(1);
+			// GBX.g:326:11: 'd'
+			{
+			DebugLocation(326, 11);
+			Match('d'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("REG_D", 98);
+			LeaveRule("REG_D", 98);
+			LeaveRule_REG_D();
+		}
+	}
+	// $ANTLR end "REG_D"
+
+	partial void EnterRule_REG_E();
+	partial void LeaveRule_REG_E();
+
+	// $ANTLR start "REG_E"
+	[GrammarRule("REG_E")]
+	private void mREG_E()
+	{
+		EnterRule_REG_E();
+		EnterRule("REG_E", 99);
+		TraceIn("REG_E", 99);
+		try
+		{
+			int _type = REG_E;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:327:9: ( 'e' )
+			DebugEnterAlt(1);
+			// GBX.g:327:11: 'e'
+			{
+			DebugLocation(327, 11);
+			Match('e'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("REG_E", 99);
+			LeaveRule("REG_E", 99);
+			LeaveRule_REG_E();
+		}
+	}
+	// $ANTLR end "REG_E"
+
+	partial void EnterRule_REG_H();
+	partial void LeaveRule_REG_H();
+
+	// $ANTLR start "REG_H"
+	[GrammarRule("REG_H")]
+	private void mREG_H()
+	{
+		EnterRule_REG_H();
+		EnterRule("REG_H", 100);
+		TraceIn("REG_H", 100);
+		try
+		{
+			int _type = REG_H;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:328:9: ( 'h' )
+			DebugEnterAlt(1);
+			// GBX.g:328:11: 'h'
+			{
+			DebugLocation(328, 11);
+			Match('h'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("REG_H", 100);
+			LeaveRule("REG_H", 100);
+			LeaveRule_REG_H();
+		}
+	}
+	// $ANTLR end "REG_H"
+
+	partial void EnterRule_REG_L();
+	partial void LeaveRule_REG_L();
+
+	// $ANTLR start "REG_L"
+	[GrammarRule("REG_L")]
+	private void mREG_L()
+	{
+		EnterRule_REG_L();
+		EnterRule("REG_L", 101);
+		TraceIn("REG_L", 101);
+		try
+		{
+			int _type = REG_L;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:329:9: ( 'l' )
+			DebugEnterAlt(1);
+			// GBX.g:329:11: 'l'
+			{
+			DebugLocation(329, 11);
+			Match('l'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("REG_L", 101);
+			LeaveRule("REG_L", 101);
+			LeaveRule_REG_L();
+		}
+	}
+	// $ANTLR end "REG_L"
+
+	partial void EnterRule_LOC_LABEL_RAND();
+	partial void LeaveRule_LOC_LABEL_RAND();
+
+	// $ANTLR start "LOC_LABEL_RAND"
+	[GrammarRule("LOC_LABEL_RAND")]
+	private void mLOC_LABEL_RAND()
+	{
+		EnterRule_LOC_LABEL_RAND();
+		EnterRule("LOC_LABEL_RAND", 102);
+		TraceIn("LOC_LABEL_RAND", 102);
+		try
+		{
+			int _type = LOC_LABEL_RAND;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:331:16: ( '\\\\@' )
+			DebugEnterAlt(1);
+			// GBX.g:331:18: '\\\\@'
+			{
+			DebugLocation(331, 18);
+			Match("\\@"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("LOC_LABEL_RAND", 102);
+			LeaveRule("LOC_LABEL_RAND", 102);
+			LeaveRule_LOC_LABEL_RAND();
+		}
+	}
+	// $ANTLR end "LOC_LABEL_RAND"
+
+	partial void EnterRule_M_ARG1();
+	partial void LeaveRule_M_ARG1();
+
+	// $ANTLR start "M_ARG1"
+	[GrammarRule("M_ARG1")]
+	private void mM_ARG1()
+	{
+		EnterRule_M_ARG1();
+		EnterRule("M_ARG1", 103);
+		TraceIn("M_ARG1", 103);
+		try
+		{
+			int _type = M_ARG1;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:332:10: ( '\\\\1' )
+			DebugEnterAlt(1);
+			// GBX.g:332:12: '\\\\1'
+			{
+			DebugLocation(332, 12);
+			Match("\\1"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("M_ARG1", 103);
+			LeaveRule("M_ARG1", 103);
+			LeaveRule_M_ARG1();
+		}
+	}
+	// $ANTLR end "M_ARG1"
+
+	partial void EnterRule_M_ARG2();
+	partial void LeaveRule_M_ARG2();
+
+	// $ANTLR start "M_ARG2"
+	[GrammarRule("M_ARG2")]
+	private void mM_ARG2()
+	{
+		EnterRule_M_ARG2();
+		EnterRule("M_ARG2", 104);
+		TraceIn("M_ARG2", 104);
+		try
+		{
+			int _type = M_ARG2;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:333:10: ( '\\\\2' )
+			DebugEnterAlt(1);
+			// GBX.g:333:12: '\\\\2'
+			{
+			DebugLocation(333, 12);
+			Match("\\2"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("M_ARG2", 104);
+			LeaveRule("M_ARG2", 104);
+			LeaveRule_M_ARG2();
+		}
+	}
+	// $ANTLR end "M_ARG2"
+
+	partial void EnterRule_M_ARG3();
+	partial void LeaveRule_M_ARG3();
+
+	// $ANTLR start "M_ARG3"
+	[GrammarRule("M_ARG3")]
+	private void mM_ARG3()
+	{
+		EnterRule_M_ARG3();
+		EnterRule("M_ARG3", 105);
+		TraceIn("M_ARG3", 105);
+		try
+		{
+			int _type = M_ARG3;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:334:10: ( '\\\\3' )
+			DebugEnterAlt(1);
+			// GBX.g:334:12: '\\\\3'
+			{
+			DebugLocation(334, 12);
+			Match("\\3"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("M_ARG3", 105);
+			LeaveRule("M_ARG3", 105);
+			LeaveRule_M_ARG3();
+		}
+	}
+	// $ANTLR end "M_ARG3"
+
+	partial void EnterRule_M_ARG4();
+	partial void LeaveRule_M_ARG4();
+
+	// $ANTLR start "M_ARG4"
+	[GrammarRule("M_ARG4")]
+	private void mM_ARG4()
+	{
+		EnterRule_M_ARG4();
+		EnterRule("M_ARG4", 106);
+		TraceIn("M_ARG4", 106);
+		try
+		{
+			int _type = M_ARG4;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:335:10: ( '\\\\4' )
+			DebugEnterAlt(1);
+			// GBX.g:335:12: '\\\\4'
+			{
+			DebugLocation(335, 12);
+			Match("\\4"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("M_ARG4", 106);
+			LeaveRule("M_ARG4", 106);
+			LeaveRule_M_ARG4();
+		}
+	}
+	// $ANTLR end "M_ARG4"
+
+	partial void EnterRule_M_ARG5();
+	partial void LeaveRule_M_ARG5();
+
+	// $ANTLR start "M_ARG5"
+	[GrammarRule("M_ARG5")]
+	private void mM_ARG5()
+	{
+		EnterRule_M_ARG5();
+		EnterRule("M_ARG5", 107);
+		TraceIn("M_ARG5", 107);
+		try
+		{
+			int _type = M_ARG5;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:336:10: ( '\\\\5' )
+			DebugEnterAlt(1);
+			// GBX.g:336:12: '\\\\5'
+			{
+			DebugLocation(336, 12);
+			Match("\\5"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("M_ARG5", 107);
+			LeaveRule("M_ARG5", 107);
+			LeaveRule_M_ARG5();
+		}
+	}
+	// $ANTLR end "M_ARG5"
+
+	partial void EnterRule_M_ARG6();
+	partial void LeaveRule_M_ARG6();
+
+	// $ANTLR start "M_ARG6"
+	[GrammarRule("M_ARG6")]
+	private void mM_ARG6()
+	{
+		EnterRule_M_ARG6();
+		EnterRule("M_ARG6", 108);
+		TraceIn("M_ARG6", 108);
+		try
+		{
+			int _type = M_ARG6;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:337:10: ( '\\\\6' )
+			DebugEnterAlt(1);
+			// GBX.g:337:12: '\\\\6'
+			{
+			DebugLocation(337, 12);
+			Match("\\6"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("M_ARG6", 108);
+			LeaveRule("M_ARG6", 108);
+			LeaveRule_M_ARG6();
+		}
+	}
+	// $ANTLR end "M_ARG6"
+
+	partial void EnterRule_M_ARG7();
+	partial void LeaveRule_M_ARG7();
+
+	// $ANTLR start "M_ARG7"
+	[GrammarRule("M_ARG7")]
+	private void mM_ARG7()
+	{
+		EnterRule_M_ARG7();
+		EnterRule("M_ARG7", 109);
+		TraceIn("M_ARG7", 109);
+		try
+		{
+			int _type = M_ARG7;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:338:10: ( '\\\\7' )
+			DebugEnterAlt(1);
+			// GBX.g:338:12: '\\\\7'
+			{
+			DebugLocation(338, 12);
+			Match("\\7"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("M_ARG7", 109);
+			LeaveRule("M_ARG7", 109);
+			LeaveRule_M_ARG7();
+		}
+	}
+	// $ANTLR end "M_ARG7"
+
+	partial void EnterRule_M_ARG8();
+	partial void LeaveRule_M_ARG8();
+
+	// $ANTLR start "M_ARG8"
+	[GrammarRule("M_ARG8")]
+	private void mM_ARG8()
+	{
+		EnterRule_M_ARG8();
+		EnterRule("M_ARG8", 110);
+		TraceIn("M_ARG8", 110);
+		try
+		{
+			int _type = M_ARG8;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:339:10: ( '\\\\8' )
+			DebugEnterAlt(1);
+			// GBX.g:339:12: '\\\\8'
+			{
+			DebugLocation(339, 12);
+			Match("\\8"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("M_ARG8", 110);
+			LeaveRule("M_ARG8", 110);
+			LeaveRule_M_ARG8();
+		}
+	}
+	// $ANTLR end "M_ARG8"
+
+	partial void EnterRule_M_ARG9();
+	partial void LeaveRule_M_ARG9();
+
+	// $ANTLR start "M_ARG9"
+	[GrammarRule("M_ARG9")]
+	private void mM_ARG9()
+	{
+		EnterRule_M_ARG9();
+		EnterRule("M_ARG9", 111);
+		TraceIn("M_ARG9", 111);
+		try
+		{
+			int _type = M_ARG9;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:340:10: ( '\\\\9' )
+			DebugEnterAlt(1);
+			// GBX.g:340:12: '\\\\9'
+			{
+			DebugLocation(340, 12);
+			Match("\\9"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("M_ARG9", 111);
+			LeaveRule("M_ARG9", 111);
+			LeaveRule_M_ARG9();
+		}
+	}
+	// $ANTLR end "M_ARG9"
+
+	partial void EnterRule_ID();
+	partial void LeaveRule_ID();
+
+	// $ANTLR start "ID"
+	[GrammarRule("ID")]
+	private void mID()
+	{
+		EnterRule_ID();
+		EnterRule("ID", 112);
+		TraceIn("ID", 112);
+		try
+		{
+			int _type = ID;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:342:7: ( ( 'a' .. 'z' | '_' ) ( 'a' .. 'z' | '0' .. '9' | '_' )+ )
+			DebugEnterAlt(1);
+			// GBX.g:342:9: ( 'a' .. 'z' | '_' ) ( 'a' .. 'z' | '0' .. '9' | '_' )+
+			{
+			DebugLocation(342, 9);
+			if (input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z'))
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+			DebugLocation(342, 24);
+			// GBX.g:342:24: ( 'a' .. 'z' | '0' .. '9' | '_' )+
+			int cnt1=0;
+			try { DebugEnterSubRule(1);
+			while (true)
+			{
+				int alt1=2;
+				try { DebugEnterDecision(1, false);
+				int LA1_0 = input.LA(1);
+
+				if (((LA1_0>='0' && LA1_0<='9')||LA1_0=='_'||(LA1_0>='a' && LA1_0<='z')))
+				{
+					alt1 = 1;
+				}
+
+
+				} finally { DebugExitDecision(1); }
+				switch (alt1)
+				{
+				case 1:
+					DebugEnterAlt(1);
+					// GBX.g:
+					{
+					DebugLocation(342, 24);
+					input.Consume();
+
+
+					}
+					break;
+
+				default:
+					if (cnt1 >= 1)
+						goto loop1;
+
+					EarlyExitException eee1 = new EarlyExitException( 1, input );
+					DebugRecognitionException(eee1);
+					throw eee1;
+				}
+				cnt1++;
+			}
+			loop1:
+				;
+
+			} finally { DebugExitSubRule(1); }
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("ID", 112);
+			LeaveRule("ID", 112);
+			LeaveRule_ID();
+		}
+	}
+	// $ANTLR end "ID"
+
+	partial void EnterRule_NUMBER();
+	partial void LeaveRule_NUMBER();
+
+	// $ANTLR start "NUMBER"
+	[GrammarRule("NUMBER")]
+	private void mNUMBER()
+	{
+		EnterRule_NUMBER();
+		EnterRule("NUMBER", 113);
+		TraceIn("NUMBER", 113);
+		try
+		{
+			int _type = NUMBER;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:344:10: ( INT | HEX_NUMBER | BIN_NUMBER | OCT_NUMBER )
+			int alt2=4;
+			try { DebugEnterDecision(2, false);
+			switch (input.LA(1))
+			{
+			case '0':
+				{
+				switch (input.LA(2))
+				{
+				case 'x':
+					{
+					alt2 = 2;
+					}
+					break;
+				case 'b':
+					{
+					alt2 = 3;
+					}
+					break;
+				case 'o':
+					{
+					alt2 = 4;
+					}
+					break;
+				default:
+					alt2=1;
+					break;
+
+				}
+
+				}
+				break;
+			case '$':
+				{
+				alt2 = 2;
+				}
+				break;
+			case '1':
+			case '2':
+			case '3':
+			case '4':
+			case '5':
+			case '6':
+			case '7':
+			case '8':
+			case '9':
+				{
+				alt2 = 1;
+				}
+				break;
+			case '%':
+				{
+				alt2 = 3;
+				}
+				break;
+			case '&':
+				{
+				alt2 = 4;
+				}
+				break;
+			default:
+				{
+					NoViableAltException nvae = new NoViableAltException("", 2, 0, input);
+					DebugRecognitionException(nvae);
+					throw nvae;
+				}
+			}
+
+			} finally { DebugExitDecision(2); }
+			switch (alt2)
+			{
+			case 1:
+				DebugEnterAlt(1);
+				// GBX.g:344:12: INT
+				{
+				DebugLocation(344, 12);
+				mINT(); 
+
+				}
+				break;
+			case 2:
+				DebugEnterAlt(2);
+				// GBX.g:345:7: HEX_NUMBER
+				{
+				DebugLocation(345, 7);
+				mHEX_NUMBER(); 
+
+				}
+				break;
+			case 3:
+				DebugEnterAlt(3);
+				// GBX.g:346:7: BIN_NUMBER
+				{
+				DebugLocation(346, 7);
+				mBIN_NUMBER(); 
+
+				}
+				break;
+			case 4:
+				DebugEnterAlt(4);
+				// GBX.g:347:7: OCT_NUMBER
+				{
+				DebugLocation(347, 7);
+				mOCT_NUMBER(); 
+
+				}
+				break;
+
+			}
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("NUMBER", 113);
+			LeaveRule("NUMBER", 113);
+			LeaveRule_NUMBER();
+		}
+	}
+	// $ANTLR end "NUMBER"
+
+	partial void EnterRule_STRING();
+	partial void LeaveRule_STRING();
+
+	// $ANTLR start "STRING"
+	[GrammarRule("STRING")]
+	private void mSTRING()
+	{
+		EnterRule_STRING();
+		EnterRule("STRING", 114);
+		TraceIn("STRING", 114);
+		try
+		{
+			int _type = STRING;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:349:10: ( '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"' )
+			DebugEnterAlt(1);
+			// GBX.g:349:13: '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"'
+			{
+			DebugLocation(349, 13);
+			Match('\"'); 
+			DebugLocation(349, 17);
+			// GBX.g:349:17: ( ESC_SEQ |~ ( '\\\\' | '\"' ) )*
+			try { DebugEnterSubRule(3);
+			while (true)
+			{
+				int alt3=3;
+				try { DebugEnterDecision(3, false);
+				int LA3_0 = input.LA(1);
+
+				if ((LA3_0=='\\'))
+				{
+					alt3 = 1;
+				}
+				else if (((LA3_0>='\u0000' && LA3_0<='!')||(LA3_0>='#' && LA3_0<='[')||(LA3_0>=']' && LA3_0<='\uFFFF')))
+				{
+					alt3 = 2;
+				}
+
+
+				} finally { DebugExitDecision(3); }
+				switch ( alt3 )
+				{
+				case 1:
+					DebugEnterAlt(1);
+					// GBX.g:349:19: ESC_SEQ
+					{
+					DebugLocation(349, 19);
+					mESC_SEQ(); 
+
+					}
+					break;
+				case 2:
+					DebugEnterAlt(2);
+					// GBX.g:349:29: ~ ( '\\\\' | '\"' )
+					{
+					DebugLocation(349, 29);
+					input.Consume();
+
+
+					}
+					break;
+
+				default:
+					goto loop3;
+				}
+			}
+
+			loop3:
+				;
+
+			} finally { DebugExitSubRule(3); }
+
+			DebugLocation(349, 44);
+			Match('\"'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("STRING", 114);
+			LeaveRule("STRING", 114);
+			LeaveRule_STRING();
+		}
+	}
+	// $ANTLR end "STRING"
+
+	partial void EnterRule_CHAR();
+	partial void LeaveRule_CHAR();
+
+	// $ANTLR start "CHAR"
+	[GrammarRule("CHAR")]
+	private void mCHAR()
+	{
+		EnterRule_CHAR();
+		EnterRule("CHAR", 115);
+		TraceIn("CHAR", 115);
+		try
+		{
+			int _type = CHAR;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:350:8: ( '\\'' ( ESC_SEQ |~ ( '\\'' | '\\\\' ) ) '\\'' )
+			DebugEnterAlt(1);
+			// GBX.g:350:11: '\\'' ( ESC_SEQ |~ ( '\\'' | '\\\\' ) ) '\\''
+			{
+			DebugLocation(350, 11);
+			Match('\''); 
+			DebugLocation(350, 16);
+			// GBX.g:350:16: ( ESC_SEQ |~ ( '\\'' | '\\\\' ) )
+			int alt4=2;
+			try { DebugEnterSubRule(4);
+			try { DebugEnterDecision(4, false);
+			int LA4_0 = input.LA(1);
+
+			if ((LA4_0=='\\'))
+			{
+				alt4 = 1;
+			}
+			else if (((LA4_0>='\u0000' && LA4_0<='&')||(LA4_0>='(' && LA4_0<='[')||(LA4_0>=']' && LA4_0<='\uFFFF')))
+			{
+				alt4 = 2;
+			}
+			else
+			{
+				NoViableAltException nvae = new NoViableAltException("", 4, 0, input);
+				DebugRecognitionException(nvae);
+				throw nvae;
+			}
+			} finally { DebugExitDecision(4); }
+			switch (alt4)
+			{
+			case 1:
+				DebugEnterAlt(1);
+				// GBX.g:350:18: ESC_SEQ
+				{
+				DebugLocation(350, 18);
+				mESC_SEQ(); 
+
+				}
+				break;
+			case 2:
+				DebugEnterAlt(2);
+				// GBX.g:350:28: ~ ( '\\'' | '\\\\' )
+				{
+				DebugLocation(350, 28);
+				input.Consume();
+
+
+				}
+				break;
+
+			}
+			} finally { DebugExitSubRule(4); }
+
+			DebugLocation(350, 43);
+			Match('\''); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("CHAR", 115);
+			LeaveRule("CHAR", 115);
+			LeaveRule_CHAR();
+		}
+	}
+	// $ANTLR end "CHAR"
+
+	partial void EnterRule_COMMENT();
+	partial void LeaveRule_COMMENT();
+
+	// $ANTLR start "COMMENT"
+	[GrammarRule("COMMENT")]
+	private void mCOMMENT()
+	{
+		EnterRule_COMMENT();
+		EnterRule("COMMENT", 116);
+		TraceIn("COMMENT", 116);
+		try
+		{
+			int _type = COMMENT;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:352:11: ( ( '//' | ';' | '#' ) (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
+			int alt9=2;
+			try { DebugEnterDecision(9, false);
+			int LA9_0 = input.LA(1);
+
+			if ((LA9_0=='/'))
+			{
+				int LA9_1 = input.LA(2);
+
+				if ((LA9_1=='/'))
+				{
+					alt9 = 1;
+				}
+				else if ((LA9_1=='*'))
+				{
+					alt9 = 2;
+				}
+				else
+				{
+					NoViableAltException nvae = new NoViableAltException("", 9, 1, input);
+					DebugRecognitionException(nvae);
+					throw nvae;
+				}
+			}
+			else if ((LA9_0=='#'||LA9_0==';'))
+			{
+				alt9 = 1;
+			}
+			else
+			{
+				NoViableAltException nvae = new NoViableAltException("", 9, 0, input);
+				DebugRecognitionException(nvae);
+				throw nvae;
+			}
+			} finally { DebugExitDecision(9); }
+			switch (alt9)
+			{
+			case 1:
+				DebugEnterAlt(1);
+				// GBX.g:352:15: ( '//' | ';' | '#' ) (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+				{
+				DebugLocation(352, 15);
+				// GBX.g:352:15: ( '//' | ';' | '#' )
+				int alt5=3;
+				try { DebugEnterSubRule(5);
+				try { DebugEnterDecision(5, false);
+				switch (input.LA(1))
+				{
+				case '/':
+					{
+					alt5 = 1;
+					}
+					break;
+				case ';':
+					{
+					alt5 = 2;
+					}
+					break;
+				case '#':
+					{
+					alt5 = 3;
+					}
+					break;
+				default:
+					{
+						NoViableAltException nvae = new NoViableAltException("", 5, 0, input);
+						DebugRecognitionException(nvae);
+						throw nvae;
+					}
+				}
+
+				} finally { DebugExitDecision(5); }
+				switch (alt5)
+				{
+				case 1:
+					DebugEnterAlt(1);
+					// GBX.g:352:16: '//'
+					{
+					DebugLocation(352, 16);
+					Match("//"); 
+
+
+					}
+					break;
+				case 2:
+					DebugEnterAlt(2);
+					// GBX.g:352:21: ';'
+					{
+					DebugLocation(352, 21);
+					Match(';'); 
+
+					}
+					break;
+				case 3:
+					DebugEnterAlt(3);
+					// GBX.g:352:25: '#'
+					{
+					DebugLocation(352, 25);
+					Match('#'); 
+
+					}
+					break;
+
+				}
+				} finally { DebugExitSubRule(5); }
+
+				DebugLocation(352, 30);
+				// GBX.g:352:30: (~ ( '\\n' | '\\r' ) )*
+				try { DebugEnterSubRule(6);
+				while (true)
+				{
+					int alt6=2;
+					try { DebugEnterDecision(6, false);
+					int LA6_0 = input.LA(1);
+
+					if (((LA6_0>='\u0000' && LA6_0<='\t')||(LA6_0>='\u000B' && LA6_0<='\f')||(LA6_0>='\u000E' && LA6_0<='\uFFFF')))
+					{
+						alt6 = 1;
+					}
+
+
+					} finally { DebugExitDecision(6); }
+					switch ( alt6 )
+					{
+					case 1:
+						DebugEnterAlt(1);
+						// GBX.g:
+						{
+						DebugLocation(352, 30);
+						input.Consume();
+
+
+						}
+						break;
+
+					default:
+						goto loop6;
+					}
+				}
+
+				loop6:
+					;
+
+				} finally { DebugExitSubRule(6); }
+
+				DebugLocation(352, 44);
+				// GBX.g:352:44: ( '\\r' )?
+				int alt7=2;
+				try { DebugEnterSubRule(7);
+				try { DebugEnterDecision(7, false);
+				int LA7_0 = input.LA(1);
+
+				if ((LA7_0=='\r'))
+				{
+					alt7 = 1;
+				}
+				} finally { DebugExitDecision(7); }
+				switch (alt7)
+				{
+				case 1:
+					DebugEnterAlt(1);
+					// GBX.g:352:44: '\\r'
+					{
+					DebugLocation(352, 44);
+					Match('\r'); 
+
+					}
+					break;
+
+				}
+				} finally { DebugExitSubRule(7); }
+
+				DebugLocation(352, 50);
+				Match('\n'); 
+				DebugLocation(352, 55);
+				_channel=Hidden;
+
+				}
+				break;
+			case 2:
+				DebugEnterAlt(2);
+				// GBX.g:353:9: '/*' ( options {greedy=false; } : . )* '*/'
+				{
+				DebugLocation(353, 9);
+				Match("/*"); 
+
+				DebugLocation(353, 14);
+				// GBX.g:353:14: ( options {greedy=false; } : . )*
+				try { DebugEnterSubRule(8);
+				while (true)
+				{
+					int alt8=2;
+					try { DebugEnterDecision(8, false);
+					int LA8_0 = input.LA(1);
+
+					if ((LA8_0=='*'))
+					{
+						int LA8_1 = input.LA(2);
+
+						if ((LA8_1=='/'))
+						{
+							alt8 = 2;
+						}
+						else if (((LA8_1>='\u0000' && LA8_1<='.')||(LA8_1>='0' && LA8_1<='\uFFFF')))
+						{
+							alt8 = 1;
+						}
+
+
+					}
+					else if (((LA8_0>='\u0000' && LA8_0<=')')||(LA8_0>='+' && LA8_0<='\uFFFF')))
+					{
+						alt8 = 1;
+					}
+
+
+					} finally { DebugExitDecision(8); }
+					switch ( alt8 )
+					{
+					case 1:
+						DebugEnterAlt(1);
+						// GBX.g:353:42: .
+						{
+						DebugLocation(353, 42);
+						MatchAny(); 
+
+						}
+						break;
+
+					default:
+						goto loop8;
+					}
+				}
+
+				loop8:
+					;
+
+				} finally { DebugExitSubRule(8); }
+
+				DebugLocation(353, 47);
+				Match("*/"); 
+
+				DebugLocation(353, 52);
+				_channel=Hidden;
+
+				}
+				break;
+
+			}
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("COMMENT", 116);
+			LeaveRule("COMMENT", 116);
+			LeaveRule_COMMENT();
+		}
+	}
+	// $ANTLR end "COMMENT"
+
+	partial void EnterRule_INT();
+	partial void LeaveRule_INT();
+
+	// $ANTLR start "INT"
+	[GrammarRule("INT")]
+	private void mINT()
+	{
+		EnterRule_INT();
+		EnterRule("INT", 117);
+		TraceIn("INT", 117);
+		try
+		{
+			// GBX.g:357:8: ( ( '0' .. '9' )+ )
+			DebugEnterAlt(1);
+			// GBX.g:357:10: ( '0' .. '9' )+
+			{
+			DebugLocation(357, 10);
+			// GBX.g:357:10: ( '0' .. '9' )+
+			int cnt10=0;
+			try { DebugEnterSubRule(10);
+			while (true)
+			{
+				int alt10=2;
+				try { DebugEnterDecision(10, false);
+				int LA10_0 = input.LA(1);
+
+				if (((LA10_0>='0' && LA10_0<='9')))
+				{
+					alt10 = 1;
+				}
+
+
+				} finally { DebugExitDecision(10); }
+				switch (alt10)
+				{
+				case 1:
+					DebugEnterAlt(1);
+					// GBX.g:
+					{
+					DebugLocation(357, 10);
+					input.Consume();
+
+
+					}
+					break;
+
+				default:
+					if (cnt10 >= 1)
+						goto loop10;
+
+					EarlyExitException eee10 = new EarlyExitException( 10, input );
+					DebugRecognitionException(eee10);
+					throw eee10;
+				}
+				cnt10++;
+			}
+			loop10:
+				;
+
+			} finally { DebugExitSubRule(10); }
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("INT", 117);
+			LeaveRule("INT", 117);
+			LeaveRule_INT();
+		}
+	}
+	// $ANTLR end "INT"
+
+	partial void EnterRule_HEX_NUMBER();
+	partial void LeaveRule_HEX_NUMBER();
+
+	// $ANTLR start "HEX_NUMBER"
+	[GrammarRule("HEX_NUMBER")]
+	private void mHEX_NUMBER()
+	{
+		EnterRule_HEX_NUMBER();
+		EnterRule("HEX_NUMBER", 118);
+		TraceIn("HEX_NUMBER", 118);
+		try
+		{
+			// GBX.g:359:13: ( '$' ( HEX_DIGIT )+ | '0' 'x' ( HEX_DIGIT )+ )
+			int alt13=2;
+			try { DebugEnterDecision(13, false);
+			int LA13_0 = input.LA(1);
+
+			if ((LA13_0=='$'))
+			{
+				alt13 = 1;
+			}
+			else if ((LA13_0=='0'))
+			{
+				alt13 = 2;
+			}
+			else
+			{
+				NoViableAltException nvae = new NoViableAltException("", 13, 0, input);
+				DebugRecognitionException(nvae);
+				throw nvae;
+			}
+			} finally { DebugExitDecision(13); }
+			switch (alt13)
+			{
+			case 1:
+				DebugEnterAlt(1);
+				// GBX.g:359:15: '$' ( HEX_DIGIT )+
+				{
+				DebugLocation(359, 15);
+				Match('$'); 
+				DebugLocation(359, 18);
+				// GBX.g:359:18: ( HEX_DIGIT )+
+				int cnt11=0;
+				try { DebugEnterSubRule(11);
+				while (true)
+				{
+					int alt11=2;
+					try { DebugEnterDecision(11, false);
+					int LA11_0 = input.LA(1);
+
+					if (((LA11_0>='0' && LA11_0<='9')||(LA11_0>='a' && LA11_0<='f')))
+					{
+						alt11 = 1;
+					}
+
+
+					} finally { DebugExitDecision(11); }
+					switch (alt11)
+					{
+					case 1:
+						DebugEnterAlt(1);
+						// GBX.g:
+						{
+						DebugLocation(359, 18);
+						input.Consume();
+
+
+						}
+						break;
+
+					default:
+						if (cnt11 >= 1)
+							goto loop11;
+
+						EarlyExitException eee11 = new EarlyExitException( 11, input );
+						DebugRecognitionException(eee11);
+						throw eee11;
+					}
+					cnt11++;
+				}
+				loop11:
+					;
+
+				} finally { DebugExitSubRule(11); }
+
+
+				}
+				break;
+			case 2:
+				DebugEnterAlt(2);
+				// GBX.g:360:7: '0' 'x' ( HEX_DIGIT )+
+				{
+				DebugLocation(360, 7);
+				Match('0'); 
+				DebugLocation(360, 10);
+				Match('x'); 
+				DebugLocation(360, 13);
+				// GBX.g:360:13: ( HEX_DIGIT )+
+				int cnt12=0;
+				try { DebugEnterSubRule(12);
+				while (true)
+				{
+					int alt12=2;
+					try { DebugEnterDecision(12, false);
+					int LA12_0 = input.LA(1);
+
+					if (((LA12_0>='0' && LA12_0<='9')||(LA12_0>='a' && LA12_0<='f')))
+					{
+						alt12 = 1;
+					}
+
+
+					} finally { DebugExitDecision(12); }
+					switch (alt12)
+					{
+					case 1:
+						DebugEnterAlt(1);
+						// GBX.g:
+						{
+						DebugLocation(360, 13);
+						input.Consume();
+
+
+						}
+						break;
+
+					default:
+						if (cnt12 >= 1)
+							goto loop12;
+
+						EarlyExitException eee12 = new EarlyExitException( 12, input );
+						DebugRecognitionException(eee12);
+						throw eee12;
+					}
+					cnt12++;
+				}
+				loop12:
+					;
+
+				} finally { DebugExitSubRule(12); }
+
+
+				}
+				break;
+
+			}
+		}
+		finally
+		{
+			TraceOut("HEX_NUMBER", 118);
+			LeaveRule("HEX_NUMBER", 118);
+			LeaveRule_HEX_NUMBER();
+		}
+	}
+	// $ANTLR end "HEX_NUMBER"
+
+	partial void EnterRule_BIN_NUMBER();
+	partial void LeaveRule_BIN_NUMBER();
+
+	// $ANTLR start "BIN_NUMBER"
+	[GrammarRule("BIN_NUMBER")]
+	private void mBIN_NUMBER()
+	{
+		EnterRule_BIN_NUMBER();
+		EnterRule("BIN_NUMBER", 119);
+		TraceIn("BIN_NUMBER", 119);
+		try
+		{
+			// GBX.g:362:13: ( '%' ( BIN_DIGIT )+ | '0' 'b' ( BIN_DIGIT )+ )
+			int alt16=2;
+			try { DebugEnterDecision(16, false);
+			int LA16_0 = input.LA(1);
+
+			if ((LA16_0=='%'))
+			{
+				alt16 = 1;
+			}
+			else if ((LA16_0=='0'))
+			{
+				alt16 = 2;
+			}
+			else
+			{
+				NoViableAltException nvae = new NoViableAltException("", 16, 0, input);
+				DebugRecognitionException(nvae);
+				throw nvae;
+			}
+			} finally { DebugExitDecision(16); }
+			switch (alt16)
+			{
+			case 1:
+				DebugEnterAlt(1);
+				// GBX.g:362:15: '%' ( BIN_DIGIT )+
+				{
+				DebugLocation(362, 15);
+				Match('%'); 
+				DebugLocation(362, 18);
+				// GBX.g:362:18: ( BIN_DIGIT )+
+				int cnt14=0;
+				try { DebugEnterSubRule(14);
+				while (true)
+				{
+					int alt14=2;
+					try { DebugEnterDecision(14, false);
+					int LA14_0 = input.LA(1);
+
+					if (((LA14_0>='0' && LA14_0<='1')))
+					{
+						alt14 = 1;
+					}
+
+
+					} finally { DebugExitDecision(14); }
+					switch (alt14)
+					{
+					case 1:
+						DebugEnterAlt(1);
+						// GBX.g:
+						{
+						DebugLocation(362, 18);
+						input.Consume();
+
+
+						}
+						break;
+
+					default:
+						if (cnt14 >= 1)
+							goto loop14;
+
+						EarlyExitException eee14 = new EarlyExitException( 14, input );
+						DebugRecognitionException(eee14);
+						throw eee14;
+					}
+					cnt14++;
+				}
+				loop14:
+					;
+
+				} finally { DebugExitSubRule(14); }
+
+
+				}
+				break;
+			case 2:
+				DebugEnterAlt(2);
+				// GBX.g:363:7: '0' 'b' ( BIN_DIGIT )+
+				{
+				DebugLocation(363, 7);
+				Match('0'); 
+				DebugLocation(363, 10);
+				Match('b'); 
+				DebugLocation(363, 13);
+				// GBX.g:363:13: ( BIN_DIGIT )+
+				int cnt15=0;
+				try { DebugEnterSubRule(15);
+				while (true)
+				{
+					int alt15=2;
+					try { DebugEnterDecision(15, false);
+					int LA15_0 = input.LA(1);
+
+					if (((LA15_0>='0' && LA15_0<='1')))
+					{
+						alt15 = 1;
+					}
+
+
+					} finally { DebugExitDecision(15); }
+					switch (alt15)
+					{
+					case 1:
+						DebugEnterAlt(1);
+						// GBX.g:
+						{
+						DebugLocation(363, 13);
+						input.Consume();
+
+
+						}
+						break;
+
+					default:
+						if (cnt15 >= 1)
+							goto loop15;
+
+						EarlyExitException eee15 = new EarlyExitException( 15, input );
+						DebugRecognitionException(eee15);
+						throw eee15;
+					}
+					cnt15++;
+				}
+				loop15:
+					;
+
+				} finally { DebugExitSubRule(15); }
+
+
+				}
+				break;
+
+			}
+		}
+		finally
+		{
+			TraceOut("BIN_NUMBER", 119);
+			LeaveRule("BIN_NUMBER", 119);
+			LeaveRule_BIN_NUMBER();
+		}
+	}
+	// $ANTLR end "BIN_NUMBER"
+
+	partial void EnterRule_OCT_NUMBER();
+	partial void LeaveRule_OCT_NUMBER();
+
+	// $ANTLR start "OCT_NUMBER"
+	[GrammarRule("OCT_NUMBER")]
+	private void mOCT_NUMBER()
+	{
+		EnterRule_OCT_NUMBER();
+		EnterRule("OCT_NUMBER", 120);
+		TraceIn("OCT_NUMBER", 120);
+		try
+		{
+			// GBX.g:365:13: ( '&' ( OCT_DIGIT )+ | '0' 'o' ( OCT_DIGIT )+ )
+			int alt19=2;
+			try { DebugEnterDecision(19, false);
+			int LA19_0 = input.LA(1);
+
+			if ((LA19_0=='&'))
+			{
+				alt19 = 1;
+			}
+			else if ((LA19_0=='0'))
+			{
+				alt19 = 2;
+			}
+			else
+			{
+				NoViableAltException nvae = new NoViableAltException("", 19, 0, input);
+				DebugRecognitionException(nvae);
+				throw nvae;
+			}
+			} finally { DebugExitDecision(19); }
+			switch (alt19)
+			{
+			case 1:
+				DebugEnterAlt(1);
+				// GBX.g:365:15: '&' ( OCT_DIGIT )+
+				{
+				DebugLocation(365, 15);
+				Match('&'); 
+				DebugLocation(365, 18);
+				// GBX.g:365:18: ( OCT_DIGIT )+
+				int cnt17=0;
+				try { DebugEnterSubRule(17);
+				while (true)
+				{
+					int alt17=2;
+					try { DebugEnterDecision(17, false);
+					int LA17_0 = input.LA(1);
+
+					if (((LA17_0>='0' && LA17_0<='7')))
+					{
+						alt17 = 1;
+					}
+
+
+					} finally { DebugExitDecision(17); }
+					switch (alt17)
+					{
+					case 1:
+						DebugEnterAlt(1);
+						// GBX.g:
+						{
+						DebugLocation(365, 18);
+						input.Consume();
+
+
+						}
+						break;
+
+					default:
+						if (cnt17 >= 1)
+							goto loop17;
+
+						EarlyExitException eee17 = new EarlyExitException( 17, input );
+						DebugRecognitionException(eee17);
+						throw eee17;
+					}
+					cnt17++;
+				}
+				loop17:
+					;
+
+				} finally { DebugExitSubRule(17); }
+
+
+				}
+				break;
+			case 2:
+				DebugEnterAlt(2);
+				// GBX.g:366:7: '0' 'o' ( OCT_DIGIT )+
+				{
+				DebugLocation(366, 7);
+				Match('0'); 
+				DebugLocation(366, 10);
+				Match('o'); 
+				DebugLocation(366, 13);
+				// GBX.g:366:13: ( OCT_DIGIT )+
+				int cnt18=0;
+				try { DebugEnterSubRule(18);
+				while (true)
+				{
+					int alt18=2;
+					try { DebugEnterDecision(18, false);
+					int LA18_0 = input.LA(1);
+
+					if (((LA18_0>='0' && LA18_0<='7')))
+					{
+						alt18 = 1;
+					}
+
+
+					} finally { DebugExitDecision(18); }
+					switch (alt18)
+					{
+					case 1:
+						DebugEnterAlt(1);
+						// GBX.g:
+						{
+						DebugLocation(366, 13);
+						input.Consume();
+
+
+						}
+						break;
+
+					default:
+						if (cnt18 >= 1)
+							goto loop18;
+
+						EarlyExitException eee18 = new EarlyExitException( 18, input );
+						DebugRecognitionException(eee18);
+						throw eee18;
+					}
+					cnt18++;
+				}
+				loop18:
+					;
+
+				} finally { DebugExitSubRule(18); }
+
+
+				}
+				break;
+
+			}
+		}
+		finally
+		{
+			TraceOut("OCT_NUMBER", 120);
+			LeaveRule("OCT_NUMBER", 120);
+			LeaveRule_OCT_NUMBER();
+		}
+	}
+	// $ANTLR end "OCT_NUMBER"
+
+	partial void EnterRule_HEX_DIGIT();
+	partial void LeaveRule_HEX_DIGIT();
+
+	// $ANTLR start "HEX_DIGIT"
+	[GrammarRule("HEX_DIGIT")]
+	private void mHEX_DIGIT()
+	{
+		EnterRule_HEX_DIGIT();
+		EnterRule("HEX_DIGIT", 121);
+		TraceIn("HEX_DIGIT", 121);
+		try
+		{
+			// GBX.g:368:13: ( ( '0' .. '9' | 'a' .. 'f' ) )
+			DebugEnterAlt(1);
+			// GBX.g:
+			{
+			DebugLocation(368, 13);
+			if ((input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='a' && input.LA(1)<='f'))
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("HEX_DIGIT", 121);
+			LeaveRule("HEX_DIGIT", 121);
+			LeaveRule_HEX_DIGIT();
+		}
+	}
+	// $ANTLR end "HEX_DIGIT"
+
+	partial void EnterRule_OCT_DIGIT();
+	partial void LeaveRule_OCT_DIGIT();
+
+	// $ANTLR start "OCT_DIGIT"
+	[GrammarRule("OCT_DIGIT")]
+	private void mOCT_DIGIT()
+	{
+		EnterRule_OCT_DIGIT();
+		EnterRule("OCT_DIGIT", 122);
+		TraceIn("OCT_DIGIT", 122);
+		try
+		{
+			// GBX.g:370:12: ( ( '0' .. '7' ) )
+			DebugEnterAlt(1);
+			// GBX.g:
+			{
+			DebugLocation(370, 12);
+			if ((input.LA(1)>='0' && input.LA(1)<='7'))
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("OCT_DIGIT", 122);
+			LeaveRule("OCT_DIGIT", 122);
+			LeaveRule_OCT_DIGIT();
+		}
+	}
+	// $ANTLR end "OCT_DIGIT"
+
+	partial void EnterRule_BIN_DIGIT();
+	partial void LeaveRule_BIN_DIGIT();
+
+	// $ANTLR start "BIN_DIGIT"
+	[GrammarRule("BIN_DIGIT")]
+	private void mBIN_DIGIT()
+	{
+		EnterRule_BIN_DIGIT();
+		EnterRule("BIN_DIGIT", 123);
+		TraceIn("BIN_DIGIT", 123);
+		try
+		{
+			// GBX.g:372:12: ( ( '0' .. '1' ) )
+			DebugEnterAlt(1);
+			// GBX.g:
+			{
+			DebugLocation(372, 12);
+			if ((input.LA(1)>='0' && input.LA(1)<='1'))
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("BIN_DIGIT", 123);
+			LeaveRule("BIN_DIGIT", 123);
+			LeaveRule_BIN_DIGIT();
+		}
+	}
+	// $ANTLR end "BIN_DIGIT"
+
+	partial void EnterRule_ESC_SEQ();
+	partial void LeaveRule_ESC_SEQ();
+
+	// $ANTLR start "ESC_SEQ"
+	[GrammarRule("ESC_SEQ")]
+	private void mESC_SEQ()
+	{
+		EnterRule_ESC_SEQ();
+		EnterRule("ESC_SEQ", 124);
+		TraceIn("ESC_SEQ", 124);
+		try
+		{
+			// GBX.g:375:11: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESC | OCTAL_ESC | X_ESCAPE )
+			int alt20=4;
+			try { DebugEnterDecision(20, false);
+			int LA20_0 = input.LA(1);
+
+			if ((LA20_0=='\\'))
+			{
+				switch (input.LA(2))
+				{
+				case '\"':
+				case '\'':
+				case '\\':
+				case 'b':
+				case 'f':
+				case 'n':
+				case 'r':
+				case 't':
+					{
+					alt20 = 1;
+					}
+					break;
+				case 'u':
+					{
+					alt20 = 2;
+					}
+					break;
+				case '0':
+				case '1':
+				case '2':
+				case '3':
+				case '4':
+				case '5':
+				case '6':
+				case '7':
+					{
+					alt20 = 3;
+					}
+					break;
+				case 'x':
+					{
+					alt20 = 4;
+					}
+					break;
+				default:
+					{
+						NoViableAltException nvae = new NoViableAltException("", 20, 1, input);
+						DebugRecognitionException(nvae);
+						throw nvae;
+					}
+				}
+
+			}
+			else
+			{
+				NoViableAltException nvae = new NoViableAltException("", 20, 0, input);
+				DebugRecognitionException(nvae);
+				throw nvae;
+			}
+			} finally { DebugExitDecision(20); }
+			switch (alt20)
+			{
+			case 1:
+				DebugEnterAlt(1);
+				// GBX.g:375:15: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
+				{
+				DebugLocation(375, 15);
+				Match('\\'); 
+				DebugLocation(375, 20);
+				input.Consume();
+
+
+				}
+				break;
+			case 2:
+				DebugEnterAlt(2);
+				// GBX.g:376:9: UNICODE_ESC
+				{
+				DebugLocation(376, 9);
+				mUNICODE_ESC(); 
+
+				}
+				break;
+			case 3:
+				DebugEnterAlt(3);
+				// GBX.g:377:9: OCTAL_ESC
+				{
+				DebugLocation(377, 9);
+				mOCTAL_ESC(); 
+
+				}
+				break;
+			case 4:
+				DebugEnterAlt(4);
+				// GBX.g:378:7: X_ESCAPE
+				{
+				DebugLocation(378, 7);
+				mX_ESCAPE(); 
+
+				}
+				break;
+
+			}
+		}
+		finally
+		{
+			TraceOut("ESC_SEQ", 124);
+			LeaveRule("ESC_SEQ", 124);
+			LeaveRule_ESC_SEQ();
+		}
+	}
+	// $ANTLR end "ESC_SEQ"
+
+	partial void EnterRule_OCTAL_ESC();
+	partial void LeaveRule_OCTAL_ESC();
+
+	// $ANTLR start "OCTAL_ESC"
+	[GrammarRule("OCTAL_ESC")]
+	private void mOCTAL_ESC()
+	{
+		EnterRule_OCTAL_ESC();
+		EnterRule("OCTAL_ESC", 125);
+		TraceIn("OCTAL_ESC", 125);
+		try
+		{
+			// GBX.g:380:12: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
+			int alt21=3;
+			try { DebugEnterDecision(21, false);
+			int LA21_0 = input.LA(1);
+
+			if ((LA21_0=='\\'))
+			{
+				int LA21_1 = input.LA(2);
+
+				if (((LA21_1>='0' && LA21_1<='3')))
+				{
+					int LA21_2 = input.LA(3);
+
+					if (((LA21_2>='0' && LA21_2<='7')))
+					{
+						int LA21_4 = input.LA(4);
+
+						if (((LA21_4>='0' && LA21_4<='7')))
+						{
+							alt21 = 1;
+						}
+						else
+						{
+							alt21 = 2;
+						}
+					}
+					else
+					{
+						alt21 = 3;
+					}
+				}
+				else if (((LA21_1>='4' && LA21_1<='7')))
+				{
+					int LA21_3 = input.LA(3);
+
+					if (((LA21_3>='0' && LA21_3<='7')))
+					{
+						alt21 = 2;
+					}
+					else
+					{
+						alt21 = 3;
+					}
+				}
+				else
+				{
+					NoViableAltException nvae = new NoViableAltException("", 21, 1, input);
+					DebugRecognitionException(nvae);
+					throw nvae;
+				}
+			}
+			else
+			{
+				NoViableAltException nvae = new NoViableAltException("", 21, 0, input);
+				DebugRecognitionException(nvae);
+				throw nvae;
+			}
+			} finally { DebugExitDecision(21); }
+			switch (alt21)
+			{
+			case 1:
+				DebugEnterAlt(1);
+				// GBX.g:380:16: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
+				{
+				DebugLocation(380, 16);
+				Match('\\'); 
+				DebugLocation(380, 21);
+				input.Consume();
+
+				DebugLocation(380, 32);
+				input.Consume();
+
+				DebugLocation(380, 43);
+				input.Consume();
+
+
+				}
+				break;
+			case 2:
+				DebugEnterAlt(2);
+				// GBX.g:381:9: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
+				{
+				DebugLocation(381, 9);
+				Match('\\'); 
+				DebugLocation(381, 14);
+				input.Consume();
+
+				DebugLocation(381, 25);
+				input.Consume();
+
+
+				}
+				break;
+			case 3:
+				DebugEnterAlt(3);
+				// GBX.g:382:9: '\\\\' ( '0' .. '7' )
+				{
+				DebugLocation(382, 9);
+				Match('\\'); 
+				DebugLocation(382, 14);
+				input.Consume();
+
+
+				}
+				break;
+
+			}
+		}
+		finally
+		{
+			TraceOut("OCTAL_ESC", 125);
+			LeaveRule("OCTAL_ESC", 125);
+			LeaveRule_OCTAL_ESC();
+		}
+	}
+	// $ANTLR end "OCTAL_ESC"
+
+	partial void EnterRule_UNICODE_ESC();
+	partial void LeaveRule_UNICODE_ESC();
+
+	// $ANTLR start "UNICODE_ESC"
+	[GrammarRule("UNICODE_ESC")]
+	private void mUNICODE_ESC()
+	{
+		EnterRule_UNICODE_ESC();
+		EnterRule("UNICODE_ESC", 126);
+		TraceIn("UNICODE_ESC", 126);
+		try
+		{
+			// GBX.g:384:14: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
+			DebugEnterAlt(1);
+			// GBX.g:384:18: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+			{
+			DebugLocation(384, 18);
+			Match('\\'); 
+			DebugLocation(384, 23);
+			Match('u'); 
+			DebugLocation(384, 27);
+			mHEX_DIGIT(); 
+			DebugLocation(384, 37);
+			mHEX_DIGIT(); 
+			DebugLocation(384, 47);
+			mHEX_DIGIT(); 
+			DebugLocation(384, 57);
+			mHEX_DIGIT(); 
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("UNICODE_ESC", 126);
+			LeaveRule("UNICODE_ESC", 126);
+			LeaveRule_UNICODE_ESC();
+		}
+	}
+	// $ANTLR end "UNICODE_ESC"
+
+	partial void EnterRule_X_ESCAPE();
+	partial void LeaveRule_X_ESCAPE();
+
+	// $ANTLR start "X_ESCAPE"
+	[GrammarRule("X_ESCAPE")]
+	private void mX_ESCAPE()
+	{
+		EnterRule_X_ESCAPE();
+		EnterRule("X_ESCAPE", 127);
+		TraceIn("X_ESCAPE", 127);
+		try
+		{
+			// GBX.g:387:11: ( '\\\\' 'x' ( HEX_DIGIT )* )
+			DebugEnterAlt(1);
+			// GBX.g:387:13: '\\\\' 'x' ( HEX_DIGIT )*
+			{
+			DebugLocation(387, 13);
+			Match('\\'); 
+			DebugLocation(387, 18);
+			Match('x'); 
+			DebugLocation(387, 22);
+			// GBX.g:387:22: ( HEX_DIGIT )*
+			try { DebugEnterSubRule(22);
+			while (true)
+			{
+				int alt22=2;
+				try { DebugEnterDecision(22, false);
+				int LA22_0 = input.LA(1);
+
+				if (((LA22_0>='0' && LA22_0<='9')||(LA22_0>='a' && LA22_0<='f')))
+				{
+					alt22 = 1;
+				}
+
+
+				} finally { DebugExitDecision(22); }
+				switch ( alt22 )
+				{
+				case 1:
+					DebugEnterAlt(1);
+					// GBX.g:
+					{
+					DebugLocation(387, 22);
+					input.Consume();
+
+
+					}
+					break;
+
+				default:
+					goto loop22;
+				}
+			}
+
+			loop22:
+				;
+
+			} finally { DebugExitSubRule(22); }
+
+
+			}
+
+		}
+		finally
+		{
+			TraceOut("X_ESCAPE", 127);
+			LeaveRule("X_ESCAPE", 127);
+			LeaveRule_X_ESCAPE();
+		}
+	}
+	// $ANTLR end "X_ESCAPE"
+
+	partial void EnterRule_WS();
+	partial void LeaveRule_WS();
+
+	// $ANTLR start "WS"
+	[GrammarRule("WS")]
+	private void mWS()
+	{
+		EnterRule_WS();
+		EnterRule("WS", 128);
+		TraceIn("WS", 128);
+		try
+		{
+			int _type = WS;
+			int _channel = DefaultTokenChannel;
+			// GBX.g:388:7: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
+			DebugEnterAlt(1);
+			// GBX.g:388:11: ( ' ' | '\\t' | '\\r' | '\\n' )
+			{
+			DebugLocation(388, 11);
+			if ((input.LA(1)>='\t' && input.LA(1)<='\n')||input.LA(1)=='\r'||input.LA(1)==' ')
+			{
+				input.Consume();
+			}
+			else
+			{
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				DebugRecognitionException(mse);
+				Recover(mse);
+				throw mse;
+			}
+
+			DebugLocation(388, 36);
+			_channel=Hidden;
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("WS", 128);
+			LeaveRule("WS", 128);
+			LeaveRule_WS();
+		}
+	}
+	// $ANTLR end "WS"
+
+	public override void mTokens()
+	{
+		// GBX.g:1:8: ( T__127 | T__128 | T__129 | T__130 | T__131 | T__132 | T__133 | T__134 | T__135 | T__136 | T__137 | T__138 | T__139 | T__140 | T__141 | T__142 | T__143 | T__144 | T__145 | T__146 | T__147 | T__148 | T__149 | T__150 | T__151 | T__152 | T__153 | T__154 | T__155 | T__156 | MACROSTART | MACROEND | DB | DW | DD | DQ | INCLUDE_TOKEN | INCBIN_TOKEN | EQU | INST_ADC | INST_ADD | INST_AND | INST_BIT | INST_CALL | INST_CCF | INST_CP | INST_CPL | INST_DAA | INST_DEC | INST_DI | INST_EI | INST_HALT | INST_INC | INST_JP | INST_JR | INST_LDHL | INST_LDIO | INST_LDI | INST_LDD | INST_LD | INST_NOP | INST_OR | INST_POP | INST_PUSH | INST_RES | INST_RET | INST_RETI | INST_RLA | INST_RL | INST_RLCA | INST_RLC | INST_RRA | INST_RR | INST_RRCA | INST_RRC | INST_RST | INST_SBC | INST_SCF | INST_SET | INST_SLA | INST_SRA | INST_SRL | INST_STOP | INST_SUB | INST_SWAP | INST_XOR | RR_AF | RR_BC | RR_DE | RR_HL | RR_SP | CC_NC | CC_NZ | CC_Z | REG_A | REG_B | REG_C | REG_D | REG_E | REG_H | REG_L | LOC_LABEL_RAND | M_ARG1 | M_ARG2 | M_ARG3 | M_ARG4 | M_ARG5 | M_ARG6 | M_ARG7 | M_ARG8 | M_ARG9 | ID | NUMBER | STRING | CHAR | COMMENT | WS )
+		int alt23=117;
+		try { DebugEnterDecision(23, false);
+		try
+		{
+			alt23 = dfa23.Predict(input);
+		}
+		catch (NoViableAltException nvae)
+		{
+			DebugRecognitionException(nvae);
+			throw;
+		}
+		} finally { DebugExitDecision(23); }
+		switch (alt23)
+		{
+		case 1:
+			DebugEnterAlt(1);
+			// GBX.g:1:10: T__127
+			{
+			DebugLocation(1, 10);
+			mT__127(); 
+
+			}
+			break;
+		case 2:
+			DebugEnterAlt(2);
+			// GBX.g:1:17: T__128
+			{
+			DebugLocation(1, 17);
+			mT__128(); 
+
+			}
+			break;
+		case 3:
+			DebugEnterAlt(3);
+			// GBX.g:1:24: T__129
+			{
+			DebugLocation(1, 24);
+			mT__129(); 
+
+			}
+			break;
+		case 4:
+			DebugEnterAlt(4);
+			// GBX.g:1:31: T__130
+			{
+			DebugLocation(1, 31);
+			mT__130(); 
+
+			}
+			break;
+		case 5:
+			DebugEnterAlt(5);
+			// GBX.g:1:38: T__131
+			{
+			DebugLocation(1, 38);
+			mT__131(); 
+
+			}
+			break;
+		case 6:
+			DebugEnterAlt(6);
+			// GBX.g:1:45: T__132
+			{
+			DebugLocation(1, 45);
+			mT__132(); 
+
+			}
+			break;
+		case 7:
+			DebugEnterAlt(7);
+			// GBX.g:1:52: T__133
+			{
+			DebugLocation(1, 52);
+			mT__133(); 
+
+			}
+			break;
+		case 8:
+			DebugEnterAlt(8);
+			// GBX.g:1:59: T__134
+			{
+			DebugLocation(1, 59);
+			mT__134(); 
+
+			}
+			break;
+		case 9:
+			DebugEnterAlt(9);
+			// GBX.g:1:66: T__135
+			{
+			DebugLocation(1, 66);
+			mT__135(); 
+
+			}
+			break;
+		case 10:
+			DebugEnterAlt(10);
+			// GBX.g:1:73: T__136
+			{
+			DebugLocation(1, 73);
+			mT__136(); 
+
+			}
+			break;
+		case 11:
+			DebugEnterAlt(11);
+			// GBX.g:1:80: T__137
+			{
+			DebugLocation(1, 80);
+			mT__137(); 
+
+			}
+			break;
+		case 12:
+			DebugEnterAlt(12);
+			// GBX.g:1:87: T__138
+			{
+			DebugLocation(1, 87);
+			mT__138(); 
+
+			}
+			break;
+		case 13:
+			DebugEnterAlt(13);
+			// GBX.g:1:94: T__139
+			{
+			DebugLocation(1, 94);
+			mT__139(); 
+
+			}
+			break;
+		case 14:
+			DebugEnterAlt(14);
+			// GBX.g:1:101: T__140
+			{
+			DebugLocation(1, 101);
+			mT__140(); 
+
+			}
+			break;
+		case 15:
+			DebugEnterAlt(15);
+			// GBX.g:1:108: T__141
+			{
+			DebugLocation(1, 108);
+			mT__141(); 
+
+			}
+			break;
+		case 16:
+			DebugEnterAlt(16);
+			// GBX.g:1:115: T__142
+			{
+			DebugLocation(1, 115);
+			mT__142(); 
+
+			}
+			break;
+		case 17:
+			DebugEnterAlt(17);
+			// GBX.g:1:122: T__143
+			{
+			DebugLocation(1, 122);
+			mT__143(); 
+
+			}
+			break;
+		case 18:
+			DebugEnterAlt(18);
+			// GBX.g:1:129: T__144
+			{
+			DebugLocation(1, 129);
+			mT__144(); 
+
+			}
+			break;
+		case 19:
+			DebugEnterAlt(19);
+			// GBX.g:1:136: T__145
+			{
+			DebugLocation(1, 136);
+			mT__145(); 
+
+			}
+			break;
+		case 20:
+			DebugEnterAlt(20);
+			// GBX.g:1:143: T__146
+			{
+			DebugLocation(1, 143);
+			mT__146(); 
+
+			}
+			break;
+		case 21:
+			DebugEnterAlt(21);
+			// GBX.g:1:150: T__147
+			{
+			DebugLocation(1, 150);
+			mT__147(); 
+
+			}
+			break;
+		case 22:
+			DebugEnterAlt(22);
+			// GBX.g:1:157: T__148
+			{
+			DebugLocation(1, 157);
+			mT__148(); 
+
+			}
+			break;
+		case 23:
+			DebugEnterAlt(23);
+			// GBX.g:1:164: T__149
+			{
+			DebugLocation(1, 164);
+			mT__149(); 
+
+			}
+			break;
+		case 24:
+			DebugEnterAlt(24);
+			// GBX.g:1:171: T__150
+			{
+			DebugLocation(1, 171);
+			mT__150(); 
+
+			}
+			break;
+		case 25:
+			DebugEnterAlt(25);
+			// GBX.g:1:178: T__151
+			{
+			DebugLocation(1, 178);
+			mT__151(); 
+
+			}
+			break;
+		case 26:
+			DebugEnterAlt(26);
+			// GBX.g:1:185: T__152
+			{
+			DebugLocation(1, 185);
+			mT__152(); 
+
+			}
+			break;
+		case 27:
+			DebugEnterAlt(27);
+			// GBX.g:1:192: T__153
+			{
+			DebugLocation(1, 192);
+			mT__153(); 
+
+			}
+			break;
+		case 28:
+			DebugEnterAlt(28);
+			// GBX.g:1:199: T__154
+			{
+			DebugLocation(1, 199);
+			mT__154(); 
+
+			}
+			break;
+		case 29:
+			DebugEnterAlt(29);
+			// GBX.g:1:206: T__155
+			{
+			DebugLocation(1, 206);
+			mT__155(); 
+
+			}
+			break;
+		case 30:
+			DebugEnterAlt(30);
+			// GBX.g:1:213: T__156
+			{
+			DebugLocation(1, 213);
+			mT__156(); 
+
+			}
+			break;
+		case 31:
+			DebugEnterAlt(31);
+			// GBX.g:1:220: MACROSTART
+			{
+			DebugLocation(1, 220);
+			mMACROSTART(); 
+
+			}
+			break;
+		case 32:
+			DebugEnterAlt(32);
+			// GBX.g:1:231: MACROEND
+			{
+			DebugLocation(1, 231);
+			mMACROEND(); 
+
+			}
+			break;
+		case 33:
+			DebugEnterAlt(33);
+			// GBX.g:1:240: DB
+			{
+			DebugLocation(1, 240);
+			mDB(); 
+
+			}
+			break;
+		case 34:
+			DebugEnterAlt(34);
+			// GBX.g:1:243: DW
+			{
+			DebugLocation(1, 243);
+			mDW(); 
+
+			}
+			break;
+		case 35:
+			DebugEnterAlt(35);
+			// GBX.g:1:246: DD
+			{
+			DebugLocation(1, 246);
+			mDD(); 
+
+			}
+			break;
+		case 36:
+			DebugEnterAlt(36);
+			// GBX.g:1:249: DQ
+			{
+			DebugLocation(1, 249);
+			mDQ(); 
+
+			}
+			break;
+		case 37:
+			DebugEnterAlt(37);
+			// GBX.g:1:252: INCLUDE_TOKEN
+			{
+			DebugLocation(1, 252);
+			mINCLUDE_TOKEN(); 
+
+			}
+			break;
+		case 38:
+			DebugEnterAlt(38);
+			// GBX.g:1:266: INCBIN_TOKEN
+			{
+			DebugLocation(1, 266);
+			mINCBIN_TOKEN(); 
+
+			}
+			break;
+		case 39:
+			DebugEnterAlt(39);
+			// GBX.g:1:279: EQU
+			{
+			DebugLocation(1, 279);
+			mEQU(); 
+
+			}
+			break;
+		case 40:
+			DebugEnterAlt(40);
+			// GBX.g:1:283: INST_ADC
+			{
+			DebugLocation(1, 283);
+			mINST_ADC(); 
+
+			}
+			break;
+		case 41:
+			DebugEnterAlt(41);
+			// GBX.g:1:292: INST_ADD
+			{
+			DebugLocation(1, 292);
+			mINST_ADD(); 
+
+			}
+			break;
+		case 42:
+			DebugEnterAlt(42);
+			// GBX.g:1:301: INST_AND
+			{
+			DebugLocation(1, 301);
+			mINST_AND(); 
+
+			}
+			break;
+		case 43:
+			DebugEnterAlt(43);
+			// GBX.g:1:310: INST_BIT
+			{
+			DebugLocation(1, 310);
+			mINST_BIT(); 
+
+			}
+			break;
+		case 44:
+			DebugEnterAlt(44);
+			// GBX.g:1:319: INST_CALL
+			{
+			DebugLocation(1, 319);
+			mINST_CALL(); 
+
+			}
+			break;
+		case 45:
+			DebugEnterAlt(45);
+			// GBX.g:1:329: INST_CCF
+			{
+			DebugLocation(1, 329);
+			mINST_CCF(); 
+
+			}
+			break;
+		case 46:
+			DebugEnterAlt(46);
+			// GBX.g:1:338: INST_CP
+			{
+			DebugLocation(1, 338);
+			mINST_CP(); 
+
+			}
+			break;
+		case 47:
+			DebugEnterAlt(47);
+			// GBX.g:1:346: INST_CPL
+			{
+			DebugLocation(1, 346);
+			mINST_CPL(); 
+
+			}
+			break;
+		case 48:
+			DebugEnterAlt(48);
+			// GBX.g:1:355: INST_DAA
+			{
+			DebugLocation(1, 355);
+			mINST_DAA(); 
+
+			}
+			break;
+		case 49:
+			DebugEnterAlt(49);
+			// GBX.g:1:364: INST_DEC
+			{
+			DebugLocation(1, 364);
+			mINST_DEC(); 
+
+			}
+			break;
+		case 50:
+			DebugEnterAlt(50);
+			// GBX.g:1:373: INST_DI
+			{
+			DebugLocation(1, 373);
+			mINST_DI(); 
+
+			}
+			break;
+		case 51:
+			DebugEnterAlt(51);
+			// GBX.g:1:381: INST_EI
+			{
+			DebugLocation(1, 381);
+			mINST_EI(); 
+
+			}
+			break;
+		case 52:
+			DebugEnterAlt(52);
+			// GBX.g:1:389: INST_HALT
+			{
+			DebugLocation(1, 389);
+			mINST_HALT(); 
+
+			}
+			break;
+		case 53:
+			DebugEnterAlt(53);
+			// GBX.g:1:399: INST_INC
+			{
+			DebugLocation(1, 399);
+			mINST_INC(); 
+
+			}
+			break;
+		case 54:
+			DebugEnterAlt(54);
+			// GBX.g:1:408: INST_JP
+			{
+			DebugLocation(1, 408);
+			mINST_JP(); 
+
+			}
+			break;
+		case 55:
+			DebugEnterAlt(55);
+			// GBX.g:1:416: INST_JR
+			{
+			DebugLocation(1, 416);
+			mINST_JR(); 
+
+			}
+			break;
+		case 56:
+			DebugEnterAlt(56);
+			// GBX.g:1:424: INST_LDHL
+			{
+			DebugLocation(1, 424);
+			mINST_LDHL(); 
+
+			}
+			break;
+		case 57:
+			DebugEnterAlt(57);
+			// GBX.g:1:434: INST_LDIO
+			{
+			DebugLocation(1, 434);
+			mINST_LDIO(); 
+
+			}
+			break;
+		case 58:
+			DebugEnterAlt(58);
+			// GBX.g:1:444: INST_LDI
+			{
+			DebugLocation(1, 444);
+			mINST_LDI(); 
+
+			}
+			break;
+		case 59:
+			DebugEnterAlt(59);
+			// GBX.g:1:453: INST_LDD
+			{
+			DebugLocation(1, 453);
+			mINST_LDD(); 
+
+			}
+			break;
+		case 60:
+			DebugEnterAlt(60);
+			// GBX.g:1:462: INST_LD
+			{
+			DebugLocation(1, 462);
+			mINST_LD(); 
+
+			}
+			break;
+		case 61:
+			DebugEnterAlt(61);
+			// GBX.g:1:470: INST_NOP
+			{
+			DebugLocation(1, 470);
+			mINST_NOP(); 
+
+			}
+			break;
+		case 62:
+			DebugEnterAlt(62);
+			// GBX.g:1:479: INST_OR
+			{
+			DebugLocation(1, 479);
+			mINST_OR(); 
+
+			}
+			break;
+		case 63:
+			DebugEnterAlt(63);
+			// GBX.g:1:487: INST_POP
+			{
+			DebugLocation(1, 487);
+			mINST_POP(); 
+
+			}
+			break;
+		case 64:
+			DebugEnterAlt(64);
+			// GBX.g:1:496: INST_PUSH
+			{
+			DebugLocation(1, 496);
+			mINST_PUSH(); 
+
+			}
+			break;
+		case 65:
+			DebugEnterAlt(65);
+			// GBX.g:1:506: INST_RES
+			{
+			DebugLocation(1, 506);
+			mINST_RES(); 
+
+			}
+			break;
+		case 66:
+			DebugEnterAlt(66);
+			// GBX.g:1:515: INST_RET
+			{
+			DebugLocation(1, 515);
+			mINST_RET(); 
+
+			}
+			break;
+		case 67:
+			DebugEnterAlt(67);
+			// GBX.g:1:524: INST_RETI
+			{
+			DebugLocation(1, 524);
+			mINST_RETI(); 
+
+			}
+			break;
+		case 68:
+			DebugEnterAlt(68);
+			// GBX.g:1:534: INST_RLA
+			{
+			DebugLocation(1, 534);
+			mINST_RLA(); 
+
+			}
+			break;
+		case 69:
+			DebugEnterAlt(69);
+			// GBX.g:1:543: INST_RL
+			{
+			DebugLocation(1, 543);
+			mINST_RL(); 
+
+			}
+			break;
+		case 70:
+			DebugEnterAlt(70);
+			// GBX.g:1:551: INST_RLCA
+			{
+			DebugLocation(1, 551);
+			mINST_RLCA(); 
+
+			}
+			break;
+		case 71:
+			DebugEnterAlt(71);
+			// GBX.g:1:561: INST_RLC
+			{
+			DebugLocation(1, 561);
+			mINST_RLC(); 
+
+			}
+			break;
+		case 72:
+			DebugEnterAlt(72);
+			// GBX.g:1:570: INST_RRA
+			{
+			DebugLocation(1, 570);
+			mINST_RRA(); 
+
+			}
+			break;
+		case 73:
+			DebugEnterAlt(73);
+			// GBX.g:1:579: INST_RR
+			{
+			DebugLocation(1, 579);
+			mINST_RR(); 
+
+			}
+			break;
+		case 74:
+			DebugEnterAlt(74);
+			// GBX.g:1:587: INST_RRCA
+			{
+			DebugLocation(1, 587);
+			mINST_RRCA(); 
+
+			}
+			break;
+		case 75:
+			DebugEnterAlt(75);
+			// GBX.g:1:597: INST_RRC
+			{
+			DebugLocation(1, 597);
+			mINST_RRC(); 
+
+			}
+			break;
+		case 76:
+			DebugEnterAlt(76);
+			// GBX.g:1:606: INST_RST
+			{
+			DebugLocation(1, 606);
+			mINST_RST(); 
+
+			}
+			break;
+		case 77:
+			DebugEnterAlt(77);
+			// GBX.g:1:615: INST_SBC
+			{
+			DebugLocation(1, 615);
+			mINST_SBC(); 
+
+			}
+			break;
+		case 78:
+			DebugEnterAlt(78);
+			// GBX.g:1:624: INST_SCF
+			{
+			DebugLocation(1, 624);
+			mINST_SCF(); 
+
+			}
+			break;
+		case 79:
+			DebugEnterAlt(79);
+			// GBX.g:1:633: INST_SET
+			{
+			DebugLocation(1, 633);
+			mINST_SET(); 
+
+			}
+			break;
+		case 80:
+			DebugEnterAlt(80);
+			// GBX.g:1:642: INST_SLA
+			{
+			DebugLocation(1, 642);
+			mINST_SLA(); 
+
+			}
+			break;
+		case 81:
+			DebugEnterAlt(81);
+			// GBX.g:1:651: INST_SRA
+			{
+			DebugLocation(1, 651);
+			mINST_SRA(); 
+
+			}
+			break;
+		case 82:
+			DebugEnterAlt(82);
+			// GBX.g:1:660: INST_SRL
+			{
+			DebugLocation(1, 660);
+			mINST_SRL(); 
+
+			}
+			break;
+		case 83:
+			DebugEnterAlt(83);
+			// GBX.g:1:669: INST_STOP
+			{
+			DebugLocation(1, 669);
+			mINST_STOP(); 
+
+			}
+			break;
+		case 84:
+			DebugEnterAlt(84);
+			// GBX.g:1:679: INST_SUB
+			{
+			DebugLocation(1, 679);
+			mINST_SUB(); 
+
+			}
+			break;
+		case 85:
+			DebugEnterAlt(85);
+			// GBX.g:1:688: INST_SWAP
+			{
+			DebugLocation(1, 688);
+			mINST_SWAP(); 
+
+			}
+			break;
+		case 86:
+			DebugEnterAlt(86);
+			// GBX.g:1:698: INST_XOR
+			{
+			DebugLocation(1, 698);
+			mINST_XOR(); 
+
+			}
+			break;
+		case 87:
+			DebugEnterAlt(87);
+			// GBX.g:1:707: RR_AF
+			{
+			DebugLocation(1, 707);
+			mRR_AF(); 
+
+			}
+			break;
+		case 88:
+			DebugEnterAlt(88);
+			// GBX.g:1:713: RR_BC
+			{
+			DebugLocation(1, 713);
+			mRR_BC(); 
+
+			}
+			break;
+		case 89:
+			DebugEnterAlt(89);
+			// GBX.g:1:719: RR_DE
+			{
+			DebugLocation(1, 719);
+			mRR_DE(); 
+
+			}
+			break;
+		case 90:
+			DebugEnterAlt(90);
+			// GBX.g:1:725: RR_HL
+			{
+			DebugLocation(1, 725);
+			mRR_HL(); 
+
+			}
+			break;
+		case 91:
+			DebugEnterAlt(91);
+			// GBX.g:1:731: RR_SP
+			{
+			DebugLocation(1, 731);
+			mRR_SP(); 
+
+			}
+			break;
+		case 92:
+			DebugEnterAlt(92);
+			// GBX.g:1:737: CC_NC
+			{
+			DebugLocation(1, 737);
+			mCC_NC(); 
+
+			}
+			break;
+		case 93:
+			DebugEnterAlt(93);
+			// GBX.g:1:743: CC_NZ
+			{
+			DebugLocation(1, 743);
+			mCC_NZ(); 
+
+			}
+			break;
+		case 94:
+			DebugEnterAlt(94);
+			// GBX.g:1:749: CC_Z
+			{
+			DebugLocation(1, 749);
+			mCC_Z(); 
+
+			}
+			break;
+		case 95:
+			DebugEnterAlt(95);
+			// GBX.g:1:754: REG_A
+			{
+			DebugLocation(1, 754);
+			mREG_A(); 
+
+			}
+			break;
+		case 96:
+			DebugEnterAlt(96);
+			// GBX.g:1:760: REG_B
+			{
+			DebugLocation(1, 760);
+			mREG_B(); 
+
+			}
+			break;
+		case 97:
+			DebugEnterAlt(97);
+			// GBX.g:1:766: REG_C
+			{
+			DebugLocation(1, 766);
+			mREG_C(); 
+
+			}
+			break;
+		case 98:
+			DebugEnterAlt(98);
+			// GBX.g:1:772: REG_D
+			{
+			DebugLocation(1, 772);
+			mREG_D(); 
+
+			}
+			break;
+		case 99:
+			DebugEnterAlt(99);
+			// GBX.g:1:778: REG_E
+			{
+			DebugLocation(1, 778);
+			mREG_E(); 
+
+			}
+			break;
+		case 100:
+			DebugEnterAlt(100);
+			// GBX.g:1:784: REG_H
+			{
+			DebugLocation(1, 784);
+			mREG_H(); 
+
+			}
+			break;
+		case 101:
+			DebugEnterAlt(101);
+			// GBX.g:1:790: REG_L
+			{
+			DebugLocation(1, 790);
+			mREG_L(); 
+
+			}
+			break;
+		case 102:
+			DebugEnterAlt(102);
+			// GBX.g:1:796: LOC_LABEL_RAND
+			{
+			DebugLocation(1, 796);
+			mLOC_LABEL_RAND(); 
+
+			}
+			break;
+		case 103:
+			DebugEnterAlt(103);
+			// GBX.g:1:811: M_ARG1
+			{
+			DebugLocation(1, 811);
+			mM_ARG1(); 
+
+			}
+			break;
+		case 104:
+			DebugEnterAlt(104);
+			// GBX.g:1:818: M_ARG2
+			{
+			DebugLocation(1, 818);
+			mM_ARG2(); 
+
+			}
+			break;
+		case 105:
+			DebugEnterAlt(105);
+			// GBX.g:1:825: M_ARG3
+			{
+			DebugLocation(1, 825);
+			mM_ARG3(); 
+
+			}
+			break;
+		case 106:
+			DebugEnterAlt(106);
+			// GBX.g:1:832: M_ARG4
+			{
+			DebugLocation(1, 832);
+			mM_ARG4(); 
+
+			}
+			break;
+		case 107:
+			DebugEnterAlt(107);
+			// GBX.g:1:839: M_ARG5
+			{
+			DebugLocation(1, 839);
+			mM_ARG5(); 
+
+			}
+			break;
+		case 108:
+			DebugEnterAlt(108);
+			// GBX.g:1:846: M_ARG6
+			{
+			DebugLocation(1, 846);
+			mM_ARG6(); 
+
+			}
+			break;
+		case 109:
+			DebugEnterAlt(109);
+			// GBX.g:1:853: M_ARG7
+			{
+			DebugLocation(1, 853);
+			mM_ARG7(); 
+
+			}
+			break;
+		case 110:
+			DebugEnterAlt(110);
+			// GBX.g:1:860: M_ARG8
+			{
+			DebugLocation(1, 860);
+			mM_ARG8(); 
+
+			}
+			break;
+		case 111:
+			DebugEnterAlt(111);
+			// GBX.g:1:867: M_ARG9
+			{
+			DebugLocation(1, 867);
+			mM_ARG9(); 
+
+			}
+			break;
+		case 112:
+			DebugEnterAlt(112);
+			// GBX.g:1:874: ID
+			{
+			DebugLocation(1, 874);
+			mID(); 
+
+			}
+			break;
+		case 113:
+			DebugEnterAlt(113);
+			// GBX.g:1:877: NUMBER
+			{
+			DebugLocation(1, 877);
+			mNUMBER(); 
+
+			}
+			break;
+		case 114:
+			DebugEnterAlt(114);
+			// GBX.g:1:884: STRING
+			{
+			DebugLocation(1, 884);
+			mSTRING(); 
+
+			}
+			break;
+		case 115:
+			DebugEnterAlt(115);
+			// GBX.g:1:891: CHAR
+			{
+			DebugLocation(1, 891);
+			mCHAR(); 
+
+			}
+			break;
+		case 116:
+			DebugEnterAlt(116);
+			// GBX.g:1:896: COMMENT
+			{
+			DebugLocation(1, 896);
+			mCOMMENT(); 
+
+			}
+			break;
+		case 117:
+			DebugEnterAlt(117);
+			// GBX.g:1:904: WS
+			{
+			DebugLocation(1, 904);
+			mWS(); 
+
+			}
+			break;
+
+		}
+
+	}
+
+
+	#region DFA
+	DFA23 dfa23;
+
+	protected override void InitDFAs()
+	{
+		base.InitDFAs();
+		dfa23 = new DFA23(this);
+	}
+
+	private class DFA23 : DFA
+	{
+		private const string DFA23_eotS =
+			"\x1\xFFFF\x1\x2F\x1\x30\x1\x32\x7\xFFFF\x1\x33\x1\x35\x1\x38\x1\x3A\x1"+
+			"\x3D\x4\xFFFF\x1\x3F\x2\xFFFF\x1\x44\x1\x4C\x1\xFFFF\x1\x51\x1\x54\x1"+
+			"\x58\x1\x5B\x1\xFFFF\x1\x5F\x6\xFFFF\x1\x74\x19\xFFFF\x3\x28\x1\x82\x1"+
+			"\xFFFF\x1\x83\x1\x84\x1\x85\x1\x86\x1\x28\x1\x89\x1\x8A\x1\xFFFF\x3\x28"+
+			"\x1\x8F\x1\xFFFF\x1\x28\x1\x91\x1\xFFFF\x2\x28\x1\x95\x1\xFFFF\x1\x28"+
+			"\x1\x97\x1\xFFFF\x1\x98\x1\x99\x1\x9D\x1\xFFFF\x1\x28\x1\x9F\x1\xA0\x1"+
+			"\xA1\x3\x28\x1\xA8\x1\xAB\x9\x28\x1\xB6\x1\x28\xB\xFFFF\x2\x28\x1\xBA"+
+			"\x5\xFFFF\x1\xBB\x1\xBC\x2\xFFFF\x1\xBF\x1\xC0\x1\xC1\x1\xC2\x1\xFFFF"+
+			"\x1\xC3\x1\xFFFF\x1\x28\x1\xC5\x1\xC6\x1\xFFFF\x1\x28\x3\xFFFF\x1\x28"+
+			"\x1\xCA\x1\xCB\x1\xFFFF\x1\xCC\x3\xFFFF\x1\xCD\x1\x28\x1\xCF\x1\xD1\x1"+
+			"\xD2\x1\xD4\x1\xFFFF\x1\xD5\x1\xD7\x1\xFFFF\x1\xD8\x1\xD9\x1\xDA\x1\xDB"+
+			"\x1\xDC\x1\xDD\x1\xDE\x1\x28\x1\xE0\x1\x28\x1\xFFFF\x1\xE2\x1\x28\x1"+
+			"\xE4\x3\xFFFF\x2\x28\x5\xFFFF\x1\xE7\x2\xFFFF\x1\xE8\x1\xE9\x1\xEA\x4"+
+			"\xFFFF\x1\xEB\x1\xFFFF\x1\xEC\x2\xFFFF\x1\xED\x2\xFFFF\x1\xEE\x8\xFFFF"+
+			"\x1\xEF\x1\xFFFF\x1\xF0\x1\xFFFF\x1\xF1\x1\xFFFF\x2\x28\xB\xFFFF\x1\x28"+
+			"\x1\xF5\x1\xF6\x2\xFFFF";
+		private const string DFA23_eofS =
+			"\xF7\xFFFF";
+		private const string DFA23_minS =
+			"\x1\x9\x1\x3D\x1\x30\x1\x26\x7\xFFFF\x1\x2A\x1\x3A\x1\x3C\x2\x3D\x4\xFFFF"+
+			"\x1\x7C\x1\xFFFF\x11\x30\x1\x31\x18\xFFFF\x1\x63\x1\x64\x1\x75\x1\x30"+
+			"\x1\xFFFF\x4\x30\x1\x61\x2\x30\x1\xFFFF\x2\x63\x1\x64\x1\x30\x1\xFFFF"+
+			"\x1\x74\x1\x30\x1\xFFFF\x1\x6C\x1\x66\x1\x30\x1\xFFFF\x1\x6C\x1\x30\x1"+
+			"\xFFFF\x3\x30\x1\xFFFF\x1\x70\x3\x30\x1\x70\x2\x73\x2\x30\x1\x74\x1\x63"+
+			"\x1\x66\x1\x74\x2\x61\x1\x6F\x1\x62\x1\x61\x1\x30\x1\x72\xB\xFFFF\x1"+
+			"\x72\x1\x6D\x1\x30\x5\xFFFF\x2\x30\x2\xFFFF\x4\x30\x1\xFFFF\x1\x30\x1"+
+			"\xFFFF\x1\x6C\x2\x30\x1\xFFFF\x1\x74\x3\xFFFF\x1\x6C\x2\x30\x1\xFFFF"+
+			"\x1\x30\x3\xFFFF\x1\x30\x1\x68\x4\x30\x1\xFFFF\x2\x30\x1\xFFFF\x7\x30"+
+			"\x1\x70\x1\x30\x1\x70\x1\xFFFF\x1\x30\x1\x6F\x1\x30\x3\xFFFF\x1\x75\x1"+
+			"\x69\x5\xFFFF\x1\x30\x2\xFFFF\x3\x30\x4\xFFFF\x1\x30\x1\xFFFF\x1\x30"+
+			"\x2\xFFFF\x1\x30\x2\xFFFF\x1\x30\x8\xFFFF\x1\x30\x1\xFFFF\x1\x30\x1\xFFFF"+
+			"\x1\x30\x1\xFFFF\x1\x64\x1\x6E\xB\xFFFF\x1\x65\x2\x30\x2\xFFFF";
+		private const string DFA23_maxS =
+			"\x1\x7E\x1\x3D\x1\x31\x1\x37\x7\xFFFF\x1\x2F\x1\x3A\x2\x3D\x1\x3E\x4"+
+			"\xFFFF\x1\x7C\x1\xFFFF\x11\x7A\x1\x40\x18\xFFFF\x1\x63\x1\x64\x1\x75"+
+			"\x1\x7A\x1\xFFFF\x4\x7A\x1\x61\x2\x7A\x1\xFFFF\x1\x63\x2\x64\x1\x7A\x1"+
+			"\xFFFF\x1\x74\x1\x7A\x1\xFFFF\x1\x6C\x1\x66\x1\x7A\x1\xFFFF\x1\x6C\x1"+
+			"\x7A\x1\xFFFF\x3\x7A\x1\xFFFF\x1\x70\x3\x7A\x1\x70\x1\x73\x1\x74\x2\x7A"+
+			"\x1\x74\x1\x63\x1\x66\x1\x74\x1\x61\x1\x6C\x1\x6F\x1\x62\x1\x61\x1\x7A"+
+			"\x1\x72\xB\xFFFF\x1\x72\x1\x6D\x1\x7A\x5\xFFFF\x2\x7A\x2\xFFFF\x4\x7A"+
+			"\x1\xFFFF\x1\x7A\x1\xFFFF\x1\x6C\x2\x7A\x1\xFFFF\x1\x74\x3\xFFFF\x1\x6C"+
+			"\x2\x7A\x1\xFFFF\x1\x7A\x3\xFFFF\x1\x7A\x1\x68\x4\x7A\x1\xFFFF\x2\x7A"+
+			"\x1\xFFFF\x7\x7A\x1\x70\x1\x7A\x1\x70\x1\xFFFF\x1\x7A\x1\x6F\x1\x7A\x3"+
+			"\xFFFF\x1\x75\x1\x69\x5\xFFFF\x1\x7A\x2\xFFFF\x3\x7A\x4\xFFFF\x1\x7A"+
+			"\x1\xFFFF\x1\x7A\x2\xFFFF\x1\x7A\x2\xFFFF\x1\x7A\x8\xFFFF\x1\x7A\x1\xFFFF"+
+			"\x1\x7A\x1\xFFFF\x1\x7A\x1\xFFFF\x1\x64\x1\x6E\xB\xFFFF\x1\x65\x2\x7A"+
+			"\x2\xFFFF";
+		private const string DFA23_acceptS =
+			"\x4\xFFFF\x1\x6\x1\x7\x1\x8\x1\x9\x1\xA\x1\xB\x1\xC\x5\xFFFF\x1\x18\x1"+
+			"\x19\x1\x1A\x1\x1B\x1\xFFFF\x1\x1E\x12\xFFFF\x1\x70\x1\x71\x1\x72\x1"+
+			"\x73\x1\x74\x1\x75\x1\x2\x1\x1\x1\x3\x1\x4\x1\x5\x1\xD\x1\xF\x1\xE\x1"+
+			"\x11\x1\x12\x1\x10\x1\x14\x1\x13\x1\x16\x1\x17\x1\x15\x1\x1D\x1\x1C\x4"+
+			"\xFFFF\x1\x63\x7\xFFFF\x1\x62\x4\xFFFF\x1\x5F\x2\xFFFF\x1\x60\x3\xFFFF"+
+			"\x1\x61\x2\xFFFF\x1\x64\x3\xFFFF\x1\x65\x14\xFFFF\x1\x5E\x1\x66\x1\x67"+
+			"\x1\x68\x1\x69\x1\x6A\x1\x6B\x1\x6C\x1\x6D\x1\x6E\x1\x6F\x3\xFFFF\x1"+
+			"\x33\x1\x21\x1\x22\x1\x23\x1\x24\x2\xFFFF\x1\x59\x1\x32\x4\xFFFF\x1\x57"+
+			"\x1\xFFFF\x1\x58\x3\xFFFF\x1\x2E\x1\xFFFF\x1\x5A\x1\x36\x1\x37\x3\xFFFF"+
+			"\x1\x3C\x1\xFFFF\x1\x5C\x1\x5D\x1\x3E\x6\xFFFF\x1\x45\x2\xFFFF\x1\x49"+
+			"\xA\xFFFF\x1\x5B\x3\xFFFF\x1\x27\x1\x30\x1\x31\x2\xFFFF\x1\x35\x1\x28"+
+			"\x1\x29\x1\x2A\x1\x2B\x1\xFFFF\x1\x2D\x1\x2F\x3\xFFFF\x1\x3A\x1\x3B\x1"+
+			"\x3D\x1\x3F\x1\xFFFF\x1\x41\x1\xFFFF\x1\x42\x1\x44\x1\xFFFF\x1\x47\x1"+
+			"\x48\x1\xFFFF\x1\x4B\x1\x4C\x1\x4D\x1\x4E\x1\x4F\x1\x50\x1\x51\x1\x52"+
+			"\x1\xFFFF\x1\x54\x1\xFFFF\x1\x56\x1\xFFFF\x1\x20\x2\xFFFF\x1\x2C\x1\x34"+
+			"\x1\x38\x1\x39\x1\x40\x1\x43\x1\x46\x1\x4A\x1\x53\x1\x55\x1\x1F\x3\xFFFF"+
+			"\x1\x26\x1\x25";
+		private const string DFA23_specialS =
+			"\xF7\xFFFF}>";
+		private static readonly string[] DFA23_transitionS =
+			{
+				"\x2\x2D\x2\xFFFF\x1\x2D\x12\xFFFF\x1\x2D\x1\x1\x1\x2A\x1\x2C\x1\x29"+
+				"\x1\x2\x1\x3\x1\x2B\x1\x4\x1\x5\x1\x6\x1\x7\x1\x8\x1\x9\x1\xA\x1\xB"+
+				"\xA\x29\x1\xC\x1\x2C\x1\xD\x1\xE\x1\xF\x1\x10\x1B\xFFFF\x1\x11\x1\x27"+
+				"\x1\x12\x1\x13\x1\x28\x1\xFFFF\x1\x1A\x1\x1B\x1\x1C\x1\x18\x1\x17\x2"+
+				"\x28\x1\x1D\x1\x19\x1\x1E\x1\x28\x1\x1F\x1\x16\x1\x20\x1\x21\x1\x22"+
+				"\x1\x28\x1\x23\x1\x24\x4\x28\x1\x25\x1\x28\x1\x26\x1\xFFFF\x1\x14\x1"+
+				"\xFFFF\x1\x15",
+				"\x1\x2E",
+				"\x2\x29",
+				"\x1\x31\x9\xFFFF\x8\x29",
 				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"\x1\x2C\x4\xFFFF\x1\x2C",
 				"\x1\x34",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1\x2F\x1\x37\x1\x38\x1\x2F\x1\x36"+
-				"\x6\x2F\x1\x39\x3\x2F\x1\x3E\x1\x2F\x1\x3A\x1\x2F\x1\x3B\x1\x3C\x1\x2F"+
-				"\x1\x3D\x3\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1\x40\x1\x2F\x1\x41\xB\x2F\x1\x3F"+
-				"\x1\x42\xA\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1\x44\x1\x45\x1\x2F\x1\x47\x1\x49"+
-				"\x3\x2F\x1\x4A\x7\x2F\x1\x48\x5\x2F\x1\x46\x3\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1\x4D\xA\x2F\x1\x4E\x2\x2F\x1\x4C"+
-				"\xB\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1\x50\x1\x2F\x1\x52\x5\x2F\x1\x51"+
-				"\x11\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x11\x2F\x1\x54\x8\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1\x55\x19\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x8\x2F\x1\x59\x4\x2F\x1\x56\x2\x2F"+
-				"\x1\x58\x6\x2F\x1\x57\x2\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\xC\x2F\x1\x5B\x1\x5C\xC\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\xB\x2F\x1\x5D\xE\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x3\x2F\x1\x5F\xA\x2F\x1\x60\x2\x2F"+
-				"\x1\x5E\x8\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x8\x2F\x1\x61\x11\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x3\x2F\x1\x62\x1\x2F\x1\x64\x7\x2F"+
-				"\x1\x63\xC\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\xF\x2F\x1\x66\x1\x2F\x1\x67\x8\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x3\x2F\x1\x68\x16\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x2\x2F\x1\x6B\xB\x2F\x1\x6A\xA\x2F"+
-				"\x1\x6C",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\xE\x2F\x1\x6D\x5\x2F\x1\x6E\x5\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x4\x2F\x1\x6F\x6\x2F\x1\x70\x5\x2F"+
-				"\x1\x71\x1\x72\x7\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\x1\x75\x1\x76\x1\x77\x1\x78\x1\x79\x1\x7A\x1\x7B\x1\x7C\x1\x7D\x6"+
-				"\xFFFF\x1\x74",
+				"\x1\x36\x1\x37",
+				"\x1\x39",
+				"\x1\x3B\x1\x3C",
+				"",
+				"",
+				"",
+				"",
+				"\x1\x3E",
+				"",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1\x40\x19\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x8\x28\x1\x43\x4\x28\x1\x41\x2\x28"+
+				"\x1\x42\x9\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1\x49\x1\x45\x1\x28\x1\x47\x1\x4A"+
+				"\x3\x28\x1\x4B\x7\x28\x1\x48\x5\x28\x1\x46\x3\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\xD\x28\x1\x4D\xC\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x3\x28\x1\x4E\x1\x28\x1\x50\x7\x28"+
+				"\x1\x4F\xC\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x2\x28\x1\x53\x5\x28\x1\x52\x11\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1\x55\x1\x28\x1\x56\xC\x28\x1\x57"+
+				"\xA\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1\x59\xA\x28\x1\x5A\xE\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\xF\x28\x1\x5C\x1\x28\x1\x5D\x8\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x3\x28\x1\x5E\x16\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x2\x28\x1\x61\xB\x28\x1\x60\xA\x28"+
+				"\x1\x62",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x11\x28\x1\x63\x8\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\xE\x28\x1\x64\x5\x28\x1\x65\x5\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x4\x28\x1\x66\x6\x28\x1\x67\x5\x28"+
+				"\x1\x68\x1\x69\x7\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1\x28\x1\x6A\x1\x6B\x1\x28\x1\x6C"+
+				"\x6\x28\x1\x6D\x3\x28\x1\x72\x1\x28\x1\x6E\x1\x28\x1\x6F\x1\x70\x1\x28"+
+				"\x1\x71\x3\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\xE\x28\x1\x73\xB\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\x1\x76\x1\x77\x1\x78\x1\x79\x1\x7A\x1\x7B\x1\x7C\x1\x7D\x1\x7E\x6"+
+				"\xFFFF\x1\x75",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
 				"",
 				"\x1\x7F",
-				"",
-				"",
-				"",
-				"",
+				"\x1\x80",
 				"\x1\x81",
-				"\x1\x83\x9\xFFFF\x8\x30",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\x1\x86\x4\xFFFF\x1\x86",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
 				"",
-				"\x1\x88",
-				"\x1\x8B\x1\x8A",
-				"\x1\x8D\x1\x8E",
-				"\x0\x86",
-				"\x0\x86",
-				"\x2\x30",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\x1\x87",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x2\x28\x1\x88\x17\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
 				"",
+				"\x1\x8B",
+				"\x1\x8C\x1\x8D",
+				"\x1\x8E",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
 				"",
+				"\x1\x90",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
 				"",
+				"\x1\x92",
+				"\x1\x93",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\xB\x28\x1\x94\xE\x28",
 				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"\x1\x93\x10\xFFFF\x1\x94",
-				"\x1\x95",
 				"\x1\x96",
-				"\x1\x97",
-				"\x1\x98\xA\xFFFF\x1\x99",
-				"\x1\x9A",
-				"\x1\x9B",
-				"\x1\x9C",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x3\x28\x1\x9C\x3\x28\x1\x9A\x1\x9B"+
+				"\x11\x28",
+				"",
 				"\x1\x9E",
-				"\x1\x9F",
-				"\x1\xA0",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\xB\x2F\x1\xA1\xE\x2F",
-				"",
-				"\x1\xA4\x12\xFFFF\x1\xA3",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x2\x2F\x1\xA9\x17\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\x1\xA2",
+				"\x1\xA3",
+				"\x1\xA4\x1\xA5",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1\xA6\x1\x28\x1\xA7\x17\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1\xA9\x1\x28\x1\xAA\x17\x28",
 				"\x1\xAC",
 				"\x1\xAD",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"",
+				"\x1\xAE",
 				"\x1\xAF",
 				"\x1\xB0",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x6\x2F\x1\xB2\x13\x2F",
+				"\x1\xB1\xA\xFFFF\x1\xB2",
+				"\x1\xB3",
 				"\x1\xB4",
 				"\x1\xB5",
-				"\x1\xB6",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
 				"\x1\xB7",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
 				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"\x1\xB8",
 				"\x1\xB9",
-				"\x1\xBA",
-				"\x1\xBB",
-				"\x1\xBC",
-				"\x1\xBD",
-				"\x1\xBE",
-				"\x1\xBF",
-				"\x1\xC0\x1\xC1",
-				"\x1\xC2",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
 				"",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x3\x2F\x1\xC8\x3\x2F\x1\xC6\x1\xC7"+
-				"\x11\x2F",
 				"",
-				"\x1\xCA",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\x1\xCD",
+				"",
+				"",
+				"",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"",
+				"",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1\x28\x1\xBE\x9\x28\x1\xBD\xE\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"",
+				"\x1\xC4",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"",
+				"\x1\xC7",
+				"",
+				"",
+				"",
+				"\x1\xC8",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\xE\x28\x1\xC9\xB\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"",
+				"",
+				"",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
 				"\x1\xCE",
-				"\x1\xCF\x1\xD0",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1\xD1\x1\x2F\x1\xD2\x17\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1\xD4\x1\x2F\x1\xD5\x17\x2F",
-				"\x1\xD7",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x8\x28\x1\xD0\x11\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1\xD3\x19\x28",
 				"",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1\xD6\x19\x28",
 				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"\x1\xD8",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
 				"\x1\xDF",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
 				"\x1\xE1",
 				"",
-				"\x1\xE2",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
 				"\x1\xE3",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
 				"",
+				"",
+				"",
+				"\x1\xE5",
 				"\x1\xE6",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
 				"",
 				"",
 				"",
 				"",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
+				"",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
 				"",
 				"",
-				"\x1\xE9",
-				"\x1\xEA",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
 				"",
-				"\x1\xEB",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
 				"",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
 				"",
-				"\x1\xEE",
-				"\x1\xEF",
-				"\x1\xF0",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
+				"",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"",
+				"",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"",
+				"",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
 				"",
 				"\x1\xF2",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1\x2F\x1\xF4\x9\x2F\x1\xF3\xE\x2F",
-				"\x1\xF6",
-				"\x1\xF7",
-				"\x1\xF8",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\x1\xFA",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"",
-				"",
-				"",
-				"\x1\xFE",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\xE\x2F\x1\xFF\xB\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"",
-				"",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\x1\x104",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x8\x2F\x1\x106\x11\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1\x109\x19\x2F",
-				"",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1\x10C\x19\x2F",
-				"",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\x1\x10F",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"",
-				"",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"",
-				"",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"",
-				"",
-				"\x1\x118",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\x1\x11A",
-				"",
-				"\x1\x11B",
-				"\x1\x11C",
-				"\x1\x11D",
-				"",
-				"\x1\x11E",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"",
-				"\x1\x121",
-				"",
-				"",
-				"",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"",
-				"",
-				"",
-				"",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"",
-				"",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"",
-				"",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"",
-				"",
-				"\x1\x128",
+				"\x1\xF3",
 				"",
 				"",
 				"",
@@ -8393,129 +7362,58 @@ namespace GBRead.Base
 				"",
 				"",
 				"",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"",
-				"\x1\x12A",
-				"\x1\x12B",
-				"\x1\x12C",
-				"\x1\x12D",
-				"\x1\x12E",
-				"",
-				"",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
 				"",
 				"",
 				"",
-				"",
-				"",
-				"",
-				"\x1\x130",
-				"",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\x1\x133",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"",
-				"",
-				"\xA\x2F\x25\xFFFF\x1\x2F\x1\xFFFF\x1A\x2F",
-				"",
-				"",
+				"\x1\xF4",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
+				"\xA\x28\x25\xFFFF\x1\x28\x1\xFFFF\x1A\x28",
 				"",
 				""
 			};
 
-            private static readonly short[] DFA22_eot = DFA.UnpackEncodedString(DFA22_eotS);
-            private static readonly short[] DFA22_eof = DFA.UnpackEncodedString(DFA22_eofS);
-            private static readonly char[] DFA22_min = DFA.UnpackEncodedStringToUnsignedChars(DFA22_minS);
-            private static readonly char[] DFA22_max = DFA.UnpackEncodedStringToUnsignedChars(DFA22_maxS);
-            private static readonly short[] DFA22_accept = DFA.UnpackEncodedString(DFA22_acceptS);
-            private static readonly short[] DFA22_special = DFA.UnpackEncodedString(DFA22_specialS);
-            private static readonly short[][] DFA22_transition;
+		private static readonly short[] DFA23_eot = DFA.UnpackEncodedString(DFA23_eotS);
+		private static readonly short[] DFA23_eof = DFA.UnpackEncodedString(DFA23_eofS);
+		private static readonly char[] DFA23_min = DFA.UnpackEncodedStringToUnsignedChars(DFA23_minS);
+		private static readonly char[] DFA23_max = DFA.UnpackEncodedStringToUnsignedChars(DFA23_maxS);
+		private static readonly short[] DFA23_accept = DFA.UnpackEncodedString(DFA23_acceptS);
+		private static readonly short[] DFA23_special = DFA.UnpackEncodedString(DFA23_specialS);
+		private static readonly short[][] DFA23_transition;
 
-            static DFA22()
-            {
-                int numStates = DFA22_transitionS.Length;
-                DFA22_transition = new short[numStates][];
-                for (int i = 0; i < numStates; i++)
-                {
-                    DFA22_transition[i] = DFA.UnpackEncodedString(DFA22_transitionS[i]);
-                }
-            }
+		static DFA23()
+		{
+			int numStates = DFA23_transitionS.Length;
+			DFA23_transition = new short[numStates][];
+			for ( int i=0; i < numStates; i++ )
+			{
+				DFA23_transition[i] = DFA.UnpackEncodedString(DFA23_transitionS[i]);
+			}
+		}
 
-            public DFA22(BaseRecognizer recognizer, SpecialStateTransitionHandler specialStateTransition)
-                : base(specialStateTransition)
-            {
-                this.recognizer = recognizer;
-                this.decisionNumber = 22;
-                this.eot = DFA22_eot;
-                this.eof = DFA22_eof;
-                this.min = DFA22_min;
-                this.max = DFA22_max;
-                this.accept = DFA22_accept;
-                this.special = DFA22_special;
-                this.transition = DFA22_transition;
-            }
+		public DFA23( BaseRecognizer recognizer )
+		{
+			this.recognizer = recognizer;
+			this.decisionNumber = 23;
+			this.eot = DFA23_eot;
+			this.eof = DFA23_eof;
+			this.min = DFA23_min;
+			this.max = DFA23_max;
+			this.accept = DFA23_accept;
+			this.special = DFA23_special;
+			this.transition = DFA23_transition;
+		}
 
-            public override string Description
-            {
-                get
-                {
-                    return "1:1: Tokens : ( T__173 | T__174 | SECTION | CODE | DATA | HOME | BANK | ORG | MACROSTART | MACROEND | IMPORT | EXPORT | GLOBAL | XREF | XDEF | DB | DW | DD | DQ | INCLUDE_TOKEN | INCBIN | TIMES | EQU | INST_ADC | INST_ADD | INST_AND | INST_BIT | INST_CALL | INST_CCF | INST_CP | INST_CPL | INST_DAA | INST_DEC | INST_DI | INST_EI | INST_HALT | INST_INC | INST_JP | INST_JR | INST_LDHL | INST_LDIO | INST_LDI | INST_LDD | INST_LD | INST_NOP | INST_OR | INST_POP | INST_PUSH | INST_RES | INST_RET | INST_RETI | INST_RLA | INST_RL | INST_RLCA | INST_RLC | INST_RRA | INST_RR | INST_RRCA | INST_RRC | INST_RST | INST_SBC | INST_SCF | INST_SET | INST_SLA | INST_SRA | INST_SRL | INST_STOP | INST_SUB | INST_SWAP | INST_XOR | RR_AF | RR_BC | RR_DE | RR_HL | RR_SP | CC_NC | CC_NZ | CC_Z | REG_A | REG_B | REG_C | REG_D | REG_E | REG_H | REG_L | LOC_LABEL_RAND | M_ARG1 | M_ARG2 | M_ARG3 | M_ARG4 | M_ARG5 | M_ARG6 | M_ARG7 | M_ARG8 | M_ARG9 | QUEST_MARK | BANG_MARK | STAR_MARK | PLUS_MARK | MINUS_MARK | TILDE_MARK | BOOL_OR_MARK | BAR_MARK | BOOL_AND_MARK | AMP_MARK | UNDERSCORE_MARK | FSLASH_MARK | BSLASH_MARK | CARET_MARK | COLON_MARK | NOT_EQUIV_MARK | EQUIV_MARK | LTE_MARK | GTE_MARK | LSHIFT_MARK | RSHIFT_MARK | GT_MARK | LT_MARK | EQUAL_MARK | SEMI_MARK | POUND_MARK | PERCENT_MARK | COMMA | LEFT_PARENS | RIGHT_PARENS | LEFT_BRACKET | RIGHT_BRACKET | LEFT_CURLY | RIGHT_CURLY | ID | NUMBER | STRING | CHAR | COMMENT | WS );";
-                }
-            }
+		public override string Description { get { return "1:1: Tokens : ( T__127 | T__128 | T__129 | T__130 | T__131 | T__132 | T__133 | T__134 | T__135 | T__136 | T__137 | T__138 | T__139 | T__140 | T__141 | T__142 | T__143 | T__144 | T__145 | T__146 | T__147 | T__148 | T__149 | T__150 | T__151 | T__152 | T__153 | T__154 | T__155 | T__156 | MACROSTART | MACROEND | DB | DW | DD | DQ | INCLUDE_TOKEN | INCBIN_TOKEN | EQU | INST_ADC | INST_ADD | INST_AND | INST_BIT | INST_CALL | INST_CCF | INST_CP | INST_CPL | INST_DAA | INST_DEC | INST_DI | INST_EI | INST_HALT | INST_INC | INST_JP | INST_JR | INST_LDHL | INST_LDIO | INST_LDI | INST_LDD | INST_LD | INST_NOP | INST_OR | INST_POP | INST_PUSH | INST_RES | INST_RET | INST_RETI | INST_RLA | INST_RL | INST_RLCA | INST_RLC | INST_RRA | INST_RR | INST_RRCA | INST_RRC | INST_RST | INST_SBC | INST_SCF | INST_SET | INST_SLA | INST_SRA | INST_SRL | INST_STOP | INST_SUB | INST_SWAP | INST_XOR | RR_AF | RR_BC | RR_DE | RR_HL | RR_SP | CC_NC | CC_NZ | CC_Z | REG_A | REG_B | REG_C | REG_D | REG_E | REG_H | REG_L | LOC_LABEL_RAND | M_ARG1 | M_ARG2 | M_ARG3 | M_ARG4 | M_ARG5 | M_ARG6 | M_ARG7 | M_ARG8 | M_ARG9 | ID | NUMBER | STRING | CHAR | COMMENT | WS );"; } }
 
-            public override void Error(NoViableAltException nvae)
-            {
-                DebugRecognitionException(nvae);
-            }
-        }
+		public override void Error(NoViableAltException nvae)
+		{
+			DebugRecognitionException(nvae);
+		}
+	}
 
-        private int SpecialStateTransition22(DFA dfa, int s, IIntStream _input)
-        {
-            IIntStream input = _input;
-            int _s = s;
-            switch (s)
-            {
-                case 0:
-                    int LA22_37 = input.LA(1);
+ 
+	#endregion
 
-                    s = -1;
-                    if (((LA22_37 >= '\u0000' && LA22_37 <= '\uFFFF')))
-                    {
-                        s = 134;
-                    }
+}
 
-                    else
-                        s = 144;
-
-                    if (s >= 0)
-                        return s;
-                    break;
-
-                case 1:
-                    int LA22_38 = input.LA(1);
-
-                    s = -1;
-                    if (((LA22_38 >= '\u0000' && LA22_38 <= '\uFFFF')))
-                    {
-                        s = 134;
-                    }
-
-                    else
-                        s = 145;
-
-                    if (s >= 0)
-                        return s;
-                    break;
-            }
-            NoViableAltException nvae = new NoViableAltException(dfa.Description, 22, _s, input);
-            dfa.Error(nvae);
-            throw nvae;
-        }
-
-        #endregion DFA
-    }
 } // namespace GBRead.Base

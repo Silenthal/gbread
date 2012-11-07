@@ -12,6 +12,7 @@
         private CodeGenerator codeGen = new CodeGenerator();
         private Dictionary<string, ITree> macroDict = new Dictionary<string, ITree>();
         private Stack<List<long>> macroArgStack = new Stack<List<long>>();
+        private CompError currentError = new CompError();
 
         private const string ExpressionToken = "EXPRESSION";
         private const string HLRefToken = "RR_REF_HL";
@@ -78,6 +79,7 @@
             symFillTable.Clear();
             macroDict.Clear();
             macroArgStack.Clear();
+            currentError = new CompError();
             GlobalScopeName = "_";
             LocalScopeName = "_";
             foreach (FunctionLabel kvp in lc.FuncList)
@@ -105,21 +107,23 @@
             Initialize();
 
             var syntaxTree = new CommonTree();
-            if (!CreateAST(input, out syntaxTree, ref error))
+            if (!CreateAST(input, out syntaxTree))
             {
+                error = currentError;
                 return new byte[1];
             }
 
-            if (!(EvaluateAST(syntaxTree, baseOffset, ref error)
-                && EvaluateSymbols(baseOffset, ref error)))
+            if (!(EvaluateAST(syntaxTree, baseOffset)
+                && EvaluateSymbols(baseOffset)))
             {
+                error = currentError;
                 return new byte[1];
             }
             success = true;
             return codeGen.StreamToArray();
         }
 
-        private bool CreateAST(string input, out CommonTree syntaxTree, ref CompError error)
+        private bool CreateAST(string input, out CommonTree syntaxTree)
         {
             var css = new CaseInsensitiveStringStream(input);
             var gblex = new GBXLexer(css);
@@ -131,15 +135,15 @@
             parseErrors.AddRange(gbparse.GetErrors());
             if (parseErrors.Count != 0)
             {
-                MakeErrorMessage(gbparse.GetErrors()[0], ref error);
+                MakeErrorMessage(parseErrors[0]);
                 return false;
             }
             return true;
         }
 
-        // TODO: Allow for building from multiple sources(i.e. "include").
+        // TODO: Allow for building from multiple sources("include").
         // TODO: Add "section"
-        private bool EvaluateAST(ITree eval, int baseOffset, ref CompError error)
+        private bool EvaluateAST(ITree eval, int baseOffset)
         {
             for (int i = 0; i < eval.ChildCount; i++)
             {
@@ -147,7 +151,7 @@
                 {
                     case AssignmentToken:
                         {
-                            if (!EvaluateAssignment(eval.GetChild(i).GetChild(0), baseOffset, ref error))
+                            if (!EvaluateAssignment(eval.GetChild(i).GetChild(0), baseOffset))
                             {
                                 return false;
                             }
@@ -156,7 +160,7 @@
 
                     case MacroDefToken:
                         {
-                            if (!EvaluateMacroDef(eval.GetChild(i).GetChild(0), ref error))
+                            if (!EvaluateMacroDef(eval.GetChild(i).GetChild(0)))
                             {
                                 return false;
                             }
@@ -165,7 +169,7 @@
 
                     case StatementToken:
                         {
-                            if (!EvaluateStatement(eval.GetChild(i).GetChild(0), baseOffset, ref error))
+                            if (!EvaluateStatement(eval.GetChild(i).GetChild(0), baseOffset))
                             {
                                 return false;
                             }
@@ -176,7 +180,7 @@
             return true;
         }
 
-        private bool EvaluateSymbols(int baseOffset, ref CompError error)
+        private bool EvaluateSymbols(int baseOffset)
         {
             foreach (SymEntry se in symFillTable)
             {
@@ -189,7 +193,7 @@
                         long diff = memLoc - (se.instructionPosition + 2);
                         if (diff < -128 || diff > 127)
                         {
-                            MakeErrorMessage(se, ErrorMessage.Build_JROutOfRange, ref error);
+                            MakeErrorMessage(se, ErrorMessage.Build_JROutOfRange);
                             return false;
                         }
                         codeGen.EmitByte(diff);
@@ -201,23 +205,23 @@
                 }
                 else
                 {
-                    MakeErrorMessage(se, ErrorMessage.Build_UnknownLabel, ref error);
+                    MakeErrorMessage(se, ErrorMessage.Build_UnknownLabel);
                     return false;
                 }
             }
             return true;
         }
 
-        private bool EvaluateAssignment(ITree eval, int baseOffset, ref CompError error)
+        private bool EvaluateAssignment(ITree eval, int baseOffset)
         {
             var varName = GetGlobalScopedID(eval.Text);
             if (variableDict.ContainsKey(varName))
             {
-                MakeErrorMessage(eval, ErrorMessage.Label_VariableAlreadyDefined, ref error);
+                MakeErrorMessage(eval, ErrorMessage.Label_VariableAlreadyDefined);
                 return false;
             }
             var result = 0L;
-            if (!EvaluateExpression(eval.GetChild(0), out result, ref error))
+            if (!EvaluateExpression(eval.GetChild(0), out result))
             {
                 return false;
             }
@@ -225,25 +229,25 @@
             return true;
         }
 
-        private bool EvaluateMacroDef(ITree eval, ref CompError error)
+        private bool EvaluateMacroDef(ITree eval)
         {
             var macroName = GetGlobalScopedID(eval.Text);
             if (macroDict.ContainsKey(macroName))
             {
-                MakeErrorMessage(eval, ErrorMessage.Build_MacroAlreadyDefined, ref error);
+                MakeErrorMessage(eval, ErrorMessage.Build_MacroAlreadyDefined);
                 return false;
             }
             macroDict.Add(macroName, eval);
             return true;
         }
 
-        private bool EvaluateStatement(ITree eval, int baseOffset, ref CompError error)
+        private bool EvaluateStatement(ITree eval, int baseOffset)
         {
             var labelDeclTree = eval.GetChild(0);
             var statementTree = eval.GetChild(1);
             for (int i = 0; i < labelDeclTree.ChildCount; i++)
             {
-                if (!EvaluateLabelDecl(labelDeclTree.GetChild(i), baseOffset, ref error))
+                if (!EvaluateLabelDecl(labelDeclTree.GetChild(i), baseOffset))
                 {
                     return false;
                 }
@@ -252,21 +256,21 @@
             {
                 case InstructionToken:
                     {
-                        return EvaluateInstruction(statementTree.GetChild(0), baseOffset, ref error);
+                        return EvaluateInstruction(statementTree.GetChild(0), baseOffset);
                     }
                 case PseudoInstToken:
                     {
-                        return EvaluatePseudoInst(statementTree.GetChild(0), baseOffset, ref error);
+                        return EvaluatePseudoInst(statementTree.GetChild(0), baseOffset);
                     }
                 default:
                     {
-                        MakeErrorMessage(eval, ErrorMessage.Build_UnknownError, ref error);
+                        MakeErrorMessage(eval, ErrorMessage.Build_UnknownError);
                         return false;
                     }
             }
         }
 
-        private bool EvaluateLabelDecl(ITree eval, int baseOffset, ref CompError error)
+        private bool EvaluateLabelDecl(ITree eval, int baseOffset)
         {
             var labelName = eval.GetChild(0).Text;
             switch (eval.Text)
@@ -277,7 +281,7 @@
                         labelName = GetGlobalScopedID(labelName);
                         if (callDict.ContainsKey(labelName))
                         {
-                            MakeErrorMessage(eval.GetChild(0), ErrorMessage.Label_LabelAlreadyDefined, ref error);
+                            MakeErrorMessage(eval.GetChild(0), ErrorMessage.Label_LabelAlreadyDefined);
                             return false;
                         }
                         callDict.Add(exportScopedName, codeGen.Position + baseOffset);
@@ -291,7 +295,7 @@
                         labelName = GetGlobalScopedID(labelName);
                         if (callDict.ContainsKey(labelName))
                         {
-                            MakeErrorMessage(eval.GetChild(0), ErrorMessage.Label_LabelAlreadyDefined, ref error);
+                            MakeErrorMessage(eval.GetChild(0), ErrorMessage.Label_LabelAlreadyDefined);
                             return false;
                         }
                         callDict.Add(labelName, codeGen.Position + baseOffset);
@@ -303,7 +307,7 @@
                         labelName = GetLocalScopedID(labelName);
                         if (callDict.ContainsKey(labelName))
                         {
-                            MakeErrorMessage(eval.GetChild(0), ErrorMessage.Label_LabelAlreadyDefined, ref error);
+                            MakeErrorMessage(eval.GetChild(0), ErrorMessage.Label_LabelAlreadyDefined);
                             return false;
                         }
                         callDict.Add(labelName, codeGen.Position + baseOffset);
@@ -312,14 +316,14 @@
 
                 default:
                     {
-                        MakeErrorMessage(eval, ErrorMessage.Build_UnknownError, ref error);
+                        MakeErrorMessage(eval, ErrorMessage.Build_UnknownError);
                         return false;
                     }
             }
             return true;
         }
 
-        private bool EvaluateInstruction(ITree eval, int baseOffset, ref CompError error)
+        private bool EvaluateInstruction(ITree eval, int baseOffset)
         {
             switch (eval.Text)
             {
@@ -328,7 +332,7 @@
                         var arg = eval.ChildCount == 1 ? eval.GetChild(0) : eval.GetChild(1);
                         if (arg.Text == ExpressionToken)
                         {
-                            if (!EvalArithArgFunc(codeGen.EmitAdcN, arg, ref error))
+                            if (!EvalArithArgFunc(codeGen.EmitAdcN, arg))
                             {
                                 return false;
                             }
@@ -347,7 +351,7 @@
                             var arg = eval.GetChild(0);
                             if (arg.Text == ExpressionToken)
                             {
-                                if (!EvalArithArgFunc(codeGen.EmitAddN, arg, ref error))
+                                if (!EvalArithArgFunc(codeGen.EmitAddN, arg))
                                 {
                                     return false;
                                 }
@@ -365,7 +369,7 @@
                             {
                                 if (arg2.Text == ExpressionToken)
                                 {
-                                    if (!EvalArithArgFunc(codeGen.EmitAddN, arg2, ref error))
+                                    if (!EvalArithArgFunc(codeGen.EmitAddN, arg2))
                                     {
                                         return false;
                                     }
@@ -381,7 +385,7 @@
                             }
                             else
                             {
-                                if (!EvalArithArgFunc(codeGen.EmitAddSPN, arg2, ref error))
+                                if (!EvalArithArgFunc(codeGen.EmitAddSPN, arg2))
                                 {
                                     return false;
                                 }
@@ -395,7 +399,7 @@
                         var arg = eval.ChildCount == 1 ? eval.GetChild(0) : eval.GetChild(1);
                         if (arg.Text == ExpressionToken)
                         {
-                            if (!EvalArithArgFunc(codeGen.EmitAndN, arg, ref error))
+                            if (!EvalArithArgFunc(codeGen.EmitAndN, arg))
                             {
                                 return false;
                             }
@@ -411,7 +415,7 @@
                     {
                         var arg = eval.GetChild(0);
                         var arg2 = eval.GetChild(1).Text;
-                        if (!EvalBitFunc(codeGen.EmitBitXR, arg, arg2, ref error))
+                        if (!EvalBitFunc(codeGen.EmitBitXR, arg, arg2))
                         {
                             return false;
                         }
@@ -459,7 +463,7 @@
                         var arg = eval.ChildCount == 1 ? eval.GetChild(0) : eval.GetChild(1);
                         if (arg.Text == ExpressionToken)
                         {
-                            if (!EvalArithArgFunc(codeGen.EmitCpN, arg, ref error))
+                            if (!EvalArithArgFunc(codeGen.EmitCpN, arg))
                             {
                                 return false;
                             }
@@ -507,7 +511,7 @@
 
                             default:
                                 {
-                                    MakeErrorMessage(eval.GetChild(0), ErrorMessage.UNKNOWN_ARGUMENT, ref error);
+                                    MakeErrorMessage(eval.GetChild(0), ErrorMessage.Build_UnknownArgument);
                                     return false;
                                 }
                         }
@@ -554,7 +558,7 @@
 
                             default:
                                 {
-                                    MakeErrorMessage(eval.GetChild(0), ErrorMessage.UNKNOWN_ARGUMENT, ref error);
+                                    MakeErrorMessage(eval.GetChild(0), ErrorMessage.Build_UnknownArgument);
                                     return false;
                                 }
                         }
@@ -619,7 +623,7 @@
                             diff = memLoc - (codeGen.Position + 2);
                             if (diff < -128 || diff > 127)
                             {
-                                MakeErrorMessage(arg, ErrorMessage.Build_JROutOfRange, ref error);
+                                MakeErrorMessage(arg, ErrorMessage.Build_JROutOfRange);
                                 return false;
                             }
                         }
@@ -642,7 +646,7 @@
 
                 case "ldhl":
                     {
-                        if (!EvalArithArgFunc(codeGen.EmitLdHLSP, eval.GetChild(1), ref error))
+                        if (!EvalArithArgFunc(codeGen.EmitLdHLSP, eval.GetChild(1)))
                         {
                             return false;
                         }
@@ -653,14 +657,14 @@
                     {
                         if (eval.GetChild(0).Text == MemRefToken)
                         {
-                            if (!EvalArithArgFunc(codeGen.EmitLdioNA, eval.GetChild(0).GetChild(0), ref error))
+                            if (!EvalArithArgFunc(codeGen.EmitLdioNA, eval.GetChild(0).GetChild(0)))
                             {
                                 return false;
                             }
                         }
                         else
                         {
-                            if (!EvalArithArgFunc(codeGen.EmitLdioAN, eval.GetChild(1).GetChild(0), ref error))
+                            if (!EvalArithArgFunc(codeGen.EmitLdioAN, eval.GetChild(1).GetChild(0)))
                             {
                                 return false;
                             }
@@ -705,7 +709,7 @@
                                     if (arg2.Text == ExpressionToken)
                                     {
                                         var result = 0L;
-                                        if (!EvaluateExpression(arg2.GetChild(0), out result, ref error))
+                                        if (!EvaluateExpression(arg2.GetChild(0), out result))
                                         {
                                             return false;
                                         }
@@ -714,7 +718,7 @@
                                     else if (arg2.Text == MemRefToken)
                                     {
                                         var result = 0L;
-                                        if (!EvaluateExpression(arg2.GetChild(0), out result, ref error))
+                                        if (!EvaluateExpression(arg2.GetChild(0), out result))
                                         {
                                             return false;
                                         }
@@ -737,7 +741,7 @@
                                     if (arg2.Text == ExpressionToken)
                                     {
                                         var result = 0L;
-                                        if (!EvaluateExpression(arg2.GetChild(0), out result, ref error))
+                                        if (!EvaluateExpression(arg2.GetChild(0), out result))
                                         {
                                             return false;
                                         }
@@ -755,7 +759,7 @@
                             case "hl":
                                 {
                                     var result = 0L;
-                                    if (!EvaluateExpression(arg2.GetChild(0), out result, ref error))
+                                    if (!EvaluateExpression(arg2.GetChild(0), out result))
                                     {
                                         return false;
                                     }
@@ -786,7 +790,7 @@
                                     if (arg2.Text == ExpressionToken)
                                     {
                                         var result = 0L;
-                                        if (!EvaluateExpression(arg2.GetChild(0), out result, ref error))
+                                        if (!EvaluateExpression(arg2.GetChild(0), out result))
                                         {
                                             return false;
                                         }
@@ -802,7 +806,7 @@
                             case "MEM_REF":
                                 {
                                     var result = 0L;
-                                    if (!EvaluateExpression(arg1.GetChild(0), out result, ref error))
+                                    if (!EvaluateExpression(arg1.GetChild(0), out result))
                                     {
                                         return false;
                                     }
@@ -822,7 +826,7 @@
                                     if (arg2.Text == ExpressionToken)
                                     {
                                         var result = 0L;
-                                        if (!(EvaluateExpression(arg2.GetChild(0), out result, ref error)))
+                                        if (!(EvaluateExpression(arg2.GetChild(0), out result)))
                                         {
                                             return false;
                                         }
@@ -850,7 +854,7 @@
                         var arg = eval.ChildCount == 1 ? eval.GetChild(0) : eval.GetChild(1);
                         if (arg.Text == ExpressionToken)
                         {
-                            if (!EvalArithArgFunc(codeGen.EmitOrN, arg, ref error))
+                            if (!EvalArithArgFunc(codeGen.EmitOrN, arg))
                             {
                                 return false;
                             }
@@ -878,7 +882,7 @@
                     {
                         var arg = eval.GetChild(0);
                         var arg2 = eval.GetChild(1).Text;
-                        if (!EvalBitFunc(codeGen.EmitResXR, arg, arg2, ref error))
+                        if (!EvalBitFunc(codeGen.EmitResXR, arg, arg2))
                         {
                             return false;
                         }
@@ -936,7 +940,7 @@
 
                 case "rst":
                     {
-                        if (!EvalArithArgFunc(codeGen.EmitRst, eval.GetChild(0), ref error))
+                        if (!EvalArithArgFunc(codeGen.EmitRst, eval.GetChild(0)))
                         {
                             return false;
                         }
@@ -948,7 +952,7 @@
                         var arg = eval.ChildCount == 1 ? eval.GetChild(0) : eval.GetChild(1);
                         if (arg.Text == ExpressionToken)
                         {
-                            if (!EvalArithArgFunc(codeGen.EmitSbcN, arg, ref error))
+                            if (!EvalArithArgFunc(codeGen.EmitSbcN, arg))
                             {
                                 return false;
                             }
@@ -968,7 +972,7 @@
                     {
                         var arg = eval.GetChild(0);
                         var arg2 = eval.GetChild(1).Text;
-                        if (!EvalBitFunc(codeGen.EmitSetXR, arg, arg2, ref error))
+                        if (!EvalBitFunc(codeGen.EmitSetXR, arg, arg2))
                         {
                             return false;
                         }
@@ -996,7 +1000,7 @@
                         var arg = eval.ChildCount == 1 ? eval.GetChild(0) : eval.GetChild(1);
                         if (arg.Text == ExpressionToken)
                         {
-                            if (!EvalArithArgFunc(codeGen.EmitSubN, arg, ref error))
+                            if (!EvalArithArgFunc(codeGen.EmitSubN, arg))
                             {
                                 return false;
                             }
@@ -1017,7 +1021,7 @@
                         var arg = eval.ChildCount == 1 ? eval.GetChild(0) : eval.GetChild(1);
                         if (arg.Text == ExpressionToken)
                         {
-                            if (!EvalArithArgFunc(codeGen.EmitXorN, arg, ref error))
+                            if (!EvalArithArgFunc(codeGen.EmitXorN, arg))
                             {
                                 return false;
                             }
@@ -1035,28 +1039,31 @@
             return true;
         }
 
-        private bool EvaluatePseudoInst(ITree eval, int baseOffset, ref CompError error)
+        private bool EvaluatePseudoInst(ITree eval, int baseOffset)
         {
             switch (eval.Text)
             {
                 case DataDefToken:
                     {
-                        return EvaluateDataDef(eval.GetChild(0), baseOffset, ref error);
+                        return EvaluateDataDef(eval.GetChild(0), baseOffset);
                     }
                 case MacroCallToken:
                     {
-                        return EvaluateMacroCall(eval.GetChild(0), baseOffset, ref error);
+                        return EvaluateMacroCall(eval.GetChild(0), baseOffset);
                     }
                 case IncludeToken:
                     {
-                        return EvaluateInclude(eval.GetChild(0), baseOffset, ref error);
+                        return EvaluateInclude(eval.GetChild(0), baseOffset);
                     }
                 default:
-                    return false;
+                    {
+                        MakeErrorMessage(eval, ErrorMessage.Build_UnknownError);
+                        return false;
+                    }
             }
         }
 
-        private bool EvaluateDataDef(ITree eval, int baseOffset, ref CompError error)
+        private bool EvaluateDataDef(ITree eval, int baseOffset)
         {
             CodeGenerator.DataFuncDelegate dataFunc;
             switch (eval.Text)
@@ -1091,7 +1098,7 @@
                 {
                     var arg = eval.GetChild(i).GetChild(0);
                     var result = 0L;
-                    if (!EvaluateExpression(arg, out result, ref error))
+                    if (!EvaluateExpression(arg, out result))
                     {
                         return false;
                     }
@@ -1101,12 +1108,12 @@
             return true;
         }
 
-        private bool EvaluateMacroCall(ITree eval, int baseOffset, ref CompError error)
+        private bool EvaluateMacroCall(ITree eval, int baseOffset)
         {
             var macroName = GetGlobalScopedID(eval.Text);
             if (!macroDict.ContainsKey(macroName))
             {
-                MakeErrorMessage(eval, ErrorMessage.Build_MacroDoesNotExist, ref error);
+                MakeErrorMessage(eval, ErrorMessage.Build_MacroDoesNotExist);
                 return false;
             }
             else
@@ -1115,7 +1122,7 @@
                 var result = 0L;
                 for (int i = 0; i < eval.ChildCount; i++)
                 {
-                    if (!EvaluateExpression(eval.GetChild(i).GetChild(0), out result, ref error))
+                    if (!EvaluateExpression(eval.GetChild(i).GetChild(0), out result))
                     {
                         return false;
                     }
@@ -1124,7 +1131,7 @@
                 macroArgStack.Push(macArgList);
                 var curScope = GetGlobalScope();
                 SetGlobalScope(eval.Text);
-                if (!EvaluateAST(macroDict[macroName], baseOffset, ref error))
+                if (!EvaluateAST(macroDict[macroName], baseOffset))
                 {
                     return false;
                 }
@@ -1134,16 +1141,17 @@
             }
         }
 
-        private bool EvaluateInclude(ITree eval, int baseOffset, ref CompError error)
+        private bool EvaluateInclude(ITree eval, int baseOffset)
         {
             // TODO: Write this function.
             // Search path for includes:
             // -Directory of binary
             // -Directory of program
+            MakeErrorMessage(eval, ErrorMessage.Build_UnknownError);
             return false;
         }
 
-        private bool EvaluateExpression(ITree eval, out long result, ref CompError error)
+        private bool EvaluateExpression(ITree eval, out long result)
         {
             result = 0;
             var res1 = 0L;
@@ -1151,24 +1159,24 @@
             var res3 = 0L;
             if (eval == null)
             {
-                MakeErrorMessage(eval, ErrorMessage.Build_UnknownError, ref error);
+                MakeErrorMessage(eval, ErrorMessage.Build_UnknownError);
                 return false;
             }
             switch (eval.Text)
             {
                 case LiteralToken:
-                    return EvaluateLiteral(eval.GetChild(0), out result, ref error);
+                    return EvaluateLiteral(eval.GetChild(0), out result);
                 case VarToken:
-                    return EvaluateVar(eval.GetChild(0), out result, ref error);
+                    return EvaluateVar(eval.GetChild(0), out result);
                 case MacroArgToken:
-                    return EvaluateMacroArg(eval.GetChild(0), out result, ref error);
+                    return EvaluateMacroArg(eval.GetChild(0), out result);
                 default:
                     {
                         switch (eval.ChildCount)
                         {
                             case 1:
                                 {
-                                    if (!EvaluateExpression(eval.GetChild(0), out res1, ref error))
+                                    if (!EvaluateExpression(eval.GetChild(0), out res1))
                                     {
                                         return false;
                                     }
@@ -1185,15 +1193,15 @@
                                             return true;
                                         default:
                                             {
-                                                MakeErrorMessage(eval, ErrorMessage.Build_UnknownArgument, ref error);
+                                                MakeErrorMessage(eval, ErrorMessage.Build_UnknownArgument);
                                                 return false;
                                             }
                                     }
                                 }
                             case 2:
                                 {
-                                    if (!(EvaluateExpression(eval.GetChild(0), out res1, ref error)
-                                        && EvaluateExpression(eval.GetChild(1), out res2, ref error)))
+                                    if (!(EvaluateExpression(eval.GetChild(0), out res1)
+                                        && EvaluateExpression(eval.GetChild(1), out res2)))
                                     {
                                         return false;
                                     }
@@ -1252,16 +1260,16 @@
                                             return true;
                                         default:
                                             {
-                                                MakeErrorMessage(eval, ErrorMessage.Build_UnknownArgument, ref error);
+                                                MakeErrorMessage(eval, ErrorMessage.Build_UnknownArgument);
                                                 return false;
                                             }
                                     }
                                 }
                             case 3:
                                 {
-                                    if (!(EvaluateExpression(eval.GetChild(0), out res1, ref error)
-                                        && EvaluateExpression(eval.GetChild(1), out res2, ref error)
-                                        && EvaluateExpression(eval.GetChild(2), out res3, ref error)))
+                                    if (!(EvaluateExpression(eval.GetChild(0), out res1)
+                                        && EvaluateExpression(eval.GetChild(1), out res2)
+                                        && EvaluateExpression(eval.GetChild(2), out res3)))
                                     {
                                         return false;
                                     }
@@ -1272,14 +1280,14 @@
                                             return true;
                                         default:
                                             {
-                                                MakeErrorMessage(eval, ErrorMessage.Build_UnknownArgument, ref error);
+                                                MakeErrorMessage(eval, ErrorMessage.Build_UnknownArgument);
                                                 return false;
                                             }
                                     }
                                 }
                             default:
                                 {
-                                    MakeErrorMessage(eval, ErrorMessage.Build_UnknownArgument, ref error);
+                                    MakeErrorMessage(eval, ErrorMessage.Build_UnknownArgument);
                                     return false;
                                 }
                         }
@@ -1287,18 +1295,18 @@
             }
         }
 
-        private bool EvaluateMacroArg(ITree eval, out long result, ref CompError error)
+        private bool EvaluateMacroArg(ITree eval, out long result)
         {
             result = 0;
             int mIndex = 0;
             if (eval == null)
             {
-                MakeErrorMessage(eval, ErrorMessage.Build_UnknownError, ref error);
+                MakeErrorMessage(eval, ErrorMessage.Build_UnknownError);
                 return false;
             }
             else if (macroArgStack.Count == 0)
             {
-                MakeErrorMessage(eval, ErrorMessage.Build_MacroArgUsedOutsideOfDef, ref error);
+                MakeErrorMessage(eval, ErrorMessage.Build_MacroArgUsedOutsideOfDef);
                 return false;
             }
             else
@@ -1343,32 +1351,32 @@
 
                     default:
                         {
-                            MakeErrorMessage(eval, ErrorMessage.Build_UnknownArgument, ref error);
+                            MakeErrorMessage(eval, ErrorMessage.Build_UnknownArgument);
                             return false;
                         }
                 }
             }
             if (mIndex >= macroArgStack.Peek().Count)
             {
-                MakeErrorMessage(eval, ErrorMessage.Build_NotEnoughMacroArgs, ref error);
+                MakeErrorMessage(eval, ErrorMessage.Build_NotEnoughMacroArgs);
                 return false;
             }
             result = macroArgStack.Peek()[mIndex];
             return true;
         }
 
-        private bool EvaluateVar(ITree eval, out long result, ref CompError error)
+        private bool EvaluateVar(ITree eval, out long result)
         {
             result = 0;
             var varName = GetGlobalScopedID(eval.Text);
             if (eval == null)
             {
-                MakeErrorMessage(eval, ErrorMessage.Build_UnknownError, ref error);
+                MakeErrorMessage(eval, ErrorMessage.Build_UnknownError);
                 return false;
             }
             else if (!variableDict.ContainsKey(varName))
             {
-                MakeErrorMessage(eval, ErrorMessage.Build_UnknownArgument, ref error);
+                MakeErrorMessage(eval, ErrorMessage.Build_UnknownArgument);
                 return false;
             }
             else
@@ -1378,12 +1386,12 @@
             }
         }
 
-        private bool EvaluateLiteral(ITree eval, out long result, ref CompError error)
+        private bool EvaluateLiteral(ITree eval, out long result)
         {
             result = 0;
             if (!Utility.NumStringToInt(eval.Text, out result))
             {
-                MakeErrorMessage(eval, ErrorMessage.NumberOverflow, ref error);
+                MakeErrorMessage(eval, ErrorMessage.Build_NumberOverflow);
                 return false;
             }
             return true;
@@ -1437,34 +1445,34 @@
             symFillTable.Add(se);
         }
 
-        private void MakeErrorMessage(SymEntry se, ErrorMessage messageType, ref CompError error)
+        private void MakeErrorMessage(SymEntry se, ErrorMessage messageType)
         {
-            error.errorMessage = messageType;
-            error.lineNumber = se.line;
-            error.characterNumber = se.charpos;
-            error.extraInfo1 = se.label;
+            currentError.errorMessage = messageType;
+            currentError.lineNumber = se.line;
+            currentError.characterNumber = se.charpos;
+            currentError.extraInfo1 = se.label;
         }
 
-        private void MakeErrorMessage(ITree arg, ErrorMessage messageType, ref CompError error)
+        private void MakeErrorMessage(ITree arg, ErrorMessage messageType)
         {
-            error.lineNumber = arg.Line;
-            error.characterNumber = arg.CharPositionInLine;
-            error.errorMessage = messageType;
-            error.extraInfo1 = arg.Text;
+            currentError.lineNumber = arg.Line;
+            currentError.characterNumber = arg.CharPositionInLine;
+            currentError.errorMessage = messageType;
+            currentError.extraInfo1 = arg.Text;
         }
 
-        private void MakeErrorMessage(ErrInfo arg, ref CompError error)
+        private void MakeErrorMessage(ErrInfo arg)
         {
-            error.lineNumber = arg.error.Line;
-            error.characterNumber = arg.error.CharPositionInLine;
-            error.errorMessage = ErrorMessage.General_CustomError;
-            error.extraInfo1 = arg.errText;
+            currentError.lineNumber = arg.error.Line;
+            currentError.characterNumber = arg.error.CharPositionInLine;
+            currentError.errorMessage = ErrorMessage.General_CustomError;
+            currentError.extraInfo1 = arg.errText;
         }
 
-        private bool EvalArithArgFunc(CodeGenerator.ArithmeticFuncDelegate arithFunc, ITree arg, ref CompError error)
+        private bool EvalArithArgFunc(CodeGenerator.ArithmeticFuncDelegate arithFunc, ITree arg)
         {
             var result = 0L;
-            if (!EvaluateExpression(arg.GetChild(0), out result, ref error))
+            if (!EvaluateExpression(arg.GetChild(0), out result))
             {
                 return false;
             }
@@ -1472,10 +1480,10 @@
             return true;
         }
 
-        private bool EvalBitFunc(CodeGenerator.BitFunctionDelegate bitFunc, ITree arg, string reg, ref CompError error)
+        private bool EvalBitFunc(CodeGenerator.BitFunctionDelegate bitFunc, ITree arg, string reg)
         {
             var result = 0L;
-            if (!EvaluateExpression(arg.GetChild(0), out result, ref error))
+            if (!EvaluateExpression(arg.GetChild(0), out result))
             {
                 return false;
             }

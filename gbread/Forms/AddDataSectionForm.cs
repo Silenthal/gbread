@@ -27,11 +27,11 @@
                     offsetBox.Text = editedLabel.Offset.ToString("X");
                     lengthBox.Text = editedLabel.Length.ToString("X");
                     dataTypeBox.SelectedIndex = (int)editedLabel.DSectionType;
-                    rowLengthBox.Text = editedLabel.DataLineLength.ToString("X");
                     if (!String.IsNullOrEmpty(editedLabel.Comment))
                     {
                         commentBox.Text = editedLabel.Comment;
                     }
+                    dataTemplateBox.Text = TemplateBuilder.TemplateToString(editedLabel.PrintTemplate);
                 }
             }
         }
@@ -51,36 +51,43 @@
                 !nameBox.Text.Equals(editedLabel.Name, StringComparison.Ordinal);
             int off = -1;
             int len = 0;
-            int rlen = 0;
             if (!RegularValidation.IsWord(nameBox.Text))
             {
-                Error.ShowErrorMessage(ErrorMessage.NAME_IS_INVALID);
+                Error.ShowErrorMessage(ErrorMessage.Label_InvalidName);
             }
             else if (checkNameCollision && labelContainer.SymbolList.ContainsKey(nameBox.Text))
             {
-                Error.ShowErrorMessage(ErrorMessage.NAME_ALREADY_DEFINED);
+                Error.ShowErrorMessage(ErrorMessage.Label_NameAlreadyDefined);
             }
             else if (!InputValidation.TryParseOffsetString(offsetBox.Text, out off))
             {
-                Error.ShowErrorMessage(ErrorMessage.OFFSET_IS_INVALID);
+                Error.ShowErrorMessage(ErrorMessage.Label_InvalidOffset);
             }
             else if (!Int32.TryParse(lengthBox.Text, NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture, out len) || len <= 0)
             {
-                Error.ShowErrorMessage(ErrorMessage.LENGTH_IS_INVALID);
-            }
-            else if (!Int32.TryParse(rowLengthBox.Text, NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture, out rlen) || rlen <= 0)
-            {
-                Error.ShowErrorMessage(ErrorMessage.ROW_LENGTH_IS_INVALID);
+                Error.ShowErrorMessage(ErrorMessage.Label_InvalidLength);
             }
             else
             {
-                if (editingMode == LabelEditMode.Edit)
+                TemplateBuilder tb = new TemplateBuilder();
+                string input = dataTemplateBox.Text;
+                bool success = false;
+                CompError error = new CompError();
+                var f = tb.ValidateTemplate(input, ref error, out success);
+                if (!success)
                 {
-                    labelContainer.RemoveDataLabel(editedLabel);
+                    Error.ShowErrorMessage(error);
                 }
-                editedLabel = new DataLabel(off, len, nameBox.Text, rlen, commentBox.Text, (DataSectionType)dataTypeBox.SelectedIndex);
-                labelContainer.AddDataLabel(editedLabel);
-                this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                else
+                {
+                    if (editingMode == LabelEditMode.Edit)
+                    {
+                        labelContainer.RemoveDataLabel(editedLabel);
+                    }
+                    editedLabel = new DataLabel(off, len, nameBox.Text, commentBox.Text, f, (DataSectionType)dataTypeBox.SelectedIndex);
+                    labelContainer.AddDataLabel(editedLabel);
+                    this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                }
             }
         }
     }

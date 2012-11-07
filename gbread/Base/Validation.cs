@@ -43,11 +43,10 @@
     internal class RegularValidation
     {
         private static Regex validLabel = new Regex(@"^[a-z][a-z0-9_]*$", RegexOptions.IgnoreCase);
-        
+
         public static bool IsWord(string check)
         {
             return validLabel.IsMatch(check);
         }
-
     }
 }

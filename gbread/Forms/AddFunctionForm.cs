@@ -49,15 +49,15 @@
             int off = -1;
             if (!RegularValidation.IsWord(nameBox.Text))
             {
-                Error.ShowErrorMessage(ErrorMessage.NAME_IS_INVALID);
+                Error.ShowErrorMessage(ErrorMessage.Label_InvalidName);
             }
             else if (checkNameCollision && labelContainer.SymbolList.ContainsKey(nameBox.Text))
             {
-                Error.ShowErrorMessage(ErrorMessage.NAME_ALREADY_DEFINED);
+                Error.ShowErrorMessage(ErrorMessage.Label_NameAlreadyDefined);
             }
             else if (!InputValidation.TryParseOffsetString(offsetBox.Text, out off))
             {
-                Error.ShowErrorMessage(ErrorMessage.OFFSET_IS_INVALID);
+                Error.ShowErrorMessage(ErrorMessage.Label_InvalidOffset);
             }
             else
             {

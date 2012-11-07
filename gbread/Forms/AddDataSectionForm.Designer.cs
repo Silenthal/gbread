@@ -36,12 +36,12 @@
             this.offsetBox = new System.Windows.Forms.TextBox();
             this.nameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataLabelRowLengthLabel = new System.Windows.Forms.Label();
-            this.rowLengthBox = new System.Windows.Forms.TextBox();
             this.dataTypeBox = new System.Windows.Forms.ComboBox();
             this.dataLabelDataTypeLabel = new System.Windows.Forms.Label();
-            this.commentBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dataTemplateBox = new System.Windows.Forms.TextBox();
+            this.commentBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // cancelButton
@@ -49,7 +49,7 @@
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelButton.Location = new System.Drawing.Point(288, 353);
+            this.cancelButton.Location = new System.Drawing.Point(288, 427);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(81, 23);
             this.cancelButton.TabIndex = 7;
@@ -60,7 +60,7 @@
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.okButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.okButton.Location = new System.Drawing.Point(15, 353);
+            this.okButton.Location = new System.Drawing.Point(15, 427);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 6;
@@ -122,25 +122,6 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Name";
             // 
-            // dataLabelRowLengthLabel
-            // 
-            this.dataLabelRowLengthLabel.AutoSize = true;
-            this.dataLabelRowLengthLabel.Location = new System.Drawing.Point(12, 114);
-            this.dataLabelRowLengthLabel.Name = "dataLabelRowLengthLabel";
-            this.dataLabelRowLengthLabel.Size = new System.Drawing.Size(78, 13);
-            this.dataLabelRowLengthLabel.TabIndex = 35;
-            this.dataLabelRowLengthLabel.Text = "Data Row Size";
-            // 
-            // rowLengthBox
-            // 
-            this.rowLengthBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rowLengthBox.Location = new System.Drawing.Point(96, 111);
-            this.rowLengthBox.Name = "rowLengthBox";
-            this.rowLengthBox.Size = new System.Drawing.Size(55, 20);
-            this.rowLengthBox.TabIndex = 4;
-            this.rowLengthBox.Text = "8";
-            this.rowLengthBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.formBox_keyDown);
-            // 
             // dataTypeBox
             // 
             this.dataTypeBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -162,37 +143,60 @@
             this.dataLabelDataTypeLabel.TabIndex = 34;
             this.dataLabelDataTypeLabel.Text = "Data Type";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 213);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(51, 13);
+            this.label4.TabIndex = 49;
+            this.label4.Text = "Comment";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 108);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(77, 13);
+            this.label5.TabIndex = 51;
+            this.label5.Text = "Data Template";
+            // 
+            // dataTemplateBox
+            // 
+            this.dataTemplateBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataTemplateBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataTemplateBox.Location = new System.Drawing.Point(15, 125);
+            this.dataTemplateBox.Multiline = true;
+            this.dataTemplateBox.Name = "dataTemplateBox";
+            this.dataTemplateBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.dataTemplateBox.Size = new System.Drawing.Size(354, 85);
+            this.dataTemplateBox.TabIndex = 4;
+            this.dataTemplateBox.WordWrap = false;
+            // 
             // commentBox
             // 
             this.commentBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.commentBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.commentBox.Location = new System.Drawing.Point(15, 156);
+            this.commentBox.Location = new System.Drawing.Point(15, 229);
             this.commentBox.Multiline = true;
             this.commentBox.Name = "commentBox";
             this.commentBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.commentBox.Size = new System.Drawing.Size(354, 191);
+            this.commentBox.Size = new System.Drawing.Size(354, 192);
             this.commentBox.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 140);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 13);
-            this.label4.TabIndex = 49;
-            this.label4.Text = "Comment";
+            this.commentBox.WordWrap = false;
             // 
             // AddDataLabelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 393);
+            this.ClientSize = new System.Drawing.Size(384, 467);
             this.Controls.Add(this.commentBox);
+            this.Controls.Add(this.dataTemplateBox);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dataLabelRowLengthLabel);
-            this.Controls.Add(this.rowLengthBox);
             this.Controls.Add(this.dataTypeBox);
             this.Controls.Add(this.dataLabelDataTypeLabel);
             this.Controls.Add(this.cancelButton);
@@ -219,12 +223,12 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox offsetBox;
 		private System.Windows.Forms.TextBox nameBox;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label dataLabelRowLengthLabel;
-		private System.Windows.Forms.TextBox rowLengthBox;
+        private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.ComboBox dataTypeBox;
-		private System.Windows.Forms.Label dataLabelDataTypeLabel;
-		private System.Windows.Forms.TextBox commentBox;
-		private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label dataLabelDataTypeLabel;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox dataTemplateBox;
+        private System.Windows.Forms.TextBox commentBox;
 	}
 }

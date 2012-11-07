@@ -83,8 +83,12 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\DataTemplateLexer.cs" />
+    <Compile Include="Base\DataTemplateParser.cs" />
     <Compile Include="Base\GBXLexer.cs" />
     <Compile Include="Base\GBXParser.cs" />
+    <Compile Include="Base\Table.cs" />
+    <Compile Include="Base\TemplateBuilder.cs" />
     <Compile Include="Patch\IPS.cs" />
     <Compile Include="TextBoxHost.xaml.cs">
       <DependentUpon>TextBoxHost.xaml</DependentUpon>

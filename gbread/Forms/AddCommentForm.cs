@@ -16,7 +16,7 @@
             {
                 if (labelContainer.Comments.ContainsKey(offset))
                 {
-                    textBox2.Text = labelContainer.Comments[offset];
+                    commentBox.Text = labelContainer.Comments[offset];
                 }
                 Text = "Edit Comment";
             }
@@ -27,9 +27,9 @@
             int off = -1;
             if (!InputValidation.TryParseOffsetString(offsetBox.Text, out off))
             {
-                Error.ShowErrorMessage(ErrorMessage.OFFSET_IS_INVALID);
+                Error.ShowErrorMessage(ErrorMessage.Label_InvalidOffset);
             }
-            labelContainer.AddComment(off, textBox2.Text);
+            labelContainer.AddComment(off, commentBox.Text);
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
         }
 
@@ -38,7 +38,7 @@
             int off = -1;
             if (InputValidation.TryParseOffsetString(offsetBox.Text, out off) && labelContainer.Comments.ContainsKey(off))
             {
-                textBox2.Text = labelContainer.Comments[off];
+                commentBox.Text = labelContainer.Comments[off];
             }
         }
     }

@@ -108,6 +108,46 @@ namespace GBRead.Base
             return ret;
         }
 
+        public uint ReadDWord(int offset)
+        {
+            if (binFile == null || offset < 0 || offset > binFile.Length - 2)
+            {
+                return 0xFFFFFFFF;
+            }
+            uint ret = binFile[offset + 4];
+            ret <<= 8;
+            ret |= binFile[offset + 3];
+            ret <<= 8;
+            ret |= binFile[offset + 2];
+            ret <<= 8;
+            ret |= binFile[offset];
+            return ret;
+        }
+
+        public ulong ReadQWord(int offset)
+        {
+            if (binFile == null || offset < 0 || offset > binFile.Length - 2)
+            {
+                return 0xFFFFFFFFFFFFFFFF;
+            }
+            ulong ret = binFile[offset + 7];
+            ret <<= 8;
+            ret |= binFile[offset + 6];
+            ret <<= 8;
+            ret |= binFile[offset + 5];
+            ret <<= 8;
+            ret |= binFile[offset + 4];
+            ret <<= 8;
+            ret |= binFile[offset + 3];
+            ret <<= 8;
+            ret |= binFile[offset + 2];
+            ret <<= 8;
+            ret |= binFile[offset + 1];
+            ret <<= 8;
+            ret |= binFile[offset];
+            return ret;
+        }
+
         public abstract string GetBinInfo();
     }
 }

@@ -14,19 +14,47 @@
 
         #region Options
 
-        public bool PrintOffsets { get; set; }
+        public bool PrintOffsets
+        {
+            get;
+            set;
+        }
 
-        public bool PrintBitPattern { get; set; }
+        public bool PrintBitPattern
+        {
+            get;
+            set;
+        }
 
-        public OffsetFormat PrintedOffsetFormat { get; set; }
+        public OffsetFormat PrintedOffsetFormat
+        {
+            get;
+            set;
+        }
 
-        public OffsetFormat InstructionNumberFormat { get; set; }
+        public OffsetFormat InstructionNumberFormat
+        {
+            get;
+            set;
+        }
 
-        public bool PrintComments { get; set; }
+        public bool PrintComments
+        {
+            get;
+            set;
+        }
 
-        public bool HideDefinedFunctions { get; set; }
+        public bool HideDefinedFunctions
+        {
+            get;
+            set;
+        }
 
-        public bool HideDefinedData { get; set; }
+        public bool HideDefinedData
+        {
+            get;
+            set;
+        }
 
         #endregion Options
 
@@ -75,25 +103,7 @@
         public string ShowDataLabel(DataLabel dataLabel)
         {
             StringBuilder ret = new StringBuilder(String.Empty);
-            ret.AppendLine(dataLabel.ToASMCommentString());
-            var labelsIn = (
-                from s in lc.FuncList
-                where s.Offset >= dataLabel.Offset && s.Offset < dataLabel.Offset + dataLabel.Length
-                select new { Name = s.Name, Offset = s.Offset, Comment = s.ToASMCommentString() })
-                .Concat(
-                from s in lc.DataList
-                where s.Offset > dataLabel.Offset && s.Offset < dataLabel.Offset + dataLabel.Length
-                select new { Name = s.Name, Offset = s.Offset, Comment = s.ToASMCommentString() })
-                .OrderBy(s => s.Offset)
-                .ThenBy(s => s.Name);
-            int currentLoc = dataLabel.Offset;
-            foreach (var label in labelsIn)
-            {
-                ret.Append(GetDBSection(currentLoc, label.Offset - currentLoc, dataLabel.DataLineLength));
-                ret.AppendLine(label.Comment);
-                currentLoc = label.Offset;
-            }
-            ret.Append(GetDBSection(currentLoc, dataLabel.Length, dataLabel.DataLineLength));
+            ret.Append(GetDataTemplateSection(dataLabel.PrintTemplate, dataLabel.Offset, dataLabel.Length));
             return ret.ToString();
         }
 
@@ -110,44 +120,220 @@
             return ret.ToString();
         }
 
-        private string GetDBSection(int off, int len, int lineSize)
+        private string GetDataLine(char secType, int off, int count, int restrictedSize, out int printSize)
         {
-            if (len == 0)
-            {
-                return "";
-            }
             StringBuilder sb = new StringBuilder();
-            int afterLast = off + len;
-            for (int currentOffset = off; currentOffset < afterLast; currentOffset += lineSize)
+            var dType = "";
+            var format = "X2";
+            var secMult = 1;
+            printSize = 0;
+            switch (secType)
             {
-                int dbCount = currentOffset + lineSize > afterLast ? afterLast - currentOffset : lineSize;
-                int last = currentOffset + dbCount - 1;
-                sb.Append("    db ");
-                for (int curOff = currentOffset; curOff < last; curOff++)
+                case 'b':
+                    dType = "db";
+                    format = "X2";
+                    secMult = 1;
+                    break;
+
+                case 'w':
+                    dType = "dw";
+                    format = "X4";
+                    secMult = 2;
+                    break;
+
+                case 'd':
+                    dType = "dd";
+                    format = "X8";
+                    secMult = 4;
+                    break;
+
+                case 'q':
+                    dType = "dq";
+                    format = "X16";
+                    secMult = 8;
+                    break;
+            }
+            sb.Append("    " + dType + " ");
+            int currentOffset = off;
+            int amtprinted = 0;
+            while (amtprinted < count)
+            {
+                if (currentOffset + secMult <= off + restrictedSize)
                 {
-                    byte curByte = (byte)CoreFile.ReadByte(curOff);
-                    switch (InstructionNumberFormat)
+                    currentOffset += secMult;
+                    switch (secType)
                     {
-                        case OffsetFormat.Decimal:
-                            sb.Append(curByte.ToString() + ", ");
+                        case 'b':
+                            switch (InstructionNumberFormat)
+                            {
+                                case OffsetFormat.Decimal:
+                                    sb.Append(CoreFile.ReadByte(currentOffset).ToString());
+                                    break;
+
+                                default:
+                                    sb.Append("$" + CoreFile.ReadByte(currentOffset).ToString(format));
+                                    break;
+                            }
                             break;
 
-                        default:
-                            sb.Append("$" + curByte.ToString("X2") + ", ");
+                        case 'w':
+                            switch (InstructionNumberFormat)
+                            {
+                                case OffsetFormat.Decimal:
+                                    sb.Append(CoreFile.ReadWord(currentOffset).ToString());
+                                    break;
+
+                                default:
+                                    sb.Append("$" + CoreFile.ReadWord(currentOffset).ToString(format));
+                                    break;
+                            }
+                            break;
+
+                        case 'd':
+                            switch (InstructionNumberFormat)
+                            {
+                                case OffsetFormat.Decimal:
+                                    sb.Append(CoreFile.ReadDWord(currentOffset).ToString());
+                                    break;
+
+                                default:
+                                    sb.Append("$" + CoreFile.ReadDWord(currentOffset).ToString(format));
+                                    break;
+                            }
+                            break;
+
+                        case 'q':
+                            switch (InstructionNumberFormat)
+                            {
+                                case OffsetFormat.Decimal:
+                                    sb.Append(CoreFile.ReadQWord(currentOffset).ToString());
+                                    break;
+
+                                default:
+                                    sb.Append("$" + CoreFile.ReadQWord(currentOffset).ToString(format));
+                                    break;
+                            }
                             break;
                     }
+                    if (++amtprinted < count)
+                    {
+                        sb.Append(", ");
+                    }
                 }
-                switch (InstructionNumberFormat)
+                else
                 {
-                    case OffsetFormat.Decimal:
-                        sb.Append(((byte)CoreFile.ReadByte(last)).ToString());
-                        break;
-
-                    default:
-                        sb.Append("$" + ((byte)CoreFile.ReadByte(last)).ToString("X2"));
-                        break;
+                    break;
                 }
-                sb.AppendLine();
+            }
+            printSize = currentOffset - off;
+            return sb.ToString();
+        }
+
+        private string GetStringDataLine(int off, int count, bool isFixed, int fixStringSize, out int printSize)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("    ds ");
+            printSize = 0;
+            if (isFixed)
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    var ls = lc.TableFile.GetVal(CoreFile.MainFile, off + (i * fixStringSize), fixStringSize);
+                    sb.Append("\"" + ls + "\"");
+                    if (i < count - 1)
+                    {
+                        sb.Append(", ");
+                    }
+                    printSize += fixStringSize;
+                }
+            }
+            else
+            {
+                var currentVariSize = 0;
+                for (int i = 0; i < count; i++)
+                {
+                    int sz = 0;
+                    var passedSize = off + currentVariSize;
+                    while (CoreFile.ReadByte(passedSize + sz++) != 0)
+                    {
+                    }
+                    var ls = lc.TableFile.GetVal(CoreFile.MainFile, passedSize, sz);
+                    sb.Append("\"" + ls + "\"");
+                    if (i < count - 1)
+                    {
+                        sb.Append(", ");
+                    }
+                    currentVariSize += sz;
+                }
+                printSize = currentVariSize;
+            }
+            return sb.ToString();
+        }
+
+        private string GetDataTemplateSection(string template, int off, int len)
+        {
+            var sb = new StringBuilder();
+            int afterLast = off + len;
+            var tempDict = TemplateBuilder.GetTemplateInfo(template);
+
+            int currentOffset = off;
+            bool done = false;
+            while ( !done && currentOffset < afterLast)
+            {
+                foreach (var fInfo in tempDict)
+                {
+                    var expectedSize = 0;
+                    var lin = "";
+                    if (fInfo.FormatType == 's')
+                    {
+                        var vSize = fInfo.FormatArgs.Count != 0;
+                        var s = vSize ? fInfo.FormatArgs[0] : 0;
+                        lin = GetStringDataLine(currentOffset, fInfo.ArrLenArg, vSize, s, out expectedSize);
+                    }
+                    else
+                    {
+                        lin = GetDataLine(fInfo.FormatType, currentOffset, fInfo.ArrLenArg, len, out expectedSize);
+                    }
+                    var labelsIn = (
+                        from s in lc.FuncList
+                        where s.Offset == currentOffset
+                        select new {
+                            Name = s.Name, Offset = s.Offset, Comment = s.ToASMCommentString()
+                        })
+                        .Concat(
+                        from s in lc.DataList
+                        where s.Offset == currentOffset
+                        select new {
+                            Name = s.Name, Offset = s.Offset, Comment = s.ToASMCommentString()
+                        })
+                        .Concat(
+                        from s in lc.Comments
+                        where s.Key == currentOffset
+                        select new {
+                            Name = "_", Offset = s.Key, Comment = ";" + s.Value.Replace("\n", "\n;")
+                        })
+                        .OrderBy(s => s.Offset)
+                        .ThenBy(s => s.Name);
+                    foreach (var label in labelsIn)
+                    {
+                        sb.AppendLine(label.Comment);
+                    }
+                    if (currentOffset + expectedSize > afterLast)
+                    {
+                        done = true;
+                        break;
+                    }
+                    else
+                    {
+                        sb.AppendLine(lin);
+                        currentOffset += expectedSize;
+                    }
+                }
+            }
+            if (currentOffset < afterLast)
+            {
+                int temp = 0;
+                sb.AppendLine(GetDataLine('b', currentOffset, afterLast - currentOffset, len, out temp));
             }
             return sb.ToString();
         }
@@ -310,13 +496,28 @@
 
         #region Searching
 
-        public enum SearchOptions { InFunctions, InFile }
+        public enum SearchOptions
+        {
+            InFunctions,
+            InFile
+        }
 
         [Flags]
-        private enum FuncRefType { None = 0x0, Call = 0x1, Jump = 0x2 }
+        private enum FuncRefType
+        {
+            None = 0x0,
+            Call = 0x1,
+            Jump = 0x2
+        }
 
         [Flags]
-        private enum VarRefType { None = 0x0, Read = 0x1, Write = 0x2, Ref = 0x4 };
+        private enum VarRefType
+        {
+            None = 0x0,
+            Read = 0x1,
+            Write = 0x2,
+            Ref = 0x4
+        };
 
         public void AutoPopulateFunctionList()
         {
@@ -722,7 +923,7 @@
                         }
                         else
                         {
-                            return address.ToString("D7") + "  "; 
+                            return address.ToString("D7") + "  ";
                         }
                     }
                 default:
@@ -783,7 +984,11 @@
             }
         }
 
-        private enum NumberType { Byte, Word }
+        private enum NumberType
+        {
+            Byte,
+            Word
+        }
 
         private string NumberToASMString(int intArg, NumberType numType)
         {

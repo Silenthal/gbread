@@ -5,6 +5,7 @@
     using System.IO;
     using System.Linq;
     using System.Text;
+    using System.Text.RegularExpressions;
 
     public enum SymbolType
     {
@@ -33,6 +34,8 @@
         private Dictionary<int, string> _commentList = new Dictionary<int, string>();
         private Dictionary<string, SymValue> _symbolList = new Dictionary<string, SymValue>();
         private HashSet<int> _dataAddrs = new HashSet<int>();
+
+        private Table tableFile = new Table();
 
         #endregion Private members
 
@@ -90,6 +93,14 @@
                 {
                     return _symbolList;
                 }
+            }
+        }
+
+        public Table TableFile
+        {
+            get
+            {
+                return tableFile;
             }
         }
 
@@ -441,14 +452,13 @@
                                     {
                                         int offset = -1;
                                         int length = -1;
-                                        int dataDiv = 0;
+                                        string printTemp = "";
                                         string name = "";
                                         string comment = "";
                                         DataSectionType dst = DataSectionType.Data;
                                         GBPalette gbp = new GBPalette();
                                         bool offsetGood = false;
                                         bool lengthGood = false;
-                                        bool dataDivGood = false;
                                         foreach (var kvp in currentItem)
                                         {
                                             switch (kvp.Key)
@@ -478,7 +488,7 @@
 
                                                 case "_d":
                                                     {
-                                                        dataDivGood = InputValidation.TryParseOffsetString(kvp.Value, out dataDiv);
+                                                        printTemp = kvp.Value;
                                                     }
                                                     break;
 
@@ -525,7 +535,7 @@
 
                                         if (offsetGood && lengthGood)
                                         {
-                                            DataLabel ds = new DataLabel(offset, length, name, dataDiv, comment, dst, gbp);
+                                            DataLabel ds = new DataLabel(offset, length, name, printTemp, comment, dst, gbp);
                                             AddDataLabel(ds);
                                         }
                                         else
@@ -653,7 +663,7 @@
                     functions.WriteLine("_c:" + s.Comment);
                     functions.WriteLine("_l:" + s.Length.ToString("X"));
                     functions.WriteLine("_t:" + s.DSectionType);
-                    functions.WriteLine("_d:" + s.DataLineLength.ToString("X"));
+                    functions.WriteLine("_d:" + s.PrintTemplate);
                     if (s.DSectionType == DataSectionType.Image)
                     {
                         functions.WriteLine("_p1:" + s.Palette.Col_1.ToString("X"));

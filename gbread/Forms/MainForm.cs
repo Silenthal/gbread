@@ -67,7 +67,7 @@
             }
             else
             {
-                Error.ShowErrorMessage(ErrorMessage.NO_FILE);
+                Error.ShowErrorMessage(ErrorMessage.General_NoFileLoaded);
             }
         }
 
@@ -98,7 +98,7 @@
             }
             else
             {
-                Error.ShowErrorMessage(ErrorMessage.NO_FILE);
+                Error.ShowErrorMessage(ErrorMessage.General_NoFileLoaded);
             }
         }
 
@@ -135,7 +135,7 @@
             }
             else
             {
-                Error.ShowErrorMessage(ErrorMessage.NO_FILE);
+                Error.ShowErrorMessage(ErrorMessage.General_NoFileLoaded);
             }
         }
 
@@ -200,7 +200,7 @@
             }
             else
             {
-                Error.ShowErrorMessage(ErrorMessage.NO_FILE);
+                Error.ShowErrorMessage(ErrorMessage.General_NoFileLoaded);
             }
         }
 
@@ -243,7 +243,7 @@
             }
             else
             {
-                Error.ShowErrorMessage(ErrorMessage.NO_FILE);
+                Error.ShowErrorMessage(ErrorMessage.General_NoFileLoaded);
             }
         }
 
@@ -276,7 +276,7 @@
             }
             else
             {
-                Error.ShowErrorMessage(ErrorMessage.NO_FILE);
+                Error.ShowErrorMessage(ErrorMessage.General_NoFileLoaded);
             }
         }
 
@@ -312,7 +312,7 @@
             }
             else
             {
-                Error.ShowErrorMessage(ErrorMessage.NO_FILE);
+                Error.ShowErrorMessage(ErrorMessage.General_NoFileLoaded);
             }
         }
 
@@ -325,7 +325,7 @@
             }
             else
             {
-                Error.ShowErrorMessage(ErrorMessage.NO_FILE);
+                Error.ShowErrorMessage(ErrorMessage.General_NoFileLoaded);
             }
         }
 
@@ -342,19 +342,19 @@
                 {
                     if (start < 0 || end < 0)
                     {
-                        Error.ShowErrorMessage(ErrorMessage.START_OR_END_INVALID);
+                        Error.ShowErrorMessage(ErrorMessage.Disassembly_StartOrEndInvalid);
                     }
                     else if (start < 0 || start > romFile.Length)
                     {
-                        Error.ShowErrorMessage(ErrorMessage.START_INVALID);
+                        Error.ShowErrorMessage(ErrorMessage.Disassembly_StartInvalid);
                     }
                     else if (end <= 0 || end >= romFile.Length)
                     {
-                        Error.ShowErrorMessage(ErrorMessage.END_INVALID);
+                        Error.ShowErrorMessage(ErrorMessage.Disassembly_EndInvalid);
                     }
                     else if (end < start)
                     {
-                        Error.ShowErrorMessage(ErrorMessage.START_AFTER_END);
+                        Error.ShowErrorMessage(ErrorMessage.Disassembly_StartAfterEnd);
                     }
                     else
                     {
@@ -363,7 +363,7 @@
                 }
                 else
                 {
-                    Error.ShowErrorMessage(ErrorMessage.NO_FILE);
+                    Error.ShowErrorMessage(ErrorMessage.General_NoFileLoaded);
                 }
             })).Start();
         }
@@ -444,7 +444,7 @@
             }
             else
             {
-                Error.ShowErrorMessage(ErrorMessage.NO_FILE);
+                Error.ShowErrorMessage(ErrorMessage.General_NoFileLoaded);
             }
         }
 
@@ -620,7 +620,11 @@
             }
         }
 
-        public enum TextBoxWriteMode { Append, Overwrite }
+        public enum TextBoxWriteMode
+        {
+            Append,
+            Overwrite
+        }
 
         private void UpdateMainTextBox(string text, TextBoxWriteMode overwriteExistingText)
         {
@@ -667,7 +671,7 @@
             }
             else
             {
-                Error.ShowErrorMessage(ErrorMessage.NO_FILE);
+                Error.ShowErrorMessage(ErrorMessage.General_NoFileLoaded);
             }
         }
 
@@ -708,7 +712,31 @@
             }
             else
             {
-                Error.ShowErrorMessage(ErrorMessage.NO_FILE);
+                Error.ShowErrorMessage(ErrorMessage.General_NoFileLoaded);
+            }
+        }
+
+        private void loadTableFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Open Table File...";
+            ofd.Filter = "Table Files|*.tbl;*.txt|All Files|*";
+            ofd.FileName = "";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                labelContainer.TableFile.LoadTableFile(ofd.FileName);
+            }
+        }
+
+        private void loadShiftJISTableFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Open Table File...";
+            ofd.Filter = "Table Files|*.tbl;*.txt|All Files|*";
+            ofd.FileName = "";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                labelContainer.TableFile.LoadTableFile(ofd.FileName, true);
             }
         }
     }

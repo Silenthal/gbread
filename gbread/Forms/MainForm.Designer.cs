@@ -33,7 +33,11 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveChangedFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.loadTableFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.loadFunctionListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveCalledFunctionsListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -84,8 +88,7 @@
             this.addCommentButton = new System.Windows.Forms.Button();
             this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
             this.textBoxHost1 = new GBRead.TextBoxHost();
-            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.iPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadShiftJISTableFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.funcLabelBoxContextMenu.SuspendLayout();
             this.funcLabelBoxContextMenu2.SuspendLayout();
@@ -119,6 +122,9 @@
             this.saveChangedFileToolStripMenuItem,
             this.saveAsToolStripMenuItem,
             this.toolStripSeparator2,
+            this.loadTableFileToolStripMenuItem,
+            this.loadShiftJISTableFileToolStripMenuItem,
+            this.toolStripSeparator4,
             this.loadFunctionListToolStripMenuItem,
             this.saveCalledFunctionsListToolStripMenuItem,
             this.toolStripSeparator3,
@@ -145,10 +151,37 @@
             this.saveChangedFileToolStripMenuItem.Text = "&Save GB/C File...";
             this.saveChangedFileToolStripMenuItem.Click += new System.EventHandler(this.saveChangedFileToolStripMenuItem_Click);
             // 
+            // saveAsToolStripMenuItem
+            // 
+            this.saveAsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.iPSToolStripMenuItem});
+            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.saveAsToolStripMenuItem.Text = "Save As...";
+            // 
+            // iPSToolStripMenuItem
+            // 
+            this.iPSToolStripMenuItem.Name = "iPSToolStripMenuItem";
+            this.iPSToolStripMenuItem.Size = new System.Drawing.Size(90, 22);
+            this.iPSToolStripMenuItem.Text = "IPS";
+            this.iPSToolStripMenuItem.Click += new System.EventHandler(this.iPSToolStripMenuItem_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(246, 6);
+            // 
+            // loadTableFileToolStripMenuItem
+            // 
+            this.loadTableFileToolStripMenuItem.Name = "loadTableFileToolStripMenuItem";
+            this.loadTableFileToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.loadTableFileToolStripMenuItem.Text = "Load Table File";
+            this.loadTableFileToolStripMenuItem.Click += new System.EventHandler(this.loadTableFileToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(246, 6);
             // 
             // loadFunctionListToolStripMenuItem
             // 
@@ -590,20 +623,12 @@
             this.elementHost2.Text = "elementHost2";
             this.elementHost2.Child = this.textBoxHost1;
             // 
-            // saveAsToolStripMenuItem
+            // loadShiftJISTableFileToolStripMenuItem
             // 
-            this.saveAsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.iPSToolStripMenuItem});
-            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.saveAsToolStripMenuItem.Text = "Save As...";
-            // 
-            // iPSToolStripMenuItem
-            // 
-            this.iPSToolStripMenuItem.Name = "iPSToolStripMenuItem";
-            this.iPSToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.iPSToolStripMenuItem.Text = "IPS";
-            this.iPSToolStripMenuItem.Click += new System.EventHandler(this.iPSToolStripMenuItem_Click);
+            this.loadShiftJISTableFileToolStripMenuItem.Name = "loadShiftJISTableFileToolStripMenuItem";
+            this.loadShiftJISTableFileToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.loadShiftJISTableFileToolStripMenuItem.Text = "Load Shift-JIS Table File";
+            this.loadShiftJISTableFileToolStripMenuItem.Click += new System.EventHandler(this.loadShiftJISTableFileToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -701,6 +726,9 @@
         private TextBoxHost textBoxHost1;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iPSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadTableFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem loadShiftJISTableFileToolStripMenuItem;
     }
 }
 

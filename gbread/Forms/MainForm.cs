@@ -329,6 +329,71 @@
             }
         }
 
+        private void iPSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (romFile.FileLoaded)
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Title = "Open original file";
+                ofd.Filter = "GB/GBC Files|*.gb;*.gbc|All Files|*";
+                ofd.FileName = "";
+                if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    byte[] orig = File.ReadAllBytes(ofd.FileName);
+                    if (orig.Length != romFile.Length)
+                    {
+                        Error.ShowErrorMessage(ErrorMessage.IPS_FileSizeMismatch);
+                    }
+                    SaveFileDialog afd = new SaveFileDialog();
+                    afd.Title = "Save IPS File...";
+                    afd.Filter = "GB/GBC Files|*.gb;*.gbc|All Files|*";
+                    afd.FileName = "";
+                    if (afd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        IPS ips = new IPS();
+                        ErrorMessage emt = ips.GenerateIPS(orig, romFile.MainFile);
+                        if (emt != ErrorMessage.General_NoError)
+                        {
+                            File.WriteAllBytes(afd.FileName, ips.GetIPS());
+                            MessageBox.Show("Patch successfuly written to " + Environment.NewLine + afd.FileName);
+                        }
+                        else
+                        {
+                            Error.ShowErrorMessage(emt);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Error.ShowErrorMessage(ErrorMessage.General_NoFileLoaded);
+            }
+        }
+
+        private void loadTableFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Open Table File...";
+            ofd.Filter = "Table Files|*.tbl;*.txt|All Files|*";
+            ofd.FileName = "";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                labelContainer.TableFile.LoadTableFile(ofd.FileName);
+            }
+        }
+
+        private void loadShiftJISTableFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Open Table File...";
+            ofd.Filter = "Table Files|*.tbl;*.txt|All Files|*";
+            ofd.FileName = "";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                labelContainer.TableFile.LoadTableFile(ofd.FileName, true);
+            }
+        }
+
         #endregion Toolstrip Menus
 
         private void printASMButton_Click(object sender, EventArgs e)
@@ -672,71 +737,6 @@
             else
             {
                 Error.ShowErrorMessage(ErrorMessage.General_NoFileLoaded);
-            }
-        }
-
-        private void iPSToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (romFile.FileLoaded)
-            {
-                OpenFileDialog ofd = new OpenFileDialog();
-                ofd.Title = "Open original file";
-                ofd.Filter = "GB/GBC Files|*.gb;*.gbc|All Files|*";
-                ofd.FileName = "";
-                if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    byte[] orig = File.ReadAllBytes(ofd.FileName);
-                    if (orig.Length != romFile.Length)
-                    {
-                        Error.ShowErrorMessage(ErrorMessage.IPS_FileSizeMismatch);
-                    }
-                    SaveFileDialog afd = new SaveFileDialog();
-                    afd.Title = "Save IPS File...";
-                    afd.Filter = "GB/GBC Files|*.gb;*.gbc|All Files|*";
-                    afd.FileName = "";
-                    if (afd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    {
-                        IPS ips = new IPS();
-                        ErrorMessage emt = ips.GenerateIPS(orig, romFile.MainFile);
-                        if (emt != ErrorMessage.General_NoError)
-                        {
-                            File.WriteAllBytes(afd.FileName, ips.GetIPS());
-                            MessageBox.Show("Patch successfuly written to " + Environment.NewLine + afd.FileName);
-                        }
-                        else
-                        {
-                            Error.ShowErrorMessage(emt);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                Error.ShowErrorMessage(ErrorMessage.General_NoFileLoaded);
-            }
-        }
-
-        private void loadTableFileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Title = "Open Table File...";
-            ofd.Filter = "Table Files|*.tbl;*.txt|All Files|*";
-            ofd.FileName = "";
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                labelContainer.TableFile.LoadTableFile(ofd.FileName);
-            }
-        }
-
-        private void loadShiftJISTableFileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Title = "Open Table File...";
-            ofd.Filter = "Table Files|*.tbl;*.txt|All Files|*";
-            ofd.FileName = "";
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                labelContainer.TableFile.LoadTableFile(ofd.FileName, true);
             }
         }
     }

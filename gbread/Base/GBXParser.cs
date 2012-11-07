@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.4 GBX.g 2012-11-05 21:34:06
+// $ANTLR 3.4 GBX.g 2012-11-07 03:48:12
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -227,19 +227,19 @@ public partial class GBXParser : Antlr.Runtime.Parser
 	public override string GrammarFileName { get { return "GBX.g"; } }
 
 
-		private List<ErrInfo> Errors = new List<ErrInfo>();
+	private List<ErrInfo> Errors = new List<ErrInfo>();
 
-		public override void DisplayRecognitionError(string[] tokenNames, RecognitionException e)
-		{
-			string errHeader = GetErrorHeader(e);
-			string errMSG = GetErrorMessage(e, tokenNames);
-			Errors.Add(new ErrInfo() {errText = errMSG, error = e});
-		}
+	public override void DisplayRecognitionError(string[] tokenNames, RecognitionException e)
+	{
+		string errHeader = GetErrorHeader(e);
+		string errMSG = GetErrorMessage(e, tokenNames);
+		Errors.Add(new ErrInfo() {errText = errMSG, error = e});
+	}
 
-		public List<ErrInfo> GetErrors()
-		{
-			return Errors;
-		}
+	public List<ErrInfo> GetErrors()
+	{
+		return Errors;
+	}
 
 
 	partial void OnCreated();
@@ -631,7 +631,7 @@ public partial class GBXParser : Antlr.Runtime.Parser
 
 				{
 				// AST REWRITE
-				// elements: expression, ID
+				// elements: ID, expression
 				// token labels: 
 				// rule labels: retval
 				// token list labels: 
@@ -739,7 +739,7 @@ public partial class GBXParser : Antlr.Runtime.Parser
 
 				{
 				// AST REWRITE
-				// elements: ID, statement
+				// elements: statement, ID
 				// token labels: 
 				// rule labels: retval
 				// token list labels: 

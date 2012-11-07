@@ -45,27 +45,15 @@
                     Error.ShowErrorMessage(c);
                     gcheckSuccess = false;
                 }
-                else if (preComCheck.Length == 0)
+                else if (preComCheck.Length != 0)
                 {
-                    gcheckSuccess = false;
-                }
-                else
-                {
-                    intermediaryTextBox.Text = refFile.PrintASM(preComCheck, off, 0, preComCheck.Length);
-                    replaceTextBox.Text = refFile.PrintASM(off, preComCheck.Length);
-                    gcheckSuccess = true;
-                }
-            }
-        }
-
-        private void insertButton_Click(object sender, EventArgs e)
-        {
-            if (gcheckSuccess)
-            {
-                if (MessageBox.Show("Are you sure you want to insert this code?", "Confirm Insertion", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                {
-                    baseFile.ModifyFile(insertOffset, preComCheck);
-                    this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                    string message = "Are you sure you want to insert this code?";
+                    message += "\n" + "Offset: $" + insertOffset.ToString("X") + "  Size: $" + preComCheck.Length.ToString("X") + " byte(s)";
+                    if (MessageBox.Show(message, "Confirm Insertion", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        baseFile.ModifyFile(insertOffset, preComCheck);
+                        this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                    }
                 }
             }
         }
@@ -74,7 +62,7 @@
         {
             if ((Keys)e.KeyChar == Keys.Enter)
             {
-                insertButton_Click(new object(), new EventArgs());
+                assembleButton_Click(new object(), new EventArgs());
                 e.Handled = true;
             }
             if (!Char.IsControl(e.KeyChar) && !Char.IsDigit(e.KeyChar) && !(e.KeyChar >= 'A' && e.KeyChar <= 'F') && !(e.KeyChar >= 'a' && e.KeyChar <= 'f') && !(e.KeyChar == ':'))

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.4 GBX.g 2012-11-05 21:34:07
+// $ANTLR 3.4 GBX.g 2012-11-07 03:48:13
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -186,19 +186,19 @@ public partial class GBXLexer : Antlr.Runtime.Lexer
 	public const int WS=125;
 	public const int X_ESCAPE=126;
 
-		private List<ErrInfo> Errors = new List<ErrInfo>();
+	private List<ErrInfo> Errors = new List<ErrInfo>();
 
-		public override void DisplayRecognitionError(string[] tokenNames, RecognitionException e)
-		{
-			string errHeader = GetErrorHeader(e);
-			string errMSG = GetErrorMessage(e, tokenNames);
-			Errors.Add(new ErrInfo() {errText = errMSG, error = e});
-		}
+	public override void DisplayRecognitionError(string[] tokenNames, RecognitionException e)
+	{
+		string errHeader = GetErrorHeader(e);
+		string errMSG = GetErrorMessage(e, tokenNames);
+		Errors.Add(new ErrInfo() {errText = errMSG, error = e});
+	}
 
-		public List<ErrInfo> GetErrors()
-		{
-			return Errors;
-		}
+	public List<ErrInfo> GetErrors()
+	{
+		return Errors;
+	}
 
 
     // delegates

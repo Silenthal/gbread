@@ -42,6 +42,48 @@ Variables can be defined, for when you suspect a certain location in the
 memory map is used repeatedly (e.g. [$FF41], the LCD Status register).
 Comments can also be added by themselves, through [Add Comments...].
 
+c-2. Data Templates
+Data templating (added in r16) is a way to format the output of a given data
+section, when printed. Each command is ended with a semicolon (;).
+
+    byte[count];
+    word[count];
+    dword[count];
+    qword[count];
+    string(length)[count];
+
+byte,word,dword,qword,string: The type of data to print on a line. Sizes are
+8-bit, 16-bit, 32-bit, 64-bit, and "variable", respectively.
+
+count: The amount that is printed on a single line. For example:
+
+    word[2];
+
+    dw $4503, $3204
+
+Omitting the array specifier is the same as having [1].
+
+length: Used with the string option, specifies a fixed length string to be
+printed.
+
+    string(3)[2];
+
+    ds "hah", "lol"
+
+Omitting the length parameter, strings default to null-terminated, or best-fit
+with the space available.
+
+    string[1];
+
+    ds "This is a sentence.\x00"
+
+c-1-a: Tables
+When printing strings, an ASCII table is used by default (well, just casting
+each byte as a char). For other formats, you can use the option in the file
+menu to load either regular table files, or Shift-JIS table files, for those
+who still have them lying around. There is no support for string handling in
+building (not at the moment, anyway).
+
 d. View Labels/Variables
 You can manage labels through clicking on them in the list to the right of the
 main box. Double clicking on a regular label or data section label will
@@ -62,28 +104,28 @@ Save Labels and Variables : Saves the contents of the function/data/var
 boxes. Save format is as follows:
 
 ------------------------------------------------------------------------------
-gbr
-.label
-_n:<name>
-_o:<offset>
-_c:<comment line>
+    gbr
+    .label
+    _n:<name>
+    _o:<offset>
+    _c:<comment line>
 
-.data
-_n:<name>
-_o:<offset>
-_c:<comment>
-_l:<length>
-_t:<type>
-_d:<data row size>
-_p1:<palette color 1 (optional)>
-_p2:<palette color 2 (optional)>
-_p3:<palette color 3 (optional)>
-_p4:<palette color 4 (optional)>
+    .data
+    _n:<name>
+    _o:<offset>
+    _c:<comment>
+    _l:<length>
+    _t:<type>
+    _d:<data template>
+    _p1:<palette color 1 (optional)>
+    _p2:<palette color 2 (optional)>
+    _p3:<palette color 3 (optional)>
+    _p4:<palette color 4 (optional)>
 
-.var
-_n:<name>
-_v:<value>
-_c:<comment line>
+    .var
+    _n:<name>
+    _v:<value>
+    _c:<comment line>
 
 gbr: The header of this save file format. Required.
 
@@ -102,20 +144,31 @@ how much to print.
 _t: Type. The type of data label. Can be either Data (for regular data), or
 Image (for raw tiles).
 
-_d: Data Row Size. This determines where to place breaks when printing data
-in the program. For example:
+_d: Data Template This determines how to format the data that is printed in
+this section. For example:
 
-_d:3
+    _d:b3
 
-db $56,$67,$07
-db $08,$08,$09
-db $09,$23,$54,
-db $23
+    db $56,$67,$07
+    db $08,$08,$09
+    db $09,$23,$54,
+    db $23
 
-_d:8
+    _d:b8
 
-db $56,$67,$07,$08,$08,$09,$09,$23
-db $54,$23
+    db $56,$67,$07,$08,$08,$09,$09,$23
+    db $54,$23
+
+    _d:b8s3!4w2
+
+    db $56,$67,$07,$08,$08,$09,$09,$23
+    ds "haha","pony","lime"
+    dw $2304, $2401
+
+b, d, w, q, s: Represents byte, word, dword, qword, and string, in that order.
+number: Specifies how many on the same line.
+! : This, following the s#, specifies that the string is fixed length, with
+the size following it.
 
 _p1, 2, 3, 4: Palette colors. Each one is the 16-bit representation of the
 color:

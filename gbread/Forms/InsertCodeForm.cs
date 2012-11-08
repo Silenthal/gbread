@@ -33,7 +33,7 @@
             preComCheck = null;
             CompError c = new CompError();
             int off;
-            bool success = InputValidation.TryParseOffsetString(offsetBox.Text, out off);
+            bool success = Utility.OffsetStringToInt(offsetBox.Text, out off);
             if (success)
             {
                 insertOffset = off;

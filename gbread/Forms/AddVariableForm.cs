@@ -46,7 +46,7 @@
                 true :
                 !nameBox.Text.Equals(editedLabel.Name, StringComparison.Ordinal);
             int val = 0;
-            if (!RegularValidation.IsWord(nameBox.Text))
+            if (!Utility.IsWord(nameBox.Text))
             {
                 Error.ShowErrorMessage(ErrorMessage.Label_InvalidName);
             }

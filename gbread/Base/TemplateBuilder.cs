@@ -356,7 +356,7 @@ namespace GBRead.Base
         private bool EvaluateLiteral(ITree eval, out long result)
         {
             result = 0;
-            if (!Utility.NumStringToInt(eval.Text, out result))
+            if (!Utility.StringToLong(eval.Text, out result))
             {
                 MakeErrorMessage(eval, ErrorMessage.Build_NumberOverflow);
                 return false;

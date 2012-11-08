@@ -51,7 +51,7 @@
                 !nameBox.Text.Equals(editedLabel.Name, StringComparison.Ordinal);
             int off = -1;
             int len = 0;
-            if (!RegularValidation.IsWord(nameBox.Text))
+            if (!Utility.IsWord(nameBox.Text))
             {
                 Error.ShowErrorMessage(ErrorMessage.Label_InvalidName);
             }
@@ -59,7 +59,7 @@
             {
                 Error.ShowErrorMessage(ErrorMessage.Label_NameAlreadyDefined);
             }
-            else if (!InputValidation.TryParseOffsetString(offsetBox.Text, out off))
+            else if (!Utility.OffsetStringToInt(offsetBox.Text, out off))
             {
                 Error.ShowErrorMessage(ErrorMessage.Label_InvalidOffset);
             }

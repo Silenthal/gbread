@@ -5,7 +5,6 @@
     using System.IO;
     using System.Linq;
     using System.Text;
-    using System.Text.RegularExpressions;
 
     public enum SymbolType
     {
@@ -138,17 +137,25 @@
         {
             lock (symbolListLock)
             {
-                SymValue search = new SymValue() { Type = typeOfSymbol, Value = symbolValue };
+                SymValue search = new SymValue() {
+                    Type = typeOfSymbol, Value = symbolValue
+                };
                 var s = typeOfSymbol == SymbolType.Generic ?
-                    from item in _symbolList where item.Value.Value == search.Value && item.Value.Type != SymbolType.Variable select item.Key :
-                    from item in _symbolList where item.Value.Equals(search) select item.Key;
+                    from item in _symbolList
+                    where item.Value.Value == search.Value && item.Value.Type != SymbolType.Variable
+                    select item.Key :
+                    from item in _symbolList
+                    where item.Value.Equals(search)
+                    select item.Key;
                 return s.Count() != 0 ? s.First() : "";
             }
         }
 
         public bool GetSymbolValue(SymbolType symbolType, string symbolName, out SymValue symbolValue)
         {
-            symbolValue = new SymValue() { Type = SymbolType.Generic, Value = -1 };
+            symbolValue = new SymValue() {
+                Type = SymbolType.Generic, Value = -1
+            };
             lock (symbolListLock)
             {
                 if (_symbolList.ContainsKey(symbolName))
@@ -167,7 +174,9 @@
         {
             lock (symbolListLock)
             {
-                var s = from item in _funcList where item.Offset == current select item;
+                var s = from item in _funcList
+                        where item.Offset == current
+                        select item;
                 var success = s.Count() != 0;
                 label = success ? s.First() : new FunctionLabel(current);
                 return success;
@@ -178,7 +187,9 @@
         {
             lock (symbolListLock)
             {
-                var s = from item in _dataList where item.Offset == current select item;
+                var s = from item in _dataList
+                        where item.Offset == current
+                        select item;
                 var success = s.Count() != 0;
                 label = success ? s.First() : new DataLabel(current);
                 return success;
@@ -189,7 +200,9 @@
         {
             lock (symbolListLock)
             {
-                var s = from item in _varList where item.Variable == current select item;
+                var s = from item in _varList
+                        where item.Variable == current
+                        select item;
                 var success = s.Count() != 0;
                 label = success ? s.First() : new VarLabel(current);
                 return success;
@@ -203,7 +216,9 @@
                 if (!_symbolList.ContainsKey(toBeAdded.Name))
                 {
                     _funcList.Add(toBeAdded);
-                    _symbolList.Add(toBeAdded.Name, new SymValue() { Type = SymbolType.Label, Value = toBeAdded.Offset });
+                    _symbolList.Add(toBeAdded.Name, new SymValue() {
+                        Type = SymbolType.Label, Value = toBeAdded.Offset
+                    });
                 }
             }
         }
@@ -215,7 +230,9 @@
                 if (!_symbolList.ContainsKey(toBeAdded.Name))
                 {
                     _dataList.Add(toBeAdded);
-                    _symbolList.Add(toBeAdded.Name, new SymValue() { Type = SymbolType.DataLabel, Value = toBeAdded.Offset });
+                    _symbolList.Add(toBeAdded.Name, new SymValue() {
+                        Type = SymbolType.DataLabel, Value = toBeAdded.Offset
+                    });
                     for (int i = toBeAdded.Offset; i < toBeAdded.Offset + toBeAdded.Length; i++)
                     {
                         _dataAddrs.Add(i);
@@ -231,7 +248,9 @@
                 if (!_symbolList.ContainsKey(toBeAdded.Name))
                 {
                     _varList.Add(toBeAdded);
-                    _symbolList.Add(toBeAdded.Name, new SymValue() { Type = SymbolType.Label, Value = toBeAdded.Variable });
+                    _symbolList.Add(toBeAdded.Name, new SymValue() {
+                        Type = SymbolType.Label, Value = toBeAdded.Variable
+                    });
                 }
             }
         }
@@ -307,7 +326,9 @@
             lock (symbolListLock)
             {
                 int offset = address;
-                while (_dataAddrs.Contains(offset++)) { }
+                while (_dataAddrs.Contains(offset++))
+                {
+                }
                 return offset;
             }
         }
@@ -370,7 +391,7 @@
                                     {
                                         break;
                                     }
-                                    string[] opt = currentLine.Split(':');
+                                    string[] opt = currentLine.Split(new[] { ':' }, 2);
                                     if (opt.Length == 1)
                                     {
                                         if (items[curItem].ContainsKey("_c"))
@@ -412,14 +433,14 @@
                                             {
                                                 case "_o":
                                                     {
-                                                        offsetGood = InputValidation.TryParseOffsetString(kvp.Value, out offset);
+                                                        offsetGood = Utility.OffsetStringToInt(kvp.Value, out offset);
                                                     }
 
                                                     break;
 
                                                 case "_n":
                                                     {
-                                                        if (RegularValidation.IsWord(kvp.Value))
+                                                        if (Utility.IsWord(kvp.Value))
                                                         {
                                                             name = kvp.Value;
                                                         }
@@ -465,20 +486,20 @@
                                             {
                                                 case "_o":
                                                     {
-                                                        offsetGood = InputValidation.TryParseOffsetString(kvp.Value, out offset);
+                                                        offsetGood = Utility.OffsetStringToInt(kvp.Value, out offset);
                                                     }
 
                                                     break;
 
                                                 case "_l":
                                                     {
-                                                        lengthGood = InputValidation.TryParseOffsetString(kvp.Value, out length);
+                                                        lengthGood = Utility.OffsetStringToInt(kvp.Value, out length);
                                                     }
                                                     break;
 
                                                 case "_n":
                                                     {
-                                                        if (RegularValidation.IsWord(kvp.Value))
+                                                        if (Utility.IsWord(kvp.Value))
                                                         {
                                                             name = kvp.Value;
                                                         }
@@ -495,7 +516,7 @@
                                                 case "_p1":
                                                     {
                                                         dst = DataSectionType.Image;
-                                                        InputValidation.TryParseOffsetString(kvp.Value, out gbp.Col_1);
+                                                        Utility.OffsetStringToInt(kvp.Value, out gbp.Col_1);
                                                     }
 
                                                     break;
@@ -503,7 +524,7 @@
                                                 case "_p2":
                                                     {
                                                         dst = DataSectionType.Image;
-                                                        InputValidation.TryParseOffsetString(kvp.Value, out gbp.Col_2);
+                                                        Utility.OffsetStringToInt(kvp.Value, out gbp.Col_2);
                                                     }
 
                                                     break;
@@ -511,7 +532,7 @@
                                                 case "_p3":
                                                     {
                                                         dst = DataSectionType.Image;
-                                                        InputValidation.TryParseOffsetString(kvp.Value, out gbp.Col_3);
+                                                        Utility.OffsetStringToInt(kvp.Value, out gbp.Col_3);
                                                     }
 
                                                     break;
@@ -519,7 +540,7 @@
                                                 case "_p4":
                                                     {
                                                         dst = DataSectionType.Image;
-                                                        InputValidation.TryParseOffsetString(kvp.Value, out gbp.Col_4);
+                                                        Utility.OffsetStringToInt(kvp.Value, out gbp.Col_4);
                                                     }
 
                                                     break;
@@ -559,14 +580,14 @@
                                             {
                                                 case "_v":
                                                     {
-                                                        variableGood = InputValidation.TryParseOffsetString(kvp.Value, out variable);
+                                                        variableGood = Utility.OffsetStringToInt(kvp.Value, out variable);
                                                     }
 
                                                     break;
 
                                                 case "_n":
                                                     {
-                                                        if (RegularValidation.IsWord(kvp.Value))
+                                                        if (Utility.IsWord(kvp.Value))
                                                         {
                                                             name = kvp.Value;
                                                         }
@@ -609,7 +630,7 @@
                                             {
                                                 case "_o":
                                                     {
-                                                        offsetGood = InputValidation.TryParseOffsetString(kvp.Value, out offset);
+                                                        offsetGood = Utility.OffsetStringToInt(kvp.Value, out offset);
                                                     }
 
                                                     break;

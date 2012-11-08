@@ -400,8 +400,8 @@
         {
             int start;
             int end;
-            InputValidation.TryParseOffsetString(startBox.Text, out start);
-            InputValidation.TryParseOffsetString(endBox.Text, out end);
+            Utility.OffsetStringToInt(startBox.Text, out start);
+            Utility.OffsetStringToInt(endBox.Text, out end);
             new Thread(new ThreadStart(() => {
                 if (romFile.FileLoaded)
                 {

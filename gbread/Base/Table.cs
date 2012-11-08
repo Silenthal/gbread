@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-
-namespace GBRead.Base
+﻿namespace GBRead.Base
 {
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Text;
+
     public class Table
     {
         private Dictionary<string, string> charValTable;
@@ -29,7 +27,7 @@ namespace GBRead.Base
                     {
                         continue;
                     }
-                    string[] s = curLine.Split('=');
+                    string[] s = curLine.Split(new[] { '=' }, 2);
                     if (s.Length != 2 || s[1] == "")
                     {
                         continue;
@@ -40,7 +38,7 @@ namespace GBRead.Base
                     {
                         case 1:
                         case 2:
-                            if (!Utility.NumStringToInt("$" + s[0], out key))
+                            if (!Utility.StringToLong("$" + s[0], out key))
                             {
                                 continue;
                             }
@@ -53,7 +51,7 @@ namespace GBRead.Base
 
                         case 3:
                         case 4:
-                            if (!Utility.NumStringToInt("$" + s[0], out key))
+                            if (!Utility.StringToLong("$" + s[0], out key))
                             {
                                 continue;
                             }
@@ -66,7 +64,7 @@ namespace GBRead.Base
 
                         case 5:
                         case 6:
-                            if (!Utility.NumStringToInt("$" + s[0], out key))
+                            if (!Utility.StringToLong("$" + s[0], out key))
                             {
                                 continue;
                             }

@@ -25,7 +25,7 @@
         private void okButton_Click(object sender, EventArgs e)
         {
             int off = -1;
-            if (!InputValidation.TryParseOffsetString(offsetBox.Text, out off))
+            if (!Utility.OffsetStringToInt(offsetBox.Text, out off))
             {
                 Error.ShowErrorMessage(ErrorMessage.Label_InvalidOffset);
             }
@@ -36,7 +36,7 @@
         private void fetchCommentButton_Click(object sender, EventArgs e)
         {
             int off = -1;
-            if (InputValidation.TryParseOffsetString(offsetBox.Text, out off) && labelContainer.Comments.ContainsKey(off))
+            if (Utility.OffsetStringToInt(offsetBox.Text, out off) && labelContainer.Comments.ContainsKey(off))
             {
                 commentBox.Text = labelContainer.Comments[off];
             }

@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using GBRead.Base;
-
-namespace GBRead
+﻿namespace GBRead
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using GBRead.Base;
+
     public class OptionsManager
     {
         public Options options;
@@ -29,7 +29,7 @@ namespace GBRead
                         {
                             continue;
                         }
-                        string[] f = line.Split('=');
+                        string[] f = line.Split(new[] { '=' }, 2);
                         if (f.Length != 2)
                         {
                             continue;
@@ -38,7 +38,9 @@ namespace GBRead
                     }
                 }
             }
-            catch { }
+            catch
+            {
+            }
         }
 
         public void SaveOptions()
@@ -76,19 +78,47 @@ namespace GBRead
             }
         }
 
-        public bool MainForm_HighlightComments { get; set; }
+        public bool MainForm_HighlightComments
+        {
+            get;
+            set;
+        }
 
-        public bool MainForm_HighlightSyntax { get; set; }
+        public bool MainForm_HighlightSyntax
+        {
+            get;
+            set;
+        }
 
-        public bool MainForm_HighlightNumbers { get; set; }
+        public bool MainForm_HighlightNumbers
+        {
+            get;
+            set;
+        }
 
-        public bool MainForm_HighlightOffsets { get; set; }
+        public bool MainForm_HighlightOffsets
+        {
+            get;
+            set;
+        }
 
-        public bool MainForm_HighlightKeywords { get; set; }
+        public bool MainForm_HighlightKeywords
+        {
+            get;
+            set;
+        }
 
-        public bool MainForm_HighlightLabels { get; set; }
+        public bool MainForm_HighlightLabels
+        {
+            get;
+            set;
+        }
 
-        public bool MainForm_HighlightRegisters { get; set; }
+        public bool MainForm_HighlightRegisters
+        {
+            get;
+            set;
+        }
 
         public bool Disassembler_PrintOffsets
         {
@@ -155,7 +185,11 @@ namespace GBRead
             }
         }
 
-        public bool Disassembler_HideDefinedFunctions { get; set; }
+        public bool Disassembler_HideDefinedFunctions
+        {
+            get;
+            set;
+        }
 
         public bool Disassembler_HideDefinedData
         {
@@ -206,7 +240,6 @@ namespace GBRead
 
         public Options()
         {
-
         }
 
         public void SetOption(string option, string value)
@@ -224,6 +257,7 @@ namespace GBRead
                             }
                         }
                         break;
+
                     case 'e':
                         {
                             OffsetFormat opt;
@@ -238,6 +272,7 @@ namespace GBRead
                             }
                         }
                         break;
+
                     default:
                         break;
                 }

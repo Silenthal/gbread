@@ -47,7 +47,7 @@
             else
             {
                 int offsetPos;
-                bool success = InputValidation.TryParseOffsetString(offsetBox.Text, out offsetPos);
+                bool success = Utility.OffsetStringToInt(offsetBox.Text, out offsetPos);
                 if (!success)
                 {
                     MessageBox.Show("There was a problem reading your entered offset.P  Please check it and try again.", "Error", MessageBoxButtons.OK);

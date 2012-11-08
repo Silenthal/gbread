@@ -175,7 +175,6 @@
     <Compile Include="Base\Disassembler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Base\Validation.cs" />
     <EmbeddedResource Include="Forms\AddCommentForm.resx">
       <DependentUpon>AddCommentForm.cs</DependentUpon>
     </EmbeddedResource>

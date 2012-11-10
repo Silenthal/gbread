@@ -1,6 +1,7 @@
 r16.01(2012/11/9)
 -[Fix]Error relating to loading comments with colons.
 -[Fix]Error relating to template definition and comments.
+-[Fix]Error relating to printing sections of data.
 
 r16(2012/11/7)
 -[Add]Comments can be specified for disassembly. They are attached to specific

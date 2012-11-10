@@ -7,8 +7,9 @@
     {
         public static bool IsWord(string check)
         {
-            return new Regex(@"^[A-Za-z][A-Za-z0-9_]*$").IsMatch(check);
+            return new Regex(@"^[A-Za-z_][A-Za-z0-9_]*$").IsMatch(check);
         }
+
         public static int GetRealAddress(int bank, int address)
         {
             if (address < 0x4000 || bank == 0)
@@ -28,6 +29,11 @@
             {
                 return (address & 0x3FFF) | 0x4000;
             }
+        }
+
+        public static int GetBankOfRealAddress(int address)
+        {
+            return address >> 14;
         }
 
         public static bool OffsetStringToInt(string text, out int offset)

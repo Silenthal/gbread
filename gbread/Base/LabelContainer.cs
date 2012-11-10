@@ -31,10 +31,13 @@
         private List<DataLabel> _dataList = new List<DataLabel>();
         private List<VarLabel> _varList = new List<VarLabel>();
         private Dictionary<int, string> _commentList = new Dictionary<int, string>();
-        private Dictionary<string, SymValue> _symbolList = new Dictionary<string, SymValue>();
+
+        //private Dictionary<string, SymValue> _symbolList = new Dictionary<string, SymValue>();
         private HashSet<int> _dataAddrs = new HashSet<int>();
 
         private Table tableFile = new Table();
+
+        private SymbolTable symbolTable = new SymbolTable();
 
         #endregion Private members
 
@@ -84,17 +87,6 @@
             }
         }
 
-        public Dictionary<string, SymValue> SymbolList
-        {
-            get
-            {
-                lock (symbolListLock)
-                {
-                    return _symbolList;
-                }
-            }
-        }
-
         public Table TableFile
         {
             get
@@ -117,12 +109,12 @@
                 _dataList.Clear();
                 _dataAddrs.Clear();
                 _varList.Clear();
-                _symbolList.Clear();
             }
             lock (commentListLock)
             {
                 _commentList.Clear();
             }
+            symbolTable.ClearTable();
             if (File.Exists("default.txt"))
             {
                 LoadLabelFile("default.txt");
@@ -133,41 +125,14 @@
 
         // TODO: Adjust behavior so that labels belonging to the same offset get printed.
 
-        public string GetSymbolName(SymbolType typeOfSymbol, int symbolValue)
+        public List<Symbol> GetSymbolsByValue(long value, bool isConstant)
         {
-            lock (symbolListLock)
-            {
-                SymValue search = new SymValue() {
-                    Type = typeOfSymbol, Value = symbolValue
-                };
-                var s = typeOfSymbol == SymbolType.Generic ?
-                    from item in _symbolList
-                    where item.Value.Value == search.Value && item.Value.Type != SymbolType.Variable
-                    select item.Key :
-                    from item in _symbolList
-                    where item.Value.Equals(search)
-                    select item.Key;
-                return s.Count() != 0 ? s.First() : "";
-            }
+            return symbolTable.GetSymbolsByValue(value, isConstant);
         }
 
-        public bool GetSymbolValue(SymbolType symbolType, string symbolName, out SymValue symbolValue)
+        public bool IsSymbolDefined(Symbol symbol)
         {
-            symbolValue = new SymValue() {
-                Type = SymbolType.Generic, Value = -1
-            };
-            lock (symbolListLock)
-            {
-                if (_symbolList.ContainsKey(symbolName))
-                {
-                    symbolValue = _symbolList[symbolName];
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
+            return symbolTable.ContainsSymbol(symbol);
         }
 
         public bool TryGetFuncLabel(int current, out FunctionLabel label)
@@ -213,12 +178,14 @@
         {
             lock (symbolListLock)
             {
-                if (!_symbolList.ContainsKey(toBeAdded.Name))
+                var sym = new Symbol() {
+                    Name = toBeAdded.Name, Value = toBeAdded.Offset
+                };
+                if (!symbolTable.ContainsSymbol(sym))
                 {
                     _funcList.Add(toBeAdded);
-                    _symbolList.Add(toBeAdded.Name, new SymValue() {
-                        Type = SymbolType.Label, Value = toBeAdded.Offset
-                    });
+
+                    symbolTable.AddSymbol(sym);
                 }
             }
         }
@@ -227,12 +194,13 @@
         {
             lock (symbolListLock)
             {
-                if (!_symbolList.ContainsKey(toBeAdded.Name))
+                var sym = new Symbol() {
+                    Name = toBeAdded.Name, Value = toBeAdded.Offset
+                };
+                if (!symbolTable.ContainsSymbol(sym))
                 {
                     _dataList.Add(toBeAdded);
-                    _symbolList.Add(toBeAdded.Name, new SymValue() {
-                        Type = SymbolType.DataLabel, Value = toBeAdded.Offset
-                    });
+                    symbolTable.AddSymbol(sym);
                     for (int i = toBeAdded.Offset; i < toBeAdded.Offset + toBeAdded.Length; i++)
                     {
                         _dataAddrs.Add(i);
@@ -245,12 +213,13 @@
         {
             lock (symbolListLock)
             {
-                if (!_symbolList.ContainsKey(toBeAdded.Name))
+                var sym = new Symbol() {
+                    Name = toBeAdded.Name, Value = toBeAdded.Value, IsConstant = true
+                };
+                if (!symbolTable.ContainsSymbol(sym))
                 {
                     _varList.Add(toBeAdded);
-                    _symbolList.Add(toBeAdded.Name, new SymValue() {
-                        Type = SymbolType.Label, Value = toBeAdded.Variable
-                    });
+                    symbolTable.AddSymbol(sym);
                 }
             }
         }
@@ -279,7 +248,10 @@
             lock (symbolListLock)
             {
                 _funcList.Remove(toBeRemoved);
-                _symbolList.Remove(toBeRemoved.Name);
+                var sym = new Symbol() {
+                    Name = toBeRemoved.Name
+                };
+                symbolTable.RemoveSymbol(sym);
             }
         }
 
@@ -288,7 +260,10 @@
             lock (symbolListLock)
             {
                 _dataList.Remove(toBeRemoved);
-                _symbolList.Remove(toBeRemoved.Name);
+                var sym = new Symbol() {
+                    Name = toBeRemoved.Name
+                };
+                symbolTable.RemoveSymbol(sym);
                 _dataAddrs.RemoveWhere(x => x >= toBeRemoved.Offset && x < toBeRemoved.Offset + toBeRemoved.Length);
             }
         }
@@ -298,7 +273,10 @@
             lock (symbolListLock)
             {
                 _varList.Remove(toBeRemoved);
-                _symbolList.Remove(toBeRemoved.Name);
+                var sym = new Symbol() {
+                    Name = toBeRemoved.Name
+                };
+                symbolTable.RemoveSymbol(sym);
             }
         }
 
@@ -673,7 +651,7 @@
                 {
                     functions.WriteLine(".label");
                     functions.WriteLine("_n:" + s.Name);
-                    functions.WriteLine("_o:" + s.Offset);
+                    functions.WriteLine("_o:" + s.Offset.ToString("X"));
                     functions.WriteLine("_c:" + s.Comment);
                 }
                 foreach (DataLabel s in DataList)

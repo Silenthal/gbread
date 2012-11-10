@@ -87,6 +87,8 @@
     <Compile Include="Base\DataTemplateParser.cs" />
     <Compile Include="Base\GBXLexer.cs" />
     <Compile Include="Base\GBXParser.cs" />
+    <Compile Include="Base\Symbol.cs" />
+    <Compile Include="Base\SymbolTable.cs" />
     <Compile Include="Base\Table.cs" />
     <Compile Include="Base\TemplateBuilder.cs" />
     <Compile Include="Patch\IPS.cs" />

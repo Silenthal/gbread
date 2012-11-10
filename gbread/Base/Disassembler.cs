@@ -941,10 +941,10 @@
                     return NumberToASMString(arg.NumArg, NumberType.Byte);
                 case GBArgumentType.MemMapWord:
                     {
-                        string vName = lc.GetSymbolName(SymbolType.Variable, arg.NumArg);
-                        if (vName != "")
+                        var vName = lc.GetSymbolsByValue(arg.NumArg, true);
+                        if (vName.Count != 0)
                         {
-                            return "[" + vName + "]";
+                            return "[" + vName[0].Name + "]";
                         }
                         else
                         {
@@ -953,17 +953,17 @@
                     }
                 case GBArgumentType.Word:
                     {
-                        string vName = lc.GetSymbolName(SymbolType.Generic, Utility.GetRealAddress(bank, arg.NumArg));
-                        if (arg.NumArg < 0x8000 && vName != "")
+                        var vName = lc.GetSymbolsByValue(arg.NumArg, false);
+                        if (arg.NumArg < 0x8000 && vName.Count != 0)
                         {
-                            return vName;
+                            return vName[0].Name;
                         }
                         if (instType == InstructionType.ld)
                         {
-                            vName = lc.GetSymbolName(SymbolType.Variable, arg.NumArg);
-                            if (vName != "")
+                            var s = lc.GetSymbolsByValue(arg.NumArg, true);
+                            if (s.Count != 0)
                             {
-                                return vName;
+                                return s[0].Name;
                             }
                         }
                         return NumberToASMString(arg.NumArg, NumberType.Word);

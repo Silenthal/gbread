@@ -51,11 +51,14 @@
                 !nameBox.Text.Equals(editedLabel.Name, StringComparison.Ordinal);
             int off = -1;
             int len = 0;
+            Symbol sym = new Symbol() {
+                Name = nameBox.Text
+            };
             if (!Utility.IsWord(nameBox.Text))
             {
                 Error.ShowErrorMessage(ErrorMessage.Label_InvalidName);
             }
-            else if (checkNameCollision && labelContainer.SymbolList.ContainsKey(nameBox.Text))
+            else if (checkNameCollision && labelContainer.IsSymbolDefined(sym))
             {
                 Error.ShowErrorMessage(ErrorMessage.Label_NameAlreadyDefined);
             }
@@ -73,7 +76,7 @@
                 string input = dataTemplateBox.Text;
                 bool success = false;
                 CompError error = new CompError();
-                var f = tb.ValidateTemplate(input, ref error, out success);
+                var printTemplate = tb.ValidateTemplate(input, ref error, out success);
                 if (!success)
                 {
                     Error.ShowErrorMessage(error);
@@ -84,7 +87,7 @@
                     {
                         labelContainer.RemoveDataLabel(editedLabel);
                     }
-                    editedLabel = new DataLabel(off, len, nameBox.Text, commentBox.Text, f, (DataSectionType)dataTypeBox.SelectedIndex);
+                    editedLabel = new DataLabel(off, len, nameBox.Text, printTemplate, commentBox.Text, (DataSectionType)dataTypeBox.SelectedIndex);
                     labelContainer.AddDataLabel(editedLabel);
                     this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 }

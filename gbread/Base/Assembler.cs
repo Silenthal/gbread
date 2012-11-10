@@ -37,24 +37,6 @@
 
         private LabelContainer lc;
 
-        //private struct Scope
-        //{
-        //    public enum ScopeType
-        //    {
-        //        Global,
-        //        FileGlobal,
-        //        Local
-        //    }
-
-        //    public ScopeType Type;
-
-        //    public string ScopeName
-        //    {
-        //        get;
-        //        set;
-        //    }
-        //}
-
         private struct SymEntry
         {
             public int line;

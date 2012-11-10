@@ -46,11 +46,14 @@
                 true :
                 !nameBox.Text.Equals(editedLabel.Name, StringComparison.Ordinal);
             int val = 0;
+            Symbol sym = new Symbol() {
+                Name = nameBox.Text
+            };
             if (!Utility.IsWord(nameBox.Text))
             {
                 Error.ShowErrorMessage(ErrorMessage.Label_InvalidName);
             }
-            else if (checkNameCollision && labelContainer.SymbolList.ContainsKey(nameBox.Text))
+            else if (checkNameCollision && labelContainer.IsSymbolDefined(sym))
             {
                 Error.ShowErrorMessage(ErrorMessage.Label_NameAlreadyDefined);
             }

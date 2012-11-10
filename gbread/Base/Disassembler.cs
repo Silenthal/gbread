@@ -160,7 +160,6 @@
             {
                 if (currentOffset + secMult <= off + restrictedSize)
                 {
-                    currentOffset += secMult;
                     switch (secType)
                     {
                         case 'b':
@@ -215,7 +214,8 @@
                             }
                             break;
                     }
-                    if (++amtprinted < count)
+                    currentOffset += secMult;
+                    if (++amtprinted < count && currentOffset + secMult <= off + restrictedSize)
                     {
                         sb.Append(", ");
                     }

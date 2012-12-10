@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using System.Threading.Tasks;
     using LibGBasm;
 
     public class Disassembler
@@ -107,16 +108,16 @@
             return ret.ToString();
         }
 
-        public string ShowFuncLabel(FunctionLabel cLabel)
+        public string ShowFuncLabel(FunctionLabel funcLabel)
         {
-            return PrintASM(cLabel.Offset, GuessLabelPrintLength(cLabel.Offset));
+            return PrintASM(funcLabel.Offset, GuessLabelPrintLength(funcLabel.Offset));
         }
 
-        public string ShowVarLabel(VarLabel vLabel)
+        public string ShowVarLabel(VarLabel varLabel)
         {
             StringBuilder ret = new StringBuilder();
-            ret.AppendLine(vLabel.ToDisplayString());
-            ret.AppendLine(SearchForReference(vLabel));
+            ret.AppendLine(varLabel.ToDisplayString());
+            ret.AppendLine(SearchForReference(varLabel));
             return ret.ToString();
         }
 
@@ -278,7 +279,7 @@
 
             int currentOffset = off;
             bool done = false;
-            while ( !done && currentOffset < afterLast)
+            while (!done && currentOffset < afterLast)
             {
                 foreach (var fInfo in tempDict)
                 {
@@ -338,9 +339,51 @@
             return sb.ToString();
         }
 
+        public Task<string> ShowDataLabelAsync(DataLabel dataLabel)
+        {
+            var task = new Task<string>(() => ShowDataLabel(dataLabel));
+            task.Start();
+            return task;
+        }
+
+        public Task<string> ShowFuncLabelAsync(FunctionLabel funcLabel)
+        {
+            var task = new Task<string>(() => ShowFuncLabel(funcLabel));
+            task.Start();
+            return task;
+        }
+
+        public Task<string> ShowVarLabelAsync(VarLabel varLabel)
+        {
+            var task = new Task<string>(() => ShowVarLabel(varLabel));
+            task.Start();
+            return task;
+        }
+
         #endregion Label Display
 
         #region Disassembly
+
+        public async Task<string> PrintASMAsync(int start, int length)
+        {
+            var task = new Task<string>(() => PrintASM(CoreFile, 0, start, length));
+            task.Start();
+            return await task;
+        }
+
+        public async Task<string> PrintASMAsync(BinFile file, int baseOffset, int start, int length)
+        {
+            var task = new Task<string>(() => PrintASM(file, baseOffset, start, length));
+            task.Start();
+            return await task;
+        }
+
+        public async Task<string> GetFullASMAsync()
+        {
+            var task = new Task<string>(() => GetFullASM());
+            task.Start();
+            return await task;
+        }
 
         public string PrintASM(int start, int length)
         {
@@ -390,6 +433,35 @@
                 current += advanceBy;
             }
             return output.ToString();
+        }
+
+        public string GetFullASM()
+        {
+            StringBuilder ot = new StringBuilder();
+            bool tempHFVal, tempHDVal, tempPBVal, tempPOVal;
+            tempHFVal = HideDefinedFunctions;
+            tempHDVal = HideDefinedData;
+            tempPBVal = PrintBitPattern;
+            tempPOVal = PrintOffsets;
+
+            HideDefinedFunctions = false;
+            HideDefinedData = false;
+            PrintBitPattern = false;
+            PrintOffsets = false;
+
+            foreach (VarLabel v in lc.VarList)
+            {
+                ot.AppendLine(v.Name + " EQU $" + v.Variable.ToString("X"));
+            }
+
+            ot.AppendLine(PrintASM(0, CoreFile.Length));
+
+            HideDefinedFunctions = tempHFVal;
+            HideDefinedData = tempHDVal;
+            PrintBitPattern = tempPBVal;
+            PrintOffsets = tempPOVal;
+
+            return ot.ToString();
         }
 
         private string GetInstruction(BinFile refFile, int OrgOffset, int BinaryOffset, ref GBInstruction isu)
@@ -464,34 +536,6 @@
             return returned.ToString();
         }
 
-        public string GetFullASM()
-        {
-            StringBuilder ot = new StringBuilder();
-            bool tempHFVal, tempHDVal, tempPBVal, tempPOVal;
-            tempHFVal = HideDefinedFunctions;
-            tempHDVal = HideDefinedData;
-            tempPBVal = PrintBitPattern;
-            tempPOVal = PrintOffsets;
-
-            HideDefinedFunctions = false;
-            HideDefinedData = false;
-            PrintBitPattern = false;
-            PrintOffsets = false;
-
-            foreach (VarLabel v in lc.VarList)
-            {
-                ot.AppendLine(v.Name + " EQU $" + v.Variable.ToString("X"));
-            }
-            ot.AppendLine(PrintASM(0, CoreFile.Length));
-
-            HideDefinedFunctions = tempHFVal;
-            HideDefinedData = tempHDVal;
-            PrintBitPattern = tempPBVal;
-            PrintOffsets = tempPOVal;
-
-            return ot.ToString();
-        }
-
         #endregion Disassembly
 
         #region Searching
@@ -518,6 +562,26 @@
             Write = 0x2,
             Ref = 0x4
         };
+
+        public void AutoPopulateFunctionListAsync()
+        {
+            Task f = new Task(AutoPopulateFunctionList);
+            f.Start();
+        }
+
+        public async Task<string> SearchForFunctionCallAsync(FunctionLabel labelName)
+        {
+            var task = new Task<string>(() => SearchForFunctionCall(labelName));
+            task.Start();
+            return await task;
+        }
+
+        public async Task<string> SearchForReferenceAsync(GenericLabel search)
+        {
+            Task<string> task = new Task<string>(() => SearchForReference(search));
+            task.Start();
+            return await task;
+        }
 
         public void AutoPopulateFunctionList()
         {
@@ -588,6 +652,51 @@
                     returned.AppendFormat("{0} ({1}){2}", kvp.Key, kvp.Value.ToString(), Environment.NewLine);
                 }
             }
+            return returned.ToString();
+        }
+
+        public string SearchForReference(GenericLabel search)
+        {
+            StringBuilder returned = new StringBuilder(String.Empty);
+            var funcRefsNew = SearchFileForVarReference(search.Value, SearchOptions.InFunctions);
+            var offRefsNew = SearchFileForVarReference(search.Value, SearchOptions.InFile);
+            string functionUsedMessage = "{0} was used near these labels:{1}";
+            string offsetUsedMessage = "{0} was used at these offsets:{1}";
+
+            #region Var Refs in Functions
+
+            if (funcRefsNew.Count == 0)
+            {
+                returned.AppendFormat("{0} is not referred to in any of the defined functions.{1}", search.Name, Environment.NewLine);
+            }
+            else
+            {
+                returned.AppendFormat(functionUsedMessage, search.Name, Environment.NewLine);
+                foreach (KeyValuePair<string, VarRefType> kvp in funcRefsNew)
+                {
+                    returned.AppendFormat("{0} ({1}){2}", kvp.Key, kvp.Value.ToString("G"), Environment.NewLine);
+                }
+            }
+
+            #endregion Var Refs in Functions
+
+            #region Var Refs out of functions
+
+            if (offRefsNew.Count == 0)
+            {
+                returned.AppendFormat("{0} could not be found at any offset.{1}", search.Name, Environment.NewLine);
+            }
+            else
+            {
+                returned.AppendFormat(offsetUsedMessage, search.Name, Environment.NewLine);
+                foreach (KeyValuePair<string, VarRefType> kvp in offRefsNew)
+                {
+                    returned.AppendFormat("{0} ({1}){2}", kvp.Key, kvp.Value.ToString("G"), Environment.NewLine);
+                }
+            }
+
+            #endregion Var Refs out of functions
+
             return returned.ToString();
         }
 
@@ -687,51 +796,6 @@
                 }
                 currentOffset += isu.InstSize;
             }
-        }
-
-        public string SearchForReference(GenericLabel search)
-        {
-            StringBuilder returned = new StringBuilder(String.Empty);
-            var funcRefsNew = SearchFileForVarReference(search.Value, SearchOptions.InFunctions);
-            var offRefsNew = SearchFileForVarReference(search.Value, SearchOptions.InFile);
-            string functionUsedMessage = "{0} was used near these labels:{1}";
-            string offsetUsedMessage = "{0} was used at these offsets:{1}";
-
-            #region Var Refs in Functions
-
-            if (funcRefsNew.Count == 0)
-            {
-                returned.AppendFormat("{0} is not referred to in any of the defined functions.{1}", search.Name, Environment.NewLine);
-            }
-            else
-            {
-                returned.AppendFormat(functionUsedMessage, search.Name, Environment.NewLine);
-                foreach (KeyValuePair<string, VarRefType> kvp in funcRefsNew)
-                {
-                    returned.AppendFormat("{0} ({1}){2}", kvp.Key, kvp.Value.ToString("G"), Environment.NewLine);
-                }
-            }
-
-            #endregion Var Refs in Functions
-
-            #region Var Refs out of functions
-
-            if (offRefsNew.Count == 0)
-            {
-                returned.AppendFormat("{0} could not be found at any offset.{1}", search.Name, Environment.NewLine);
-            }
-            else
-            {
-                returned.AppendFormat(offsetUsedMessage, search.Name, Environment.NewLine);
-                foreach (KeyValuePair<string, VarRefType> kvp in offRefsNew)
-                {
-                    returned.AppendFormat("{0} ({1}){2}", kvp.Key, kvp.Value.ToString("G"), Environment.NewLine);
-                }
-            }
-
-            #endregion Var Refs out of functions
-
-            return returned.ToString();
         }
 
         private Dictionary<string, VarRefType> SearchFileForVarReference(int searchWord, SearchOptions options)

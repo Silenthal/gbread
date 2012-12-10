@@ -1,13 +1,9 @@
-﻿
-
-namespace GBRead.Base
+﻿namespace GBRead.Base
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
 
-    class SymbolTable
+    internal class SymbolTable
     {
         private List<Symbol> symbolTable = new List<Symbol>();
         private object symLock = new object();
@@ -22,7 +18,7 @@ namespace GBRead.Base
 
         public bool AddSymbol(Symbol symbol)
         {
-            lock(symLock)
+            lock (symLock)
             {
                 if (symbolTable.Contains(symbol))
                 {

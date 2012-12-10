@@ -16,7 +16,7 @@ namespace GBRead
 			OptionsManager opm = new OptionsManager();
 			opm.LoadOptions();
 
-			BinFile bFile = new GBBinFile();
+			BinFile bFile = new BinFile();
 			LabelContainer lContainer = new LabelContainer();
 			Disassembler dsembler = new Disassembler(bFile, lContainer);
 			Assembler asmbler = new Assembler(lContainer);

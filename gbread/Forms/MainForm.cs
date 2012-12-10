@@ -3,7 +3,6 @@
     using System;
     using System.Drawing;
     using System.IO;
-    using System.Threading;
     using System.Windows.Forms;
     using GBRead.Base;
     using GBRead.Patch;
@@ -36,11 +35,6 @@
             funcLabelBox.DataSource = labelContainer.FuncList;
             dataLabelBox.DataSource = labelContainer.DataList;
             varLabelBox.DataSource = labelContainer.VarList;
-        }
-
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            base.OnFormClosing(e);
         }
 
         public void GetOptions(Options options)
@@ -115,10 +109,11 @@
             UpdateDataBoxView();
         }
 
-        private void findReferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void findReferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DataLabel selectedLabel = (DataLabel)dataLabelBox.SelectedItem;
-            UpdateMainTextBox(disassembler.SearchForReference(selectedLabel), TextBoxWriteMode.Overwrite);
+            var res = await disassembler.SearchForReferenceAsync(selectedLabel);
+            UpdateMainTextBox(res);
         }
 
         #endregion DataLabelBox Menus
@@ -167,7 +162,7 @@
                 FileInfo fs = new FileInfo(ofd.FileName);
                 romFile.LoadFile(ofd.FileName);
                 this.Text = "GBRead - " + ofd.SafeFileName;
-                UpdateMainTextBox(romFile.GetBinInfo(), TextBoxWriteMode.Overwrite);
+                UpdateMainTextBox(romFile.GetBinInfo());
                 currentFileLoaded = ofd.FileName;
                 labelContainer.Initialize();
                 UpdateFuncBoxView();
@@ -217,7 +212,7 @@
             }
         }
 
-        private void saveEntireFileASMToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void saveEntireFileASMToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (romFile.FileLoaded)
             {
@@ -227,18 +222,17 @@
                 sfd.FileName = "";
                 if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    new Thread(new ThreadStart(() => {
-                        if (romFile.FileLoaded)
+                    if (romFile.FileLoaded)
+                    {
+                        UpdateProgressLabel("Saving all...");
+                        using (StreamWriter sw = new StreamWriter(sfd.FileName, false))
                         {
-                            UpdateProgressLabel("Working...", TextBoxWriteMode.Overwrite);
-                            using (StreamWriter sw = new StreamWriter(sfd.FileName, false))
-                            {
-                                sw.Write(disassembler.GetFullASM());
-                            }
-                            UpdateProgressLabel("", TextBoxWriteMode.Overwrite);
-                            MessageBox.Show(String.Format("Saved All ASM to{0}{1}", Environment.NewLine, sfd.FileName), "Success", MessageBoxButtons.OK);
+                            var file = await disassembler.GetFullASMAsync();
+                            sw.Write(file);
                         }
-                    })).Start();
+                        UpdateProgressLabel("");
+                        MessageBox.Show(String.Format("Saved All ASM to{0}{1}", Environment.NewLine, sfd.FileName), "Success", MessageBoxButtons.OK);
+                    }
                 }
             }
             else
@@ -257,13 +251,8 @@
                 afd.FileName = "";
                 if (afd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    if (MessageBox.Show("Do you want to correct the header checksum and complement bytes as well?", "Fix Header", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                    {
-                        if (romFile is GBBinFile)
-                        {
-                            ((GBBinFile)romFile).FixGBHeader();
-                        }
-                    }
+                    romFile.FixGBHeader();
+
                     if (romFile.SaveFile(afd.FileName))
                     {
                         MessageBox.Show("File successfuly written to " + Environment.NewLine + afd.FileName);
@@ -396,41 +385,40 @@
 
         #endregion Toolstrip Menus
 
-        private void printASMButton_Click(object sender, EventArgs e)
+        private async void printASMButton_Click(object sender, EventArgs e)
         {
             int start;
             int end;
             Utility.OffsetStringToInt(startBox.Text, out start);
             Utility.OffsetStringToInt(endBox.Text, out end);
-            new Thread(new ThreadStart(() => {
-                if (romFile.FileLoaded)
+            if (romFile.FileLoaded)
+            {
+                if (start < 0 || end < 0)
                 {
-                    if (start < 0 || end < 0)
-                    {
-                        Error.ShowErrorMessage(ErrorMessage.Disassembly_StartOrEndInvalid);
-                    }
-                    else if (start < 0 || start > romFile.Length)
-                    {
-                        Error.ShowErrorMessage(ErrorMessage.Disassembly_StartInvalid);
-                    }
-                    else if (end <= 0 || end >= romFile.Length)
-                    {
-                        Error.ShowErrorMessage(ErrorMessage.Disassembly_EndInvalid);
-                    }
-                    else if (end < start)
-                    {
-                        Error.ShowErrorMessage(ErrorMessage.Disassembly_StartAfterEnd);
-                    }
-                    else
-                    {
-                        UpdateMainTextBox(disassembler.PrintASM(start, end - start), TextBoxWriteMode.Overwrite);
-                    }
+                    Error.ShowErrorMessage(ErrorMessage.Disassembly_StartOrEndInvalid);
+                }
+                else if (start < 0 || start > romFile.Length)
+                {
+                    Error.ShowErrorMessage(ErrorMessage.Disassembly_StartInvalid);
+                }
+                else if (end <= 0 || end >= romFile.Length)
+                {
+                    Error.ShowErrorMessage(ErrorMessage.Disassembly_EndInvalid);
+                }
+                else if (end < start)
+                {
+                    Error.ShowErrorMessage(ErrorMessage.Disassembly_StartAfterEnd);
                 }
                 else
                 {
-                    Error.ShowErrorMessage(ErrorMessage.General_NoFileLoaded);
+                    var text = await disassembler.PrintASMAsync(start, end - start);
+                    UpdateMainTextBox(text);
                 }
-            })).Start();
+            }
+            else
+            {
+                Error.ShowErrorMessage(ErrorMessage.General_NoFileLoaded);
+            }
         }
 
         private void startEndBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -513,25 +501,18 @@
             }
         }
 
-        private void searchForFunctionsThatCallThisOneToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void searchForFunctionsThatCallThisOneToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (romFile.FileLoaded)
             {
-                UpdateMainTextBox(disassembler.SearchForFunctionCall((FunctionLabel)funcLabelBox.SelectedItem), TextBoxWriteMode.Overwrite);
+                var search = await disassembler.SearchForFunctionCallAsync((FunctionLabel)funcLabelBox.SelectedItem);
+                UpdateMainTextBox(search);
             }
         }
 
         #endregion Menu Item Handlers
 
         #region Function Label Box Handlers
-
-        private void funcLabelBox_DoubleClick(object sender, EventArgs e)
-        {
-            if (funcLabelBox.SelectedItem != null)
-            {
-                UpdateMainTextBox(disassembler.ShowFuncLabel((FunctionLabel)funcLabelBox.SelectedItem), TextBoxWriteMode.Overwrite);
-            }
-        }
 
         private void funcLabelBox_MouseClick(object sender, MouseEventArgs e)
         {
@@ -545,13 +526,23 @@
             }
         }
 
-        private void funcLabelBox_KeyDown(object sender, KeyEventArgs e)
+        private async void funcLabelBox_DoubleClick(object sender, EventArgs e)
+        {
+            if (funcLabelBox.SelectedItem != null)
+            {
+                var details = await disassembler.ShowFuncLabelAsync((FunctionLabel)funcLabelBox.SelectedItem);
+                UpdateMainTextBox(details);
+            }
+        }
+
+        private async void funcLabelBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (funcLabelBox.SelectedIndex != -1)
             {
                 if (e.KeyCode == Keys.Enter)
                 {
-                    UpdateMainTextBox(disassembler.ShowFuncLabel((FunctionLabel)funcLabelBox.SelectedItem), TextBoxWriteMode.Overwrite);
+                    var details = await disassembler.ShowFuncLabelAsync((FunctionLabel)funcLabelBox.SelectedItem);
+                    UpdateMainTextBox(details);
                 }
                 else if (e.KeyCode == Keys.Delete)
                 {
@@ -565,22 +556,6 @@
 
         #region Data Label Box Handlers
 
-        private void dataLabelBox_DoubleClick(object sender, EventArgs e)
-        {
-            if (dataLabelBox.SelectedItem != null)
-            {
-                if (((DataLabel)dataLabelBox.SelectedItem).DSectionType == DataSectionType.Image)
-                {
-                    ImageDisplayForm img = new ImageDisplayForm(romFile, (DataLabel)dataLabelBox.SelectedItem);
-                    img.ShowDialog();
-                }
-                else
-                {
-                    UpdateMainTextBox(disassembler.ShowDataLabel((DataLabel)dataLabelBox.SelectedItem), TextBoxWriteMode.Overwrite);
-                }
-            }
-        }
-
         private void dataLabelBox_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
@@ -593,11 +568,29 @@
             }
         }
 
-        private void dataLabelBox_KeyDown(object sender, KeyEventArgs e)
+        private async void dataLabelBox_DoubleClick(object sender, EventArgs e)
+        {
+            if (dataLabelBox.SelectedItem != null)
+            {
+                if (((DataLabel)dataLabelBox.SelectedItem).DSectionType == DataSectionType.Image)
+                {
+                    ImageDisplayForm img = new ImageDisplayForm(romFile, (DataLabel)dataLabelBox.SelectedItem);
+                    img.ShowDialog();
+                }
+                else
+                {
+                    var details = await disassembler.ShowDataLabelAsync((DataLabel)dataLabelBox.SelectedItem);
+                    UpdateMainTextBox(details);
+                }
+            }
+        }
+
+        private async void dataLabelBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                UpdateMainTextBox(disassembler.ShowDataLabel((DataLabel)dataLabelBox.SelectedItem), TextBoxWriteMode.Overwrite);
+                var details = await disassembler.ShowDataLabelAsync((DataLabel)dataLabelBox.SelectedItem);
+                UpdateMainTextBox(details);
             }
             else if (e.KeyCode == Keys.Delete)
             {
@@ -622,20 +615,21 @@
             }
         }
 
-        private void varLabelBox_DoubleClick(object sender, EventArgs e)
+        private async void varLabelBox_DoubleClick(object sender, EventArgs e)
         {
             if (varLabelBox.SelectedItem != null)
             {
-                VarLabel selectedLabel = (VarLabel)varLabelBox.SelectedItem;
-                UpdateMainTextBox(disassembler.ShowVarLabel(selectedLabel), TextBoxWriteMode.Overwrite);
+                var details = await disassembler.ShowVarLabelAsync((VarLabel)varLabelBox.SelectedItem);
+                UpdateMainTextBox(details);
             }
         }
 
-        private void varLabelBox_KeyDown(object sender, KeyEventArgs e)
+        private async void varLabelBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                UpdateMainTextBox(disassembler.ShowVarLabel((VarLabel)varLabelBox.SelectedItem), TextBoxWriteMode.Overwrite);
+                var details = await disassembler.ShowVarLabelAsync((VarLabel)varLabelBox.SelectedItem);
+                UpdateMainTextBox(details);
             }
             else if (e.KeyCode == Keys.Delete)
             {
@@ -667,44 +661,14 @@
 
         #region Box Update Invocations
 
-        private delegate void UpdateTextBoxDelegate(string updateText, TextBoxWriteMode overwriteExistingText);
-
-        private void UpdateProgressLabel(string newLabel, TextBoxWriteMode overwriteExistingText = TextBoxWriteMode.Append)
+        private void UpdateProgressLabel(string newLabel)
         {
-            if (progressLabel.InvokeRequired)
-            {
-                UpdateTextBoxDelegate del = new UpdateTextBoxDelegate(UpdateProgressLabel);
-                progressLabel.Invoke(del, new object[] { newLabel, overwriteExistingText });
-            }
-            else
-            {
-                if (overwriteExistingText == TextBoxWriteMode.Overwrite)
-                    progressLabel.Text = newLabel;
-                else
-                    progressLabel.Text += newLabel;
-            }
+            progressLabel.Text = newLabel;
         }
 
-        public enum TextBoxWriteMode
+        private void UpdateMainTextBox(string text)
         {
-            Append,
-            Overwrite
-        }
-
-        private void UpdateMainTextBox(string text, TextBoxWriteMode overwriteExistingText)
-        {
-            if (mainTextBox.Dispatcher.Thread != Thread.CurrentThread)
-            {
-                mainTextBox.Dispatcher.BeginInvoke(new UpdateTextBoxDelegate(UpdateMainTextBox), text, overwriteExistingText);
-            }
-            else
-            {
-                if (overwriteExistingText == TextBoxWriteMode.Overwrite)
-                {
-                    mainTextBox.Clear();
-                }
-                mainTextBox.AppendText(text);
-            }
+            mainTextBox.Text = text;
         }
 
         #endregion Box Update Invocations

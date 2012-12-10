@@ -38,7 +38,7 @@
             {
                 insertOffset = off;
                 bool syntaxPass = false;
-                preComCheck = new GBBinFile(asm.AssembleASM(off, mainTextBox.Text, ref c, out syntaxPass));
+                preComCheck = new BinFile(asm.AssembleASM(off, mainTextBox.Text, ref c, out syntaxPass));
 
                 if (!syntaxPass)
                 {

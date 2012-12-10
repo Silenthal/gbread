@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Text;
-using Antlr.Runtime;
-using Antlr.Runtime.Tree;
-
-namespace GBRead.Base
+﻿namespace GBRead.Base
 {
+    using System.Collections.Generic;
+    using System.Text;
+    using Antlr.Runtime;
+    using Antlr.Runtime.Tree;
+
     internal class TemplateBuilder
     {
         private CompError currentError;
@@ -75,22 +75,26 @@ namespace GBRead.Base
         public static string TemplateToString(string template)
         {
             var sb = new StringBuilder();
-            foreach(var fInfo in GetTemplateInfo(template))
+            foreach (var fInfo in GetTemplateInfo(template))
             {
-                switch(fInfo.FormatType)
+                switch (fInfo.FormatType)
                 {
                     case 'b':
                         sb.Append("byte");
                         break;
+
                     case 'w':
                         sb.Append("word");
                         break;
+
                     case 'd':
                         sb.Append("dword");
                         break;
+
                     case 'q':
                         sb.Append("qword");
                         break;
+
                     case 's':
                         sb.Append("string");
                         break;
@@ -386,6 +390,7 @@ namespace GBRead.Base
         public char FormatType;
         public int ArrLenArg;
         public List<int> FormatArgs;
+
         public FormatInfo()
         {
             FormatType = 'b';

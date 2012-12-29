@@ -76,7 +76,7 @@
 
             foreach (VarLabel kvp in lc.VarList)
             {
-                variableDict.Add(GetGlobalScopedID(kvp.Name), Utility.GetPCAddress(kvp.Value));
+                variableDict.Add(GetGlobalScopedID(kvp.Name), kvp.Value);
             }
         }
 
@@ -1152,6 +1152,8 @@
                     return EvaluateVar(eval.GetChild(0), out result);
                 case MacroArgToken:
                     return EvaluateMacroArg(eval.GetChild(0), out result);
+                case ExpressionToken:
+                    return EvaluateExpression(eval.GetChild(0), out result);
                 default:
                     {
                         switch (eval.ChildCount)

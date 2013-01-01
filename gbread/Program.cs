@@ -13,6 +13,8 @@
         [STAThread]
         private static void Main()
         {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             OptionsManager opm = new OptionsManager();
             opm.LoadOptions();
 
@@ -26,8 +28,7 @@
             dsembler.GetOptions(opm.options);
             asmbler.GetOptions(opm.options);
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            
             Application.Run(mainForm);
 
             mainForm.SetOptions(opm.options);

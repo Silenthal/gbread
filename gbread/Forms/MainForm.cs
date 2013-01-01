@@ -42,7 +42,7 @@
             mainTextBox.WordWrap = options.MainForm_WordWrap;
         }
 
-        public void SetOptions(ref Options options)
+        public void SetOptions(Options options)
         {
             options.MainForm_WordWrap = mainTextBox.WordWrap;
         }
@@ -271,7 +271,7 @@
 
         private void optionsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            OptionsForm op = new OptionsForm(disassembler, labelContainer, mainFormOptions);
+            OptionsForm op = new OptionsForm(disassembler, assembler, labelContainer, mainFormOptions);
             op.ShowDialog();
             mainTextBox.WordWrap = mainFormOptions.isWordWrap;
         }

@@ -1,3 +1,13 @@
+r16.5(2013/01/xx)
+-[Add]New arguments in templating for specifying the format of a given number
+when printing them in the disassembler.
+-[Add]Gameboy graphical format strings (i.e. `00112233) are recognizable by
+the assembler.
+
+r16.02(2012/12/28)
+-[Fix]Error relating to expression evaluation in assembler.
+-[Fix]Error relating to variable values being lower than they should be.
+
 r16.01(2012/11/9)
 -[Fix]Error relating to loading comments with colons.
 -[Fix]Error relating to template definition and comments.

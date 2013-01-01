@@ -8,11 +8,16 @@
     {
         private Dictionary<string, long> variableDict = new Dictionary<string, long>();
         private Dictionary<string, long> callDict = new Dictionary<string, long>();
+        private Dictionary<string, ITree> macroDict = new Dictionary<string, ITree>();
         private List<SymEntry> symFillTable = new List<SymEntry>();
         private CodeGenerator codeGen = new CodeGenerator();
-        private Dictionary<string, ITree> macroDict = new Dictionary<string, ITree>();
         private Stack<List<long>> macroArgStack = new Stack<List<long>>();
         private CompError currentError = new CompError();
+        public string GameboyFormatChars
+        {
+            get;
+            set;
+        }
 
         private const string ExpressionToken = "EXPRESSION";
         private const string HLRefToken = "RR_REF_HL";
@@ -31,6 +36,7 @@
         private const string ExportLabelToken = "EXPORT_LABEL";
         private const string GlobalLabelToken = "GLOBAL_LABEL";
         private const string LocalLabelToken = "LOCAL_LABEL";
+        private const string GBFormatStringToken = "GB_NUMBER";
 
         private string GlobalScopeName = "_";
         private string LocalScopeName = "_";
@@ -51,6 +57,17 @@
         public Assembler(LabelContainer newlc)
         {
             lc = newlc;
+            GameboyFormatChars = "0123";
+        }
+
+        public void GetOptions(Options options)
+        {
+            GameboyFormatChars = options.Assembler_GameboyFormatChars;
+        }
+
+        public void SetOptions(Options options)
+        {
+            options.Assembler_GameboyFormatChars = GameboyFormatChars;
         }
 
         private void Initialize()
@@ -1152,6 +1169,8 @@
                     return EvaluateVar(eval.GetChild(0), out result);
                 case MacroArgToken:
                     return EvaluateMacroArg(eval.GetChild(0), out result);
+                case GBFormatStringToken:
+                    return EvaluateGBFormat(eval.GetChild(0), out result);
                 case ExpressionToken:
                     return EvaluateExpression(eval.GetChild(0), out result);
                 default:
@@ -1374,6 +1393,17 @@
         {
             result = 0;
             if (!Utility.StringToLong(eval.Text, out result))
+            {
+                MakeErrorMessage(eval, ErrorMessage.Build_NumberOverflow);
+                return false;
+            }
+            return true;
+        }
+
+        private bool EvaluateGBFormat(ITree eval, out long result)
+        {
+            result = 0;
+            if (!Utility.GameboyFormatStringToWord(eval.Text, GameboyFormatChars, out result))
             {
                 MakeErrorMessage(eval, ErrorMessage.Build_NumberOverflow);
                 return false;

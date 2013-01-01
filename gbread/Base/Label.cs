@@ -5,7 +5,7 @@
 
     public enum DataSectionType { Data, Image }
 
-    public enum OffsetFormat { Hex, Decimal, BankOffset }
+    public enum OffsetFormat { Hex, Decimal, Binary, Octal, Gameboy, BankOffset }
 
     public class GBPalette
     {

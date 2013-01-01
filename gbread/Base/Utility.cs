@@ -164,5 +164,74 @@
             }
             return true;
         }
+
+        public static bool GameboyFormatStringToWord(string check, string formatString, out long result)
+        {
+            result = 0;
+            if (check.Length != 9)
+            {
+                return false;
+            }
+            var checkIndex = 0;
+            ushort finalWord = 0;
+            for (int i = 1; i < check.Length; i++)
+            {
+                if ((checkIndex = formatString.IndexOf(check[i])) == -1)
+                {
+                    return false;
+                }
+                finalWord |= (ushort)((checkIndex & 1) << (8 - i));
+                finalWord |= (ushort)(((checkIndex >> 1) & 1) << (16 - i));
+            }
+            result = finalWord;
+            return true;
+        }
+
+        public static string NumToGameboyFormatString(ulong input, string formatString)
+        {
+            var returned = "";
+            var plane0 = (byte)(input);
+            var plane1 = (byte)(input >> 8);
+
+            // Optional Range: ".+#@";
+            // Ramp from 0 to 10: " .:-=+*#%@"
+            for (int i = 7; i >= 0; i--)
+            {
+                returned += formatString[((plane0 >> i) & 1) + (((plane1 >> i) & 1) << 1)];
+            }
+            return returned;
+        }
+
+        private static string NumToBaseString(ulong input, string fmt)
+        {
+            if (input == 0)
+            {
+                return "0";
+            }
+            string retInv = "";
+            string ret = "";
+            var inp = input;
+            var fmtLen = (ulong)fmt.Length;
+            while (inp != 0)
+            {
+                retInv += fmt[(int)((inp % fmtLen) - 1)];
+                inp /= fmtLen;
+            }
+            for (int i = retInv.Length; i >= 0; i--)
+            {
+                ret += retInv[i];
+            }
+            return ret;
+        }
+
+        public static string NumToBinaryString(ulong input)
+        {
+            return NumToBaseString(input, "01");
+        }
+
+        public static string NumToHexString(ulong input)
+        {
+            return NumToBaseString(input, "0123456789ABCDEF");
+        }
     }
 }

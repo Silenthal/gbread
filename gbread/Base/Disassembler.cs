@@ -45,18 +45,18 @@
             set;
         }
 
-        public bool HideDefinedFunctions
-        {
-            get;
-            set;
-        }
-
         public bool HideDefinedData
         {
             get;
             set;
         }
 
+        public string GameboyFormatChars
+        {
+            get;
+            set;
+        }
+        
         #endregion Options
 
         public Disassembler(BinFile cs, LabelContainer lcs)
@@ -69,7 +69,6 @@
             PrintBitPattern = true;
             PrintComments = false;
             HideDefinedData = false;
-            HideDefinedFunctions = false;
         }
 
         #region Getting and Setting Options
@@ -81,19 +80,19 @@
             PrintedOffsetFormat = options.Disassembler_PrintedOffsetFormat;
             InstructionNumberFormat = options.Disassembler_InstructionNumberFormat;
             PrintComments = options.Disassembler_PrintComments;
-            HideDefinedFunctions = options.Disassembler_HideDefinedFunctions;
             HideDefinedData = options.Disassembler_HideDefinedData;
+            GameboyFormatChars = options.Disassembler_GameboyFormatChars;
         }
 
-        public void SetOptions(ref Options options)
+        public void SetOptions(Options options)
         {
             options.Disassembler_PrintOffsets = PrintOffsets;
             options.Disassembler_PrintBitPattern = PrintBitPattern;
             options.Disassembler_PrintedOffsetFormat = PrintedOffsetFormat;
             options.Disassembler_InstructionNumberFormat = InstructionNumberFormat;
             options.Disassembler_PrintComments = PrintComments;
-            options.Disassembler_HideDefinedFunctions = HideDefinedFunctions;
             options.Disassembler_HideDefinedData = HideDefinedData;
+            options.Disassembler_GameboyFormatChars = GameboyFormatChars;
         }
 
         #endregion Getting and Setting Options
@@ -121,7 +120,7 @@
             return ret.ToString();
         }
 
-        private string GetDataLine(char secType, int off, int count, int restrictedSize, out int printSize)
+        private string GetDataLine(char secType, string formatType, int off, int count, int restrictedSize, out int printSize)
         {
             StringBuilder sb = new StringBuilder();
             var dType = "";
@@ -157,17 +156,60 @@
             sb.Append("    " + dType + " ");
             int currentOffset = off;
             int amtprinted = 0;
+            int formatIndex = 0;
+            var form = InstructionNumberFormat;
             while (amtprinted < count)
             {
+                if (formatType != "")
+                {
+                    if (formatIndex > formatType.Length)
+                    {
+                        formatIndex = 0;
+                    }
+                    switch (formatType[formatIndex++])
+                    {
+                        case 'd':
+                            form = OffsetFormat.Decimal;
+                            break;
+
+                        case 'b':
+                            form = OffsetFormat.Binary;
+                            break;
+
+                        case 'h':
+                            form = OffsetFormat.Hex;
+                            break;
+
+                        case 'o':
+                            form = OffsetFormat.Octal;
+                            break;
+
+                        case 'g':
+                            form = OffsetFormat.Gameboy;
+                            break;
+                    }
+                }
                 if (currentOffset + secMult <= off + restrictedSize)
                 {
                     switch (secType)
                     {
                         case 'b':
-                            switch (InstructionNumberFormat)
+                            switch (form)
                             {
                                 case OffsetFormat.Decimal:
                                     sb.Append(CoreFile.ReadByte(currentOffset).ToString());
+                                    break;
+
+                                case OffsetFormat.Binary:
+                                    sb.Append("%" + Convert.ToString(CoreFile.ReadByte(currentOffset), 2));
+                                    break;
+
+                                case OffsetFormat.Octal:
+                                    sb.Append("&" + Convert.ToString(CoreFile.ReadByte(currentOffset), 8));
+                                    break;
+
+                                case OffsetFormat.Gameboy:
+                                    sb.Append("`" + Utility.NumToGameboyFormatString(CoreFile.ReadByte(currentOffset), GameboyFormatChars));
                                     break;
 
                                 default:
@@ -177,12 +219,22 @@
                             break;
 
                         case 'w':
-                            switch (InstructionNumberFormat)
+                            switch (form)
                             {
                                 case OffsetFormat.Decimal:
                                     sb.Append(CoreFile.ReadWord(currentOffset).ToString());
                                     break;
+                                case OffsetFormat.Binary:
+                                    sb.Append("%" + Convert.ToString(CoreFile.ReadWord(currentOffset), 2));
+                                    break;
 
+                                case OffsetFormat.Octal:
+                                    sb.Append("&" + Convert.ToString(CoreFile.ReadWord(currentOffset), 8));
+                                    break;
+
+                                case OffsetFormat.Gameboy:
+                                    sb.Append("`" + Utility.NumToGameboyFormatString(CoreFile.ReadWord(currentOffset), GameboyFormatChars));
+                                    break;
                                 default:
                                     sb.Append("$" + CoreFile.ReadWord(currentOffset).ToString(format));
                                     break;
@@ -190,12 +242,22 @@
                             break;
 
                         case 'd':
-                            switch (InstructionNumberFormat)
+                            switch (form)
                             {
                                 case OffsetFormat.Decimal:
                                     sb.Append(CoreFile.ReadDWord(currentOffset).ToString());
                                     break;
+                                case OffsetFormat.Binary:
+                                    sb.Append("%" + Convert.ToString(CoreFile.ReadDWord(currentOffset), 2));
+                                    break;
 
+                                case OffsetFormat.Octal:
+                                    sb.Append("&" + Convert.ToString(CoreFile.ReadDWord(currentOffset), 8));
+                                    break;
+
+                                case OffsetFormat.Gameboy:
+                                    sb.Append("`" + Utility.NumToGameboyFormatString(CoreFile.ReadDWord(currentOffset), GameboyFormatChars));
+                                    break;
                                 default:
                                     sb.Append("$" + CoreFile.ReadDWord(currentOffset).ToString(format));
                                     break;
@@ -203,12 +265,20 @@
                             break;
 
                         case 'q':
-                            switch (InstructionNumberFormat)
+                            switch (form)
                             {
                                 case OffsetFormat.Decimal:
                                     sb.Append(CoreFile.ReadQWord(currentOffset).ToString());
                                     break;
-
+                                case OffsetFormat.Binary:
+                                    sb.Append("%" + Utility.NumToBinaryString(CoreFile.ReadQWord(currentOffset)));
+                                    break;
+                                case OffsetFormat.Octal:
+                                    sb.Append("&" + Utility.NumToHexString(CoreFile.ReadQWord(currentOffset)));
+                                    break;
+                                case OffsetFormat.Gameboy:
+                                    sb.Append("`" + Utility.NumToGameboyFormatString(CoreFile.ReadQWord(currentOffset), GameboyFormatChars));
+                                    break;
                                 default:
                                     sb.Append("$" + CoreFile.ReadQWord(currentOffset).ToString(format));
                                     break;
@@ -275,7 +345,7 @@
         {
             var sb = new StringBuilder();
             int afterLast = off + len;
-            var tempDict = TemplateBuilder.GetTemplateInfo(template);
+            var tempDict = TemplateBuilder.TemplateToFormatInfoList(template);
 
             int currentOffset = off;
             bool done = false;
@@ -293,7 +363,7 @@
                     }
                     else
                     {
-                        lin = GetDataLine(fInfo.FormatType, currentOffset, fInfo.ArrLenArg, len, out expectedSize);
+                        lin = GetDataLine(fInfo.FormatType, fInfo.NumberFormat, currentOffset, fInfo.ArrLenArg, len, out expectedSize);
                     }
                     var labelsIn = (
                         from s in lc.FuncList
@@ -334,7 +404,7 @@
             if (currentOffset < afterLast)
             {
                 int temp = 0;
-                sb.AppendLine(GetDataLine('b', currentOffset, afterLast - currentOffset, len, out temp));
+                sb.AppendLine(GetDataLine('b', "", currentOffset, afterLast - currentOffset, len, out temp));
             }
             return sb.ToString();
         }
@@ -438,13 +508,11 @@
         public string GetFullASM()
         {
             StringBuilder ot = new StringBuilder();
-            bool tempHFVal, tempHDVal, tempPBVal, tempPOVal;
-            tempHFVal = HideDefinedFunctions;
+            bool tempHDVal, tempPBVal, tempPOVal;
             tempHDVal = HideDefinedData;
             tempPBVal = PrintBitPattern;
             tempPOVal = PrintOffsets;
 
-            HideDefinedFunctions = false;
             HideDefinedData = false;
             PrintBitPattern = false;
             PrintOffsets = false;
@@ -456,7 +524,6 @@
 
             ot.AppendLine(PrintASM(0, CoreFile.Length));
 
-            HideDefinedFunctions = tempHFVal;
             HideDefinedData = tempHDVal;
             PrintBitPattern = tempPBVal;
             PrintOffsets = tempPOVal;

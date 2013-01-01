@@ -57,6 +57,10 @@
                 bw.WriteLine(options.GetOptionAsString(options.DS_PrintedOffsetFormatTag));
                 bw.WriteLine(options.GetOptionAsString(options.DS_InstNumFormatTag));
                 bw.WriteLine(options.GetOptionAsString(options.DS_HideDefDataTag));
+                bw.WriteLine(options.GetOptionAsString(options.DS_GameboyFormatChars));
+                bw.WriteLine();
+                bw.WriteLine("[Assembler]");
+                bw.WriteLine(options.GetOptionAsString(options.AS_GameboyFormatChars));
             }
         }
     }
@@ -76,48 +80,6 @@
             {
                 opts[Main_WordWrapTag] = value;
             }
-        }
-
-        public bool MainForm_HighlightComments
-        {
-            get;
-            set;
-        }
-
-        public bool MainForm_HighlightSyntax
-        {
-            get;
-            set;
-        }
-
-        public bool MainForm_HighlightNumbers
-        {
-            get;
-            set;
-        }
-
-        public bool MainForm_HighlightOffsets
-        {
-            get;
-            set;
-        }
-
-        public bool MainForm_HighlightKeywords
-        {
-            get;
-            set;
-        }
-
-        public bool MainForm_HighlightLabels
-        {
-            get;
-            set;
-        }
-
-        public bool MainForm_HighlightRegisters
-        {
-            get;
-            set;
         }
 
         public bool Disassembler_PrintOffsets
@@ -185,12 +147,6 @@
             }
         }
 
-        public bool Disassembler_HideDefinedFunctions
-        {
-            get;
-            set;
-        }
-
         public bool Disassembler_HideDefinedData
         {
             get
@@ -204,42 +160,63 @@
             }
         }
 
+        public string Disassembler_GameboyFormatChars
+        {
+            get
+            {
+                return (string)opts[DS_GameboyFormatChars];
+            }
+            set
+            {
+                opts[DS_GameboyFormatChars] = value;
+            }
+        }
+
+        public string Assembler_GameboyFormatChars
+        {
+            get
+            {
+                return (string)opts[AS_GameboyFormatChars];
+            }
+            set
+            {
+                opts[AS_GameboyFormatChars] = value;
+            }
+        }
+
         #endregion Public Properties
 
         #region Tags
 
         public string Main_WordWrapTag = "bWordWrap";
-        public string MF_HighlightCommentsTag = "MF_HighlightComments";
-        public string MF_HighlightSyntaxTag = "MF_HighlightSyntax";
-        public string MF_HighlightNumbersTag = "MF_HighlightNumbers";
-        public string MF_HighlightOffsetsTag = "MF_HighlightOffsets";
-        public string MF_HighlightKeywordsTag = "MF_HighlightKeywords";
-        public string MF_HighlightLabelsTag = "MF_HighlightLabels";
-        public string MF_HighlightRegistersTag = "MF_HighlightRegisters";
-
         public string DS_PrintOffsetsTag = "bPrintOffsets";
         public string DS_PrintBitPatternTag = "bPrintBytes";
         public string DS_PrintedOffsetFormatTag = "eOffsetFormat";
         public string DS_InstNumFormatTag = "eNumberFormat";
         public string DS_PrintCommentsTag = "bPrintComments";
         public string DS_HideDefDataTag = "bHideDefinedData";
+        public string DS_GameboyFormatChars = "sDsmGBFormatChars";
+        public string AS_GameboyFormatChars = "sAsmGBFormatChars";
 
         #endregion Tags
 
         // TODO: separate options for "extended comments" and regular comments.
-        private Dictionary<string, object> opts = new Dictionary<string, object>()
-        {
-            {"bWordWrap", true},
-            {"bPrintOffsets", true},
-            {"bPrintBytes", true},
-            {"eOffsetFormat", OffsetFormat.BankOffset},
-            {"eNumberFormat", OffsetFormat.Hex},
-            {"bPrintComments", false},
-            {"bHideDefinedData", false}
-        };
+        private Dictionary<string, object> opts;
 
         public Options()
         {
+            opts = new Dictionary<string, object>()
+            {
+                {Main_WordWrapTag, true},
+                {DS_PrintOffsetsTag, true},
+                {DS_PrintBitPatternTag, true},
+                {DS_PrintedOffsetFormatTag, OffsetFormat.BankOffset},
+                {DS_InstNumFormatTag, OffsetFormat.Hex},
+                {DS_PrintCommentsTag, false},
+                {DS_HideDefDataTag, false},
+                {DS_GameboyFormatChars, "0123"},
+                {AS_GameboyFormatChars, "0123"}
+            };
         }
 
         public void SetOption(string option, string value)
@@ -273,6 +250,11 @@
                         }
                         break;
 
+                    case 's':
+                        {
+                            opts[option] = value;
+                            break;
+                        }
                     default:
                         break;
                 }
@@ -292,6 +274,10 @@
                     case 'e':
                         {
                             return option + "=" + ((OffsetFormat)opts[option]).ToString();
+                        }
+                    case 's':
+                        {
+                            return option + "=" + ((string)opts[option]);
                         }
                     default:
                         return "";

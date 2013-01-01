@@ -46,10 +46,10 @@ c-2. Data Templates
 Data templating (added in r16) is a way to format the output of a given data
 section, when printed. Each command is ended with a semicolon (;).
 
-    byte[count];
-    word[count];
-    dword[count];
-    qword[count];
+    byte(format)[count];
+    word(format)[count];
+    dword(format)[count];
+    qword(format)[count];
     string(length)[count];
 
 byte,word,dword,qword,string: The type of data to print on a line. Sizes are
@@ -76,6 +76,32 @@ with the space available.
     string[1];
 
     ds "This is a sentence.\x00"
+
+format: Used when you want to print out a number in a specific way. For
+example:
+
+    byte;
+
+    db $00, $01, $02, $03
+
+    byte('bdho')
+
+    db %0, 1, $02, &03
+
+    word;
+
+    dw $1234
+
+    word('g');
+
+    dw `00130120
+
+Options are as follows:
+'d' : Decimal
+'b' : Binary
+'h' : Hex
+'o' : Octal
+'g' : Gameboy graphical format
 
 c-1-a: Tables
 When printing strings, an ASCII table is used by default (well, just casting

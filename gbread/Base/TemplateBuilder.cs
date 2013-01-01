@@ -15,7 +15,7 @@
             sb.Clear();
         }
 
-        public static List<FormatInfo> GetTemplateInfo(string template)
+        public static List<FormatInfo> TemplateToFormatInfoList(string template)
         {
             var tempDict = new List<FormatInfo>();
             var templateIndex = 0;
@@ -61,6 +61,17 @@
                             }
                             fInfo.FormatArgs.Add(int.Parse(ctBuf));
                         }
+                        else if (template[templateIndex] == '(')
+                        {
+                            ctBuf = "";
+                            templateIndex++;
+                            while (templateIndex < template.Length && template[templateIndex] != ')')
+                            {
+                                ctBuf += template[templateIndex++];
+                            }
+                            templateIndex++;
+                            fInfo.NumberFormat = ctBuf;
+                        }
                         else
                         {
                             break;
@@ -75,7 +86,7 @@
         public static string TemplateToString(string template)
         {
             var sb = new StringBuilder();
-            foreach (var fInfo in GetTemplateInfo(template))
+            foreach (var fInfo in TemplateToFormatInfoList(template))
             {
                 switch (fInfo.FormatType)
                 {
@@ -98,6 +109,10 @@
                     case 's':
                         sb.Append("string");
                         break;
+                }
+                if (fInfo.NumberFormat != "")
+                {
+                    sb.AppendFormat("('{0}')", fInfo.NumberFormat);
                 }
                 if (fInfo.FormatArgs.Count != 0)
                 {
@@ -191,14 +206,34 @@
                 }
                 for (int x = 0; x < bTree.ChildCount; x++)
                 {
-                    var result = 0L;
-                    if (!EvaluateExpression(bTree.GetChild(x).GetChild(0).GetChild(0), out result))
+                    if (bTree.Text.ToLower() == "string")
                     {
-                        return false;
-                    }
-                    if (result == 0)
-                    {
-                        continue;
+                        var result = 0L;
+                        if (!EvaluateExpression(bTree.GetChild(x).GetChild(0).GetChild(0), out result))
+                        {
+                            return false;
+                        }
+                        if (result == 0)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            switch (bTree.GetChild(x).Text)
+                            {
+                                case "ARG":
+                                    {
+                                        sb.Append("!" + result.ToString());
+                                    }
+                                    break;
+
+                                case "ARRLEN":
+                                    {
+                                        sb.Append(result.ToString());
+                                    }
+                                    break;
+                            }
+                        }
                     }
                     else
                     {
@@ -206,12 +241,21 @@
                         {
                             case "ARG":
                                 {
-                                    sb.Append("!" + result.ToString());
+                                    sb.Append('(' + bTree.GetChild(x).GetChild(0).GetChild(0).Text + ")");
                                 }
                                 break;
 
                             case "ARRLEN":
                                 {
+                                    var result = 0L;
+                                    if (!EvaluateExpression(bTree.GetChild(x).GetChild(0).GetChild(0), out result))
+                                    {
+                                        return false;
+                                    }
+                                    if (result == 0)
+                                    {
+                                        continue;
+                                    }
                                     sb.Append(result.ToString());
                                 }
                                 break;
@@ -390,12 +434,14 @@
         public char FormatType;
         public int ArrLenArg;
         public List<int> FormatArgs;
+        public string NumberFormat;
 
         public FormatInfo()
         {
             FormatType = 'b';
             ArrLenArg = 1;
             FormatArgs = new List<int>();
+            NumberFormat = "";
         }
     }
 }

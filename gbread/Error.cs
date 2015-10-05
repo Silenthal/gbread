@@ -46,6 +46,7 @@ namespace GBRead
         public string extraInfo1;
         public string extraInfo2;
         public string fullLine;
+
         public CompError(string fLine, int lNum, ErrorMessage cError, string eInfo1 = "", string eInfo2 = "")
         {
             lineNumber = lNum;
@@ -61,7 +62,7 @@ namespace GBRead
     {
         public static Dictionary<ErrorMessage, string> ErrorMessages = new Dictionary<ErrorMessage, string>()
         {
-            {ErrorMessage.Build_JROutOfRange,               "The jump location cannot be reached from this instruction, because it is either more than 127 bytes ahead, or 128 bytes behind, this instruction."}, 
+            {ErrorMessage.Build_JROutOfRange,               "The jump location cannot be reached from this instruction, because it is either more than 127 bytes ahead, or 128 bytes behind, this instruction."},
             {ErrorMessage.Build_MacroAlreadyDefined,        "A macro with this name has already been defined."},
             {ErrorMessage.Build_MacroArgUsedOutsideOfDef,   "Macro arguments can only be used inside of macro definitions."},
             {ErrorMessage.Build_MacroDoesNotExist,          "There is no macro with the name \"{0}\"."},
@@ -70,30 +71,32 @@ namespace GBRead
             {ErrorMessage.Build_NumberOverflow,             "The number on this line is too long."},
             {ErrorMessage.Build_UnknownArgument,            "Unable to evaluate the expression due to an unknown variable."},
             {ErrorMessage.Build_UnknownLabel,               "The label \"{0}\" could not be found in this scope."},
-            {ErrorMessage.Disassembly_EndInvalid,           "Please make sure that your end position is a place in the file."}, 
-            {ErrorMessage.Disassembly_StartAfterEnd,        "Please make sure that your end position is after the start position."}, 
-            {ErrorMessage.Disassembly_StartInvalid,         "Please make sure that your starting position is a place in the file."}, 
-            {ErrorMessage.Disassembly_StartOrEndInvalid,    "Please make sure to write the start and end positions properly."}, 
+            {ErrorMessage.Disassembly_EndInvalid,           "Please make sure that your end position is a place in the file."},
+            {ErrorMessage.Disassembly_StartAfterEnd,        "Please make sure that your end position is after the start position."},
+            {ErrorMessage.Disassembly_StartInvalid,         "Please make sure that your starting position is a place in the file."},
+            {ErrorMessage.Disassembly_StartOrEndInvalid,    "Please make sure to write the start and end positions properly."},
             {ErrorMessage.General_CustomError,              "{0}"},
             {ErrorMessage.General_NoError,                  "No error."},
-            {ErrorMessage.General_NoFileLoaded,             "Please load a file."}, 
+            {ErrorMessage.General_NoFileLoaded,             "Please load a file."},
             {ErrorMessage.IPS_FileSizeMismatch,             "The two files being patched have different sizes, and are incompatible with IPS."},
             {ErrorMessage.IPS_FileSizeTooLarge,             "The file being patched is too large, and is incompatible with IPS."},
             {ErrorMessage.IPS_UnknownError,                 "An unknown error occured while making the patch."},
-            {ErrorMessage.Label_InvalidLength,              "The length is invalid."}, 
-            {ErrorMessage.Label_InvalidName,                "The name is invalid."}, 
-            {ErrorMessage.Label_InvalidOffset,              "The offset is invalid."}, 
+            {ErrorMessage.Label_InvalidLength,              "The length is invalid."},
+            {ErrorMessage.Label_InvalidName,                "The name is invalid."},
+            {ErrorMessage.Label_InvalidOffset,              "The offset is invalid."},
             {ErrorMessage.Label_InvalidVariable,            "The value is invalid."},
-            {ErrorMessage.Label_LabelAlreadyDefined,        "The label {0} is already defined."}, 
-            {ErrorMessage.Label_NameAlreadyDefined,         "This name is already defined."}, 
-            {ErrorMessage.Label_VariableAlreadyDefined,     "The variable {0} is already defined."}, 
+            {ErrorMessage.Label_LabelAlreadyDefined,        "The label {0} is already defined."},
+            {ErrorMessage.Label_NameAlreadyDefined,         "This name is already defined."},
+            {ErrorMessage.Label_VariableAlreadyDefined,     "The variable {0} is already defined."},
             {ErrorMessage.Template_LessThanOne,             "The size of an argument can't be less than 1."},
             {ErrorMessage.Template_StringLenInvalid,        "The string size must be at least 1."},
         };
+
         public static void ShowErrorMessage(ErrorMessage errorOptions)
         {
             MessageBox.Show(ErrorMessages[errorOptions], "Error", MessageBoxButtons.OK);
         }
+
         public static void ShowErrorMessage(CompError c)
         {
             string errorMessage = "Line " + c.lineNumber + ", Char " + c.characterNumber + ": " + c.fullLine + Environment.NewLine;

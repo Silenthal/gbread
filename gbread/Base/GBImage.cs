@@ -1,8 +1,8 @@
-﻿namespace GBRead.Base
-{
-    using System.Collections.Generic;
-    using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 
+namespace GBRead.Base
+{
     internal class GBImage
     {
         public static List<Bitmap> renderImageTiles(BinFile dxtFile, int offset, int length, Color[] palette)

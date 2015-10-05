@@ -1,10 +1,11 @@
-﻿namespace GBRead.Forms
-{
-    using System;
-    using System.Globalization;
-    using System.Windows.Forms;
-    using GBRead.Base;
+﻿using GBRead.Base;
+using GBRead.Base.Annotation;
+using System;
+using System.Globalization;
+using System.Windows.Forms;
 
+namespace GBRead.Forms
+{
     public partial class AddDataLabelForm : Form
     {
         private DataLabel editedLabel;
@@ -51,7 +52,8 @@
                 !nameBox.Text.Equals(editedLabel.Name, StringComparison.Ordinal);
             int off = -1;
             int len = 0;
-            Symbol sym = new Symbol() {
+            Symbol sym = new Symbol()
+            {
                 Name = nameBox.Text
             };
             if (!Utility.IsWord(nameBox.Text))

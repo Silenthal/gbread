@@ -1,9 +1,9 @@
-﻿namespace GBRead.Base
-{
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Text;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Text;
 
+namespace GBRead.Base
+{
     public class Table
     {
         private Dictionary<string, string> charValTable;

@@ -86,14 +86,21 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\Annotation\DataLabel.cs" />
+    <Compile Include="Base\DataSectionType.cs" />
     <Compile Include="Base\DataTemplateLexer.cs" />
     <Compile Include="Base\DataTemplateParser.cs" />
+    <Compile Include="Base\Annotation\FunctionLabel.cs" />
+    <Compile Include="Base\GBPalette.cs" />
     <Compile Include="Base\GBXLexer.cs" />
     <Compile Include="Base\GBXParser.cs" />
+    <Compile Include="Base\Annotation\GenericLabel.cs" />
+    <Compile Include="Base\OffsetSectionType.cs" />
     <Compile Include="Base\Symbol.cs" />
     <Compile Include="Base\SymbolTable.cs" />
     <Compile Include="Base\Table.cs" />
     <Compile Include="Base\TemplateBuilder.cs" />
+    <Compile Include="Base\Annotation\VarLabel.cs" />
     <Compile Include="Patch\IPS.cs" />
     <Compile Include="TextBoxHost.xaml.cs">
       <DependentUpon>TextBoxHost.xaml</DependentUpon>
@@ -138,8 +145,7 @@
     <Compile Include="Options.cs" />
     <EmbeddedResource Include="GB.xshd" />
     <Compile Include="Base\Assembler.cs" />
-    <Compile Include="Base\Label.cs" />
-    <Compile Include="Base\LabelContainer.cs" />
+    <Compile Include="Base\Annotation\LabelContainer.cs" />
     <Compile Include="FormComponents\LineSeparator.cs">
       <SubType>UserControl</SubType>
     </Compile>

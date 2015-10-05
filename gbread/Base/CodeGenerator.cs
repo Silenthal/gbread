@@ -1,9 +1,8 @@
-﻿namespace GBRead.Base
-{
-    using System.Collections.Generic;
-    using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 
-    
+namespace GBRead.Base
+{
     /// <summary>
     /// A class to generate machine code targeting the GB/C.
     /// </summary>
@@ -429,7 +428,7 @@
             else
             {
                 EmitByte(0xEA);
-                EmitWord(arg); 
+                EmitWord(arg);
             }
         }
 

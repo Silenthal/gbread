@@ -1,8 +1,8 @@
-﻿namespace GBRead.Base
-{
-    using System;
-    using Antlr.Runtime;
+﻿using Antlr.Runtime;
+using System;
 
+namespace GBRead.Base
+{
     /// <summary>
     /// An extension of <see cref="ANTLRStringStream"/> that allows for case insensitivity.
     /// </summary>

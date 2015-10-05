@@ -1,8 +1,8 @@
-﻿namespace GBRead.Patch
-{
-    using System.Collections.Generic;
-    using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 
+namespace GBRead.Patch
+{
     public class IPS
     {
         private MemoryStream ms = new MemoryStream();
@@ -62,10 +62,9 @@
                     p.length++;
                 }
                 patches.Add(p);
-                
             }
             patches = ConstrainRecords(SplitRecords(CombineRecords(patches), modified));
-            foreach(PatchRecord p in patches)
+            foreach (PatchRecord p in patches)
             {
                 if (!WritePatchRecord(p, modified))
                 {

@@ -1,10 +1,11 @@
-﻿namespace GBRead
-{
-    using System;
-    using System.Windows.Forms;
-    using GBRead.Base;
-    using GBRead.Forms;
+﻿using GBRead.Base;
+using GBRead.Base.Annotation;
+using GBRead.Forms;
+using System;
+using System.Windows.Forms;
 
+namespace GBRead
+{
     internal static class Program
     {
         /// <summary>
@@ -28,7 +29,6 @@
             dsembler.GetOptions(opm.options);
             asmbler.GetOptions(opm.options);
 
-            
             Application.Run(mainForm);
 
             mainForm.SetOptions(opm.options);

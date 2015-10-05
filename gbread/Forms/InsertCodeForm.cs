@@ -1,10 +1,10 @@
-﻿namespace GBRead.Forms
-{
-    using System;
-    using System.Windows.Forms;
-    using GBRead.Base;
-    using ICSharpCode.AvalonEdit;
+﻿using GBRead.Base;
+using ICSharpCode.AvalonEdit;
+using System;
+using System.Windows.Forms;
 
+namespace GBRead.Forms
+{
     public partial class InsertCodeForm : Form
     {
         private BinFile baseFile;

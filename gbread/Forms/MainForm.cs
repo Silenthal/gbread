@@ -1,13 +1,14 @@
-﻿namespace GBRead.Forms
-{
-    using System;
-    using System.Drawing;
-    using System.IO;
-    using System.Windows.Forms;
-    using GBRead.Base;
-    using GBRead.Patch;
-    using ICSharpCode.AvalonEdit;
+﻿using GBRead.Base;
+using GBRead.Base.Annotation;
+using GBRead.Patch;
+using ICSharpCode.AvalonEdit;
+using System;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
+namespace GBRead.Forms
+{
     public partial class MainForm : Form
     {
         private string currentFileLoaded = "";

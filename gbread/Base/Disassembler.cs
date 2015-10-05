@@ -1,12 +1,13 @@
-﻿namespace GBRead.Base
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using LibGBasm;
+﻿using GBRead.Base.Annotation;
+using LibGBasm;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
+namespace GBRead.Base
+{
     public class Disassembler
     {
         private BinFile CoreFile;
@@ -56,7 +57,7 @@
             get;
             set;
         }
-        
+
         #endregion Options
 
         public Disassembler(BinFile cs, LabelContainer lcs)
@@ -224,6 +225,7 @@
                                 case OffsetFormat.Decimal:
                                     sb.Append(CoreFile.ReadWord(currentOffset).ToString());
                                     break;
+
                                 case OffsetFormat.Binary:
                                     sb.Append("%" + Convert.ToString(CoreFile.ReadWord(currentOffset), 2));
                                     break;
@@ -235,6 +237,7 @@
                                 case OffsetFormat.Gameboy:
                                     sb.Append("`" + Utility.NumToGameboyFormatString(CoreFile.ReadWord(currentOffset), GameboyFormatChars));
                                     break;
+
                                 default:
                                     sb.Append("$" + CoreFile.ReadWord(currentOffset).ToString(format));
                                     break;
@@ -247,6 +250,7 @@
                                 case OffsetFormat.Decimal:
                                     sb.Append(CoreFile.ReadDWord(currentOffset).ToString());
                                     break;
+
                                 case OffsetFormat.Binary:
                                     sb.Append("%" + Convert.ToString(CoreFile.ReadDWord(currentOffset), 2));
                                     break;
@@ -258,6 +262,7 @@
                                 case OffsetFormat.Gameboy:
                                     sb.Append("`" + Utility.NumToGameboyFormatString(CoreFile.ReadDWord(currentOffset), GameboyFormatChars));
                                     break;
+
                                 default:
                                     sb.Append("$" + CoreFile.ReadDWord(currentOffset).ToString(format));
                                     break;
@@ -270,15 +275,19 @@
                                 case OffsetFormat.Decimal:
                                     sb.Append(CoreFile.ReadQWord(currentOffset).ToString());
                                     break;
+
                                 case OffsetFormat.Binary:
                                     sb.Append("%" + Utility.NumToBinaryString(CoreFile.ReadQWord(currentOffset)));
                                     break;
+
                                 case OffsetFormat.Octal:
                                     sb.Append("&" + Utility.NumToHexString(CoreFile.ReadQWord(currentOffset)));
                                     break;
+
                                 case OffsetFormat.Gameboy:
                                     sb.Append("`" + Utility.NumToGameboyFormatString(CoreFile.ReadQWord(currentOffset), GameboyFormatChars));
                                     break;
+
                                 default:
                                     sb.Append("$" + CoreFile.ReadQWord(currentOffset).ToString(format));
                                     break;
@@ -368,20 +377,29 @@
                     var labelsIn = (
                         from s in lc.FuncList
                         where s.Offset == currentOffset
-                        select new {
-                            Name = s.Name, Offset = s.Offset, Comment = s.ToASMCommentString()
+                        select new
+                        {
+                            Name = s.Name,
+                            Offset = s.Offset,
+                            Comment = s.ToASMString()
                         })
                         .Concat(
                         from s in lc.DataList
                         where s.Offset == currentOffset
-                        select new {
-                            Name = s.Name, Offset = s.Offset, Comment = s.ToASMCommentString()
+                        select new
+                        {
+                            Name = s.Name,
+                            Offset = s.Offset,
+                            Comment = s.ToASMString()
                         })
                         .Concat(
                         from s in lc.Comments
                         where s.Key == currentOffset
-                        select new {
-                            Name = "_", Offset = s.Key, Comment = ";" + s.Value.Replace("\n", "\n;")
+                        select new
+                        {
+                            Name = "_",
+                            Offset = s.Key,
+                            Comment = ";" + s.Value.Replace("\n", "\n;")
                         })
                         .OrderBy(s => s.Offset)
                         .ThenBy(s => s.Name);
@@ -476,7 +494,7 @@
                              select s;
                 foreach (var label in labelsAt)
                 {
-                    output.AppendLine(label.ToASMCommentString());
+                    output.AppendLine(label.ToASMString());
                 }
                 int advanceBy = 0;
                 if (dataAt.Count() != 0)
@@ -1068,8 +1086,10 @@
             {
                 case GBArgumentType.Bit:
                     return arg.NumArg.ToString();
+
                 case GBArgumentType.Byte:
                     return NumberToASMString(arg.NumArg, NumberType.Byte);
+
                 case GBArgumentType.MemMapWord:
                     {
                         var vName = lc.GetSymbolsByValue(arg.NumArg, true);
@@ -1102,14 +1122,19 @@
 
                 case GBArgumentType.MemMapRegisterSingle:
                     return "[" + arg.RegSingleArg.ToString() + "]";
+
                 case GBArgumentType.RegisterSingle:
                     return arg.RegSingleArg.ToString();
+
                 case GBArgumentType.MemMapRegisterDouble:
                     return "[" + arg.RegDoubleArg.ToString() + "]";
+
                 case GBArgumentType.RegisterDouble:
                     return arg.RegDoubleArg.ToString();
+
                 case GBArgumentType.Conditional:
                     return arg.CondArg.ToString();
+
                 default:
                     return "";
             }
@@ -1127,6 +1152,7 @@
             {
                 case OffsetFormat.Decimal:
                     return intArg.ToString();
+
                 default:
                     if (numType == NumberType.Byte)
                         return "$" + intArg.ToString("X2");

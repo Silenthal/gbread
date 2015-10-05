@@ -1,12 +1,13 @@
-﻿namespace GBRead
-{
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Drawing;
-    using System.Drawing.Drawing2D;
-    using System.Windows.Forms;
-    using GBRead.Base;
+﻿using GBRead.Base;
+using GBRead.Base.Annotation;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Windows.Forms;
 
+namespace GBRead
+{
     public partial class ImageDisplayForm : Form
     {
         // TODO: Fix the Image Display

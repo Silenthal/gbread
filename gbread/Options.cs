@@ -1,10 +1,10 @@
-﻿namespace GBRead
-{
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using GBRead.Base;
+﻿using GBRead.Base;
+using System;
+using System.Collections.Generic;
+using System.IO;
 
+namespace GBRead
+{
     public class OptionsManager
     {
         public Options options;

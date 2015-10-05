@@ -1,9 +1,10 @@
-﻿namespace GBRead.Forms
-{
-    using System;
-    using System.Windows.Forms;
-    using GBRead.Base;
+﻿using GBRead.Base;
+using GBRead.Base.Annotation;
+using System;
+using System.Windows.Forms;
 
+namespace GBRead.Forms
+{
     public partial class OptionsForm : Form
     {
         private Disassembler disassembler;

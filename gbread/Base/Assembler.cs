@@ -1,9 +1,10 @@
-﻿namespace GBRead.Base
-{
-    using System.Collections.Generic;
-    using Antlr.Runtime;
-    using Antlr.Runtime.Tree;
+﻿using Antlr.Runtime;
+using Antlr.Runtime.Tree;
+using System.Collections.Generic;
+using GBRead.Base.Annotation;
 
+namespace GBRead.Base
+{
     public class Assembler
     {
         private Dictionary<string, long> variableDict = new Dictionary<string, long>();
@@ -13,6 +14,7 @@
         private CodeGenerator codeGen = new CodeGenerator();
         private Stack<List<long>> macroArgStack = new Stack<List<long>>();
         private CompError currentError = new CompError();
+
         public string GameboyFormatChars
         {
             get;
@@ -575,8 +577,8 @@
                         {
                             var memLoc = 0L;
                             var jumpName = eval.GetChild(0).GetChild(0).Text;
-                            jumpName = eval.GetChild(0).Text == GlobalLabelToken ? 
-                                GetGlobalScopedID(jumpName) : 
+                            jumpName = eval.GetChild(0).Text == GlobalLabelToken ?
+                                GetGlobalScopedID(jumpName) :
                                 GetLocalScopedID(jumpName);
                             if (callDict.ContainsKey(jumpName))
                             {
@@ -1165,14 +1167,19 @@
             {
                 case LiteralToken:
                     return EvaluateLiteral(eval.GetChild(0), out result);
+
                 case VarToken:
                     return EvaluateVar(eval.GetChild(0), out result);
+
                 case MacroArgToken:
                     return EvaluateMacroArg(eval.GetChild(0), out result);
+
                 case GBFormatStringToken:
                     return EvaluateGBFormat(eval.GetChild(0), out result);
+
                 case ExpressionToken:
                     return EvaluateExpression(eval.GetChild(0), out result);
+
                 default:
                     {
                         switch (eval.ChildCount)
@@ -1188,12 +1195,15 @@
                                         case "~":
                                             result = ~res1;
                                             return true;
+
                                         case "-":
                                             result = -res1;
                                             return true;
+
                                         case "!":
                                             result = (res1 == 0) ? 1 : 0;
                                             return true;
+
                                         default:
                                             {
                                                 MakeErrorMessage(eval, ErrorMessage.Build_UnknownArgument);
@@ -1213,54 +1223,71 @@
                                         case "+":
                                             result = res1 + res2;
                                             return true;
+
                                         case "-":
                                             result = res1 - res2;
                                             return true;
+
                                         case "*":
                                             result = res1 * res2;
                                             return true;
+
                                         case "/":
                                             result = res1 / res2;
                                             return true;
+
                                         case "%":
                                             result = res1 % res2;
                                             return true;
+
                                         case "<<":
                                             result = res1 << (int)res2; // Right side has to be an int.
                                             return true;
+
                                         case ">>":
                                             result = res1 >> (int)res2; // Right side has to be an int.
                                             return true;
+
                                         case "<":
                                             result = res1 < res2 ? 1 : 0;
                                             return true;
+
                                         case ">":
                                             result = res1 > res2 ? 1 : 0;
                                             return true;
+
                                         case "<=":
                                             result = res1 <= res2 ? 1 : 0;
                                             return true;
+
                                         case ">=":
                                             result = res1 >= res2 ? 1 : 0;
                                             return true;
+
                                         case "==":
                                             result = res1 == res2 ? 1 : 0;
                                             return true;
+
                                         case "&":
                                             result = res1 & res2;
                                             return true;
+
                                         case "^":
                                             result = res1 ^ res2;
                                             return true;
+
                                         case "|":
                                             result = res1 | res2;
                                             return true;
+
                                         case "&&":
                                             result = (res1 != 0) && (res2 != 0) ? 1 : 0;
                                             return true;
+
                                         case "||":
                                             result = (res1 != 0) || (res2 != 0) ? 1 : 0;
                                             return true;
+
                                         default:
                                             {
                                                 MakeErrorMessage(eval, ErrorMessage.Build_UnknownArgument);
@@ -1281,6 +1308,7 @@
                                         case "?":
                                             result = (res1 != 0) ? res2 : res3;
                                             return true;
+
                                         default:
                                             {
                                                 MakeErrorMessage(eval, ErrorMessage.Build_UnknownArgument);

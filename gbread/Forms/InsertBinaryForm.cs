@@ -1,10 +1,10 @@
-﻿namespace GBRead.Forms
-{
-    using System;
-    using System.IO;
-    using System.Windows.Forms;
-    using GBRead.Base;
+﻿using GBRead.Base;
+using System;
+using System.IO;
+using System.Windows.Forms;
 
+namespace GBRead.Forms
+{
     public partial class InsertBinaryForm : Form
     {
         public BinFile pre;

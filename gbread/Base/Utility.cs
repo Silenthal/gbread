@@ -1,8 +1,8 @@
-﻿namespace GBRead.Base
-{
-    using System;
-    using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 
+namespace GBRead.Base
+{
     public class Utility
     {
         public static bool IsWord(string check)

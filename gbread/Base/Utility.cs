@@ -3,12 +3,11 @@ using System.Text.RegularExpressions;
 
 namespace GBRead.Base
 {
-    public class Utility
+    public static class Utility
     {
-        public static bool IsWord(string check)
-        {
-            return new Regex(@"^[A-Za-z_][A-Za-z0-9_]*$").IsMatch(check);
-        }
+        private static Regex wordRegex = new Regex(@"^[A-Za-z_][A-Za-z0-9_]*$");
+
+        public static bool IsWord(string check) => wordRegex.IsMatch(check);
 
         public static int GetRealAddress(int bank, int address)
         {
@@ -67,8 +66,7 @@ namespace GBRead.Base
         public static bool StringToInt(string check, out int result)
         {
             result = 0;
-            var temp = 0L;
-            if (!StringToLong(check, out temp))
+            if (!StringToLong(check, out long temp))
             {
                 return false;
             }
@@ -87,7 +85,7 @@ namespace GBRead.Base
                 {
                     result = Convert.ToInt64(check, 16);
                 }
-                catch (Exception)
+                catch
                 {
                     return false;
                 }
@@ -99,7 +97,7 @@ namespace GBRead.Base
                 {
                     result = Convert.ToInt64(check, 2);
                 }
-                catch (Exception)
+                catch
                 {
                     return false;
                 }
@@ -111,7 +109,7 @@ namespace GBRead.Base
                 {
                     result = Convert.ToInt64(check, 8);
                 }
-                catch (Exception)
+                catch
                 {
                     return false;
                 }
@@ -122,7 +120,7 @@ namespace GBRead.Base
                 {
                     result = Convert.ToInt64(check, 16);
                 }
-                catch (Exception)
+                catch
                 {
                     return false;
                 }
@@ -134,7 +132,7 @@ namespace GBRead.Base
                 {
                     result = Convert.ToInt64(check, 2);
                 }
-                catch (Exception)
+                catch
                 {
                     return false;
                 }
@@ -146,7 +144,7 @@ namespace GBRead.Base
                 {
                     result = Convert.ToInt64(check, 8);
                 }
-                catch (Exception)
+                catch
                 {
                     return false;
                 }
@@ -157,7 +155,7 @@ namespace GBRead.Base
                 {
                     result = Convert.ToInt64(check);
                 }
-                catch (Exception)
+                catch
                 {
                     return false;
                 }

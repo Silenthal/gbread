@@ -156,12 +156,14 @@ namespace GBRead.Base
             var css = new CaseInsensitiveStringStream(input);
             var gblex = new DataTemplateLexer(css);
             var cts = new CommonTokenStream(gblex);
-            var gbparse = new DataTemplateParser(cts);
-            gbparse.TreeAdaptor = new CommonTreeAdaptor();
+            var gbparse = new DataTemplateParser(cts)
+            {
+                TreeAdaptor = new CommonTreeAdaptor()
+            };
             syntaxTree = gbparse.data_temp().Tree;
             var parseErrors = gblex.GetErrors();
             parseErrors.AddRange(gbparse.GetErrors());
-            if (parseErrors.Count != 0)
+            if (parseErrors.Count > 0)
             {
                 MakeErrorMessage(parseErrors[0]);
                 return false;
